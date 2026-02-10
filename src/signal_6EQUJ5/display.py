@@ -69,7 +69,7 @@ def dim_green(text):
 
 
 def red(text):
-    """Red — for the annotation. For the circle. For 'Wow!'"""
+    """Red — for the annotation. For the circle. For the margin."""
     return f"{BRIGHT_RED}{text}{RESET}"
 
 
@@ -137,19 +137,100 @@ def boot_sequence():
     print(CLEAR, end='')
 
     width = min(shutil.get_terminal_size().columns, 80)
-    border = "═" * width
     thin = "─" * width
 
-    # Phase 1: Classification warning
-    print(green(border))
-    slow_print(red("  ██  RESTRICTED ACCESS  ██"), char_delay=0.03)
-    slow_print(dim_green("  FASR TERMINAL v1977.815"), char_delay=0.02)
-    slow_print(dim_green("  CLASSIFICATION: LEVEL 7 — RESTRICTED"), char_delay=0.02)
-    print(green(border))
+    # ── Phase 1: Neofetch-style splash ──
+    # Icon on the left, system info on the right
+
+    # Load the icon art
+    icon_path = os.path.join(os.path.dirname(__file__), "data", "icon.txt")
+    try:
+        with open(icon_path, "r") as f:
+            icon_lines = [line.rstrip() for line in f.readlines()]
+    except FileNotFoundError:
+        icon_lines = []
+
+    # Remove trailing empty lines
+    while icon_lines and not icon_lines[-1].strip():
+        icon_lines.pop()
+
+    icon_w = 40   # fixed icon width
+    spacer = 3    # gap between icon and info
+
+    # Info lines: (label, value) or None for blank, or str for section header
+    info = [
+        None,
+        ("", "6 E Q U J 5"),
+        ("", "─" * 30),
+        ("Designation", "FASR-6EQUJ5-1977.815"),
+        ("Frequency", "1420.4056 MHz (Hydrogen Line)"),
+        ("Bandwidth", "10 kHz"),
+        ("Integration", "12 sec / sample"),
+        ("Duration", "72 seconds"),
+        ("Intensity", "6 → 14 → 26 → 30 → 19 → 5"),
+        ("Origin", "Chi Sagittarii (RA 19h25m)"),
+        None,
+        ("Organization", "FASR"),
+        ("Classification", "LEVEL 7 -- RESTRICTED"),
+        ("Terminal", "v1977.815"),
+        ("Status", "ACTIVE"),
+        None,
+        ("", "FEDERATION OF ANOMALOUS SIGNAL RESEARCH"),
+        ("", "DEEP SIGNAL RECEIVER // TERMINAL"),
+    ]
+
+    # Pad to match icon height
+    total = max(len(icon_lines), len(info))
+    while len(icon_lines) < total:
+        icon_lines.append("")
+    while len(info) < total:
+        info.append(None)
+
+    # Render each row: icon (left) + spacer + info (right)
+    for i in range(total):
+        # Left side: icon line padded to icon_w
+        left = icon_lines[i] if i < len(icon_lines) else ""
+        left_padded = left + " " * (icon_w - len(left))
+
+        # Right side: info
+        entry = info[i]
+        if entry is None:
+            right = ""
+        elif entry[0] == "":
+            # Header or separator — no label
+            right = entry[1]
+        else:
+            label, value = entry
+            right = label + ": " + value
+
+        line = "  " + left_padded + " " * spacer + right
+
+        # Colorize
+        if entry is not None and entry[0] == "" and "─" not in entry[1]:
+            # Title lines (6EQUJ5, FASR name) — bright green
+            slow_print(bright_green(line), char_delay=0.008)
+        elif entry is not None and "CLASSIFICATION" in str(entry):
+            # Classification — red label
+            label, value = entry
+            colored = "  " + green(left_padded) + " " * spacer
+            colored += red(label + ": " + value)
+            slow_print(colored, char_delay=0.012)
+        elif entry is not None and entry[0] != "":
+            # Regular info — green label, dim value
+            label, value = entry
+            colored = "  " + green(left_padded) + " " * spacer
+            colored += bright_green(label) + dim_green(": " + value)
+            slow_print(colored, char_delay=0.010)
+        else:
+            slow_print(green(line), char_delay=0.005)
+
+        if SPEED > 0:
+            time.sleep(0.04 * SPEED)
+
+    print()
     if SPEED > 0:
         time.sleep(0.6 * SPEED)
 
-    print()
     slow_print(dim_green("  NOTICE: Unauthorized access to this terminal"), char_delay=0.015)
     slow_print(dim_green("  is a violation of FASR Directive 1420-A."), char_delay=0.015)
     slow_print(dim_green("  All sessions are monitored and logged."), char_delay=0.015)
@@ -194,9 +275,6 @@ def boot_sequence():
 
     # Phase 2: System boot
     lines = [
-        ("FEDERATION OF ANOMALOUS SIGNAL RESEARCH", 0.03),
-        ("DEEP SIGNAL RECEIVER — TERMINAL INTERFACE", 0.03),
-        ("", 0),
         ("INITIALIZING RECEIVER SUBSYSTEMS...", 0.04),
         ("", 0),
         ("  [OK] Antenna array ............ ONLINE", 0.02),

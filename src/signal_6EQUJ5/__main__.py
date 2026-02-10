@@ -127,7 +127,7 @@ def handle_encode(args):
 
 def handle_signal():
     """
-    SIGNAL command — replay the original Wow! signal detection.
+    SIGNAL command — replay the original 6EQUJ5 signal detection.
 
     Animates the signal intensity rising, peaking, and falling,
     exactly as it appeared in the Big Ear printout on
@@ -197,7 +197,7 @@ def handle_listen(args):
 
     Without arguments: original frequency sweep.
     With coordinates: target a specific location.
-    Only the Wow! signal origin coordinates trigger contact.
+    Only the 6EQUJ5 signal origin coordinates trigger contact.
     """
     import time
 

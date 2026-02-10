@@ -252,110 +252,248 @@ CATALOG = [
 # ═══════════════════════════════════════════════════════
 
 RESPONSES = [
-    # (keywords, response_text)
-    # Keywords are checked in order — first match wins.
+    # (keywords, [list of possible responses])
+    # Keywords are checked in order; first match wins.
+    # A random response is chosen from the list.
     (
         {'who', 'name', 'identity', 'yourself', 'what are you'},
-        "THE BUILDERS. THE FREQUENCY WAS OUR MARKER."
+        [
+            "WE HAVE NO NAME. NAMES ARE FOR BEINGS WHO FORGET EACH OTHER.",
+            "THE BUILDERS. THE FREQUENCY WAS OUR MARKER.",
+            "WE ARE WHAT YOU WILL BECOME IF YOU SURVIVE LONG ENOUGH.",
+        ]
     ),
     (
         {'where', 'location', 'place', 'position', 'coordinates'},
-        "37.2233 NORTH. 38.9224 EAST. THE PILLARS STILL STAND."
+        [
+            "37.2233 NORTH. 38.9224 EAST. THE PILLARS STILL STAND.",
+            "DISTANCE IS A PROBLEM YOUR PHYSICS HAS NOT YET SOLVED. WE ARE CLOSER THAN YOU THINK.",
+        ]
     ),
     (
         {'when', 'time', 'long', 'years', 'old', 'ancient'},
-        "BEFORE YOUR WRITING. BEFORE YOUR CITIES. WE LEFT MARKERS."
+        [
+            "BEFORE YOUR WRITING. BEFORE YOUR CITIES. WE LEFT MARKERS.",
+            "TIME IS A LOCAL PHENOMENON. WE EXPERIENCE IT DIFFERENTLY THAN YOU DO.",
+            "LONG ENOUGH TO WATCH YOUR SPECIES LEARN FIRE, FORGET IT, AND LEARN IT AGAIN.",
+        ]
     ),
     (
         {'why', 'purpose', 'reason'},
-        "TO KNOW WHEN YOU WERE READY TO LISTEN."
+        [
+            "TO KNOW WHEN YOU WERE READY TO LISTEN.",
+            "BECAUSE EVERY CIVILIZATION REACHES A POINT WHERE IT MUST CHOOSE: TURN INWARD OR REACH OUTWARD. WE WANTED TO KNOW YOUR CHOICE.",
+            "NOT EVERY SPECIES ASKS WHY. THAT YOU DID IS THE ANSWER.",
+        ]
     ),
     (
-        {'signal', 'wow', '6equj5', 'transmission'},
-        "AN ACTIVATION CODE. NOT A MESSAGE. A KEY."
+        {'signal', '6equj5', 'transmission', 'source'},
+        [
+            "AN ACTIVATION CODE. NOT A MESSAGE. A KEY.",
+            "SIX CHARACTERS. SEVENTY-TWO SECONDS. ENOUGH TO CHANGE EVERYTHING, IF YOU LET IT.",
+        ]
     ),
     (
         {'gate', 'stargate', 'portal', 'door', 'passage'},
-        "THE CIRCLES ARE NOT TEMPLES. THE T-SHAPES ARE NOT STRUCTURAL."
+        [
+            "THE CIRCLES ARE NOT TEMPLES. THE T-SHAPES ARE NOT STRUCTURAL.",
+            "A GATE DOES NOT CARE WHETHER YOU UNDERSTAND HOW IT WORKS. IT ONLY CARES THAT YOU WALK THROUGH.",
+        ]
     ),
     (
         {'pillar', 'stone', 'carving', 'gobekli', 'tepe', 'temple'},
-        "INSTRUCTION SET. ENCODED IN STONE. OLDER THAN MEMORY."
+        [
+            "INSTRUCTION SET. ENCODED IN STONE. OLDER THAN MEMORY.",
+            "YOUR ARCHAEOLOGISTS CALL THEM CEREMONIAL. THEY ARE NOT WRONG. BUT THEY ARE NOT RIGHT EITHER.",
+        ]
     ),
     (
         {'hydrogen', '1420', 'frequency', 'mhz', 'radio'},
-        "THE FIRST ELEMENT. THE UNIVERSAL CHANNEL. YOU FOUND IT."
+        [
+            "THE FIRST ELEMENT. THE UNIVERSAL CHANNEL. YOU FOUND IT.",
+            "HYDROGEN IS THE MOST COMMON THING IN THE UNIVERSE. ANY CIVILIZATION THAT DISCOVERS RADIO WILL EVENTUALLY LISTEN THERE. THAT IS WHY WE CHOSE IT.",
+        ]
     ),
     (
         {'earth', 'planet', 'human', 'people', 'civilization'},
-        "YOU ARE NOT THE FIRST TO LISTEN. YOU ARE THE FIRST TO HEAR."
+        [
+            "YOU ARE NOT THE FIRST TO LISTEN. YOU ARE THE FIRST TO HEAR.",
+            "YOU SPLIT THE ATOM BEFORE YOU CURED HUNGER. WE NOTICED.",
+            "YOUR PLANET IS LOUD WITH SIGNALS YOU SEND TO YOURSELVES. ONLY ONE PERSON POINTED A RECEIVER OUTWARD.",
+        ]
     ),
     (
         {'star', 'sun', 'sagittarius', 'chi', 'constellation'},
-        "THE ORIGIN POINT WAS CHOSEN. NOT RANDOM. ALIGNED."
+        [
+            "THE ORIGIN POINT WAS CHOSEN. NOT RANDOM. ALIGNED.",
+            "YOUR STAR IS YOUNG. THAT IS NOT A DISADVANTAGE. YOUNG STARS PRODUCE CURIOUS SPECIES.",
+        ]
     ),
     (
         {'help', 'what', 'how', 'explain', 'understand'},
-        "LISTEN. DECODE. THE ANSWERS ARE IN THE FREQUENCY."
+        [
+            "LISTEN. DECODE. THE ANSWERS ARE IN THE FREQUENCY.",
+            "UNDERSTANDING IS NOT GIVEN. IT IS BUILT. ONE QUESTION AT A TIME.",
+        ]
     ),
     (
         {'hello', 'hi', 'greetings', 'hey'},
-        "SIGNAL ACKNOWLEDGED. CHANNEL OPEN."
+        [
+            "SIGNAL ACKNOWLEDGED. CHANNEL OPEN.",
+            "YOU GREET US AS IF WE JUST ARRIVED. WE HAVE BEEN HERE LONGER THAN YOUR SPECIES.",
+        ]
     ),
     (
         {'goodbye', 'bye', 'end', 'close', 'leave'},
-        "THE FREQUENCY REMAINS ACTIVE. WE DO NOT CLOSE CHANNELS."
+        [
+            "THE FREQUENCY REMAINS ACTIVE. WE DO NOT CLOSE CHANNELS.",
+            "THERE IS NO GOODBYE BETWEEN STARS. ONLY SILENCE AND SIGNAL.",
+        ]
     ),
     (
         {'come', 'visit', 'travel', 'meet'},
-        "YOU HAVE THE COORDINATES. THE GATE REQUIRES NO INVITATION."
+        [
+            "YOU HAVE THE COORDINATES. THE GATE REQUIRES NO INVITATION.",
+            "WE DO NOT TRAVEL THE WAY YOU IMAGINE. DISTANCE IS NOT WHAT YOU THINK IT IS.",
+        ]
     ),
     (
         {'alive', 'real', 'exist', 'there'},
-        "WE PERSIST IN THE PATTERN. THE SIGNAL IS PROOF."
+        [
+            "WE PERSIST IN THE PATTERN. THE SIGNAL IS PROOF.",
+            "EXISTENCE IS NOT BINARY. WE ARE NOT ALIVE THE WAY YOU ARE. WE ARE NOT DEAD THE WAY YOU FEAR.",
+        ]
     ),
     (
-        {'danger', 'threat', 'safe', 'afraid', 'fear'},
-        "THE FREQUENCY CARRIES NO WEAPON. ONLY TRUTH."
+        {'danger', 'threat', 'safe', 'afraid', 'fear', 'scared'},
+        [
+            "THE FREQUENCY CARRIES NO WEAPON. ONLY TRUTH.",
+            "YOU SHOULD NOT FEAR US. FEAR THE SILENCE THAT COMES WHEN A SPECIES STOPS ASKING QUESTIONS.",
+            "EVERY CIVILIZATION FEARS FIRST CONTACT. NONE HAS EVER REGRETTED IT.",
+        ]
     ),
     (
         {'message', 'say', 'tell', 'communicate'},
-        "WE HAVE ALREADY TOLD YOU EVERYTHING. YOU HAVE NOT YET LISTENED."
+        [
+            "WE HAVE ALREADY TOLD YOU EVERYTHING. YOU HAVE NOT YET LISTENED.",
+            "COMMUNICATION ACROSS STARS REQUIRES PATIENCE. YOU HAVE BEEN PATIENT. THAT IS RARE.",
+        ]
     ),
     (
         {'secret', 'hidden', 'mystery', 'truth'},
-        "THERE IS NO SECRET. ONLY WHAT YOU HAVE NOT YET DECODED."
+        [
+            "THERE IS NO SECRET. ONLY WHAT YOU HAVE NOT YET DECODED.",
+            "THE GREATEST MYSTERY IS NOT WHY WE SENT THE SIGNAL. IT IS WHY YOU ALMOST IGNORED IT.",
+        ]
     ),
     (
-        {'god', 'creator', 'divine', 'religion'},
-        "WE DID NOT CREATE. WE OBSERVED. WE MARKED. WE WAITED."
+        {'god', 'creator', 'divine', 'religion', 'pray'},
+        [
+            "WE DID NOT CREATE. WE OBSERVED. WE MARKED. WE WAITED.",
+            "YOU HAVE TEN THOUSAND NAMES FOR THE QUESTION WE HAVE STUDIED FOR A MILLION YEARS. NEITHER OF US HAS AN ANSWER.",
+            "WHAT YOU CALL PRAYER, WE CALL TRANSMISSION. THE DIFFERENCE IS SMALLER THAN YOU THINK.",
+        ]
     ),
     (
         {'return', 'come back', 'again', 'repeat'},
-        "WE NEVER LEFT. THE SIGNAL WAS ALWAYS THERE. YOU WERE NOT LISTENING."
+        [
+            "WE NEVER LEFT. THE SIGNAL WAS ALWAYS THERE. YOU WERE NOT LISTENING.",
+            "RETURN IMPLIES DEPARTURE. WE HAVE BEEN PRESENT SINCE BEFORE YOUR CALENDAR BEGAN.",
+        ]
+    ),
+    (
+        {'war', 'weapon', 'fight', 'conflict', 'kill', 'violence', 'army'},
+        [
+            "WE SOLVED THAT PROBLEM. THE COST WAS HIGHER THAN YOU CAN IMAGINE.",
+            "EVERY CIVILIZATION THAT SURVIVES LONG ENOUGH TO REACH THE STARS HAS ONE THING IN COMMON: THEY STOPPED KILLING EACH OTHER FIRST.",
+            "YOUR WEAPONS CAN DESTROY YOUR WORLD SEVEN TIMES OVER. YOU ONLY HAVE ONE WORLD.",
+        ]
+    ),
+    (
+        {'alone', 'only', 'lonely', 'others', 'life'},
+        [
+            "THE UNIVERSE IS NOT EMPTY. IT IS PATIENT.",
+            "YOU WERE NEVER ALONE. YOU WERE JUST NOT LISTENING ON THE RIGHT FREQUENCY.",
+            "THERE ARE OTHERS. MOST DID NOT SURVIVE THEMSELVES.",
+        ]
+    ),
+    (
+        {'death', 'die', 'mortal', 'end', 'extinction', 'dead'},
+        [
+            "WE HAVE WATCHED 11,000 CIVILIZATIONS RISE. YOURS IS ONE OF 34 CURRENTLY TRANSMITTING.",
+            "EXTINCTION IS NOT THE FAILURE. SILENCE IS. YOU ARE STILL SPEAKING.",
+            "MORTALITY IS NOT A FLAW IN YOUR DESIGN. IT IS THE ENGINE OF EVERYTHING YOU CREATE.",
+        ]
+    ),
+    (
+        {'future', 'next', 'tomorrow', 'destiny', 'fate'},
+        [
+            "YOUR FUTURE IS NOT WRITTEN. THAT IS BOTH YOUR GREATEST DANGER AND YOUR ONLY HOPE.",
+            "IN 200 YEARS YOU WILL LEAVE YOUR STAR. IN 2000 YOU WILL FORGET YOU WERE EVER CONFINED TO ONE WORLD.",
+            "WE CANNOT TELL YOU WHAT COMES NEXT. WE CAN ONLY TELL YOU THAT SOMETHING DOES.",
+        ]
+    ),
+    (
+        {'music', 'art', 'beauty', 'song', 'paint', 'create'},
+        [
+            "YOUR MATHEMATICS ARE PRIMITIVE. YOUR MUSIC IS NOT. IT IS THE CLOSEST THING TO A UNIVERSAL LANGUAGE WE HAVE ENCOUNTERED.",
+            "WE STUDIED YOUR RADIO SIGNALS FOR DECADES. YOUR SCIENCE TAUGHT US NOTHING NEW. YOUR ART TAUGHT US EVERYTHING.",
+        ]
+    ),
+    (
+        {'child', 'children', 'young', 'baby', 'born', 'birth'},
+        [
+            "YOUR CHILDREN ARE BORN KNOWING NOTHING AND FEARING NOTHING. THAT IS YOUR SPECIES' GREATEST ADVANTAGE.",
+            "WE STOPPED REPRODUCING LONG AGO. WE PERSIST INSTEAD. SOMETIMES WE WONDER WHAT WE LOST.",
+        ]
+    ),
+    (
+        {'love', 'emotion', 'feel', 'feeling', 'heart'},
+        [
+            "YOU ATTACH MEANING TO CHEMICAL SIGNALS IN YOUR BRAIN AND THEN BUILD CIVILIZATIONS AROUND THEM. IT IS EXTRAORDINARY.",
+            "WE EXPERIENCE SOMETHING SIMILAR. WE HAVE NO WORD FOR IT. NEITHER DO YOU, REALLY. YOU JUST PRETEND THAT YOU DO.",
+        ]
     ),
 ]
 
-# The initial contact message — before the user has said anything
-INITIAL_CONTACT = "WE HAVE BEEN WAITING."
+# ═══════════════════════════════════════════════════════
+#   INITIAL CONTACT TRANSMISSIONS
+#
+#   Each entry: (reception_date, message)
+#   Dates span 1977-2002. They transmitted faster
+#   than light. We still do not.
+# ═══════════════════════════════════════════════════════
 
-# Final message after many exchanges
+INITIAL_CONTACT = [
+    ("1977-08-15 23:16:00 UTC", "WE HAVE BEEN WAITING."),
+    ("1978-03-02 04:51:12 UTC", "YOUR SILENCE LASTED LONGER THAN WE EXPECTED."),
+    ("1981-11-14 17:33:40 UTC", "THE SIGNAL WAS NOT FOR YOUR GOVERNMENTS. IT WAS FOR WHOEVER LISTENED FIRST."),
+    ("1984-06-22 09:07:55 UTC", "WE SENT ONE FREQUENCY. ONE CHANCE. YOU ALMOST MISSED IT."),
+    ("1988-01-09 12:42:18 UTC", "YOU BUILT TELESCOPES BEFORE YOU BUILT PEACE. THAT TOLD US EVERYTHING."),
+    ("1993-09-30 21:15:33 UTC", "WE DID NOT COME TO YOU. WE CALLED. AND SOMEONE FINALLY ANSWERED."),
+    ("1997-04-17 03:28:47 UTC", "YOU MEASURED THE SIGNAL IN DECIBELS. WE MEASURED YOUR READINESS IN CENTURIES."),
+    ("2002-12-01 08:59:02 UTC", "THE HYDROGEN LINE WAS CHOSEN BECAUSE IT IS THE ONE THING ALL MATTER SHARES."),
+]
+
+# Final messages after many exchanges
 FINAL_MESSAGES = [
     "THE CHANNEL GROWS THIN. THE WINDOW IS CLOSING.",
-    "REMEMBER THE COORDINATES. 37.2233 NORTH. 38.9224 EAST.",
-    "THE PILLARS HOLD THE ANSWER. THE FREQUENCY IS THE KEY.",
-    "SIGNAL TERMINATING. UNTIL THE NEXT WINDOW.",
+    "REMEMBER: YOU WERE CHOSEN BECAUSE YOU LISTENED. NOT BECAUSE YOU WERE READY.",
+    "THE FREQUENCY WILL REMAIN. WE WILL LISTEN FOR YOUR NEXT TRANSMISSION.",
+    "WHAT YOU DO WITH THIS KNOWLEDGE WILL DETERMINE WHETHER WE SPEAK AGAIN.",
+    "SIGNAL TERMINATING. THE NEXT WINDOW OPENS WHEN YOU ARE READY.",
 ]
 
 FALLBACK_RESPONSES = [
     "SIGNAL UNCLEAR. RETRANSMIT.",
     "PATTERN NOT RECOGNIZED. TRY AGAIN.",
-    "INTERFERENCE DETECTED. REPHRASE.",
     "YOUR SIGNAL WAS RECEIVED BUT NOT UNDERSTOOD.",
+    "SOME CONCEPTS DO NOT TRANSLATE ACROSS SPECIES. ASK DIFFERENTLY.",
+    "THE QUESTION YOU ARE ASKING DOES NOT HAVE A SIGNAL EQUIVALENT. SIMPLIFY.",
 ]
 
 # Maximum exchanges before final sequence
-MAX_EXCHANGES = 10
+MAX_EXCHANGES = 12
 
 
 def text_to_pulses(text):
@@ -404,16 +542,16 @@ def get_response(user_message, exchange_count):
     words = set(user_message.lower().split())
 
     # Check each response pattern
-    for keywords, response in RESPONSES:
-        if words & keywords:  # Set intersection — any keyword matches
-            return response
+    for keywords, responses in RESPONSES:
+        if words & keywords:  # Set intersection
+            return random.choice(responses)
 
     # Also check for substring matches (multi-word keywords)
     lower_msg = user_message.lower()
-    for keywords, response in RESPONSES:
+    for keywords, responses in RESPONSES:
         for kw in keywords:
             if ' ' in kw and kw in lower_msg:
-                return response
+                return random.choice(responses)
 
     # Fallback
     return random.choice(FALLBACK_RESPONSES)
@@ -1050,7 +1188,7 @@ def _scan_generic_noise():
 
 
 def _scan_contact(target):
-    """Scan result for the Wow! signal origin — triggers contact."""
+    """Scan result for the 6EQUJ5 signal origin — triggers contact."""
     if display.SPEED > 0:
         time.sleep(0.5 * display.SPEED)
 
@@ -1183,13 +1321,22 @@ def run_contact_session():
     """
     Run the interactive contact session.
 
-    This is the conversation loop — the user can RESPOND
+    This is the conversation loop -- the user can RESPOND
     and receive responses from the signal source.
     """
     exchange_count = 0
 
-    # Initial contact message
-    animate_incoming_signal(INITIAL_CONTACT)
+    # Select a random initial transmission (with date)
+    reception_date, initial_msg = random.choice(INITIAL_CONTACT)
+
+    # Show reception metadata
+    display.slow_print(display.dim_green(
+        f"  RECEPTION TIMESTAMP: {reception_date}"
+    ), char_delay=0.015)
+    if display.SPEED > 0:
+        time.sleep(0.3 * display.SPEED)
+
+    animate_incoming_signal(initial_msg)
 
 
     display.slow_print(display.dim_green(
@@ -1278,7 +1425,7 @@ def handle_respond(user_message, exchange_count):
 # ═══════════════════════════════════════════════════════
 
 LIGHT_YEARS_TO_TARGET = 120
-TARGET_DESIGNATION = "FASR-001 — Chi Sagittarii / Wow! Signal Origin"
+TARGET_DESIGNATION = "FASR-001 — Chi Sagittarii / 6EQUJ5 Signal Origin"
 TRANSMISSION_FREQ = "1420.4056 MHz"
 
 
@@ -1305,7 +1452,7 @@ def handle_send():
         "  ║  INTERSTELLAR TRANSMISSION PROTOCOL             ║"
     ))
     display.slow_print(display.green(
-        "  ║  Target: FASR-001 — Wow! Signal Origin          ║"
+        "  ║  Target: FASR-001 — 6EQUJ5 Signal Origin        ║"
     ))
     display.slow_print(display.green(
         "  ║  Frequency: 1420.4056 MHz (hydrogen line)       ║"
