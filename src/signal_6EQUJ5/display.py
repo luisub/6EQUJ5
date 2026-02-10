@@ -456,5 +456,9 @@ def print_separator():
 
 def print_prompt():
     """Print the command prompt."""
-    sys.stdout.write(green("RECEIVER") + dim_green(" > "))
+    from . import contact
+    if contact.CONTACT_MADE:
+        sys.stdout.write(green("RECEIVER") + dim_green(" // ") + dim_green("SIGNAL ACQUIRED") + dim_green(" > "))
+    else:
+        sys.stdout.write(green("RECEIVER") + dim_green(" > "))
     sys.stdout.flush()

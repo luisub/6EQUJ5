@@ -21,6 +21,15 @@ from . import display
 from . import codec
 
 # ═══════════════════════════════════════════════════════
+#   POST-CONTACT STATE
+#
+#   Once contact is made, the terminal changes.
+#   You cannot un-hear what you have heard.
+# ═══════════════════════════════════════════════════════
+
+CONTACT_MADE = False
+
+# ═══════════════════════════════════════════════════════
 #   SIGNAL ALPHABET — pulse encoding for transmission
 #
 #   Based on universal binary principles.
@@ -276,6 +285,8 @@ RESPONSES = [
             "BEFORE YOUR WRITING. BEFORE YOUR CITIES. WE LEFT MARKERS.",
             "TIME IS A LOCAL PHENOMENON. WE EXPERIENCE IT DIFFERENTLY THAN YOU DO.",
             "LONG ENOUGH TO WATCH YOUR SPECIES LEARN FIRE, FORGET IT, AND LEARN IT AGAIN.",
+            "WE ARE ANSWERING A MESSAGE YOU HAVE NOT YET WRITTEN.",
+            "YOUR PAST AND YOUR FUTURE ARE THE SAME WORD IN OUR LANGUAGE.",
         ]
     ),
     (
@@ -284,6 +295,7 @@ RESPONSES = [
             "TO KNOW WHEN YOU WERE READY TO LISTEN.",
             "BECAUSE EVERY CIVILIZATION REACHES A POINT WHERE IT MUST CHOOSE: TURN INWARD OR REACH OUTWARD. WE WANTED TO KNOW YOUR CHOICE.",
             "NOT EVERY SPECIES ASKS WHY. THAT YOU DID IS THE ANSWER.",
+            "WE DID NOT CONTACT YOU BECAUSE YOU NEEDED US. WE CONTACTED YOU BECAUSE IN 3,000 YEARS, WE WILL NEED YOU.",
         ]
     ),
     (
@@ -431,6 +443,8 @@ RESPONSES = [
             "YOUR FUTURE IS NOT WRITTEN. THAT IS BOTH YOUR GREATEST DANGER AND YOUR ONLY HOPE.",
             "IN 200 YEARS YOU WILL LEAVE YOUR STAR. IN 2000 YOU WILL FORGET YOU WERE EVER CONFINED TO ONE WORLD.",
             "WE CANNOT TELL YOU WHAT COMES NEXT. WE CAN ONLY TELL YOU THAT SOMETHING DOES.",
+            "YOU WILL SEND A SECOND SIGNAL IN 2031. WE HAVE ALREADY RECEIVED IT.",
+            "THE QUESTION YOU WILL ASK NEXT IS THE ONE THAT MATTERS.",
         ]
     ),
     (
@@ -906,10 +920,27 @@ def handle_scan():
                 snr = random.uniform(0.1, 3.5)
                 noise_floor = random.uniform(1.2, 2.8)
 
-                # Occasional anomaly flag (rare)
-                is_anomaly = random.random() < 0.04
+                # Occasional anomaly flag (rare, more frequent post-contact)
+                anomaly_chance = 0.18 if CONTACT_MADE else 0.04
+                is_anomaly = random.random() < anomaly_chance
 
-                if is_anomaly:
+                if is_anomaly and CONTACT_MADE:
+                    snr = random.uniform(12.0, 30.0)
+                    snr_str = f"SNR: {snr:.1f}σ"
+                    post_contact_anomalies = [
+                        "██ ANOMALY ██ Pattern matches FASR-CONTACT-001",
+                        "██ ANOMALY ██ Structured pulse. Non-natural.",
+                        "██ ANOMALY ██ Signal fingerprint: PREVIOUSLY CATALOGED",
+                        "██ ANOMALY ██ Faint. Repeating. They know you are listening.",
+                        "██ ANOMALY ██ Timestamp in signal precedes observation.",
+                    ]
+                    status = random.choice(post_contact_anomalies)
+                    display.slow_print(
+                        f"    {display.red(snr_str)}  "
+                        f"{display.red(status)}",
+                        char_delay=0.005
+                    )
+                elif is_anomaly:
                     snr = random.uniform(8.0, 15.0)
                     snr_str = f"SNR: {snr:.1f}σ"
                     status = "██ ANOMALY — FLAGGED FOR REVIEW ██"
@@ -1317,6 +1348,39 @@ def _scan_noise(target):
     print()
 
 
+def _display_glyph():
+    """
+    Display a circular glyph after contact ends.
+
+    The signal leaves a mark. A logogram. Not text.
+    Something that was not there before.
+    """
+    glyph = [
+        "",
+        "              \u2591\u2591\u2591\u2592\u2592\u2593\u2593\u2592\u2592\u2591\u2591\u2591",
+        "          \u2591\u2592\u2593\u2588\u2588          \u2588\u2588\u2593\u2592\u2591",
+        "        \u2592\u2593\u2588              \u2588\u2588\u2593\u2592",
+        "      \u2592\u2588                   \u2588\u2592",
+        "     \u2593\u2588     \u2592\u2593\u2588\u2588\u2588\u2593\u2592         \u2588\u2593",
+        "    \u2593\u2588    \u2593\u2588       \u2588\u2593       \u2588\u2593",
+        "    \u2588   \u2593\u2588           \u2588\u2593      \u2588",
+        "    \u2588   \u2588      \u2593      \u2588      \u2588",
+        "    \u2588   \u2593\u2588           \u2588\u2593      \u2588",
+        "    \u2593\u2588    \u2593\u2588       \u2588\u2593       \u2588\u2593",
+        "     \u2593\u2588     \u2592\u2593\u2588\u2588\u2588\u2593\u2592         \u2588\u2593",
+        "      \u2592\u2588                   \u2588\u2592",
+        "        \u2592\u2593\u2588              \u2588\u2588\u2593\u2592",
+        "          \u2591\u2592\u2593\u2588\u2588          \u2588\u2588\u2593\u2592\u2591",
+        "              \u2591\u2591\u2591\u2592\u2592\u2593\u2593\u2592\u2592\u2591\u2591\u2591",
+        "",
+    ]
+    for line in glyph:
+        display.slow_print(display.dim_green(f"  {line}"), char_delay=0.008)
+    if display.SPEED > 0:
+        time.sleep(1.5 * display.SPEED)
+    print()
+
+
 def run_contact_session():
     """
     Run the interactive contact session.
@@ -1378,13 +1442,17 @@ def handle_respond(user_message, exchange_count):
     response = get_response(user_message, exchange_count)
 
     if response is None:
-        # Final sequence — conversation ending
+        # Final sequence -- conversation ending
         for msg in FINAL_MESSAGES:
             animate_incoming_signal(msg)
             if display.SPEED > 0:
                 time.sleep(0.5 * display.SPEED)
 
         print()
+
+        # Circular glyph -- the signal leaves a mark
+        _display_glyph()
+
         display.slow_print(display.red(
             "  ██ SIGNAL LOST ██"
         ), char_delay=0.04)
@@ -1395,6 +1463,11 @@ def handle_respond(user_message, exchange_count):
             "  Session archived: FASR-CONTACT-001"
         ), char_delay=0.02)
         print()
+
+        # The terminal is changed. You cannot un-hear.
+        global CONTACT_MADE
+        CONTACT_MADE = True
+
         return False, exchange_count
 
     # Animate the response
