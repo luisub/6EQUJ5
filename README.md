@@ -1,9 +1,9 @@
 # 6EQUJ5
 
-```ansi
-[32m6EQUJ5[0m / FEDERATION OF ANOMALOUS SIGNAL RESEARCH
-Receiver Channel: [1;32m1420.4056 MHz[0m
-Status: [1;32mLISTENING[0m
+```text
+6EQUJ5 / FEDERATION OF ANOMALOUS SIGNAL RESEARCH
+Receiver Channel: 1420.4056 MHz
+Status: LISTENING
 ```
 
 We are clever apes on a small wet rock, drifting through a lot of dark space, asking questions bigger than ourselves. Maybe there is no final answer waiting in the back of the book. Maybe the point is that curious minds keep looking anyway.
@@ -12,11 +12,11 @@ This experience simulates the work of first contact: tune to the hydrogen line, 
 
 ## Signal Record
 
-```ansi
+```text
 Date:   1977-08-15 23:16 UTC
 Window: 72 seconds
-Signal: [1;32m6EQUJ5[0m
-Origin: [32mRA 19h25m31s / Dec -27d03m[0m
+Signal: 6EQUJ5
+Origin: RA 19h25m31s / Dec -27d03m
 ```
 
 ## Quick Start
@@ -60,27 +60,27 @@ python -m signal_6EQUJ5
 
 ## Example Session
 
-```ansi
-RECEIVER> [32mCONTACT 03h50m +23d58m[0m
+```text
+RECEIVER> CONTACT 03h50m +23d58m
 
-  [1;32m██ ANOMALOUS SIGNAL DETECTED ██[0m
-  [2;32mSource: RA 03h50m / DEC +23d58m[0m
-  [2;32mPattern: NON-RANDOM. STRUCTURED.[0m
+  ██ ANOMALOUS SIGNAL DETECTED ██
+  Source: RA 03h50m / DEC +23d58m
+  Pattern: NON-RANDOM. STRUCTURED.
 
-  [32m▸ CONTACT ESTABLISHED:[0m Oumuamua Trajectory
+  ▸ CONTACT ESTABLISHED: Oumuamua Trajectory
 
-  [32m▸ INCOMING:[0m
-  [1;32m  "I am passing through. I cannot stay. But I am glad you see me."[0m
+  ▸ INCOMING:
+    "I am passing through. I cannot stay. But I am glad you see me."
 
-  [2;32m◂ TRANSMITTING:[0m "where are you going?"
+  ◂ TRANSMITTING: "where are you going?"
 
-  [32m▸ INCOMING:[0m
-  [1;32m  "Beyond your local stars. I carry the memory of a lost world."[0m
+  ▸ INCOMING:
+    "Beyond your local stars. I carry the memory of a lost world."
 
-  [2;32m◂ TRANSMITTING:[0m "what happened to your civilization?"
+  ◂ TRANSMITTING: "what happened to your civilization?"
 
-  [32m▸ INCOMING:[0m
-  [1;32m  "They are gone. I am what remains."[0m
+  ▸ INCOMING:
+    "They are gone. I am what remains."
 ```
 
 ## Design Intent
