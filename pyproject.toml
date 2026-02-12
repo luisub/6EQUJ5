@@ -22,6 +22,9 @@ classifiers = [
 [project.scripts]
 6equj5 = "signal_6EQUJ5.__main__:main"
 
+[project.optional-dependencies]
+ai = ["ollama>=0.4"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

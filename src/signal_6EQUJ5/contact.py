@@ -19,6 +19,7 @@ import random
 
 from . import display
 from . import codec
+from . import ai_engine
 
 # ═══════════════════════════════════════════════════════
 #   POST-CONTACT STATE
@@ -28,6 +29,9 @@ from . import codec
 # ═══════════════════════════════════════════════════════
 
 CONTACT_MADE = False
+
+# Conversation history for AI-powered sessions
+_conversation_history = None
 
 # ═══════════════════════════════════════════════════════
 #   SIGNAL ALPHABET — pulse encoding for transmission
@@ -63,15 +67,11 @@ SIGNAL_ALPHABET = {
 #     DEC = Declination      (-90° to +90°)
 #
 #   Format: RA <hours>h<min>m  DEC <deg>d<arcmin>m
-#   Example: LISTEN 19h25m -27d03m
+#   Example: CONTACT 19h25m -27d03m
 # ═══════════════════════════════════════════════════════
 
-# Scan result types:
-#   "contact"      → triggers the full conversation
-#   "fragment"     → garbled/cryptic partial messages
-#   "interference" → structured interference, hints at something
-#   "noise"        → background noise, nothing interesting
-#   "static"       → heavy static, blocks reception
+# All targets are now contactable civilizations.
+# Each one connects to a unique AI persona via Ollama.
 
 CATALOG = [
     {
@@ -96,7 +96,7 @@ CATALOG = [
         "constellation": "Sagittarius",
         "classification": "MONITORED",
         "description": "Galactic center. Supermassive black hole. 4M solar masses.",
-        "result": "static",
+        "result": "contact",
         "flavor": [
             "Massive broadband emission detected.",
             "Radiation consistent with accretion disk activity.",
@@ -114,7 +114,7 @@ CATALOG = [
         "constellation": "Cygnus",
         "classification": "ANOMALOUS",
         "description": "KIC 8462852. Irregular dimming. Cause: [UNDER REVIEW].",
-        "result": "interference",
+        "result": "contact",
         "flavor": [
             "Irregular flux variations detected.",
             "Pattern does not match known stellar phenomena.",
@@ -133,7 +133,7 @@ CATALOG = [
         "constellation": "Orion",
         "classification": "SURVEYED",
         "description": "M42. Active star-forming region. 1,344 ly.",
-        "result": "noise",
+        "result": "contact",
         "flavor": [
             "Broadband thermal emission from ionized gas.",
             "Multiple protostellar sources detected.",
@@ -150,7 +150,7 @@ CATALOG = [
         "constellation": "Centaurus",
         "classification": "MONITORED",
         "description": "Nearest star. 4.24 ly. Known exoplanet in habitable zone.",
-        "result": "interference",
+        "result": "contact",
         "flavor": [
             "Stellar flare activity detected. M-dwarf instability.",
             "Faint narrowband spike at 982.002 MHz...",
@@ -169,7 +169,7 @@ CATALOG = [
         "constellation": "Taurus",
         "classification": "CATALOGUED",
         "description": "PSR B0531+21. Neutron star. 33 ms rotation period.",
-        "result": "noise",
+        "result": "contact",
         "flavor": [
             "Precise 33.5 ms pulse train detected.",
             "Confirmed pulsar. Natural origin. No anomalies.",
@@ -186,7 +186,7 @@ CATALOG = [
         "constellation": "Vulpecula",
         "classification": "HISTORICAL",
         "description": "First pulsar discovered. Initially mistaken for ET signal.",
-        "result": "noise",
+        "result": "contact",
         "flavor": [
             "Stable 1.337 second pulse period.",
             "Historical note: designated 'Little Green Men' before",
@@ -203,7 +203,7 @@ CATALOG = [
         "constellation": "Aquarius",
         "classification": "PRIORITY",
         "description": "7 Earth-sized planets. 3 in habitable zone. 40.7 ly.",
-        "result": "fragment",
+        "result": "contact",
         "flavor": [
             "Multiple planetary transits detected.",
             "Faint modulation in hydrogen line band...",
@@ -222,7 +222,7 @@ CATALOG = [
         "constellation": "Taurus",
         "classification": "ANOMALOUS",
         "description": "Last known vector of interstellar object 1I/2017 U1.",
-        "result": "interference",
+        "result": "contact",
         "flavor": [
             "No visible object at these coordinates.",
             "Object has exited inner solar system.",
@@ -241,7 +241,7 @@ CATALOG = [
         "constellation": "N/A — GROUND-BASED",
         "classification": "LEVEL 7 — CLASSIFIED",
         "description": "37.22°N 38.92°E. Archaeological site. Pre-Sumerian.",
-        "result": "fragment",
+        "result": "contact",
         "flavor": [
             "WARNING: Terrestrial coordinates detected.",
             "Redirecting to ground-penetrating radar mode...",
@@ -535,7 +535,10 @@ def text_to_pulses(text):
 
 def get_response(user_message, exchange_count):
     """
-    Get a response based on keyword matching.
+    Get a response from AI engine or keyword matching.
+
+    Tries AI first. Falls back to keyword matching if
+    Ollama is unavailable.
 
     Parameters
     ----------
@@ -553,6 +556,39 @@ def get_response(user_message, exchange_count):
     if exchange_count >= MAX_EXCHANGES:
         return None
 
+    # Try AI engine first
+    global _conversation_history
+    if ai_engine.is_available() and _conversation_history is not None:
+        try:
+            response = ai_engine.get_ai_response_sync(
+                user_message, _conversation_history
+            )
+            if response and response.strip():
+                return response.strip()
+        except Exception:
+            pass  # Fall through to keyword matching
+
+    # Keyword matching fallback
+    return _get_keyword_response(user_message)
+
+
+def _get_keyword_response(user_message):
+    """
+    Get a response using keyword pattern matching.
+
+    This is the original response system, now used as
+    fallback when AI is unavailable.
+
+    Parameters
+    ----------
+    user_message : str
+        The user's plain text message.
+
+    Returns
+    -------
+    str
+        Response text.
+    """
     words = set(user_message.lower().split())
 
     # Check each response pattern
@@ -780,6 +816,205 @@ def animate_incoming_signal(text):
     print()
 
 
+def animate_incoming_signal_stream(token_generator):
+    """
+    Animate an incoming AI-streamed signal.
+
+    Phases 1-3 use placeholder data (we don't know the
+    full message yet). Phase 4-5 stream tokens as they
+    arrive from the AI model.
+    """
+    import hashlib
+
+    # ── Phase 1: Raw signal acquisition ──
+    print()
+    display.slow_print(display.dim_green(
+        "  \u25b8 INCOMING SIGNAL DETECTED"
+    ), char_delay=0.02)
+    if display.SPEED > 0:
+        time.sleep(0.2 * display.SPEED)
+
+    display.slow_print(display.dim_green(
+        "    Locking receiver..."
+    ), char_delay=0.015)
+
+    if display.SPEED > 0:
+        for block in range(4):
+            hex_stream = ' '.join(
+                f"{random.randint(0, 255):02x}" for _ in range(24)
+            )
+            addr = f"0x{block * 48:04X}"
+            line = f"    {addr}  {hex_stream}"
+            sys.stdout.write(f"\r{display.dim_green(line)}")
+            sys.stdout.flush()
+            time.sleep(0.08 * display.SPEED)
+            print()
+    else:
+        print(display.dim_green("    [raw signal data]"))
+
+    display.slow_print(display.dim_green(
+        f"    Signal entropy: {random.uniform(7.85, 7.99):.6f} bits/byte"
+    ), char_delay=0.01)
+    display.slow_print(display.green(
+        "    \u2713 Signal locked"
+    ), char_delay=0.01)
+    if display.SPEED > 0:
+        time.sleep(0.15 * display.SPEED)
+
+    # ── Phase 2: Pulse extraction (abbreviated) ──
+    display.slow_print(display.dim_green(
+        "  \u25b8 EXTRACTING PULSE PATTERN"
+    ), char_delay=0.02)
+
+    if display.SPEED > 0:
+        # Generate placeholder pulses
+        pulse_chars = '\u00b7\u2212 '
+        fake_pulses = ''.join(random.choice(pulse_chars)
+                              for _ in range(40))
+        sys.stdout.write(f"    {display.green(fake_pulses)}")
+        sys.stdout.flush()
+        time.sleep(0.2 * display.SPEED)
+        print()
+
+    display.slow_print(display.green(
+        "    \u2713 Extraction complete"
+    ), char_delay=0.01)
+    if display.SPEED > 0:
+        time.sleep(0.15 * display.SPEED)
+
+    # ── Phase 3: Decompression (abbreviated) ──
+    display.slow_print(display.dim_green(
+        "  \u25b8 DECOMPRESSING SIGNAL"
+    ), char_delay=0.02)
+
+    if display.SPEED > 0:
+        seed = str(time.time()).encode()
+        for i in range(3):
+            h = hashlib.sha256(seed + bytes([i])).hexdigest()
+            block_label = f"BLOCK {i:02d}"
+            sys.stdout.write(
+                f"\r    {display.dim_green(block_label)}  "
+                f"{display.green(h)}"
+            )
+            sys.stdout.flush()
+            time.sleep(0.15 * display.SPEED)
+            print()
+
+    display.slow_print(display.green(
+        "    \u2713 Decompression verified"
+    ), char_delay=0.01)
+    if display.SPEED > 0:
+        time.sleep(0.15 * display.SPEED)
+
+    # ── Phase 4: Translation header ──
+    display.slow_print(display.dim_green(
+        "  \u25b8 TRANSLATING: INTERGALACTIC \u2192 SIGNAL"
+    ), char_delay=0.02)
+    if display.SPEED > 0:
+        time.sleep(0.2 * display.SPEED)
+
+    # ── Phase 5: Stream decoded message ──
+    display.slow_print(display.dim_green(
+        "  \u25b8 DECODED MESSAGE:"
+    ), char_delay=0.02)
+    if display.SPEED > 0:
+        time.sleep(0.2 * display.SPEED)
+
+    # Stream tokens as they arrive from AI
+    full_response = ""
+    sys.stdout.write(display.bright_green("    \""))
+    sys.stdout.flush()
+
+    try:
+        for token in token_generator:
+            full_response += token
+            # Character-by-character within each token
+            for char in token:
+                sys.stdout.write(display.bright_green(char))
+                sys.stdout.flush()
+                if display.SPEED > 0:
+                    time.sleep(0.03 * display.SPEED)
+    except Exception:
+        pass  # Graceful handling of stream interruption
+
+    sys.stdout.write(display.bright_green('"'))
+    sys.stdout.flush()
+    print()
+
+    display.slow_print(display.green(
+        "    \u2713 Translation complete"
+    ), char_delay=0.01)
+    print()
+
+    return full_response
+
+
+def _display_incoming_light(text):
+    """
+    Lightweight incoming message display — used after
+    the connection is established. No hex streams or
+    decompression. Just the signal arriving.
+    """
+    print()
+    display.slow_print(display.dim_green(
+        "  ▸ INCOMING:"
+    ), char_delay=0.015)
+    if display.SPEED > 0:
+        time.sleep(0.15 * display.SPEED)
+    display.slow_print(
+        display.bright_green(f'    "{text}"'),
+        char_delay=0.035
+    )
+    print()
+
+
+def _display_incoming_light_stream(token_generator):
+    """
+    Lightweight streaming display — used after the
+    connection is established. Tokens arrive and render
+    directly through typewriter effect.
+    """
+    print()
+    display.slow_print(display.dim_green(
+        "  ▸ INCOMING:"
+    ), char_delay=0.015)
+    if display.SPEED > 0:
+        time.sleep(0.15 * display.SPEED)
+
+    full_response = ""
+    sys.stdout.write(display.bright_green('    "'))
+    sys.stdout.flush()
+
+    try:
+        for token in token_generator:
+            full_response += token
+            for char in token:
+                sys.stdout.write(display.bright_green(char))
+                sys.stdout.flush()
+                if display.SPEED > 0:
+                    time.sleep(0.02 * display.SPEED)
+    except Exception as e:
+        if not full_response:
+            sys.stdout.write(display.dim_green(f'[no response: {e}]'))
+            sys.stdout.flush()
+
+    sys.stdout.write(display.bright_green('"'))
+    sys.stdout.flush()
+    print()
+    print()
+
+    return full_response
+
+
+def _display_outgoing_light(text):
+    """
+    Lightweight outgoing message display.
+    """
+    print()
+    display.slow_print(display.dim_green(
+        f'  ◂ TRANSMITTING: "{text}"'
+    ), char_delay=0.015)
+
 def animate_outgoing_signal(text):
     """
     Animate an outgoing signal — user text gets encoded and transmitted.
@@ -842,17 +1077,25 @@ def animate_outgoing_signal(text):
 
 def handle_scan():
     """
-    SCAN command — continuous quadrant sweep of the hydrogen line band.
+    SCAN command — continuous quadrant sweep across frequency bands.
 
-    Simulates methodically scanning through sky quadrants until
-    the user interrupts with Ctrl+C.
+    Simulates methodically scanning through sky quadrants at varying
+    frequencies until the user interrupts with Ctrl+C.
+
+    Every 100-200 quadrant scans, a Heptapod signal is detected,
+    breaking the scan and returning the target for contact initiation.
+
+    Returns
+    -------
+    dict or None
+        Heptapod catalog entry if detected, None if scan aborted.
     """
     print()
     display.slow_print(display.green(
-        "  RECEIVER MODE: FULL SKY SURVEY"
+        "  RECEIVER MODE: MULTI-FREQUENCY SKY SURVEY"
     ), char_delay=0.02)
     display.slow_print(display.dim_green(
-        "  Frequency lock: 1420.4056 MHz (hydrogen line)"
+        "  Band sweep: 1400.000 — 1440.000 MHz"
     ), char_delay=0.015)
     display.slow_print(display.dim_green(
         "  Integration: 12 sec/sample | Bandwidth: 10 kHz"
@@ -880,17 +1123,47 @@ def handle_scan():
         ("Q-VIII","18h00m — 24h00m",  "-90°",  "0°"),
     ]
 
+    # Frequency bands to sweep (MHz) — the "water hole" region
+    frequency_bands = [
+        (1400.000, "OH radical absorption"),
+        (1410.000, "Deuterium line"),
+        (1420.405, "Hydrogen line (21 cm)"),
+        (1425.000, "Water hole upper"),
+        (1430.000, "Interstellar medium"),
+        (1435.000, "Wide survey band"),
+        (1440.000, "Extended hydrogen wing"),
+    ]
+
     sweep_count = 0
+    total_quadrant_scans = 0
+
+    # Discovery threshold: random between 100-200 quadrant scans
+    discovery_threshold = random.randint(100, 200)
 
     try:
         while True:
             sweep_count += 1
+
+            # Pick a frequency band for this sweep
+            freq_mhz, freq_label = random.choice(frequency_bands)
+            freq_actual = freq_mhz + random.uniform(-0.005, 0.005)
+
             display.slow_print(display.green(
-                f"  ═══ SWEEP {sweep_count:03d} ═══"
+                f"  ═══ SWEEP {sweep_count:03d} ═══  "
+                f"{display.dim_green(f'{freq_actual:.3f} MHz ({freq_label})')}"
             ), char_delay=0.01)
             print()
 
             for q_id, ra_range, dec_lo, dec_hi in quadrants:
+                total_quadrant_scans += 1
+
+                # ── CHECK FOR HEPTAPOD DISCOVERY ──
+                if total_quadrant_scans >= discovery_threshold:
+                    return _trigger_heptapod_discovery(
+                        sweep_count, q_id, ra_range, dec_lo, dec_hi,
+                        total_quadrant_scans
+                    )
+
                 # Quadrant header
                 sys.stdout.write(
                     f"  {display.bright_green(q_id.ljust(9))} "
@@ -904,7 +1177,6 @@ def handle_scan():
                 # Simulate scanning with hex data
                 print()
                 if display.SPEED > 0:
-                    # Rolling hex data stream for each quadrant
                     for _ in range(2):
                         hex_line = ' '.join(
                             f"{random.randint(0, 255):02x}" for _ in range(20)
@@ -920,7 +1192,6 @@ def handle_scan():
                 snr = random.uniform(0.1, 3.5)
                 noise_floor = random.uniform(1.2, 2.8)
 
-                # Occasional anomaly flag (rare, more frequent post-contact)
                 anomaly_chance = 0.18 if CONTACT_MADE else 0.04
                 is_anomaly = random.random() < anomaly_chance
 
@@ -965,7 +1236,7 @@ def handle_scan():
             print()
             display.slow_print(display.dim_green(
                 f"  Sweep {sweep_count:03d} complete. "
-                f"Cycling to next pass..."
+                f"Cycling to next frequency..."
             ), char_delay=0.008)
             print()
 
@@ -979,9 +1250,150 @@ def handle_scan():
             "  Scan aborted by operator."
         ), char_delay=0.015)
         display.slow_print(display.dim_green(
-            f"  Sweeps completed: {sweep_count - 1}"
+            f"  Sweeps completed: {sweep_count - 1}  |  "
+            f"Quadrants scanned: {total_quadrant_scans}"
         ), char_delay=0.015)
         print()
+
+    return None
+
+
+def _trigger_heptapod_discovery(sweep_count, q_id, ra_range, dec_lo, dec_hi,
+                                total_scans):
+    """
+    The moment of discovery — a Heptapod signal breaks through the noise.
+
+    Dramatic reveal sequence when the scan finds the non-linear signal.
+    Returns the Heptapod catalog entry for contact initiation.
+    """
+    # First: the anomalous quadrant reading
+    sys.stdout.write(
+        f"  {display.bright_green(q_id.ljust(9))} "
+        f"{display.dim_green(f'RA {ra_range}  DEC {dec_lo} to {dec_hi}')}"
+    )
+    sys.stdout.flush()
+    print()
+
+    if display.SPEED > 0:
+        time.sleep(0.3 * display.SPEED)
+
+    # Hex data goes wild — 0x07 pattern emerges (seven-fold)
+    if display.SPEED > 0:
+        for i in range(5):
+            if i < 3:
+                hex_line = ' '.join(
+                    f"{random.randint(0, 255):02x}" for _ in range(20)
+                )
+                sys.stdout.write(f"\r    {display.dim_green(hex_line)}")
+            else:
+                hex_line = ' '.join(
+                    f"{0x07:02x}" if random.random() < 0.4
+                    else f"{random.randint(0, 255):02x}"
+                    for _ in range(20)
+                )
+                sys.stdout.write(f"\r    {display.red(hex_line)}")
+            sys.stdout.flush()
+            time.sleep(0.25 * display.SPEED)
+        print()
+
+    # SNR spike
+    print()
+    display.slow_print(
+        f"    {display.red('SNR: 47.3σ')}  "
+        f"{display.red('██ ANOMALY ██ NON-LINEAR SIGNAL STRUCTURE DETECTED')}",
+        char_delay=0.005
+    )
+
+    if display.SPEED > 0:
+        time.sleep(0.5 * display.SPEED)
+
+    # The discovery banner
+    print()
+    display.slow_print(display.red(
+        "  ╔══════════════════════════════════════════════════╗"
+    ), char_delay=0.01)
+    display.slow_print(display.red(
+        "  ║  ██ UNKNOWN SIGNAL DETECTED ██                  ║"
+    ), char_delay=0.01)
+    display.slow_print(display.red(
+        "  ╚══════════════════════════════════════════════════╝"
+    ), char_delay=0.01)
+    print()
+
+    if display.SPEED > 0:
+        time.sleep(0.5 * display.SPEED)
+
+    # Analysis readout
+    analysis_lines = [
+        "  SIGNAL ANALYSIS:",
+        "  Modulation: SEMASIOGRAPHIC — non-phonemic encoding",
+        "  Structure: CIRCULAR — no start/end delimiter detected",
+        "  Symmetry: SEVEN-FOLD RADIAL — consistent across all frames",
+        "  Temporal coherence: NON-CAUSAL — signal contains future timestamps",
+        f"  Detected at sweep {sweep_count:03d}, quadrant scan {total_scans}",
+    ]
+    for line in analysis_lines:
+        display.slow_print(display.dim_green(line), char_delay=0.012)
+        if display.SPEED > 0:
+            time.sleep(0.15 * display.SPEED)
+
+    print()
+
+    if display.SPEED > 0:
+        time.sleep(0.3 * display.SPEED)
+
+    # The logogram rendering (ASCII circular glyph)
+    display.slow_print(display.dim_green(
+        "  ATTEMPTING VISUAL RECONSTRUCTION OF SIGNAL PATTERN..."
+    ), char_delay=0.015)
+
+    if display.SPEED > 0:
+        time.sleep(0.5 * display.SPEED)
+
+    print()
+    logogram = [
+        "             ░░░▓▓▓▓▓▓▓▓▓░░░",
+        "          ░▓▓▓░░░░░░░░░░░▓▓▓░",
+        "        ░▓▓░░░░░░░░░░░░░░░░▓▓░",
+        "       ░▓░░░░░▓▓▓▓▓▓▓░░░░░░░▓░",
+        "      ░▓░░░▓▓▓░░░░░░░▓▓▓░░░░░▓░",
+        "     ░▓░░▓▓░░░░░░░░░░░░░▓▓░░░░▓░",
+        "     ░▓░▓░░░░░░░░░░░░░░░░░▓░░░▓░",
+        "     ░▓░▓░░░░░░○░░░░░░░░░░▓░░░▓░",
+        "     ░▓░▓░░░░░░░░░░░░░░░░░▓░░░▓░",
+        "     ░▓░░▓▓░░░░░░░░░░░░░▓▓░░░░▓░",
+        "      ░▓░░░▓▓▓░░░░░░░▓▓▓░░░░░▓░",
+        "       ░▓░░░░░▓▓▓▓▓▓▓░░░░░░░▓░",
+        "        ░▓▓░░░░░░░░░░░░░░░░▓▓░",
+        "          ░▓▓▓░░░░░░░░░░░▓▓▓░",
+        "             ░░░▓▓▓▓▓▓▓▓▓░░░",
+    ]
+    for line in logogram:
+        display.slow_print(display.bright_green(f"      {line}"),
+                           char_delay=0.008)
+    print()
+
+    display.slow_print(display.dim_green(
+        "  LOGOGRAM CLASS: UNKNOWN — SEMASIOGRAPHIC, NON-LINEAR"
+    ), char_delay=0.015)
+    display.slow_print(display.dim_green(
+        "  WARNING: Signal structure implies non-causal information encoding."
+    ), char_delay=0.015)
+    display.slow_print(display.dim_green(
+        "  WARNING: Seven-fold symmetry does not match any known natural source."
+    ), char_delay=0.015)
+    print()
+
+    if display.SPEED > 0:
+        time.sleep(0.5 * display.SPEED)
+
+    display.slow_print(display.red(
+        "  ██ INITIATING CONTACT PROTOCOL ██"
+    ), char_delay=0.025)
+    print()
+
+    return ai_engine.HEPTAPOD_CATALOG_ENTRY
+
 
 
 def handle_catalog():
@@ -1014,7 +1426,7 @@ def handle_catalog():
         "  Coordinates: RA (Right Ascension) / DEC (Declination)"
     ), char_delay=0.008)
     display.slow_print(display.dim_green(
-        "  Usage: LISTEN <RA> <DEC>    Example: LISTEN 19h25m -27d03m"
+        "  Usage: CONTACT <RA> <DEC>    Example: CONTACT 19h25m -27d03m"
     ), char_delay=0.008)
     print()
     display.print_separator()
@@ -1060,17 +1472,20 @@ def handle_catalog():
                 char_delay=0.005
             )
 
-        # LISTEN command hint
-        listen_cmd = f"LISTEN {entry['ra']} {entry['dec']}"
+        # CONTACT command hint
+        if entry['ra'] == 'N/A':
+            contact_cmd = f"CONTACT {entry['id']}"
+        else:
+            contact_cmd = f"CONTACT {entry['ra']} {entry['dec']}"
         display.slow_print(
-            f"             {display.dim_green('▸ ' + listen_cmd)}",
+            f"             {display.dim_green('▸ ' + contact_cmd)}",
             char_delay=0.005
         )
         print()
 
     display.print_separator()
     display.slow_print(display.dim_green(
-        "  10 targets in catalog. Use LISTEN <RA> <DEC> to scan."
+        "  10 targets in catalog. Use CONTACT <RA> <DEC> or CONTACT <ID> to connect."
     ), char_delay=0.008)
     print()
 
@@ -1160,7 +1575,7 @@ def scan_coordinates(coords_str):
     if target is None:
         # Unknown coordinates — generic noise
         _scan_generic_noise()
-        return "nothing"
+        return "nothing", None
 
     result = target['result']
 
@@ -1173,27 +1588,26 @@ def scan_coordinates(coords_str):
 
     # Scanning animation
     display.slow_print(display.dim_green("  Scanning"), char_delay=0.02, end='')
-    scan_dots = 8 if result == "contact" else 6
     if display.SPEED > 0:
-        for _ in range(scan_dots):
+        for _ in range(8):
             sys.stdout.write(display.dim_green("."))
             sys.stdout.flush()
             time.sleep(0.3 * display.SPEED)
     print()
     print()
 
-    if result == "contact":
-        _scan_contact(target)
-    elif result == "fragment":
-        _scan_fragment(target)
-    elif result == "interference":
-        _scan_interference(target)
-    elif result == "static":
-        _scan_static(target)
-    elif result == "noise":
-        _scan_noise(target)
+    # Show flavor text first (if any)
+    for line in target.get('flavor', []):
+        display.slow_print(display.dim_green(f"  {line}"), char_delay=0.015)
+        if display.SPEED > 0:
+            time.sleep(0.2 * display.SPEED)
 
-    return result
+    # All targets now trigger contact
+    if display.SPEED > 0:
+        time.sleep(0.5 * display.SPEED)
+    _scan_contact(target)
+
+    return result, target
 
 
 def _scan_generic_noise():
@@ -1381,39 +1795,72 @@ def _display_glyph():
     print()
 
 
-def run_contact_session():
+def run_contact_session(target=None):
     """
-    Run the interactive contact session.
+    Run the interactive contact session with a specific civilization.
 
-    This is the conversation loop -- the user can RESPOND
-    and receive responses from the signal source.
+    Initializes conversation state for the civilization persona.
+    Uses AI dialogue when available and keyword fallback when offline.
+
+    Parameters
+    ----------
+    target : dict or None
+        The catalog entry for the target civilization.
+        If None, defaults to FASR-001 (original signal).
     """
-    exchange_count = 0
+    # Determine catalog ID
+    catalog_id = target['id'] if target else 'FASR-001'
 
-    # Select a random initial transmission (with date)
-    reception_date, initial_msg = random.choice(INITIAL_CONTACT)
+    # Initialize AI conversation history when available
+    global _conversation_history
+    ai_online = ai_engine.is_available()
+    if ai_online:
+        _conversation_history = ai_engine.ConversationHistory(catalog_id)
+    else:
+        _conversation_history = None
 
-    # Show reception metadata
-    display.slow_print(display.dim_green(
-        f"  RECEPTION TIMESTAMP: {reception_date}"
+    # Get the civilization-specific initial message
+    initial_msg = ai_engine.INITIAL_MESSAGES.get(
+        catalog_id, "We have been waiting."
+    )
+
+    # Show connection established
+    civ_name = target['name'] if target else 'UNKNOWN'
+    print()
+    display.slow_print(display.green(
+        f"  ▸ CONTACT ESTABLISHED: {civ_name}"
     ), char_delay=0.015)
     if display.SPEED > 0:
         time.sleep(0.3 * display.SPEED)
 
-    animate_incoming_signal(initial_msg)
+    # Display initial message (lightweight)
+    _display_incoming_light(initial_msg)
 
+    # Seed AI history with the initial transmission
+    if ai_online and _conversation_history is not None:
+        _conversation_history.add_assistant_message(initial_msg)
+        display.slow_print(display.dim_green(
+            "  Mode: AI dialogue online."
+        ), char_delay=0.015)
+    else:
+        display.slow_print(display.dim_green(
+            "  Mode: AI offline. Using fallback dialogue protocol."
+        ), char_delay=0.015)
 
     display.slow_print(display.dim_green(
-        "  Type SEND to start communication."
+        "  Type your message to communicate. Type CLOSE to end."
     ), char_delay=0.015)
     print()
 
-    return True  # Signal that contact mode is active
+    return True
 
 
 def handle_respond(user_message, exchange_count):
     """
-    Handle a RESPOND command during active contact.
+    Handle a message during active contact.
+
+    AI responses are streamed when available. If AI is offline
+    or fails mid-session, falls back to keyword responses.
 
     Parameters
     ----------
@@ -1427,424 +1874,57 @@ def handle_respond(user_message, exchange_count):
     tuple (bool, int)
         (contact_still_active, new_exchange_count)
     """
+    global _conversation_history, CONTACT_MADE
+
     if not user_message.strip():
-        display.slow_print(display.dim_green(
-            "  USAGE: SEND <your message>"
-        ), char_delay=0.01)
         return True, exchange_count
 
-    # Animate outgoing
-    animate_outgoing_signal(user_message.strip())
+    # Lightweight outgoing animation
+    _display_outgoing_light(user_message.strip())
 
     exchange_count += 1
 
-    # Get response
-    response = get_response(user_message, exchange_count)
-
-    if response is None:
-        # Final sequence -- conversation ending
-        for msg in FINAL_MESSAGES:
-            animate_incoming_signal(msg)
-            if display.SPEED > 0:
-                time.sleep(0.5 * display.SPEED)
-
-        print()
-
-        # Circular glyph -- the signal leaves a mark
-        _display_glyph()
-
-        display.slow_print(display.red(
-            "  ██ SIGNAL LOST ██"
-        ), char_delay=0.04)
-        display.slow_print(display.dim_green(
-            "  Contact window closed."
-        ), char_delay=0.02)
-        display.slow_print(display.dim_green(
-            "  Session archived: FASR-CONTACT-001"
-        ), char_delay=0.02)
-        print()
-
-        # The terminal is changed. You cannot un-hear.
-        global CONTACT_MADE
-        CONTACT_MADE = True
-
-        return False, exchange_count
-
-    # Animate the response
-    animate_incoming_signal(response)
-
-    # Warn as we approach the limit
-    remaining = MAX_EXCHANGES - exchange_count
-    if remaining == 3:
-        display.slow_print(display.dim_green(
-            "  [SIGNAL DEGRADING — INTERFERENCE INCREASING]"
-        ), char_delay=0.02)
-        print()
-    elif remaining == 1:
-        display.slow_print(display.red(
-            "  [WARNING: SIGNAL CRITICALLY WEAK]"
-        ), char_delay=0.02)
-        print()
-
-    return True, exchange_count
-
-
-# ═══════════════════════════════════════════════════════
-#   SEND — interstellar message transmission
-#
-#   Distance to Chi Sagittarii: ~120 light-years
-#   Speed of transmission: c (speed of light)
-#   Estimated delivery: ~120 years from now
-# ═══════════════════════════════════════════════════════
-
-LIGHT_YEARS_TO_TARGET = 120
-TARGET_DESIGNATION = "FASR-001 — Chi Sagittarii / 6EQUJ5 Signal Origin"
-TRANSMISSION_FREQ = "1420.4056 MHz"
-
-
-def handle_send():
-    """
-    SEND command — compose and transmit an interstellar message.
-
-    Prompts user for a short message, then simulates:
-    1. Message validation
-    2. ASCII → binary conversion
-    3. Signal compression
-    4. Pulse encoding
-    5. Power calibration
-    6. Transmission with progress bar
-    7. Delivery ETA based on light-speed travel to Chi Sagittarii
-    """
-    from datetime import datetime, timedelta
-
-    print()
-    display.slow_print(display.green(
-        "  ╔══════════════════════════════════════════════════╗"
-    ))
-    display.slow_print(display.green(
-        "  ║  INTERSTELLAR TRANSMISSION PROTOCOL             ║"
-    ))
-    display.slow_print(display.green(
-        "  ║  Target: FASR-001 — 6EQUJ5 Signal Origin        ║"
-    ))
-    display.slow_print(display.green(
-        "  ║  Frequency: 1420.4056 MHz (hydrogen line)       ║"
-    ))
-    display.slow_print(display.green(
-        "  ╚══════════════════════════════════════════════════╝"
-    ))
-    print()
-
-    display.slow_print(display.dim_green(
-        "  Bandwidth is limited. Keep your message short."
-    ), char_delay=0.015)
-    display.slow_print(display.dim_green(
-        "  Maximum: 64 characters. Every byte costs energy."
-    ), char_delay=0.015)
-    print()
-
-    # Prompt for message
-    display.slow_print(display.bright_green(
-        "  COMPOSE YOUR MESSAGE:"
-    ), char_delay=0.02)
-
-    try:
-        sys.stdout.write(display.green("  > "))
-        sys.stdout.flush()
-        message = input().strip()
-    except (EOFError, KeyboardInterrupt):
-        print()
-        display.slow_print(display.dim_green(
-            "  Transmission cancelled."
-        ), char_delay=0.02)
-        print()
-        return
-
-    if not message:
-        display.slow_print(display.dim_green(
-            "  No message provided. Transmission aborted."
-        ), char_delay=0.02)
-        print()
-        return
-
-    # Truncate if too long
-    if len(message) > 64:
-        message = message[:64]
-        display.slow_print(display.dim_green(
-            "  Message truncated to 64 characters."
-        ), char_delay=0.015)
-
-    print()
-
-    # ── Phase 1: Message validation ──
-    display.slow_print(display.dim_green(
-        "  PHASE 1: MESSAGE VALIDATION"
-    ), char_delay=0.02)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-
-    char_count = len(message)
-    word_count = len(message.split())
-    display.slow_print(display.dim_green(
-        f"  Characters: {char_count} | Words: {word_count} | "
-        f"Encoding: UTF-8"
-    ), char_delay=0.01)
-    display.slow_print(display.green(
-        "  ✓ Message validated"
-    ), char_delay=0.01)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-    print()
-
-    # ── Phase 2: ASCII → Binary ──
-    display.slow_print(display.dim_green(
-        "  PHASE 2: ASCII → BINARY CONVERSION"
-    ), char_delay=0.02)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-
-    # Show binary for first few characters
-    binary_bits = 0
-    binary_preview = ""
-    for i, ch in enumerate(message[:8]):
-        bits = format(ord(ch), '08b')
-        binary_bits += 8
-        if i < 5:
-            binary_preview += bits + " "
-
-    binary_bits = char_count * 8
-    display.slow_print(display.green(
-        f"  {binary_preview.strip()}..."
-    ), char_delay=0.008)
-    display.slow_print(display.dim_green(
-        f"  Raw payload: {binary_bits} bits ({char_count} bytes)"
-    ), char_delay=0.01)
-    display.slow_print(display.green(
-        "  ✓ Binary conversion complete"
-    ), char_delay=0.01)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-    print()
-
-    # ── Phase 3: Compression ──
-    display.slow_print(display.dim_green(
-        "  PHASE 3: SIGNAL COMPRESSION"
-    ), char_delay=0.02)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-
-    # Fake compression — show shrinking
-    compressed_bits = int(binary_bits * 0.62)  # ~38% compression
-    ratio = compressed_bits / binary_bits * 100
-
-    if display.SPEED > 0:
-        display.slow_print(display.dim_green(
-            "  Applying Lempel-Ziv-Hydrogen encoding..."
-        ), char_delay=0.015)
-        time.sleep(0.3 * display.SPEED)
-
-        # SCP-256 hash chain verification
-        import hashlib
-        seed = message.encode()
-        for i in range(3):
-            h = hashlib.sha256(seed + bytes([i])).hexdigest()
-            sys.stdout.write(
-                f"\r  {display.dim_green(f'BLOCK {i:02d}')}  "
-                f"{display.green(h)}"
+    # AI streaming response
+    ai_online = ai_engine.is_available() and _conversation_history is not None
+    if ai_online:
+        try:
+            token_gen = ai_engine.get_ai_response_stream(
+                user_message.strip(), _conversation_history
             )
-            sys.stdout.flush()
-            time.sleep(0.15 * display.SPEED)
+            response = _display_incoming_light_stream(token_gen)
+            if response and response.strip():
+                CONTACT_MADE = True
+                return True, exchange_count
+
+            display.slow_print(display.dim_green(
+                "  AI response was empty. Falling back to static protocol."
+            ), char_delay=0.01)
+        except Exception as e:
+            print()
+            display.slow_print(display.dim_green(
+                f"  AI link interrupted: {e}"
+            ), char_delay=0.01)
+            display.slow_print(display.dim_green(
+                "  Falling back to static protocol."
+            ), char_delay=0.01)
             print()
 
-        # Animated compression bar
-        bar_width = 30
-        for i in range(bar_width + 1):
-            pct = int(i / bar_width * 100)
-            filled = "█" * i + "░" * (bar_width - i)
-            sys.stdout.write(
-                f"\r  {display.green(filled)} {display.dim_green(f'{pct}%')}"
-            )
-            sys.stdout.flush()
-            time.sleep(0.03 * display.SPEED)
+        fallback = _get_keyword_response(user_message.strip())
+        _display_incoming_light(fallback)
+        CONTACT_MADE = True
+        return True, exchange_count
+
+    response = get_response(user_message.strip(), exchange_count)
+    if response is None:
         print()
-
-    display.slow_print(display.dim_green(
-        f"  Compressed: {binary_bits} → {compressed_bits} bits "
-        f"({ratio:.0f}% of original)"
-    ), char_delay=0.01)
-    display.slow_print(display.green(
-        "  ✓ Compression complete"
-    ), char_delay=0.01)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-    print()
-
-    # ── Phase 4: Pulse encoding ──
-    display.slow_print(display.dim_green(
-        "  PHASE 4: PULSE ENCODING"
-    ), char_delay=0.02)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-
-    pulses = text_to_pulses(message)
-    pulse_count = pulses.count('·') + pulses.count('−')
-
-    # Show partial pulse string
-    pulse_preview = pulses[:60]
-    if len(pulses) > 60:
-        pulse_preview += "..."
-    display.slow_print(display.green(
-        f"  {pulse_preview}"
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Total pulses: {pulse_count} | "
-        f"Frequency: {TRANSMISSION_FREQ}"
-    ), char_delay=0.01)
-    display.slow_print(display.green(
-        "  ✓ Pulse encoding complete"
-    ), char_delay=0.01)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-    print()
-
-    # ── Phase 5: Power calibration ──
-    display.slow_print(display.dim_green(
-        "  PHASE 5: TRANSMITTER POWER CALIBRATION"
-    ), char_delay=0.02)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-
-    display.slow_print(display.dim_green(
-        f"  Target distance: {LIGHT_YEARS_TO_TARGET} light-years"
-    ), char_delay=0.015)
-    display.slow_print(display.dim_green(
-        "  Required power: 2.4 GW (effective isotropic)"
-    ), char_delay=0.015)
-    display.slow_print(display.dim_green(
-        "  Antenna gain: 73 dBi (Arecibo-class aperture)"
-    ), char_delay=0.015)
-    display.slow_print(display.dim_green(
-        "  Signal-to-noise at target: ~30σ"
-    ), char_delay=0.015)
-    display.slow_print(display.green(
-        "  ✓ Power calibration locked"
-    ), char_delay=0.01)
-    if display.SPEED > 0:
-        time.sleep(0.5 * display.SPEED)
-    print()
-
-    # ── Phase 6: Transmission ──
-    display.slow_print(display.bright_green(
-        "  PHASE 6: TRANSMITTING"
-    ), char_delay=0.02)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
-
-    display.slow_print(display.dim_green(
-        f'  Payload: "{message.upper()}"'
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Target: {TARGET_DESIGNATION}"
-    ), char_delay=0.01)
-    print()
-
-    # Transmission progress bar
-    if display.SPEED > 0:
-        bar_width = 40
-        for i in range(bar_width + 1):
-            pct = int(i / bar_width * 100)
-            filled = "█" * i + "░" * (bar_width - i)
-            sys.stdout.write(
-                f"\r  {display.bright_green(filled)} "
-                f"{display.green(f'{pct}%')}"
-            )
-            sys.stdout.flush()
-
-            # Variable speed — slow start, fast middle, slow end
-            if i < 5 or i > bar_width - 5:
-                time.sleep(0.12 * display.SPEED)
-            else:
-                time.sleep(0.03 * display.SPEED)
+        display.slow_print(display.dim_green(
+            "  Contact window closed."
+        ), char_delay=0.01)
         print()
+        return False, exchange_count
 
-    print()
-    display.slow_print(display.green(
-        "  ✓ TRANSMISSION COMPLETE"
-    ), char_delay=0.02)
+    _display_incoming_light(response)
+    CONTACT_MADE = True
 
-    if display.SPEED > 0:
-        time.sleep(0.5 * display.SPEED)
-    print()
-
-    # ── Delivery estimate ──
-    now = datetime.now()
-    arrival = now + timedelta(days=LIGHT_YEARS_TO_TARGET * 365.25)
-    arrival_year = now.year + LIGHT_YEARS_TO_TARGET
-
-    display.slow_print(display.green(
-        "  ╔══════════════════════════════════════════════════╗"
-    ))
-    display.slow_print(display.green(
-        "  ║  TRANSMISSION RECEIPT                            ║"
-    ))
-    display.slow_print(display.green(
-        "  ╚══════════════════════════════════════════════════╝"
-    ))
-    print()
-
-    # Generate unique transmission ID from message + timestamp
-    import hashlib
-    tx_hash = hashlib.sha256(f"{message}{now}".encode()).hexdigest()
-    tx_id = tx_hash[:16].upper()
-
-    display.slow_print(display.bright_green(
-        f"  TX-ID: {tx_id}"
-    ), char_delay=0.01)
-    print()
-
-    display.slow_print(display.dim_green(
-        f"  Sent:              {now.strftime('%Y-%m-%d %H:%M:%S UTC')}"
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Speed:             c (299,792,458 m/s)"
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Distance:          {LIGHT_YEARS_TO_TARGET} light-years "
-        f"(1.135 × 10¹⁵ km)"
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Estimated arrival: Year {arrival_year}"
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Travel time:       {LIGHT_YEARS_TO_TARGET} years, "
-        f"0 days, 0 hours"
-    ), char_delay=0.01)
-    print()
-
-    display.slow_print(display.dim_green(
-        f"  Payload size:      {compressed_bits} bits (compressed)"
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Frequency:         {TRANSMISSION_FREQ}"
-    ), char_delay=0.01)
-    display.slow_print(display.dim_green(
-        f"  Target:            RA 19h25m / DEC -27°03'"
-    ), char_delay=0.01)
-    print()
-
-    # Generate random arrival date and time within the year
-    arrival_month = random.randint(1, 12)
-    arrival_day = random.randint(1, 28)  # Safe for all months
-    arrival_hour = random.randint(0, 23)
-    arrival_minute = random.randint(0, 59)
-
-    arrival_datetime = (
-        f"{arrival_year}-{arrival_month:02d}-{arrival_day:02d} "
-        f"at {arrival_hour:02d}:{arrival_minute:02d} UTC"
-    )
-
-    display.slow_print(display.bright_green(
-        f"  Your message will arrive on {arrival_datetime}."
-    ), char_delay=0.02)
-    print()
+    return True, exchange_count
 

@@ -12,10 +12,12 @@ Usage:
 """
 
 import sys
+import time
 
 from . import display
 from . import codec
 from . import contact
+from . import ai_engine
 
 
 def handle_decode(args):
@@ -64,7 +66,6 @@ def handle_decode(args):
 
     # Easter egg: if they decoded THE signal
     if sequence == codec.THE_SIGNAL:
-        import time
         time.sleep(0.5 * display.SPEED)
         display.slow_print(
             display.red("  ╔══════════════════════════════════════╗"),
@@ -133,7 +134,6 @@ def handle_signal():
     exactly as it appeared in the Big Ear printout on
     August 15, 1977.
     """
-    import time
 
     print()
     display.slow_print(display.green("  ╔══════════════════════════════════════════════════╗"))
@@ -191,37 +191,46 @@ def handle_signal():
     print()
 
 
-def handle_listen(args):
+def _run_contact_loop(target):
     """
-    LISTEN command — scan frequencies or target specific coordinates.
+    Enter an interactive two-way communication loop with a civilization.
 
-    Without arguments: original frequency sweep.
-    With coordinates: target a specific location.
-    Only the 6EQUJ5 signal origin coordinates trigger contact.
+    The user types messages directly. Type CLOSE or EXIT to leave.
     """
-    import time
+    established = contact.run_contact_session(target)
+    if not established:
+        return
 
-    if not args:
-        # No coordinates — prompt user
-        print()
-        display.slow_print(display.dim_green(
-            "  LISTEN requires a target."
-        ), char_delay=0.01)
-        display.slow_print(display.dim_green(
-            "  Usage: LISTEN <RA> <DEC>  or  LISTEN <CATALOG-ID>"
-        ), char_delay=0.01)
-        display.slow_print(display.dim_green(
-            "  Type CATALOG to view available targets."
-        ), char_delay=0.01)
-        print()
-        return "none"
-    else:
-        # Coordinate targeting
-        result = contact.scan_coordinates(args)
-        if result == "contact":
-            # Signal found — initiate contact
-            contact.run_contact_session()
-        return result
+    exchange_count = 0
+
+    while True:
+        try:
+            sys.stdout.write(display.green("  ◂ "))
+            sys.stdout.flush()
+            raw = input().strip()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            break
+
+        if not raw:
+            continue
+
+        # Check for session-ending commands
+        cmd_upper = raw.upper()
+        if cmd_upper in ('CLOSE', 'EXIT', 'QUIT'):
+            print()
+            display.slow_print(display.dim_green(
+                "  Contact session terminated."
+            ), char_delay=0.02)
+            print()
+            break
+
+        # Send message and get response
+        still_active, exchange_count = contact.handle_respond(
+            raw, exchange_count
+        )
+        if not still_active:
+            break
 
 
 def handle_help():
@@ -230,12 +239,11 @@ def handle_help():
     """
     print()
     help_text = [
-        ("CATALOG",          "View FASR monitored targets"),
-        ("SCAN",             "Scan hydrogen line band"),
-        ("LISTEN <RA> <DEC>","Target specific coordinates"),
-        ("SEND",             "Transmit a message to the stars"),
-        ("CLEAR",            "Clear terminal"),
-        ("EXIT",             "Shut down receiver"),
+        ("CATALOG",             "View contactable civilizations"),
+        ("SCAN",                "Scan hydrogen line band"),
+        ("CONTACT <RA> <DEC>",  "Target coordinates and initiate contact"),
+        ("CLEAR",               "Clear terminal"),
+        ("EXIT",                "Shut down receiver"),
     ]
 
     display.slow_print(display.green("  AVAILABLE COMMANDS:"), char_delay=0.01)
@@ -341,18 +349,26 @@ def main():
     """
     Main entry point — boot the receiver and enter command loop.
     """
-    # Contact state
-    contact_active = False
-    exchange_count = 0
 
     try:
         display.boot_sequence()
-        display.print_telescope()
 
         display.slow_print(display.green("  RECEIVER READY"), char_delay=0.03)
         display.slow_print(display.dim_green(
             "  Frequency locked: 1420.4056 MHz"
         ), char_delay=0.01)
+
+        # AI engine status
+        status = ai_engine.get_status()
+        if status["available"]:
+            display.slow_print(display.dim_green(
+                f"  AI Engine: ONLINE ({status['model']})"
+            ), char_delay=0.01)
+        else:
+            display.slow_print(display.dim_green(
+                "  AI Engine: OFFLINE"
+            ), char_delay=0.01)
+
         display.slow_print(display.dim_green(
             "  Type HELP for available commands."
         ), char_delay=0.01)
@@ -389,50 +405,34 @@ def main():
                 handle_encode(args)
             elif command == 'SIGNAL':
                 handle_signal()
-            elif command == 'LISTEN':
-                result = handle_listen(args)
-                if result == 'contact':
-                    contact_active = True
-                    exchange_count = 0
-            elif command == 'SCAN':
-                contact.handle_scan()
-            elif command == 'CATALOG':
-                contact.handle_catalog()
-            elif command == 'SEND':
-                if contact_active and args:
-                    # In contact mode, SEND <msg> acts as respond
-                    still_active, exchange_count = contact.handle_respond(
-                        args, exchange_count
-                    )
-                    contact_active = still_active
-                else:
-                    contact.handle_send()
-            elif command == 'RESPOND':
-                # Hidden alias — still works
-                if contact_active:
-                    still_active, exchange_count = contact.handle_respond(
-                        args, exchange_count
-                    )
-                    contact_active = still_active
-                else:
-                    contact.handle_send()
-            elif command == 'CLOSE':
-                if contact_active:
-                    contact_active = False
-                    exchange_count = 0
+            elif command == 'CONTACT':
+                if not args:
                     print()
                     display.slow_print(display.dim_green(
-                        "  Contact session terminated."
-                    ), char_delay=0.02)
+                        "  CONTACT requires coordinates."
+                    ), char_delay=0.01)
                     display.slow_print(display.dim_green(
-                        "  Session archived: FASR-CONTACT-001"
-                    ), char_delay=0.02)
-                    print()
-                else:
+                        "  Usage: CONTACT <RA> <DEC>"
+                    ), char_delay=0.01)
                     display.slow_print(display.dim_green(
-                        "  No active contact session."
+                        "  Type CATALOG to view available targets."
                     ), char_delay=0.01)
                     print()
+                else:
+                    result = contact.scan_coordinates(args)
+                    if isinstance(result, tuple):
+                        result_type, target = result
+                    else:
+                        result_type, target = result, None
+
+                    if result_type == "contact" and target is not None:
+                        _run_contact_loop(target)
+            elif command == 'SCAN':
+                scan_target = contact.handle_scan()
+                if scan_target is not None:
+                    _run_contact_loop(scan_target)
+            elif command == 'CATALOG':
+                contact.handle_catalog()
             elif command == 'HELP':
                 handle_help()
             elif command == 'HISTORY':

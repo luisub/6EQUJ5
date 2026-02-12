@@ -18,7 +18,6 @@ import sys
 import time
 import os
 import shutil
-import getpass
 
 # ═══════════════════════════════════════════════════════
 #   ANSI escape codes — the language of terminals
@@ -50,7 +49,7 @@ DARK_SHADE = "▓"
 IS_TTY = hasattr(sys.stdout, 'isatty') and sys.stdout.isatty()
 
 # Speed multiplier — set to 0 to skip animations (for testing)
-SPEED = 1.0 if IS_TTY else 0.0
+SPEED = 0.2 if IS_TTY else 0.0
 
 
 def green(text):
@@ -237,41 +236,6 @@ def boot_sequence():
     print()
     if SPEED > 0:
         time.sleep(0.4 * SPEED)
-
-    # Phase 1.5: Password challenge
-    # There is no correct password. After 3 attempts, access is granted.
-    # This is intentional — it's part of the mystery.
-    denial_messages = [
-        "  ACCESS DENIED. Credential not recognized.",
-        "  ACCESS DENIED. Second failed attempt logged.",
-    ]
-
-    for attempt in range(2):
-        try:
-            password = getpass.getpass(prompt=green("  ENTER ACCESS CODE") + dim_green(": "))
-        except EOFError:
-            password = ""
-
-        if SPEED > 0:
-            time.sleep(0.3 * SPEED)
-        slow_print(red(denial_messages[attempt]), char_delay=0.02)
-        if SPEED > 0:
-            time.sleep(0.5 * SPEED)
-
-    # Third attempt — always grants access
-    try:
-        password = getpass.getpass(prompt=green("  ENTER ACCESS CODE") + dim_green(": "))
-    except EOFError:
-        password = ""
-
-    if SPEED > 0:
-        time.sleep(0.5 * SPEED)
-    print()
-    slow_print(bright_green("  ACCESS GRANTED — CLEARANCE: PROVISIONAL"), char_delay=0.025)
-    print()
-
-    if SPEED > 0:
-        time.sleep(0.5 * SPEED)
 
     # Phase 2: System boot
     lines = [

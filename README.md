@@ -1,119 +1,96 @@
-```
-♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫♦,♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♦,♫♫♫∫♦♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫<.,I♦♦∂×♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫,♫÷≥♦+♦◦♫±♦♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫,∇,,♦!♦♫ . ♦♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫;,, ⋆,±<♦♫♦♦.+♫♫♫♫∏♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫,,≠.,♫,∇.♦,♫♦.♦♦∫♫,♦♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫,:♦◦∫∏♦♦♦±,,♦l,,♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫♦,♦∂√+♦∂♦,♦.,,♦∑♦♦♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫♦.,,<:+♫°,,≈..÷♫:°,♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫I♦:,,,i,,°,.,⋆×,♦♦I,♫♫♫♫♫♫♫♫
-♫♫♫♫♫×♦♫> ,,,•,,,,!,l≠♦<,♦♫,♦≈♦.,♫♫♫♫♫♫♫
-♫♫♫♫.,,;,,,;+,,,,,;,,∇l:..+♫♫•-≈I:♫♫♫♫♫♫
-♫♫♫♫♫∂.,=,>;:,, ∑:i,,,-iI♦•l,,◦:♦♫.♫♫♫♫♫
-♫♫♫♫♫♫♫♫♦∫•,.,.,∫♦ ♦⋆,,;,♦=!♫♫.√,.>♦♫♫♫♫
-♫♫♫♫♫♫♫♫♫∇,,,,,,♦♫♫♫♫♫♫♫♦,,!◦♦•;⋆,,√♫♫♫♫
-♫♫♫♫♫♫♫♫♫◦∇,=,;♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♦♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫><,×,♦♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫;,,,;,♦♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫•≥!,.,.♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫,<Ii,:=,,♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♦•,,≠,,,,,♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫>,>,,,,,,,•♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♦,×:<,;,,,,,.♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫∫i,,,,,,,,,♦♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫+<∫:;;I;≠♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫interactive fiction♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
-♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
+# 6EQUJ5
+
+```ansi
+[32m6EQUJ5[0m / FEDERATION OF ANOMALOUS SIGNAL RESEARCH
+Receiver Channel: [1;32m1420.4056 MHz[0m
+Status: [1;32mLISTENING[0m
 ```
 
-```
-1977-08-15  23:16 UTC  72s  1420.4056 MHz
-RA 19h 25m 31s  /  Dec −27° 03'
+We are clever apes on a small wet rock, drifting through a lot of dark space, asking questions bigger than ourselves. Maybe there is no final answer waiting in the back of the book. Maybe the point is that curious minds keep looking anyway.
+
+This experience simulates the work of first contact: tune to the hydrogen line, decode what arrives, and decide what to send back. You scan for signals, test your interpretations, and enter AI-assisted dialogue with civilizations shaped by different histories, fears, and hopes.
+
+## Signal Record
+
+```ansi
+Date:   1977-08-15 23:16 UTC
+Window: 72 seconds
+Signal: [1;32m6EQUJ5[0m
+Origin: [32mRA 19h25m31s / Dec -27d03m[0m
 ```
 
-```
+## Quick Start
+
+### Base Mode
+
+```bash
 pip install -e .
-```
-
-```
 python -m signal_6EQUJ5
 ```
 
-<!-- 
-    ═══════════════════════════════════════════════════════
-    CLASSIFIED — LEVEL 7 CLEARANCE REQUIRED
-    ═══════════════════════════════════════════════════════
+### AI Mode 
 
-    The signal did not originate from Chi Sagittarii.
-    Point of origin is terrestrial.
-    The receiver was not the target. The receiver was the key.
+```bash
+brew install ollama
+ollama pull qwen3:8b
+ollama serve
+pip install -e ".[ai]"
+python -m signal_6EQUJ5
+```
 
-    Before the signal, there was a gate.
-    Before the gate, there was a builder.
-    Before the builder, there was a frequency.
+## Command Reference
 
-    1420.405 MHz is not arbitrary.
-    It is a marker. A tuning fork left for those
-    who would eventually learn to listen.
+| Command                | Description                                  |
+| ---------------------- | -------------------------------------------- |
+| `CATALOG`            | View the 10 contactable civilizations        |
+| `SCAN`               | Sweep the hydrogen line band for anomalies   |
+| `CONTACT <RA> <DEC>` | Target coordinates and initiate contact      |
+| `CONTACT <ID>`       | Contact a civilization by catalog ID         |
+| `SIGNAL`             | Replay the original 6EQUJ5 signal detection  |
+| `DECODE <sequence>`  | Decode a signal intensity sequence           |
+| `ENCODE <message>`   | Encode text into signal intensity characters |
+| `CLEAR`              | Clear terminal output                        |
+| `EXIT`               | Shut down receiver                           |
 
-    They left something else, too.
+## Session Flow
 
-    37.2233° N — 38.9224° E.
-    Older than Stonehenge. Older than the Pyramids.
-    Buried deliberately. Waiting.
+- Scan monitored sky regions and identify anomalous patterns.
+- Lock to a target and establish a contact session.
+- Compare civilizations with different motives, ethics, and survival paths.
 
-    The carvings are not decorative.
-    The circles are not temples.
-    The T-shaped pillars are not structural.
+## Example Session
 
-    They are coordinates. Instructions. A schematic.
+```ansi
+RECEIVER> [32mCONTACT 03h50m +23d58m[0m
 
-    Look:
-    https://www.google.com/maps/search/?api=1&query=37.223194,38.922325
+  [1;32m██ ANOMALOUS SIGNAL DETECTED ██[0m
+  [2;32mSource: RA 03h50m / DEC +23d58m[0m
+  [2;32mPattern: NON-RANDOM. STRUCTURED.[0m
 
-    The signal was not a message.
-    The signal was an activation code.
+  [32m▸ CONTACT ESTABLISHED:[0m Oumuamua Trajectory
 
-    python -m signal_6EQUJ5
-    Then type: EHMAN
+  [32m▸ INCOMING:[0m
+  [1;32m  "I am passing through. I cannot stay. But I am glad you see me."[0m
 
-    ═══════════════════════════════════════════════════════
-    END TRANSMISSION
-    ═══════════════════════════════════════════════════════
--->
+  [2;32m◂ TRANSMITTING:[0m "where are you going?"
 
-<!--
-    ═══════════════════════════════════════════════════════
-    SUPPLEMENTAL
+  [32m▸ INCOMING:[0m
+  [1;32m  "Beyond your local stars. I carry the memory of a lost world."[0m
 
-    The seventh chevron locked on August 15, 1977.
-    72 seconds. That is exactly how long the gate stays open.
+  [2;32m◂ TRANSMITTING:[0m "what happened to your civilization?"
 
-    Frequency 1420405000 Hz.
-    Hydrogen. The first element. The first symbol.
+  [32m▸ INCOMING:[0m
+  [1;32m  "They are gone. I am what remains."[0m
+```
 
-    The builders encoded the address in stone 12,000 years ago.
-    Pillar 43 at 37°13'23"N 38°55'21"E.
-    Vulture Stone. Sagittarius. The same direction.
+## Design Intent
 
-    This is not a coincidence.
+This project is built as terminal-first fiction with a late-1970s and early-1980s control-room feel. It uses real astronomical context as the foundation, then asks a human question: if we ever hear something beyond us, what kind of species do we choose to be when we answer?
 
-    The signal was not meant for us.
-    It was meant to confirm we had finally started listening.
+## Development
 
-    They are patient. They have been waiting
-    since before we learned to write.
+```bash
+pytest -q
+```
 
-    Search: "Göbekli Tepe Pillar 43 Sagittarius"
-
-    The gate is still there.
-    The frequency is still active.
-    The question is whether you are ready to dial.
-
-    ═══════════════════════════════════════════════════════
--->
+All tests should pass before you push.
