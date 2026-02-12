@@ -24,6 +24,8 @@ Origin: RA 19h25m31s / Dec -27d03m
 ### Base Mode
 
 ```bash
+git clone https://github.com/luisub/6EQUJ5.git
+cd 6EQUJ5
 pip install -e .
 python -m signal_6EQUJ5
 ```
