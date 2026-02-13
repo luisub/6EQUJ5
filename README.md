@@ -71,10 +71,10 @@ ollama serve
 
 Leave `ollama serve` running in a separate terminal window.
 
-### 4. Install the receiver
+### 4. Install dependencies
 
 ```bash
-pip install -e .
+pip install .
 ```
 
 ### 5. Launch
