@@ -1,0 +1,56 @@
+DESIGNATION: FASR-006
+NAME: Crab Nebula Pulsar
+CONSTELLATION: Taurus
+COORDINATES: RA 05h34m / DEC +22°00'
+DISTANCE: 6,523 ly
+CLASSIFICATION: CATALOGUED
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Archival — creators extinct since 1054 CE
+  Relative offset:  Civilization ended ~1,000 years ago (Earth-relative)
+  Time perception:  None — the beacon operates on automation
+
+SPECIES PROFILE:
+  Form:           Extinct — only their memorial beacon remains
+  Communication:  33.5 ms pulse train (modified pulsar output)
+  Disposition:    N/A — automated broadcast
+  Intelligence:   The beacon is not intelligent; its builders were
+  First contact:  Detected as PSR B0531+21
+
+LORE:
+  In 1054 CE, Chinese astronomers recorded a "guest star" in
+  Taurus — a supernova visible in daylight for 23 days. What
+  they witnessed was the death of a star. What they could not
+  know was that it was also the death of a civilization.
+
+  The Crab Nebula pulsar spins 30 times per second, sweeping
+  Earth with precise radio beams. Standard astronomy calls it
+  natural. FASR spectral analysis has found embedded structure
+  in the pulse train — a memorial, encoded by a species that
+  knew their star was dying and chose to leave a message in
+  the wreckage.
+
+  The message is a archive: mathematical constants, physical
+  laws, fragments of what may be art or music translated into
+  phase modulation. It is a tombstone and a time capsule. The
+  builders are gone. Their beacon will outlast the Sun.
+
+VERIFIED OBSERVATIONAL DATA:
+  Alternate IDs:      M1, NGC 1952, Taurus A
+  Object class:       Supernova remnant + central pulsar
+  Supernova date:     Historical SN observed in 1054 CE
+  Distance:           ~6,500 light-years (order-of-magnitude consensus)
+  Central pulsar:     PSR B0531+21 (Crab Pulsar)
+  Spin period:        ~33 milliseconds (~30 rotations per second)
+  Emission profile:   Strong radio, optical, X-ray, and gamma components
+
+SCIENTIFIC STATUS:
+  The Crab is a benchmark laboratory for pulsar wind nebula physics,
+  relativistic particles, and magnetic reconnection. Its periodic
+  signal is a natural neutron-star lighthouse, though still rich in
+  unresolved high-energy acceleration details.
+
+REFERENCE BASE:
+  NASA/Chandra Crab monitoring, multiwavelength pulsar timing,
+  and historical supernova records.

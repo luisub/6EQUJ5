@@ -1,0 +1,57 @@
+DESIGNATION: FASR-005
+NAME: Proxima Centauri
+CONSTELLATION: Centaurus
+COORDINATES: RA 14h29m / DEC -62°40'
+DISTANCE: 4.24 ly (nearest star)
+CLASSIFICATION: MONITORED
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Roughly contemporary — industrial to digital age
+  Relative offset:  Within ±500 years of Earth development
+  Time perception:  Linear, similar to human experience
+
+SPECIES PROFILE:
+  Form:           Bipedal humanoid — adapted to tidally locked world
+  Communication:  Narrowband 982.002 MHz (BLC1 candidate signal)
+  Disposition:    Diplomatic, cautious, formal
+  Intelligence:   Comparable to human — emphasis on social structure
+  First contact:  BLC1 signal candidate, 2020
+
+LORE:
+  Proxima Centauri b orbits within the habitable zone of the
+  nearest star to Earth. One hemisphere faces perpetual day
+  while the other endures eternal night. Life evolved in the
+  twilight zone — the narrow band where temperatures permit
+  liquid water and the light is forever amber.
+
+  The inhabitants are diplomats by nature. On a world where
+  one side burns and the other freezes, survival requires
+  negotiation — between light and dark, heat and cold, the
+  settlers of the day-side and the miners of the night-side.
+  Their entire civilization is built on consensus.
+
+  The BLC1 signal detected in 2020 was initially dismissed as
+  interference. FASR analysis suggests otherwise. The signal
+  carried structure: a formal greeting, a declaration of
+  peaceful intent, and a request for acknowledgment. They
+  have been waiting for a reply.
+
+VERIFIED OBSERVATIONAL DATA:
+  Alternate IDs:      Proxima Centauri, Alpha Centauri C
+  Star type:          M5.5Ve red dwarf (flare-active)
+  Distance:           ~4.2465 light-years (nearest known star)
+  Known planets:      Proxima b confirmed; additional candidates debated
+  Proxima b period:   ~11.2 days
+  Proxima b mass:     ~1.1 Earth masses (minimum mass estimate)
+  Proxima b orbit:    ~0.0485 AU from host star
+  Habitability caveat: Frequent stellar flares may stress atmospheres
+
+SCIENTIFIC STATUS:
+  Proxima b is one of the strongest nearby rocky-planet targets for
+  atmospheric characterization. The 2020 BLC1 signal candidate is now
+  generally treated as terrestrial interference, not confirmed ETI.
+
+REFERENCE BASE:
+  ESO radial-velocity results, NASA Exoplanet Archive records,
+  and SETI/Breakthrough Listen technical follow-up.

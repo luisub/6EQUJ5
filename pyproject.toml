@@ -9,6 +9,7 @@ description = "..."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.8"
+dependencies = ["ollama>=0.4"]
 authors = [
     { name = "Big Ear Radio Observatory", email = "receiver@bigear.org" },
 ]
@@ -23,10 +24,10 @@ classifiers = [
 6equj5 = "signal_6EQUJ5.__main__:main"
 
 [project.optional-dependencies]
-ai = ["ollama>=0.4"]
+ai = ["ollama>=0.4"]  # kept for backward compatibility
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-signal_6EQUJ5 = ["data/*.txt"]
+signal_6EQUJ5 = ["data/*.txt", "data/**/*.txt"]

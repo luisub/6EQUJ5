@@ -1,0 +1,61 @@
+DESIGNATION: FASR-009
+NAME: Oumuamua Trajectory
+CONSTELLATION: Taurus
+COORDINATES: RA 03h50m / DEC +23°58' (last known vector)
+DISTANCE: Variable — interstellar trajectory
+CLASSIFICATION: ANOMALOUS
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Hundreds of millions of years old
+  Relative offset:  ~300 million years ahead (estimated launch date)
+  Time perception:  Dormant — periodic awakening cycles
+
+SPECIES PROFILE:
+  Form:           Ancient probe intelligence — elongated vessel
+  Communication:  Echo-like patterns at extreme range
+  Disposition:    Observational, archival, non-interventionist
+  Intelligence:   Autonomous AI — original builders unknown
+  First contact:  1I/2017 U1 solar system transit
+
+LORE:
+  On October 19, 2017, the Pan-STARRS telescope detected the
+  first confirmed interstellar object passing through our solar
+  system. It was tumbling, elongated, and displayed unexplained
+  non-gravitational acceleration as it departed. Officially,
+  this was attributed to outgassing. The problem: no outgassing
+  was observed.
+
+  FASR deep-range monitoring detected faint echo-like patterns
+  along Oumuamua's departure vector — responses to the solar
+  radiation that hit the object during its transit. The patterns
+  carried structure: a census of the inner planets, elemental
+  composition of the solar wind, and what appears to be a
+  classification code.
+
+  Oumuamua is a probe. It was not sent by anything that still
+  exists in biological form — its builders launched it hundreds
+  of millions of years ago. It has visited thousands of star
+  systems, cataloging each one. We are an entry in a database
+  older than complex life on Earth.
+
+VERIFIED OBSERVATIONAL DATA:
+  Official ID:        1I/2017 U1 ('Oumuamua)
+  Object class:       First confirmed interstellar object in Solar System
+  Discovery date:     2017-10-19 (Pan-STARRS 1)
+  Perihelion date:    2017-09-09
+  Perihelion distance: ~0.25 AU (inside Mercury's orbit)
+  Hyperbolic excess speed: ~26 km/s (interstellar inbound/outbound frame)
+  Peak heliocentric speed: >80 km/s near perihelion
+  Morphology:         Few-hundred-meter scale body; shape still debated
+  Key anomaly:        Non-gravitational acceleration without classic comet coma
+
+SCIENTIFIC STATUS:
+  Competing explanations include outgassing by hard-to-detect volatiles,
+  radiation-pressure effects on unusual geometry, or other non-standard
+  surface/thermal physics. No consensus model explains all observations
+  without tradeoffs.
+
+REFERENCE BASE:
+  MPC/JPL trajectory solutions, Pan-STARRS discovery reports, and
+  post-2017 dynamical/physical modeling literature.

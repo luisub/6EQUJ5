@@ -1,0 +1,61 @@
+DESIGNATION: FASR-008
+NAME: TRAPPIST-1
+CONSTELLATION: Aquarius
+COORDINATES: RA 23h06m / DEC -05°02'
+DISTANCE: 40.7 ly
+CLASSIFICATION: PRIORITY
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Cooperative present — multi-world federation
+  Relative offset:  Within ±200 years of Earth (varied by planet)
+  Time perception:  Collective — synchronized across seven worlds
+
+SPECIES PROFILE:
+  Form:           Seven distinct species — one per planet
+  Communication:  Modulated hydrogen line in planetary transit windows
+  Disposition:    Cooperative, curious, democratic
+  Intelligence:   Collective — seven perspectives, one voice
+  First contact:  Faint modulation detected in hydrogen band
+
+LORE:
+  TRAPPIST-1 is an ultra-cool red dwarf with seven Earth-sized
+  planets, three of which orbit in the habitable zone. What
+  makes this system unique is not the star — it is the
+  proximity of the worlds to each other. Some are close enough
+  that inhabitants could see geological features on neighboring
+  planets with the naked eye.
+
+  Life evolved independently on all seven worlds. As each
+  species developed radio technology, they discovered they were
+  not alone — their neighbors were visible in the sky, and
+  signals traversed the system in minutes, not years. Where
+  humanity's first contact will span light-years, theirs
+  spanned light-minutes.
+
+  They formed a federation. Seven species, seven perspectives,
+  one cooperative voice. When they transmit beyond their system,
+  they speak as one. Their message to Earth: "SEVEN WORLDS.
+  ONE LISTENS." They are waiting to see if we listen back.
+
+VERIFIED OBSERVATIONAL DATA:
+  Alternate IDs:      2MASS J23062928-0502285 (host star)
+  Star class:         Ultracool M dwarf
+  Distance:           ~40 light-years (~12.4 parsecs)
+  Planet count:       Seven known Earth-sized planets (b through h)
+  Orbital architecture: Near-resonant chain with short periods
+  Habitable-zone set:  Planets e, f, and g are primary temperate candidates
+  Dynamics:           Likely strong tidal locking and tidal heating
+
+  Approximate orbital periods (days):
+    b: 1.51, c: 2.42, d: 4.05, e: 6.10,
+    f: 9.21, g: 12.35, h: 18.77
+
+SCIENTIFIC STATUS:
+  TRAPPIST-1 is a flagship comparative exoplanet system for
+  atmosphere studies and formation models. The key open problem is
+  atmospheric survival/composition under sustained stellar activity.
+
+REFERENCE BASE:
+  TRAPPIST discovery papers, NASA/JPL exoplanet summaries, and
+  JWST-era atmospheric constraints through 2026.

@@ -13,9 +13,11 @@ CLASSIFICATION: LEVEL 7 — RESTRICTED
 FASR DIRECTIVE 1420-B: CONTACT PROTOCOL
 """
 
+import os
 import sys
 import time
 import random
+import textwrap
 
 from . import display
 from . import codec
@@ -30,8 +32,26 @@ from . import ai_engine
 
 CONTACT_MADE = False
 
+# Track which civilizations have been contacted (for first-contact art)
+_contacted_civs = set()
+
 # Conversation history for AI-powered sessions
 _conversation_history = None
+
+# Map catalog IDs to civilization data folder names
+_CIV_FOLDER_MAP = {
+    "FASR-001": "fasr_001_sagittarius",
+    "FASR-002": "fasr_002_sgr_a_star",
+    "FASR-003": "fasr_003_tabbys_star",
+    "FASR-004": "fasr_004_orion",
+    "FASR-005": "fasr_005_proxima",
+    "FASR-006": "fasr_006_crab_nebula",
+    "FASR-007": "fasr_007_lgm1",
+    "FASR-008": "fasr_008_trappist1",
+    "FASR-009": "fasr_009_oumuamua",
+    "FASR-010": "fasr_010_gobekli_tepe",
+    "FASR-SCAN-H": "fasr_scan_h_heptapod",
+}
 
 # ═══════════════════════════════════════════════════════
 #   SIGNAL ALPHABET — pulse encoding for transmission
@@ -961,8 +981,19 @@ def _display_incoming_light(text):
     ), char_delay=0.015)
     if display.SPEED > 0:
         time.sleep(0.15 * display.SPEED)
+
+    # Wrap text to 60 characters
+    wrapper = textwrap.TextWrapper(width=60, initial_indent='    "', subsequent_indent='    ')
+    wrapped_lines = wrapper.wrap(text)
+    if wrapped_lines:
+        wrapped_lines[-1] += '"'
+    else:
+        wrapped_lines = ['    ""']
+    
+    final_text = "\n".join(wrapped_lines)
+
     display.slow_print(
-        display.bright_green(f'    "{text}"'),
+        display.bright_green(final_text),
         char_delay=0.035
     )
     print()
@@ -982,17 +1013,63 @@ def _display_incoming_light_stream(token_generator):
         time.sleep(0.15 * display.SPEED)
 
     full_response = ""
+    word_buffer = ""
+    current_line_len = 5  # indent '    "'
+    
     sys.stdout.write(display.bright_green('    "'))
     sys.stdout.flush()
+
+    def print_char_delay(c):
+        sys.stdout.write(display.bright_green(c))
+        sys.stdout.flush()
+        if display.SPEED > 0:
+            time.sleep(0.02 * display.SPEED)
 
     try:
         for token in token_generator:
             full_response += token
             for char in token:
-                sys.stdout.write(display.bright_green(char))
-                sys.stdout.flush()
-                if display.SPEED > 0:
-                    time.sleep(0.02 * display.SPEED)
+                if char == ' ':
+                    # Word ended, decide where to print it
+                    if current_line_len + len(word_buffer) > 60:
+                        sys.stdout.write('\n    ')
+                        current_line_len = 4
+                    
+                    for wc in word_buffer:
+                        print_char_delay(wc)
+                        current_line_len += 1
+                    
+                    # Handle the space itself
+                    if current_line_len >= 60:
+                        sys.stdout.write('\n    ')
+                        current_line_len = 4
+                    else:
+                        print_char_delay(' ')
+                        current_line_len += 1
+                        
+                    word_buffer = ""
+                elif char == '\n':
+                    # Newline encountered, flush buffer
+                    if current_line_len + len(word_buffer) > 60:
+                        sys.stdout.write('\n    ')
+                        current_line_len = 4
+                    
+                    for wc in word_buffer:
+                        print_char_delay(wc)
+                        
+                    sys.stdout.write('\n    ')
+                    current_line_len = 4
+                    word_buffer = ""
+                else:
+                    word_buffer += char
+
+        # Flush remaining buffer at end of stream
+        if word_buffer:
+            if current_line_len + len(word_buffer) > 60:
+                sys.stdout.write('\n    ')
+            for wc in word_buffer:
+                print_char_delay(wc)
+
     except Exception as e:
         if not full_response:
             sys.stdout.write(display.dim_green(f'[no response: {e}]'))
@@ -1795,6 +1872,61 @@ def _display_glyph():
     print()
 
 
+def _display_contact_art(catalog_id, civ_name):
+    """
+    Display dual-panel ASCII art for a civilization on first contact.
+
+    Loads constellation.txt and face.txt from the civilization's
+    data folder and renders them side-by-side in a framed display.
+
+    Parameters
+    ----------
+    catalog_id : str
+        The FASR catalog ID (e.g., 'FASR-001').
+    civ_name : str
+        Display name for labels.
+    """
+    folder_name = _CIV_FOLDER_MAP.get(catalog_id)
+    if not folder_name:
+        return
+
+    data_dir = os.path.join(
+        os.path.dirname(__file__), 'data', 'civilizations', folder_name
+    )
+
+    constellation_path = os.path.join(data_dir, 'constellation.txt')
+    face_path = os.path.join(data_dir, 'face.txt')
+
+    try:
+        with open(constellation_path, 'r') as f:
+            constellation_art = f.read().rstrip()
+        with open(face_path, 'r') as f:
+            face_art = f.read().rstrip()
+    except FileNotFoundError:
+        return
+
+    # Determine labels
+    entry = None
+    for e in CATALOG:
+        if e['id'] == catalog_id:
+            entry = e
+            break
+    constellation_label = entry.get('constellation', 'UNKNOWN') if entry else 'UNKNOWN'
+    species_label = civ_name
+
+    print()
+    display.slow_print(display.dim_green(
+        "  ▸ VISUAL INTERCEPT: Processing signal origin..."
+    ), char_delay=0.02)
+    if display.SPEED > 0:
+        time.sleep(0.5 * display.SPEED)
+
+    display.print_dual_panel(
+        constellation_art, face_art,
+        left_label=constellation_label, right_label=species_label
+    )
+
+
 def run_contact_session(target=None):
     """
     Run the interactive contact session with a specific civilization.
@@ -1832,6 +1964,11 @@ def run_contact_session(target=None):
     ), char_delay=0.015)
     if display.SPEED > 0:
         time.sleep(0.3 * display.SPEED)
+
+    # Display dual-panel art on FIRST contact only
+    if catalog_id not in _contacted_civs:
+        _contacted_civs.add(catalog_id)
+        _display_contact_art(catalog_id, civ_name)
 
     # Display initial message (lightweight)
     _display_incoming_light(initial_msg)

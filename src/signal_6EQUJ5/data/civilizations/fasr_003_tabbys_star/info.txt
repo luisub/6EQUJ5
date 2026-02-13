@@ -1,0 +1,56 @@
+DESIGNATION: FASR-003
+NAME: Tabby's Star
+CONSTELLATION: Cygnus
+COORDINATES: RA 20h06m / DEC +44°27'
+DISTANCE: 1,470 ly
+CLASSIFICATION: ANOMALOUS
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Engineering-deep future — post-Kardashev II
+  Relative offset:  Estimated 50,000–100,000 years ahead
+  Time perception:  Network-synchronized across megastructure
+
+SPECIES PROFILE:
+  Form:           Collective intelligence — networked crystalline nodes
+  Communication:  Modulated stellar dimming patterns
+  Disposition:    Industrious, methodical, disinterested in primitives
+  Intelligence:   Distributed across planetary-scale infrastructure
+  First contact:  Detected via irregular flux (KIC 8462852)
+
+LORE:
+  KIC 8462852 dims irregularly in ways no natural phenomenon
+  can fully explain. Dust clouds, cometary swarms, and stellar
+  variability have all been proposed and all fall short. The
+  remaining hypothesis — a partially completed Dyson-scale
+  energy collection structure — was once considered fringe.
+  FASR monitoring suggests it is the most conservative
+  explanation.
+
+  The builders are not biological. They are a networked
+  collective of crystalline processing nodes, each the size
+  of a small moon, connected by energy transfer beams. They
+  do not think as individuals — they compute as a civilization.
+  Their "communication" is a side effect of their engineering:
+  the dimming patterns carry encoded metadata about structural
+  progress, resource allocation, and network status.
+
+  They are aware of our observation. They do not care.
+
+VERIFIED OBSERVATIONAL DATA:
+  Alternate IDs:      KIC 8462852, Boyajian's Star
+  Object class:       F-type main-sequence star (Cygnus field)
+  Distance:           ~1,470 light-years (~445 pc, Gaia-era estimate)
+  Photometric trait:  Deep, irregular, aperiodic dimming events
+  Extreme dips:       Up to roughly 20 percent in some campaigns
+  Notable behavior:   Chromatic dimming consistent with dust models
+
+SCIENTIFIC STATUS:
+  Current mainstream interpretation favors variable obscuration by
+  circumstellar/intervening dust rather than a rigid megastructure.
+  The object remains valuable as a benchmark for unusual stellar
+  light curves and bias-resistant anomaly analysis.
+
+REFERENCE BASE:
+  Kepler/K2 photometry, Las Cumbres follow-up campaigns, and
+  exoplanet-catalog cross-checks through 2026.

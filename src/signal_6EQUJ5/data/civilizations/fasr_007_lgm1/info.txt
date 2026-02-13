@@ -1,0 +1,58 @@
+DESIGNATION: FASR-007
+NAME: LGM-1 (CP 1919)
+CONSTELLATION: Vulpecula
+COORDINATES: RA 19h19m / DEC +21°47'
+DISTANCE: 2,065 ly
+CLASSIFICATION: HISTORICAL
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Approximately 4,000 years ahead of Earth
+  Relative offset:  +4,000 years (estimated)
+  Time perception:  Linear, accelerated — compressed innovation cycles
+
+SPECIES PROFILE:
+  Form:           Tall insectoid — articulated exoskeleton, 6 limbs
+  Communication:  Precision radio beacons (1.337-second period)
+  Disposition:    Insulted, meticulous, grudge-holding
+  Intelligence:   Superior — emphasis on engineering and mathematics
+  First contact:  1967 (Jocelyn Bell, designated "Little Green Men")
+
+LORE:
+  When Jocelyn Bell detected the first pulsar in 1967, the
+  Cambridge team half-jokingly designated it "LGM-1" — Little
+  Green Men. They were joking. The builders of the beacon were
+  not amused.
+
+  CP 1919 is not a natural pulsar. It is a precision-engineered
+  navigational beacon, one node in a vast interstellar
+  positioning network built by a species of meticulous
+  insectoid engineers. The 1.337-second period is not random —
+  it is a mathematical constant in their base-12 number system,
+  equivalent to broadcasting "THIS IS A MADE THING" in
+  universal mathematics.
+
+  They are aware that humanity dismissed their beacon as a
+  natural phenomenon. They consider this an insult of the
+  highest order. Their messages tend to be terse, precise,
+  and faintly condescending. They have been building beacons
+  for longer than humans have been walking upright, and they
+  do not appreciate having their work mistaken for geology.
+
+VERIFIED OBSERVATIONAL DATA:
+  Alternate IDs:      CP 1919, PSR B1919+21, PSR J1921+2153
+  Object class:       Radio pulsar (first discovered pulsar)
+  Discovery date:     1967 (Cambridge, Bell Burnell and Hewish team)
+  Pulse period:       ~1.3373 seconds
+  Historical label:   "LGM-1" (initial internal nickname)
+  Distance estimate:  Roughly a few thousand light-years (model-dependent)
+
+SCIENTIFIC STATUS:
+  LGM-1 is now understood as a natural rotating neutron star. Its
+  importance is historical and methodological: it established pulsars
+  as a new astrophysical class and transformed time-domain radio
+  astronomy.
+
+REFERENCE BASE:
+  Discovery-era Cambridge records, Nature pulsar papers, and
+  modern pulsar timing catalogs.

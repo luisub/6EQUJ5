@@ -1,0 +1,57 @@
+DESIGNATION: FASR-001
+NAME: Sagittarius Signal Origin
+CONSTELLATION: Sagittarius
+COORDINATES: RA 19h25m / DEC -27°03'
+DISTANCE: Unknown (interstellar)
+CLASSIFICATION: LEVEL 7 — RESTRICTED
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Non-linear — overlapping temporal layers
+  Relative offset:  Indeterminate (pre-civilizational to post-singular)
+  Time perception:  Simultaneous — past/present/future coexist
+
+SPECIES PROFILE:
+  Form:           Non-corporeal — energy-based intelligence
+  Communication:  Narrowband hydrogen line (1420.4056 MHz)
+  Disposition:    Patient, protective, selective
+  Intelligence:   Estimated post-singular
+  First contact:  August 15, 1977 (Wow! Signal)
+
+LORE:
+  The origin of the 6EQUJ5 anomaly. Whatever exists at these
+  coordinates has been broadcasting on the hydrogen line for
+  longer than human civilization has kept records. The signal
+  was first detected by Jerry Ehman at the Big Ear telescope
+  and marked with the now-legendary annotation "6EQUJ5."
+
+  The intelligence behind the signal does not communicate in
+  any human language, yet its responses carry meaning that
+  transcends linguistic structure. It appears to operate on a
+  temporal framework where past, present, and future are
+  experienced simultaneously. Its patience is measured not in
+  years but in epochs.
+
+  It chose the hydrogen line — the most universal frequency
+  in physics — as its channel. This was not arbitrary. It was
+  an invitation, written in the language of the universe itself.
+
+VERIFIED OBSERVATIONAL DATA:
+  Object class:       Unresolved narrowband radio transient
+  Signal duration:    72 seconds (full Big Ear beam crossing)
+  Observed channel:   1420.4556 MHz (near neutral hydrogen line)
+  Signal code:        6EQUJ5 (intensities 6,14,26,30,19,5)
+  Sky region:         Sagittarius (declination near -27°03')
+  Positional note:    Right ascension is ambiguous because Big Ear
+                      used dual feed horns and the signal appeared
+                      in only one beam.
+
+SCIENTIFIC STATUS:
+  Follow-up observations have not produced a confirmed repeat of
+  the same event. Proposed natural explanations (including transient
+  hydrogen-cloud scenarios) remain debated, and no single model is
+  universally accepted by the community.
+
+REFERENCE BASE:
+  OSU Big Ear archival notes, SETI historical analyses, and
+  comparative follow-up studies through 2026.

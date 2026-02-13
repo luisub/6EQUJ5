@@ -1,98 +1,149 @@
 # 6EQUJ5
 
+![6EQUJ5 — Deep Signal Receiver Terminal](docs/6equj5.png)
+
 ```text
-6EQUJ5 / FEDERATION OF ANOMALOUS SIGNAL RESEARCH
-Receiver Channel: 1420.4056 MHz
-Status: LISTENING
+═══════════════════════════════════════════════════════════════
+  6EQUJ5  /  FEDERATION OF ANOMALOUS SIGNAL RESEARCH
+  Receiver Channel:  1420.4056 MHz  (Hydrogen Line)
+  Classification:    LEVEL 7 — RESTRICTED
+  Terminal:          v1977.815
+  Status:            LISTENING
+═══════════════════════════════════════════════════════════════
 ```
 
-We are clever apes on a small wet rock, drifting through a lot of dark space, asking questions bigger than ourselves. Maybe there is no final answer waiting in the back of the book. Maybe the point is that curious minds keep looking anyway.
+... we, descendants of apes... living on a small rock, drifting through dark space, in the vacuum, asking questions bigger than ourselves ... Maybe there is no final answer waiting in the back of the book.
 
-This experience simulates the work of first contact: tune to the hydrogen line, decode what arrives, and decide what to send back. You scan for signals, test your interpretations, and enter AI-assisted dialogue with civilizations shaped by different histories, fears, and hopes.
+On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-second narrowband signal at 1420 MHz — the hydrogen line — from the direction of Sagittarius. The signal was real. It has never been explained. Its intensity code reads **6EQUJ5**.
+
+This terminal reconstructs the work of first contact. You scan the sky along the hydrogen line, lock onto anomalous sources, decode what arrives, and decide what to send back. Each civilization responds through AI-driven dialogue shaped by its own history, physics, and intent.
+
+---
 
 ## Signal Record
 
 ```text
-Date:   1977-08-15 23:16 UTC
-Window: 72 seconds
-Signal: 6EQUJ5
-Origin: RA 19h25m31s / Dec -27d03m
+DATE:       1977-08-15 23:16 UTC
+TELESCOPE:  Big Ear Radio Observatory, Delaware, Ohio
+WINDOW:     72 seconds (full beam crossing)
+CHANNEL:    1420.4556 MHz (neutral hydrogen line)
+INTENSITY:  6 → 14 → 26 → 30 → 19 → 5
+CODE:       6EQUJ5
+ORIGIN:     RA 19h25m / DEC −27°03′ (Sagittarius)
+STATUS:     UNRESOLVED
 ```
 
-## Quick Start
+---
 
-### Base Mode
+## Requirements
+
+| Dependency | Purpose |
+| -------------- | --------------------------------- |
+| **Python ≥ 3.8** | Runtime |
+| **Ollama** | Local AI inference engine |
+| **qwen3:8b** | Language model for civilization dialogue |
+
+---
+
+## Installation
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/luisub/6EQUJ5.git
 cd 6EQUJ5
-pip install -e .
-python -m signal_6EQUJ5
 ```
 
-### AI Mode 
+### 2. Install Ollama
 
 ```bash
-brew install ollama
+brew install ollama        # macOS (Homebrew)
+```
+
+> For Linux or Windows, see the [Ollama install guide](https://ollama.com/download).
+
+### 3. Pull the AI model and start the server
+
+```bash
 ollama pull qwen3:8b
 ollama serve
+```
+
+Leave `ollama serve` running in a separate terminal window.
+
+### 4. Install the receiver
+
+```bash
 pip install -e ".[ai]"
+```
+
+### 5. Launch
+
+```bash
 python -m signal_6EQUJ5
 ```
+
+Or use the shorthand entry point:
+
+```bash
+6equj5
+```
+
+---
 
 ## Command Reference
 
-| Command                | Description                                  |
-| ---------------------- | -------------------------------------------- |
-| `CATALOG`            | View the 10 contactable civilizations        |
-| `SCAN`               | Sweep the hydrogen line band for anomalies   |
-| `CONTACT <RA> <DEC>` | Target coordinates and initiate contact      |
-| `CONTACT <ID>`       | Contact a civilization by catalog ID         |
-| `SIGNAL`             | Replay the original 6EQUJ5 signal detection  |
-| `DECODE <sequence>`  | Decode a signal intensity sequence           |
-| `ENCODE <message>`   | Encode text into signal intensity characters |
-| `CLEAR`              | Clear terminal output                        |
-| `EXIT`               | Shut down receiver                           |
+| Command              | Description                                   |
+| -------------------- | --------------------------------------------- |
+| `CATALOG`            | List the cataloged contactable civilizations  |
+| `SCAN`               | Sweep sky quadrants along the hydrogen line   |
+| `CONTACT <RA> <DEC>` | Lock antenna to coordinates and initiate contact |
+| `CLEAR`              | Clear terminal                                |
+| `EXIT`               | Shut down receiver                            |
+
+---
 
 ## Session Flow
 
-- Scan monitored sky regions and identify anomalous patterns.
-- Lock to a target and establish a contact session.
-- Compare civilizations with different motives, ethics, and survival paths.
+1. **SCAN** — sweep monitored sky regions and flag anomalous patterns.
+2. **CATALOG** — review known signal sources and their classifications.
+3. **CONTACT** — lock to a target and open a dialogue session.
+4. **Dialogue** — exchange messages with the civilization's AI. Type `CLOSE` to end the session.
 
-## Example Session
+Each civilization has distinct motives, communication styles, and views on contact. Some are welcoming. Some are not.
+
+---
+
+## Contact
+
+![Contact Established — Crab Nebula Pulsar](docs/crab_nebula_pulsar.png)
 
 ```text
-RECEIVER> CONTACT 03h50m +23d58m
+RECEIVER > CONTACT 05h34m +22d00m
 
   ██ ANOMALOUS SIGNAL DETECTED ██
-  Source: RA 03h50m / DEC +23d58m
+  Source: RA 05h34m / DEC +22d00m
+  Signal strength: ~30σ above noise floor
   Pattern: NON-RANDOM. STRUCTURED.
 
-  ▸ CONTACT ESTABLISHED: Oumuamua Trajectory
+  ▸ CONTACT ESTABLISHED: Crab Nebula Pulsar
 
   ▸ INCOMING:
-    "I am passing through. I cannot stay. But I am glad you see me."
+    "Precise 33.5 ms pulse train detected. I am the beacon.
+     My builders are gone. Their laws remain."
 
-  ◂ TRANSMITTING: "where are you going?"
-
-  ▸ INCOMING:
-    "Beyond your local stars. I carry the memory of a lost world."
-
-  ◂ TRANSMITTING: "what happened to your civilization?"
+  ◂ TRANSMITTING: "who built you?"
 
   ▸ INCOMING:
-    "They are gone. I am what remains."
+    "A species that understood entropy. They could not stop it,
+     so they encoded everything they knew into my rotation.
+     I am a library disguised as a neutron star."
 ```
 
-## Design Intent
+---
 
-This project is built as terminal-first fiction with a late-1970s and early-1980s control-room feel. It uses real astronomical context as the foundation, then asks a human question: if we ever hear something beyond us, what kind of species do we choose to be when we answer?
-
-## Development
-
-```bash
-pytest -q
+```text
+NOTICE: Unauthorized access to this terminal
+is a violation of FASR Directive 1420-A.
+All sessions are monitored and logged.
 ```
-
-All tests should pass before you push.

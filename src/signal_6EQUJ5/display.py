@@ -412,6 +412,79 @@ def scan_animation(duration=3.0):
     print()
 
 
+def print_dual_panel(left_art, right_art, left_label="", right_label=""):
+    """
+    Print two ASCII art panels side-by-side in a green frame.
+
+    Used during initial contact to display constellation and species
+    art together — a visual first impression.
+
+    Parameters
+    ----------
+    left_art : str
+        ASCII art for the left panel (constellation).
+    right_art : str
+        ASCII art for the right panel (species/face).
+    left_label : str
+        Label below the left panel.
+    right_label : str
+        Label below the right panel.
+    """
+    left_lines = left_art.split('\n')
+    right_lines = right_art.split('\n')
+
+    # Determine panel width from the art (max line length)
+    left_width = max((len(line) for line in left_lines), default=45)
+    right_width = max((len(line) for line in right_lines), default=45)
+
+    # Ensure consistent width
+    left_width = max(left_width, 45)
+    right_width = max(right_width, 45)
+
+    # Pad to same height
+    max_height = max(len(left_lines), len(right_lines))
+    while len(left_lines) < max_height:
+        left_lines.append("")
+    while len(right_lines) < max_height:
+        right_lines.append("")
+
+    sep = " │ "
+    total_width = left_width + len(sep) + right_width
+
+    # Top border
+    print(dim_green("  ╔" + "═" * total_width + "╗"))
+
+    # Panels
+    for l_line, r_line in zip(left_lines, right_lines):
+        l_padded = l_line.ljust(left_width)
+        r_padded = r_line.ljust(right_width)
+        sys.stdout.write(dim_green("  ║"))
+        sys.stdout.write(green(l_padded))
+        sys.stdout.write(dim_green(sep))
+        sys.stdout.write(green(r_padded))
+        sys.stdout.write(dim_green("║"))
+        sys.stdout.write("\n")
+        sys.stdout.flush()
+        if SPEED > 0:
+            time.sleep(0.01 * SPEED)
+
+    # Labels row
+    if left_label or right_label:
+        l_label = left_label.center(left_width)
+        r_label = right_label.center(right_width)
+        print(dim_green("  ╠" + "═" * total_width + "╣"))
+        sys.stdout.write(dim_green("  ║"))
+        sys.stdout.write(bright_green(l_label))
+        sys.stdout.write(dim_green(sep))
+        sys.stdout.write(bright_green(r_label))
+        sys.stdout.write(dim_green("║"))
+        sys.stdout.write("\n")
+
+    # Bottom border
+    print(dim_green("  ╚" + "═" * total_width + "╝"))
+    print()
+
+
 def print_separator():
     """Print a thin separator line."""
     width = min(shutil.get_terminal_size().columns, 80)

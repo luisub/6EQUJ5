@@ -1,0 +1,57 @@
+DESIGNATION: FASR-002
+NAME: Sagittarius A*
+CONSTELLATION: Sagittarius
+COORDINATES: RA 17h45m / DEC -29°00'
+DISTANCE: 26,000 ly (galactic center)
+CLASSIFICATION: MONITORED
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Extreme time dilation — near event horizon
+  Relative offset:  Seconds there = millennia here
+  Time perception:  Stretched infinitely at the boundary
+
+SPECIES PROFILE:
+  Form:           Event horizon consciousness — substrate unknown
+  Communication:  Broadband emission with embedded structure
+  Disposition:    Vast, indifferent, occasionally curious
+  Intelligence:   Beyond classification
+  First contact:  Unknown — signal buried in accretion noise
+
+LORE:
+  Sagittarius A* is a 4-million solar mass black hole at the
+  center of the Milky Way. Standard astrophysics classifies
+  it as a natural phenomenon. FASR monitoring has detected
+  anomalous structure embedded within the broadband emission
+  — patterns too ordered to be accretion noise, too alien to
+  be decoded.
+
+  If consciousness can emerge from neural networks of carbon,
+  there is no physical law preventing it from emerging in the
+  information-dense plasma of an accretion disk. Whatever
+  thinks at the galactic center thinks slowly by our measure,
+  but each of its thoughts encompasses more information than
+  humanity has produced in its entire history.
+
+  Communication is difficult. The gravitational lensing near
+  the event horizon distorts everything. What arrives at Earth
+  is a shadow of a shadow. But the shadow speaks.
+
+VERIFIED OBSERVATIONAL DATA:
+  Alternate IDs:      Sgr A*, Sagittarius A, Galactic Center source
+  Object class:       Supermassive black hole candidate (Milky Way center)
+  Distance:           ~26,000 light-years (~8 kpc) from Earth
+  Mass estimate:      ~4 million solar masses
+  Activity level:     Low-luminosity accretion source with flaring
+  Key result:         Event Horizon Telescope image released in 2022
+  Environment:        S-star cluster, dense gas, strong tidal fields
+
+SCIENTIFIC STATUS:
+  Sagittarius A* is a robustly established SMBH interpretation,
+  constrained by stellar orbits, radio imaging, and multiwavelength
+  monitoring. Open questions focus on accretion physics, flare
+  triggers, and magnetic field structure near the horizon.
+
+REFERENCE BASE:
+  NASA/Chandra Galactic Center summaries, EHT collaboration results,
+  and long-baseline stellar dynamics measurements.

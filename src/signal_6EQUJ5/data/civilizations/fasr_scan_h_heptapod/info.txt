@@ -1,0 +1,57 @@
+DESIGNATION: FASR-SCAN-H
+NAME: Heptapod Signal
+CONSTELLATION: Unknown — source location indeterminate
+COORDINATES: Detected during SCAN sweep (no fixed coordinates)
+DISTANCE: Unknown
+CLASSIFICATION: LEVEL 7 — RESTRICTED
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Non-linear — past and future co-present
+  Relative offset:  Indeterminate (time is non-sequential)
+  Time perception:  Simultaneous — all moments exist at once
+
+SPECIES PROFILE:
+  Form:           Seven-limbed radially symmetrical beings
+  Communication:  Semasiographic — non-linear written symbols
+  Disposition:    Generous, patient, purpose-driven
+  Intelligence:   Transcendent — perceives time non-linearly
+  First contact:  Anomalous signal detected during routine SCAN
+
+LORE:
+  The Heptapod signal was not found in any catalog. It appeared
+  during a routine SCAN sweep as an anomaly that should not
+  have existed — a signal with no fixed origin point, arriving
+  simultaneously from multiple sky quadrants as if the source
+  existed outside conventional spacetime.
+
+  The Heptapods communicate through semasiography: a writing
+  system where symbols convey meaning directly, without
+  mapping to spoken language. Their circular logograms encode
+  entire sentences simultaneously — beginning and end are
+  written at the same moment, because to the Heptapods, the
+  distinction between beginning and end does not exist.
+
+  Their gift is perspective. To learn their language is to
+  begin perceiving time as they do — not as a river flowing
+  in one direction, but as a landscape where all moments are
+  visible at once. They came to offer this gift. The question
+  is whether humanity is ready to receive it.
+
+REFERENCE CONTEXT:
+  Canonical origin:   Narrative construct inspired by linguistic
+                      first-contact fiction (non-astronomical source)
+  Sky position:       Intentionally undefined in game canon
+  Detection mode:     Emergent SCAN anomaly (multi-quadrant appearance)
+  Physical status:    No corresponding confirmed astronomical object
+
+SCIENTIFIC INTERPRETATION NOTE:
+  This entry is deliberately speculative and functions as a
+  conceptual bridge between SETI-style signal analysis and
+  thought experiments about language, cognition, and time.
+
+WORLD-BUILDING FUNCTION:
+  FASR-SCAN-H is the system's "edge case" civilization:
+  not tied to one catalog coordinate, but to a different model
+  of perception. It exists to stress-test the operator's
+  assumptions about causality and communication.

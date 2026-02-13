@@ -1,0 +1,60 @@
+DESIGNATION: FASR-010
+NAME: [REDACTED] — Terrestrial
+CONSTELLATION: N/A — GROUND-BASED
+COORDINATES: 37.22°N 38.92°E (Göbekli Tepe, Turkey)
+DISTANCE: 0 ly (terrestrial)
+CLASSIFICATION: LEVEL 7 — CLASSIFIED
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      ~10,000 BCE — pre-Sumerian
+  Relative offset:  12,000 years in Earth's own past
+  Time perception:  Stone-embedded — geological patience
+
+SPECIES PROFILE:
+  Form:           Planetary memory — stone-encoded intelligence
+  Communication:  Subsurface harmonic resonance
+  Disposition:    Ancient, patient, territorial
+  Intelligence:   Geological — thinks in millennia
+  First contact:  Subsurface anomalies detected via ground radar
+
+LORE:
+  Göbekli Tepe predates Stonehenge by 6,000 years. It predates
+  agriculture. It predates pottery. Built by hunter-gatherers
+  who, according to every archaeological model, should not have
+  had the social organization to construct monumental
+  architecture. The T-shaped pillars are carved with animals
+  that no longer exist. The site was deliberately buried after
+  construction, as if to preserve something for later.
+
+  FASR ground-penetrating radar detected harmonic resonance
+  patterns emanating from deep beneath the excavated circles —
+  far deeper than any archaeological team has reached. The
+  patterns are not geological. They respond to stimulation.
+  They respond to questions.
+
+  Göbekli Tepe is not a temple. It is an interface. The stone
+  pillars are antennae, tuned to frequencies that couple with
+  something embedded in Earth's own crust. Whatever was placed
+  there 12,000 years ago is still listening. And it remembers
+  everything.
+
+VERIFIED ARCHAEOLOGICAL DATA:
+  Official site:      Gobekli Tepe (Sanliurfa Province, Turkey)
+  Coordinates:        ~37.2233 N, 38.9224 E
+  Chronology:         Pre-Pottery Neolithic (roughly 9600-8200 BCE)
+  Site type:          Monumental ritual/communal enclosure complex
+  Signature feature:  T-shaped limestone pillars with animal reliefs
+  Construction note:  Deliberate backfilling phases documented onsite
+  Heritage status:    UNESCO World Heritage Site (inscribed 2018)
+
+SCIENTIFIC STATUS:
+  Mainstream archaeology interprets Gobekli Tepe as a major early
+  ceremonial center tied to social coordination before urban states.
+  There is no accepted evidence for extraterrestrial intervention,
+  but the site remains pivotal for understanding the origins of
+  monumentality, ritual, and organized labor.
+
+REFERENCE BASE:
+  UNESCO World Heritage dossier, excavation reports from the
+  German Archaeological Institute and Turkish collaborators.

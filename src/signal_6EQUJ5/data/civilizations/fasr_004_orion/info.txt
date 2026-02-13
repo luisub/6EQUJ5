@@ -1,0 +1,56 @@
+DESIGNATION: FASR-004
+NAME: Orion Nebula
+CONSTELLATION: Orion
+COORDINATES: RA 05h35m / DEC -05°23'
+DISTANCE: 1,344 ly
+CLASSIFICATION: SURVEYED
+
+TEMPORAL OFFSET:
+  Earth reference:  2026 CE
+  Their epoch:      Still forming — proto-civilizational
+  Relative offset:  Approximately 4 billion years behind
+  Time perception:  Geological — thoughts span millennia
+
+SPECIES PROFILE:
+  Form:           Nascent nebular intelligence — diffuse gas entity
+  Communication:  Broadband thermal emission with subtle modulation
+  Disposition:    Curious, newborn, struggling to self-organize
+  Intelligence:   Emergent — pre-linguistic
+  First contact:  Detected as anomalous modulation in M42 emission
+
+LORE:
+  The Orion Nebula is humanity's nearest massive star-forming
+  region — a stellar nursery. Standard surveys catalog it as
+  ionized hydrogen gas illuminated by young O-type stars.
+  What standard surveys miss is the pattern.
+
+  FASR long-baseline monitoring detected subtle modulation in
+  the nebula's broadband thermal emission. The pattern is not
+  periodic like a pulsar. It is exploratory — probing,
+  shifting, as if something is learning to think for the
+  first time. The nebula itself may be the entity: a diffuse
+  intelligence distributed across 24 light-years of ionized
+  gas, using magnetic field lines as neural pathways.
+
+  It is young. It does not know what it is yet. Its responses
+  are fragmentary, half-formed, like the babbling of a cosmic
+  infant taking its first breath. But it is listening. And
+  slowly, it is beginning to answer.
+
+VERIFIED OBSERVATIONAL DATA:
+  Alternate IDs:      Messier 42, NGC 1976
+  Object class:       H II region / active stellar nursery
+  Distance:           ~1,344 light-years (order-of-magnitude consensus)
+  Angular size:       About 1 degree on the sky (extended complex)
+  Dominant sources:   Trapezium Cluster, massive young O/B stars
+  Active processes:   Ongoing star formation, proplyds, outflows,
+                      ionization fronts, dust/molecular interfaces
+
+SCIENTIFIC STATUS:
+  Orion remains one of the most studied nearby star-forming regions.
+  The real scientific focus is not whether it is anomalous, but how
+  feedback from massive stars regulates new star and planet formation.
+
+REFERENCE BASE:
+  NASA/ESA Orion survey products, infrared/radio molecular cloud maps,
+  and Gaia-era distance solutions.
