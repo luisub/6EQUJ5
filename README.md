@@ -74,7 +74,7 @@ Leave `ollama serve` running in a separate terminal window.
 ### 4. Install the receiver
 
 ```bash
-pip install -e ".[ai]"
+pip install -e .
 ```
 
 ### 5. Launch
