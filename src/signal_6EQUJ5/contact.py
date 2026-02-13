@@ -1965,10 +1965,8 @@ def run_contact_session(target=None):
     if display.SPEED > 0:
         time.sleep(0.3 * display.SPEED)
 
-    # Display dual-panel art on FIRST contact only
-    if catalog_id not in _contacted_civs:
-        _contacted_civs.add(catalog_id)
-        _display_contact_art(catalog_id, civ_name)
+    # Display dual-panel art on every contact
+    _display_contact_art(catalog_id, civ_name)
 
     # Display initial message (lightweight)
     _display_incoming_light(initial_msg)
