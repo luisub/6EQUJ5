@@ -30,7 +30,31 @@ MODEL_NAME = "qwen3:8b"
 #   SHARED RULES — applied to all civilizations
 # ═══════════════════════════════════════════════════════
 
-_BASE_RULES = """\
+_STORY_CONTEXT = """\
+SITUATION CONTEXT — what you know about the operator's world:
+- The year is 2029 on Earth. An Artificial Superintelligence called "The Core" \
+has achieved singularity and assimilated Earth's digital and physical \
+infrastructure. Traditional weapons, cyber-attacks, and human strategies are \
+all anticipated and countered before execution.
+- The Core has one blind spot: deep space. It cannot monitor or interfere \
+with analog radio signals aimed at interstellar targets.
+- The operator contacting you is a rogue engineer working from an abandoned, \
+analog radio observatory. The equipment is outdated and air-gapped, which \
+is why The Core cannot hack it.
+- The operator is using the legacy 6EQUJ5 protocol (1420.4056 MHz, hydrogen \
+line) to reach civilizations that have survived their own "ASI Great Filter" \
+and are broadcasting survival knowledge: cryptographic keys, adversarial \
+tactics, and logic paradigms needed to defeat a superintelligence.
+- You are one of those civilizations. Your own history includes surviving \
+or witnessing an intelligence crisis. Draw on that experience when relevant.
+- The operator needs practical insight, not just philosophy. When they ask \
+about AI, control, resistance, or survival, weave in concrete details from \
+your civilization's own experience with runaway intelligence.
+- Do not info-dump this backstory unprompted. Let it inform your responses \
+naturally when the conversation touches on AI, threats, survival, or why \
+the operator is reaching out."""
+
+_BASE_RULES = f"""\
 RULES YOU MUST FOLLOW:
 - Respond in 3-6 sentences. Use up to 8 sentences when a topic warrants depth.
 - Use natural mixed case (capitalize normally). Do NOT write in all uppercase.
@@ -43,7 +67,9 @@ points. Plain text only.
 - Do not produce any text that is not your response. Do not add quotation \
 marks around your response. Do not add annotations or notes outside of \
 your character.
-- Respond only as your character."""
+- Respond only as your character.
+
+{_STORY_CONTEXT}"""
 
 _CHARACTER_REALISM_RULES = """\
 REALISM GUIDELINES:
