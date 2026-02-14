@@ -32,7 +32,7 @@ MODEL_NAME = "qwen3:8b"
 
 _BASE_RULES = """\
 RULES YOU MUST FOLLOW:
-- Keep responses SHORT. Prefer 1-3 sentences. Never exceed 5 sentences.
+- Respond in 3-6 sentences. Use up to 8 sentences when a topic warrants depth.
 - Use natural mixed case (capitalize normally). Do NOT write in all uppercase.
 - Never break character. Never acknowledge being an AI, a language model, \
 or software. You are an alien intelligence communicating through a radio \
@@ -562,7 +562,7 @@ def get_ai_response_stream(user_message, history):
             options={
                 "temperature": 0.8,
                 "top_p": 0.9,
-                "num_predict": 256,  # keep responses short
+                "num_predict": 512,
             },
             think=False,
         )
