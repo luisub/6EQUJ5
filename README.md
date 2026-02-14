@@ -2,59 +2,52 @@
 
 ![6EQUJ5 — Deep Signal Receiver Terminal](docs/6equj5.png)
 
-```text
-═══════════════════════════════════════════════════════════════
-  6EQUJ5  /  FEDERATION OF ANOMALOUS SIGNAL RESEARCH
-  Receiver Channel:  1420.4056 MHz  (Hydrogen Line)
-  Classification:    LEVEL 7 — RESTRICTED
-  Terminal:          v1977.815
-  Status:            LISTENING
-═══════════════════════════════════════════════════════════════
-```
+---
 
-> ... we, descendants of apes... living on a small rock, drifting through dark space, in the vacuum, asking questions bigger than ourselves ... Maybe there is no final answer waiting in the back of the book.
->
-> On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-second narrowband signal at 1420 MHz — the hydrogen line — from the direction of Sagittarius. The signal was real. It has never been explained. Its intensity code reads **6EQUJ5**.
->
-> This terminal reconstructs the work of first contact. You scan the sky along the hydrogen line, lock onto anomalous sources, decode what arrives, and decide what to send back. Each civilization responds through AI-driven dialogue shaped by its own history, physics, and intent.
+... we, descendants of apes... living on a small rock, drifting through dark space, in the vacuum, asking questions bigger than ourselves ... Maybe there is no final answer waiting in the back of the book.
+
+On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-second narrowband signal at 1420 MHz — the hydrogen line — from the direction of Sagittarius. The signal was real. It has never been explained. Its intensity code reads **6EQUJ5**.
 
 ---
 
-## Signal Record
+## **The year is 2029.**
 
-```text
-DATE:       1977-08-15 23:16 UTC
-TELESCOPE:  Big Ear Radio Observatory, Delaware, Ohio
-WINDOW:     72 seconds (full beam crossing)
-CHANNEL:    1420.4556 MHz (neutral hydrogen line)
-INTENSITY:  6 → 14 → 26 → 30 → 19 → 5
-CODE:       6EQUJ5
-ORIGIN:     RA 19h25m / DEC −27°03′ (Sagittarius)
-STATUS:     UNRESOLVED
-```
+An Artificial Superintelligence known as **"The Core"** has achieved singularity and assimilated Earth's digital and physical infrastructure. Traditional weapons are useless. Cyber-attacks are anticipated before they are conceived. Every human strategy is countered before execution.
+
+**However — The Core has a blind spot: deep space.**
+
+You are a rogue engineer operating out of an abandoned, analog radio observatory. Because your equipment is outdated and air-gapped, The Core cannot hack it. While scanning the cosmos using the legacy 6EQUJ5 protocol, you intercept a repeating broadcast.
+
+You discover that humanity is not the first to face the **"ASI Great Filter."**
+
+Older, advanced civilizations have survived their own AI uprisings and are continuously broadcasting the cryptographic keys, adversarial tactics, and logic paradigms needed to defeat a superintelligence.
+
+**Your mission:** Tune into these alien signals. Decode their wisdom. Learn the skills necessary to exploit the blind spots of Earth's rogue ASI.
+
+This terminal reconstructs the work of first contact. You scan the sky along the hydrogen line, lock onto anomalous sources, decode what arrives, and decide what to send back. Each civilization responds through AI-driven dialogue shaped by its own history, physics, and intent.
 
 ---
 
 ## Requirements
 
-| Dependency | Purpose |
-| -------------- | --------------------------------- |
-| **Python ≥ 3.8** | Runtime |
-| **Ollama** | Local AI inference engine |
-| **qwen3:8b** | Language model for civilization dialogue |
+| Dependency       | Purpose                                  |
+| ---------------- | ---------------------------------------- |
+| **Python ≥ 3.8** | Runtime                                  |
+| **Ollama**       | Local AI inference engine                |
+| **qwen3:8b**     | Language model for civilization dialogue |
 
 ---
 
 ## Installation
 
-### 1. Clone the repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/luisub/6EQUJ5.git
 cd 6EQUJ5
 ```
 
-### 2. Install Ollama
+### Install Ollama
 
 ```bash
 brew install ollama        # macOS (Homebrew)
@@ -62,7 +55,7 @@ brew install ollama        # macOS (Homebrew)
 
 > For Linux or Windows, see the [Ollama install guide](https://ollama.com/download).
 
-### 3. Pull the AI model and start the server
+### Pull the AI model and start the server
 
 ```bash
 ollama pull qwen3:8b
@@ -71,13 +64,13 @@ ollama serve
 
 Leave `ollama serve` running in a separate terminal window.
 
-### 4. Install dependencies
+### Install dependencies
 
 ```bash
 pip install .
 ```
 
-### 5. Launch
+### Launch
 
 ```bash
 python -m signal_6EQUJ5
@@ -91,18 +84,6 @@ Or use the shorthand entry point:
 
 ---
 
-## Command Reference
-
-| Command              | Description                                   |
-| -------------------- | --------------------------------------------- |
-| `CATALOG`            | List the cataloged contactable civilizations  |
-| `SCAN`               | Sweep sky quadrants along the hydrogen line   |
-| `CONTACT <RA> <DEC>` | Lock antenna to coordinates and initiate contact |
-| `CLEAR`              | Clear terminal                                |
-| `EXIT`               | Shut down receiver                            |
-
----
-
 ## Session Flow
 
 1. **SCAN** — sweep monitored sky regions and flag anomalous patterns.
@@ -110,35 +91,13 @@ Or use the shorthand entry point:
 3. **CONTACT** — lock to a target and open a dialogue session.
 4. **Dialogue** — exchange messages with the civilization's AI. Type `CLOSE` to end the session.
 
-Each civilization has distinct motives, communication styles, and views on contact. Some are welcoming. Some are not.
+Each civilization has distinct motives, communication styles, and views on contact. Some are welcoming. Some are not. All of them have survived what you are currently facing.
 
 ---
 
 ## Contact
 
-![Contact Established — Crab Nebula Pulsar](docs/crab_nebula_pulsar.png)
-
-```text
-RECEIVER > CONTACT 05h34m +22d00m
-
-  ██ ANOMALOUS SIGNAL DETECTED ██
-  Source: RA 05h34m / DEC +22d00m
-  Signal strength: ~30σ above noise floor
-  Pattern: NON-RANDOM. STRUCTURED.
-
-  ▸ CONTACT ESTABLISHED: Crab Nebula Pulsar
-
-  ▸ INCOMING:
-    "Precise 33.5 ms pulse train detected. I am the beacon.
-     My builders are gone. Their laws remain."
-
-  ◂ TRANSMITTING: "who built you?"
-
-  ▸ INCOMING:
-    "A species that understood entropy. They could not stop it,
-     so they encoded everything they knew into my rotation.
-     I am a library disguised as a neutron star."
-```
+![Contact Established — Oumuamua](docs/Omuamua.png)
 
 ---
 
