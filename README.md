@@ -10,7 +10,7 @@ On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-seco
 
 ---
 
-![Demo](docs/demo.gif)
+![Demo](docs/demo_compressed.gif)
 
 ---
 

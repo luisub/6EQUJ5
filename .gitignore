@@ -211,3 +211,6 @@ __marimo__/
 dev/
 tools/agg
 *.cast
+docs/demo.gif
+
+*kk_*
