@@ -10,6 +10,10 @@ On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-seco
 
 ---
 
+![Demo](docs/demo.gif)
+
+---
+
 ## **The year is 2029.**
 
 An Artificial Superintelligence known as **"The Core"** has achieved singularity and assimilated Earth's digital and physical infrastructure. Traditional weapons are useless. Cyber-attacks are anticipated before they are conceived. Every human strategy is countered before execution.
@@ -30,11 +34,11 @@ This terminal reconstructs the work of first contact. You scan the sky along the
 
 ## Requirements
 
-| Dependency       | Purpose                                  |
-| ---------------- | ---------------------------------------- |
+| Dependency              | Purpose                                  |
+| ----------------------- | ---------------------------------------- |
 | **Python ≥ 3.8** | Runtime                                  |
-| **Ollama**       | Local AI inference engine                |
-| **qwen3:8b**     | Language model for civilization dialogue |
+| **Ollama**        | Local AI inference engine                |
+| **qwen3:8b**      | Language model for civilization dialogue |
 
 ---
 

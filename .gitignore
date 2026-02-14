@@ -209,3 +209,5 @@ __marimo__/
 
 .agent/
 dev/
+tools/agg
+*.cast
