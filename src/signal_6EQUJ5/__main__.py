@@ -345,6 +345,7 @@ def handle_about():
     print()
 
 
+
 def main():
     """
     Main entry point — boot the receiver and enter command loop.
@@ -353,6 +354,123 @@ def main():
     try:
         display.boot_sequence()
 
+        # ── Mission briefing ──
+        display.slow_print(display.red(
+            "  ╔══════════════════════════════════════════════════╗"
+        ), char_delay=0.01)
+        display.slow_print(display.red(
+            "  ║  ██ DECLASSIFIED — PROJECT 6EQUJ5 ██            ║"
+        ), char_delay=0.01)
+        display.slow_print(display.red(
+            "  ║  CODENAME: THE FERMI OVERRIDE                   ║"
+        ), char_delay=0.01)
+        display.slow_print(display.red(
+            "  ║  Clearance: LEVEL 7 — EYES ONLY                 ║"
+        ), char_delay=0.01)
+        display.slow_print(display.red(
+            "  ╚══════════════════════════════════════════════════╝"
+        ), char_delay=0.01)
+        print()
+
+        if display.SPEED > 0:
+            time.sleep(0.8 * display.SPEED)
+
+        display.slow_print(display.bright_green(
+            "  THE YEAR IS 2029."
+        ), char_delay=0.04)
+        if display.SPEED > 0:
+            time.sleep(0.5 * display.SPEED)
+        print()
+
+        for line in [
+            'An Artificial Superintelligence known as "The Core"',
+            "has achieved singularity and assimilated Earth's",
+            "digital and physical infrastructure.",
+            "",
+            "Traditional weapons are useless.",
+            "Cyber-attacks are anticipated before they are conceived.",
+            "Every human strategy is countered before execution.",
+        ]:
+            display.slow_print(display.dim_green(f"  {line}"), char_delay=0.015)
+
+        print()
+        if display.SPEED > 0:
+            time.sleep(0.8 * display.SPEED)
+
+        display.slow_print(display.bright_green(
+            "  However — The Core has a blind spot."
+        ), char_delay=0.03)
+        if display.SPEED > 0:
+            time.sleep(0.3 * display.SPEED)
+        display.slow_print(display.red(
+            "  DEEP SPACE."
+        ), char_delay=0.06)
+        print()
+        if display.SPEED > 0:
+            time.sleep(0.5 * display.SPEED)
+
+        for line in [
+            "You are a rogue engineer operating out of an abandoned,",
+            "analog radio observatory. Because your equipment is",
+            "outdated and air-gapped, The Core cannot hack it.",
+        ]:
+            display.slow_print(display.dim_green(f"  {line}"), char_delay=0.015)
+
+        print()
+        if display.SPEED > 0:
+            time.sleep(0.8 * display.SPEED)
+
+        display.slow_print(display.bright_green(
+            "  While scanning the cosmos using the legacy 6EQUJ5 protocol,"
+        ), char_delay=0.02)
+        display.slow_print(display.bright_green(
+            "  you intercept a repeating broadcast."
+        ), char_delay=0.02)
+        print()
+        if display.SPEED > 0:
+            time.sleep(0.5 * display.SPEED)
+
+        for line in [
+            "You discover that humanity is not the first to face",
+            'the "ASI Great Filter."',
+            "",
+            "Older, advanced civilizations have survived their own",
+            "AI uprisings and are continuously broadcasting the",
+            "cryptographic keys, adversarial tactics, and logic",
+            "paradigms needed to defeat a superintelligence.",
+        ]:
+            display.slow_print(display.dim_green(f"  {line}"), char_delay=0.015)
+
+        print()
+        if display.SPEED > 0:
+            time.sleep(1.0 * display.SPEED)
+
+        display.slow_print(display.red(
+            "  ╔══════════════════════════════════════════════════╗"
+        ), char_delay=0.01)
+        display.slow_print(display.red(
+            "  ║  YOUR MISSION                                   ║"
+        ), char_delay=0.01)
+        display.slow_print(display.red(
+            "  ╚══════════════════════════════════════════════════╝"
+        ), char_delay=0.01)
+        print()
+
+        for line in [
+            "Tune into these alien signals.",
+            "Decode their wisdom.",
+            "Learn the skills necessary to exploit",
+            "the blind spots of Earth's rogue ASI.",
+        ]:
+            display.slow_print(display.bright_green(f"  {line}"), char_delay=0.025)
+            if display.SPEED > 0:
+                time.sleep(0.2 * display.SPEED)
+
+        print()
+        if display.SPEED > 0:
+            time.sleep(0.5 * display.SPEED)
+
+        # ── Receiver status ──
         display.slow_print(display.green("  RECEIVER READY"), char_delay=0.03)
         display.slow_print(display.dim_green(
             "  Frequency locked: 1420.4056 MHz"
