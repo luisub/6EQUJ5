@@ -202,12 +202,18 @@ def _run_contact_loop(target):
         return
 
     exchange_count = 0
+    panel = display.get_active_panel()
 
     while True:
         try:
-            sys.stdout.write(display.green("  ◂ "))
-            sys.stdout.flush()
+            if panel and panel.active:
+                panel.print_prompt()
+            else:
+                sys.stdout.write(display.green("  ◂ "))
+                sys.stdout.flush()
             raw = input().strip()
+            if panel and panel.active:
+                panel.consume_input(raw)
         except (EOFError, KeyboardInterrupt):
             print()
             break
@@ -218,11 +224,15 @@ def _run_contact_loop(target):
         # Check for session-ending commands
         cmd_upper = raw.upper()
         if cmd_upper in ('CLOSE', 'EXIT', 'QUIT'):
-            print()
-            display.slow_print(display.dim_green(
-                "  Contact session terminated."
-            ), char_delay=0.02)
-            print()
+            if panel and panel.active:
+                panel.status("Contact session terminated.")
+                panel.close()
+            else:
+                print()
+                display.slow_print(display.dim_green(
+                    "  Contact session terminated."
+                ), char_delay=0.02)
+                print()
             break
 
         # Send message and get response
@@ -230,7 +240,12 @@ def _run_contact_loop(target):
             raw, exchange_count
         )
         if not still_active:
+            if panel and panel.active:
+                panel.close()
             break
+
+    # Clear the active panel
+    display.set_active_panel(None)
 
 
 def handle_help():

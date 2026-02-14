@@ -975,6 +975,11 @@ def _display_incoming_light(text):
     the connection is established. No hex streams or
     decompression. Just the signal arriving.
     """
+    panel = display.get_active_panel()
+    if panel and panel.active:
+        panel.incoming(text)
+        return
+
     print()
     display.slow_print(display.dim_green(
         "  ▸ INCOMING:"
@@ -1005,6 +1010,27 @@ def _display_incoming_light_stream(token_generator):
     connection is established. Tokens arrive and render
     directly through typewriter effect.
     """
+    panel = display.get_active_panel()
+    if panel and panel.active:
+        line_state = None
+        full_response = ""
+        first = True
+        try:
+            for token in token_generator:
+                full_response += token
+                line_state = panel.stream_token(
+                    token, is_first=first, line_state=line_state
+                )
+                first = False
+        except Exception as e:
+            if not full_response:
+                panel.status(f"[no response: {e}]")
+
+        if line_state is not None:
+            panel.stream_token("", is_last=True, line_state=line_state)
+
+        return full_response
+
     print()
     display.slow_print(display.dim_green(
         "  ▸ INCOMING:"
@@ -1087,6 +1113,11 @@ def _display_outgoing_light(text):
     """
     Lightweight outgoing message display.
     """
+    panel = display.get_active_panel()
+    if panel and panel.active:
+        panel.outgoing(text)
+        return
+
     print()
     display.slow_print(display.dim_green(
         f'  ◂ TRANSMITTING: "{text}"'
@@ -1958,34 +1989,59 @@ def run_contact_session(target=None):
 
     # Show connection established
     civ_name = target['name'] if target else 'UNKNOWN'
-    print()
-    display.slow_print(display.green(
-        f"  ▸ CONTACT ESTABLISHED: {civ_name}"
-    ), char_delay=0.015)
-    if display.SPEED > 0:
-        time.sleep(0.3 * display.SPEED)
 
-    # Display dual-panel art on every contact
-    _display_contact_art(catalog_id, civ_name)
+    # ─── Create and draw the dual-panel display ───
+    folder_name = _CIV_FOLDER_MAP.get(catalog_id)
+    face_art = ""
+    constellation_name = ""
+    if folder_name:
+        data_dir = os.path.join(
+            os.path.dirname(__file__), 'data', 'civilizations', folder_name
+        )
+        face_path = os.path.join(data_dir, 'face.txt')
+        try:
+            with open(face_path, 'r') as f:
+                face_art = f.read().rstrip()
+        except FileNotFoundError:
+            pass
 
-    # Display initial message (lightweight)
-    _display_incoming_light(initial_msg)
+        # Get constellation name from catalog
+        for e in CATALOG:
+            if e['id'] == catalog_id:
+                constellation_name = e.get('constellation', '')
+                break
+
+    panel = display.ContactPanel(
+        face_art=face_art,
+        civ_name=civ_name,
+        constellation=constellation_name,
+        catalog_id=catalog_id
+    )
+    display.set_active_panel(panel)
+    panel.draw()
+
+    # Show connection status in right panel
+    panel.status(f"▸ CONTACT ESTABLISHED: {civ_name}", char_delay=0.015)
+    panel.add_blank()
+
+    # Display initial message
+    panel.incoming(initial_msg)
 
     # Seed AI history with the initial transmission
     if ai_online and _conversation_history is not None:
         _conversation_history.add_assistant_message(initial_msg)
-        display.slow_print(display.dim_green(
-            "  Mode: AI dialogue online."
-        ), char_delay=0.015)
+        panel.status("Mode: AI dialogue online.", char_delay=0.015)
     else:
-        display.slow_print(display.dim_green(
-            "  Mode: AI offline. Using fallback dialogue protocol."
-        ), char_delay=0.015)
+        panel.status(
+            "Mode: AI offline. Using fallback dialogue protocol.",
+            char_delay=0.015
+        )
 
-    display.slow_print(display.dim_green(
-        "  Type your message to communicate. Type CLOSE to end."
-    ), char_delay=0.015)
-    print()
+    panel.status(
+        "Type your message to communicate. Type CLOSE to end.",
+        char_delay=0.015
+    )
+    panel.add_blank()
 
     return True
 

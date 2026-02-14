@@ -484,6 +484,574 @@ def print_dual_panel(left_art, right_art, left_label="", right_label=""):
     print(dim_green("  ╚" + "═" * total_width + "╝"))
     print()
 
+import textwrap
+
+
+# ═══════════════════════════════════════════════════════
+#   ANSI cursor control — for panel-based layouts
+# ═══════════════════════════════════════════════════════
+
+def _cursor_to(row, col):
+    """Move cursor to (row, col), 1-indexed."""
+    sys.stdout.write(f"\033[{row};{col}H")
+
+def _clear_line():
+    """Clear from cursor to end of line."""
+    sys.stdout.write("\033[K")
+
+def _save_cursor():
+    sys.stdout.write("\033[s")
+
+def _restore_cursor():
+    sys.stdout.write("\033[u")
+
+def _hide_cursor():
+    sys.stdout.write("\033[?25l")
+
+def _show_cursor():
+    sys.stdout.write("\033[?25h")
+
+
+# Minimum terminal width for dual-panel mode
+MIN_PANEL_WIDTH = 150
+
+
+class ContactPanel:
+    """
+    Persistent dual-panel display for contact sessions.
+
+    Left panel:  alien face art (fixed, never scrolls)
+    Right panel: dialogue messages (scrolls when full)
+
+    Uses ANSI cursor positioning to keep the face visible
+    while dialogue lines are added to the right column.
+    The input prompt sits below the frame.
+
+    If the terminal is too narrow (< MIN_PANEL_WIDTH),
+    the panel is not drawn and all output falls through
+    to standard scrolling mode.
+    """
+
+    def __init__(self, face_art, civ_name="UNKNOWN", constellation="",
+                 catalog_id=""):
+        self.civ_name = civ_name
+        self.constellation = constellation
+        self.catalog_id = catalog_id
+
+        # Parse face art lines
+        self.face_lines = face_art.split('\n') if face_art else []
+        while self.face_lines and not self.face_lines[-1].strip():
+            self.face_lines.pop()
+
+        # Panel geometry
+        term_cols = shutil.get_terminal_size().columns
+        self.active = term_cols >= MIN_PANEL_WIDTH and IS_TTY
+
+        if not self.active:
+            self.left_w = 0
+            self.right_w = 0
+            self.panel_h = 0
+            self.right_lines = []
+            self.right_colors = []
+            self.right_cursor = 0
+            self.frame_top = 1
+            self.prompt_row = 1
+            self.right_col_start = 1
+            return
+
+        # Left panel: face art width (at least 47 for padding)
+        self.left_w = max(
+            max((len(l) for l in self.face_lines), default=45),
+            47
+        )
+        # Right panel: fills remaining space
+        # Layout: "  ║" (4) + left_w + " │ " (3) + right_w + "║" (1)
+        # total visible = 4 + left_w + 3 + right_w + 1
+        self.right_w = term_cols - 4 - self.left_w - 3 - 1
+        self.right_w = max(self.right_w, 40)  # minimum usable
+
+        # Panel height = face art height, minimum 31 lines
+        self.panel_h = max(len(self.face_lines), 31)
+
+        # Pad face lines to panel height
+        while len(self.face_lines) < self.panel_h:
+            self.face_lines.append("")
+
+        # Right panel content buffer (lines currently displayed)
+        self.right_lines = [""] * self.panel_h
+        # Color function for each right-panel line (for scroll redraws)
+        self.right_colors = [None] * self.panel_h
+
+        # Cursor tracking: which row of the right panel to write next
+        self.right_cursor = 0
+
+        # Screen row where the frame starts (set after draw)
+        self.frame_top = 1
+
+    def draw(self):
+        """
+        Draw the initial frame with face art and empty right panel.
+        """
+        if not self.active:
+            return
+
+        _hide_cursor()
+
+        # Clear screen and position at top
+        sys.stdout.write(CLEAR)
+        sys.stdout.flush()
+
+        self.frame_top = 1  # start at row 1
+
+        sep = " │ "
+        total_inner = self.left_w + len(sep) + self.right_w
+
+        # Top border
+        _cursor_to(self.frame_top, 1)
+        sys.stdout.write(dim_green(
+            "  ╔" + "═" * total_inner + "╗"
+        ))
+
+        # Panel rows
+        for i in range(self.panel_h):
+            row = self.frame_top + 1 + i
+            _cursor_to(row, 1)
+
+            face_line = self.face_lines[i] if i < len(self.face_lines) else ""
+            l_padded = face_line.ljust(self.left_w)
+
+            sys.stdout.write(dim_green("  ║"))
+            sys.stdout.write(green(l_padded))
+            sys.stdout.write(dim_green(sep))
+            # Right panel — empty for now
+            sys.stdout.write(" " * self.right_w)
+            sys.stdout.write(dim_green("║"))
+
+        # Label row
+        label_row = self.frame_top + 1 + self.panel_h
+        _cursor_to(label_row, 1)
+        sys.stdout.write(dim_green(
+            "  ╠" + "═" * total_inner + "╣"
+        ))
+
+        info_row = label_row + 1
+        _cursor_to(info_row, 1)
+
+        # Build label: civ name on left, catalog_id + "CLOSE to end" on right
+        left_label = f" {self.civ_name}"
+        if self.constellation:
+            left_label += f" — {self.constellation}"
+        left_label = left_label.ljust(self.left_w)
+
+        right_label = f"[{self.catalog_id}]  Type CLOSE to end."
+        right_label = right_label.ljust(self.right_w)
+
+        sys.stdout.write(dim_green("  ║"))
+        sys.stdout.write(bright_green(left_label))
+        sys.stdout.write(dim_green(sep))
+        sys.stdout.write(dim_green(right_label))
+        sys.stdout.write(dim_green("║"))
+
+        # Bottom border
+        bottom_row = info_row + 1
+        _cursor_to(bottom_row, 1)
+        sys.stdout.write(dim_green(
+            "  ╚" + "═" * total_inner + "╝"
+        ))
+
+        # Input prompt row
+        self.prompt_row = bottom_row + 1
+        _cursor_to(self.prompt_row, 1)
+        sys.stdout.flush()
+
+        _show_cursor()
+
+        # Right panel starts at column: 4 (indent + border) + left_w + 3 (sep)
+        self.right_col_start = 4 + self.left_w + 3 + 1  # +1 for 1-indexed
+
+    def _right_panel_row(self, panel_line_idx):
+        """Screen row for a given right-panel line index."""
+        return self.frame_top + 1 + panel_line_idx
+
+    def _write_right_line(self, panel_line_idx, text):
+        """Write a single line into the right panel at the given index."""
+        _save_cursor()
+        _hide_cursor()
+
+        row = self._right_panel_row(panel_line_idx)
+        _cursor_to(row, self.right_col_start)
+
+        # Truncate to right_w, pad with spaces
+        display_text = text[:self.right_w].ljust(self.right_w)
+        sys.stdout.write(display_text)
+
+        _restore_cursor()
+        _show_cursor()
+        sys.stdout.flush()
+
+    def _scroll_right_panel(self):
+        """Scroll all right-panel lines up by one, freeing the last line."""
+        # Shift buffers
+        self.right_lines.pop(0)
+        self.right_lines.append("")
+        self.right_colors.pop(0)
+        self.right_colors.append(None)
+
+        # Redraw all right-panel lines with their stored colors
+        _save_cursor()
+        _hide_cursor()
+
+        for i in range(self.panel_h):
+            row = self._right_panel_row(i)
+            _cursor_to(row, self.right_col_start)
+            raw = self.right_lines[i][:self.right_w]
+            padded = raw.ljust(self.right_w)
+            cfn = self.right_colors[i]
+            if cfn:
+                sys.stdout.write(cfn(padded))
+            else:
+                sys.stdout.write(padded)
+
+        _restore_cursor()
+        _show_cursor()
+        sys.stdout.flush()
+
+        self.right_cursor = self.panel_h - 1
+
+    def _ensure_room(self):
+        """Make sure there's at least one free line in the right panel."""
+        if self.right_cursor >= self.panel_h:
+            self._scroll_right_panel()
+
+    def add_line(self, text, color_fn=None, char_delay=0.0):
+        """
+        Add a single line to the right panel.
+
+        Parameters
+        ----------
+        text : str
+            Raw text (will be truncated to panel width).
+        color_fn : callable, optional
+            Color function (e.g. bright_green). Applied for display only.
+        char_delay : float
+            If > 0, typewriter effect per character.
+        """
+        if not self.active:
+            # Fallback: just print normally
+            colored = color_fn(text) if color_fn else text
+            slow_print(colored, char_delay=char_delay)
+            return
+
+        self._ensure_room()
+
+        # Store raw text and color function in buffer
+        display_text = text[:self.right_w]
+        self.right_lines[self.right_cursor] = display_text
+        self.right_colors[self.right_cursor] = color_fn
+
+        # Render with optional typewriter
+        if char_delay > 0 and SPEED > 0:
+            _save_cursor()
+            _hide_cursor()
+            row = self._right_panel_row(self.right_cursor)
+            _cursor_to(row, self.right_col_start)
+
+            padded = display_text.ljust(self.right_w)
+            for j, ch in enumerate(padded):
+                colored_ch = color_fn(ch) if color_fn else ch
+                sys.stdout.write(colored_ch)
+                sys.stdout.flush()
+                if j < len(display_text):
+                    time.sleep(char_delay * SPEED)
+
+            _restore_cursor()
+            _show_cursor()
+            sys.stdout.flush()
+        else:
+            colored = color_fn(display_text) if color_fn else display_text
+            self._write_right_line(self.right_cursor,
+                                   colored)
+
+        self.right_cursor += 1
+
+    def add_blank(self):
+        """Add a blank line to the right panel."""
+        self.add_line("")
+
+    def add_wrapped(self, text, color_fn=None, char_delay=0.0,
+                    indent=2, prefix=""):
+        """
+        Add text to the right panel with word wrapping.
+
+        Parameters
+        ----------
+        text : str
+            Text to wrap and add.
+        color_fn : callable
+            Color function.
+        char_delay : float
+            Typewriter delay.
+        indent : int
+            Left indent in spaces.
+        prefix : str
+            First-line prefix (e.g. '▸ INCOMING:').
+        """
+        if not self.active:
+            # Fallback
+            colored = color_fn(text) if color_fn else text
+            slow_print(colored, char_delay=char_delay)
+            return
+
+        usable_w = self.right_w - indent
+        if usable_w < 20:
+            usable_w = self.right_w
+
+        pad = " " * indent
+
+        if prefix:
+            self.add_line(f"{pad}{prefix}", color_fn, char_delay)
+
+        wrapper = textwrap.TextWrapper(width=usable_w)
+        for line in wrapper.wrap(text):
+            self.add_line(f"{pad}{line}", color_fn, char_delay)
+
+    def incoming(self, text, char_delay=0.035):
+        """Display an incoming message in the right panel."""
+        self.add_line("  ▸ INCOMING:", dim_green, char_delay=0.015)
+
+        usable_w = max(self.right_w - 6, 60)
+        wrapper = textwrap.TextWrapper(
+            width=usable_w,
+            initial_indent='    "',
+            subsequent_indent='     '
+        )
+        lines = wrapper.wrap(text)
+        if lines:
+            lines[-1] += '"'
+        else:
+            lines = ['    ""']
+
+        for line in lines:
+            self.add_line(line, bright_green, char_delay=char_delay)
+        self.add_blank()
+
+    def outgoing(self, text):
+        """Display an outgoing message in the right panel."""
+        self.add_line(
+            f'  ◂ TRANSMITTING: "{text}"',
+            dim_green,
+            char_delay=0.015
+        )
+
+    def status(self, text, char_delay=0.015):
+        """Display a status line in the right panel."""
+        self.add_line(f"  {text}", dim_green, char_delay=char_delay)
+
+    def move_to_prompt(self):
+        """Position cursor at the input prompt inside the right panel."""
+        if not self.active:
+            return
+        self._ensure_room()
+        row = self._right_panel_row(self.right_cursor)
+        _cursor_to(row, self.right_col_start)
+        # Clear only the right panel area on this row
+        sys.stdout.write(" " * self.right_w)
+        _cursor_to(row, self.right_col_start)
+        sys.stdout.flush()
+
+    def print_prompt(self):
+        """Print the contact input prompt inside the right panel."""
+        if not self.active:
+            sys.stdout.write(green("  ◂ "))
+            sys.stdout.flush()
+            return
+        self.move_to_prompt()
+        sys.stdout.write(green("  ◂ "))
+        sys.stdout.flush()
+
+    def consume_input(self, raw_text):
+        """
+        After input() returns, clean up the prompt line in the right
+        panel and record the raw text properly. The echoed text from
+        input() may have moved the cursor; this resets it.
+        """
+        if not self.active:
+            return
+        # Overwrite the prompt line with blank (the outgoing display
+        # will re-render it properly via panel.outgoing())
+        row = self._right_panel_row(self.right_cursor)
+        _cursor_to(row, self.right_col_start)
+        sys.stdout.write(" " * self.right_w)
+        sys.stdout.flush()
+
+    def close(self):
+        """
+        Clean up after a contact session — move cursor below frame
+        and restore normal scrolling output.
+        """
+        if not self.active:
+            return
+        # Move to prompt row + 1 so normal output resumes below
+        _cursor_to(self.prompt_row + 1, 1)
+        _show_cursor()
+        sys.stdout.flush()
+
+    def stream_token(self, token, is_first=False, is_last=False,
+                     line_state=None):
+        """
+        Stream a single token into the right panel for live AI responses.
+
+        Parameters
+        ----------
+        token : str
+            The incoming token text.
+        is_first : bool
+            If True, print the '▸ INCOMING:' header and open quote.
+        is_last : bool
+            If True, print the closing quote.
+        line_state : dict
+            Mutable dict tracking streaming state:
+            {'line_buf': str, 'col': int, 'started': bool}
+
+        Returns
+        -------
+        dict
+            Updated line_state.
+        """
+        if line_state is None:
+            line_state = {'line_buf': '', 'col': 0, 'started': False}
+
+        if not self.active:
+            # Fallback: write directly
+            if is_first:
+                print()
+                slow_print(dim_green("  ▸ INCOMING:"), char_delay=0.015)
+                sys.stdout.write(bright_green('    "'))
+                sys.stdout.flush()
+            for ch in token:
+                sys.stdout.write(bright_green(ch))
+                sys.stdout.flush()
+                if SPEED > 0:
+                    time.sleep(0.02 * SPEED)
+            if is_last:
+                sys.stdout.write(bright_green('"'))
+                sys.stdout.flush()
+                print()
+                print()
+            return line_state
+
+        usable_w = self.right_w - 6  # matches indent '     ' (5 chars + margin)
+
+        if is_first:
+            self.add_line("  ▸ INCOMING:", dim_green, char_delay=0.015)
+            self._ensure_room()
+            line_state['started'] = True
+            line_state['line_buf'] = '    "'
+            line_state['col'] = 5
+
+            # Write the opening quote
+            _save_cursor()
+            _hide_cursor()
+            row = self._right_panel_row(self.right_cursor)
+            _cursor_to(row, self.right_col_start)
+            sys.stdout.write(bright_green('    "'))
+            _restore_cursor()
+            _show_cursor()
+            sys.stdout.flush()
+
+        # Process token character by character
+        for ch in token:
+            if ch == '\n':
+                # Flush current line and move to next
+                self.right_lines[self.right_cursor] = line_state['line_buf']
+                self.right_colors[self.right_cursor] = bright_green
+                self.right_cursor += 1
+                self._ensure_room()
+                line_state['line_buf'] = '     '
+                line_state['col'] = 5
+                # Position cursor at new line
+                _save_cursor()
+                _hide_cursor()
+                row = self._right_panel_row(self.right_cursor)
+                _cursor_to(row, self.right_col_start)
+                sys.stdout.write(bright_green('     '))
+                _restore_cursor()
+                _show_cursor()
+                sys.stdout.flush()
+                continue
+
+            # Check if word wrapping needed
+            if line_state['col'] >= usable_w and ch == ' ':
+                # Wrap to next line
+                self.right_lines[self.right_cursor] = line_state['line_buf']
+                self.right_colors[self.right_cursor] = bright_green
+                self.right_cursor += 1
+                self._ensure_room()
+                line_state['line_buf'] = '     '
+                line_state['col'] = 5
+                _save_cursor()
+                _hide_cursor()
+                row = self._right_panel_row(self.right_cursor)
+                _cursor_to(row, self.right_col_start)
+                sys.stdout.write(bright_green('     '))
+                _restore_cursor()
+                _show_cursor()
+                sys.stdout.flush()
+                continue
+
+            # Write character
+            line_state['line_buf'] += ch
+            line_state['col'] += 1
+
+            _save_cursor()
+            _hide_cursor()
+            row = self._right_panel_row(self.right_cursor)
+            col = self.right_col_start + line_state['col'] - 1
+            _cursor_to(row, col)
+            sys.stdout.write(bright_green(ch))
+            _restore_cursor()
+            _show_cursor()
+            sys.stdout.flush()
+
+            if SPEED > 0:
+                time.sleep(0.02 * SPEED)
+
+        if is_last:
+            # Write closing quote
+            line_state['line_buf'] += '"'
+            line_state['col'] += 1
+            _save_cursor()
+            _hide_cursor()
+            row = self._right_panel_row(self.right_cursor)
+            col = self.right_col_start + line_state['col'] - 1
+            _cursor_to(row, col)
+            sys.stdout.write(bright_green('"'))
+            _restore_cursor()
+            _show_cursor()
+            sys.stdout.flush()
+
+            self.right_lines[self.right_cursor] = line_state['line_buf']
+            self.right_colors[self.right_cursor] = bright_green
+            self.right_cursor += 1
+            self.add_blank()
+
+        return line_state
+
+
+# The currently active panel (None when not in a contact session)
+_active_panel = None
+
+
+def get_active_panel():
+    """Return the currently active ContactPanel, or None."""
+    return _active_panel
+
+
+def set_active_panel(panel):
+    """Set the active ContactPanel (or None to clear)."""
+    global _active_panel
+    _active_panel = panel
+
 
 def print_separator():
     """Print a thin separator line."""
