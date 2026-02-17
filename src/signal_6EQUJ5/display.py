@@ -961,9 +961,18 @@ class ContactPanel:
         sys.stdout.flush()
 
         prefix_len = len(prompt_prefix)
-        max_visible = self.right_w - prefix_len - 1  # leave 1 char margin
+        # We start at the current cursor position (prompt end)
+        
         buf = []
-        visible_len = 0
+        
+        # Cursor tracking (absolute coordinates)
+        start_row_abs = self._right_panel_row(self.right_cursor)
+        current_abs_row = start_row_abs
+        current_col = self.right_col_start + prefix_len
+        
+        # Configuration
+        indent = 4
+        limit_col = self.right_col_start + self.right_w
 
         fd = sys.stdin.fileno()
         old_settings = termios.tcgetattr(fd)
@@ -972,7 +981,6 @@ class ContactPanel:
             while True:
                 ch = sys.stdin.read(1)
                 if not ch:
-                    # EOF
                     break
                 o = ord(ch)
 
@@ -985,27 +993,57 @@ class ContactPanel:
                     if not buf:
                         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
                         raise EOFError
-                elif o in (127, 8):  # Backspace / Delete
+                elif o in (127, 8):  # Backspace
                     if buf:
                         buf.pop()
-                        if visible_len > 0:
-                            visible_len -= 1
-                            # Move cursor back, overwrite with space, move back
+                        
+                        # Check where we are relative to the start of the *current line's valid area*
+                        # Line 0 starts at: right_col_start + prefix_len
+                        # Line >0 starts at: right_col_start + indent
+                        
+                        line_start_col = self.right_col_start + (prefix_len if current_abs_row == start_row_abs else indent)
+                        
+                        if current_col > line_start_col:
+                            # Standard backspace on same line
                             sys.stdout.write('\b \b')
                             sys.stdout.flush()
-                elif o == 27:  # Escape sequence (arrow keys etc.)
-                    # Read and discard the rest of the escape sequence
+                            current_col -= 1
+                        elif current_abs_row > start_row_abs:
+                            # Wrap back to previous line
+                            current_abs_row -= 1
+                            current_col = limit_col # We are going to the end of prev line
+                            
+                            # Move cursor to the character we want to delete (last char of prev line)
+                            # The cursor is currently at start of current line (indent).
+                            # We want to move to (prev_row, limit_col).
+                            # But wait, limit_col is *after* the last char. 
+                            # The last char is at limit_col - 1.
+                            
+                            # Move to end of prev line
+                            _cursor_to(current_abs_row, limit_col) 
+                            # Now backspace from there
+                            sys.stdout.write('\b \b')
+                            sys.stdout.flush()
+                            current_col -= 1
+
+                elif o == 27:  # Escape sequence
                     next1 = sys.stdin.read(1)
                     if next1 == '[':
-                        sys.stdin.read(1)  # discard
+                        sys.stdin.read(1)
                     continue
-                elif o >= 32:  # Printable character
+                elif o >= 32:  # Printable
                     buf.append(ch)
-                    if visible_len < max_visible:
-                        visible_len += 1
-                        sys.stdout.write(green(ch))
-                        sys.stdout.flush()
-                    # else: character is buffered but not echoed
+                    
+                    # Logic: 
+                    # If we are at the limit, wrap BEFORE printing.
+                    if current_col >= limit_col:
+                        current_abs_row += 1
+                        current_col = self.right_col_start + indent
+                        _cursor_to(current_abs_row, current_col)
+                    
+                    sys.stdout.write(green(ch))
+                    sys.stdout.flush()
+                    current_col += 1
         except (EOFError, KeyboardInterrupt):
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
             return None
