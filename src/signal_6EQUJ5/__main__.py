@@ -207,13 +207,14 @@ def _run_contact_loop(target):
     while True:
         try:
             if panel and panel.active:
-                panel.print_prompt()
+                raw = panel.read_input()
+                if raw is None:
+                    print()
+                    break
             else:
                 sys.stdout.write(display.green("  ◂ "))
                 sys.stdout.flush()
-            raw = input().strip()
-            if panel and panel.active:
-                panel.consume_input(raw)
+                raw = input().strip()
         except (EOFError, KeyboardInterrupt):
             print()
             break

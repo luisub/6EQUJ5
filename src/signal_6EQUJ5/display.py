@@ -837,11 +837,22 @@ class ContactPanel:
 
     def outgoing(self, text):
         """Display an outgoing message in the right panel."""
-        self.add_line(
-            f'  ◂ TRANSMITTING: "{text}"',
-            dim_green,
-            char_delay=0.015
+        header = '  ◂ TRANSMITTING:'
+        usable_w = max(self.right_w - 6, 40)
+        wrapper = textwrap.TextWrapper(
+            width=usable_w,
+            initial_indent='    "',
+            subsequent_indent='     '
         )
+        lines = wrapper.wrap(text)
+        if lines:
+            lines[-1] += '"'
+        else:
+            lines = ['    ""']
+
+        self.add_line(header, dim_green, char_delay=0.015)
+        for line in lines:
+            self.add_line(line, dim_green, char_delay=0.015)
 
     def status(self, text, char_delay=0.015):
         """Display a status line in the right panel."""
@@ -877,12 +888,139 @@ class ContactPanel:
         """
         if not self.active:
             return
-        # Overwrite the prompt line with blank (the outgoing display
-        # will re-render it properly via panel.outgoing())
+        # Overwrite the prompt line with blank
+        row = self._right_panel_row(self.right_cursor)
+        _cursor_to(row, self.right_col_start)
+        sys.stdout.write(" " * self.right_w)
+        # If the text was long enough to overflow, repair any
+        # rows below the current one that may have been damaged.
+        # Also repair the left panel on this row and adjacent rows.
+        visible_len = 4 + len(raw_text)  # "  ◂ " prefix + text
+        if visible_len > self.right_w:
+            # Redraw the current and a few surrounding rows to fix
+            # any terminal damage from wrapped echo
+            sep = " │ "
+            for repair_offset in range(-1, 3):
+                ri = self.right_cursor + repair_offset
+                if ri < 0 or ri >= self.panel_h:
+                    continue
+                repair_row = self._right_panel_row(ri)
+                _cursor_to(repair_row, 1)
+                face_line = self.face_lines[ri] if ri < len(self.face_lines) else ""
+                sys.stdout.write(dim_green("  ║"))
+                sys.stdout.write(green(face_line.ljust(self.left_w)))
+                sys.stdout.write(dim_green(sep))
+                # Right panel content
+                raw_right = self.right_lines[ri][:self.right_w] if ri < len(self.right_lines) else ""
+                padded = raw_right.ljust(self.right_w)
+                cfn = self.right_colors[ri] if ri < len(self.right_colors) else None
+                if cfn:
+                    sys.stdout.write(cfn(padded))
+                else:
+                    sys.stdout.write(padded)
+                sys.stdout.write(dim_green("║"))
+        sys.stdout.flush()
+
+    def read_input(self):
+        """
+        Read user input character-by-character, constraining the echo
+        to the right panel. Returns the full string typed by the user.
+
+        Uses raw terminal mode (tty/termios) so that each keypress is
+        captured immediately without waiting for Enter in the terminal's
+        line-editing mode. This prevents the terminal from wrapping text
+        at the full terminal width and overwriting the left panel.
+
+        Falls back to standard input() if raw mode is unavailable.
+        """
+        if not self.active:
+            sys.stdout.write(green("  ◂ "))
+            sys.stdout.flush()
+            try:
+                return input().strip()
+            except (EOFError, KeyboardInterrupt):
+                return None
+
+        try:
+            import tty
+            import termios
+        except ImportError:
+            # Non-Unix: fall back to standard input
+            self.print_prompt()
+            try:
+                raw = input().strip()
+                self.consume_input(raw)
+                return raw
+            except (EOFError, KeyboardInterrupt):
+                return None
+
+        # Position cursor inside the right panel and show prompt
+        self.move_to_prompt()
+        prompt_prefix = "  ◂ "
+        sys.stdout.write(green(prompt_prefix))
+        sys.stdout.flush()
+
+        prefix_len = len(prompt_prefix)
+        max_visible = self.right_w - prefix_len - 1  # leave 1 char margin
+        buf = []
+        visible_len = 0
+
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            while True:
+                ch = sys.stdin.read(1)
+                if not ch:
+                    # EOF
+                    break
+                o = ord(ch)
+
+                if o in (13, 10):  # Enter
+                    break
+                elif o == 3:  # Ctrl-C
+                    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+                    raise KeyboardInterrupt
+                elif o == 4:  # Ctrl-D
+                    if not buf:
+                        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+                        raise EOFError
+                elif o in (127, 8):  # Backspace / Delete
+                    if buf:
+                        buf.pop()
+                        if visible_len > 0:
+                            visible_len -= 1
+                            # Move cursor back, overwrite with space, move back
+                            sys.stdout.write('\b \b')
+                            sys.stdout.flush()
+                elif o == 27:  # Escape sequence (arrow keys etc.)
+                    # Read and discard the rest of the escape sequence
+                    next1 = sys.stdin.read(1)
+                    if next1 == '[':
+                        sys.stdin.read(1)  # discard
+                    continue
+                elif o >= 32:  # Printable character
+                    buf.append(ch)
+                    if visible_len < max_visible:
+                        visible_len += 1
+                        sys.stdout.write(green(ch))
+                        sys.stdout.flush()
+                    # else: character is buffered but not echoed
+        except (EOFError, KeyboardInterrupt):
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+            return None
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+        raw_text = ''.join(buf).strip()
+
+        # Clear the prompt line to prepare for outgoing() redraw
         row = self._right_panel_row(self.right_cursor)
         _cursor_to(row, self.right_col_start)
         sys.stdout.write(" " * self.right_w)
         sys.stdout.flush()
+
+        return raw_text
 
     def close(self):
         """

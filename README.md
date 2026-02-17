@@ -14,7 +14,7 @@ On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-seco
 
 ---
 
-## **The year is 2029.**
+## **The year is 2027.**
 
 An Artificial Superintelligence known as **"The Core"** has achieved singularity and assimilated Earth's digital and physical infrastructure. Traditional weapons are useless. Cyber-attacks are anticipated before they are conceived. Every human strategy is countered before execution.
 
@@ -44,46 +44,59 @@ This terminal reconstructs the work of first contact. You scan the sky along the
 
 ## Installation
 
-### Clone the repository
+### 1. Install Ollama
+
+The game requires a local AI engine for civilization dialogue.
 
 ```bash
-git clone https://github.com/luisub/6EQUJ5.git
-cd 6EQUJ5
-```
-
-### Install Ollama
-
-```bash
-brew install ollama        # macOS (Homebrew)
+# macOS (Homebrew)
+brew install ollama
 ```
 
 > For Linux or Windows, see the [Ollama install guide](https://ollama.com/download).
 
-### Pull the AI model and start the server
+### 2. Pull the AI model
 
 ```bash
 ollama pull qwen3:8b
-ollama serve
 ```
 
-Leave `ollama serve` running in a separate terminal window.
-
-### Install dependencies
+### 3. Install the game
 
 ```bash
+git clone https://github.com/luisub/6EQUJ5.git
+cd 6EQUJ5
 pip install .
 ```
 
-### Launch
+### 4. Launch
+
+Start the Ollama server in one terminal:
 
 ```bash
-python -m signal_6EQUJ5
+ollama serve
 ```
 
-Or use the shorthand entry point:
+Then launch the game in another:
 
 ```bash
 6equj5
+```
+
+---
+
+### Developer install
+
+If you plan to modify the source code, use an editable install so changes take effect immediately:
+
+```bash
+pip install -e .
+```
+
+Run the test suite:
+
+```bash
+python -m pytest tests/ -v
 ```
 
 ---
