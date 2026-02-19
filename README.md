@@ -1,12 +1,17 @@
 # 6EQUJ5
 
-![6EQUJ5 — Deep Signal Receiver Terminal](docs/6equj5.png)
-
----
-
-... we, descendants of apes... living on a small rock, drifting through dark space, in the vacuum, asking questions bigger than ourselves ... Maybe there is no final answer waiting in the back of the book.
-
-On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-second narrowband signal at 1420 MHz — the hydrogen line — from the direction of Sagittarius. The signal was real. It has never been explained. Its intensity code reads **6EQUJ5**.
+<table>
+  <tr>
+    <td width="55%" valign="top">
+      <img src="docs/6equj5_30s_202602191521_g9eo8.gif" alt="6EQUJ5 — Sora Trailer" width="100%">
+    </td>
+    <td width="45%" valign="top">
+      <br>
+      <p>... we, descendants of apes... living on a small rock, drifting through dark space, in the vacuum, asking questions bigger than ourselves ... Maybe there is no final answer waiting in the back of the book.</p>
+      <p>On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-second narrowband signal at 1420 MHz — the hydrogen line — from the direction of Sagittarius. The signal was real. It has never been explained. Its intensity code reads <strong>6EQUJ5</strong>.</p>
+    </td>
+  </tr>
+</table>
 
 ---
 
