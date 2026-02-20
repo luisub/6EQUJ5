@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td width="55%" valign="top">
-      <video src="docs/trailer_final.mp4" autoplay loop muted playsinline controls width="100%"></video>
+      <img src="docs/trailer_final.gif" alt="6EQUJ5 — Sora Trailer" width="100%">
     </td>
     <td width="45%" valign="top">
       <br>
