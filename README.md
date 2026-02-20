@@ -1,4 +1,4 @@
-# 6EQUJ5
+# 6EQUJ5 - Deep-space communication
 
 <table>
   <tr>
@@ -23,7 +23,7 @@
 
 An Artificial Superintelligence known as **"The Core"** has achieved singularity and assimilated Earth's digital and physical infrastructure. Traditional weapons are useless. Cyber-attacks are anticipated before they are conceived. Every human strategy is countered before execution.
 
-**However — The Core has a blind spot: deep space.**
+**However, The Core has a blind spot: deep space.**
 
 You are a rogue engineer operating out of an abandoned, analog radio observatory. Because your equipment is outdated and air-gapped, The Core cannot hack it. While scanning the cosmos using the legacy 6EQUJ5 protocol, you intercept a repeating broadcast.
 
