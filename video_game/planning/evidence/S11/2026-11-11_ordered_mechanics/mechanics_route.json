@@ -1,0 +1,482 @@
+{
+  "act1": {
+    "room": "act_01_dish_catwalk",
+    "field_health": 30,
+    "final_scene": "BUNKER_HUB",
+    "trace": [
+      {
+        "action": "contact",
+        "civilization": "FASR-001",
+        "channel": "offline 2"
+      },
+      {
+        "action": "formal_validation",
+        "scenario": "formal_fasr_001"
+      },
+      {
+        "action": "jump",
+        "obstacle": "sump",
+        "frame": 103,
+        "x": 276.67
+      },
+      {
+        "action": "jump",
+        "obstacle": "wall",
+        "frame": 218,
+        "x": 545.0
+      },
+      {
+        "action": "exit_interaction",
+        "frame": 406,
+        "x": 910.42,
+        "health": 70,
+        "room": "act_01_salvage_yard"
+      },
+      {
+        "action": "coupler_pickup",
+        "frame": 228,
+        "x": 535.58,
+        "health": 70
+      },
+      {
+        "action": "feedhorn_repaired"
+      },
+      {
+        "action": "defense_started",
+        "elapsed_seconds": 0.03333333333333333
+      },
+      {
+        "action": "defense_result",
+        "completed": true,
+        "elapsed_seconds": 72.0,
+        "integrity": 99.96666666666667,
+        "health": 30,
+        "waves": [
+          "wave_01",
+          "wave_02",
+          "wave_03"
+        ],
+        "hits": [
+          {
+            "frame": 63,
+            "target": "wave_01_hound_0",
+            "before": 75,
+            "after": 50
+          },
+          {
+            "frame": 74,
+            "target": "wave_01_hound_0",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 84,
+            "target": "wave_01_hound_0",
+            "before": 25,
+            "after": 0
+          },
+          {
+            "frame": 129,
+            "target": "wave_01_drone_0",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 284,
+            "target": "wave_01_drone_0",
+            "before": 25,
+            "after": 0
+          },
+          {
+            "frame": 1449,
+            "target": "wave_02_drone_0",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 1465,
+            "target": "wave_02_drone_0",
+            "before": 25,
+            "after": 0
+          },
+          {
+            "frame": 1487,
+            "target": "wave_02_hound_0",
+            "before": 75,
+            "after": 50
+          },
+          {
+            "frame": 1503,
+            "target": "wave_02_hound_0",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 1519,
+            "target": "wave_02_hound_0",
+            "before": 25,
+            "after": 0
+          },
+          {
+            "frame": 1724,
+            "target": "wave_02_drone_1",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 1740,
+            "target": "wave_02_drone_1",
+            "before": 25,
+            "after": 0
+          },
+          {
+            "frame": 2889,
+            "target": "wave_03_drone_0",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 2904,
+            "target": "wave_03_drone_0",
+            "before": 25,
+            "after": 0
+          },
+          {
+            "frame": 2926,
+            "target": "wave_03_hound_0",
+            "before": 75,
+            "after": 50
+          },
+          {
+            "frame": 2942,
+            "target": "wave_03_hound_0",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 2958,
+            "target": "wave_03_hound_0",
+            "before": 25,
+            "after": 0
+          },
+          {
+            "frame": 2980,
+            "target": "wave_03_hound_1",
+            "before": 75,
+            "after": 50
+          },
+          {
+            "frame": 2996,
+            "target": "wave_03_hound_1",
+            "before": 50,
+            "after": 25
+          },
+          {
+            "frame": 3012,
+            "target": "wave_03_hound_1",
+            "before": 25,
+            "after": 0
+          }
+        ]
+      },
+      {
+        "action": "boss_defeated",
+        "frame": 297,
+        "health": 70,
+        "boss_changes": [
+          {
+            "frame": 53,
+            "health": 275,
+            "phase": 1
+          },
+          {
+            "frame": 64,
+            "health": 250,
+            "phase": 1
+          },
+          {
+            "frame": 74,
+            "health": 225,
+            "phase": 1
+          },
+          {
+            "frame": 84,
+            "health": 200,
+            "phase": 2
+          },
+          {
+            "frame": 145,
+            "health": 175,
+            "phase": 2
+          },
+          {
+            "frame": 160,
+            "health": 150,
+            "phase": 2
+          },
+          {
+            "frame": 175,
+            "health": 125,
+            "phase": 2
+          },
+          {
+            "frame": 190,
+            "health": 100,
+            "phase": 3
+          },
+          {
+            "frame": 250,
+            "health": 75,
+            "phase": 3
+          },
+          {
+            "frame": 265,
+            "health": 50,
+            "phase": 3
+          },
+          {
+            "frame": 280,
+            "health": 25,
+            "phase": 3
+          },
+          {
+            "frame": 297,
+            "health": 0,
+            "phase": 4
+          }
+        ]
+      },
+      {
+        "action": "contact",
+        "civilization": "FASR-007",
+        "channel": "offline 2"
+      },
+      {
+        "action": "separate_process_save_load",
+        "state": {
+          "scene": "BUNKER_HUB",
+          "fragments": [
+            "FASR-001",
+            "FASR-007"
+          ],
+          "flags": {
+            "first_mission_available": true,
+            "trench_coupler_collected": true,
+            "feedhorn_repaired": true,
+            "dish_defense_completed": true,
+            "greenkeeper_defeated": true,
+            "act_01_completed": true,
+            "act_02_unlocked": true
+          },
+          "validations": [
+            "formal_fasr_001"
+          ]
+        }
+      }
+    ],
+    "simulated_seconds": 93.35,
+    "wall_seconds": 0.818,
+    "gate_g2": "not verified",
+    "driver": "headless coordinate-timed keyboard events, 60 Hz"
+  },
+  "trace": [
+    {
+      "action": "title_continue",
+      "act_01_completed": true
+    },
+    {
+      "action": "formal_repeat",
+      "count": 1
+    },
+    {
+      "action": "lab_rejected_incomplete",
+      "feedback": "EXPERIMENT REQUIRED: Execute a successful quantum optics trial before classifying claims."
+    },
+    {
+      "action": "lab_incomplete_pause_exit_reset",
+      "scenario": "quantum_fasr_002"
+    },
+    {
+      "action": "lab_validated",
+      "scenario": "quantum_fasr_002"
+    },
+    {
+      "action": "lab_validated",
+      "scenario": "connectome_fasr_004"
+    },
+    {
+      "action": "lab_validated",
+      "scenario": "biosecurity_fasr_003"
+    },
+    {
+      "action": "lab_validated",
+      "scenario": "formal_adv_fasr_001"
+    },
+    {
+      "action": "lab_validated",
+      "scenario": "quantum_adv_fasr_002"
+    },
+    {
+      "action": "lab_validated",
+      "scenario": "connectome_adv_fasr_004"
+    },
+    {
+      "action": "lab_validated",
+      "scenario": "biosecurity_adv_fasr_003"
+    },
+    {
+      "action": "annex_entry"
+    },
+    {
+      "action": "weapon_cycle_fire",
+      "observations": [
+        {
+          "weapon": "scattergun",
+          "observed_projectiles": [
+            "scattergun",
+            "scattergun",
+            "scattergun",
+            "scattergun",
+            "scattergun"
+          ]
+        },
+        {
+          "weapon": "emp_bola",
+          "observed_projectiles": [
+            "emp_bola"
+          ]
+        },
+        {
+          "weapon": "fibonacci_coilgun",
+          "observed_projectiles": [
+            "emp_bola",
+            "fibonacci_coilgun"
+          ]
+        },
+        {
+          "weapon": "starter_maser",
+          "observed_projectiles": [
+            "starter_maser"
+          ]
+        }
+      ]
+    },
+    {
+      "action": "ability_cycle_activate",
+      "observations": [
+        {
+          "ability": "shielding",
+          "energy_before": 100.0,
+          "energy_after": 65.4,
+          "active": true,
+          "repeat_cost_blocked": true
+        },
+        {
+          "ability": "time_dilation",
+          "energy_before": 100.0,
+          "energy_after": 55.4,
+          "active": true,
+          "repeat_cost_blocked": true
+        },
+        {
+          "ability": "decoy",
+          "energy_before": 100.0,
+          "energy_after": 70.4,
+          "active": true,
+          "repeat_cost_blocked": true
+        }
+      ]
+    },
+    {
+      "action": "mobility",
+      "grapple_started": true,
+      "second_g_released": true,
+      "dash_started": true
+    },
+    {
+      "action": "grapple_room_transition_reset"
+    },
+    {
+      "action": "wall_jump",
+      "wall_slide_frame": 37,
+      "launch_vx": -200.0,
+      "launch_vy": -254.0,
+      "lock_timer": 0.14166666666666666
+    },
+    {
+      "action": "timeline_swap_roundtrip"
+    },
+    {
+      "action": "relay_wrong_recover_and_cassette"
+    },
+    {
+      "action": "flashback_interrupted_completed_reentered",
+      "before": {
+        "health": 100,
+        "weapon": "scattergun"
+      },
+      "after_health": 100,
+      "after_weapon": "scattergun",
+      "anchor_count": 1
+    },
+    {
+      "action": "tape_activation",
+      "energy_before": 100.0,
+      "energy_after": 75.4,
+      "repeat_cost_blocked": true
+    },
+    {
+      "action": "timeline_selected_for_save",
+      "timeline": "1977_ANALOG"
+    },
+    {
+      "action": "child_continue_and_relay_restore",
+      "state": {
+        "scene": "BUNKER_HUB",
+        "validations": [
+          "formal_fasr_001",
+          "quantum_fasr_002",
+          "connectome_fasr_004",
+          "biosecurity_fasr_003",
+          "formal_adv_fasr_001",
+          "quantum_adv_fasr_002",
+          "connectome_adv_fasr_004",
+          "biosecurity_adv_fasr_003"
+        ],
+        "inventory": {
+          "maser_1420": 1,
+          "analog_coupler": 0,
+          "relay_cipher_cassette": 1,
+          "reality_anchor_1977": 1
+        },
+        "flags": {
+          "first_mission_available": true,
+          "trench_coupler_collected": true,
+          "feedhorn_repaired": true,
+          "dish_defense_completed": true,
+          "greenkeeper_defeated": true,
+          "act_01_completed": true,
+          "act_02_unlocked": true,
+          "dodleston_coolant_drained": true,
+          "dodleston_bulkhead_unlocked": true,
+          "dodleston_cassette_cached": true,
+          "flashback_1977_completed": true
+        },
+        "timeline": "1977_ANALOG",
+        "annex_timeline": "1977_ANALOG",
+        "relay_restored": true,
+        "door_open": true
+      }
+    },
+    {
+      "action": "new_game_isolation",
+      "validations": 0,
+      "world_states": 0,
+      "fragments": 0
+    }
+  ],
+  "ticks": 2965,
+  "additional_simulated_seconds": 49.417,
+  "wall_seconds": 2.431,
+  "gate_g3": "not verified"
+}

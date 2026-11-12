@@ -1,0 +1,26 @@
+.F...................................................                    [100%]
+=================================== FAILURES ===================================
+________________ test_world_lamps_actor_alpha_and_finite_cache _________________
+
+game = <video_game.engine.state_machine.GameStateMachine object at 0x107b57fb0>
+
+    def test_world_lamps_actor_alpha_and_finite_cache(game):
+        light=FiringLighting(burst())
+        assert len(light.world_glows)==len(light.actor_glows)==FADE_LEVELS+1
+        assert all(surface.get_size()==LIGHT_SIZE for surface in light.world_glows)
+        scene=game.current_scene
+        scene.camera.x=0
+        scene.camera.y=0
+        game.crt.clear((100,100,100))
+        light.render_world(game.crt,scene.camera,[])
+        output=game.crt.render_surface
+>       assert output.get_at((600,200))[:3]==(70,72,78)
+E       assert (71, 73, 78) == (70, 72, 78)
+E         
+E         At index 0 diff: 71 != 70
+E         Use -v to get more diff
+
+video_game/tests/test_firing_lighting.py:65: AssertionError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_firing_lighting.py::test_world_lamps_actor_alpha_and_finite_cache
+1 failed, 52 passed in 1.32s

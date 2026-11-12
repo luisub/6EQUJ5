@@ -1,0 +1,44 @@
+.............FF...........                                               [100%]
+=================================== FAILURES ===================================
+____________ test_bunker_station_prompts_fit_measured_screen_bounds ____________
+
+game = <video_game.engine.state_machine.GameStateMachine object at 0x1124beb70>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x111d65eb0>
+
+    def test_bunker_station_prompts_fit_measured_screen_bounds(game, monkeypatch):
+        from video_game.engine.scenes.bunker import BUNKER_STATIONS
+        game.change_state(config.STATE_BUNKER_HUB)
+        scene = game.current_scene; seen = []
+        original = game.crt.draw_text
+        def record(text, x, y, *args, **kwargs):
+            if y == 102 and (str(text).startswith('[E]') or 'FEEDHORN ONLINE' in str(text)):
+                seen.append((str(text), x, y))
+            return original(text, x, y, *args, **kwargs)
+        monkeypatch.setattr(game.crt, 'draw_text', record)
+        for station in BUNKER_STATIONS.values():
+            scene.mateo_x = station['center_x']; game.render()
+        scene.mateo_x = BUNKER_STATIONS['repair']['center_x']
+        game.campaign.state.inventory['analog_coupler'] = 1; game.render()
+        game.campaign.state.room_flags['feedhorn_repaired'] = True; game.render()
+        assert len(seen) == 6
+        assert any('MISSING ANALOG COUPLER' in item[0] for item in seen)
+>       assert any('INSTALL ANALOG COUPLER' in item[0] for item in seen)
+E       assert False
+E        +  where False = any(<generator object test_bunker_station_prompts_fit_measured_screen_bounds.<locals>.<genexpr> at 0x111f01cb0>)
+
+video_game/tests/test_ui_readability.py:219: AssertionError
+_____________ test_boss_exposure_label_has_own_line_and_fits_panel _____________
+
+game = <video_game.engine.state_machine.GameStateMachine object at 0x111fe2990>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x111f86a50>
+
+    def test_boss_exposure_label_has_own_line_and_fits_panel(game, monkeypatch):
+>       game.change_state(config.STATE_BOSS_ARENA)
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'video_game.engine.config' has no attribute 'STATE_BOSS_ARENA'. Did you mean: 'STATE_BOSS_BOUNTY'?
+
+video_game/tests/test_ui_readability.py:226: AttributeError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_ui_readability.py::test_bunker_station_prompts_fit_measured_screen_bounds
+FAILED video_game/tests/test_ui_readability.py::test_boss_exposure_label_has_own_line_and_fits_panel
+2 failed, 24 passed in 4.14s

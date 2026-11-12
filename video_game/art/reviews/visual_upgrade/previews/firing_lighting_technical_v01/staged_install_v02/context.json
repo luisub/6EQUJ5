@@ -1,0 +1,79 @@
+{
+  "argv": [
+    "video_game/art/reviews/visual_upgrade/previews/firing_lighting_technical_v01/staged_tools_v02/capture.py",
+    "--output-dir",
+    "video_game/art/reviews/visual_upgrade/previews/firing_lighting_technical_v01/staged_install_v02"
+  ],
+  "cwd": "/Users/nzlab-la/Desktop/Github/6EQUJ5",
+  "temporary_root": "/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-flash-staged-5sa4aen0",
+  "environment": {
+    "SDL_VIDEODRIVER": "dummy",
+    "SDL_AUDIODRIVER": "dummy",
+    "PYTHONPATH": "."
+  },
+  "transaction": {
+    "status": "promoted",
+    "archive": "/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-flash-staged-5sa4aen0/archive/2026-11-11_F03/e305ac0751c4412f88ab2053d9ce6a1f",
+    "manifest": {
+      "schema_version": 1,
+      "room_id": "act_01_approach",
+      "file": "flash_64x32.png",
+      "sha256": "027df21d8bb8d6d21f1421ad7bb50845e941a6907de2af430571fd95374ef7e5",
+      "dimensions": [
+        64,
+        32
+      ],
+      "pivot_right": [
+        12,
+        16
+      ],
+      "pivot_left": [
+        51,
+        16
+      ]
+    }
+  },
+  "source": "video_game/art/reviews/visual_upgrade/previews/firing_flash_registration_v01/cell_v01/firing_flash_64x32.png",
+  "installed_sha256": "027df21d8bb8d6d21f1421ad7bb50845e941a6907de2af430571fd95374ef7e5",
+  "records": [
+    {
+      "facing": "right",
+      "phase": "before",
+      "file": "right_before_native_960.png",
+      "sha256": "cde844a6bba13fa770f9fbe191cb88f870750a1495abb16e1b433d60bb6ddb14",
+      "flash_positions": []
+    },
+    {
+      "facing": "right",
+      "phase": "shot",
+      "file": "right_shot_native_960.png",
+      "sha256": "69f587798bb83afdde486425f0e996091f88d26bf59d625860477c2db348cf9b",
+      "flash_positions": [
+        [
+          423.31944444444446,
+          220.0
+        ]
+      ]
+    },
+    {
+      "facing": "left",
+      "phase": "before",
+      "file": "left_before_native_960.png",
+      "sha256": "09613aaaa3ef321994d6d45804ff17f81cab75d244de83c3ce05a30f0af8776f",
+      "flash_positions": []
+    },
+    {
+      "facing": "left",
+      "phase": "shot",
+      "file": "left_shot_native_960.png",
+      "sha256": "10962120889538fbd1825d3e51e1a5021ef7894227a6d336e072d236f2d67532",
+      "flash_positions": [
+        [
+          392.68055555555554,
+          220.0
+        ]
+      ]
+    }
+  ],
+  "limitations": "Dummy SDL, direct x=400 placement, camera (160,18), enemies removed, physical turn and J tap; not playback or native-window acceptance."
+}

@@ -446,9 +446,14 @@ class ConversationHistory:
 _ollama_available = None  # cached result
 
 
-def is_available():
+def is_available(client=None):
     """
     Check if Ollama is installed, running, and has the model.
+
+    Parameters
+    ----------
+    client : optional
+        Custom or mock client instance providing .list().
 
     Returns
     -------
@@ -456,6 +461,23 @@ def is_available():
         True if AI engine is ready for use.
     """
     global _ollama_available
+
+    if client is not None:
+        try:
+            models = client.list()
+            model_names = []
+            if hasattr(models, 'models'):
+                model_names = [m.model for m in models.models]
+            elif isinstance(models, dict) and 'models' in models:
+                model_names = [m.get('model', m.get('name', ''))
+                               for m in models['models']]
+            base_name = MODEL_NAME.split(':')[0]
+            return any(
+                MODEL_NAME in name or base_name in name
+                for name in model_names
+            )
+        except Exception:
+            return False
 
     if _ollama_available is not None:
         return _ollama_available
@@ -548,7 +570,7 @@ def get_status():
 # ═══════════════════════════════════════════════════════
 
 
-def get_ai_response_stream(user_message, history):
+def get_ai_response_stream(user_message, history, client=None, timeout=None, re_raise_errors=False):
     """
     Get a streaming response from the AI model.
 
@@ -560,6 +582,12 @@ def get_ai_response_stream(user_message, history):
         The operator's message.
     history : ConversationHistory
         Full conversation context.
+    client : optional
+        Custom or mock client instance providing .chat().
+    timeout : float, optional
+        Request timeout in seconds.
+    re_raise_errors : bool, optional
+        If True, re-raises any exception occurring mid-stream. Default is False.
 
     Yields
     ------
@@ -571,27 +599,38 @@ def get_ai_response_stream(user_message, history):
     RuntimeError
         If Ollama is not available.
     """
-    if not is_available():
+    if not is_available(client=client):
         raise RuntimeError("AI engine not available")
-
-    import ollama as _ollama
 
     history.add_user_message(user_message)
 
     full_response = ""
 
     try:
-        stream = _ollama.chat(
-            model=MODEL_NAME,
-            messages=history.get_messages(),
-            stream=True,
-            options={
+        if client is not None:
+            chat_fn = client.chat
+        else:
+            import ollama as _ollama
+            chat_fn = _ollama.chat
+
+        chat_kwargs = {
+            "model": MODEL_NAME,
+            "messages": history.get_messages(),
+            "stream": True,
+            "options": {
                 "temperature": 0.8,
                 "top_p": 0.9,
                 "num_predict": 512,
             },
-            think=False,
-        )
+            "think": False,
+        }
+        if timeout is not None:
+            try:
+                stream = chat_fn(**chat_kwargs, timeout=timeout)
+            except TypeError:
+                stream = chat_fn(**chat_kwargs)
+        else:
+            stream = chat_fn(**chat_kwargs)
 
         for chunk in stream:
             token = chunk.get("message", {}).get("content", "")
@@ -600,7 +639,7 @@ def get_ai_response_stream(user_message, history):
                 yield token
 
     except Exception:
-        if not full_response:
+        if re_raise_errors or not full_response:
             raise
 
     # Record the complete response in history
@@ -609,7 +648,7 @@ def get_ai_response_stream(user_message, history):
         history.add_assistant_message(cleaned)
 
 
-def get_ai_response_sync(user_message, history):
+def get_ai_response_sync(user_message, history, client=None, timeout=None):
     """
     Get a complete (non-streaming) response from the AI model.
 
@@ -619,6 +658,10 @@ def get_ai_response_sync(user_message, history):
         The operator's message.
     history : ConversationHistory
         Full conversation context.
+    client : optional
+        Custom or mock client instance providing .chat().
+    timeout : float, optional
+        Request timeout in seconds.
 
     Returns
     -------
@@ -630,7 +673,7 @@ def get_ai_response_sync(user_message, history):
     RuntimeError
         If Ollama is not available.
     """
-    tokens = list(get_ai_response_stream(user_message, history))
+    tokens = list(get_ai_response_stream(user_message, history, client=client, timeout=timeout))
     return _clean_response("".join(tokens))
 
 

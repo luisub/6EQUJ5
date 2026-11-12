@@ -1,0 +1,25 @@
+{
+  "description": "Pre-edit recovery copies; verify original hash before modification",
+  "files": [
+    {
+      "original": "video_game/planning/ART_PRODUCTION.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_v01/ART_PRODUCTION.md",
+      "sha256": "de3c1572343afc6702534f7685b1196d5cbca6b310bcc874e0915e95b5827ef4"
+    },
+    {
+      "original": "video_game/planning/CURRENT_STATE.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_v01/CURRENT_STATE.md",
+      "sha256": "ca5850122c84586c4356231c23e4b1d81035bc4abe1bc1f84f6ce674799d7c5a"
+    },
+    {
+      "original": "video_game/planning/TODO_ROADMAP.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_v01/TODO_ROADMAP.md",
+      "sha256": "a8ba2093211d1fe29230598c4739819d39e7ebf41f5df0ec69da6c4f7360e280"
+    },
+    {
+      "original": "video_game/planning/PROGRESS_LOG.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_v01/PROGRESS_LOG.md",
+      "sha256": "e86cff7fef00cd3ce5556a2913a03d22e4e45c8702692719e37b6dd9d5702fe8"
+    }
+  ]
+}

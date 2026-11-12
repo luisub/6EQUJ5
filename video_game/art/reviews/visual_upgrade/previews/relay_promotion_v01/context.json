@@ -1,0 +1,71 @@
+{
+  "result": {
+    "status": "promoted",
+    "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/relay_promotion_v01/archive/2026-11-11_F03/5bc551056174441e84e17e02228e4a3d",
+    "manifest": {
+      "schema_version": 3,
+      "kind": "opaque_backdrop",
+      "room_id": "act_04_dodleston_relay",
+      "density": 2,
+      "viewport": [
+        480,
+        270
+      ],
+      "world": [
+        480,
+        288
+      ],
+      "backdrop": {
+        "id": "backdrop",
+        "file": "backdrop_960x576.png",
+        "dimensions": [
+          960,
+          576
+        ],
+        "alpha": "opaque",
+        "origin": [
+          0,
+          0
+        ],
+        "rounding": "logical_nearest",
+        "repeat": false,
+        "sha256": "19d259d03fbe10784218fd6d67aca01298ae812f0795b63cec675b8e551f1133"
+      }
+    }
+  },
+  "master": "video_game/art/source/visual_upgrade/candidates/relay_shared_background_v02/source/relay_shared_background_generated_master.png",
+  "master_sha256": "08b2b877fbd57b0c62ead1b717127bb33e67ff6757b3e247647f0630275d05af",
+  "source": "video_game/art/reviews/visual_upgrade/previews/relay_registration_director_v02/relay_shared_background_960x576.png",
+  "source_sha256": "19d259d03fbe10784218fd6d67aca01298ae812f0795b63cec675b8e551f1133",
+  "manifest_sha256": "e87b485775f342c319a2a979f73a63f49df9298b574bd5e83384bc3fd05c69a2",
+  "existing_environment_sha256": {
+    "environments/mandela_annex_v1/manifest.json": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd",
+    "environments/mandela_annex_v1/backdrop_960x576.png": "b12ba8f554e5cdb9f237a9f1266ed3bae06c10c480272a3c605decf50269dd4a",
+    "environments/ohio_dish_v1/world_1280x576.png": "1bd2262000bf17f87da1c13b1c865796416b061006b82c673b9beadc3303b8cc",
+    "environments/ohio_dish_v1/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "environments/ohio_dish_v1/manifest.json": "49590a7764a6d4d3f5c414b493c7770e8c6292159b352dc5fc295fd9575c271c",
+    "environments/ohio_arena_v1/world_1280x576.png": "b5f6188a37c5e042d8c4f591692b49bf4728f022d5a83ad2375287c8f565b7b7",
+    "environments/ohio_arena_v1/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "environments/ohio_arena_v1/manifest.json": "63f5a89c64d317babebe069151f02bf432e18d1a4ca21cd0ef895477ad6cb215",
+    "environments/ohio_approach_v1/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "environments/ohio_approach_v1/world_architecture_1920x576.png": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3",
+    "environments/ohio_approach_v1/manifest.json": "1c3e13fa91b8cd013923f064cc471278a5f3d76b2954d0118b257a1c52890fe5",
+    "environments/ohio/weather_ohio_mist.png": "63fad0e9bf09499d6bec0f5b26b1c340b655ed77330f5946f816df2b00d98840",
+    "environments/ohio/bg_ohio_treeline_fence.png": "790e132854962cd149ed4c537fef327241b58412b273a122107673a95b986e78",
+    "environments/ohio/bg_ohio_dish_lattice.png": "85caf74459e4e71b5bc7b3b88fb430da055a3f8025f6beec396206d8e4297c14",
+    "environments/ohio/manifest.json": "6af8aecaca483348e79106470ea4729c125d6555fffc4d80f780e530dab65d21",
+    "environments/ohio/tileset_ohio_16x16.png": "4c2afe5f03ef87b869cf8d88df536d8fa772438471da888220ff3b378b397e8d",
+    "environments/ohio/bg_ohio_sky_twilight.png": "11cc9b9f31499faa44a78dea4bbd6f284e93194dfa2cca4c7a36fa6ca53a39c7",
+    "environments/ohio_bunker_v1/backdrop_960x540.png": "cc9749e5373fbf97122426daf7e418aa21f77655e14077e399112c1256b74e40",
+    "environments/ohio_bunker_v1/manifest.json": "e15c7c03fb61f6b224de927d8b9ef98760a346755e0eccaecd40dd2c141b106c",
+    "environments/ohio_salvage_v1/world_1280x576.png": "023b441b8c784b78277722926b6c242243a8f195d8ad6cc2f76937cdae8f50c6",
+    "environments/ohio_salvage_v1/wagon_168x76_rgba.png": "ac8fce6cdd8edc41fca57a180c4faed0cbf1524b9fef6aea74d1d288a8e0d3ee",
+    "environments/ohio_salvage_v1/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "environments/ohio_salvage_v1/manifest.json": "c41bbbc4c816037b683c5cc6c18ea7593e9874a24932a3ee75f0819261ecabde",
+    "environments/ohio_approach_v2/world_1920x576.png": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3",
+    "environments/ohio_approach_v2/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "environments/ohio_approach_v2/equipment_112x64_rgba.png": "0c8431ad457f575f50288811b1468d5c3b26f6f31668cea510eab2d67aee3476",
+    "environments/ohio_approach_v2/manifest.json": "59f47e63b38a385c81aecf5740827020b907137b1fe86e7df8b5880ca29db207"
+  },
+  "limits": "No live-reader guarantee, human play, native-window or art-gate acceptance."
+}

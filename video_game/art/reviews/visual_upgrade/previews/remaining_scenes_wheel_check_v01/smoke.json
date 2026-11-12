@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/opt/anaconda3/envs/6equj5_game/bin/python",
+    "-I",
+    "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/remaining_scenes_wheel_tools_v01/smoke_installed.py",
+    "/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-remaining-wheel-xx6woajh/installed",
+    "[\"ohio_approach_v1\", \"ohio_approach_v2\", \"ohio_salvage_v1\", \"ohio_dish_v1\", \"ohio_arena_v1\", \"ohio_bunker_v1\", \"mandela_annex_v1\", \"dodleston_relay_v1\", \"ehman_1977_v1\"]"
+  ],
+  "cwd": "/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-remaining-wheel-xx6woajh",
+  "exit_code": 0,
+  "environment": {
+    "SDL_VIDEODRIVER": "dummy",
+    "SDL_AUDIODRIVER": "dummy",
+    "PYGAME_HIDE_SUPPORT_PROMPT": "1",
+    "SIX_GAME_SAVE_DIR": "/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-remaining-wheel-xx6woajh/save",
+    "TMPDIR": "/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-remaining-wheel-xx6woajh",
+    "PYTHONPATH": null,
+    "PYTHONNOUSERSITE": "1"
+  }
+}

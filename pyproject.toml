@@ -22,12 +22,25 @@ classifiers = [
 
 [project.scripts]
 6equj5 = "signal_6EQUJ5.__main__:main"
+6equj5-game = "video_game.main:main"
 
 [project.optional-dependencies]
 ai = ["ollama>=0.4"]  # kept for backward compatibility
+game = [
+    "pygame-ce>=2.5.0",
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+]
+
+[tool.setuptools]
+include-package-data = false
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["src", "."]
+include = ["signal_6EQUJ5*", "video_game*"]
+exclude = ["video_game.tests*", "video_game._trash*", "video_game._temp*", "video_game.planning*", "video_game.art*"]
+namespaces = false
 
 [tool.setuptools.package-data]
 signal_6EQUJ5 = ["data/*.txt", "data/**/*.txt"]
+video_game = ["assets/**/*", "data/**/*"]

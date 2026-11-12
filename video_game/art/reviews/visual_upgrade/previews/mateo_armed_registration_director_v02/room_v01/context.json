@@ -1,0 +1,164 @@
+{
+  "cell": "video_game/art/reviews/visual_upgrade/previews/mateo_armed_registration_director_v02/cell_v01/mateo_olive_recoil_60x80.png",
+  "cell_sha256": "b6855a6638192ff496e7fb534c84718ffee7257e9d666840dabf89cec9b490ab",
+  "asset_root": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/assets",
+  "camera": [
+    0.0,
+    18.0
+  ],
+  "player_rect": [
+    48,
+    208,
+    16,
+    32
+  ],
+  "fixture": "dummy SDL, temporary save, new game, direct field, 30 fixed updates, recoil state and facing directly set; visual override only for candidate after actual installed background and before usual effects/HUD",
+  "target_note": "points use round((world-camera)*2); projectile logical rendering may round at a different boundary; no projectile spawned in this still.",
+  "limits": "not a real firing trace, animation playback, normal input, native window, human play, performance or art-gate acceptance; runtime gameplay anchors/collider unchanged.",
+  "samples": [
+    {
+      "facing": "right",
+      "mode": "original",
+      "native": "original_right_native_960.png",
+      "native_sha256": "7b8973cd012628bb2e280054827037e07eb8d2fe5d07c142a5a430e55a692f44",
+      "review": "original_right_review_1920.png",
+      "review_sha256": "0bd2b69330a180c0849f11ace173c66cbbf3946270e49ef5e1d2a182c0c55d31",
+      "targets": "original_right_targets_native_960.png",
+      "targets_sha256": "9bbee9be7825b9303c2cfe3f1c4cf225055a7b143f734cf40c9878c525ae7ab7",
+      "points_native_direct": {
+        "foot": [
+          112,
+          444
+        ],
+        "hand": [
+          128,
+          402
+        ],
+        "muzzle": [
+          140,
+          399
+        ]
+      },
+      "foot_world": [
+        56.0,
+        240.0
+      ],
+      "hand_world": [
+        64.0,
+        219.0
+      ],
+      "muzzle_world": [
+        70.0,
+        217.5
+      ]
+    },
+    {
+      "facing": "right",
+      "mode": "candidate",
+      "native": "candidate_right_native_960.png",
+      "native_sha256": "88399f53e5a65bd870777c91c5461091b72f302ebe8d3aa29f053cad74b5e382",
+      "review": "candidate_right_review_1920.png",
+      "review_sha256": "ae8d6209553728fb40f0f438964a9bfacc312712dc020fe37d0b30ce0fc8e7b8",
+      "targets": "candidate_right_targets_native_960.png",
+      "targets_sha256": "85c1df87a588339cdbd9f5737c9d651b15fa555a62d25da96038e95e56275b4d",
+      "points_native_direct": {
+        "foot": [
+          112,
+          444
+        ],
+        "hand": [
+          128,
+          402
+        ],
+        "muzzle": [
+          140,
+          399
+        ]
+      },
+      "foot_world": [
+        56.0,
+        240.0
+      ],
+      "hand_world": [
+        64.0,
+        219.0
+      ],
+      "muzzle_world": [
+        70.0,
+        217.5
+      ]
+    },
+    {
+      "facing": "left",
+      "mode": "original",
+      "native": "original_left_native_960.png",
+      "native_sha256": "0e9b51d52a7691cbe21a076b506045e07767fcb60ecf368db0d83905e2f4afea",
+      "review": "original_left_review_1920.png",
+      "review_sha256": "3b9694159e84557dc48025fdaeb71a57d203953f26532a9c74a18b5c9372cb5b",
+      "targets": "original_left_targets_native_960.png",
+      "targets_sha256": "c6bc6a23105fc4dc24beff2b7ba6b2df380b1f17f9859dd148816dd87b2e7097",
+      "points_native_direct": {
+        "foot": [
+          112,
+          444
+        ],
+        "hand": [
+          96,
+          402
+        ],
+        "muzzle": [
+          84,
+          399
+        ]
+      },
+      "foot_world": [
+        56.0,
+        240.0
+      ],
+      "hand_world": [
+        48.0,
+        219.0
+      ],
+      "muzzle_world": [
+        42.0,
+        217.5
+      ]
+    },
+    {
+      "facing": "left",
+      "mode": "candidate",
+      "native": "candidate_left_native_960.png",
+      "native_sha256": "de726735665d8d730448f2a1e53ae4ae0dd1fd3c0d6f0587c20290b5b7a446d0",
+      "review": "candidate_left_review_1920.png",
+      "review_sha256": "d35a528b6787272247fc2a2255840ddcd4499c1db8aaca9692db6dc4c88e8eca",
+      "targets": "candidate_left_targets_native_960.png",
+      "targets_sha256": "055dad870ecc22f5382692731f2990278acf261bb1c683b25877dee9b7d0d2d5",
+      "points_native_direct": {
+        "foot": [
+          112,
+          444
+        ],
+        "hand": [
+          96,
+          402
+        ],
+        "muzzle": [
+          84,
+          399
+        ]
+      },
+      "foot_world": [
+        56.0,
+        240.0
+      ],
+      "hand_world": [
+        48.0,
+        219.0
+      ],
+      "muzzle_world": [
+        42.0,
+        217.5
+      ]
+    }
+  ]
+}

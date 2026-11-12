@@ -1,0 +1,115 @@
+{
+  "family": "ohio_dish_v1",
+  "driver": "dummy",
+  "fixture": "copied asset root; staged family and saves in temporary directory; direct entry, 30 ticks at each spawn and fixed camera",
+  "sources": [
+    {
+      "path": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+      "sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e"
+    },
+    {
+      "path": "video_game/art/reviews/visual_upgrade/previews/dish_registration_director_v01/capture_v01/dish_world_layer_1280x576.png",
+      "sha256": "1bd2262000bf17f87da1c13b1c865796416b061006b82c673b9beadc3303b8cc"
+    }
+  ],
+  "promotion_status": "promoted",
+  "captures": [
+    {
+      "camera": [
+        0,
+        0
+      ],
+      "spawn": "catwalk_start",
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x0_y0_960.png",
+      "sha256": "90e2faf8b1cb9939a637db3e556f3f0d80340d44319c392363cfcb37e0c008d0",
+      "review": "camera_x0_y0_1920.png"
+    },
+    {
+      "camera": [
+        0,
+        18
+      ],
+      "spawn": "catwalk_start",
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x0_y18_960.png",
+      "sha256": "9567b9daeec0cc20c3934be976df7a31a8385e931899182ade26a4e794f5b7bd",
+      "review": "camera_x0_y18_1920.png"
+    },
+    {
+      "camera": [
+        80,
+        0
+      ],
+      "spawn": "catwalk_feedhorn",
+      "player_rect": [
+        288,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x80_y0_960.png",
+      "sha256": "4d489a31b3eb93c13279179582ca6e47098983e5564cc57f2e0801347c0e843f",
+      "review": "camera_x80_y0_1920.png"
+    },
+    {
+      "camera": [
+        80,
+        18
+      ],
+      "spawn": "catwalk_feedhorn",
+      "player_rect": [
+        288,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x80_y18_960.png",
+      "sha256": "a3b3fc8eca03cc3b27c767ddbf5da6cea7d958b380ace3160e7f4a0b0a386d15",
+      "review": "camera_x80_y18_1920.png"
+    },
+    {
+      "camera": [
+        160,
+        0
+      ],
+      "spawn": "catwalk_feedhorn",
+      "player_rect": [
+        288,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x160_y0_960.png",
+      "sha256": "d73eb157cc22557dad54ab0320295439a1e653f9c36f88f2550b3d14a7b10075",
+      "review": "camera_x160_y0_1920.png"
+    },
+    {
+      "camera": [
+        160,
+        18
+      ],
+      "spawn": "catwalk_feedhorn",
+      "player_rect": [
+        288,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x160_y18_960.png",
+      "sha256": "9d8706438d8949d758a757d8c412657d36104a968cc762f78e7423bdd77d7790",
+      "review": "camera_x160_y18_1920.png"
+    }
+  ],
+  "limitations": "static dummy SDL captures only; no production promotion, native playback, normal-play, performance or art gate claim"
+}

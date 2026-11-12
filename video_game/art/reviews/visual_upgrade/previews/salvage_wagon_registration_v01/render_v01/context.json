@@ -1,0 +1,277 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/salvage_wagon_v01/source/salvage_wagon_generated_master.png",
+  "source_sha256": "6cd02fdcf2a7ba619fe0fd9001a8632910163383f6e06a8397b53aea7f39548a",
+  "source_size": [
+    1862,
+    845
+  ],
+  "threshold_for_crop_only": 127,
+  "source_strong_bbox_exclusive": [
+    106,
+    194,
+    1756,
+    767
+  ],
+  "crop_box_exclusive": [
+    98,
+    186,
+    1764,
+    769
+  ],
+  "crop_size": [
+    1666,
+    583
+  ],
+  "excluded_nonzero_alpha": 518,
+  "excluded_alpha_over_127": 0,
+  "resampling": "nearest neighbor proportional 158x55, integer rounding; no alpha thresholding/painting",
+  "cell": "wagon_168x76_rgba.png",
+  "cell_sha256": "ac8fce6cdd8edc41fca57a180c4faed0cbf1524b9fef6aea74d1d288a8e0d3ee",
+  "cell_size": [
+    168,
+    76
+  ],
+  "sampled_in_cell": [
+    5,
+    21,
+    158,
+    55
+  ],
+  "nonzero_bbox_exclusive": [
+    5,
+    21,
+    163,
+    76
+  ],
+  "strong_bbox_exclusive": [
+    6,
+    22,
+    162,
+    76
+  ],
+  "bottom_row_75": "substantive alpha present",
+  "native_world_anchor": [
+    392,
+    404
+  ],
+  "world_rect": [
+    196,
+    202,
+    84,
+    38
+  ],
+  "initial_collision_query": {
+    "solid": false,
+    "one_way": false,
+    "hazard": false,
+    "cover": false,
+    "tiles": []
+  },
+  "far_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+  "yard_sha256": "023b441b8c784b78277722926b6c242243a8f195d8ad6cc2f76937cdae8f50c6",
+  "far_use": "interim fixture, not approved yard sky",
+  "mattes": [
+    {
+      "file": "wagon_light_matte_4x.png",
+      "sha256": "a22aee254fe8170793b235da96a0d439997e1c6710ead72ca5657da0659cf1a0",
+      "color": [
+        224,
+        220,
+        206,
+        255
+      ]
+    },
+    {
+      "file": "wagon_dark_matte_4x.png",
+      "sha256": "94c3dabcd6295616978dac9f60a6f486d305604a5cb60539a0ebfdbac12bcb7a",
+      "color": [
+        12,
+        18,
+        28,
+        255
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "health": 100,
+      "coupler_collected": false,
+      "native": "camera_x0_y18_native_960.png",
+      "native_sha256": "4f8a3253f563d786fe17ca797057e39f6ab0ef30bf59486347dbed4bd76aae51",
+      "review": "camera_x0_y18_review_1920.png",
+      "review_sha256": "b3b7c8b925a1688c9b2eaddbed346d1d7f1274d05f44250a1547f50609dee192"
+    },
+    {
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "health": 100,
+      "coupler_collected": false,
+      "native": "camera_x80_y18_native_960.png",
+      "native_sha256": "722e7464097bdb695026ab65a6062d3d3efd01a3f372512e3178a2812ccbd8fc",
+      "review": "camera_x80_y18_review_1920.png",
+      "review_sha256": "6cd734bd92c1309456c38a1410f52ae42c5b24f51a77d7e861257f963951146b"
+    },
+    {
+      "camera": [
+        160,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "health": 100,
+      "coupler_collected": false,
+      "native": "camera_x160_y18_native_960.png",
+      "native_sha256": "1abd7e0205b663a2a4c724dfa26019b4aed02fe92a4225b5d154293fdcf27133",
+      "review": "camera_x160_y18_review_1920.png",
+      "review_sha256": "308111b7f0366740db899bb80d5e46e93bd543f86e28de4a4d345d00630482ba"
+    }
+  ],
+  "crossing": [
+    {
+      "tag": "left",
+      "sample": {
+        "camera": [
+          80,
+          18
+        ],
+        "player_rect": [
+          196,
+          208,
+          16,
+          32
+        ],
+        "grounded": true,
+        "health": 100,
+        "coupler_collected": false,
+        "native": "crossing_left_native_960.png",
+        "native_sha256": "e27a71c5e85b4c43092a5b795fb48c1271df2e236b69c920caf3cc604cf400be",
+        "review": "crossing_left_review_1920.png",
+        "review_sha256": "3366ca80b315c7368d4806c136313f0331302b3580c66248a6a00536d170dfa1"
+      }
+    },
+    {
+      "tag": "225",
+      "steps": 23,
+      "reached": true,
+      "sample": {
+        "camera": [
+          80,
+          18
+        ],
+        "player_rect": [
+          226,
+          208,
+          16,
+          32
+        ],
+        "grounded": true,
+        "health": 100,
+        "coupler_collected": false,
+        "native": "crossing_225_native_960.png",
+        "native_sha256": "8d01abf2aee352d5042cfbd2f0c55363a25d90d30c7bf8c2779486c71cc6d96e",
+        "review": "crossing_225_review_1920.png",
+        "review_sha256": "a2dc6f5630fb0389d3f1495c0251b2fa4a3059dfee4fc2fc493f62068782b432"
+      }
+    },
+    {
+      "tag": "250",
+      "steps": 11,
+      "reached": true,
+      "sample": {
+        "camera": [
+          80,
+          18
+        ],
+        "player_rect": [
+          251,
+          208,
+          16,
+          32
+        ],
+        "grounded": true,
+        "health": 100,
+        "coupler_collected": false,
+        "native": "crossing_250_native_960.png",
+        "native_sha256": "376b3e5fb0125045fc0f5fe2e0b71755dbf6643cadea358b07c7e899df69cb0b",
+        "review": "crossing_250_review_1920.png",
+        "review_sha256": "ab869700da25b2cb49ed2366f8953d67116a9677418d88eb1df6ba74efce4ad5"
+      }
+    },
+    {
+      "tag": "275",
+      "steps": 80,
+      "reached": false,
+      "sample": {
+        "camera": [
+          80,
+          18
+        ],
+        "player_rect": [
+          203,
+          208,
+          16,
+          32
+        ],
+        "grounded": true,
+        "health": 75,
+        "coupler_collected": false,
+        "native": "crossing_275_native_960.png",
+        "native_sha256": "d3c0bb31f043784ccb465a20b448cd3749037f5ae3d965e630288912026a50f1",
+        "review": "crossing_275_review_1920.png",
+        "review_sha256": "5f573cbfc90a06bfab04dd63f6ac8cba5e5b98bbf0086c773ba1ee358608d9be"
+      }
+    },
+    {
+      "tag": "290",
+      "steps": 80,
+      "reached": false,
+      "sample": {
+        "camera": [
+          80,
+          18
+        ],
+        "player_rect": [
+          174,
+          208,
+          16,
+          32
+        ],
+        "grounded": true,
+        "health": 50,
+        "coupler_collected": false,
+        "native": "crossing_290_native_960.png",
+        "native_sha256": "2db4507c434573701a8bd2d0316ea4f14014d3d401813189fe6cdff8c5dcedec",
+        "review": "crossing_290_review_1920.png",
+        "review_sha256": "bd41855bf60a46ece714cc524ef643727fd63c233663d4a9ea6b012599af842b"
+      }
+    }
+  ],
+  "placement": "native far then salvage v02 then wagon, followed by actual room tiles/objects/actors/weather/HUD",
+  "fixture": "dummy display/audio, temporary save, direct yard_midpoint scene entry, 30 ticks to settle; camera forced for stills; bounded crossing uses actual A/D key events and physics after fixture entry",
+  "limits": "static fixture and short scripted input, not full normal playthrough, native display, visual/motion/cover fairness or art acceptance"
+}

@@ -1,0 +1,16 @@
+{
+  "purpose": "Byte-compared pre-edit recovery copies for coilgun interruption fix",
+  "files": [
+    {
+      "original": "video_game/engine/weapons.py",
+      "backup": "weapons.py",
+      "sha256": "7dd1a136297b904dbd4d0aa0657d72b60a7bf56a0c9e7844297d41b0008c9255"
+    },
+    {
+      "original": "video_game/tests/test_combat_assist.py",
+      "backup": "test_combat_assist.py.bak",
+      "sha256": "59050bd67f1d1eb6bc022769f69d2500b830dd7f329c3d72b72db69c27be875f"
+    }
+  ],
+  "relocation_note": "Recovery bytes retained unchanged; .bak suffix prevents source-header audit from treating the archived snapshot as an active Python module."
+}

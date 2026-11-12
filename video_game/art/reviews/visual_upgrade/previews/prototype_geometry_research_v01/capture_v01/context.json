@@ -1,0 +1,543 @@
+{
+  "outputs": [
+    {
+      "file": "bunker_background_flat_960.png",
+      "sha256": "408bc7bf0e61f6bfbeea852c7e21139d4cdd7cc659302a2760e77612d5594977",
+      "state": "six real bunker layers flattened; no actor/HUD"
+    },
+    {
+      "file": "bunker_station_bounds_960.png",
+      "sha256": "499e9ed4b6bedf1b80b380e66d6156f07d225cb0b996949da87bd72e0023e097",
+      "state": "same flattened layers; colored horizontal bands show mateo_x station triggers, not physical fixture bounds"
+    },
+    {
+      "file": "bunker_lab_fixture_960.png",
+      "sha256": "011d46e9835ec086157172a5d652b9e4b68bb0a34fe3f8b6717a3702e9e99f7d",
+      "state": "direct station-position fixture",
+      "mateo_x": 140.0,
+      "active_station": "lab"
+    },
+    {
+      "file": "bunker_terminal_fixture_960.png",
+      "sha256": "664e303949cc2966c69de47a218d7232caf14ef7c57064c74a8ff1c116543eae",
+      "state": "direct station-position fixture",
+      "mateo_x": 215.0,
+      "active_station": "terminal"
+    },
+    {
+      "file": "bunker_repair_fixture_960.png",
+      "sha256": "0906576bfe5df6ef45cb41e2384300691672d8c2ebb9cb991d31427ceda757f3",
+      "state": "direct station-position fixture",
+      "mateo_x": 295.0,
+      "active_station": "repair"
+    },
+    {
+      "file": "bunker_field_fixture_960.png",
+      "sha256": "1bc15964c26f2a601e22c284cf5be6d4a704014a1db38c47f0e5452302175b6f",
+      "state": "direct station-position fixture",
+      "mateo_x": 348.0,
+      "active_station": "field"
+    },
+    {
+      "file": "annex_2029_CORE_fixture_960.png",
+      "sha256": "d4d01c26577bfb77fbc9edf5651a5ec56a8089916f68d0f05af7c0f8c5a8d847",
+      "state": "direct room/timeline fixture",
+      "room": "act_01_mandela_test",
+      "timeline": "2029_CORE",
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "camera": [
+        0,
+        18
+      ]
+    },
+    {
+      "file": "annex_1977_ANALOG_fixture_960.png",
+      "sha256": "dde9b9107ca0dd74f1519b8fc2ce554d7c3342e2128fbabc5aeb813754ff7e93",
+      "state": "direct room/timeline fixture",
+      "room": "act_01_mandela_test",
+      "timeline": "1977_ANALOG",
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "camera": [
+        0,
+        18
+      ]
+    },
+    {
+      "file": "relay_2029_CORE_fixture_960.png",
+      "sha256": "47eae41ab3b5aac0da8f290f491c2349eb6704210864919e95063ff0c3011fc4",
+      "state": "direct room/timeline fixture",
+      "room": "act_04_dodleston_relay",
+      "timeline": "2029_CORE",
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "camera": [
+        0,
+        18
+      ]
+    },
+    {
+      "file": "relay_1977_ANALOG_fixture_960.png",
+      "sha256": "4a5339d7779c340f8a538e679c237bd70184706cdc875bc69beb5e622186dcd8",
+      "state": "direct room/timeline fixture",
+      "room": "act_04_dodleston_relay",
+      "timeline": "1977_ANALOG",
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "camera": [
+        0,
+        18
+      ]
+    },
+    {
+      "file": "flashback_1977_ANALOG_fixture_960.png",
+      "sha256": "878b195c1d2f0d2f7ac123e2e30f919291ff3a1974042cc968f7747c7eb566eb",
+      "state": "direct room/timeline fixture",
+      "room": "flashback_ehman_1977",
+      "timeline": "1977_ANALOG",
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "camera": [
+        0,
+        18
+      ]
+    },
+    {
+      "file": "flashback_printout_inspect_fixture_960.png",
+      "sha256": "36c89fc664c03611ef4a6316c30055067cf032661765406c31f8a3b0a9e8aeb9",
+      "state": "direct desk entry + E key",
+      "stage": "PRINTOUT_INSPECTED",
+      "printout_open": true,
+      "player_rect": [
+        112,
+        208,
+        16,
+        32
+      ]
+    },
+    {
+      "file": "flashback_printout_annotate_fixture_960.png",
+      "sha256": "7db96833e05992ef8e4786c2e1dffee3a2240fb807665d2955ae4bd6291def68",
+      "state": "direct desk entry + E key",
+      "stage": "ANNOTATION_APPLIED",
+      "printout_open": true,
+      "player_rect": [
+        112,
+        208,
+        16,
+        32
+      ]
+    }
+  ],
+  "geometry_guides": [
+    {
+      "file": "annex_2029_CORE_geometry_960x576.png",
+      "sha256": "016d6f30aa20793791033c47c4bee87376b07d9c4c905dfc0d1484987198f8bb",
+      "room": "act_01_mandela_test",
+      "timeline": "2029_CORE",
+      "objects": [
+        {
+          "number": 1,
+          "id": "pickup_analog_coupler",
+          "type": "pickup",
+          "rect": [
+            64,
+            208,
+            16,
+            16
+          ],
+          "timeline": "2029_CORE"
+        },
+        {
+          "number": 3,
+          "id": "door_bulkhead_01",
+          "type": "door",
+          "rect": [
+            300,
+            192,
+            16,
+            48
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 4,
+          "id": "plat_temporal_01",
+          "type": "moving_platform",
+          "rect": [
+            200,
+            160,
+            32,
+            12
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 5,
+          "id": "annex_low_cover",
+          "type": "cover",
+          "rect": [
+            48,
+            224,
+            16,
+            16
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 6,
+          "id": "annex_grapple_anchor",
+          "type": "grapple_anchor",
+          "rect": [
+            112,
+            96,
+            16,
+            16
+          ],
+          "timeline": "all"
+        }
+      ],
+      "exits": [
+        {
+          "id": "exit_to_bunker",
+          "rect": [
+            440,
+            192,
+            32,
+            48
+          ]
+        }
+      ],
+      "note": "actual collision tiles, numbered cyan authored-object bounds, orange exit trigger; annotations are diagnostic, not runtime art"
+    },
+    {
+      "file": "annex_1977_ANALOG_geometry_960x576.png",
+      "sha256": "0c60513a17a59953e22c81409a5c6bbbfde2022358d8a5ed949cc0b3efbf78c3",
+      "room": "act_01_mandela_test",
+      "timeline": "1977_ANALOG",
+      "objects": [
+        {
+          "number": 2,
+          "id": "pickup_1977_log",
+          "type": "pickup",
+          "rect": [
+            220,
+            208,
+            16,
+            16
+          ],
+          "timeline": "1977_ANALOG"
+        },
+        {
+          "number": 3,
+          "id": "door_bulkhead_01",
+          "type": "door",
+          "rect": [
+            300,
+            192,
+            16,
+            48
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 4,
+          "id": "plat_temporal_01",
+          "type": "moving_platform",
+          "rect": [
+            200,
+            160,
+            32,
+            12
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 5,
+          "id": "annex_low_cover",
+          "type": "cover",
+          "rect": [
+            48,
+            224,
+            16,
+            16
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 6,
+          "id": "annex_grapple_anchor",
+          "type": "grapple_anchor",
+          "rect": [
+            112,
+            96,
+            16,
+            16
+          ],
+          "timeline": "all"
+        }
+      ],
+      "exits": [
+        {
+          "id": "exit_to_bunker",
+          "rect": [
+            440,
+            192,
+            32,
+            48
+          ]
+        }
+      ],
+      "note": "actual collision tiles, numbered cyan authored-object bounds, orange exit trigger; annotations are diagnostic, not runtime art"
+    },
+    {
+      "file": "relay_2029_CORE_geometry_960x576.png",
+      "sha256": "b7ae89e50b2ecf114f6eddc3d779ade55d340b19c3642eb05460e5b3ba5867ba",
+      "room": "act_04_dodleston_relay",
+      "timeline": "2029_CORE",
+      "objects": [
+        {
+          "number": 1,
+          "id": "terminal_dodleston_relay",
+          "type": "terminal",
+          "rect": [
+            96,
+            192,
+            16,
+            32
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 2,
+          "id": "door_bulkhead_relay",
+          "type": "door",
+          "rect": [
+            256,
+            192,
+            16,
+            48
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 3,
+          "id": "junction_coolant_drain",
+          "type": "prop",
+          "rect": [
+            160,
+            208,
+            16,
+            16
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 4,
+          "id": "cache_relay_tape",
+          "type": "pickup",
+          "rect": [
+            384,
+            208,
+            16,
+            16
+          ],
+          "timeline": "2029_CORE"
+        }
+      ],
+      "exits": [
+        {
+          "id": "exit_to_vla",
+          "rect": [
+            16,
+            192,
+            32,
+            48
+          ]
+        }
+      ],
+      "note": "actual collision tiles, numbered cyan authored-object bounds, orange exit trigger; annotations are diagnostic, not runtime art"
+    },
+    {
+      "file": "relay_1977_ANALOG_geometry_960x576.png",
+      "sha256": "3599096827bc481f37fe598210a76e726b92453bc215e82ef86cced2df92587b",
+      "room": "act_04_dodleston_relay",
+      "timeline": "1977_ANALOG",
+      "objects": [
+        {
+          "number": 1,
+          "id": "terminal_dodleston_relay",
+          "type": "terminal",
+          "rect": [
+            96,
+            192,
+            16,
+            32
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 2,
+          "id": "door_bulkhead_relay",
+          "type": "door",
+          "rect": [
+            256,
+            192,
+            16,
+            48
+          ],
+          "timeline": "all"
+        },
+        {
+          "number": 3,
+          "id": "junction_coolant_drain",
+          "type": "prop",
+          "rect": [
+            160,
+            208,
+            16,
+            16
+          ],
+          "timeline": "all"
+        }
+      ],
+      "exits": [
+        {
+          "id": "exit_to_vla",
+          "rect": [
+            16,
+            192,
+            32,
+            48
+          ]
+        }
+      ],
+      "note": "actual collision tiles, numbered cyan authored-object bounds, orange exit trigger; annotations are diagnostic, not runtime art"
+    },
+    {
+      "file": "flashback_1977_ANALOG_geometry_960x576.png",
+      "sha256": "a551ded2d566e1ecc39d4e10af8d0575e70eec39e41e55e8645e0e01bc1e32e3",
+      "room": "flashback_ehman_1977",
+      "timeline": "1977_ANALOG",
+      "objects": [
+        {
+          "number": 1,
+          "id": "obj_ibm_1130_printer",
+          "type": "terminal",
+          "rect": [
+            96,
+            208,
+            32,
+            32
+          ],
+          "timeline": "1977_ANALOG"
+        },
+        {
+          "number": 2,
+          "id": "obj_red_pen",
+          "type": "prop",
+          "rect": [
+            144,
+            224,
+            16,
+            16
+          ],
+          "timeline": "1977_ANALOG"
+        },
+        {
+          "number": 3,
+          "id": "obj_tape_deck",
+          "type": "cache",
+          "rect": [
+            368,
+            208,
+            32,
+            32
+          ],
+          "timeline": "1977_ANALOG"
+        },
+        {
+          "number": 4,
+          "id": "obj_observatory_window",
+          "type": "prop",
+          "rect": [
+            208,
+            144,
+            64,
+            48
+          ],
+          "timeline": "1977_ANALOG"
+        }
+      ],
+      "exits": [
+        {
+          "id": "exit_return_present",
+          "rect": [
+            16,
+            192,
+            32,
+            48
+          ]
+        }
+      ],
+      "note": "actual collision tiles, numbered cyan authored-object bounds, orange exit trigger; annotations are diagnostic, not runtime art"
+    }
+  ],
+  "bunker_station_ranges": {
+    "lab": {
+      "x_min": 124.0,
+      "x_max": 160.0,
+      "center_x": 140.0,
+      "name": "SCIENCE LAB",
+      "sub": "FORMAL VALIDATION BENCH",
+      "state": "SCIENCE_LAB"
+    },
+    "terminal": {
+      "x_min": 170.0,
+      "x_max": 260.0,
+      "center_x": 215.0,
+      "name": "CRT RECEIVER",
+      "sub": "1420.4056 MHz WOW!",
+      "state": "CRT_TERMINAL"
+    },
+    "repair": {
+      "x_min": 275.0,
+      "x_max": 315.0,
+      "center_x": 295.0,
+      "name": "REPAIR BENCH",
+      "sub": "ANALOG ELECTRONICS",
+      "state": null
+    },
+    "field": {
+      "x_min": 330.0,
+      "x_max": 364.0,
+      "center_x": 348.0,
+      "name": "SURFACE AIRLOCK",
+      "sub": "ACT I APPROACH TRENCH",
+      "state": "FIELD_OPS"
+    }
+  },
+  "fixture": "dummy SDL, temporary saves, direct position/room entry, direct timeline fixture; E events for printout; no normal-route claim",
+  "limits": "diagnostic annotations are not authored art; no real-window, full interaction, human quality, timing or art-gate evidence"
+}

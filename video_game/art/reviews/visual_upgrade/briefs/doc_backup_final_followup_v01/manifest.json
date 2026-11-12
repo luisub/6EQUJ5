@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "source": "video_game/planning/CURRENT_STATE.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_followup_v01/CURRENT_STATE.md",
+      "sha256": "77894ec502ace3978a5b2a680819eaa4f80c9008620dc9d959f9bae586f6e007"
+    },
+    {
+      "source": "video_game/planning/TODO_ROADMAP.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_followup_v01/TODO_ROADMAP.md",
+      "sha256": "3aacd3d6f815648d414dc43a272692fe3813c77807099f46abeb69ff7b3a5322"
+    },
+    {
+      "source": "video_game/planning/PROGRESS_LOG.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_followup_v01/PROGRESS_LOG.md",
+      "sha256": "a8fe50ccd04bf199c1e0f145e7b21ee3c2f52ddbc972f6d84274bf7c9ac20d34"
+    },
+    {
+      "source": "video_game/planning/ART_PRODUCTION.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_followup_v01/ART_PRODUCTION.md",
+      "sha256": "09e84821ce5b82355465edc6b98b27eaa4be0df7d1256e5d15ed6194fccf2c08"
+    }
+  ],
+  "method": "byte copy and source/backup SHA-256 verification before final follow-up"
+}

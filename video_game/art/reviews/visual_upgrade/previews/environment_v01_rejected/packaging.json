@@ -1,0 +1,12 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/ohio_approach_v01/source/ohio_approach_environment_generated_master.png",
+  "source_dimensions": [
+    1672,
+    941
+  ],
+  "source_sha256": "6aa358e5f14aca21257e7bab75291e30c1f88cfe6895c4a3883d04e02ed77ae7",
+  "export": "environment_v01_960x540.png",
+  "export_sha256": "4e908e4cd2a991609e7ae675c87921a4391de0ea96f7f7dad586d43345fc06b8",
+  "transform": "Lanczos resize whole image to 960x540; minimal aspect correction; no crop or painting",
+  "status": "rejected pending corrected geometry; inspection only, not runtime asset"
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "act_01_approach",
+    "family": null,
+    "opaque_loaded": false,
+    "outdoor_loaded": true
+  },
+  {
+    "room_id": "act_01_salvage_yard",
+    "family": null,
+    "opaque_loaded": false,
+    "outdoor_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "act_01_dish_catwalk",
+    "family": null,
+    "opaque_loaded": false,
+    "outdoor_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "act_01_mandela_test",
+    "family": "mandela_annex_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+  },
+  {
+    "room_id": "act_01_mandela_test",
+    "family": "mandela_annex_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+  },
+  {
+    "room_id": "act_04_dodleston_relay",
+    "family": "dodleston_relay_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "e87b485775f342c319a2a979f73a63f49df9298b574bd5e83384bc3fd05c69a2"
+  },
+  {
+    "room_id": "act_01_mandela_test",
+    "family": "mandela_annex_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+  },
+  {
+    "room_id": "act_04_dodleston_relay",
+    "family": "dodleston_relay_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "e87b485775f342c319a2a979f73a63f49df9298b574bd5e83384bc3fd05c69a2"
+  },
+  {
+    "room_id": "act_01_mandela_test",
+    "family": "mandela_annex_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+  },
+  {
+    "room_id": "flashback_ehman_1977",
+    "family": "ehman_1977_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "5ed637f4c54f3f0b7c7c719ec95a9f97a7e4fecd4af6ef954cc650df241141b0"
+  },
+  {
+    "room_id": "act_01_mandela_test",
+    "family": "mandela_annex_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+  },
+  {
+    "room_id": "flashback_ehman_1977",
+    "family": "ehman_1977_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "5ed637f4c54f3f0b7c7c719ec95a9f97a7e4fecd4af6ef954cc650df241141b0"
+  },
+  {
+    "room_id": "act_01_mandela_test",
+    "family": "mandela_annex_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+  },
+  {
+    "room_id": "flashback_ehman_1977",
+    "family": "ehman_1977_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "5ed637f4c54f3f0b7c7c719ec95a9f97a7e4fecd4af6ef954cc650df241141b0"
+  },
+  {
+    "room_id": "act_01_mandela_test",
+    "family": "mandela_annex_v1",
+    "opaque_loaded": true,
+    "outdoor_loaded": false,
+    "manifest_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  },
+  {
+    "room_id": "bunker_hub",
+    "family": "ohio_bunker_v1",
+    "opaque_loaded": true
+  }
+]

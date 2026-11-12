@@ -1,0 +1,131 @@
+{
+  "test_run": "act_01_complete_playthrough",
+  "timestamp": "2026-11-11T15:23:31Z",
+  "status": "PASSED",
+  "gate_g2_verdict": "PASSED",
+  "total_execution_seconds": 0.052,
+  "route_steps": [
+    {
+      "timestamp_s": 1794410611.716,
+      "stage": "STAGE_01_BOOT",
+      "action": "VERIFY_FRESH_STATE",
+      "details": {
+        "summary": "Verified pristine campaign state; active objective is obj_tune_receiver.",
+        "starter_weapon": null
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_tune_receiver"
+    },
+    {
+      "timestamp_s": 1794410611.721,
+      "stage": "STAGE_02_CONTACT",
+      "action": "EXTRACT_FASR_001_FRAGMENT",
+      "details": {
+        "summary": "Tuned to 1420.405 MHz carrier, completed dialogue, claimed FASR-001 fragment grant.",
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_validate_signal"
+    },
+    {
+      "timestamp_s": 1794410611.725,
+      "stage": "STAGE_03_VALIDATION",
+      "action": "COMPLETE_FORMAL_LAB_PROTOCOL",
+      "details": {
+        "summary": "Passed formal 5-step validation for FASR-001; registered authoritative record.",
+        "validation_count": 1
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_recover_coupler"
+    },
+    {
+      "timestamp_s": 1794410611.729,
+      "stage": "STAGE_04_SCAVENGE",
+      "action": "COLLECT_COUPLER_AND_TEST_DEATH",
+      "details": {
+        "summary": "Tested hazard death and checkpoint respawn; collected analog coupler in salvage yard.",
+        "inventory": {
+          "maser_1420": 1,
+          "analog_coupler": 1
+        }
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_repair_dish"
+    },
+    {
+      "timestamp_s": 1794410611.729,
+      "stage": "STAGE_05_REPAIR",
+      "action": "INSTALL_COUPLER_AT_WORKBENCH",
+      "details": {
+        "summary": "Consumed analog coupler to repair dish feedhorn; catwalk access unlocked.",
+        "feedhorn_repaired": true
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_defend_perimeter"
+    },
+    {
+      "timestamp_s": 1794410611.735,
+      "stage": "STAGE_06_DISH_DEFENSE",
+      "action": "SURVIVE_72S_WOW_SIGNAL_WAVES",
+      "details": {
+        "summary": "Tested holdout failure & restart; survived 72s defense across 6 signal bins.",
+        "dish_defense_completed": true
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_defeat_greenkeeper"
+    },
+    {
+      "timestamp_s": 1794410611.74,
+      "stage": "STAGE_07_BOSS_BOUNTY",
+      "action": "NEUTRALIZE_CORE_WARDEN_GREENKEEPER",
+      "details": {
+        "summary": "Tested boss death retry; completed 3-phase combat; neutralized Core Warden; unlocked Act II.",
+        "act_01_completed": true,
+        "act_02_unlocked": true
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_act_01_complete"
+    },
+    {
+      "timestamp_s": 1794410611.744,
+      "stage": "STAGE_08_SECOND_CONTACT",
+      "action": "CONTACT_FASR_007",
+      "details": {
+        "summary": "Established contact with FASR-007; extracted second civilization fragment.",
+        "extracted_fragments": [
+          "FASR-001",
+          "FASR-007"
+        ]
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_act_01_complete"
+    },
+    {
+      "timestamp_s": 1794410611.765,
+      "stage": "STAGE_09_SAVE_ROUNDTRIP",
+      "action": "VERIFY_PROCESS_RELOAD_PERSISTENCE",
+      "details": {
+        "summary": "Committed checkpoint to disk; verified 100% round-trip fidelity in new process.",
+        "save_slot_dir": "/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/pytest-of-nzlab-la/pytest-211/test_act_01_canonical_playthro0/saves"
+      },
+      "current_state": "BUNKER_HUB",
+      "objective": "obj_act_01_complete"
+    }
+  ],
+  "final_campaign_state": {
+    "act_01_completed": true,
+    "act_02_unlocked": true,
+    "extracted_fragments": [
+      "FASR-001",
+      "FASR-007"
+    ],
+    "validation_count": 1,
+    "room_flags": {
+      "feedhorn_repaired": true,
+      "dish_defense_completed": true,
+      "greenkeeper_defeated": true
+    }
+  }
+}

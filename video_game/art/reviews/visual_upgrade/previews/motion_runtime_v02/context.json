@@ -1,0 +1,942 @@
+{
+  "driver": "dummy",
+  "fixture": "new game; direct field entry, no campaign progression, temporary save",
+  "timestep": "1/60 s; 300 updates; synthetic KEYDOWN/KEYUP events through GameStateMachine input mapping",
+  "sampling": "one native frame every 5 updates; GIF requested delay 83 ms; encoder quantizes and may coalesce duplicate frames",
+  "crt_stills": "same rendered frame via actual present(), CRT off/on, 2x display",
+  "events": {
+    "8": [
+      [
+        "KeyDown",
+        "d"
+      ]
+    ],
+    "45": [
+      [
+        "KeyDown",
+        "x"
+      ]
+    ],
+    "70": [
+      [
+        "KeyUp",
+        "x"
+      ]
+    ],
+    "75": [
+      [
+        "KeyDown",
+        "space"
+      ]
+    ],
+    "100": [
+      [
+        "KeyUp",
+        "space"
+      ]
+    ],
+    "125": [
+      [
+        "KeyDown",
+        "c"
+      ]
+    ],
+    "145": [
+      [
+        "KeyUp",
+        "c"
+      ]
+    ],
+    "165": [
+      [
+        "KeyDown",
+        "f2"
+      ]
+    ],
+    "166": [
+      [
+        "KeyUp",
+        "f2"
+      ]
+    ],
+    "190": [
+      [
+        "KeyDown",
+        "f2"
+      ]
+    ],
+    "191": [
+      [
+        "KeyUp",
+        "f2"
+      ]
+    ],
+    "192": [
+      [
+        "KeyDown",
+        "d"
+      ]
+    ],
+    "235": [
+      [
+        "KeyDown",
+        "space"
+      ]
+    ],
+    "255": [
+      [
+        "KeyUp",
+        "space"
+      ]
+    ],
+    "290": [
+      [
+        "KeyUp",
+        "d"
+      ]
+    ]
+  },
+  "trace": [
+    {
+      "frame": 0,
+      "player": [
+        48.0,
+        192.15
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 5,
+      "player": [
+        48.0,
+        195.9
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 10,
+      "player": [
+        49.17,
+        204.65
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 15,
+      "player": [
+        56.33,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 20,
+      "player": [
+        68.0,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 25,
+      "player": [
+        79.67,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 30,
+      "player": [
+        91.33,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 35,
+      "player": [
+        103.0,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 40,
+      "player": [
+        114.67,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 45,
+      "player": [
+        126.33,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "recoil",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 50,
+      "player": [
+        138.0,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "recoil",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 55,
+      "player": [
+        149.67,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 60,
+      "player": [
+        161.33,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 65,
+      "player": [
+        173.0,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 70,
+      "player": [
+        184.67,
+        208.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 75,
+      "player": [
+        196.33,
+        203.65
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 80,
+      "player": [
+        196.89,
+        184.9
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 85,
+      "player": [
+        197.44,
+        171.15
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 90,
+      "player": [
+        198.0,
+        162.4
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 95,
+      "player": [
+        198.56,
+        158.65
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 100,
+      "player": [
+        199.28,
+        159.9
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 105,
+      "player": [
+        205.25,
+        160.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 110,
+      "player": [
+        216.78,
+        160.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 115,
+      "player": [
+        228.44,
+        160.0
+      ],
+      "camera": [
+        0.0,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 120,
+      "player": [
+        240.11,
+        160.0
+      ],
+      "camera": [
+        2.43,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 125,
+      "player": [
+        253.11,
+        160.0
+      ],
+      "camera": [
+        10.1,
+        18.0
+      ],
+      "animation": "slide",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 130,
+      "player": [
+        271.44,
+        160.05
+      ],
+      "camera": [
+        23.0,
+        18.0
+      ],
+      "animation": "slide",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 135,
+      "player": [
+        289.78,
+        163.3
+      ],
+      "camera": [
+        38.92,
+        18.0
+      ],
+      "animation": "slide",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 140,
+      "player": [
+        308.11,
+        171.55
+      ],
+      "camera": [
+        56.19,
+        18.0
+      ],
+      "animation": "slide",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 145,
+      "player": [
+        326.39,
+        184.8
+      ],
+      "camera": [
+        74.04,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 150,
+      "player": [
+        341.11,
+        203.05
+      ],
+      "camera": [
+        91.02,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 100,
+      "paused": false
+    },
+    {
+      "frame": 155,
+      "player": [
+        350.61,
+        222.47
+      ],
+      "camera": [
+        105.07,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 160,
+      "player": [
+        340.61,
+        212.38
+      ],
+      "camera": [
+        108.91,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 165,
+      "player": [
+        332.61,
+        207.92
+      ],
+      "camera": [
+        106.18,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": true
+    },
+    {
+      "frame": 170,
+      "player": [
+        332.61,
+        207.92
+      ],
+      "camera": [
+        106.18,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": true
+    },
+    {
+      "frame": 175,
+      "player": [
+        332.61,
+        207.92
+      ],
+      "camera": [
+        106.18,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": true
+    },
+    {
+      "frame": 180,
+      "player": [
+        332.61,
+        207.92
+      ],
+      "camera": [
+        106.18,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": true
+    },
+    {
+      "frame": 185,
+      "player": [
+        332.61,
+        207.92
+      ],
+      "camera": [
+        106.18,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": true
+    },
+    {
+      "frame": 190,
+      "player": [
+        330.61,
+        207.3
+      ],
+      "camera": [
+        105.05,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 195,
+      "player": [
+        320.61,
+        207.22
+      ],
+      "camera": [
+        97.77,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 200,
+      "player": [
+        310.61,
+        208.0
+      ],
+      "camera": [
+        88.98,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 205,
+      "player": [
+        300.61,
+        208.0
+      ],
+      "camera": [
+        79.52,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 210,
+      "player": [
+        290.61,
+        208.0
+      ],
+      "camera": [
+        69.75,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 215,
+      "player": [
+        280.61,
+        208.0
+      ],
+      "camera": [
+        59.86,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 220,
+      "player": [
+        270.61,
+        208.0
+      ],
+      "camera": [
+        49.91,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 225,
+      "player": [
+        260.61,
+        208.0
+      ],
+      "camera": [
+        39.93,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 230,
+      "player": [
+        251.86,
+        208.0
+      ],
+      "camera": [
+        30.2,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 235,
+      "player": [
+        250.53,
+        203.65
+      ],
+      "camera": [
+        23.64,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 240,
+      "player": [
+        255.53,
+        184.9
+      ],
+      "camera": [
+        22.42,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 245,
+      "player": [
+        265.83,
+        171.15
+      ],
+      "camera": [
+        26.67,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 250,
+      "player": [
+        277.5,
+        162.4
+      ],
+      "camera": [
+        34.97,
+        18.0
+      ],
+      "animation": "jump",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 255,
+      "player": [
+        289.17,
+        158.94
+      ],
+      "camera": [
+        45.14,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 260,
+      "player": [
+        300.83,
+        161.81
+      ],
+      "camera": [
+        56.14,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 265,
+      "player": [
+        312.5,
+        169.69
+      ],
+      "camera": [
+        67.51,
+        18.0
+      ],
+      "animation": "fall",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 270,
+      "player": [
+        324.17,
+        176.0
+      ],
+      "camera": [
+        79.05,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 275,
+      "player": [
+        335.83,
+        176.0
+      ],
+      "camera": [
+        90.66,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 280,
+      "player": [
+        347.5,
+        176.0
+      ],
+      "camera": [
+        102.3,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 285,
+      "player": [
+        359.17,
+        176.0
+      ],
+      "camera": [
+        113.95,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 290,
+      "player": [
+        370.54,
+        176.0
+      ],
+      "camera": [
+        125.57,
+        18.0
+      ],
+      "animation": "walk",
+      "health": 75,
+      "paused": false
+    },
+    {
+      "frame": 295,
+      "player": [
+        374.92,
+        176.0
+      ],
+      "camera": [
+        134.8,
+        18.0
+      ],
+      "animation": "idle",
+      "health": 75,
+      "paused": false
+    }
+  ],
+  "limitations": "headless scripted motion and static effect evidence only, no native display, human play, fairness, audio, or FPS claim"
+}

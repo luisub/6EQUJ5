@@ -1,0 +1,146 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/dish_world_scene_v01/source/dish_world_scene_generated_master.png",
+  "source_size": [
+    1870,
+    841
+  ],
+  "source_sha256": "785f7b5a11c1cf0395c1e95a0f52d6ec50383cfe8dab32c266a18952e31b9f8e",
+  "export": "dish_world_layer_1280x576.png",
+  "export_sha256": "1bd2262000bf17f87da1c13b1c865796416b061006b82c673b9beadc3303b8cc",
+  "transform": "full-image Lanczos resize to 1280x576; no masks, alpha edits, painting or cleanup",
+  "far_fixture": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+  "far_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+  "far_use": "interim fixture, not approved dish far",
+  "composition": "fixture-local callback: far then world layer, then real dish tiles/objects/actors/effects/HUD",
+  "fixture": "dummy SDL, temporary saves, new game; directly apply collect and repair campaign events; direct field then dish room, teleport player x312/y208, settle 30 ticks; cameras forced x0/80/160 y18; directly set elapsed=23.99 then one 1/60 update to scheduled jam; dispatch physical KEYDOWN E to clear; fire attempt via KEYDOWN X",
+  "fire_attempt_projectile_count": 1,
+  "samples": [
+    {
+      "name": "active",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        312,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "active": true,
+      "jammed": false,
+      "elapsed": 0.49999999999999994,
+      "native": "active_x0_native_960.png",
+      "native_sha256": "3dc8244dc7bfc20d575252e2dcfb9a6484e1d78e683a6bc1c435bead26356abe",
+      "review": "active_x0_review_1920.png",
+      "review_sha256": "55ec7f1ba398a9cff1a6471d5d49e1ab3d523c36745a5fc74157ad067b68669c"
+    },
+    {
+      "name": "active",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        312,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "active": true,
+      "jammed": false,
+      "elapsed": 0.49999999999999994,
+      "native": "active_x80_native_960.png",
+      "native_sha256": "118e2d1812e6dca80d2e0f266b8750fd51e66d957889c178ffd0c6e69ad1da7c",
+      "review": "active_x80_review_1920.png",
+      "review_sha256": "580fcf2715a000a0b04d67c958b138b26b8cece1956f48b7ca2ebec072ff91e5"
+    },
+    {
+      "name": "active",
+      "camera": [
+        160,
+        18
+      ],
+      "player_rect": [
+        312,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "active": true,
+      "jammed": false,
+      "elapsed": 0.49999999999999994,
+      "native": "active_x160_native_960.png",
+      "native_sha256": "c4d839c292fd73a03b2a4caf98e01611c0620b12a0a4b69614b0a5b2cf8b599f",
+      "review": "active_x160_review_1920.png",
+      "review_sha256": "ea224d7280c5315fb39e5b48a9ea8a526ac024d5245443aff3822fe6aafdb10a"
+    },
+    {
+      "name": "jammed",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        312,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "active": true,
+      "jammed": true,
+      "elapsed": 24.006666666666664,
+      "native": "jammed_x80_native_960.png",
+      "native_sha256": "e4ee4cef300dc5261c6df82f2f28a814fa188eb9d139ab602bcb267186064b70",
+      "review": "jammed_x80_review_1920.png",
+      "review_sha256": "548e0b7f3fde135b37320f696e30160a73178b90627a597e56c052a6c3b685e0"
+    },
+    {
+      "name": "cleared",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        312,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "active": true,
+      "jammed": false,
+      "elapsed": 24.02333333333333,
+      "native": "cleared_x80_native_960.png",
+      "native_sha256": "05b7a00e86ae0200e28747deecd1dc661136c1807842cf33560be362948f7554",
+      "review": "cleared_x80_review_1920.png",
+      "review_sha256": "26b0a1b6636495f2b655db77d209b79ea7189561c1577efd4898fd49969105de"
+    },
+    {
+      "name": "fire_attempt",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        312,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "active": true,
+      "jammed": false,
+      "elapsed": 24.039999999999996,
+      "native": "fire_attempt_x80_native_960.png",
+      "native_sha256": "148bd316ee6d1c41fd77bc2d9a3658b20c05c7076c53fe110e07e9c473e597a8",
+      "review": "fire_attempt_x80_review_1920.png",
+      "review_sha256": "53d3217c1d656060450f5b4b812780d36876c42d2bbebff2dbb283b1d8d85f88"
+    }
+  ],
+  "limits": "synthetic prerequisite/time/position fixture, not earned route or normal full holdout; static views, no human/native display/motion/fairness/performance or art-gate acceptance"
+}

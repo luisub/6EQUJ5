@@ -1,0 +1,332 @@
+{
+  "room": "act_01_dish_catwalk",
+  "field_health": 60,
+  "final_scene": "BUNKER_HUB",
+  "trace": [
+    {
+      "action": "contact",
+      "civilization": "FASR-001",
+      "channel": "offline 2"
+    },
+    {
+      "action": "formal_validation",
+      "scenario": "formal_fasr_001"
+    },
+    {
+      "action": "jump",
+      "obstacle": "sump",
+      "frame": 103,
+      "x": 276.67
+    },
+    {
+      "action": "jump",
+      "obstacle": "wall",
+      "frame": 218,
+      "x": 545.0
+    },
+    {
+      "action": "exit_interaction",
+      "frame": 406,
+      "x": 910.42,
+      "health": 70,
+      "room": "act_01_salvage_yard"
+    },
+    {
+      "action": "coupler_pickup",
+      "frame": 228,
+      "x": 535.58,
+      "health": 70
+    },
+    {
+      "action": "feedhorn_repaired"
+    },
+    {
+      "action": "defense_started",
+      "elapsed_seconds": 0.03333333333333333
+    },
+    {
+      "action": "defense_pause",
+      "before": 0.03333333333333333,
+      "after": 0.03333333333333333,
+      "paused_frames": 120
+    },
+    {
+      "action": "defense_exit_reentry",
+      "saved_repair": true,
+      "restarted_elapsed_seconds": 0.03333333333333333
+    },
+    {
+      "action": "defense_failed",
+      "frame": 3070,
+      "reason": "DISH INTEGRITY COLLAPSED",
+      "elapsed_seconds": 51.21666666666504,
+      "integrity": 0.0,
+      "health": 70
+    },
+    {
+      "action": "defense_retry",
+      "ability_edge_pending": false,
+      "ability_before": "time_dilation",
+      "ability_after": "time_dilation",
+      "health": 100,
+      "elapsed_seconds": 0.03333333333333333
+    },
+    {
+      "action": "defense_result",
+      "completed": true,
+      "elapsed_seconds": 72.0,
+      "integrity": 99.96666666666667,
+      "health": 60,
+      "waves": [
+        "wave_01",
+        "wave_02",
+        "wave_03"
+      ],
+      "hits": [
+        {
+          "frame": 53,
+          "target": "wave_01_hound_0",
+          "before": 75,
+          "after": 50
+        },
+        {
+          "frame": 64,
+          "target": "wave_01_hound_0",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 75,
+          "target": "wave_01_hound_0",
+          "before": 25,
+          "after": 0
+        },
+        {
+          "frame": 129,
+          "target": "wave_01_drone_0",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 284,
+          "target": "wave_01_drone_0",
+          "before": 25,
+          "after": 0
+        },
+        {
+          "frame": 1449,
+          "target": "wave_02_drone_0",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 1465,
+          "target": "wave_02_drone_0",
+          "before": 25,
+          "after": 0
+        },
+        {
+          "frame": 1487,
+          "target": "wave_02_hound_0",
+          "before": 75,
+          "after": 50
+        },
+        {
+          "frame": 1503,
+          "target": "wave_02_hound_0",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 1519,
+          "target": "wave_02_hound_0",
+          "before": 25,
+          "after": 0
+        },
+        {
+          "frame": 1724,
+          "target": "wave_02_drone_1",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 1740,
+          "target": "wave_02_drone_1",
+          "before": 25,
+          "after": 0
+        },
+        {
+          "frame": 2889,
+          "target": "wave_03_drone_0",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 2904,
+          "target": "wave_03_drone_0",
+          "before": 25,
+          "after": 0
+        },
+        {
+          "frame": 2926,
+          "target": "wave_03_hound_0",
+          "before": 75,
+          "after": 50
+        },
+        {
+          "frame": 2942,
+          "target": "wave_03_hound_0",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 2958,
+          "target": "wave_03_hound_0",
+          "before": 25,
+          "after": 0
+        },
+        {
+          "frame": 2980,
+          "target": "wave_03_hound_1",
+          "before": 75,
+          "after": 50
+        },
+        {
+          "frame": 2996,
+          "target": "wave_03_hound_1",
+          "before": 50,
+          "after": 25
+        },
+        {
+          "frame": 3012,
+          "target": "wave_03_hound_1",
+          "before": 25,
+          "after": 0
+        }
+      ]
+    },
+    {
+      "action": "defense_saved",
+      "completed": true
+    },
+    {
+      "action": "boss_death",
+      "frame": 542,
+      "boss_health": 300
+    },
+    {
+      "action": "boss_retry",
+      "ability_before": "decoy",
+      "ability_after": "decoy",
+      "health": 100,
+      "boss_health": 300
+    },
+    {
+      "action": "boss_defeated",
+      "frame": 297,
+      "health": 70,
+      "boss_changes": [
+        {
+          "frame": 53,
+          "health": 275,
+          "phase": 1
+        },
+        {
+          "frame": 64,
+          "health": 250,
+          "phase": 1
+        },
+        {
+          "frame": 74,
+          "health": 225,
+          "phase": 1
+        },
+        {
+          "frame": 84,
+          "health": 200,
+          "phase": 2
+        },
+        {
+          "frame": 145,
+          "health": 175,
+          "phase": 2
+        },
+        {
+          "frame": 160,
+          "health": 150,
+          "phase": 2
+        },
+        {
+          "frame": 175,
+          "health": 125,
+          "phase": 2
+        },
+        {
+          "frame": 190,
+          "health": 100,
+          "phase": 3
+        },
+        {
+          "frame": 250,
+          "health": 75,
+          "phase": 3
+        },
+        {
+          "frame": 265,
+          "health": 50,
+          "phase": 3
+        },
+        {
+          "frame": 280,
+          "health": 25,
+          "phase": 3
+        },
+        {
+          "frame": 297,
+          "health": 0,
+          "phase": 4
+        }
+      ]
+    },
+    {
+      "action": "boss_replay_idempotent",
+      "frame": 297,
+      "saved_before_exit": true
+    },
+    {
+      "action": "boss_exit_saved",
+      "completed": true
+    },
+    {
+      "action": "contact",
+      "civilization": "FASR-007",
+      "channel": "offline 2"
+    },
+    {
+      "action": "separate_process_save_load",
+      "state": {
+        "scene": "BUNKER_HUB",
+        "fragments": [
+          "FASR-001",
+          "FASR-007"
+        ],
+        "flags": {
+          "first_mission_available": true,
+          "trench_coupler_collected": true,
+          "feedhorn_repaired": true,
+          "dish_defense_completed": true,
+          "greenkeeper_defeated": true,
+          "act_01_completed": true,
+          "act_02_unlocked": true
+        },
+        "validations": [
+          "formal_fasr_001"
+        ]
+      }
+    }
+  ],
+  "simulated_seconds": 162.183,
+  "wall_seconds": 1.32,
+  "gate_g2": "not verified",
+  "driver": "headless coordinate-timed keyboard events, 60 Hz"
+}

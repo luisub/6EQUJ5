@@ -1,0 +1,60 @@
+{
+  "result": {
+    "status": "promoted",
+    "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/bunker_promotion_v01/archive/2026-11-11_F03/ae0b9e850aa44d768485408f6404eae1",
+    "manifest": {
+      "schema_version": 3,
+      "kind": "opaque_backdrop",
+      "room_id": "bunker_hub",
+      "density": 2,
+      "viewport": [
+        480,
+        270
+      ],
+      "world": [
+        480,
+        270
+      ],
+      "backdrop": {
+        "id": "backdrop",
+        "file": "backdrop_960x540.png",
+        "dimensions": [
+          960,
+          540
+        ],
+        "alpha": "opaque",
+        "origin": [
+          0,
+          0
+        ],
+        "rounding": "logical_nearest",
+        "repeat": false,
+        "sha256": "cc9749e5373fbf97122426daf7e418aa21f77655e14077e399112c1256b74e40"
+      }
+    }
+  },
+  "manifest_sha256": "e15c7c03fb61f6b224de927d8b9ef98760a346755e0eccaecd40dd2c141b106c",
+  "backdrop_sha256": "cc9749e5373fbf97122426daf7e418aa21f77655e14077e399112c1256b74e40",
+  "legacy_bunker_sha256": {
+    "bunker/02_rear_wall.png": "7f509b84e8d2640c8953065e0a97309c85b587e19855e9504f82307cc37f62a1",
+    "bunker/pygame_live_1440x810_crt_on.png": "6f56181899a6a8c6d4079a530bbd646fe4bac7053dfa0a283af97df25d973598",
+    "bunker/pygame_live_480x270_crt_off.png": "d143b2d21569f2f6e2d14719715b9acf341c0e1ed1ff645852ae26c4036d4c5a",
+    "bunker/bunker_preview_crt_off.png": "a63309197eb7a69343b511d18ebb0d24c693395c30b195268b6aed54709acace",
+    "bunker/pygame_live_crt_terminal.png": "e923abf6dc3270721ce9e6c4bb2955ec7171aec19afde2e2cea7bd31554e1389",
+    "bunker/bunker_preview_crt_on.png": "59a4a4fd8f98404e270e0c8fa5e0ecef83827a51241de4b2fdfdf65c9631f09b",
+    "bunker/tileset_bunker_16x16.png": "259b8ffbca6000ffd03336aa6e0fa86cc7fb2412e965401cba5b42c65f99d654",
+    "bunker/scene_manifest.json": "58f2f348b1a5bd25b7dab8ad4d74b1797d825d13b7bf438721a0028995fbc4c9",
+    "bunker/04_playable_floor.png": "b572d45ae2fa6af536079138327b44bee0bd43456f85493f65c23cf3b79affe6",
+    "bunker/05_foreground_props.png": "d2711e79ecda1a3575bedca1fa79a0c4f6baf17bc25e97ac7ee91a00c48ba9ba",
+    "bunker/06_lighting_overlay.png": "d47d6d721a8053285be3f7622b6fe57c81109529dd3989dea6003d2b0d3fba20",
+    "bunker/03_equipment.png": "996ec22b8c752f4e22f370d51dbde96ca264e3303cd3574fb7e06c7a90eba2c3",
+    "bunker/01_distant_structure.png": "243c6ed52ff3ceb599fab2ae86c03afb04bce1cc10a6e4c99a92be90d5074c5b",
+    "bunker/inspection/04_playable_floor_inspect.png": "e2dee8e2a34d5b7732924ba43b7be54c78340deac0c29a0f26f6dd58b6edd380",
+    "bunker/inspection/02_rear_wall_inspect.png": "cbc9118db018246a79a4885cae08f56c2a2d835009d34ae85ccabce56f96714f",
+    "bunker/inspection/06_lighting_overlay_inspect.png": "529bdd723bb5ffc3d3e8f552e6841dc397766a394522b5f683f53dfc40b6af24",
+    "bunker/inspection/05_foreground_props_inspect.png": "93c0d1e83df13244f535106fb9130f693a1952a56b6154f420c842745fd01f1c",
+    "bunker/inspection/03_equipment_inspect.png": "74365bbee111452e088df83d3918cae600f375e82f2fbec4717bd22ecb0e700e",
+    "bunker/inspection/01_distant_structure_inspect.png": "243c6ed52ff3ceb599fab2ae86c03afb04bce1cc10a6e4c99a92be90d5074c5b"
+  },
+  "limits": "No live-reader guarantee; no human, normal gameplay, native-window or art gate acceptance."
+}

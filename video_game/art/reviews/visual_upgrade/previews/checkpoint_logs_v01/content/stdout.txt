@@ -1,0 +1,13 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.12.16)
+============================================================
+6EQUJ5 LEVEL CONTENT VALIDATION
+============================================================
+[OK] act_01/approach.json
+[OK] act_01/dish_catwalk.json
+[OK] act_01/greenkeeper_arena.json
+[OK] act_01/mandela_test.json
+[OK] act_01/salvage_yard.json
+[OK] act_04/dodleston_relay.json
+[OK] flashback/ehman_1977.json
+============================================================
+SUCCESS: All 7 levels validated cleanly.

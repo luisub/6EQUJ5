@@ -1,0 +1,7 @@
+# Approach equipment registration study v01
+
+The original 1659 × 948 RGBA master is unchanged; `render_v01/context.json` records exact input/output hashes and the fixture. Crop `(348,440,1295,909)` uses alpha >127 only to identify substantive source bounds, retaining an 8-pixel top/side margin and 2-pixel bottom margin. The crop excludes 590 faint nonzero-alpha source pixels and no alpha >127 pixels. Pixels inside are not thresholded or repainted. Nearest-neighbor resize gives 73 × 36, placed at (19,28) in a transparent 112 × 64 cell; the actual alpha >127 bounds are (20,29,91,64), exclusive, and the top 28 rows are alpha-zero. Bottom row 63 contains substantive alpha.
+
+`equipment_light_matte_4x.png` and `equipment_dark_matte_4x.png` show the bin and cable reel on light and dark fields. The x480 y0/18 native frames place the cell at native-world (1608,416), after reviewed far and architecture and before actual tiles, objects, actors, weather and HUD. The dark bin and reel read as small equipment, though the broad box-like bin can be mistaken for cover and has limited contrast against masonry. The real cover adjacent to Mateo is a separate gameplay object. Inspect actual movement, shooting and cover interaction before deciding whether the decorative prop causes confusion.
+
+These are dummy-SDL, direct-entry, teleported-and-settled static fixtures with temporary saves; they do not establish in-game motion, collision, gameplay fairness, native-window rendering or acceptance. No runtime family was changed or promoted.

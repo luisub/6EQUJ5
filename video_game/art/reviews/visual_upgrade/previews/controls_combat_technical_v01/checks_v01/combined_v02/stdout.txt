@@ -1,0 +1,44 @@
+....................................................................F... [ 12%]
+........................................................................ [ 24%]
+........................................................................ [ 37%]
+........................................................................ [ 49%]
+........................................................................ [ 62%]
+........................................................................ [ 74%]
+........................................................................ [ 87%]
+........................................................................ [ 99%]
+..                                                                       [100%]
+=================================== FAILURES ===================================
+______________ test_review_sheets_preserve_sources_and_are_stable ______________
+
+asset_copy = PosixPath('/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-controls-combined-7qfpxejo/pytest-of-nzlab-la/pytest-0/test_review_sheets_preserve_so0/assets')
+tmp_path = PosixPath('/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-controls-combined-7qfpxejo/pytest-of-nzlab-la/pytest-0/test_review_sheets_preserve_so0')
+
+    def test_review_sheets_preserve_sources_and_are_stable(asset_copy, tmp_path):
+        before = hashes(asset_copy)
+        archive = tmp_path / "archive"
+        for _ in range(2):
+>           build_assets.build_selected_groups(["review"], groups=["review"],
+                                               assets_dir=asset_copy, archive_dir=archive)
+
+video_game/tests/test_assets.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+video_game/tools/build_assets.py:353: in build_selected_groups
+    return _build_selected_groups(replace_groups, dry_run=dry_run, groups=groups, assets_dir=assets_dir,
+video_game/tools/build_assets.py:321: in _build_selected_groups
+    _validate_inputs(group, assets_dir, manifest, Path(legacy_dir), source_dir=source_dir)
+video_game/tools/build_assets.py:207: in _validate_inputs
+    _validate_source(path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/_trash/legacy_ascii_portraits/fasr-001_legacy_face.png')
+min_size = None
+
+    def _validate_source(path, min_size=None):
+        if not path.is_file():
+>           raise FileNotFoundError(f"Required source missing: {path}")
+E           FileNotFoundError: Required source missing: /Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/_trash/legacy_ascii_portraits/fasr-001_legacy_face.png
+
+video_game/tools/build_assets.py:174: FileNotFoundError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_assets.py::test_review_sheets_preserve_sources_and_are_stable
+1 failed, 577 passed, 2 deselected in 59.89s

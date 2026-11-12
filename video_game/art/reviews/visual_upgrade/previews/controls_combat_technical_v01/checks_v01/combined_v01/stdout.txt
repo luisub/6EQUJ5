@@ -1,0 +1,58 @@
+........................................................................ [ 12%]
+......................................................F................. [ 24%]
+........................................................................ [ 37%]
+........................................................................ [ 49%]
+........................................................................ [ 62%]
+........................................................................ [ 74%]
+..............F......................................................... [ 87%]
+........................................................................ [ 99%]
+..                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_active_modules_have_valid_syntax_headers_and_explicit_imports ______
+
+    def test_active_modules_have_valid_syntax_headers_and_explicit_imports():
+        for path in _active_python_files():
+>           _check_module(path)
+
+video_game/tests/test_checkpoint_audit.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/coilgun_interrupt_backup_v01/test_combat_assist.py')
+
+    def _check_module(path):
+        """Parse a module and check its documentation and explicit imports."""
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+        if path.name != "__init__.py":
+            header = ast.get_docstring(tree) or ""
+            for tag in ("PURPOSE:", "CALLED BY:", "HOW TO MODIFY:"):
+>               assert tag in header, f"{path} is missing header tag {tag}"
+E               AssertionError: /Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/coilgun_interrupt_backup_v01/test_combat_assist.py is missing header tag PURPOSE:
+E               assert 'PURPOSE:' in 'Focused contracts for the opt-in starter-maser combat profile.'
+
+video_game/tests/test_checkpoint_audit.py:34: AssertionError
+____________ test_legacy_settings_migrate_in_memory_without_rewrite ____________
+
+tmp_path = PosixPath('/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-controls-combined-7nhvbf94/pytest-of-nzlab-la/pytest-0/test_legacy_settings_migrate_i0')
+
+    def test_legacy_settings_migrate_in_memory_without_rewrite(tmp_path):
+        store = SettingsStore(tmp_path)
+        for old, new in ((1,1), (2,1), (3,2), (4,2)):
+            raw = json.dumps({'schema_version':1,'volume':37,'crt_effects':False,'scale':old})
+            store.path.write_text(raw)
+>           assert store.load() == Settings(volume=37, crt_effects=False, scale=new)
+E           AssertionError: assert Settings(volu...ode='classic') == Settings(volu...de='assisted')
+E             
+E             Omitting 3 identical items, use -vv to show
+E             Differing attributes:
+E             ['combat_mode']
+E             
+E             Drill down into differing attribute combat_mode:
+E               combat_mode: 'classic' != 'assisted'
+E               - assisted
+E               + classic
+
+video_game/tests/test_render_density.py:108: AssertionError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_checkpoint_audit.py::test_active_modules_have_valid_syntax_headers_and_explicit_imports
+FAILED video_game/tests/test_render_density.py::test_legacy_settings_migrate_in_memory_without_rewrite
+2 failed, 576 passed, 2 deselected in 64.25s (0:01:04)

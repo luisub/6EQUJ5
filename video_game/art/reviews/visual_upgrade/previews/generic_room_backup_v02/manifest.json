@@ -1,0 +1,12 @@
+[
+  {
+    "source": "video_game/engine/native_room_assets.py",
+    "copy": "video_game/art/reviews/visual_upgrade/previews/generic_room_backup_v02/engine/native_room_assets.py",
+    "sha256": "c84df0ac4e06e1dbdcb76bfb3131dab9fb543d82a9caad515e90d690964145c1"
+  },
+  {
+    "source": "video_game/tests/test_native_room_assets.py",
+    "copy": "video_game/art/reviews/visual_upgrade/previews/generic_room_backup_v02/tests/test_native_room_assets.py",
+    "sha256": "069177e4bd3e51c535ff6ad6191461f038df54d1f264f2c517dc3135ca94b1cf"
+  }
+]

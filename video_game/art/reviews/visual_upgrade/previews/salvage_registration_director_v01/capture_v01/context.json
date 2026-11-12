@@ -1,0 +1,73 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/salvage_world_scene_v01/source/salvage_world_scene_generated_master.png",
+  "source_size": [
+    1870,
+    841
+  ],
+  "source_sha256": "95579a86f7c067d586bb972cf56187f35f4d280520e754bcf6cb19f388e87f06",
+  "export": "yard_world_layer_1280x576.png",
+  "export_sha256": "31040300d4a82458d6691b1b96d980a1f1bb856fc2c715c5211231dd88c3da85",
+  "transform": "full-image Lanczos resize to 1280x576; no masks, alpha edits, painting or cleanup",
+  "far_fixture": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+  "far_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+  "far_use": "interim fixture, not approved yard sky",
+  "composition": "fixture-local callback: far then world layer, then real yard tiles/objects/actors/effects/HUD",
+  "fixture": "dummy display/audio, temporary saves, new game, direct field then yard_midpoint spawn, 30 updates at 1/60, force camera x0/80/160 y18 without updates between views",
+  "samples": [
+    {
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x0_y18_native_960.png",
+      "native_sha256": "07389bbb4342bfe2488b96a213baf0c0a678c50e9f20cd8ebc480db008b4da49",
+      "review": "camera_x0_y18_review_1920.png",
+      "review_sha256": "6ed1631a80338803b39d6a133022eaa9c98dd8c72c71f203b41830e820fdfc81"
+    },
+    {
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x80_y18_native_960.png",
+      "native_sha256": "7d02dc21f30b2b49b2bc5cc13e265faf47bb2ae828bedfb12dfd891749011197",
+      "review": "camera_x80_y18_review_1920.png",
+      "review_sha256": "e00df0715cef2b30ba08af51a0c7ef6d79219e542ef1691d483d0621ba05f44c"
+    },
+    {
+      "camera": [
+        160,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x160_y18_native_960.png",
+      "native_sha256": "128f03d19b5425fc863db75ca37b795e81d43047a7c6dfd60f8ac059639eb297",
+      "review": "camera_x160_y18_review_1920.png",
+      "review_sha256": "4883b9cc477e89aac95a4686776d3807cbb7cf0589723785a8bb7a99953bc6fc"
+    }
+  ],
+  "limits": "static scripted fixture; no normal-input traversal, native display, performance, readability, motion, alpha-cleanup or production acceptance"
+}

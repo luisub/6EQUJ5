@@ -1,0 +1,35 @@
+{
+  "group": "ohio_salvage_v1",
+  "reason": "Explicit selected replacement",
+  "asset_root": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/assets",
+  "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/generic_room_promotion_v01/archive/2026-11-11_F03/58d3dd43db604430807a065995b6b705",
+  "files": [
+    {
+      "path": "environments/ohio_salvage_v1/far_1152x544.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e"
+    },
+    {
+      "path": "environments/ohio_salvage_v1/world_1280x576.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "023b441b8c784b78277722926b6c242243a8f195d8ad6cc2f76937cdae8f50c6"
+    },
+    {
+      "path": "environments/ohio_salvage_v1/wagon_168x76_rgba.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "ac8fce6cdd8edc41fca57a180c4faed0cbf1524b9fef6aea74d1d288a8e0d3ee"
+    },
+    {
+      "path": "environments/ohio_salvage_v1/manifest.json",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "c41bbbc4c816037b683c5cc6c18ea7593e9874a24932a3ee75f0819261ecabde"
+    }
+  ],
+  "references_updated": "Existing asset paths and manifest references retained.",
+  "checks": "Staged files validated before promotion; archived originals hash-verified.",
+  "restore": "Verify each archived SHA-256, copy it to its original asset path, remove files marked absent, then rerun the loader and checkpoint suites."
+}

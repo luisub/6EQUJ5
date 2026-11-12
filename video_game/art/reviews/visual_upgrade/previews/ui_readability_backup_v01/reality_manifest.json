@@ -1,0 +1,12 @@
+[
+  {
+    "source": "video_game/engine/field_reality.py",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/ui_readability_backup_v01/engine/field_reality.py",
+    "sha256": "8077ff7a8fe5c8ef3d7f3622299995286f557dedaf04195c0b4ef9ce37ffc547"
+  },
+  {
+    "source": "video_game/engine/flashback.py",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/ui_readability_backup_v01/engine/flashback.py",
+    "sha256": "339e9c1a46ec3a2bb55c62a0b03ce5586ad052531606b43186753f12c1b64da7"
+  }
+]

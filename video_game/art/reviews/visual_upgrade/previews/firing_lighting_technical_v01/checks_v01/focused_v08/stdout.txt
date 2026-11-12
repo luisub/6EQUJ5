@@ -1,0 +1,55 @@
+........F.................................................               [100%]
+=================================== FAILURES ===================================
+________ test_repeated_actual_taps_leave_gameplay_identical_with_light _________
+
+tmp_path = PosixPath('/private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-light-check-cfvonh20/pytest-of-nzlab-la/pytest-0/test_repeated_actual_taps_leav0')
+
+    def test_repeated_actual_taps_leave_gameplay_identical_with_light(tmp_path):
+        pygame.init()
+        pygame.display.set_mode((960,540))
+        traces=[]
+        try:
+            for enabled in (False,True):
+                save=tmp_path/str(enabled)
+                game=GameStateMachine(CRTRenderer(scale=1),save_store=SaveStore(save),settings_store=SettingsStore(save))
+                try:
+                    assert game.start_new_game()[0]
+                    game.change_state(config.STATE_FIELD_OPS,room='act_01/approach.json',spawn='approach_checkpoint')
+                    scene=game.current_scene
+                    scene.enemy_manager.clear()
+                    for _ in range(30):
+                        game.input.begin_frame()
+                        game.update(1/60)
+                    if enabled:
+                        scene.firing_lighting=FiringLighting(burst(),scene.native_approach.world)
+                    shots=[]
+                    original=scene.projectile_manager.spawn
+                    def record_spawn(*args,**kwargs):
+                        shots.append({k:kwargs[k] for k in ('x','y','dir_x','dir_y','speed','damage','is_charged','weapon_type')})
+                        return original(*args,**kwargs)
+                    scene.projectile_manager.spawn=record_spawn
+                    for frame in range(60):
+                        game.input.begin_frame()
+                        if frame in (0,15,30,45):
+                            game.handle_event(pygame.event.Event(pygame.KEYDOWN,key=pygame.K_j))
+                        if frame in (1,16,31,46):
+                            game.handle_event(pygame.event.Event(pygame.KEYUP,key=pygame.K_j))
+                        game.update(1/60)
+                        game.render()
+                    traces.append({'shots':shots,'rect':list(scene.player.rect),'health':scene.player.health,
+                                   'cooldown':scene.player.weapon.cooldown_timer,'campaign':game.campaign.to_dict()})
+                finally:
+                    game.close()
+            assert len(traces[0]['shots'])==4
+>           assert traces[0]==traces[1]
+E           AssertionError: assert {'shots': [{'...wn': 0.0, ...} == {'shots': [{'...wn': 0.0, ...}
+E             
+E             Omitting 4 identical items, use -vv to show
+E             Differing items:
+E             {'campaign': {'schema_version': 1, 'save_id': 'ca8426d6fb4c453c94ed92e141bb896c', 'current_act': 'act_01', 'current_room': 'bunker_hub', ...}} != {'campaign': {'schema_version': 1, 'save_id': '406960138a3e4026910ef682756cdaeb', 'current_act': 'act_01', 'current_room': 'bunker_hub', ...}}
+E             Use -v to get more diff
+
+video_game/tests/test_firing_lighting.py:256: AssertionError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_firing_lighting.py::test_repeated_actual_taps_leave_gameplay_identical_with_light
+1 failed, 57 passed in 2.91s

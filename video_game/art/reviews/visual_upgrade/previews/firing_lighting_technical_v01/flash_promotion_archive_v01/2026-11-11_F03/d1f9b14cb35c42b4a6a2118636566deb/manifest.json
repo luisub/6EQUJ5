@@ -1,0 +1,23 @@
+{
+  "group": "approach_maser_flash_v1",
+  "reason": "Explicit selected replacement",
+  "asset_root": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/assets",
+  "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/firing_lighting_technical_v01/flash_promotion_archive_v01/2026-11-11_F03/d1f9b14cb35c42b4a6a2118636566deb",
+  "files": [
+    {
+      "path": "effects/approach_maser_flash_v1/flash_64x32.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "027df21d8bb8d6d21f1421ad7bb50845e941a6907de2af430571fd95374ef7e5"
+    },
+    {
+      "path": "effects/approach_maser_flash_v1/manifest.json",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "2d867361faf31e098b24fe066675cbf72b369c2cd388fab3092fb9d35df15439"
+    }
+  ],
+  "references_updated": "Existing asset paths and manifest references retained.",
+  "checks": "Staged files validated before promotion; archived originals hash-verified.",
+  "restore": "Verify each archived SHA-256, copy it to its original asset path, remove files marked absent, then rerun the loader and checkpoint suites."
+}

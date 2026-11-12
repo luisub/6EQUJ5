@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "environment_id": "act_01_ohio",
+  "description": "Act I Ohio outdoor environment visual assets (Big Ear Observatory, approach trench, salvage yard, catwalk, arena)",
+  "tile_size": 16,
+  "assets": {
+    "tileset_ohio": {
+      "file": "tileset_ohio_16x16.png",
+      "dimensions": [
+        256,
+        128
+      ],
+      "sha256": "4c2afe5f03ef87b869cf8d88df536d8fa772438471da888220ff3b378b397e8d",
+      "alpha_mode": "RGBA",
+      "tile_rows": {
+        "0": "SOLID_CONCRETE",
+        "1": "SOLID_TERRAIN_MUD",
+        "2": "ONE_WAY_CATWALK_GRATING",
+        "3": "ONE_WAY_SCRAP_PLATES",
+        "4": "HAZARD_SUMP_LIQUID",
+        "5": "COVER_SANDBAGS_CRATES",
+        "6": "PROPS_FIXTURES",
+        "7": "AIRLOCK_BULKHEAD_DOORS"
+      }
+    },
+    "bg_ohio_sky": {
+      "file": "bg_ohio_sky_twilight.png",
+      "dimensions": [
+        960,
+        270
+      ],
+      "sha256": "11cc9b9f31499faa44a78dea4bbd6f284e93194dfa2cca4c7a36fa6ca53a39c7",
+      "parallax_ratio_x": 0.1,
+      "parallax_ratio_y": 0.05
+    },
+    "bg_ohio_fence": {
+      "file": "bg_ohio_treeline_fence.png",
+      "dimensions": [
+        960,
+        270
+      ],
+      "sha256": "790e132854962cd149ed4c537fef327241b58412b273a122107673a95b986e78",
+      "parallax_ratio_x": 0.35,
+      "parallax_ratio_y": 0.15
+    },
+    "bg_ohio_dish": {
+      "file": "bg_ohio_dish_lattice.png",
+      "dimensions": [
+        960,
+        270
+      ],
+      "sha256": "85caf74459e4e71b5bc7b3b88fb430da055a3f8025f6beec396206d8e4297c14",
+      "parallax_ratio_x": 0.65,
+      "parallax_ratio_y": 0.25
+    },
+    "weather_ohio_mist": {
+      "file": "weather_ohio_mist.png",
+      "dimensions": [
+        480,
+        270
+      ],
+      "sha256": "63fad0e9bf09499d6bec0f5b26b1c340b655ed77330f5946f816df2b00d98840",
+      "blend_mode": "alpha",
+      "max_alpha": 38
+    }
+  }
+}

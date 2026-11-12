@@ -1,0 +1,686 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/relay_shared_background_v01/source/relay_shared_background_generated_master.png",
+  "source_size": [
+    1619,
+    971
+  ],
+  "source_sha256": "f26f8f6c4c0441cdfb4e52d886515160c2c8d77d6e826660d31235575654397f",
+  "export": "relay_shared_background_960x576.png",
+  "export_sha256": "9af9affb03ea68ace6b55293193a8a3ad80691b32b907421562ea17e75a1f447",
+  "transform": "Full 1619x971 image Lanczos-resized to 960x576; full canvas retained; near-matching aspect, no masks, painting or cleanup.",
+  "composition": "Fixture-local background callback draws source crop at y=2*camera.y before actual MandelaWorld terrain, active objects and field actor/HUD.",
+  "fixture": "Dummy SDL, temporary save per case, direct relay entry and timeline selection, 30 updates at 1/60; actual relay.apply_action called directly to set puzzle state, direct collect_pickup where listed, then forced camera y=0/18 without further updates.",
+  "limits": "Static direct-action fixtures; no normal input progression, actual swaps, open panel, full playthrough, native window, CRT, performance or art-gate acceptance.",
+  "samples": [
+    {
+      "case": "initial",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [],
+      "relay_flags": {
+        "dodleston_coolant_drained": false,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "initial_y0_native_960.png",
+      "native_sha256": "b400944ec65f30e9e063d8bfcd6ba04e59c885b4f1affe84a3baf4c464070c93",
+      "review": "initial_y0_review_1920.png",
+      "review_sha256": "0095b1ca144cf96d0b520fa4aa319215bd5d1c187a2e603fc99598cd1d341a21"
+    },
+    {
+      "case": "initial",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [],
+      "relay_flags": {
+        "dodleston_coolant_drained": false,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "initial_y18_native_960.png",
+      "native_sha256": "ddefaf1b91707d51bc3b6d7aed08738bf570629ec9f84f845973404758b30b4a",
+      "review": "initial_y18_review_1920.png",
+      "review_sha256": "1df5ab1dd0e8655f1d970c1ea71548b2e21060260fb21af81e0f79fb2c9e0874"
+    },
+    {
+      "case": "ruptured",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_open_cistern_flood",
+          "ok": true,
+          "message": "2029: Overpressure ruptures the secondary pipe! Trench coolant rises, triggering a warning siren."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": false,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": true,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "ruptured_y0_native_960.png",
+      "native_sha256": "b400944ec65f30e9e063d8bfcd6ba04e59c885b4f1affe84a3baf4c464070c93",
+      "review": "ruptured_y0_review_1920.png",
+      "review_sha256": "0095b1ca144cf96d0b520fa4aa319215bd5d1c187a2e603fc99598cd1d341a21"
+    },
+    {
+      "case": "ruptured",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_open_cistern_flood",
+          "ok": true,
+          "message": "2029: Overpressure ruptures the secondary pipe! Trench coolant rises, triggering a warning siren."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": false,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": true,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "ruptured_y18_native_960.png",
+      "native_sha256": "ddefaf1b91707d51bc3b6d7aed08738bf570629ec9f84f845973404758b30b4a",
+      "review": "ruptured_y18_review_1920.png",
+      "review_sha256": "1df5ab1dd0e8655f1d970c1ea71548b2e21060260fb21af81e0f79fb2c9e0874"
+    },
+    {
+      "case": "drained",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "drained_y0_native_960.png",
+      "native_sha256": "af6850ad629ca3656615efe3beec01d2a1311ad155cc54d2ee058434df1e0e8d",
+      "review": "drained_y0_review_1920.png",
+      "review_sha256": "5e97699a4212fe603d9589e3e7c8a0df614bd9271d2d662f44b0141ac93cc24f"
+    },
+    {
+      "case": "drained",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "drained_y18_native_960.png",
+      "native_sha256": "054a92e2e7e7e88fda31439bbc7ec6bd39aa23f19978ecbec020daf4e6c32aa9",
+      "review": "drained_y18_review_1920.png",
+      "review_sha256": "15ee7a45843bf6e1967fb82f06a20bdc61537a0c3a64b24afa0e1ff40a5b42e5"
+    },
+    {
+      "case": "bulkhead_open",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        },
+        {
+          "action": "action_install_jumper_j1",
+          "ok": true,
+          "message": "2029: 440V auxiliary power restored to the relay vault. Bulkhead door unlocks and opens."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": true,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": true,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "bulkhead_open_y0_native_960.png",
+      "native_sha256": "5cc5151553a3ab627654ce11b7cfd570806e5bf1737ab5ff3a85f9467af3388a",
+      "review": "bulkhead_open_y0_review_1920.png",
+      "review_sha256": "773e21939a72d20dd53a26e5ea32e20dd836bcab4f32aeff5b9cfe836bfb0779"
+    },
+    {
+      "case": "bulkhead_open",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        },
+        {
+          "action": "action_install_jumper_j1",
+          "ok": true,
+          "message": "2029: 440V auxiliary power restored to the relay vault. Bulkhead door unlocks and opens."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": true,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": true,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "bulkhead_open_y18_native_960.png",
+      "native_sha256": "d85af0b042e4222ea462243ee8045868d1b9ec975816bf5343fef303bc6fce9b",
+      "review": "bulkhead_open_y18_review_1920.png",
+      "review_sha256": "a43a4efd3a74bb509d0ce2807cdaf06f6ac5c3ea3b2d9046ca4f70cc182944af"
+    },
+    {
+      "case": "cassette_spawned",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        },
+        {
+          "action": "action_install_jumper_j1",
+          "ok": true,
+          "message": "2029: 440V auxiliary power restored to the relay vault. Bulkhead door unlocks and opens."
+        },
+        {
+          "action": "action_cache_tape_chimney",
+          "ok": true,
+          "message": "2029: In the decayed chimney hearth, the tape cache is accessible and ready for collection."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": true,
+        "dodleston_cassette_cached": true,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": true,
+        "locked": false
+      },
+      "cassette_spawned": true,
+      "cassette_collected": false,
+      "native": "cassette_spawned_y0_native_960.png",
+      "native_sha256": "15356e749056e695d988544fc6413de9cba66b10f13aad13c2aa758f66debc9f",
+      "review": "cassette_spawned_y0_review_1920.png",
+      "review_sha256": "d596b5fc3d8945c8a11c97b2ce8f8e00a9cfdb1e87b363e91e672c58bcef5421"
+    },
+    {
+      "case": "cassette_spawned",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        },
+        {
+          "action": "action_install_jumper_j1",
+          "ok": true,
+          "message": "2029: 440V auxiliary power restored to the relay vault. Bulkhead door unlocks and opens."
+        },
+        {
+          "action": "action_cache_tape_chimney",
+          "ok": true,
+          "message": "2029: In the decayed chimney hearth, the tape cache is accessible and ready for collection."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": true,
+        "dodleston_cassette_cached": true,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": true,
+        "locked": false
+      },
+      "cassette_spawned": true,
+      "cassette_collected": false,
+      "native": "cassette_spawned_y18_native_960.png",
+      "native_sha256": "e60058bc16d23fc232044e23594180eace20fcf39ad4dc50873ff8167eb2f833",
+      "review": "cassette_spawned_y18_review_1920.png",
+      "review_sha256": "c470e6911866d555d1ec85633245ce4c180223bee96a0c49b8f35af214d431f3"
+    },
+    {
+      "case": "cassette_collected",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        },
+        {
+          "action": "action_install_jumper_j1",
+          "ok": true,
+          "message": "2029: 440V auxiliary power restored to the relay vault. Bulkhead door unlocks and opens."
+        },
+        {
+          "action": "action_cache_tape_chimney",
+          "ok": true,
+          "message": "2029: In the decayed chimney hearth, the tape cache is accessible and ready for collection."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": true,
+        "dodleston_cassette_cached": true,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": true,
+        "locked": false
+      },
+      "cassette_spawned": true,
+      "cassette_collected": true,
+      "native": "cassette_collected_y0_native_960.png",
+      "native_sha256": "5cc5151553a3ab627654ce11b7cfd570806e5bf1737ab5ff3a85f9467af3388a",
+      "review": "cassette_collected_y0_review_1920.png",
+      "review_sha256": "773e21939a72d20dd53a26e5ea32e20dd836bcab4f32aeff5b9cfe836bfb0779"
+    },
+    {
+      "case": "cassette_collected",
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [
+        {
+          "action": "action_seal_valve_drain",
+          "ok": true,
+          "message": "2029: Coolant trench drains completely; dry catwalk grating revealed; lower junction accessible."
+        },
+        {
+          "action": "action_install_jumper_j1",
+          "ok": true,
+          "message": "2029: 440V auxiliary power restored to the relay vault. Bulkhead door unlocks and opens."
+        },
+        {
+          "action": "action_cache_tape_chimney",
+          "ok": true,
+          "message": "2029: In the decayed chimney hearth, the tape cache is accessible and ready for collection."
+        }
+      ],
+      "relay_flags": {
+        "dodleston_coolant_drained": true,
+        "dodleston_bulkhead_unlocked": true,
+        "dodleston_cassette_cached": true,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": true,
+        "locked": false
+      },
+      "cassette_spawned": true,
+      "cassette_collected": true,
+      "native": "cassette_collected_y18_native_960.png",
+      "native_sha256": "d85af0b042e4222ea462243ee8045868d1b9ec975816bf5343fef303bc6fce9b",
+      "review": "cassette_collected_y18_review_1920.png",
+      "review_sha256": "a43a4efd3a74bb509d0ce2807cdaf06f6ac5c3ea3b2d9046ca4f70cc182944af"
+    },
+    {
+      "case": "analog_initial",
+      "timeline": "1977_ANALOG",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [],
+      "relay_flags": {
+        "dodleston_coolant_drained": false,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "analog_initial_y0_native_960.png",
+      "native_sha256": "a5ace87a3fcb5f779f7b5b341b08f497834001533ee1f9b6bb69790a9a6f583e",
+      "review": "analog_initial_y0_review_1920.png",
+      "review_sha256": "d238d92270526b1949ea8fc5ab8b1c917e48690454b073feb3fe9692b02a3b56"
+    },
+    {
+      "case": "analog_initial",
+      "timeline": "1977_ANALOG",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "actions": [],
+      "relay_flags": {
+        "dodleston_coolant_drained": false,
+        "dodleston_bulkhead_unlocked": false,
+        "dodleston_cassette_cached": false,
+        "pipe_ruptured": false,
+        "fuse_blown": false
+      },
+      "coolant_row14_cols10_14": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "door": {
+        "open": false,
+        "locked": false
+      },
+      "cassette_spawned": false,
+      "cassette_collected": false,
+      "native": "analog_initial_y18_native_960.png",
+      "native_sha256": "80657e627bfddb5619ea6123985af59b607500a10e4f4b81385340d28504005f",
+      "review": "analog_initial_y18_review_1920.png",
+      "review_sha256": "85e8e17eac710130d0b246be2f8c88ef38bb58745b58628ccddd0435809db1a4"
+    }
+  ]
+}

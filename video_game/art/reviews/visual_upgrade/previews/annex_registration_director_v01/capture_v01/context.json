@@ -1,0 +1,88 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/annex_shared_background_v01/source/annex_shared_background_generated_master.png",
+  "source_size": [
+    1620,
+    971
+  ],
+  "source_sha256": "a634fe148d96d7b0997adeb6c638733d2d840464fc64b620adc8c699b7dcdb63",
+  "export": "annex_shared_background_960x576.png",
+  "export_sha256": "09af8059e23ac5aeb069aa81d9f768b7cbf5c00090879b183261468ca261ebd9",
+  "transform": "Full 1620x971 image Lanczos-resized to 960x576; full canvas retained; approximately 0.1% aspect change, no masks, painting or cleanup.",
+  "composition": "Fixture-local room background callback draws source crop at y=2*camera.y, then actual MandelaWorld tiles, platforms, active objects, weather/transition and normal field actor/HUD.",
+  "fixture": "Dummy SDL, temporary saves, new game, direct annex spawn and directly selected timeline; 30 updates at 1/60 before camera positions; no input or normal-route claim.",
+  "limits": "Static isolated fixture only; no moving-platform endpoint, timeline swap, full interaction, CRT, native window, performance, playthrough or art-gate acceptance.",
+  "samples": [
+    {
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "native": "2029_CORE_y0_native_960.png",
+      "native_sha256": "91172dd9d9cb17676baf661a4a51d404521646c623b9a73e19dd18d79c46b9b0",
+      "review": "2029_CORE_y0_review_1920.png",
+      "review_sha256": "93f09976d1a8e312412077cc38ce8b1e914e46655be06980f06a18b60be4b034"
+    },
+    {
+      "timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "native": "2029_CORE_y18_native_960.png",
+      "native_sha256": "d5888bd6217ea25c730cb002564c5a79bb0b81f0b3378bc31bcc2ffafa8e75a9",
+      "review": "2029_CORE_y18_review_1920.png",
+      "review_sha256": "adeaf6a481be39a0a86e5255b4e882ddb66b75e0999136d3253dc5e2995349f6"
+    },
+    {
+      "timeline": "1977_ANALOG",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "native": "1977_ANALOG_y0_native_960.png",
+      "native_sha256": "689ce6691d623b57ee1f46b1e8fc1d727b02d231ba5cda5c2b06cae9bd3bc34b",
+      "review": "1977_ANALOG_y0_review_1920.png",
+      "review_sha256": "d6b0ee6814938a1ebe98b132a13ad043f44c1d2291778b8ca072af476f43274b"
+    },
+    {
+      "timeline": "1977_ANALOG",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "native": "1977_ANALOG_y18_native_960.png",
+      "native_sha256": "4bb9c1532788aa93ec44b5d763a776b3d8cabd4b363e646b7973a9ae91bb3774",
+      "review": "1977_ANALOG_y18_review_1920.png",
+      "review_sha256": "21dd924be4748b73d821f8284c53d5175eac7e4d87e1deb1f7a5be450fc853f5"
+    }
+  ]
+}

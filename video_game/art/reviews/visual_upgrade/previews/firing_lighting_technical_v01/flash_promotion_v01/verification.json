@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "/opt/anaconda3/envs/6equj5_game/bin/python",
+    "-m",
+    "video_game.tools.build_firing_flash",
+    "--archive-dir",
+    "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/firing_lighting_technical_v01/flash_promotion_archive_v01",
+    "--source",
+    "video_game/art/reviews/visual_upgrade/previews/firing_flash_registration_v01/cell_v01/firing_flash_64x32.png",
+    "--promote"
+  ],
+  "cwd": "/Users/nzlab-la/Desktop/Github/6EQUJ5",
+  "environment": {
+    "SDL_VIDEODRIVER": "dummy",
+    "SDL_AUDIODRIVER": "dummy",
+    "TMPDIR": "/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-flash-promote-2sz2y2i7",
+    "SIX_GAME_SAVE_DIR": "/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-flash-promote-2sz2y2i7/save"
+  },
+  "exit_code": 0,
+  "previous_file_count": 331,
+  "all_previous_files_unchanged": true,
+  "new_png_sha256": "027df21d8bb8d6d21f1421ad7bb50845e941a6907de2af430571fd95374ef7e5",
+  "manifest_sha256": "2d867361faf31e098b24fe066675cbf72b369c2cd388fab3092fb9d35df15439",
+  "manifest_matches_contract": true,
+  "journal_absent": true
+}

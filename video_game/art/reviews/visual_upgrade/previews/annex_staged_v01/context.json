@@ -1,0 +1,101 @@
+{
+  "source": "video_game/art/reviews/visual_upgrade/previews/annex_registration_director_v02/capture_v01/annex_shared_background_960x576.png",
+  "sha256": "b12ba8f554e5cdb9f237a9f1266ed3bae06c10c480272a3c605decf50269dd4a",
+  "promotion_status": "promoted",
+  "samples": [
+    {
+      "timeline": "2029_CORE",
+      "campaign_timeline": "2029_CORE",
+      "room_timeline": "2029_CORE",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "platforms": [
+        [
+          230.66666666666623,
+          160.0
+        ]
+      ],
+      "native": "2029_CORE_y0_native_960.png",
+      "native_sha256": "a488c8441ea0a7b201d83f4be2f0ac67972f0e20befeb51f0e56bf75b2963bc0"
+    },
+    {
+      "timeline": "2029_CORE",
+      "campaign_timeline": "2029_CORE",
+      "room_timeline": "2029_CORE",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "platforms": [
+        [
+          230.66666666666623,
+          160.0
+        ]
+      ],
+      "native": "2029_CORE_y18_native_960.png",
+      "native_sha256": "6de49accdd7381e6b8dcfd8e45a6a472b96bcda24acac7fb1068feaf3503324b"
+    },
+    {
+      "timeline": "1977_ANALOG",
+      "campaign_timeline": "1977_ANALOG",
+      "room_timeline": "1977_ANALOG",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "platforms": [
+        [
+          261.3333333333327,
+          160.0
+        ]
+      ],
+      "native": "1977_ANALOG_y0_native_960.png",
+      "native_sha256": "3787ba8df6bfb62f98c0c3f53c59f7a91213f53cbc8b180e266af02bd8be90fb"
+    },
+    {
+      "timeline": "1977_ANALOG",
+      "campaign_timeline": "1977_ANALOG",
+      "room_timeline": "1977_ANALOG",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        32,
+        208,
+        16,
+        32
+      ],
+      "platforms": [
+        [
+          261.3333333333327,
+          160.0
+        ]
+      ],
+      "native": "1977_ANALOG_y18_native_960.png",
+      "native_sha256": "988bd5db68c12e5389700b0544d60e06c6c0fbd9aca44e49e4f9675c600e9905"
+    }
+  ],
+  "fixture": "dummy SDL and copied temporary assets/save; injected Act I completion prerequisite, physical M annex entry and T timeline swap, 45 fixed updates after each; forced camera y0/18; platform moves normally",
+  "limits": "Not an earned Act I route, full playthrough, native window, performance, human or art gate acceptance"
+}

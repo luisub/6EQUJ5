@@ -1,0 +1,72 @@
+{
+  "sheet": "remaining_scenes_native_sheet.png",
+  "sheet_sha256": "a05a12ca371756635abbf59470772b478bb46c6ba8af717f14129a01db0858f9",
+  "sheet_size": [
+    1920,
+    1176
+  ],
+  "composition": "Four unchanged 960x540 source pixels pasted 1:1 with external labels, no resampling or image editing.",
+  "sources": [
+    {
+      "label": "Bunker: terminal station",
+      "source": "video_game/art/reviews/visual_upgrade/previews/bunker_installed_v02/terminal_native_960.png",
+      "sha256": "787c5276ddf12408702a001c3488f513f9622e5d690dde6c65f6938147f6b069",
+      "source_size": [
+        960,
+        540
+      ],
+      "sheet_rect": [
+        0,
+        72,
+        960,
+        540
+      ]
+    },
+    {
+      "label": "Annex: 2029, camera y18",
+      "source": "video_game/art/reviews/visual_upgrade/previews/annex_installed_v01/2029_CORE_y18_native_960.png",
+      "sha256": "6de49accdd7381e6b8dcfd8e45a6a472b96bcda24acac7fb1068feaf3503324b",
+      "source_size": [
+        960,
+        540
+      ],
+      "sheet_rect": [
+        960,
+        72,
+        960,
+        540
+      ]
+    },
+    {
+      "label": "Relay: 2029",
+      "source": "video_game/art/reviews/visual_upgrade/previews/relay_installed_v01/2029_native_960.png",
+      "sha256": "ab51eb5788455b51745577bf5e969d83c4620df5c51d5c81b6320d688a1ea247",
+      "source_size": [
+        960,
+        540
+      ],
+      "sheet_rect": [
+        0,
+        636,
+        960,
+        540
+      ]
+    },
+    {
+      "label": "1977 observatory: entry",
+      "source": "video_game/art/reviews/visual_upgrade/previews/ehman_installed_v01/entry_y18_native_960.png",
+      "sha256": "a907eb970c8ae7557d7c0e55d0dd9d52e1f7f34257803069529d74635b95c70e",
+      "source_size": [
+        960,
+        540
+      ],
+      "sheet_rect": [
+        960,
+        636,
+        960,
+        540
+      ]
+    }
+  ],
+  "limits": "Actual configured asset-root captures with dummy SDL and scripted or injected prerequisites; static fixtures, not human gameplay, normal progression, real-window, performance or art-gate evidence. See each original directory context.json."
+}

@@ -1,0 +1,89 @@
+{
+  "source": "video_game/art/reviews/visual_upgrade/previews/ehman_1977_registration_director_v02/crop_v01/ehman_1977_background_960x576.png",
+  "source_sha256": "2a5e77ec07cc4ca41f69b8a5ce5baca4ef8b29bef0d5886223d962af735ac8c7",
+  "promotion_status": "promoted",
+  "samples": [
+    {
+      "name": "entry",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "stage": "FlashbackStage.ENTERED",
+      "native": "entry_y0_native_960.png",
+      "sha256": "2bda5c79b4e8dfd405c97220d389841a729e1114b21a3f66b473b487ef1d48be"
+    },
+    {
+      "name": "entry",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "stage": "FlashbackStage.ENTERED",
+      "native": "entry_y18_native_960.png",
+      "sha256": "a907eb970c8ae7557d7c0e55d0dd9d52e1f7f34257803069529d74635b95c70e"
+    },
+    {
+      "name": "printout",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        110,
+        208,
+        16,
+        32
+      ],
+      "stage": "FlashbackStage.PRINTOUT_INSPECTED",
+      "native": "printout_y18_native_960.png",
+      "sha256": "e1a7fafa16110d91f6ff0c39f2e4bf44b36367e4288ecf3fbc061abf9f04f0e5"
+    },
+    {
+      "name": "annotated",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        110,
+        208,
+        16,
+        32
+      ],
+      "stage": "FlashbackStage.ANNOTATION_APPLIED",
+      "native": "annotated_y18_native_960.png",
+      "sha256": "546a26af8643ae22c3f3080bab8018e2fa15d90a7537fa07bc2c833fcaaaf52e"
+    },
+    {
+      "name": "reel",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        375,
+        208,
+        16,
+        32
+      ],
+      "stage": "FlashbackStage.REEL_RETRIEVED",
+      "native": "reel_y18_native_960.png",
+      "sha256": "3ecc930f5b9e37d083b5be9cdb87196855bedd3a8ca8913726bb2c58e4c18e57"
+    }
+  ],
+  "fixture": "dummy SDL, copied temporary assets/save; injected Act I prerequisite, physical M/F7/E/E/E/E; 30 fixed updates, camera y0/18; teleported player to printout and vault",
+  "limits": "not an earned route, normal traversal, native window, human gameplay, performance or art gate."
+}

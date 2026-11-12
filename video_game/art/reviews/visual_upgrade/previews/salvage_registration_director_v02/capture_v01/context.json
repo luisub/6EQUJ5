@@ -1,0 +1,127 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/salvage_world_scene_v02/source/salvage_world_scene_generated_master.png",
+  "source_size": [
+    1870,
+    841
+  ],
+  "source_sha256": "30e2afd770e1f9e3f313529e7ddc879bb918ef58cc66ba583db14df698d1c24b",
+  "export": "yard_world_layer_1280x576.png",
+  "export_sha256": "023b441b8c784b78277722926b6c242243a8f195d8ad6cc2f76937cdae8f50c6",
+  "transform": "full-image Lanczos resize to 1280x576; no masks, alpha edits, painting or cleanup",
+  "far_fixture": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+  "far_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+  "far_use": "interim fixture, not approved yard sky",
+  "composition": "fixture-local callback: far then world layer, then real yard tiles/objects/actors/effects/HUD",
+  "fixture": "dummy display/audio, temporary saves, new game, direct field then yard_midpoint spawn, 30 updates at 1/60, force camera x0/80/160 and y0/18 without updates between views",
+  "samples": [
+    {
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x0_y18_native_960.png",
+      "native_sha256": "9034d10e31a8b0f865fe196dd1c4660438719b9af06f2f38269b1f9acf8bd146",
+      "review": "camera_x0_y18_review_1920.png",
+      "review_sha256": "e27a9b4c0a9bc282695ddb9f39ebad7c2f6cf7014dd1dec8643c6909e21413dd"
+    },
+    {
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x80_y18_native_960.png",
+      "native_sha256": "a50da1d373dfb4ed987e9c879900d64ef36f425d835efe15f74c576ac4b78ed6",
+      "review": "camera_x80_y18_review_1920.png",
+      "review_sha256": "a6a4c18904970b866c269b3713e23b06adebc9c1053c1a07d85c4714105f6f58"
+    },
+    {
+      "camera": [
+        160,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x160_y18_native_960.png",
+      "native_sha256": "ed2a1471638caef8cadecbbb3fac049d00317af1eac1d7a9b44e0879143ffb87",
+      "review": "camera_x160_y18_review_1920.png",
+      "review_sha256": "0b3ca3be365b83a0ea384eef41b428df407431463d26b96c13243fa3ca6e25d8"
+    },
+    {
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x0_y0_native_960.png",
+      "native_sha256": "bf7ca0e13edb9cfaca96ccecc4999212f821ee0f448a10d3fd906d3aa289021f",
+      "review": "camera_x0_y0_review_1920.png",
+      "review_sha256": "bcf7a79e7b2ecd93f81fb6715620157e02b35c8eb51cc46cabc0f910976aec59"
+    },
+    {
+      "camera": [
+        80,
+        0
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x80_y0_native_960.png",
+      "native_sha256": "241344cb06c705ca7799fc19e07d7d1ca2436e1f9cb6caff20d3bf97598cf9db",
+      "review": "camera_x80_y0_review_1920.png",
+      "review_sha256": "3aea9a1b59a5c744c0fca5fe0bc51c071174b421783080db2dc76875f95c3a12"
+    },
+    {
+      "camera": [
+        160,
+        0
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "coupler_collected": false,
+      "native": "camera_x160_y0_native_960.png",
+      "native_sha256": "a1404c75193e60ff809915648baf7056ea661b9583f132e87d0dc4d813cf5af0",
+      "review": "camera_x160_y0_review_1920.png",
+      "review_sha256": "427bef091a001c867f23fb9b4e2fb964571f8539754e30b5ce16c3334f4ca8ff"
+    }
+  ],
+  "limits": "static scripted fixture; no normal-input traversal, native display, performance, readability, motion, alpha-cleanup or production acceptance"
+}

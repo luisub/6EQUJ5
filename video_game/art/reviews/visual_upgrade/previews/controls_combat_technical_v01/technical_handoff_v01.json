@@ -1,0 +1,32 @@
+{
+  "scope": "controls and combat increment, current checkout snapshot",
+  "files_sha256": {
+    "video_game/engine/input.py": "cd011ab95626f889c03fddc9dc26ad9c9e5f979aea009e9ddaaa532c467658b3",
+    "video_game/engine/player.py": "2cd69528d1a31888b47176ec9cdaed0107d68a8bcd615f22f6f10fe04c9477b8",
+    "video_game/engine/state_machine.py": "453f73c8903ec0fe1de046d41a51556437465e013557bb8c95ac3b02962afa2f",
+    "video_game/engine/scenes/field.py": "d765ab068a24878d80b97e75c778255282acb0c04627333b7eb6f4a0142824b8",
+    "video_game/engine/scenes/boss.py": "cdb1a69a7a682f630cb7332a55bef0ff5e0bb726dfcbfd490acc8444c6c95d76",
+    "video_game/engine/settings.py": "c837d9288bb1fd13de5a18e4cfa9333cbb6e83c605c85261de2317a362fa360f",
+    "video_game/engine/ui/pause.py": "9fa38c9d64fb577654b4ba27c5e087457e72026a463e5dbdde08cef9e0a37f19",
+    "video_game/engine/ui/viewport.py": "5f0f7357f56dd443c52337bcc363be1c8976d81151d0055ae2e07f5cc7baca8f",
+    "video_game/engine/ui/aim_reticle.py": "f5b51e0ba3c8a52ca09af69b81025bc5bd14fab63ed563a7525afc85ddd2746b",
+    "video_game/engine/firing_lighting.py": "39c607650a9d7ca2bb1be98f2efd92f4998d64b6c7f1a852d19427f587cf0ec7",
+    "video_game/engine/weapons.py": "707ea2809949c46acad01d52b9f11f53e26c1aaab7f4584afb0528a4a3823ad4",
+    "video_game/data/balance.json": "0f344c2cbf1c3c181d33910cd846268ab40e4bc872c41a75501dc461e7f9264c",
+    "video_game/tests/test_accessible_controls_integration.py": "c3a841dfa3e26c27b44ee7e34a8433f3df18df42622fe2c97d75cb7f8e502b86",
+    "video_game/tests/test_controls_combat_unit.py": "423fd7e7deb3b6120d544f814fbec737ca4760625ba8e0d021773045b7e34096",
+    "video_game/tests/test_pointer_controller_input.py": "87a7d9d4a3e79097cff85ed3d8e64e93beb71825a58c469b84933e5c18c70174",
+    "video_game/tests/test_combat_assist.py": "bacfd6ea6b6b7b7cf57a16cf7af7e92342a83b81137e55d9ac52b4f627a52c4a",
+    "video_game/tests/test_input_settings.py": "3fc56e0c8921c0b2f13297569d3aa39dca563972d14e6942da98474cda364006",
+    "video_game/tests/test_render_density.py": "df511a7e3964409bbcbadeaa9ec997898e51d4ba28d6010ae9f67cdb920bf6b1",
+    "video_game/tests/test_firing_lighting.py": "8413a6edd840e3882650a4135cff5c98d9fbb76c2226d1d0bab4ad5a0cfc2862"
+  },
+  "focused": "checks_v01/focused_final_v01: 149 passed",
+  "combined": "checks_v01/combined_v02: 577 passed, 1 failed, 2 deselected; review-sheet rebuild requires missing video_game/_trash/legacy_ascii_portraits/fasr-001_legacy_face.png",
+  "content": "checks_v01/content_v01: seven levels valid",
+  "legacy_dryrun": "checks_v01/legacy_dryrun_v01: 14 locked groups preserved",
+  "asset_integrity": "checks_v01/asset_integrity_v01.json: 331 previous assets and installed flash hashes unchanged, journal absent; excludes missing archives",
+  "wheel": "wheel_check_v01: 493 members, SHA-256 56baa370b747de63c5a95ce5705379e6d92696fc4a5be817552e1110495b9a32; 27 family files, 446 packaged game members match current checkout",
+  "recovery": "recovery_v01 through v16 plus combat_assist_backup_v01, coilgun_interrupt_backup_v01 and mapper backup; recovery_v15 inventory collision superseded by verified recovery_v16",
+  "known_limits": "Mouse and controller events were synthetic pygame events under dummy SDL; physical hardware, human gameplay, full controller coverage and native graphical performance remain unverified. Other-tab cleanup removed historical _trash sources; no restore or test skip performed."
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "source": "video_game/engine/scenes/field.py",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/native_loader_backup_v01/engine/scenes/field.py",
+    "sha256": "1dd69d61fc8cbe7a0969903dcc839be0c2c9b8a71f680154cb7e3cdbe7fe7be8"
+  },
+  {
+    "source": "video_game/art/reviews/visual_upgrade/CURRENT_ART_STATE.md",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/native_loader_backup_v01/art/reviews/visual_upgrade/CURRENT_ART_STATE.md",
+    "sha256": "6ffd9a605d0620941d0713527846d932a356901d7ad2eb84eb4800749a214afb"
+  }
+]

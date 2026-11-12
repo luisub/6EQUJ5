@@ -1,0 +1,33 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/ohio_background_v03/source/ohio_background_generated_master.png",
+  "source_dimensions": [
+    1672,
+    941
+  ],
+  "source_sha256": "6d6629c17dc7d4a36fc77568bebd6d2e60b22974181c85084815f0159cd8739f",
+  "export_sha256": "2e70327704f8c664667750e3f2838253f594955881152ec8ce8710d49d1e278c",
+  "resampling": "Lanczos resize full source to 960x540; slight aspect correction, no crop or cleanup",
+  "fixture": "dummy SDL, fresh new game direct field entry, 30 fixed-step updates, temporary save",
+  "camera_xy": [
+    0.0,
+    18.0
+  ],
+  "world_view": [
+    0.0,
+    18.0,
+    480,
+    270
+  ],
+  "player_rect": [
+    48,
+    208,
+    16,
+    32
+  ],
+  "foot_world": [
+    56.0,
+    240.0
+  ],
+  "composition": "one-fixture background render callback inserts native plate behind actual runtime room tiles, objects, enemies, Mateo, effects, weather, HUD; no runtime files or assets changed",
+  "limitations": "static registered backdrop experiment; no tile upgrade, production promotion, pixel cleanup, parallax, motion, CRT-on, native-window or gate claim"
+}

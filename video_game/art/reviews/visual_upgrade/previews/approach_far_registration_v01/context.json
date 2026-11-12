@@ -1,0 +1,15 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/approach_far_v01/source/approach_far_generated_master.png",
+  "source_dimensions": [
+    1825,
+    862
+  ],
+  "source_sha256": "eec86caf566730b53adbc1bbbc510cf1015a98eaf32c89648bdb3af3b8476700",
+  "export": "far_native_1152x544.png",
+  "export_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+  "resampling": "Lanczos full image resize; small aspect adjustment; no painting or tone alteration",
+  "crops": "960x540 at x 0/48/96 current room sampling and x192 reserve; y0 and y2. x192 is reserve, not currently reachable camera",
+  "mapping": "native crop (round(2*0.10*camera_x),round(2*0.05*camera_y)); current camera x0..480 y0..18",
+  "guide": "actual 960x288 room tiles and objects offscreen, no background/actors, nearest 2x to1920x576; collision/geometry registration guide only",
+  "limits": "static art inspection; not seamlessness, parallax motion, integration, human gameplay or gate acceptance"
+}

@@ -1,0 +1,31 @@
+.....F.................................................                  [100%]
+=================================== FAILURES ===================================
+_______________ test_upward_and_other_weapon_keep_legacy_flashes _______________
+
+game = <video_game.engine.state_machine.GameStateMachine object at 0x11a7a71a0>
+
+    def test_upward_and_other_weapon_keep_legacy_flashes(game):
+        scene=game.current_scene
+        scene.firing_lighting=FiringLighting(burst(),scene.native_approach.world)
+        game.input.begin_frame()
+        game.handle_event(pygame.event.Event(pygame.KEYDOWN,key=pygame.K_UP))
+        game.handle_event(pygame.event.Event(pygame.KEYDOWN,key=pygame.K_j))
+        game.update(1/60)
+        assert scene.projectile_manager.projectiles[-1].dir_y < 0
+        assert scene.effects.flashes[-1]['lighting_token'] is None
+        game.handle_event(pygame.event.Event(pygame.KEYUP,key=pygame.K_j))
+        game.handle_event(pygame.event.Event(pygame.KEYUP,key=pygame.K_UP))
+        scene.projectile_manager.clear()
+        scene.effects.clear()
+        scene.player.weapon=scene.player.arsenal.weapons['scattergun']
+        game.input.begin_frame()
+        game.handle_event(pygame.event.Event(pygame.KEYDOWN,key=pygame.K_j))
+        game.update(1/60)
+>       assert scene.projectile_manager.projectiles[-1].weapon_type=='scattergun'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+video_game/tests/test_firing_lighting.py:170: IndexError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_firing_lighting.py::test_upward_and_other_weapon_keep_legacy_flashes
+1 failed, 54 passed in 1.88s

@@ -1,0 +1,32 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_scene_frame_budgets ___________________________
+
+    def test_scene_frame_budgets():
+        """Verify that all major Act I scenes execute well within the 8.0ms P95 frame budget."""
+        session = BenchmarkProfileSession(scale=config.DEFAULT_SCALE, headless=True)
+        try:
+            scenes_to_test = [
+                config.STATE_BUNKER_HUB,
+                config.STATE_CRT_TERMINAL,
+                config.STATE_SCIENCE_LAB,
+                config.STATE_FIELD_OPS,
+                config.STATE_BOSS_BOUNTY,
+            ]
+    
+            for scene_id in scenes_to_test:
+                res = session.run_scene_benchmark(scene_id, duration_seconds=0.6, simulate_input=True)
+                total_p95 = res["total_frame_time_ms"]["p95"]
+                render_p95 = res["render_time_ms"]["p95"]
+                update_p95 = res["update_time_ms"]["p95"]
+    
+                # Must run well within the 8.0ms 60 FPS safety budget
+                assert total_p95 < 8.0, f"Scene {scene_id} Total P95 was {total_p95}ms, exceeding 8.0ms budget"
+>               assert render_p95 < 5.0, f"Scene {scene_id} Render P95 was {render_p95}ms, exceeding 5.0ms budget"
+E               AssertionError: Scene FIELD_OPS Render P95 was 5.011ms, exceeding 5.0ms budget
+E               assert 5.011 < 5.0
+
+video_game/tests/test_profile.py:61: AssertionError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_profile.py::test_scene_frame_budgets - Assertion...
+1 failed in 2.81s

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "boss_id": "greenkeeper_act_01",
+  "name": "Core Warden Greenkeeper",
+  "native_size": [
+    64,
+    48
+  ],
+  "frames": {
+    "idle_1": "idle_1.png",
+    "idle_2": "idle_2.png",
+    "charge_1": "charge_1.png",
+    "charge_2": "charge_2.png",
+    "mortar_aim": "mortar_aim.png",
+    "mortar_fire": "mortar_fire.png",
+    "sweep_charge": "sweep_charge.png",
+    "vulnerable_1": "vulnerable_1.png",
+    "vulnerable_2": "vulnerable_2.png",
+    "hurt": "hurt.png",
+    "defeated": "defeated.png"
+  },
+  "animations": {
+    "idle": [
+      "idle_1",
+      "idle_2"
+    ],
+    "charge": [
+      "charge_1",
+      "charge_2"
+    ],
+    "mortar": [
+      "mortar_aim",
+      "mortar_fire"
+    ],
+    "sweep": [
+      "sweep_charge"
+    ],
+    "vulnerable": [
+      "vulnerable_1",
+      "vulnerable_2"
+    ],
+    "hurt": [
+      "hurt"
+    ],
+    "defeated": [
+      "defeated"
+    ]
+  }
+}

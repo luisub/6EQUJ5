@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "name": "Act I Ohio Environment Color Ramps and Materials",
+  "description": "Standardized material color ramps for Act I Ohio environments (Approach Trench, Salvage Yard, Dish Catwalk, Greenkeeper Arena).",
+  "reference_standard": "HUNTDOWN-inspired 32-color quantization with strict material ramps and zero visual seams",
+  "ramps": {
+    "BUNKER_CONCRETE": {
+      "description": "Weathered Ohio Big Ear concrete foundation slabs, drainage trenches, and reinforced bunker walls.",
+      "colors_rgb": [
+        [6, 8, 12],
+        [16, 22, 28],
+        [32, 42, 48],
+        [58, 72, 78],
+        [94, 112, 118],
+        [148, 168, 176]
+      ],
+      "colors_hex": ["#06080c", "#10161c", "#202a30", "#3a484e", "#5e7076", "#94a8b0"]
+    },
+    "OHIO_TERRAIN": {
+      "description": "Delaware County autumn sod, clay mud trenches, dead grass cap, and gravel fill.",
+      "colors_rgb": [
+        [12, 16, 10],
+        [28, 34, 18],
+        [46, 54, 28],
+        [72, 84, 43],
+        [104, 118, 63],
+        [140, 156, 88]
+      ],
+      "colors_hex": ["#0c100a", "#1c2212", "#2e361c", "#48542b", "#68763f", "#8c9c58"]
+    },
+    "INDUSTRIAL_STEEL": {
+      "description": "Galvanized catwalk grating, radio dish lattice trusses, antenna masts, and steel stanchions.",
+      "colors_rgb": [
+        [10, 14, 20],
+        [22, 32, 44],
+        [40, 56, 74],
+        [66, 90, 114],
+        [104, 134, 162],
+        [152, 180, 204]
+      ],
+      "colors_hex": ["#0a0e14", "#16202c", "#28384a", "#425a72", "#6886a2", "#98b4cc"]
+    },
+    "RUST_AND_COPPER": {
+      "description": "Corrugated iron scrap, salvage plates, weathered rebar, and copper antenna coil bundles.",
+      "colors_rgb": [
+        [20, 10, 8],
+        [52, 24, 16],
+        [94, 44, 28],
+        [140, 66, 42],
+        [190, 100, 66],
+        [226, 146, 108]
+      ],
+      "colors_hex": ["#140a08", "#341810", "#5e2c1c", "#8c422a", "#be6442", "#e2926c"]
+    },
+    "HAZARD_AMBER_SPARK": {
+      "description": "Conductive sump liquid, high-voltage electrical sparks, and warning border chevron trims.",
+      "colors_rgb": [
+        [24, 8, 6],
+        [68, 20, 16],
+        [140, 34, 24],
+        [216, 66, 36],
+        [255, 122, 54],
+        [255, 222, 128]
+      ],
+      "colors_hex": ["#180806", "#441410", "#8c2218", "#d84224", "#ff7a36", "#ffde80"]
+    },
+    "COVER_CANVAS": {
+      "description": "Heavy sandbag bulkheads, military cargo crates, and ballistic blast barriers.",
+      "colors_rgb": [
+        [18, 16, 10],
+        [38, 32, 20],
+        [66, 56, 36],
+        [102, 88, 58],
+        [148, 130, 86],
+        [194, 176, 126]
+      ],
+      "colors_hex": ["#12100a", "#262014", "#423824", "#66583a", "#948256", "#c2b07e"]
+    },
+    "OHIO_TWILIGHT": {
+      "description": "October Delaware County evening sky gradient, distant treeline silhouette, and radio tower beacons.",
+      "colors_rgb": [
+        [6, 8, 16],
+        [12, 18, 32],
+        [20, 32, 54],
+        [32, 52, 84],
+        [56, 82, 120],
+        [92, 124, 168]
+      ],
+      "colors_hex": ["#060810", "#0c1220", "#142036", "#203454", "#385278", "#5c7ca8"]
+    }
+  }
+}
+

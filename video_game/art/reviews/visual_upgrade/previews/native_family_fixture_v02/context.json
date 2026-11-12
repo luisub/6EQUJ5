@@ -1,0 +1,175 @@
+{
+  "driver": "dummy",
+  "fixture": "copied legacy asset root, explicit temporary promotion and save; direct field entry; each spawn settled 30 ticks, camera positioned explicitly",
+  "sources": {
+    "far": {
+      "path": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+      "sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e"
+    },
+    "world": {
+      "path": "video_game/art/reviews/visual_upgrade/previews/architecture_registration_research_v02/crop_top_left_v01/architecture_rgba_1920x576.png",
+      "sha256": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3"
+    }
+  },
+  "promotion_status": "promoted",
+  "manifest": {
+    "schema_version": 1,
+    "room_id": "act_01_approach",
+    "density": 2,
+    "viewport": [
+      480,
+      270
+    ],
+    "world": [
+      960,
+      288
+    ],
+    "layers": [
+      {
+        "id": "far",
+        "file": "far_1152x544.png",
+        "sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+        "dimensions": [
+          1152,
+          544
+        ],
+        "parallax": [
+          0.1,
+          0.05
+        ],
+        "rounding": "native_nearest",
+        "alpha": "opaque",
+        "repeat": false,
+        "origin": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "world",
+        "file": "world_architecture_1920x576.png",
+        "sha256": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3",
+        "dimensions": [
+          1920,
+          576
+        ],
+        "parallax": [
+          1,
+          1
+        ],
+        "rounding": "logical_nearest",
+        "alpha": "straight",
+        "repeat": false,
+        "origin": [
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "captures": [
+    {
+      "camera": [
+        0,
+        0
+      ],
+      "spawn": "bunker_exit",
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x0_y0_960.png",
+      "native_sha256": "47ca89b05c6f5f11124968fdf3e5fdc2862dcb36127dd833d528ca68e3c464e1",
+      "review": "camera_x0_y0_1920.png",
+      "review_sha256": "6527880d4da359829c5b175a4d87fa51bd7ef6a7e1cce982eb661cc0f6614f72"
+    },
+    {
+      "camera": [
+        0,
+        18
+      ],
+      "spawn": "bunker_exit",
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x0_y18_960.png",
+      "native_sha256": "16ebda14e7dda897e3f0871d3aadc421880c679d911e3a26091961a73cd26f33",
+      "review": "camera_x0_y18_1920.png",
+      "review_sha256": "88288ffbcb45537e8bf6081027c4f14b3262aafae932b9ab0d4cbac4b5492950"
+    },
+    {
+      "camera": [
+        240,
+        0
+      ],
+      "spawn": "approach_checkpoint",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x240_y0_960.png",
+      "native_sha256": "963d65489cb5298dd8b8d16c7b01845c9cf69168b98d2901e28323932b8f86b4",
+      "review": "camera_x240_y0_1920.png",
+      "review_sha256": "e200e47f6b3ce1aa7ba09f819d6d8536b0bfc8369dfd6476f1282199425eecb6"
+    },
+    {
+      "camera": [
+        240,
+        18
+      ],
+      "spawn": "approach_checkpoint",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x240_y18_960.png",
+      "native_sha256": "24664506a8486b27e72e2869bfa9020147de43d0b847aa04f650457d7b104640",
+      "review": "camera_x240_y18_1920.png",
+      "review_sha256": "2935f2088a97cfc746c82c2010bd097ce1319e6427916fca99d7d03d5bc6b6d6"
+    },
+    {
+      "camera": [
+        480,
+        0
+      ],
+      "spawn": "dish_perimeter",
+      "player_rect": [
+        860,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x480_y0_960.png",
+      "native_sha256": "2a8e0272efc27373b0a1b0a2f0ada4969225d4e37f962486fd0c84bc83c1b9f9",
+      "review": "camera_x480_y0_1920.png",
+      "review_sha256": "4f4b2659af9bf35706c3a06020b537f443366149f2eaa0c853a6a2aae2786496"
+    },
+    {
+      "camera": [
+        480,
+        18
+      ],
+      "spawn": "dish_perimeter",
+      "player_rect": [
+        860,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x480_y18_960.png",
+      "native_sha256": "6aaaa69a8c367f481ae44969f14b9ed7c06e58edafa4216dcc0e9f90d93fab9e",
+      "review": "camera_x480_y18_1920.png",
+      "review_sha256": "9224bf2343ffe8fea10e9423cca840217406ef5b9eb425e1732fcd010d00b3e3"
+    }
+  ],
+  "limitations": "actual field render with fixture placement; no production promotion, human gameplay, native window, motion, visual gate or FPS claim"
+}

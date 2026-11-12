@@ -1,0 +1,54 @@
+{
+  "driver": "dummy",
+  "fixture": "new game; directly enter field scene; one 1/60 update; no played progression",
+  "room_id": "act_01_approach",
+  "room_dimensions": [
+    960,
+    288
+  ],
+  "camera_xy": [
+    0.0,
+    18.0
+  ],
+  "visible_world_rect": [
+    0.0,
+    18.0,
+    480,
+    270
+  ],
+  "player_xy": [
+    48.0,
+    192.15
+  ],
+  "player_rect": [
+    48,
+    192,
+    16,
+    32
+  ],
+  "foot_world": [
+    56.0,
+    224.15
+  ],
+  "sprite_dest": [
+    44,
+    175
+  ],
+  "sprite_size": [
+    24,
+    32
+  ],
+  "sprite_alpha_bbox": [
+    3,
+    1,
+    18,
+    29
+  ],
+  "animation": "fall",
+  "scale_factor": 0.25,
+  "canvas": [
+    480,
+    270
+  ],
+  "hud": "top solid bar y=0..15, separator y=16; bottom bar y=254..269; text/status overlays elsewhere; CRT postprocessing not included"
+}

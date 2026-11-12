@@ -1,0 +1,122 @@
+{
+  "note": "Contact and fragment event definitions are test-only; production uses timeline_shift only.",
+  "new_game": {
+    "schema_version": 1,
+    "save_id": "f05_evidence",
+    "current_act": "act_01",
+    "current_room": "bunker_hub",
+    "checkpoint_id": "bunker_start",
+    "timeline_mode": "2029_CORE",
+    "room_flags": {
+      "first_mission_available": true
+    },
+    "inventory": {
+      "maser_1420": 1
+    },
+    "unlocked_weapons": [
+      "maser_1420"
+    ],
+    "active_weapon": "maser_1420",
+    "contacted_civs": [],
+    "extracted_fragments": [],
+    "validation_records": [],
+    "unlocked_abilities": [],
+    "meters": {
+      "alignment_confidence": 35,
+      "scientific_certainty": 40,
+      "coordination_capacity": 30,
+      "public_trust": 25,
+      "human_agency": 70,
+      "biosecurity_readiness": 35
+    },
+    "choices": {},
+    "applied_event_ids": [],
+    "completed_event_types": []
+  },
+  "early_fragment_rejection": "Unmet prerequisites for contacted_civs",
+  "state_unchanged_after_rejection": true,
+  "after_contact": {
+    "schema_version": 1,
+    "save_id": "f05_evidence",
+    "current_act": "act_01",
+    "current_room": "bunker_hub",
+    "checkpoint_id": "bunker_start",
+    "timeline_mode": "2029_CORE",
+    "room_flags": {
+      "first_mission_available": true
+    },
+    "inventory": {
+      "maser_1420": 1
+    },
+    "unlocked_weapons": [
+      "maser_1420"
+    ],
+    "active_weapon": "maser_1420",
+    "contacted_civs": [
+      "FASR-001"
+    ],
+    "extracted_fragments": [],
+    "validation_records": [],
+    "unlocked_abilities": [],
+    "meters": {
+      "alignment_confidence": 100,
+      "scientific_certainty": 40,
+      "coordination_capacity": 30,
+      "public_trust": 0,
+      "human_agency": 70,
+      "biosecurity_readiness": 35
+    },
+    "choices": {},
+    "applied_event_ids": [
+      "contact_1"
+    ],
+    "completed_event_types": [
+      "evidence_contact"
+    ]
+  },
+  "same_id_replayed": false,
+  "new_id_same_one_shot_replayed": false,
+  "after_fragment": {
+    "schema_version": 1,
+    "save_id": "f05_evidence",
+    "current_act": "act_01",
+    "current_room": "bunker_hub",
+    "checkpoint_id": "bunker_start",
+    "timeline_mode": "2029_CORE",
+    "room_flags": {
+      "first_mission_available": true
+    },
+    "inventory": {
+      "maser_1420": 1
+    },
+    "unlocked_weapons": [
+      "maser_1420"
+    ],
+    "active_weapon": "maser_1420",
+    "contacted_civs": [
+      "FASR-001"
+    ],
+    "extracted_fragments": [
+      "FASR-001"
+    ],
+    "validation_records": [],
+    "unlocked_abilities": [],
+    "meters": {
+      "alignment_confidence": 100,
+      "scientific_certainty": 40,
+      "coordination_capacity": 30,
+      "public_trust": 0,
+      "human_agency": 70,
+      "biosecurity_readiness": 35
+    },
+    "choices": {},
+    "applied_event_ids": [
+      "contact_1",
+      "fragment_1"
+    ],
+    "completed_event_types": [
+      "evidence_contact",
+      "evidence_fragment"
+    ]
+  }
+}

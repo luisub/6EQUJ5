@@ -1,0 +1,1374 @@
+{
+  "schema_version": 2,
+  "character": "Dr. Mateo \"Six\" Vargas",
+  "default_cell_size": [
+    96,
+    128
+  ],
+  "default_foot_pivot": [
+    48,
+    124
+  ],
+  "outfits": {
+    "navy_chore": {
+      "label": "NAVY CHORE COAT (PI / CHIEF SCIENTIST)",
+      "strip_file": "sprites/mateo/navy_chore/strip.png",
+      "cell_size": [
+        96,
+        128
+      ],
+      "default_foot_pivot": [
+        48,
+        124
+      ],
+      "animations": {
+        "idle": {
+          "frames": [
+            "sprites/mateo/navy_chore/idle_1.png",
+            "sprites/mateo/navy_chore/idle_2.png",
+            "sprites/mateo/navy_chore/idle_3.png",
+            "sprites/mateo/navy_chore/idle_4.png"
+          ],
+          "frame_duration_ms": 325,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "4-frame breathing idle loop; stable foot pivot (48, 124)"
+        },
+        "walk": {
+          "frames": [
+            "sprites/mateo/navy_chore/walk_1.png",
+            "sprites/mateo/navy_chore/walk_2.png"
+          ],
+          "frame_duration_ms": 180,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Locomotion walk cycle; smooth foot contact"
+        },
+        "run": {
+          "frames": [
+            "sprites/mateo/navy_chore/run_1.png",
+            "sprites/mateo/navy_chore/run_2.png",
+            "sprites/mateo/navy_chore/run_3.png",
+            "sprites/mateo/navy_chore/run_4.png"
+          ],
+          "frame_duration_ms": 110,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            16,
+            28,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "4-frame run stride; balanced pivot and weight distribution"
+        },
+        "jump": {
+          "frames": [
+            "sprites/mateo/navy_chore/jump.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            20,
+            28,
+            100
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              36
+            ],
+            "hand": [
+              74,
+              46
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Upward jump ascent launch posture"
+        },
+        "fall": {
+          "frames": [
+            "sprites/mateo/navy_chore/fall.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            20,
+            28,
+            100
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              42
+            ],
+            "hand": [
+              74,
+              50
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Downward fall air descent posture"
+        },
+        "land": {
+          "frames": [
+            "sprites/mateo/navy_chore/land.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            30,
+            28,
+            94
+          ],
+          "attachment_points": {
+            "muzzle": [
+              106,
+              54
+            ],
+            "hand": [
+              72,
+              60
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Landing compression recovery"
+        },
+        "crouch": {
+          "frames": [
+            "sprites/mateo/navy_chore/crouch.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            48,
+            28,
+            76
+          ],
+          "attachment_points": {
+            "muzzle": [
+              102,
+              68
+            ],
+            "hand": [
+              72,
+              74
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Crouched stealth / traversal posture"
+        },
+        "slide": {
+          "frames": [
+            "sprites/mateo/navy_chore/slide.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            20,
+            78,
+            56,
+            46
+          ],
+          "attachment_points": {
+            "muzzle": [
+              88,
+              96
+            ],
+            "hand": [
+              64,
+              98
+            ],
+            "kick": [
+              98,
+              114
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Tactical slide-kick attack posture"
+        },
+        "cover_low": {
+          "frames": [
+            "sprites/mateo/navy_chore/cover_low.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            32,
+            52,
+            32,
+            72
+          ],
+          "attachment_points": {
+            "muzzle": [
+              98,
+              72
+            ],
+            "hand": [
+              70,
+              78
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Fortified low barrier cover posture"
+        },
+        "cover_background": {
+          "frames": [
+            "sprites/mateo/navy_chore/cover_background.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "hand": [
+              62,
+              54
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Concealed doorway alcove cover posture"
+        },
+        "shoot": {
+          "frames": [
+            "sprites/mateo/navy_chore/shoot.png"
+          ],
+          "frame_duration_ms": 100,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              82,
+              46
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Forward maser discharge posture"
+        },
+        "recoil": {
+          "frames": [
+            "sprites/mateo/navy_chore/recoil.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              104,
+              34
+            ],
+            "hand": [
+              80,
+              40
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Weapon recoil kick recovery posture"
+        },
+        "tune": {
+          "frames": [
+            "sprites/mateo/navy_chore/tune.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "device": [
+              96,
+              52
+            ],
+            "hand": [
+              80,
+              56
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Receiver tuning and scanner inspection posture"
+        },
+        "hurt": {
+          "frames": [
+            "sprites/mateo/navy_chore/hurt.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            32,
+            16,
+            30,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              92,
+              50
+            ],
+            "hand": [
+              68,
+              56
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Damage knockback flinch posture"
+        },
+        "death": {
+          "frames": [
+            "sprites/mateo/navy_chore/death.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            8,
+            80,
+            80,
+            44
+          ],
+          "attachment_points": {
+            "hand": [
+              30,
+              110
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Incapacitated ground collapse posture"
+        }
+      }
+    },
+    "olive_field": {
+      "label": "1977 OLIVE M-65 FIELD JACKET",
+      "strip_file": "sprites/mateo/olive_field/strip.png",
+      "cell_size": [
+        96,
+        128
+      ],
+      "default_foot_pivot": [
+        48,
+        124
+      ],
+      "animations": {
+        "idle": {
+          "frames": [
+            "sprites/mateo/olive_field/idle_1.png",
+            "sprites/mateo/olive_field/idle_2.png",
+            "sprites/mateo/olive_field/idle_3.png",
+            "sprites/mateo/olive_field/idle_4.png"
+          ],
+          "frame_duration_ms": 325,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "4-frame breathing idle loop; stable foot pivot (48, 124)"
+        },
+        "walk": {
+          "frames": [
+            "sprites/mateo/olive_field/walk_1.png",
+            "sprites/mateo/olive_field/walk_2.png"
+          ],
+          "frame_duration_ms": 180,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Locomotion walk cycle; smooth foot contact"
+        },
+        "run": {
+          "frames": [
+            "sprites/mateo/olive_field/run_1.png",
+            "sprites/mateo/olive_field/run_2.png",
+            "sprites/mateo/olive_field/run_3.png",
+            "sprites/mateo/olive_field/run_4.png"
+          ],
+          "frame_duration_ms": 110,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            16,
+            28,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "4-frame run stride; balanced pivot and weight distribution"
+        },
+        "jump": {
+          "frames": [
+            "sprites/mateo/olive_field/jump.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            20,
+            28,
+            100
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              36
+            ],
+            "hand": [
+              74,
+              46
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Upward jump ascent launch posture"
+        },
+        "fall": {
+          "frames": [
+            "sprites/mateo/olive_field/fall.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            20,
+            28,
+            100
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              42
+            ],
+            "hand": [
+              74,
+              50
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Downward fall air descent posture"
+        },
+        "land": {
+          "frames": [
+            "sprites/mateo/olive_field/land.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            30,
+            28,
+            94
+          ],
+          "attachment_points": {
+            "muzzle": [
+              106,
+              54
+            ],
+            "hand": [
+              72,
+              60
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Landing compression recovery"
+        },
+        "crouch": {
+          "frames": [
+            "sprites/mateo/olive_field/crouch.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            48,
+            28,
+            76
+          ],
+          "attachment_points": {
+            "muzzle": [
+              102,
+              68
+            ],
+            "hand": [
+              72,
+              74
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Crouched stealth / traversal posture"
+        },
+        "slide": {
+          "frames": [
+            "sprites/mateo/olive_field/slide.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            20,
+            78,
+            56,
+            46
+          ],
+          "attachment_points": {
+            "muzzle": [
+              88,
+              96
+            ],
+            "hand": [
+              64,
+              98
+            ],
+            "kick": [
+              98,
+              114
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Tactical slide-kick attack posture"
+        },
+        "cover_low": {
+          "frames": [
+            "sprites/mateo/olive_field/cover_low.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            32,
+            52,
+            32,
+            72
+          ],
+          "attachment_points": {
+            "muzzle": [
+              98,
+              72
+            ],
+            "hand": [
+              70,
+              78
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Fortified low barrier cover posture"
+        },
+        "cover_background": {
+          "frames": [
+            "sprites/mateo/olive_field/cover_background.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "hand": [
+              62,
+              54
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Concealed doorway alcove cover posture"
+        },
+        "shoot": {
+          "frames": [
+            "sprites/mateo/olive_field/shoot.png"
+          ],
+          "frame_duration_ms": 100,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              82,
+              46
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Forward maser discharge posture"
+        },
+        "recoil": {
+          "frames": [
+            "sprites/mateo/olive_field/recoil.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              104,
+              34
+            ],
+            "hand": [
+              80,
+              40
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Weapon recoil kick recovery posture"
+        },
+        "tune": {
+          "frames": [
+            "sprites/mateo/olive_field/tune.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "device": [
+              96,
+              52
+            ],
+            "hand": [
+              80,
+              56
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Receiver tuning and scanner inspection posture"
+        },
+        "hurt": {
+          "frames": [
+            "sprites/mateo/olive_field/hurt.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            32,
+            16,
+            30,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              92,
+              50
+            ],
+            "hand": [
+              68,
+              56
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Damage knockback flinch posture"
+        },
+        "death": {
+          "frames": [
+            "sprites/mateo/olive_field/death.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            8,
+            80,
+            80,
+            44
+          ],
+          "attachment_points": {
+            "hand": [
+              30,
+              110
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Incapacitated ground collapse posture"
+        }
+      }
+    },
+    "faraday_rig": {
+      "label": "2029 FARADAY TACTICAL LAB SUIT",
+      "strip_file": "sprites/mateo/faraday_rig/strip.png",
+      "cell_size": [
+        96,
+        128
+      ],
+      "default_foot_pivot": [
+        48,
+        124
+      ],
+      "animations": {
+        "idle": {
+          "frames": [
+            "sprites/mateo/faraday_rig/idle_1.png",
+            "sprites/mateo/faraday_rig/idle_2.png",
+            "sprites/mateo/faraday_rig/idle_3.png",
+            "sprites/mateo/faraday_rig/idle_4.png"
+          ],
+          "frame_duration_ms": 325,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "4-frame breathing idle loop; stable foot pivot (48, 124)"
+        },
+        "walk": {
+          "frames": [
+            "sprites/mateo/faraday_rig/walk_1.png",
+            "sprites/mateo/faraday_rig/walk_2.png"
+          ],
+          "frame_duration_ms": 180,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Locomotion walk cycle; smooth foot contact"
+        },
+        "run": {
+          "frames": [
+            "sprites/mateo/faraday_rig/run_1.png",
+            "sprites/mateo/faraday_rig/run_2.png",
+            "sprites/mateo/faraday_rig/run_3.png",
+            "sprites/mateo/faraday_rig/run_4.png"
+          ],
+          "frame_duration_ms": 110,
+          "loop": true,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            16,
+            28,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              76,
+              52
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "4-frame run stride; balanced pivot and weight distribution"
+        },
+        "jump": {
+          "frames": [
+            "sprites/mateo/faraday_rig/jump.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            20,
+            28,
+            100
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              36
+            ],
+            "hand": [
+              74,
+              46
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Upward jump ascent launch posture"
+        },
+        "fall": {
+          "frames": [
+            "sprites/mateo/faraday_rig/fall.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            20,
+            28,
+            100
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              42
+            ],
+            "hand": [
+              74,
+              50
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Downward fall air descent posture"
+        },
+        "land": {
+          "frames": [
+            "sprites/mateo/faraday_rig/land.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            30,
+            28,
+            94
+          ],
+          "attachment_points": {
+            "muzzle": [
+              106,
+              54
+            ],
+            "hand": [
+              72,
+              60
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Landing compression recovery"
+        },
+        "crouch": {
+          "frames": [
+            "sprites/mateo/faraday_rig/crouch.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            34,
+            48,
+            28,
+            76
+          ],
+          "attachment_points": {
+            "muzzle": [
+              102,
+              68
+            ],
+            "hand": [
+              72,
+              74
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Crouched stealth / traversal posture"
+        },
+        "slide": {
+          "frames": [
+            "sprites/mateo/faraday_rig/slide.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            20,
+            78,
+            56,
+            46
+          ],
+          "attachment_points": {
+            "muzzle": [
+              88,
+              96
+            ],
+            "hand": [
+              64,
+              98
+            ],
+            "kick": [
+              98,
+              114
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Tactical slide-kick attack posture"
+        },
+        "cover_low": {
+          "frames": [
+            "sprites/mateo/faraday_rig/cover_low.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            32,
+            52,
+            32,
+            72
+          ],
+          "attachment_points": {
+            "muzzle": [
+              98,
+              72
+            ],
+            "hand": [
+              70,
+              78
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Fortified low barrier cover posture"
+        },
+        "cover_background": {
+          "frames": [
+            "sprites/mateo/faraday_rig/cover_background.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "hand": [
+              62,
+              54
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Concealed doorway alcove cover posture"
+        },
+        "shoot": {
+          "frames": [
+            "sprites/mateo/faraday_rig/shoot.png"
+          ],
+          "frame_duration_ms": 100,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              108,
+              44
+            ],
+            "hand": [
+              82,
+              46
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Forward maser discharge posture"
+        },
+        "recoil": {
+          "frames": [
+            "sprites/mateo/faraday_rig/recoil.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              104,
+              34
+            ],
+            "hand": [
+              80,
+              40
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Weapon recoil kick recovery posture"
+        },
+        "tune": {
+          "frames": [
+            "sprites/mateo/faraday_rig/tune.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            36,
+            16,
+            24,
+            108
+          ],
+          "attachment_points": {
+            "device": [
+              96,
+              52
+            ],
+            "hand": [
+              80,
+              56
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Receiver tuning and scanner inspection posture"
+        },
+        "hurt": {
+          "frames": [
+            "sprites/mateo/faraday_rig/hurt.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            32,
+            16,
+            30,
+            108
+          ],
+          "attachment_points": {
+            "muzzle": [
+              92,
+              50
+            ],
+            "hand": [
+              68,
+              56
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Damage knockback flinch posture"
+        },
+        "death": {
+          "frames": [
+            "sprites/mateo/faraday_rig/death.png"
+          ],
+          "frame_duration_ms": 0,
+          "loop": false,
+          "foot_pivot": [
+            48,
+            124
+          ],
+          "hurtbox": [
+            8,
+            80,
+            80,
+            44
+          ],
+          "attachment_points": {
+            "hand": [
+              30,
+              110
+            ]
+          },
+          "review_status": "reviewed",
+          "review_notes": "Incapacitated ground collapse posture"
+        }
+      }
+    }
+  },
+  "shared": {
+    "portrait": "sprites/mateo/portrait_128x128.png",
+    "bunker": "sprites/mateo/bunker_96x128.png"
+  }
+}

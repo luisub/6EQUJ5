@@ -1,0 +1,84 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/mateo_olive_recoil_v02/source/mateo_olive_recoil_generated_master.png",
+  "source_sha256": "281cb71983ab01048ac3b3e01380a61873677969b6e0a79f6faf642f6a92ed91",
+  "source_size": [
+    1086,
+    1448
+  ],
+  "source_nonzero_alpha_bbox_exclusive": [
+    106,
+    39,
+    1066,
+    1448
+  ],
+  "source_alpha_gt127_bbox_exclusive": [
+    226,
+    255,
+    914,
+    1367
+  ],
+  "crop_box_exclusive": [
+    52,
+    145,
+    997,
+    1405
+  ],
+  "crop_size": [
+    945,
+    1260
+  ],
+  "transform": "Proportional direct source crop 945x1260 to 60x80 by nearest sampling, ratio 4/63; transparent source alpha retained, no distortion, mask, painting or creative edit.",
+  "source_pixels_excluded": {
+    "nonzero_alpha": 48,
+    "alpha_gt127": 0
+  },
+  "cell": "mateo_olive_recoil_60x80.png",
+  "cell_sha256": "b6855a6638192ff496e7fb534c84718ffee7257e9d666840dabf89cec9b490ab",
+  "cell_alpha_nonzero_bbox_exclusive": [
+    11,
+    7,
+    55,
+    78
+  ],
+  "cell_alpha_gt127_bbox_exclusive": [
+    11,
+    7,
+    55,
+    78
+  ],
+  "cell_alpha_counts": {
+    "zero": 3391,
+    "partial": 1393,
+    "opaque": 16
+  },
+  "right_target_points_cell": {
+    "foot": [
+      30,
+      78
+    ],
+    "hand": [
+      46,
+      36
+    ],
+    "muzzle": [
+      58,
+      33
+    ]
+  },
+  "left_target_points_cell": {
+    "foot": [
+      29,
+      78
+    ],
+    "hand": [
+      13,
+      36
+    ],
+    "muzzle": [
+      1,
+      33
+    ]
+  },
+  "target_overlay_legend": "yellow=nominal foot; cyan=existing recoil hand; red=existing recoil muzzle; overlays diagnostic only",
+  "limits": "Single static pose, manual visual measurements pending; no animation, gameplay, human, performance or art-gate acceptance."
+}

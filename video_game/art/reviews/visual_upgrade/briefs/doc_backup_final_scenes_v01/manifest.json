@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "source": "video_game/planning/CURRENT_STATE.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_scenes_v01/CURRENT_STATE.md",
+      "sha256": "9375e3587539612c997decb5926330a12af83bff3a915190ca2ed74aaf5b8660"
+    },
+    {
+      "source": "video_game/planning/TODO_ROADMAP.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_scenes_v01/TODO_ROADMAP.md",
+      "sha256": "e91f450c72869e32ed01548b0d98de0a3159d65050adc9ddfe1eaa945a3c22ff"
+    },
+    {
+      "source": "video_game/planning/PROGRESS_LOG.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_scenes_v01/PROGRESS_LOG.md",
+      "sha256": "44f9b1f4d8f9896052924382eb8eaabecb3ae6445e70866c46979875de2c794c"
+    },
+    {
+      "source": "video_game/planning/ART_PRODUCTION.md",
+      "backup": "video_game/art/reviews/visual_upgrade/briefs/doc_backup_final_scenes_v01/ART_PRODUCTION.md",
+      "sha256": "e2c853b99eb05be1becd354a3be546e66d999c218d897dc61bc5d781886937a7"
+    }
+  ],
+  "method": "byte copies; original and backup SHA-256 verified before updates"
+}

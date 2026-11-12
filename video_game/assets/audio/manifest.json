@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "description": "6EQUJ5 audio sound effect bank and provenance manifest",
+  "sample_rate": 44100,
+  "sound_effects": {
+    "maser_tap.wav": {
+      "file": "maser_tap.wav",
+      "description": "1420 MHz waveguide maser tap fire sound",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.16,
+      "sha256": "adff9581a69ff9a4e0130bddb3626a79742dd58be23675335a856be86f6a147f",
+      "size_bytes": 14156
+    },
+    "maser_charge.wav": {
+      "file": "maser_charge.wav",
+      "description": "Charged plasma beam discharge sound",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.45,
+      "sha256": "a5a4bf10a06ba570e47ccf7c0e3ce48b8c8cbf08d8a1cdd1fa60b5a743942dc7",
+      "size_bytes": 39734
+    },
+    "impact_spark.wav": {
+      "file": "impact_spark.wav",
+      "description": "Metallic beam ricochet impact sound",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.12,
+      "sha256": "bf25cfea7a2cb324f24225e9c2cb8e805ec20e6ae1c43251ffbfcd776f8e170c",
+      "size_bytes": 10628
+    },
+    "alarm_lock.wav": {
+      "file": "alarm_lock.wav",
+      "description": "Two-tone target lock threat alert warning",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.15,
+      "sha256": "f8449c6cdff9a5f75700c6ab5ea96ca0e853ece3f623f46f92cf8ac0037b85f4",
+      "size_bytes": 13274
+    },
+    "station_chime.wav": {
+      "file": "station_chime.wav",
+      "description": "Analog terminal console acknowledge chime",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.35,
+      "sha256": "ae746bd7e124d06135b268d9a12a04ddd716281a7c5044f4ac7f23c2b76fb60b",
+      "size_bytes": 30912
+    },
+    "printer_chatter.wav": {
+      "file": "printer_chatter.wav",
+      "description": "Mechanical teleprinter printhead strike click",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.08,
+      "sha256": "d3347a3f06e6b6c2e61377885980ff6f1f933f47f71a499335c785a2297d2aad",
+      "size_bytes": 7100
+    },
+    "player_jump.wav": {
+      "file": "player_jump.wav",
+      "description": "Kinematic player jump impulse",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.1,
+      "sha256": "71f5ef0e828930860a2b34ad63ad3cd3c4b1c8c417bc81532598d515ed132768",
+      "size_bytes": 8864
+    },
+    "player_land.wav": {
+      "file": "player_land.wav",
+      "description": "Gravel ground contact landing impact",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.09,
+      "sha256": "03545dff9abda85fb877ef2552caef7b8d8516aca53088cc1b57438f680f66dd",
+      "size_bytes": 7982
+    },
+    "player_slide.wav": {
+      "file": "player_slide.wav",
+      "description": "Kinematic slide-kick ground friction rumble",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.25,
+      "sha256": "f0f1700bcb171e0cbf6eef17aeda5d6b0fb315261af67d7adb1e0a3c20b0d1d0",
+      "size_bytes": 22094
+    },
+    "player_hurt.wav": {
+      "file": "player_hurt.wav",
+      "description": "Player damage impact thud",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.18,
+      "sha256": "7feb947a140dba779b103b0b39d10053b3d7a8847d3961fa985fd7506208f754",
+      "size_bytes": 15920
+    },
+    "enemy_telegraph.wav": {
+      "file": "enemy_telegraph.wav",
+      "description": "Core reconnaissance drone lock-on telegraph hum",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.3,
+      "sha256": "d2c97e900affc77032db772c61c6856925f060fc6e0c24b3620c8d51880295ed",
+      "size_bytes": 26504
+    },
+    "boss_mortar_launch.wav": {
+      "file": "boss_mortar_launch.wav",
+      "description": "Greenkeeper pneumatic mortar launch artillery thump",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "duration_seconds": 0.38,
+      "sha256": "cfb8437b1eda3e5ec8e1943e86305dfc7d335b3c6dce4781eadecced8f6257e4",
+      "size_bytes": 33560
+    }
+  },
+  "music_tracks": {
+    "Static_Bloom.mp3": {
+      "role": "bunker_and_lab_ambient",
+      "loop": true,
+      "fade_ms": 1000
+    },
+    "Echoes_of_the_Static_Void.mp3": {
+      "role": "field_ops_and_boss_combat",
+      "loop": true,
+      "fade_ms": 1200
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/greenkeeper_world_scene_v02/source/greenkeeper_world_scene_generated_master.png",
+  "source_sha256": "c91950103b984c1e8c44bb70333b86a79c76d34b086d0d5a38225feae44e7d3d",
+  "export": "video_game/art/reviews/visual_upgrade/previews/arena_registration_director_v02/capture_v01/arena_world_layer_1280x576.png",
+  "export_sha256": "b5f6188a37c5e042d8c4f591692b49bf4728f022d5a83ad2375287c8f565b7b7",
+  "far_fixture": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+  "far_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+  "promotion_status": "promoted",
+  "composition": "temporary staged family via actual BossScene native loader before room tiles, objects, boss/telegraphs, player projectiles, Mateo, effects and HUD",
+  "fixture": "dummy SDL, temporary assets and saves, direct boss entry; teleport player x240/y208 and simulate 30 ticks, fixed camera x0/80/160 y18, injected mortar, vulnerability and sweep states.",
+  "samples": [
+    {
+      "name": "active",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "boss_rect": [
+        460,
+        192,
+        64,
+        48
+      ],
+      "phase": 1,
+      "phase_state": "IDLE",
+      "attack": "",
+      "weak_exposed": false,
+      "telegraphs": 0,
+      "native": "active_x0_native_960.png",
+      "native_sha256": "d18e0975440d3ddda5f8e8f36cb78cd9482c067be83340bb4e6a82995846c25e",
+      "review": "active_x0_review_1920.png",
+      "review_sha256": "26cb3c62e8073cec1a01498b4fcc04162c494148c86e9412cadaaf7c5a105756"
+    },
+    {
+      "name": "active",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "boss_rect": [
+        460,
+        192,
+        64,
+        48
+      ],
+      "phase": 1,
+      "phase_state": "IDLE",
+      "attack": "",
+      "weak_exposed": false,
+      "telegraphs": 0,
+      "native": "active_x80_native_960.png",
+      "native_sha256": "48f43ced287506aefd6d603920264648537fb47e5c8dd8187f078f37de788ffe",
+      "review": "active_x80_review_1920.png",
+      "review_sha256": "91c46294163687cbfe0c2f3ead591a2f0efdf22e30bf72bb96c49f68ba8c481b"
+    },
+    {
+      "name": "active",
+      "camera": [
+        160,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "boss_rect": [
+        460,
+        192,
+        64,
+        48
+      ],
+      "phase": 1,
+      "phase_state": "IDLE",
+      "attack": "",
+      "weak_exposed": false,
+      "telegraphs": 0,
+      "native": "active_x160_native_960.png",
+      "native_sha256": "46691ad7235fbda2231e7c782a071b3d163cda5f508258209a662f0d8118b5d6",
+      "review": "active_x160_review_1920.png",
+      "review_sha256": "21ba74c7a586137670fbd91fe2001b17e5c147462b54785cff41953b4f1daf27"
+    },
+    {
+      "name": "mortar_telegraph",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "boss_rect": [
+        460,
+        192,
+        64,
+        48
+      ],
+      "phase": 1,
+      "phase_state": "TELEGRAPH",
+      "attack": "mortar",
+      "weak_exposed": false,
+      "telegraphs": 2,
+      "native": "mortar_telegraph_x80_native_960.png",
+      "native_sha256": "403bd3dbb34245365d1ee8f4e1dd8db9dc49b8accf3fea03519828cf971253e0",
+      "review": "mortar_telegraph_x80_review_1920.png",
+      "review_sha256": "55ceabdaf5de26aac4c65db5c86ba8a17233c93c87e12a81663176a5591ba5d2"
+    },
+    {
+      "name": "weakpoint_exposed",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "boss_rect": [
+        460,
+        192,
+        64,
+        48
+      ],
+      "phase": 1,
+      "phase_state": "VULNERABLE",
+      "attack": "mortar",
+      "weak_exposed": true,
+      "telegraphs": 0,
+      "native": "weakpoint_exposed_x80_native_960.png",
+      "native_sha256": "6d0bae2c013f2fa209a8c163eadad67ffb0a305341df3944dcb85ad99b858a5d",
+      "review": "weakpoint_exposed_x80_review_1920.png",
+      "review_sha256": "f5e1e43e055ae8b089a21e6ceb0f4ce0138381b94050cee0d5ace8b0fd6b3180"
+    },
+    {
+      "name": "sweep_telegraph",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "boss_rect": [
+        460,
+        192,
+        64,
+        48
+      ],
+      "phase": 2,
+      "phase_state": "TELEGRAPH",
+      "attack": "sweep",
+      "weak_exposed": false,
+      "telegraphs": 1,
+      "native": "sweep_telegraph_x80_native_960.png",
+      "native_sha256": "38a1572ae4db8014a765cb35c7ebbf9642885dbe93156ff4ef434f4fa4ce8576",
+      "review": "sweep_telegraph_x80_review_1920.png",
+      "review_sha256": "467407400ef6a03bc27c45a26c676317e71a14d6f411a89a0948560285d42538"
+    },
+    {
+      "name": "sweep_active",
+      "camera": [
+        80,
+        18
+      ],
+      "player_rect": [
+        240,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "boss_rect": [
+        460,
+        192,
+        64,
+        48
+      ],
+      "phase": 2,
+      "phase_state": "ATTACK",
+      "attack": "sweep",
+      "weak_exposed": false,
+      "telegraphs": 0,
+      "native": "sweep_active_x80_native_960.png",
+      "native_sha256": "d716ae6732e57f2b807867e00b2e197800d5098e36f350a52f6f0d8bc13892e4",
+      "review": "sweep_active_x80_review_1920.png",
+      "review_sha256": "5845f85f2d19d8ca2cb7482d6cecd2f198a3c3f0191094cd549a7afa7bef5a05"
+    }
+  ],
+  "limits": "injected static fixtures only; not earned entry, natural timing, normal-input play, native display, performance, human fairness or art acceptance"
+}

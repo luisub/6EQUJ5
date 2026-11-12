@@ -1,0 +1,570 @@
+{
+  "argv": [
+    "video_game/art/reviews/visual_upgrade/previews/firing_lighting_technical_v01/capture.py",
+    "--output-dir",
+    "video_game/art/reviews/visual_upgrade/previews/firing_lighting_technical_v01/baseline_v01"
+  ],
+  "cwd": "/Users/nzlab-la/Desktop/Github/6EQUJ5",
+  "temp_save_root": "/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-light-capture-wxgzjs6_",
+  "environment": {
+    "SDL_VIDEODRIVER": "dummy",
+    "SDL_AUDIODRIVER": "dummy",
+    "PYTHONPATH": "."
+  },
+  "fixture": "dummy SDL; installed approach; direct checkpoint entry; enemy list cleared; physical directional turn and J fire; fixed camera (240,18); sequential fixed 1/60 updates; unchanged runtime sprite and geometry",
+  "samples": [
+    {
+      "facing": "right",
+      "name": "nofire",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "idle",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "flashes": [],
+      "projectiles": [],
+      "native": "right_nofire_native_960.png",
+      "native_sha256": "720fd6143da6834b4dbd6abc88e4918d2728759aa4020af0a9fb973071d4d0a7",
+      "review": "right_nofire_review_1920.png",
+      "review_sha256": "0fa4939f65c37b40298a38be535f2bf6c7eb64027de0b90319f2014de5ac7ee1"
+    },
+    {
+      "facing": "right",
+      "name": "fire0",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 503.31944444444446,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.06333333333333334,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "right"
+        }
+      ],
+      "projectiles": [
+        [
+          510.31944444444446,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_fire0_native_960.png",
+      "native_sha256": "7468669d5a8a19757f46efe78d772aafa81b86020c40851a88ef8fec26163abf",
+      "review": "right_fire0_review_1920.png",
+      "review_sha256": "945145303ee22dc57d84a3c095312b8d5589178089380e568c1edb4257770686"
+    },
+    {
+      "facing": "right",
+      "name": "fire1",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 503.31944444444446,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.046666666666666676,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "right"
+        }
+      ],
+      "projectiles": [
+        [
+          517.3194444444445,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_fire1_native_960.png",
+      "native_sha256": "d490958429c6ea5093d514b98e751f1a2f4d6db0b4f35fa5494580d000afb7d2",
+      "review": "right_fire1_review_1920.png",
+      "review_sha256": "3b9023b5d82fefc13d9375c5877e348d31de8ac2ef06ae70ac390693145d675d"
+    },
+    {
+      "facing": "right",
+      "name": "fire2",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 503.31944444444446,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.03000000000000001,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "right"
+        }
+      ],
+      "projectiles": [
+        [
+          524.3194444444445,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_fire2_native_960.png",
+      "native_sha256": "8cb55b3627c4541d31cb497b3ba77e0fd952e08ebc204394cf0790e3a261df7f",
+      "review": "right_fire2_review_1920.png",
+      "review_sha256": "50f35f53626161545329be7eb72a826f5ae94074ba1ff563230e739e3c95bbc9"
+    },
+    {
+      "facing": "right",
+      "name": "fire3",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 503.31944444444446,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.013333333333333343,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "right"
+        }
+      ],
+      "projectiles": [
+        [
+          531.3194444444445,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_fire3_native_960.png",
+      "native_sha256": "7ff9bd857667d746a9ee5db40d28c8258f951aa14dbce429251a7bbcc9f3aba7",
+      "review": "right_fire3_review_1920.png",
+      "review_sha256": "faf93089c549c6a41332b3a62c4833e314fe142ff8b3e20aeaa813f4feb2d63f"
+    },
+    {
+      "facing": "right",
+      "name": "fire4",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "flashes": [],
+      "projectiles": [
+        [
+          538.3194444444445,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_fire4_native_960.png",
+      "native_sha256": "b646e31f634bfd776b8c84a6b843f8c36eba7610929adc062091e9d6d7ca4ebc",
+      "review": "right_fire4_review_1920.png",
+      "review_sha256": "bdbd517e977c860191f9e1c4bd02efa17efe857a2fe06ff99e7ec4b7bbaecce0"
+    },
+    {
+      "facing": "right",
+      "name": "fire5",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "flashes": [],
+      "projectiles": [
+        [
+          545.3194444444445,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_fire5_native_960.png",
+      "native_sha256": "2f64763cce0d91e4f58b86a787c437714acf7c9b849fdb565991949f247f831d",
+      "review": "right_fire5_review_1920.png",
+      "review_sha256": "a9a6aa4c4910c21414efefb5f82416755991105f725d3fcc26839f2b09dbe99b"
+    },
+    {
+      "facing": "right",
+      "pre_fire": {
+        "clip": "idle",
+        "muzzle_world": [
+          503.31944444444446,
+          220.0
+        ],
+        "player_rect": [
+          480,
+          208,
+          16,
+          32
+        ],
+        "facing": "right"
+      }
+    },
+    {
+      "facing": "left",
+      "name": "nofire",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "idle",
+      "player_rect": [
+        479,
+        208,
+        16,
+        32
+      ],
+      "flashes": [],
+      "projectiles": [],
+      "native": "left_nofire_native_960.png",
+      "native_sha256": "e213b068e7c3852a5bcc73ee06198f17f0d111256e9fc784684fbb5b38a2ed86",
+      "review": "left_nofire_review_1920.png",
+      "review_sha256": "e7e373560b2bf75515dc0d44956c534c92e6fd6d77022031765b6e1615e68313"
+    },
+    {
+      "facing": "left",
+      "name": "fire0",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        479,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 472.68055555555554,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.06333333333333334,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "left"
+        }
+      ],
+      "projectiles": [
+        [
+          465.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_fire0_native_960.png",
+      "native_sha256": "6c8c64c8f590629966d30644cd0c69bc289e64e0fd2f0d06c3ae52ab96335117",
+      "review": "left_fire0_review_1920.png",
+      "review_sha256": "17f796e3cd55048ab9cc9fdf1a494a22423574fa8c805435d3b66ce55f39f2af"
+    },
+    {
+      "facing": "left",
+      "name": "fire1",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        479,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 472.68055555555554,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.046666666666666676,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "left"
+        }
+      ],
+      "projectiles": [
+        [
+          458.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_fire1_native_960.png",
+      "native_sha256": "24d75d7f0211a5f4b08d52a28341432f017d77d36ba82138d598c885c741a8f7",
+      "review": "left_fire1_review_1920.png",
+      "review_sha256": "03e0c4ad193d2878d17134ac2f3c5833de34bf2ef3280af3005b36a96221a39b"
+    },
+    {
+      "facing": "left",
+      "name": "fire2",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        479,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 472.68055555555554,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.03000000000000001,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "left"
+        }
+      ],
+      "projectiles": [
+        [
+          451.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_fire2_native_960.png",
+      "native_sha256": "46e76cb5ec785e585fe52853286b3c3eaf476820da56443b65b19680b1f3f0af",
+      "review": "left_fire2_review_1920.png",
+      "review_sha256": "3b2114df85c800cd10adf7d3b468afe8be0847aea311a2a6fab05e5cfbc74bdf"
+    },
+    {
+      "facing": "left",
+      "name": "fire3",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        479,
+        208,
+        16,
+        32
+      ],
+      "flashes": [
+        {
+          "x": 472.68055555555554,
+          "y": 220.0,
+          "radius": 16.0,
+          "life": 0.013333333333333343,
+          "max_life": 0.08,
+          "color": [
+            210,
+            255,
+            235
+          ],
+          "glow_color": [
+            51,
+            255,
+            102
+          ],
+          "direction": "left"
+        }
+      ],
+      "projectiles": [
+        [
+          444.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_fire3_native_960.png",
+      "native_sha256": "8f8de96f9fb6fa9970f4f9bb4a562b7aae01611a8629bd94340bdc88ce0b750b",
+      "review": "left_fire3_review_1920.png",
+      "review_sha256": "208fbce25b11c9f2a2a2d7041cd20e4c5670b24f5c45f10a0e270bd19c532be8"
+    },
+    {
+      "facing": "left",
+      "name": "fire4",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        479,
+        208,
+        16,
+        32
+      ],
+      "flashes": [],
+      "projectiles": [
+        [
+          437.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_fire4_native_960.png",
+      "native_sha256": "717102f66ebc50161744ab710917ac242cafd76ffcc69399ac245498f2d767d6",
+      "review": "left_fire4_review_1920.png",
+      "review_sha256": "05e9a569d3d0b65b670af240caef8495cba747e17e9c86c0cedb1cac4c392ed0"
+    },
+    {
+      "facing": "left",
+      "name": "fire5",
+      "camera": [
+        240,
+        18
+      ],
+      "clip": "recoil",
+      "player_rect": [
+        479,
+        208,
+        16,
+        32
+      ],
+      "flashes": [],
+      "projectiles": [
+        [
+          430.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_fire5_native_960.png",
+      "native_sha256": "83ff4c6424d75d86c58ae9474794619fd7e701f93d8cb489660b5a0874857485",
+      "review": "left_fire5_review_1920.png",
+      "review_sha256": "73117e63b315d148ce81d5156a84763bf95e7a568ae0bc964bf47258356c211d"
+    },
+    {
+      "facing": "left",
+      "pre_fire": {
+        "clip": "idle",
+        "muzzle_world": [
+          472.68055555555554,
+          220.0
+        ],
+        "player_rect": [
+          479,
+          208,
+          16,
+          32
+        ],
+        "facing": "left"
+      }
+    }
+  ],
+  "limits": "static frame samples, not native window, full gameplay, perceptual motion, real-time performance or art gate"
+}

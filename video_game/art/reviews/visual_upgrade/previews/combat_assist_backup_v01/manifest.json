@@ -1,0 +1,8 @@
+{
+  "purpose": "Pre-edit recovery copies for combat assist work; original temporary copies retained.",
+  "temporary_backup": "/tmp/6equj5-combat-assist-ZxR4NJ/",
+  "files": [
+    {"original": "video_game/engine/weapons.py", "backup": "weapons.py", "sha256": "315aac5767be18df3589352b4a3f29fdf976ff3549f5487bbbac2fef7b9b5cd0"},
+    {"original": "video_game/data/balance.json", "backup": "balance.json", "sha256": "b8a050db367e8b9d01e6f8d30c07b710d9ab1b716cd9c03d6bb6a20778a99885"}
+  ]
+}

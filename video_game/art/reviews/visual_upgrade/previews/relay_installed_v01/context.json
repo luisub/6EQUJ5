@@ -1,0 +1,36 @@
+{
+  "asset_root": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/assets",
+  "records": [
+    {
+      "name": "2029",
+      "room_timeline": "2029_CORE",
+      "campaign_timeline": "2029_CORE",
+      "image": "2029_native_960.png",
+      "sha256": "ab51eb5788455b51745577bf5e969d83c4620df5c51d5c81b6320d688a1ea247"
+    },
+    {
+      "name": "1977",
+      "room_timeline": "1977_ANALOG",
+      "campaign_timeline": "1977_ANALOG",
+      "image": "1977_native_960.png",
+      "sha256": "160b9058b4343c5e40d9d01ad666234fef6fce315857b3d10b7aedce2f74b94c"
+    },
+    {
+      "name": "panel",
+      "room_timeline": "2029_CORE",
+      "campaign_timeline": "2029_CORE",
+      "image": "panel_native_960.png",
+      "sha256": "28b67dcbe76e0fcf29367ab26b7cb712f20a002fb1cb58933898af9c734af632"
+    },
+    {
+      "name": "recovered",
+      "room_timeline": "2029_CORE",
+      "campaign_timeline": "2029_CORE",
+      "image": "recovered_native_960.png",
+      "sha256": "52ca237eebfad9cea243b7f595c21c0739e09537717de0ca9afb013cda446a29"
+    }
+  ],
+  "fixture": "Injected Act I prerequisite and player position; physical M/F6/T/E/2/R/1/1/ESC; fresh-machine Continue and M/F6 reload from temporary save.",
+  "control_placement": "decorative control lies inside existing E activation range but differs from requested object rectangle; no trigger or physics change",
+  "limits": "not an earned route, native window, human gameplay, performance or art gate."
+}

@@ -1,0 +1,246 @@
+{
+  "cell": "video_game/art/reviews/visual_upgrade/previews/mateo_armed_registration_director_v02/cell_v01/mateo_olive_recoil_60x80.png",
+  "cell_sha256": "b6855a6638192ff496e7fb534c84718ffee7257e9d666840dabf89cec9b490ab",
+  "samples": [
+    {
+      "facing": "right",
+      "mode": "original",
+      "frame_after_fire": 0,
+      "state": "recoil",
+      "camera": [
+        248.31015561515466,
+        18.0
+      ],
+      "projectiles": [
+        [
+          510.31944444444446,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_original_frame0_native_960.png",
+      "sha256": "11c59cdfa93b2650834ea8b308d681b20f1a3d96212063ef8a0d0a5bdacccd76",
+      "review": "right_original_frame0_review_1920.png"
+    },
+    {
+      "facing": "right",
+      "mode": "candidate",
+      "frame_after_fire": 0,
+      "state": "recoil",
+      "camera": [
+        248.31015561515466,
+        18.0
+      ],
+      "projectiles": [
+        [
+          510.31944444444446,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_candidate_frame0_native_960.png",
+      "sha256": "09aef93897abff58aa1ff56b7a76bac5c3d5c592898643c8d962f9dd75d51792",
+      "review": "right_candidate_frame0_review_1920.png"
+    },
+    {
+      "facing": "right",
+      "mode": "original",
+      "frame_after_fire": 1,
+      "state": "recoil",
+      "camera": [
+        248.31154893954812,
+        18.0
+      ],
+      "projectiles": [
+        [
+          517.3194444444445,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_original_frame1_native_960.png",
+      "sha256": "c0d652e7f9fd8fc6141b1ad50a67892e1bc0396c9190d47d33a771358f7478b2",
+      "review": "right_original_frame1_review_1920.png"
+    },
+    {
+      "facing": "right",
+      "mode": "candidate",
+      "frame_after_fire": 1,
+      "state": "recoil",
+      "camera": [
+        248.31154893954812,
+        18.0
+      ],
+      "projectiles": [
+        [
+          517.3194444444445,
+          220.0,
+          true
+        ]
+      ],
+      "native": "right_candidate_frame1_native_960.png",
+      "sha256": "3186e45176244bbe79ecc563d3854888f2250562945d7f545c1da0dc4ff0cf5e",
+      "review": "right_candidate_frame1_review_1920.png"
+    },
+    {
+      "facing": "right",
+      "pre_fire": {
+        "state": "idle",
+        "facing": "right",
+        "foot_world": [
+          488.31944444444446,
+          240.0
+        ],
+        "muzzle_world": [
+          503.31944444444446,
+          220.0
+        ],
+        "player_rect": [
+          480,
+          208,
+          16,
+          32
+        ],
+        "camera": [
+          248.30851640998588,
+          18.0
+        ]
+      },
+      "spawn": [
+        {
+          "state_at_spawn": "idle",
+          "facing_at_spawn": "right",
+          "muzzle_world": [
+            503.31944444444446,
+            220.0
+          ],
+          "spawn_world": [
+            503.31944444444446,
+            220.0
+          ]
+        }
+      ]
+    },
+    {
+      "facing": "left",
+      "mode": "original",
+      "frame_after_fire": 0,
+      "state": "recoil",
+      "camera": [
+        247.68984438484534,
+        18.0
+      ],
+      "projectiles": [
+        [
+          465.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_original_frame0_native_960.png",
+      "sha256": "4e4ffc69ec9cb374f9118e9f3700452b5d18fcfa1b4db2e2c6be35f11007fe41",
+      "review": "left_original_frame0_review_1920.png"
+    },
+    {
+      "facing": "left",
+      "mode": "candidate",
+      "frame_after_fire": 0,
+      "state": "recoil",
+      "camera": [
+        247.68984438484534,
+        18.0
+      ],
+      "projectiles": [
+        [
+          465.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_candidate_frame0_native_960.png",
+      "sha256": "9f53d733695d338d072f3510e53112d6343eb1b7082b77cb9a6e974f5dca64c6",
+      "review": "left_candidate_frame0_review_1920.png"
+    },
+    {
+      "facing": "left",
+      "mode": "original",
+      "frame_after_fire": 1,
+      "state": "recoil",
+      "camera": [
+        247.68845106045188,
+        18.0
+      ],
+      "projectiles": [
+        [
+          458.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_original_frame1_native_960.png",
+      "sha256": "73c19ca780d430e341f9994220d31d31e3e7d063e7414b1a8902c0932ff92e13",
+      "review": "left_original_frame1_review_1920.png"
+    },
+    {
+      "facing": "left",
+      "mode": "candidate",
+      "frame_after_fire": 1,
+      "state": "recoil",
+      "camera": [
+        247.68845106045188,
+        18.0
+      ],
+      "projectiles": [
+        [
+          458.68055555555554,
+          220.0,
+          true
+        ]
+      ],
+      "native": "left_candidate_frame1_native_960.png",
+      "sha256": "efd1367b812b1d4cb48931b307157c67b9b7e33488321804831c68c545f67c13",
+      "review": "left_candidate_frame1_review_1920.png"
+    },
+    {
+      "facing": "left",
+      "pre_fire": {
+        "state": "idle",
+        "facing": "left",
+        "foot_world": [
+          487.68055555555554,
+          240.0
+        ],
+        "muzzle_world": [
+          472.68055555555554,
+          220.0
+        ],
+        "player_rect": [
+          479,
+          208,
+          16,
+          32
+        ],
+        "camera": [
+          247.69148359001412,
+          18.0
+        ]
+      },
+      "spawn": [
+        {
+          "state_at_spawn": "idle",
+          "facing_at_spawn": "left",
+          "muzzle_world": [
+            472.68055555555554,
+            220.0
+          ],
+          "spawn_world": [
+            472.68055555555554,
+            220.0
+          ]
+        }
+      ]
+    }
+  ],
+  "fixture": "dummy SDL, installed approach, temporary saves, direct checkpoint entry, enemy list cleared; physical left/right turn and J fire through actual input mapper, fixed 1/60 updates. Candidate replaces only render surface and placement when runtime animator reports recoil; original animator state, attachment, projectile and collider unchanged.",
+  "limits": "two sampled updates per facing, not continuous playback, full animation family, native window, human gameplay or production-art acceptance."
+}

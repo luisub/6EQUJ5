@@ -1,0 +1,137 @@
+{
+  "source": "video_game/art/source/visual_upgrade/candidates/ehman_1977_background_v02/source/ehman_1977_background_generated_master.png",
+  "source_size": [
+    1619,
+    971
+  ],
+  "source_mode": "RGB",
+  "source_sha256": "98f531aa269763608a0a98cb70f417629b3ba6010ab792f9169582878de19ba0",
+  "export": "ehman_1977_background_960x576.png",
+  "export_sha256": "2a5e77ec07cc4ca41f69b8a5ce5baca4ef8b29bef0d5886223d962af735ac8c7",
+  "transform": "Source crop (30,0,1590,936), 1560x936, then proportional 8/13 Lanczos resize to 960x576; trims left 30, right 29 and bottom 35 source pixels; no masks, painting or cleanup.",
+  "composition": "Fixture-local background callback behind actual field tile/objects, actor, flashback tint/printout and HUD.",
+  "fixture": "Dummy SDL with temporary save; direct desk spawn, 30 updates, synthetic E twice, Escape closes modal; direct x=384 reposition for vault then synthetic E. Camera forced y0/18. No normal-route progression.",
+  "limits": "Static direct-entry and teleport fixture; no real-window playthrough, final anchor return, CRT comparison, performance, human or art-gate acceptance.",
+  "samples": [
+    {
+      "name": "desk_before",
+      "camera": [
+        0,
+        0
+      ],
+      "player_rect": [
+        112,
+        208,
+        16,
+        32
+      ],
+      "stage": "ENTERED",
+      "printout_open": false,
+      "prompt": "[E] INSPECT IBM 1130 COMPUTER PRINTOUT",
+      "native": "desk_before_y0_native_960.png",
+      "native_sha256": "a23802e5b0b9af17deba005356417e9f85aca2ca4a34f15c7c6e2200185c44da",
+      "review": "desk_before_y0_review_1920.png",
+      "review_sha256": "37a9797c22885f16138a5aab39b64dfbc368236429e30fb4e509525685183c27"
+    },
+    {
+      "name": "desk_before",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        112,
+        208,
+        16,
+        32
+      ],
+      "stage": "ENTERED",
+      "printout_open": false,
+      "prompt": "[E] INSPECT IBM 1130 COMPUTER PRINTOUT",
+      "native": "desk_before_y18_native_960.png",
+      "native_sha256": "1829e95787af7a1bf5f5be655fe8e56c58c22e059445a675a181c5422bc309f2",
+      "review": "desk_before_y18_review_1920.png",
+      "review_sha256": "2dde05ad5c3ec7e7f752b65a32f2d2a844347adac612e54838e6dc3bcb0160f1"
+    },
+    {
+      "name": "printout_inspected",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        112,
+        208,
+        16,
+        32
+      ],
+      "stage": "PRINTOUT_INSPECTED",
+      "printout_open": true,
+      "prompt": "[E] CIRCLE '6EQUJ5' WITH RED PEN & ANNOTATE 'WOW!'",
+      "native": "printout_inspected_y18_native_960.png",
+      "native_sha256": "281ca1b3cd9737c262ab43d103ccc6787f2ed19104bd5536c8d6530ec79fcb2a",
+      "review": "printout_inspected_y18_review_1920.png",
+      "review_sha256": "6f1ab9fd805520e2185232cc29835f25f24b2a7bad038d12e26b6ec4c5108303"
+    },
+    {
+      "name": "printout_annotated",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        112,
+        208,
+        16,
+        32
+      ],
+      "stage": "ANNOTATION_APPLIED",
+      "printout_open": true,
+      "prompt": "[E] VIEW ANNOTATED 'WOW!' PRINTOUT",
+      "native": "printout_annotated_y18_native_960.png",
+      "native_sha256": "e6e7820e99fa820110c9695fa98be263442e45a09872e0df96284e54ec3bc687",
+      "review": "printout_annotated_y18_review_1920.png",
+      "review_sha256": "1b05d40dd44a99564ed982b93e4e233d7a919154fda9f7226b9457a20171e1bb"
+    },
+    {
+      "name": "vault_before_retrieval",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        384,
+        208,
+        16,
+        32
+      ],
+      "stage": "ANNOTATION_APPLIED",
+      "printout_open": false,
+      "prompt": "[E] RETRIEVE ANALOG MAGNETIC TAPE REEL",
+      "native": "vault_before_retrieval_y18_native_960.png",
+      "native_sha256": "729b42c74d2d19db9f6a3b4d202072b18b932f50e9de66a47e01d8c32dfbc78b",
+      "review": "vault_before_retrieval_y18_review_1920.png",
+      "review_sha256": "5c899d7ad28fadf5c79a94739e199499739a6d770f64a040f9e683e6327aa76d"
+    },
+    {
+      "name": "vault_reel_retrieved",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        384,
+        208,
+        16,
+        32
+      ],
+      "stage": "REEL_RETRIEVED",
+      "printout_open": false,
+      "prompt": "[E] LOCK REALITY ANCHOR & RETURN TO 2029",
+      "native": "vault_reel_retrieved_y18_native_960.png",
+      "native_sha256": "523bac4111071aff377e5047fcc1b145becb84aa9bbe5be7f28f26cac18b0fd4",
+      "review": "vault_reel_retrieved_y18_review_1920.png",
+      "review_sha256": "9253858b9c8be9188c337ccc83b03449a65f10403567ebad6c4b971db23df698"
+    }
+  ]
+}

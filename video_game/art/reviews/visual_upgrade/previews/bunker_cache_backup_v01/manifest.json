@@ -1,0 +1,17 @@
+[
+  {
+    "source": "video_game/engine/native_room_assets.py",
+    "copy": "video_game/art/reviews/visual_upgrade/previews/bunker_cache_backup_v01/engine/native_room_assets.py",
+    "sha256": "79f6b0d931355eccca98ed397b014ae296b414c2fe6c1f869385a962507ec4b2"
+  },
+  {
+    "source": "video_game/engine/scenes/bunker.py",
+    "copy": "video_game/art/reviews/visual_upgrade/previews/bunker_cache_backup_v01/engine/scenes/bunker.py",
+    "sha256": "d27500f24f41e6ac14a26021f4d34c89d4c20fc89b2f0d87a44eac9bc9a257fa"
+  },
+  {
+    "source": "video_game/tests/test_native_bunker_backdrop.py",
+    "copy": "video_game/art/reviews/visual_upgrade/previews/bunker_cache_backup_v01/tests/test_native_bunker_backdrop.py",
+    "sha256": "9093a9c1990fb2b2afc5d9c903752b9326cc22909199161b70323ae1f31d0cc3"
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "campaign": {
+    "schema_version": 1,
+    "save_id": "development_fixture",
+    "current_act": "act_01",
+    "current_room": "bunker_hub",
+    "checkpoint_id": "bunker_start",
+    "timeline_mode": "1977_ANALOG",
+    "room_flags": {
+      "first_mission_available": true
+    },
+    "inventory": {
+      "maser_1420": 1
+    },
+    "unlocked_weapons": [
+      "maser_1420"
+    ],
+    "active_weapon": "maser_1420",
+    "contacted_civs": [
+      "FASR-001"
+    ],
+    "extracted_fragments": [
+      "FASR-001"
+    ],
+    "validation_records": [
+      {
+        "id": "FASR-001",
+        "scenario_id": "development_fixture",
+        "scenario_version": 1,
+        "claim_id": "development_fixture",
+        "observations": [],
+        "result": "fixture",
+        "confidence": 0,
+        "claim_tier": "speculative",
+        "source_references": [],
+        "deployment_decision": "not_deployed"
+      }
+    ],
+    "unlocked_abilities": [],
+    "meters": {
+      "alignment_confidence": 35,
+      "scientific_certainty": 40,
+      "coordination_capacity": 30,
+      "public_trust": 25,
+      "human_agency": 70,
+      "biosecurity_readiness": 35
+    },
+    "choices": {},
+    "applied_event_ids": [
+      "fixture_shift"
+    ],
+    "completed_event_types": []
+  }
+}

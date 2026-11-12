@@ -1,0 +1,10 @@
+{
+  "driver": "dummy",
+  "fixtures": true,
+  "purpose": "Static runtime layout inspection; no gameplay gate verdict",
+  "preconditions": [
+    "offline evidence channel",
+    "Act I completion grant",
+    "relay panel placement"
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "family": "ohio_approach_v2",
+  "driver": "dummy",
+  "fixture": "copied asset root; staged family and saves in temporary directory; direct entry, 30 ticks at each spawn and fixed camera",
+  "sources": [
+    {
+      "path": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+      "sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e"
+    },
+    {
+      "path": "video_game/art/reviews/visual_upgrade/previews/architecture_registration_research_v02/crop_top_left_v01/architecture_rgba_1920x576.png",
+      "sha256": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3"
+    },
+    {
+      "path": "video_game/art/reviews/visual_upgrade/previews/approach_equipment_registration_v01/render_v01/equipment_112x64_rgba.png",
+      "sha256": "0c8431ad457f575f50288811b1468d5c3b26f6f31668cea510eab2d67aee3476"
+    }
+  ],
+  "promotion_status": "promoted",
+  "captures": [
+    {
+      "camera": [
+        0,
+        0
+      ],
+      "spawn": "bunker_exit",
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x0_y0_960.png",
+      "sha256": "d6884ede5a628aa3155dded0026ab449233404c29fad550cc911e54c88554bbb",
+      "review": "camera_x0_y0_1920.png"
+    },
+    {
+      "camera": [
+        0,
+        18
+      ],
+      "spawn": "bunker_exit",
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x0_y18_960.png",
+      "sha256": "fcc96fb309f5d541e9c9608a53afa65bdf8b80cc22301e2148665f6bd96194b1",
+      "review": "camera_x0_y18_1920.png"
+    },
+    {
+      "camera": [
+        240,
+        0
+      ],
+      "spawn": "approach_checkpoint",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x240_y0_960.png",
+      "sha256": "5f2acdd9fc2ff31b4c5a7c7d1593e0632d5083018c9fc6a21e83e8c434ef75df",
+      "review": "camera_x240_y0_1920.png"
+    },
+    {
+      "camera": [
+        240,
+        18
+      ],
+      "spawn": "approach_checkpoint",
+      "player_rect": [
+        480,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x240_y18_960.png",
+      "sha256": "eb3c205a9248cb2b51c81f3aa3179ff2f41224e3dc91930c27197b4bd5eeca70",
+      "review": "camera_x240_y18_1920.png"
+    },
+    {
+      "camera": [
+        480,
+        0
+      ],
+      "spawn": "dish_perimeter",
+      "player_rect": [
+        860,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x480_y0_960.png",
+      "sha256": "0a057c472cf3d85e1207b455163124b380852a7f7983c455211ee1a4a8a11513",
+      "review": "camera_x480_y0_1920.png"
+    },
+    {
+      "camera": [
+        480,
+        18
+      ],
+      "spawn": "dish_perimeter",
+      "player_rect": [
+        860,
+        208,
+        16,
+        32
+      ],
+      "native": "camera_x480_y18_960.png",
+      "sha256": "24ef8785104533ac6588a9f827df3632e75afe91009dc58c3c6248dd4c8964f9",
+      "review": "camera_x480_y18_1920.png"
+    }
+  ],
+  "limitations": "static dummy SDL captures only; no production promotion, native playback, normal-play, performance or art gate claim"
+}

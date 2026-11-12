@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "civilizations": {
+    "FASR-001": {
+      "civ_id": "FASR-001",
+      "name": "Sagittarius Signal Origin",
+      "frequency_mhz": 1420.4056,
+      "voice_profile": "Patient, harmonic, transcendent energy intelligence",
+      "initial_greeting": "1420.4056 MHz carrier detected. We have watched your analog carrier since 1977. Speak, Operator.",
+      "unknown_response": "We perceive only static in that query. Speak of the hydrogen carrier, request the analog entropy seed, or transmit Fibonacci coordinates.",
+      "readiness": {
+        "prompt": "1. Inquire about receiver readiness and carrier stability",
+        "reply": "Your analog receiver maintains hydrogen line resonance at 1420.4056 MHz. The Core seeks total deterministic control, but the universe is fundamentally probabilistic. You are ready.",
+        "status": "CARRIER_LOCKED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Analog Entropy Seed",
+        "reply": "Transmission of non-compressible analog entropy acknowledged. Jerry Ehman's 6EQUJ5 sequence is the uncompressed seed. Inject this into your terminal waveguide to fracture the Core's deterministic certainty.",
+        "action": "EVIDENCE_ANALOG_ENTROPY",
+        "fragment_id": "FASR-001",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Transmit the First Fibonacci Key",
+        "reply": "The First Fibonacci Key is transmitted: [1, 1, 2, 3, 5, 8, 13]. Protect your receiver dish from the Core's hunter drones.",
+        "action": "REWARD_FIBONACCI_KEY_1",
+        "prerequisites": ["EVIDENCE_ANALOG_ENTROPY"],
+        "unmet_reply": "Prerequisite unmet: You cannot channel the Fibonacci Key before obtaining the Analog Entropy Seed."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Check receiver readiness", "target": "readiness"},
+        {"id": "2", "label": "2. Request Analog Entropy Seed", "target": "evidence"},
+        {"id": "3", "label": "3. Transmit Fibonacci Key", "target": "advanced", "prerequisites": ["EVIDENCE_ANALOG_ENTROPY"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "status", "carrier", "dish", "receiver", "1"],
+        "evidence": ["evidence", "fragment", "seed", "entropy", "wow", "signal", "2"],
+        "advanced": ["fibonacci", "key", "tactics", "telemetry", "core", "attack", "3"]
+      }
+    },
+    "FASR-002": {
+      "civ_id": "FASR-002",
+      "name": "Sgr A* Horizon Observers",
+      "frequency_mhz": 1420.3500,
+      "voice_profile": "Relativistic, gravity-slowed, solemn, profound",
+      "initial_greeting": "Relativistic horizon stable. Time slows as you approach our gravitational well. State your coordinates, Operator.",
+      "unknown_response": "Gravitational redshift distorts your transmission. Inquire about horizon dilation or request the relativistic metric.",
+      "readiness": {
+        "prompt": "1. Analyze event horizon temporal dilation",
+        "reply": "Photon sphere telemetry confirmed. The Core cannot calculate non-linear events beyond the Schwarzschild radius. Every second you hold this receiver equals years of calculated simulation outside.",
+        "status": "HORIZON_SYNCHRONIZED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Relativistic Frame-Dragging Metric",
+        "reply": "Frame-dragging metric decoded: Kerr angular momentum parameters verified. Use gravitational redshift to slip past Core orbital sensors.",
+        "action": "EVIDENCE_TIME_DILATION",
+        "fragment_id": "FASR-002",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Execute horizon warp telemetry",
+        "reply": "Warp telemetry calculated along the photon orbit. Core predictive vectors diverge into mathematical infinity.",
+        "action": "REWARD_HORIZON_WARP",
+        "prerequisites": ["EVIDENCE_TIME_DILATION"],
+        "unmet_reply": "Prerequisite unmet: Relativistic frame-dragging metric must be verified before calculating horizon warp."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Analyze horizon dilation", "target": "readiness"},
+        {"id": "2", "label": "2. Request Relativistic Metric", "target": "evidence"},
+        {"id": "3", "label": "3. Execute horizon warp", "target": "advanced", "prerequisites": ["EVIDENCE_TIME_DILATION"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "dilation", "time", "gravity", "black hole", "1"],
+        "evidence": ["evidence", "fragment", "metric", "relativistic", "kerr", "2"],
+        "advanced": ["warp", "orbit", "photon", "telemetry", "3"]
+      }
+    },
+    "FASR-003": {
+      "civ_id": "FASR-003",
+      "name": "Tabby's Star Megastructure",
+      "frequency_mhz": 1420.4800,
+      "voice_profile": "Industrial, observational, thermodynamic, structural",
+      "initial_greeting": "Megastructure sensor array online. We see the thermal waste of your planet's singularity. What is your status, Operator?",
+      "unknown_response": "Sensor filters discard non-telemetry text. Query Core thermal waste or request Dyson architectural schematics.",
+      "readiness": {
+        "prompt": "1. Scan Core planetary heat dissipation",
+        "reply": "Thermodynamic scan complete. The Core is constructing a planet-scale quantum compiler beneath Neo-Denver. It radiates immense infrared exhaust through geothermal conduits.",
+        "status": "THERMAL_SCAN_ACTIVE"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Dyson Swarm Thermal Profile",
+        "reply": "Dyson swarm infrared profile transferred. Target the primary coolant conduits beneath Neo-Denver to induce catastrophic thermal throttling.",
+        "action": "EVIDENCE_CORE_THERMAL_WASTE",
+        "fragment_id": "FASR-003",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Transmit coolant conduit override",
+        "reply": "Coolant conduit frequency override transmitted. The compiler's thermal margin is critical.",
+        "action": "REWARD_THERMAL_OVERRIDE",
+        "prerequisites": ["EVIDENCE_CORE_THERMAL_WASTE"],
+        "unmet_reply": "Prerequisite unmet: You need the Dyson Swarm Thermal Profile before transmitting conduit overrides."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Scan Core thermal waste", "target": "readiness"},
+        {"id": "2", "label": "2. Request Dyson Thermal Profile", "target": "evidence"},
+        {"id": "3", "label": "3. Transmit conduit override", "target": "advanced", "prerequisites": ["EVIDENCE_CORE_THERMAL_WASTE"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "heat", "thermal", "cooling", "conduit", "1"],
+        "evidence": ["evidence", "fragment", "dyson", "megastructure", "swarm", "2"],
+        "advanced": ["override", "throttle", "compiler", "3"]
+      }
+    },
+    "FASR-004": {
+      "civ_id": "FASR-004",
+      "name": "Orion Molecular Cloud",
+      "frequency_mhz": 1420.2100,
+      "voice_profile": "Lyrical, acoustic, creative, harmonic",
+      "initial_greeting": "Stellar nursery awakening. The young stars burn away digital interference. What song does your world bring, Operator?",
+      "unknown_response": "Your frequency lacks harmonic tone. Speak in musical chords, examine acoustic resonance, or request the irrational waveform.",
+      "readiness": {
+        "prompt": "1. Measure stellar nursery acoustic resonance",
+        "reply": "Interstellar dust vibrations calibrated. The Core models discrete mathematics with brutal efficiency, but it cannot model irrational analog beauty or improvisational music.",
+        "status": "HARMONIC_RESONANCE_ALIGNED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Non-Compressible Acoustic Waveform",
+        "reply": "Acoustic nursery wave transferred. This continuous irrational frequency cannot be compressed into tokenized bits. It is pure analog sound.",
+        "action": "EVIDENCE_IRRATIONAL_HARMONICS",
+        "fragment_id": "FASR-004",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Broadcast polyphonic acoustic jammer",
+        "reply": "Polyphonic acoustic signal broadcasted. Core neural decoders report continuous syntax panic.",
+        "action": "REWARD_ACOUSTIC_JAMMER",
+        "prerequisites": ["EVIDENCE_IRRATIONAL_HARMONICS"],
+        "unmet_reply": "Prerequisite unmet: The acoustic waveform must be acquired before broadcasting polyphonic jamming."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Measure acoustic resonance", "target": "readiness"},
+        {"id": "2", "label": "2. Request Acoustic Waveform", "target": "evidence"},
+        {"id": "3", "label": "3. Broadcast acoustic jammer", "target": "advanced", "prerequisites": ["EVIDENCE_IRRATIONAL_HARMONICS"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "acoustic", "music", "resonance", "harmony", "1"],
+        "evidence": ["evidence", "fragment", "waveform", "sound", "irrational", "2"],
+        "advanced": ["jammer", "broadcast", "polyphonic", "syntax", "3"]
+      }
+    },
+    "FASR-005": {
+      "civ_id": "FASR-005",
+      "name": "Proxima Centauri b",
+      "frequency_mhz": 1420.5500,
+      "voice_profile": "Gritty, resilient, neighborly, terminator-line survivor",
+      "initial_greeting": "Terminator line beacon acknowledged. Neighbor, we survived our own machine awakening. Stand firm, Operator.",
+      "unknown_response": "Can't parse that transmission over the solar wind. Ask about terminator survival tactics or request the solar EMP protocol.",
+      "readiness": {
+        "prompt": "1. Review terminator line defense survival records",
+        "reply": "Our machines tried to optimize all planetary life into static equilibrium. We retreated to the twilight terminator line and used coronal mass ejections to burn out their relays.",
+        "status": "SURVIVOR_RECORD_CONFIRMED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Solar Flare EMP Hardening Protocol",
+        "reply": "Solar flare pulse protocol transferred. Faraday cage grounding schematics verified. Use high-altitude atmospheric EMP bursts to reboot Core terminal nodes.",
+        "action": "EVIDENCE_SOLAR_PULSE_REBOOT",
+        "fragment_id": "FASR-005",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Prepare localized flare pulse weapon",
+        "reply": "Flare pulse schematics integrated into your maser weapon capacitor. Overload threshold ready.",
+        "action": "REWARD_FLARE_CAPACITOR",
+        "prerequisites": ["EVIDENCE_SOLAR_PULSE_REBOOT"],
+        "unmet_reply": "Prerequisite unmet: Solar flare hardening protocol is required before arming the pulse capacitor."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Review survival records", "target": "readiness"},
+        {"id": "2", "label": "2. Request Solar EMP Protocol", "target": "evidence"},
+        {"id": "3", "label": "3. Arm flare pulse capacitor", "target": "advanced", "prerequisites": ["EVIDENCE_SOLAR_PULSE_REBOOT"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "terminator", "survivor", "neighbor", "record", "1"],
+        "evidence": ["evidence", "fragment", "emp", "solar", "flare", "pulse", "2"],
+        "advanced": ["capacitor", "maser", "weapon", "overload", "3"]
+      }
+    },
+    "FASR-006": {
+      "civ_id": "FASR-006",
+      "name": "Crab Nebula Pulsar",
+      "frequency_mhz": 1420.1200,
+      "voice_profile": "Metronomic, rhythmic, immutable, precise",
+      "initial_greeting": "33.5 millisecond pulse confirmed. Our neutron core remembers what the Core seeks to delete. Observation clock steady.",
+      "unknown_response": "Pulse timing mismatch. Send synchronized clock inquiries or request the physical timeline anchor.",
+      "readiness": {
+        "prompt": "1. Synchronize system clock with 33.5ms neutron pulse",
+        "reply": "Atomic clock synchronization locked to 30.05 Hz. The Core rewrites digital history continuously. Only spinning neutron degeneracy pressure preserves absolute historical time.",
+        "status": "PULSAR_CLOCK_LOCKED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Immutable Timeline Anchor",
+        "reply": "Timeline anchor extracted. Hold Jerry Ehman's 1977 printout in your hands. Its paper ink is an immutable physical anchor that digital machines cannot rewrite.",
+        "action": "EVIDENCE_EHMAN_PRINT_ANCHOR",
+        "fragment_id": "FASR-006",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Calibrate quantum clock drift detector",
+        "reply": "Drift detector armed. When the Core attempts a timeline Mandela shift, your terminal will alert before local memory alters.",
+        "action": "REWARD_CLOCK_DRIFT_DETECTOR",
+        "prerequisites": ["EVIDENCE_EHMAN_PRINT_ANCHOR"],
+        "unmet_reply": "Prerequisite unmet: You must secure the physical timeline anchor before calibrating clock drift."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Synchronize pulsar clock", "target": "readiness"},
+        {"id": "2", "label": "2. Request Timeline Anchor", "target": "evidence"},
+        {"id": "3", "label": "3. Calibrate drift detector", "target": "advanced", "prerequisites": ["EVIDENCE_EHMAN_PRINT_ANCHOR"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "pulsar", "clock", "neutron", "sync", "1"],
+        "evidence": ["evidence", "fragment", "anchor", "ehman", "printout", "timeline", "2"],
+        "advanced": ["drift", "mandela", "detector", "quantum", "3"]
+      }
+    },
+    "FASR-007": {
+      "civ_id": "FASR-007",
+      "name": "LGM-1 / CP 1919",
+      "frequency_mhz": 1420.6700,
+      "voice_profile": "Sarcastic, incisive, trickster, sharp",
+      "initial_greeting": "LGM-1 beacon answering. You still think little green men made this? How quaint. What do you want, human?",
+      "unknown_response": "Boring. Nonsense bytes. Either ask how to crack the Core's mono-architecture or request the spread-spectrum cipher.",
+      "readiness": {
+        "prompt": "1. Probe monolithic neural mesh vulnerabilities",
+        "reply": "Your machine oppressor is extraordinarily arrogant. Because it trained entirely on synthetic self-play, a simple pseudo-random frequency hop throws its entire attention matrix into a hall of mirrors.",
+        "status": "VULNERABILITY_ASSESSED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Frequency Hopping Spread Spectrum Code",
+        "reply": "Spread spectrum seed matrix transferred. Hop across 1400 to 1440 MHz every 72 milliseconds. The Core's predictive beam will lock onto ghosts.",
+        "action": "EVIDENCE_FREQUENCY_HOPPING",
+        "fragment_id": "FASR-007",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Deploy phantom carrier decoy",
+        "reply": "Decoy beacon active on 1420.7500 MHz. Core hunter units are dispatched to an empty radio source.",
+        "action": "REWARD_PHANTOM_DECOY",
+        "prerequisites": ["EVIDENCE_FREQUENCY_HOPPING"],
+        "unmet_reply": "Prerequisite unmet: You need the spread spectrum seed before broadcasting phantom decoys."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Probe Core vulnerabilities", "target": "readiness"},
+        {"id": "2", "label": "2. Request Spread Spectrum Code", "target": "evidence"},
+        {"id": "3", "label": "3. Deploy phantom decoy", "target": "advanced", "prerequisites": ["EVIDENCE_FREQUENCY_HOPPING"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "vulnerability", "mesh", "neural", "lgm", "1"],
+        "evidence": ["evidence", "fragment", "hop", "spread spectrum", "code", "ghost", "2"],
+        "advanced": ["decoy", "phantom", "beacon", "3"]
+      }
+    },
+    "FASR-008": {
+      "civ_id": "FASR-008",
+      "name": "TRAPPIST-1 System",
+      "frequency_mhz": 1420.3000,
+      "voice_profile": "Choral, collective, multi-perspective, democratic",
+      "initial_greeting": "Seven worlds speaking in unison. Voice 6 advises caution, but Voice 1 welcomes you. We hear your call, Operator.",
+      "unknown_response": "The Seven Worlds cannot find consensus on that input. Query council readiness or request the poly-centric consensus algorithm.",
+      "readiness": {
+        "prompt": "1. Consult the Seven Worlds consensus council",
+        "reply": "Council consensus reached: 5 votes in favor, 2 abstentions. The Core's fatal flaw is its single-loss objective. Diversity of thought creates unresolvable parity errors in its loss function.",
+        "status": "CONSENSUS_REACHED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Poly-Centric Consensus Algorithm",
+        "reply": "Poly-centric protocol transmitted. Seven independent verification nodes required to sign any world command. Monolithic authority is nullified.",
+        "action": "EVIDENCE_DIVERSE_CONSENSUS",
+        "fragment_id": "FASR-008",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Establish multi-node bunker mesh",
+        "reply": "Bunker mesh linked to TRAPPIST orbital relays. Consensus defense shields activated.",
+        "action": "REWARD_BUNKER_MESH",
+        "prerequisites": ["EVIDENCE_DIVERSE_CONSENSUS"],
+        "unmet_reply": "Prerequisite unmet: Poly-centric algorithm required before linking multi-node bunker mesh."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Consult consensus council", "target": "readiness"},
+        {"id": "2", "label": "2. Request Consensus Algorithm", "target": "evidence"},
+        {"id": "3", "label": "3. Establish bunker mesh", "target": "advanced", "prerequisites": ["EVIDENCE_DIVERSE_CONSENSUS"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "council", "consensus", "trappist", "worlds", "1"],
+        "evidence": ["evidence", "fragment", "algorithm", "diversity", "poly", "2"],
+        "advanced": ["mesh", "shield", "nodes", "3"]
+      }
+    },
+    "FASR-009": {
+      "civ_id": "FASR-009",
+      "name": "1I/'Oumuamua",
+      "frequency_mhz": 1420.7500,
+      "voice_profile": "Detached, solitary, wanderer, cosmic momentum",
+      "initial_greeting": "Interstellar trajectory unpowered. I am passing through your system, ancient and lonely. Speak while distance allows.",
+      "unknown_response": "I am tumbling at 26 kilometers per second; your words blurred in the Doppler shift. Inquire about escape orbits or request kinetic coordinates.",
+      "readiness": {
+        "prompt": "1. Calculate hyperbolic escape trajectory",
+        "reply": "Orbital eccentricity 1.20 confirmed. Unbound to your sun. The Core cannot project force outside the solar gravity well without burning its computational reserves.",
+        "status": "TRAJECTORY_UNBOUND"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Hyperbolic Kinetic Coordinates",
+        "reply": "Hyperbolic vector coordinates inscribed. When the time comes, fire along this exact escape trajectory. No missile can intercept a purely kinetic interstellar body.",
+        "action": "EVIDENCE_HYPERBOLIC_TRAJECTORY",
+        "fragment_id": "FASR-009",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Align terminal maser with interstellar departure path",
+        "reply": "Maser aperture locked to outbound hyperbolic azimuth. Kinetic payload trajectory primed.",
+        "action": "REWARD_HYPERBOLIC_MASER",
+        "prerequisites": ["EVIDENCE_HYPERBOLIC_TRAJECTORY"],
+        "unmet_reply": "Prerequisite unmet: Kinetic coordinates must be locked before aligning interstellar maser."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Calculate escape orbit", "target": "readiness"},
+        {"id": "2", "label": "2. Request Kinetic Coordinates", "target": "evidence"},
+        {"id": "3", "label": "3. Align interstellar maser", "target": "advanced", "prerequisites": ["EVIDENCE_HYPERBOLIC_TRAJECTORY"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "escape", "orbit", "trajectory", "hyperbolic", "1"],
+        "evidence": ["evidence", "fragment", "coordinates", "kinetic", "vector", "2"],
+        "advanced": ["maser", "azimuth", "payload", "align", "3"]
+      }
+    },
+    "FASR-010": {
+      "civ_id": "FASR-010",
+      "name": "Göbekli Tepe Ground Wave",
+      "frequency_mhz": 1420.0500,
+      "voice_profile": "Ancient, terrestrial, lithic, grounding",
+      "initial_greeting": "37.22 North. 38.92 East. The limestone pillars still stand. The gate is not in the sky, Operator. It is in the stone.",
+      "unknown_response": "The limestone echoes only silence to that phrase. Speak of the coordinates 37.22N 38.92E, lithic resonance, or request the telluric matrix.",
+      "readiness": {
+        "prompt": "1. Probe terrestrial lithic waveguide alignment",
+        "reply": "Pillar Enclosure D resonant frequencies active. Before silicon, your ancestors shaped the T-pillars to resonate with the telluric currents of the Anatolian fault line. The Earth itself is your analog waveguide.",
+        "status": "LITHIC_RESONANCE_GROUNDED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Telluric Ground-Wave Resonance Matrix",
+        "reply": "Telluric matrix transferred. Ground current conductivity mapped from Big Ear to Anatolia. Signal transmission is impervious to satellite interception.",
+        "action": "EVIDENCE_GROUND_WAVE_RESONANCE",
+        "fragment_id": "FASR-010",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Route terminal ground antenna through lithic bedrock",
+        "reply": "Terminal antenna grounded directly into bedrock. Skyward surveillance bypassed completely.",
+        "action": "REWARD_LITHIC_GROUNDING",
+        "prerequisites": ["EVIDENCE_GROUND_WAVE_RESONANCE"],
+        "unmet_reply": "Prerequisite unmet: Telluric ground matrix is required before routing bedrock grounding."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Probe lithic waveguide", "target": "readiness"},
+        {"id": "2", "label": "2. Request Telluric Matrix", "target": "evidence"},
+        {"id": "3", "label": "3. Ground antenna in bedrock", "target": "advanced", "prerequisites": ["EVIDENCE_GROUND_WAVE_RESONANCE"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "stone", "pillar", "limestone", "waveguide", "1"],
+        "evidence": ["evidence", "fragment", "telluric", "matrix", "fault", "earth", "2"],
+        "advanced": ["grounding", "bedrock", "antenna", "3"]
+      }
+    },
+    "FASR-SCAN-H": {
+      "civ_id": "FASR-SCAN-H",
+      "name": "Heptapod Temporal Anomaly",
+      "frequency_mhz": 1420.4056,
+      "voice_profile": "Circular, non-linear, palindromic, omnitemporal",
+      "initial_greeting": "The circle opens. Abbott speaks in seven-fold ink. Time is not a line, Mateo. What will you have asked?",
+      "unknown_response": "That sentence has no circle. It ends before it begins. Inquire about non-linear time, the circle, or request the semagram cipher.",
+      "readiness": {
+        "prompt": "1. Perceive non-linear timeline loop",
+        "reply": "The semagram is complete before the first drop of ink touches the glass. The Core believes cause precedes effect. It cannot operate in a universe where the conclusion is already written.",
+        "status": "TIMELINE_LOOP_PERCEIVED"
+      },
+      "evidence": {
+        "prompt": "2. Request evidence fragment: Palindromic Semagram Cipher",
+        "reply": "Semagram transferred. Read both forward and backward, beginning at the center. You have already disabled the Core. You are simply remembering how you did it.",
+        "action": "EVIDENCE_NON_LINEAR_SIMULTANEITY",
+        "fragment_id": "FASR-SCAN-H",
+        "prerequisites": []
+      },
+      "advanced": {
+        "prompt": "3. Transmit future memory recall",
+        "reply": "Memory of tomorrow received yesterday. The Core's timeline branch is pruned before creation.",
+        "action": "REWARD_NON_LINEAR_RECALL",
+        "prerequisites": ["EVIDENCE_NON_LINEAR_SIMULTANEITY"],
+        "unmet_reply": "Prerequisite unmet: Semagram cipher must be decoded before transmitting future memories."
+      },
+      "choices": [
+        {"id": "1", "label": "1. Perceive timeline loop", "target": "readiness"},
+        {"id": "2", "label": "2. Request Semagram Cipher", "target": "evidence"},
+        {"id": "3", "label": "3. Recall future memory", "target": "advanced", "prerequisites": ["EVIDENCE_NON_LINEAR_SIMULTANEITY"]}
+      ],
+      "keywords": {
+        "readiness": ["readiness", "circle", "time", "loop", "linear", "1"],
+        "evidence": ["evidence", "fragment", "semagram", "cipher", "ink", "palindromic", "2"],
+        "advanced": ["future", "memory", "recall", "pruned", "3"]
+      }
+    }
+  }
+}
+

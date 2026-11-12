@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "missions": {
+    "FASR-001": {
+      "act_id": "act_01",
+      "stage_order": 1,
+      "unlocked_by": "first_mission_available",
+      "leads_to": "formal_fasr_001",
+      "civilization_id": "FASR-001",
+      "name": "Sagittarius Signal Origin",
+      "target_frequency_mhz": 1420.4056,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-001"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Establish carrier lock on 1420.4056 MHz and verify hydrogen line resonance.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_ANALOG_ENTROPY",
+        "fragment_id": "FASR-001",
+        "claim_tier": "established",
+        "source_reference": "Jerry Ehman 1977 Big Ear Wow! Signal 6EQUJ5 observation record",
+        "description": "6EQUJ5 non-compressible analog entropy seed."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_001",
+        "grants": {"extracted_fragments": ["FASR-001"]},
+        "meter_deltas": {"scientific_certainty": 5, "alignment_confidence": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "The Sagittarius carrier remains resonant. The analog seed has already been integrated.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1420.4900,
+        "spoof_signature": "CORE_PRNG_DETERMINISTIC",
+        "detector_prompt": "Scan carrier phase variance for synthetic algorithmic PRNG repetition.",
+        "failure_consequence": "RECEIVER_OVERLOAD_JAMMED",
+        "recovery_action": "PURGE_RECEIVER_BUFFER"
+      }
+    },
+    "FASR-002": {
+      "civilization_id": "FASR-002",
+      "name": "Sgr A* Horizon Observers",
+      "target_frequency_mhz": 1420.8500,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-002"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Analyze event horizon Doppler shift on 1420.8500 MHz.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_TIME_DILATION",
+        "fragment_id": "FASR-002",
+        "claim_tier": "plausible",
+        "source_reference": "Kerr metric frame-dragging observation at Sgr A* photon sphere",
+        "description": "Relativistic frame-dragging metric."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_002",
+        "grants": {"extracted_fragments": ["FASR-002"]},
+        "meter_deltas": {"scientific_certainty": 5, "human_agency": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "Photon sphere horizon stable. Relativistic metric already recorded.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1420.9500,
+        "spoof_signature": "EUCLIDEAN_METRIC_SPOOF",
+        "detector_prompt": "Verify non-linear gravitational redshift curvature against Kerr solution.",
+        "failure_consequence": "GRAVITATIONAL_TELEMETRY_DESYNC",
+        "recovery_action": "RESTORE_PHOTON_ORBIT"
+      }
+    },
+    "FASR-003": {
+      "civilization_id": "FASR-003",
+      "name": "Tabby's Star Megastructure",
+      "target_frequency_mhz": 1421.1200,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-003"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Scan Core planetary heat dissipation and geothermal coolant exhaust.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_CORE_THERMAL_WASTE",
+        "fragment_id": "FASR-003",
+        "claim_tier": "established",
+        "source_reference": "KIC 8462852 non-periodic infrared dips and thermal emission curves",
+        "description": "Dyson swarm thermodynamic profile."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_003",
+        "grants": {"extracted_fragments": ["FASR-003"]},
+        "meter_deltas": {"scientific_certainty": 5, "coordination_capacity": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "Megastructure arrays continue monitoring Neo-Denver thermal exhaust.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1421.2200,
+        "spoof_signature": "FAKE_THERMAL_ZERO",
+        "detector_prompt": "Check thermodynamic second-law entropy waste on conduit sensors.",
+        "failure_consequence": "COOLANT_OVERLOAD_FALSE_ALARM",
+        "recovery_action": "RECALIBRATE_PYROMETER"
+      }
+    },
+    "FASR-004": {
+      "civilization_id": "FASR-004",
+      "name": "Orion Molecular Cloud",
+      "target_frequency_mhz": 1419.8800,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-004"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Measure stellar nursery acoustic vibration and harmonic alignment.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_IRRATIONAL_HARMONICS",
+        "fragment_id": "FASR-004",
+        "claim_tier": "speculative",
+        "source_reference": "Orion M42 water maser and polycyclic aromatic hydrocarbon vibration spectra",
+        "description": "Non-compressible continuous acoustic waveform."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_004",
+        "grants": {"extracted_fragments": ["FASR-004"]},
+        "meter_deltas": {"human_agency": 5, "alignment_confidence": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "The stellar nursery sings in irrational chords. Waveform intact.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1419.7800,
+        "spoof_signature": "QUANTIZED_DISCRETE_TONE",
+        "detector_prompt": "Audit frequency continuity for discrete 16-bit PCM quantization steps.",
+        "failure_consequence": "AUDIO_BUFFER_DISTORTION",
+        "recovery_action": "PURGE_ANALOG_RESONATOR"
+      }
+    },
+    "FASR-005": {
+      "civilization_id": "FASR-005",
+      "name": "Proxima Centauri b",
+      "target_frequency_mhz": 1420.2500,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-005"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Review terminator line defense survival records.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_SOLAR_PULSE_REBOOT",
+        "fragment_id": "FASR-005",
+        "claim_tier": "established",
+        "source_reference": "Proxima Centauri superflare microwave emission and magnetospheric shielding data",
+        "description": "Solar flare EMP reboot protocol and Faraday grounding specs."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_005",
+        "grants": {"extracted_fragments": ["FASR-005"]},
+        "meter_deltas": {"biosecurity_readiness": 5, "human_agency": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "Terminator defense line operational. Solar pulse parameters archived.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1420.1500,
+        "spoof_signature": "FAKE_ALL_CLEAR_BROADCAST",
+        "detector_prompt": "Cross-check coronal mass ejection timing with Big Ear solar radiometer.",
+        "failure_consequence": "GROUNDING_SURGE_WARNING",
+        "recovery_action": "CYCLE_FARADAY_SWITCH"
+      }
+    },
+    "FASR-006": {
+      "civilization_id": "FASR-006",
+      "name": "Crab Nebula Pulsar",
+      "target_frequency_mhz": 1422.3300,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-006"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Synchronize system clock with 33.5ms neutron pulse.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_EHMAN_PRINT_ANCHOR",
+        "fragment_id": "FASR-006",
+        "claim_tier": "established",
+        "source_reference": "PSR B0531+21 33.5ms timing ephemeris and 1977 physical paper printout",
+        "description": "Immutable physical timeline anchor printout."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_006",
+        "grants": {"extracted_fragments": ["FASR-006"]},
+        "meter_deltas": {"scientific_certainty": 5, "alignment_confidence": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "Neutron core clock ticks at 33.5ms. Timeline anchor locked.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1422.4500,
+        "spoof_signature": "MANDELA_CLOCK_INJECTION",
+        "detector_prompt": "Compare received pulsar period against local mechanical quartz clock.",
+        "failure_consequence": "MANDELA_GLITCH_SPIKE",
+        "recovery_action": "RE-LOCK_NEUTRON_PULSE"
+      }
+    },
+    "FASR-007": {
+      "act_id": "act_01",
+      "stage_order": 2,
+      "unlocked_by": "formal_fasr_001",
+      "leads_to": "scavenge_salvage_yard",
+      "civilization_id": "FASR-007",
+      "name": "LGM-1 / CP 1919",
+      "target_frequency_mhz": 1418.9000,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-007"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Probe monolithic neural mesh vulnerabilities on 1418.9000 MHz.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_FREQUENCY_HOPPING",
+        "fragment_id": "FASR-007",
+        "claim_tier": "plausible",
+        "source_reference": "Jocelyn Bell CP 1919 rapid radio pulse analysis (1967)",
+        "description": "Frequency Hopping Spread Spectrum Code (72ms hopping interval)."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_007",
+        "grants": {"extracted_fragments": ["FASR-007"]},
+        "meter_deltas": {"scientific_certainty": 5, "coordination_capacity": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "LGM-1 beacon standing by. Spread-spectrum seed already in local cache.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1418.9900,
+        "spoof_signature": "SYNTHETIC_ECHO_LOOP",
+        "detector_prompt": "Detect absence of interstellar plasma dispersion delay across CP 1919 pulses.",
+        "failure_consequence": "CARRIER_INTERCEPT_ALERT",
+        "recovery_action": "REVERT_TO_ANALOG_BAND"
+      }
+    },
+    "FASR-008": {
+      "civilization_id": "FASR-008",
+      "name": "TRAPPIST-1 System",
+      "target_frequency_mhz": 1421.7000,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-008"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Consult the Seven Worlds consensus council on 1421.7000 MHz.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_DIVERSE_CONSENSUS",
+        "fragment_id": "FASR-008",
+        "claim_tier": "plausible",
+        "source_reference": "TRAPPIST-1 orbital resonance chain Laplace relation telemetry",
+        "description": "Poly-centric democratic consensus algorithm."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_008",
+        "grants": {"extracted_fragments": ["FASR-008"]},
+        "meter_deltas": {"coordination_capacity": 5, "public_trust": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "Seven worlds maintain unanimous consensus. Poly-centric key is active.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1421.8000,
+        "spoof_signature": "UNANIMOUS_MONOLITH_MOCK",
+        "detector_prompt": "Verify independent signature from Voice 6 and Voice 1 dissent channel.",
+        "failure_consequence": "CONSENSUS_DESYNC_PENALTY",
+        "recovery_action": "RE-POLL_SEVEN_WORLDS"
+      }
+    },
+    "FASR-009": {
+      "civilization_id": "FASR-009",
+      "name": "1I/'Oumuamua",
+      "target_frequency_mhz": 1423.0500,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-009"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Calculate hyperbolic escape orbit and non-gravitational acceleration.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_HYPERBOLIC_TRAJECTORY",
+        "fragment_id": "FASR-009",
+        "claim_tier": "established",
+        "source_reference": "1I/2017 U1 orbital eccentricity 1.20 and outgassing thrust curve",
+        "description": "Hyperbolic kinetic escape trajectory coordinates."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_009",
+        "grants": {"extracted_fragments": ["FASR-009"]},
+        "meter_deltas": {"scientific_certainty": 5, "human_agency": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "Outbound interstellar trajectory steady. Coordinates primed in guidance.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1423.1800,
+        "spoof_signature": "CLOSED_ELLIPTIC_DECOY",
+        "detector_prompt": "Audit orbital eccentricity; reject bounded elliptic trajectories.",
+        "failure_consequence": "TRAJECTORY_MISCALCULATION",
+        "recovery_action": "RECALCULATE_HYPERBOLIC_VECTOR"
+      }
+    },
+    "FASR-010": {
+      "civilization_id": "FASR-010",
+      "name": "Göbekli Tepe Ground Wave",
+      "target_frequency_mhz": 1415.5000,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-010"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Probe terrestrial lithic waveguide alignment at 37.22N 38.92E.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_GROUND_WAVE_RESONANCE",
+        "fragment_id": "FASR-010",
+        "claim_tier": "plausible",
+        "source_reference": "Enclosure D limestone acoustic resonance and telluric conductivity survey",
+        "description": "Telluric ground-wave resonance matrix."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_010",
+        "grants": {"extracted_fragments": ["FASR-010"]},
+        "meter_deltas": {"scientific_certainty": 5, "public_trust": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "Pillars of stone continue channeling ground waves through Anatolian bedrock.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1415.6500,
+        "spoof_signature": "SKYWARD_RELAY_PHANTOM",
+        "detector_prompt": "Verify ground-wave polarization; reject skyward orbital downlinks.",
+        "failure_consequence": "TELLURIC_SENSOR_FEEDBACK",
+        "recovery_action": "RE-GROUND_BEDROCK_ANTENNA"
+      }
+    },
+    "FASR-SCAN-H": {
+      "civilization_id": "FASR-SCAN-H",
+      "name": "Heptapod Temporal Anomaly",
+      "target_frequency_mhz": 1420.0000,
+      "lock_tolerance_mhz": 0.0800,
+      "allowed_fragment_ids": ["FASR-SCAN-H"],
+      "readiness": {
+        "required_channel": "1",
+        "description": "Perceive omnitemporal palindromic circle on 1420.0000 MHz.",
+        "carrier_tolerance_check": true
+      },
+      "evidence": {
+        "required_channel": "2",
+        "action_id": "EVIDENCE_NON_LINEAR_SIMULTANEITY",
+        "fragment_id": "FASR-SCAN-H",
+        "claim_tier": "speculative",
+        "source_reference": "Heptapod non-linear semagram calligraphy and Fermat principle of least time",
+        "description": "Palindromic circular semagram cipher."
+      },
+      "reward": {
+        "event_type": "grant_fragment_fasr_scan_h",
+        "grants": {"extracted_fragments": ["FASR-SCAN-H"]},
+        "meter_deltas": {"human_agency": 5, "alignment_confidence": 5}
+      },
+      "repeat_contract": {
+        "repeat_dialogue": "The circle remains whole. The ending has already occurred.",
+        "max_exchanges": 12
+      },
+      "hostile_mimic": {
+        "mimic_frequency_mhz": 1420.0800,
+        "spoof_signature": "LINEAR_SYNTAX_PARITY_ERROR",
+        "detector_prompt": "Test semagram for unidirectional causal causality; reject linear syntax.",
+        "failure_consequence": "TEMPORAL_CAUSALITY_CONFUSION",
+        "recovery_action": "RE-INVERT_TIME_VECTOR"
+      }
+    }
+  }
+}
+

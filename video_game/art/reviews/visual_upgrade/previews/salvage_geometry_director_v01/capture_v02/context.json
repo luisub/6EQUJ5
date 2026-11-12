@@ -1,0 +1,45 @@
+{
+  "driver": "dummy",
+  "room": "video_game/data/levels/act_01/salvage_yard.json",
+  "room_world_size": [
+    640,
+    288
+  ],
+  "guide": "room.render_tiles + room.render_objects at world origin on an opaque diagnostic backing, nearest-scaled 2x; no background, actor, HUD or scene-drawn pickup/effects",
+  "fixtures": "new game, direct field then direct yard load; temporary saves; reset named spawn and 30 updates at 1/60; camera explicitly positioned; scripted fixture, not a played route; depot spawn can collect the coupler",
+  "samples": [
+    {
+      "spawn": "yard_entrance",
+      "camera": [
+        0,
+        18
+      ],
+      "player_rect": [
+        48,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "image": "yard_entrance_camera_x0_native_960.png",
+      "coupler_collected": false
+    },
+    {
+      "spawn": "yard_depot",
+      "camera": [
+        160,
+        18
+      ],
+      "player_rect": [
+        520,
+        208,
+        16,
+        32
+      ],
+      "grounded": true,
+      "image": "yard_depot_camera_x160_native_960.png",
+      "coupler_collected": true
+    }
+  ],
+  "limits": "guide is not artwork or a normal route; real interactive/conditional cues, motion, native window, performance, audio and human play remain unverified"
+}

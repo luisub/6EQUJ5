@@ -1,0 +1,29 @@
+{
+  "plate": "video_game/art/reviews/visual_upgrade/previews/relay_registration_director_v02/relay_shared_background_960x576.png",
+  "plate_sha256": "19d259d03fbe10784218fd6d67aca01298ae812f0795b63cec675b8e551f1133",
+  "fixture": "dummy SDL, temporary save, direct relay_terminal_post spawn, 30 updates, then direct reposition x=104 and face left, one update, fixed camera (0,18), synthetic E KEYDOWN/UP; no progression or human play claim",
+  "samples": [
+    {
+      "file": "terminal_before_e_native_960.png",
+      "sha256": "1bb22318333f8da3a8d1db25acba9456b1a06bb4d5cce5ae9dc706180729de35",
+      "panel_open": false,
+      "player_rect": [
+        104,
+        208,
+        16,
+        32
+      ]
+    },
+    {
+      "file": "terminal_panel_e_native_960.png",
+      "sha256": "5c3585d6c8d9154c37b90cab530b5a29aaa3e1b0a148c682931a71d1b2232c1b",
+      "panel_open": true,
+      "player_rect": [
+        104,
+        208,
+        16,
+        32
+      ]
+    }
+  ]
+}

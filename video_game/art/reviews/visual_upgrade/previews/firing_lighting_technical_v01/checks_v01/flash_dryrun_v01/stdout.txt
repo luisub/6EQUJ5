@@ -1,0 +1,22 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.12.16)
+{
+  "status": "validated",
+  "manifest": {
+    "schema_version": 1,
+    "room_id": "act_01_approach",
+    "file": "flash_64x32.png",
+    "sha256": "027df21d8bb8d6d21f1421ad7bb50845e941a6907de2af430571fd95374ef7e5",
+    "dimensions": [
+      64,
+      32
+    ],
+    "pivot_right": [
+      12,
+      16
+    ],
+    "pivot_left": [
+      51,
+      16
+    ]
+  }
+}

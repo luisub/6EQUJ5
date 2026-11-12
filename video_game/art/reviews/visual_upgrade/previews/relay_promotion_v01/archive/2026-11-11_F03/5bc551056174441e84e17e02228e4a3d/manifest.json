@@ -1,0 +1,23 @@
+{
+  "group": "dodleston_relay_v1",
+  "reason": "Explicit selected replacement",
+  "asset_root": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/assets",
+  "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/relay_promotion_v01/archive/2026-11-11_F03/5bc551056174441e84e17e02228e4a3d",
+  "files": [
+    {
+      "path": "environments/dodleston_relay_v1/backdrop_960x576.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "19d259d03fbe10784218fd6d67aca01298ae812f0795b63cec675b8e551f1133"
+    },
+    {
+      "path": "environments/dodleston_relay_v1/manifest.json",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "e87b485775f342c319a2a979f73a63f49df9298b574bd5e83384bc3fd05c69a2"
+    }
+  ],
+  "references_updated": "Existing asset paths and manifest references retained.",
+  "checks": "Staged files validated before promotion; archived originals hash-verified.",
+  "restore": "Verify each archived SHA-256, copy it to its original asset path, remove files marked absent, then rerun the loader and checkpoint suites."
+}

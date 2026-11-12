@@ -1,0 +1,12 @@
+[
+  {
+    "path": "video_game/tests/test_render_density.py",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/controls_combat_technical_v01/recovery_v16/test_render_density.py",
+    "sha256": "d6bd0a881bd516b07281fa4aa60a72e447bb3c4f40bcec70a787a1935e90f6e8"
+  },
+  {
+    "path": "video_game/art/reviews/visual_upgrade/previews/coilgun_interrupt_backup_v01/manifest.json",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/controls_combat_technical_v01/recovery_v16/coilgun_manifest.json",
+    "sha256": "6f7b6209bf82b74c28af6e587058d0ea6b89eb1845d41eb46712e7555889dbcf"
+  }
+]

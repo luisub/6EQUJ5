@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "enemies": {
+    "core_recon_drone": {
+      "name": "Core Recon Drone",
+      "width": 24,
+      "height": 20,
+      "origin": [
+        12,
+        10
+      ],
+      "attachment_points": {
+        "laser_emitter": [
+          12,
+          14
+        ],
+        "sensor_eye": [
+          12,
+          8
+        ]
+      },
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/core_recon_drone/patrol_1.png",
+            "sprites/enemies/core_recon_drone/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/core_recon_drone/windup_1.png",
+            "sprites/enemies/core_recon_drone/windup_2.png"
+          ],
+          "frame_duration_ms": 150,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/core_recon_drone/attack.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/core_recon_drone/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/core_recon_drone/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/core_recon_drone/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "static_hound": {
+      "name": "Static Hound",
+      "width": 32,
+      "height": 20,
+      "origin": [
+        16,
+        18
+      ],
+      "attachment_points": {
+        "jaw": [
+          28,
+          9
+        ],
+        "optic_visor": [
+          25,
+          6
+        ],
+        "spine_pack": [
+          13,
+          5
+        ]
+      },
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/static_hound/patrol_1.png",
+            "sprites/enemies/static_hound/patrol_2.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/static_hound/windup.png"
+          ],
+          "frame_duration_ms": 300,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/static_hound/pounce.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/static_hound/recovery.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/static_hound/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/static_hound/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "core_enforcer": {
+      "name": "Core Chassis Enforcer",
+      "width": 24,
+      "height": 32,
+      "origin": [
+        12,
+        16
+      ],
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/core_enforcer/patrol_1.png",
+            "sprites/enemies/core_enforcer/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/core_enforcer/windup.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/core_enforcer/attack.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/core_enforcer/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/core_enforcer/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/core_enforcer/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "core_operative": {
+      "name": "Core Assimilated Operative",
+      "width": 20,
+      "height": 32,
+      "origin": [
+        10,
+        16
+      ],
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/core_operative/patrol_1.png",
+            "sprites/enemies/core_operative/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/core_operative/windup.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/core_operative/attack.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/core_operative/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/core_operative/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/core_operative/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "shield_hound": {
+      "name": "Static Shield Hound",
+      "width": 32,
+      "height": 24,
+      "origin": [
+        16,
+        20
+      ],
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/shield_hound/patrol_1.png",
+            "sprites/enemies/shield_hound/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/shield_hound/windup.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/shield_hound/pounce.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/shield_hound/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/shield_hound/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/shield_hound/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "phase_watcher": {
+      "name": "Phase Watcher",
+      "width": 20,
+      "height": 36,
+      "origin": [
+        10,
+        18
+      ],
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/phase_watcher/patrol_1.png",
+            "sprites/enemies/phase_watcher/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/phase_watcher/windup.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/phase_watcher/attack.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/phase_watcher/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/phase_watcher/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/phase_watcher/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "chrysalis_splicer": {
+      "name": "Chrysalis Splicer",
+      "width": 28,
+      "height": 24,
+      "origin": [
+        14,
+        20
+      ],
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/chrysalis_splicer/patrol_1.png",
+            "sprites/enemies/chrysalis_splicer/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/chrysalis_splicer/windup.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/chrysalis_splicer/attack.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/chrysalis_splicer/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/chrysalis_splicer/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/chrysalis_splicer/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "precursor_guardian": {
+      "name": "Precursor Hominid Guardian",
+      "width": 32,
+      "height": 40,
+      "origin": [
+        16,
+        36
+      ],
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/precursor_guardian/patrol_1.png",
+            "sprites/enemies/precursor_guardian/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/precursor_guardian/windup.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/precursor_guardian/attack.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/precursor_guardian/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/precursor_guardian/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/precursor_guardian/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    },
+    "temporal_phantom": {
+      "name": "Temporal Wireframe Phantom",
+      "width": 24,
+      "height": 32,
+      "origin": [
+        12,
+        16
+      ],
+      "animations": {
+        "patrol": {
+          "frames": [
+            "sprites/enemies/temporal_phantom/patrol_1.png",
+            "sprites/enemies/temporal_phantom/patrol_2.png"
+          ],
+          "frame_duration_ms": 250,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            "sprites/enemies/temporal_phantom/windup.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": true
+        },
+        "attack": {
+          "frames": [
+            "sprites/enemies/temporal_phantom/attack.png"
+          ],
+          "frame_duration_ms": 200,
+          "loop": false
+        },
+        "recovery": {
+          "frames": [
+            "sprites/enemies/temporal_phantom/recovery.png"
+          ],
+          "frame_duration_ms": 400,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            "sprites/enemies/temporal_phantom/hurt.png"
+          ],
+          "frame_duration_ms": 120,
+          "loop": false
+        },
+        "death": {
+          "frames": [
+            "sprites/enemies/temporal_phantom/death.png"
+          ],
+          "frame_duration_ms": 500,
+          "loop": false
+        }
+      }
+    }
+  }
+}

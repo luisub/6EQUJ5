@@ -214,3 +214,49 @@ tools/agg
 docs/demo.gif
 
 *kk_*
+
+# ==============================================================================
+# 6EQUJ5 Scratch, Backup & Artifact Filters
+# ==============================================================================
+
+# Agent and pre-change backup snapshots
+_trash/
+**/_trash/
+*.tar.gz
+
+# Ephemeral AI generation scratch directories
+generated_images/
+
+# Editor and patch backups
+*.bak
+*.backup
+*.tmp
+*.temp
+*.orig
+*~
+
+# Profiling and performance traces
+*.prof
+*.pstats
+*.cprofile
+
+# Local runtime save states and personal settings (preserves test fixtures)
+saves/
+local_saves/
+*.save
+*.sav
+
+# Visual review heavy frame dumps and redundant sweep backups
+video_game/art/reviews/**/runtime_backup_*/
+video_game/art/reviews/**/test_backup_*/
+video_game/art/reviews/**/actual_root_*/
+video_game/art/reviews/**/baseline_*_v*/
+video_game/art/reviews/**/candidate_*_v*/
+video_game/art/reviews/**/wheel_check_*/
+
+# OS / Editor enhancements
+**/.DS_Store
+.vscode/
+.idea/
+.cursor/
+

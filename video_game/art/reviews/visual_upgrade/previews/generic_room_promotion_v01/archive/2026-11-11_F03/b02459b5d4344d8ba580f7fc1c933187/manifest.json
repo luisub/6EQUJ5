@@ -1,0 +1,29 @@
+{
+  "group": "ohio_dish_v1",
+  "reason": "Explicit selected replacement",
+  "asset_root": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/assets",
+  "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/generic_room_promotion_v01/archive/2026-11-11_F03/b02459b5d4344d8ba580f7fc1c933187",
+  "files": [
+    {
+      "path": "environments/ohio_dish_v1/far_1152x544.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e"
+    },
+    {
+      "path": "environments/ohio_dish_v1/world_1280x576.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "1bd2262000bf17f87da1c13b1c865796416b061006b82c673b9beadc3303b8cc"
+    },
+    {
+      "path": "environments/ohio_dish_v1/manifest.json",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "49590a7764a6d4d3f5c414b493c7770e8c6292159b352dc5fc295fd9575c271c"
+    }
+  ],
+  "references_updated": "Existing asset paths and manifest references retained.",
+  "checks": "Staged files validated before promotion; archived originals hash-verified.",
+  "restore": "Verify each archived SHA-256, copy it to its original asset path, remove files marked absent, then rerun the loader and checkpoint suites."
+}

@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "source": "video_game/planning/evidence/CONTROLS/2026-11-12_accessibility/contract.md",
+      "backup": "video_game/planning/evidence/CONTROLS/2026-11-12_accessibility/wording_backup_v01/contract.md",
+      "sha256": "d84db0bb3648830fb6713adccfed18b314c12dde45ab2edf70ff223737a96d9f"
+    },
+    {
+      "source": "video_game/planning/evidence/CONTROLS/2026-11-12_accessibility/controls_draft.md",
+      "backup": "video_game/planning/evidence/CONTROLS/2026-11-12_accessibility/wording_backup_v01/controls_draft.md",
+      "sha256": "86a832df0c624c50669b029653cf42056a8cf50498510006ccb9e51bc962bd34"
+    }
+  ],
+  "method": "byte copies; source and backup SHA-256 verified before wording correction"
+}

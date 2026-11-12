@@ -1,0 +1,23 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.12.16)
+{
+  "status": "promoted",
+  "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/firing_lighting_technical_v01/flash_promotion_archive_v01/2026-11-11_F03/d1f9b14cb35c42b4a6a2118636566deb",
+  "manifest": {
+    "schema_version": 1,
+    "room_id": "act_01_approach",
+    "file": "flash_64x32.png",
+    "sha256": "027df21d8bb8d6d21f1421ad7bb50845e941a6907de2af430571fd95374ef7e5",
+    "dimensions": [
+      64,
+      32
+    ],
+    "pivot_right": [
+      12,
+      16
+    ],
+    "pivot_left": [
+      51,
+      16
+    ]
+  }
+}

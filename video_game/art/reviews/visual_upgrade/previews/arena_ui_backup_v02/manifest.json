@@ -1,0 +1,5 @@
+{
+  "source": "video_game/tests/test_ui_readability.py",
+  "copy": "video_game/art/reviews/visual_upgrade/previews/arena_ui_backup_v02/test_ui_readability.py",
+  "sha256": "fece9a389f4d06bb78d7fc7a1384b7627291b8fb3ed012bbe0800c992641c62b"
+}

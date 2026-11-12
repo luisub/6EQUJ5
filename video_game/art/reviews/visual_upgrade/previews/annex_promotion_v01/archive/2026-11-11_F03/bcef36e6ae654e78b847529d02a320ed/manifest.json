@@ -1,0 +1,23 @@
+{
+  "group": "mandela_annex_v1",
+  "reason": "Explicit selected replacement",
+  "asset_root": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/assets",
+  "archive": "/Users/nzlab-la/Desktop/Github/6EQUJ5/video_game/art/reviews/visual_upgrade/previews/annex_promotion_v01/archive/2026-11-11_F03/bcef36e6ae654e78b847529d02a320ed",
+  "files": [
+    {
+      "path": "environments/mandela_annex_v1/backdrop_960x576.png",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "b12ba8f554e5cdb9f237a9f1266ed3bae06c10c480272a3c605decf50269dd4a"
+    },
+    {
+      "path": "environments/mandela_annex_v1/manifest.json",
+      "existed": false,
+      "sha256": null,
+      "replacement_sha256": "f36a4a5aec62d22719b829ecdb99bbf04b045873ae438c89614827052b5df6fd"
+    }
+  ],
+  "references_updated": "Existing asset paths and manifest references retained.",
+  "checks": "Staged files validated before promotion; archived originals hash-verified.",
+  "restore": "Verify each archived SHA-256, copy it to its original asset path, remove files marked absent, then rerun the loader and checkpoint suites."
+}

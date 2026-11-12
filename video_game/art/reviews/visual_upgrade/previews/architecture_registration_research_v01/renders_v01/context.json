@@ -1,0 +1,116 @@
+{
+  "architecture_source": "video_game/art/source/visual_upgrade/candidates/approach_world_architecture_v01/source/approach_world_architecture_generated_master.png",
+  "architecture_source_sha256": "ab70ac7a4a1c4d31da758d18d1c6bf77e97f3ec01458bbfe4a531df006667276",
+  "architecture_source_size": [
+    2172,
+    724
+  ],
+  "architecture_source_mode": "RGBA",
+  "architecture_export": "architecture_full_rgba_1920x576.png",
+  "architecture_export_sha256": "4635d15bf13435c2e71bc0f2eae9e82d9d7596b208f656992ce0cf4aa8b47a51",
+  "architecture_export_size": [
+    1920,
+    576
+  ],
+  "architecture_export_mode": "RGBA",
+  "transform": "full-image Lanczos resize, no masks, crop, painting, cleanup or manual alpha changes; width/height ratio 3.0 to 3.3333 (+11.11%)",
+  "far_source": "video_game/art/reviews/visual_upgrade/previews/approach_far_registration_v01/far_native_1152x544.png",
+  "far_source_sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+  "far_source_size": [
+    1152,
+    544
+  ],
+  "mapping": "far native crop round(2*.1*camera_x), round(2*.05*camera_y); architecture crop round(2*camera_x), round(2*camera_y); each 960x540",
+  "composition": "fixture-local room.render_background callback composites both native layers behind actual room tiles and objects, actors, effects, weather and HUD; original runtime Mateo animator; no replacement or promotion",
+  "fixture": "dummy display and audio; temporary saves; new game, direct field entry, 30 updates at 1/60; manually set camera and authored spawn for each still; no update between stills",
+  "outputs": [
+    {
+      "camera": [
+        0,
+        18
+      ],
+      "far_crop_native": [
+        0,
+        2,
+        960,
+        540
+      ],
+      "architecture_crop_native": [
+        0,
+        36,
+        960,
+        540
+      ],
+      "fixture_player_spawn": "bunker_exit",
+      "player_rect": [
+        48,
+        192,
+        16,
+        32
+      ],
+      "native": "camera_x0_y18_native_960.png",
+      "native_sha256": "0fa5cf0a7d0e71c2d5a5f56669c5d4791e77b1d12a5934192a24cb663f0ce185",
+      "review": "camera_x0_y18_review_1920.png",
+      "review_sha256": "4abe6b4f4bfe911986a8127d3df750bb256e51f0045987079d70b413b3a7cd8d"
+    },
+    {
+      "camera": [
+        240,
+        18
+      ],
+      "far_crop_native": [
+        48,
+        2,
+        960,
+        540
+      ],
+      "architecture_crop_native": [
+        480,
+        36,
+        960,
+        540
+      ],
+      "fixture_player_spawn": "approach_checkpoint",
+      "player_rect": [
+        480,
+        192,
+        16,
+        32
+      ],
+      "native": "camera_x240_y18_native_960.png",
+      "native_sha256": "7621688a77a3badf99d7060c27513ec659ed3acf2d4cc361fed3fca34679f145",
+      "review": "camera_x240_y18_review_1920.png",
+      "review_sha256": "b2b68e52c523fed2c49935b05fba9b4f4a3f1a108571a1be9b5ee0449c3a5ef0"
+    },
+    {
+      "camera": [
+        480,
+        18
+      ],
+      "far_crop_native": [
+        96,
+        2,
+        960,
+        540
+      ],
+      "architecture_crop_native": [
+        960,
+        36,
+        960,
+        540
+      ],
+      "fixture_player_spawn": "dish_perimeter",
+      "player_rect": [
+        860,
+        192,
+        16,
+        32
+      ],
+      "native": "camera_x480_y18_native_960.png",
+      "native_sha256": "df8c01ea9472c24ee742541308cdcbd87ce78c6c8afe899cc4b21af9f3642762",
+      "review": "camera_x480_y18_review_1920.png",
+      "review_sha256": "99db28c33049676a443566506cb69bfe1b2c526fe9f3243d6a2a2af7621bec62"
+    }
+  ],
+  "limitations": "static fixtures; teleported actor/camera are not normal-input play, motion, alignment acceptance, performance, native-window or art-gate evidence"
+}

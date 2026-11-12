@@ -1,0 +1,7 @@
+{
+  "driver": "dummy",
+  "save": "temporary",
+  "preconditions": "direct scene changes; offline authored channels 2 and 1; laboratory details forced open; pause opened directly; field settled 30 ticks",
+  "outputs": "960 native and nearest 2x 1920; CRT postprocessing off",
+  "limits": "static fixture inspection, no live AI, human playthrough, native window or graphical-performance claim"
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "video_game/engine/state_machine.py",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/controls_combat_technical_v01/recovery_v11/state_machine.py",
+    "sha256": "3988cbdab3166ef3bd8a6e3f5b9f1c8ccfced3b5b43d9ba1c0a437ca3dc32786"
+  },
+  {
+    "path": "video_game/engine/scenes/field.py",
+    "backup": "video_game/art/reviews/visual_upgrade/previews/controls_combat_technical_v01/recovery_v11/field.py",
+    "sha256": "f6da1ed01c001ae3031f0e6661f4f2bbe4efd5f01ad40e0cdedc1904e3639076"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "wheel_path": "/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-generic-wheel-cbyp6ypq/wheels/6equj5-1977.815-py3-none-any.whl",
+  "wheel_sha256": "be8314c8c918f98ce37f13188d0e7011dfef4a7380d169cb9416ee09adc6aeb6",
+  "temporary_root": "/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-generic-wheel-cbyp6ypq",
+  "verified_members": {
+    "video_game/assets/environments/ohio_approach_v1/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "video_game/assets/environments/ohio_approach_v1/world_architecture_1920x576.png": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3",
+    "video_game/assets/environments/ohio_approach_v1/manifest.json": "1c3e13fa91b8cd013923f064cc471278a5f3d76b2954d0118b257a1c52890fe5",
+    "video_game/assets/environments/ohio_approach_v2/world_1920x576.png": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3",
+    "video_game/assets/environments/ohio_approach_v2/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "video_game/assets/environments/ohio_approach_v2/equipment_112x64_rgba.png": "0c8431ad457f575f50288811b1468d5c3b26f6f31668cea510eab2d67aee3476",
+    "video_game/assets/environments/ohio_approach_v2/manifest.json": "59f47e63b38a385c81aecf5740827020b907137b1fe86e7df8b5880ca29db207",
+    "video_game/assets/environments/ohio_salvage_v1/world_1280x576.png": "023b441b8c784b78277722926b6c242243a8f195d8ad6cc2f76937cdae8f50c6",
+    "video_game/assets/environments/ohio_salvage_v1/wagon_168x76_rgba.png": "ac8fce6cdd8edc41fca57a180c4faed0cbf1524b9fef6aea74d1d288a8e0d3ee",
+    "video_game/assets/environments/ohio_salvage_v1/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "video_game/assets/environments/ohio_salvage_v1/manifest.json": "c41bbbc4c816037b683c5cc6c18ea7593e9874a24932a3ee75f0819261ecabde",
+    "video_game/assets/environments/ohio_dish_v1/world_1280x576.png": "1bd2262000bf17f87da1c13b1c865796416b061006b82c673b9beadc3303b8cc",
+    "video_game/assets/environments/ohio_dish_v1/far_1152x544.png": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e",
+    "video_game/assets/environments/ohio_dish_v1/manifest.json": "49590a7764a6d4d3f5c414b493c7770e8c6292159b352dc5fc295fd9575c271c"
+  },
+  "environment": {
+    "SDL_VIDEODRIVER": "dummy",
+    "SDL_AUDIODRIVER": "dummy",
+    "SIX_GAME_SAVE_DIR": "/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-generic-wheel-cbyp6ypq/save",
+    "PYTHONPATH": "/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/6equj5-generic-wheel-cbyp6ypq/installed"
+  },
+  "limitations": "installed dummy SDL smoke, not a native-window or gameplay acceptance"
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "source": "video_game/tests/test_native_bunker_backdrop.py",
+    "copy": "video_game/art/reviews/visual_upgrade/previews/final_test_format_backup_v02/test_native_bunker_backdrop.py",
+    "sha256": "708da09c1626069e1cac2fefd5e9b54b63ce98e84a834b15e806787e55de0b43"
+  },
+  {
+    "source": "video_game/tests/test_native_prototype_backdrop.py",
+    "copy": "video_game/art/reviews/visual_upgrade/previews/final_test_format_backup_v02/test_native_prototype_backdrop.py",
+    "sha256": "c3242e72eaa952bdfc933eeb24e1e6698ec01b64be4f917cb72d7cbb47e82a61"
+  }
+]

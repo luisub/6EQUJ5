@@ -1,0 +1,37 @@
+F...                                                                     [100%]
+=================================== FAILURES ===================================
+______________ test_reality_background_routes_and_timeline_layers ______________
+
+prototype_game = (<video_game.engine.state_machine.GameStateMachine object at 0x1087be060>, PosixPath('/private/var/folders/v9/d_0z5c95...33zzf81s40000gp/T/6equj5-prototype-check-bulodkn0/pytest-of-nzlab-la/pytest-0/test_reality_background_routes0/assets'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1087bfef0>
+
+    def test_reality_background_routes_and_timeline_layers(prototype_game, monkeypatch):
+        game,root=prototype_game
+        # Explicit prerequisite fixture, then physical key enters the actual annex.
+        game.campaign.apply_event({'event_id':'fixture_boss','type':'defeat_greenkeeper'});key(game,pygame.K_m)
+        field=game.current_scene;assert field.room.room_id=='act_01_mandela_test' and field.native_opaque is not None
+        assert field.reality.world is not None
+        calls=[];room=field.room
+        bg=room.render_background;tiles=room.render_tiles;objects=room.get_objects_for_timeline
+        def bg_call(*a,**kw):calls.append('background');return bg(*a,**kw)
+        def tiles_call(*a,**kw):calls.append('tiles');return tiles(*a,**kw)
+        def obj_call(*a,**kw):calls.append('objects');return objects(*a,**kw)
+        monkeypatch.setattr(room,'render_background',bg_call);monkeypatch.setattr(room,'render_tiles',tiles_call)
+        monkeypatch.setattr(room,'get_objects_for_timeline',obj_call);monkeypatch.setattr(room,'render_weather',lambda *a,**kw:None)
+        for timeline in ('2029_CORE','1977_ANALOG'):
+            if field.reality.world.active_timeline!=timeline:key(game,pygame.K_t)
+            assert field.reality.world.active_timeline==timeline
+            field.reality.world.transition_timer=0
+            for y in (0,18):
+                calls.clear();field.camera.x=0;field.camera.y=y;game.render()
+                assert 'background' not in calls and calls.index('tiles')<calls.index('objects')
+>               assert game.crt.render_surface.get_at((900,80))[:3]==(230,5,4)
+E               assert (4, 22, 10) == (230, 5, 4)
+E                 
+E                 At index 0 diff: 4 != 230
+E                 Use -v to get more diff
+
+video_game/tests/test_native_prototype_backdrop.py:60: AssertionError
+=========================== short test summary info ============================
+FAILED video_game/tests/test_native_prototype_backdrop.py::test_reality_background_routes_and_timeline_layers
+1 failed, 3 passed in 1.14s

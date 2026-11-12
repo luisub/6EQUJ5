@@ -1,0 +1,973 @@
+{
+  "schema_version": 1,
+  "scenarios": {
+    "formal_fasr_001": {
+      "id": "formal_fasr_001",
+      "version": 1,
+      "title": "FORMAL PROOF // ENTROPY REVERSAL",
+      "substation": "NSF / NIH ANALOG WAVEGUIDE BENCH",
+      "workbench_type": "formal",
+      "fragment_id": "FASR-001",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_entropy_analog_filter",
+      "domain": "Information Thermodynamics & Statistical Mechanics",
+      "description": "Analyze purported non-ergodic entropy reduction encoded within the 1420.4056 MHz hydrogen carrier burst.",
+      "source_references": [
+        "Landauer_1961_Irreversibility_and_Heat_Generation",
+        "Bennett_1982_Thermodynamics_of_Computation",
+        "Ehman_1977_Wow_Signal_Detection"
+      ],
+      "claim": {
+        "statement": "A fictional hydrogen waveguide is claimed to reduce total entropy of a closed system and its surroundings over a complete cycle without compensation.",
+        "correct_tier": "speculative",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Standard Classical Physics)",
+            "explanation": "REJECTED: A local entropy decrease alone need not violate the Second Law. A net decrease for the closed system plus surroundings over a cycle would; this waveguide claim is not established."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: This fictional closed-cycle claim lacks demonstrated coupling mechanisms and evidence; local ordering alone does not establish a total entropy decrease."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "ACCEPTED: Speculative tier. Extraterrestrial or theoretical physics with unverified coupling. Validated as a speculative claim, distinct from hostile deception."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_entropy_seed",
+          "label": "OBS_ENTROPY_SEED: Analog entropy seed extracted from 1420.4056 MHz carrier",
+          "detail": "Fictional cavity observation: local ordering (delta S < 0) alone does not establish a total closed-cycle entropy decrease.",
+          "is_valid": true
+        },
+        {
+          "id": "obs_snr_coherence",
+          "label": "OBS_SNR_COHERENCE: 30σ Gaussian Envelope Transit Coherence",
+          "detail": "Signal amplitude tracks Big Ear beam antenna pattern across 72-second transit duration.",
+          "is_valid": true
+        },
+        {
+          "id": "obs_terrestrial_rfi",
+          "label": "COUNTEREXAMPLE: Terrestrial Spark-Gap RFI",
+          "detail": "Broadband spark impulse induced by local automotive ignition or electrical relay switch.",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: Terrestrial spark-gap RFI is broadband and non-coherent, not monochromatic 1420.4056 MHz carrier."
+        }
+      ],
+      "required_observations": [
+        "obs_entropy_seed",
+        "obs_snr_coherence"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_cavity_conservation",
+          "prompt": "For an unbiased unknown bit reset to a standard state against an isothermal reservoir, the calorimeter observes average heat >= kT ln(2).",
+          "expected": true,
+          "explanation": "For an initially unbiased unknown bit reset to one standard state against an isothermal reservoir, the ideal minimum average heat is kT ln(2)."
+        },
+        {
+          "id": "check_perpetual_motion",
+          "prompt": "Apparatus outputs continuous mechanical work exceeding total system enthalpy.",
+          "expected": false,
+          "explanation": "Perpetual motion counterexample rejected: energy conservation remains invariant; total closed-system enthalpy is bounded."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_analog_filter",
+          "label": "DEPLOY // Arm Maser Analog Waveguide Filter",
+          "description": "Couple the entropy reversal matrix to the bunker's 1420 MHz defense maser. Grants offensive harmonic modulation.",
+          "event_type": "validate_fasr_001_deploy",
+          "meter_impact": "Scientific Certainty +10, Alignment Confidence +5, Human Agency +5",
+          "summary": "Waveguide filter armed. Sub-basement maser calibrated for harmonic pulse modulation."
+        },
+        {
+          "id": "withhold_quarantine",
+          "label": "WITHHOLD // Quarantine in Lead-Lined Faraday Vault",
+          "description": "Store protocol in offline bunker archive pending multi-laboratory replication. Prioritizes biosecurity.",
+          "event_type": "validate_fasr_001_withhold",
+          "meter_impact": "Scientific Certainty +10, Public Trust +5, Biosecurity Readiness +5",
+          "summary": "Protocol secured in Faraday isolation. Avoids untested electromagnetic radiation hazards."
+        }
+      ]
+    },
+    "quantum_fasr_002": {
+      "id": "quantum_fasr_002",
+      "version": 1,
+      "title": "QUANTUM OPTICS // DECOHERENCE BOUNDS",
+      "substation": "NSF / NIH QUANTUM OPTICS BENCH",
+      "workbench_type": "quantum",
+      "fragment_id": "FASR-002",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_quantum_coherence_mandela",
+      "domain": "Quantum Optics & Environmental Decoherence",
+      "description": "Analyze macroscopic wave-particle duality and environmental decoherence limits on received microwave carrier harmonics.",
+      "source_references": [
+        "Young_1804_Double_Slit_Interference",
+        "Zurek_2003_Decoherence_Einselection",
+        "Englert_1996_Fringe_Visibility_Which_Way_Information",
+        "Schlosshauer_2005_Decoherence_Measurement",
+        "Caves_1982_Quantum_Limits_Amplifiers",
+        "Joos_Zeh_1985_Emergence_Classical_Properties"
+      ],
+      "target_experiment": {
+        "wavelength_nm_min": 500.0,
+        "wavelength_nm_max": 560.0,
+        "slit_width_um_max": 30.0,
+        "slit_distance_um_min": 80.0,
+        "slit_distance_um_max": 160.0,
+        "min_shielding": 0.85,
+        "min_visibility": 0.70,
+        "target_state": "COHERENT"
+      },
+      "claim": {
+        "statement": "Macroscopic quantum superposition can be shielded from environmental decoherence indefinitely to allow non-destructive matter phase-shifting.",
+        "correct_tier": "speculative",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Standard Quantum Mechanics)",
+            "explanation": "REJECTED: Indefinite shielding and matter phase-shifting are not established. Decoherence scaling (Zurek) depends on the system and its environment."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: Microscopic decoherence suppression is verified in cryogenic electromagnetic cavities, but extrapolating to macroscopic solid traversal without wavefunction collapse lacks experimental precedent."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "ACCEPTED: Speculative tier. Extrapolates decoherence suppression mechanisms to macroscopic traversal regimes. Validated as an advanced theoretical hypothesis, distinct from hostile deception."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_quantum_coherence_fringe",
+          "label": "OBS_QUANTUM_COHERENCE: Toy target for high-contrast fringes (V >= 0.70)",
+          "detail": "Photodetector array records stable double-slit interference pattern matching Young's analytical distribution under cryogenic shielding.",
+          "is_valid": true,
+          "requires_experiment": true
+        },
+        {
+          "id": "obs_environmental_decoherence_decay",
+          "label": "OBS_DECOHERENCE_DECAY: Toy coherence factor decreases as exp(-Lambda * d^2)",
+          "detail": "In this toy model, unshielded ambient coupling reduces the coherence factor; the formula is a simplified damping factor, not a universal decay rate.",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_detector_dark_current_noise",
+          "label": "COUNTEREXAMPLE: Uncooled PMT Thermal Dark Current",
+          "detail": "Broadband uncorrelated Poisson shot noise with zero spatial coherence or fringe visibility.",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: Dark current is uncorrelated thermal shot noise with zero fringe visibility."
+        }
+      ],
+      "required_observations": [
+        "obs_quantum_coherence_fringe",
+        "obs_environmental_decoherence_decay"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_complementarity",
+          "prompt": "Which-way photon path detector collapses interference fringes to V ~ 0.",
+          "expected": true,
+          "explanation": "Bohr complementarity verified: acquiring path information destroys quantum phase coherence."
+        },
+        {
+          "id": "check_superluminal_signaling",
+          "prompt": "Wavefunction collapse across entangled detector pairs enables superluminal communication.",
+          "expected": false,
+          "explanation": "No-communication theorem verified: local reduced density matrices remain invariant under remote measurements; causality is preserved."
+        },
+        {
+          "id": "check_born_rule_conservation",
+          "prompt": "Total integrated probability density across screen equals unity (sum P_i = 1.0).",
+          "expected": true,
+          "explanation": "Unitarity verified: time evolution preserves total probability norm under Hermitian Hamiltonian."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_mandela_phase_shift",
+          "label": "DEPLOY // Mandela Phase-Shift Waveguide",
+          "description": "Couple cryogenic decoherence shielding to personal traversal rig. Unlocks quantum barrier pass-through.",
+          "event_type": "validate_quantum_mandela_deploy",
+          "meter_impact": "Scientific Certainty +10, Human Agency +10, Public Trust +5",
+          "summary": "Mandela Phase-Shift unlocked. Radio-frequency shielding tuned to bypass solid Core containment barriers."
+        },
+        {
+          "id": "withhold_quantum_quarantine",
+          "label": "WITHHOLD // Cryogenic Isolation Archive",
+          "description": "Quarantine macroscopic superposition protocol in liquid-helium vault. Focuses on safe foundational research.",
+          "event_type": "validate_quantum_quarantine",
+          "meter_impact": "Scientific Certainty +10, Biosecurity Readiness +10, Alignment Confidence +5",
+          "summary": "Protocol placed in cryogenic isolation. Avoids hazardous macro-decoherence contamination."
+        }
+      ]
+    },
+    "connectome_fasr_004": {
+      "id": "connectome_fasr_004",
+      "version": 1,
+      "title": "CONNECTOME LOOM // CAUSAL CIRCUIT INFERENCE",
+      "substation": "NIH BRAIN CONNECTOME WORKBENCH",
+      "workbench_type": "neuro",
+      "fragment_id": "FASR-004",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_connectome_causal_blindspot",
+      "domain": "Computational Neuroscience & Circuit Motif Inference",
+      "description": "Infer causal synaptic wiring and inhibitory motifs to desynchronize Core visual cortex hijack without tissue necrosis.",
+      "source_references": [
+        "White_1986_Structure_Nervous_System_C_Elegans",
+        "Jonas_Kording_2017_Could_Neuroscientist_Understand_Microprocessor",
+        "Pearl_2009_Causality_Models_Reasoning_Inference",
+        "BICCN_2021_Multimodal_Cell_Census_Motor_Cortex",
+        "Bargmann_Marder_2013_From_Connectome_to_Brain_Function"
+      ],
+      "circuit_nodes": [
+        {"id": "S_OPTIC_BURST", "label": "Luminance Pulse Sensor", "node_type": "SENSORY", "threshold": 0.20, "base_activity": 0.0},
+        {"id": "S_PULSE_AUDIO", "label": "Acoustic Carrier Sensor", "node_type": "SENSORY", "threshold": 0.20, "base_activity": 0.0},
+        {"id": "I_FEEDFORWARD", "label": "Feedforward Interneuron", "node_type": "INTERNEURON", "threshold": 0.40, "base_activity": 0.0},
+        {"id": "I_LATERAL_INHIB", "label": "GABAergic Inhibitory Interneuron", "node_type": "INTERNEURON", "threshold": 0.35, "base_activity": 0.0},
+        {"id": "M_DESYNC_PULSE", "label": "Desynchronization Reflex", "node_type": "MOTOR", "threshold": 0.45, "base_activity": 0.0},
+        {"id": "M_RUNAWAY_SEIZURE", "label": "Seizure Overflow Motor", "node_type": "MOTOR", "threshold": 0.50, "base_activity": 0.0}
+      ],
+      "circuit_edges": [
+        {"source_id": "S_OPTIC_BURST", "target_id": "I_FEEDFORWARD", "weight": 1.0, "is_fixed": true, "is_candidate": false},
+        {"source_id": "I_FEEDFORWARD", "target_id": "M_DESYNC_PULSE", "weight": 1.2, "is_fixed": false, "is_candidate": true},
+        {"source_id": "S_OPTIC_BURST", "target_id": "I_LATERAL_INHIB", "weight": 1.0, "is_fixed": false, "is_candidate": true},
+        {"source_id": "I_LATERAL_INHIB", "target_id": "M_RUNAWAY_SEIZURE", "weight": -1.5, "is_fixed": false, "is_candidate": true},
+        {"source_id": "I_FEEDFORWARD", "target_id": "M_RUNAWAY_SEIZURE", "weight": 1.0, "is_fixed": true, "is_candidate": false}
+      ],
+      "target_circuit": {
+        "required_connections": [
+          ["I_FEEDFORWARD", "M_DESYNC_PULSE"],
+          ["S_OPTIC_BURST", "I_LATERAL_INHIB"],
+          ["I_LATERAL_INHIB", "M_RUNAWAY_SEIZURE"]
+        ],
+        "forbidden_connections": [
+          ["M_DESYNC_PULSE", "I_FEEDFORWARD"]
+        ],
+        "default_sensory_stimulus": {
+          "S_OPTIC_BURST": 1.0,
+          "S_PULSE_AUDIO": 0.5
+        },
+        "motor_targets": {
+          "M_DESYNC_PULSE": {"min": 0.70, "max": 1.0},
+          "M_RUNAWAY_SEIZURE": {"min": 0.0, "max": 0.35}
+        },
+        "required_causal_intervention": {
+          "node_id": "I_FEEDFORWARD",
+          "target_motor": "M_DESYNC_PULSE",
+          "min_delta": 0.40
+        }
+      },
+      "claim": {
+        "statement": "Induction of targeted GABAergic lateral inhibition across visual cortex motifs induces transient cognitive blindspots to bypass Core assimilation without structural necrosis.",
+        "correct_tier": "speculative",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Classical Neuroanatomy)",
+            "explanation": "REJECTED: Structural connectome mapping (White 1986) establishes anatomical connectivity, but targeted non-destructive override of synthetic cybernetic cortexes is not established clinical neuroscience."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: Cell-type taxonomy and feedforward inhibitory motifs are validated in mammalian motor cortex (BICCN 2021), but extrapolating to targeted remote neural desynchronization in cyborg adversaries is beyond established models."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "ACCEPTED: Speculative tier. Combines Pearl causal intervention with BICCN circuit motifs for non-lethal neutralizing flashbangs. Validated as advanced theoretical hypothesis distinct from hostile deception."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_causal_circuit_motif",
+          "label": "OBS_CAUSAL_CIRCUIT: Verified inhibitory motif with Delta M >= 0.40 under causal intervention",
+          "detail": "Pearl do-calculus intervention confirms I_LATERAL_INHIB causally suppresses runaway seizure while preserving desync drive.",
+          "is_valid": true,
+          "requires_experiment": true
+        },
+        {
+          "id": "obs_biccn_cell_taxonomy",
+          "label": "OBS_CELL_TAXONOMY: Multimodal transcriptomic GABAergic inhibitory interneuron profiling",
+          "detail": "Identified Pvalb/Sst interneuron subpopulation providing robust lateral inhibition across cortical columns.",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_spurious_synchrony",
+          "label": "COUNTEREXAMPLE: Spurious Phase Synchrony (Zero Causal Coupling)",
+          "detail": "Epiphenomenal electrical oscillation lacking synaptic causal drive (Jonas & Kording 2017 microprocessor trap).",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: Spurious synchrony displays correlational phase locking but Delta M ~ 0 under causal intervention."
+        }
+      ],
+      "required_observations": [
+        "obs_causal_circuit_motif",
+        "obs_biccn_cell_taxonomy"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_dales_principle",
+          "prompt": "Neuron axonal terminals release invariant neurotransmitter phenotype across all synaptic targets.",
+          "expected": true,
+          "explanation": "Dale's Principle verified: single presynaptic neuron maintains consistent excitatory (glutamatergic) or inhibitory (GABAergic) identity."
+        },
+        {
+          "id": "check_correlation_causation",
+          "prompt": "Observed statistical co-activation between two neurons guarantees direct synaptic connectivity.",
+          "expected": false,
+          "explanation": "Causal fallacy rejected: co-activation often arises from unobserved common inputs; Jonas & Kording (2017) demonstrated correlation does not prove causal connection."
+        },
+        {
+          "id": "check_metabolic_atp_bound",
+          "prompt": "Total cortical sustained action potential frequency is bounded by Na+/K+-ATPase ATP synthesis limits.",
+          "expected": true,
+          "explanation": "Metabolic biophysical bound verified: action potential generation and ion pumping expend finite cellular ATP energy."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_cognitive_blindspot",
+          "label": "DEPLOY // Cognitive Blindspot Flashbangs",
+          "description": "Arm non-lethal lateral inhibition flashbangs. Desynchronizes Core visual sensors and frees Assimilated units.",
+          "event_type": "validate_connectome_blindspot_deploy",
+          "meter_impact": "Scientific Certainty +10, Human Agency +10, Public Trust +5",
+          "summary": "Cognitive blindspot flashbang armed. Enables non-destructive neutralize and rescue of Assimilated humans."
+        },
+        {
+          "id": "withhold_neural_quarantine",
+          "label": "WITHHOLD // Neural Circuit Bio-Archive",
+          "description": "Archive circuit motif in cryogenic biosecurity vault pending multi-species safety trials.",
+          "event_type": "validate_connectome_quarantine",
+          "meter_impact": "Scientific Certainty +10, Biosecurity Readiness +10, Alignment Confidence +5",
+          "summary": "Circuit model quarantined in offline biosecurity archive. Prioritizes patient neurological safety."
+        }
+      ]
+    },
+    "biosecurity_fasr_003": {
+      "id": "biosecurity_fasr_003",
+      "version": 1,
+      "title": "BIOSECURITY INCUBATOR // PROTOTYPE PATHOGEN CHARACTERIZATION",
+      "substation": "CDC / USAMRIID BSL-4 CONTAINMENT BENCH",
+      "workbench_type": "biosecurity",
+      "fragment_id": "FASR-003",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_pathogen_prototype_inhibition",
+      "domain": "Biosecurity, Diagnostic Uncertainty & Prototype Pathogen Characterization",
+      "description": "Characterize replication kinetics, containment boundaries, and analog neutralization titers for alien biogenic vectors using sequential hypothesis testing without accidental atmospheric release.",
+      "source_references": [
+        "Wald_1947_Sequential_Analysis_SPRT",
+        "Graham_Sullivan_2018_Prototype_Pathogen_Approach",
+        "WHO_2020_Laboratory_Biosafety_Manual_4th_Ed",
+        "Lipsitch_2016_Transmission_Dynamics_R0",
+        "Fletcher_2014_Clinical_Epidemiology_Diagnostic_Certainty"
+      ],
+      "allocation_parameters": {
+        "incubation_temp_c": {"min": 20.0, "max": 45.0, "default": 37.0},
+        "centrifuge_rpm": {"min": 1000.0, "max": 15000.0, "default": 8000.0},
+        "reagent_volume_ul": {"min": 5.0, "max": 50.0, "default": 20.0},
+        "filtration_flow_rate": {"min": 0.1, "max": 2.0, "default": 1.0},
+        "total_reagent_budget": 100.0,
+        "max_cycles": 8
+      },
+      "target_criteria": {
+        "min_cycles": 3,
+        "min_confidence": 0.85,
+        "min_containment_integrity": 0.70,
+        "max_cross_reactivity": 0.30
+      },
+      "claim": {
+        "statement": "Prototyped analog peptide inhibitors can neutralize alien viral vector entry when calibrated through sequential BSL-4 microfluidic incubation assays without risking uncontrolled epidemic escape.",
+        "correct_tier": "speculative",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Classical Medical Virology)",
+            "explanation": "REJECTED: ReVAMPP prototype pathogen frameworks (Graham & Sullivan 2018) apply to terrestrial viral families. Neutralizing alien or synthetic xenobiological pathogens is not established clinical medicine."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: Sequential probability ratio testing (Wald 1947) and BSL-4 negative pressure barriers (WHO 2020) are well-validated, but generalizing directly to uncharacterized extraterrestrial biogenic agents exceeds established bounds."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "ACCEPTED: Speculative tier. Combines Wald SPRT sequential analysis with BSL-4 containment protocols to characterize novel viral vectors under tight uncertainty bounds. Validated as advanced theoretical hypothesis distinct from hostile biological weaponization."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_pathogen_neutralization_assay",
+          "label": "OBS_NEUTRALIZATION: Sequential microfluidic assay confirms >85% pathogen inhibition titer",
+          "detail": "Wald SPRT sequential testing verified therapeutic peptide neutralization while maintaining negative pressure containment.",
+          "is_valid": true,
+          "requires_experiment": true
+        },
+        {
+          "id": "obs_prototype_phylogeny",
+          "label": "OBS_PROTOTYPE_FRAMEWORK: Viral family antigenic profile mapped via ReVAMPP prototype framework",
+          "detail": "Antigenic spike envelope structure categorized within known coronavirus/filovirus structural prototypes (Graham & Sullivan 2018).",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_uncalibrated_endotoxin_noise",
+          "label": "COUNTEREXAMPLE: Uncalibrated Bacterial Endotoxin Noise (Cross-Reactivity Artifact)",
+          "detail": "Non-specific cell lysate debris causing optical turbidity without true viral replication (Fletcher 2014 false-positive trap).",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: Uncalibrated endotoxin turbidity displays false optical density but lacks viral genomic replication under PCR validation."
+        }
+      ],
+      "required_observations": [
+        "obs_pathogen_neutralization_assay",
+        "obs_prototype_phylogeny"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_bsl_containment_barrier",
+          "prompt": "Negative-pressure HEPA filtration barriers in BSL-4 laboratories prevent environmental release during centrifugal pathogen separation.",
+          "expected": true,
+          "explanation": "Biosafety physical containment verified: WHO (2020) standards require continuous inward airflow and double-HEPA filtration to prevent aerosolized escape."
+        },
+        {
+          "id": "check_pcr_replication_fallacy",
+          "prompt": "Detection of a positive PCR nucleic acid band alone proves the presence of replicating, infectious biological pathogen particles.",
+          "expected": false,
+          "explanation": "Diagnostic fallacy rejected: PCR detects degraded or non-viable nucleic acid fragments; viability and replication competence require cell-culture plaque assays or active viral kinetic tracking."
+        },
+        {
+          "id": "check_logistic_growth_conservation",
+          "prompt": "In vitro viral replication within a sealed incubation well is bounded by cellular substrate availability and nutrient depletion.",
+          "expected": true,
+          "explanation": "Ecological/biological carrying capacity verified: exponential replication saturates into a logistic plateau as cellular host receptors and metabolic substrates are exhausted."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_prophylactic_inhibitor",
+          "label": "DEPLOY // Prophylactic Analog Bio-Shielding",
+          "description": "Distribute characterized peptide inhibitor aerosol through bunker life-support scrubbers to immunize personnel against Core bio-spores.",
+          "event_type": "validate_biosecurity_deploy",
+          "meter_impact": "Biosecurity Readiness +10, Scientific Certainty +10, Public Trust +5",
+          "summary": "Prophylactic bio-shielding deployed to bunker scrubbers. Shields human personnel from Core biological vector contamination."
+        },
+        {
+          "id": "withhold_cryogenic_containment",
+          "label": "WITHHOLD // Cryogenic Deep Vault Quarantine",
+          "description": "Seal biogenic pathogen sample inside liquid nitrogen BSL-4 vault to eliminate any risk of accidental bunker contamination.",
+          "event_type": "validate_biosecurity_quarantine",
+          "meter_impact": "Biosecurity Readiness +15, Alignment Confidence +5",
+          "summary": "Biogenic sample quarantined in subterranean cryogenic vault. Eliminates all containment risk at the expense of defensive deployment."
+        }
+      ]
+    },
+    "formal_adv_fasr_001": {
+      "id": "formal_adv_fasr_001",
+      "version": 1,
+      "title": "ADVANCED THERMODYNAMICS // SZILARD INFORMATION ENGINE",
+      "substation": "NSF / NIST STOCHASTIC THERMODYNAMICS BENCH",
+      "workbench_type": "formal",
+      "fragment_id": "FASR-001",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_szilard_information_work",
+      "domain": "Information Thermodynamics & Stochastic Non-Equilibrium Physics",
+      "description": "Analyze work extraction from single-molecule gas partitions and verify Landauer dissipation during memory reset.",
+      "source_references": [
+        "Szilard_1929_Decrease_Entropy_Thermodynamic_System",
+        "Landauer_1961_Irreversibility_and_Heat_Generation",
+        "Bennett_1982_Thermodynamics_of_Computation",
+        "Jarzynski_1997_Nonequilibrium_Equality_Free_Energy"
+      ],
+      "claim": {
+        "statement": "In an ideal single-molecule engine, measurement enables feedback-controlled isothermal expansion to extract up to k_B T ln 2 work; resetting an unbiased memory has an entropy cost.",
+        "correct_tier": "established",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Standard Information Thermodynamics)",
+            "explanation": "ACCEPTED: Established physics. In the ideal Szilard cycle, measurement enables feedback-controlled expansion; acquisition alone does not extract work. Resetting an unbiased bit to a standard state carries the Landauer cost."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: Szilard engines and Landauer bounds are not merely plausible conjectures; they have been verified experimentally in colloidal particles (Toyabe et al. 2010)."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "REJECTED: Information thermodynamics is established standard physics, fully consistent with the Second Law."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_szilard_bit_work",
+          "label": "OBS_SZILARD_WORK: Ideal feedback-controlled cycle can extract k_B T ln(2) work per bit",
+          "detail": "A measured position guides feedback-controlled isothermal expansion; the ideal one-bit cycle can extract up to k_B T ln(2).",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_landauer_dissipation",
+          "label": "OBS_LANDAUER_HEAT: Ideal isothermal reset of an unbiased bit requires average Q >= k_B T ln(2)",
+          "detail": "For an initially unbiased unknown bit reset to a standard state against an isothermal reservoir, average heat is at least k_B T ln(2).",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_perpetual_motion_demon",
+          "label": "COUNTEREXAMPLE: Perpetual Motion Demon (Zero Erasure Dissipation)",
+          "detail": "Purported thermodynamic cycle extracting continuous work from ambient thermal heat without memory erasure cost.",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: Violates Second Law; Maxwell's demon without memory reset dissipation is a physical impossibility."
+        }
+      ],
+      "required_observations": [
+        "obs_szilard_bit_work",
+        "obs_landauer_dissipation"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_jarzynski_equality",
+          "prompt": "Non-equilibrium work fluctuations satisfy the Jarzynski equality <exp(-W/k_B T)> = exp(-Delta F/k_B T).",
+          "expected": true,
+          "explanation": "Jarzynski equality verified: relates irreversible non-equilibrium work distributions to equilibrium free energy differences."
+        },
+        {
+          "id": "check_free_energy_from_vacuum",
+          "prompt": "A passive memory register can continuously extract electrical current from ambient thermal noise without external clock or reset cycles.",
+          "expected": false,
+          "explanation": "Perpetual motion fallacy rejected: feedback uses the measurement record; resetting an unbiased record has an entropy cost. Measurement can in principle be reversible."
+        },
+        {
+          "id": "check_erasure_irreversibility",
+          "prompt": "Resetting an initially unbiased unknown bit to a standard state against an isothermal reservoir requires average environmental entropy increase >= k_B ln 2.",
+          "expected": true,
+          "explanation": "In this ideal reset of an initially unbiased unknown bit, average reservoir heat is at least k_B T ln 2; the bound depends on the initial distribution and assumptions."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_szilard_coordination_network",
+          "label": "DEPLOY // Szilard Information Coordination Mesh",
+          "description": "Route distributed computational workload through reversible information buses, optimizing power grid coordination.",
+          "event_type": "validate_formal_adv_deploy",
+          "meter_impact": "Coordination Capacity +10, Scientific Certainty +10, Human Agency +5",
+          "summary": "Reversible information coordination mesh deployed. Optimizes bunker energy routing without dissipative waste."
+        },
+        {
+          "id": "withhold_szilard_quarantine",
+          "label": "WITHHOLD // Cryogenic Information Vault",
+          "description": "Quarantine high-density stochastic models to prevent thermal noise side-channel attacks.",
+          "event_type": "validate_formal_adv_quarantine",
+          "meter_impact": "Scientific Certainty +10, Alignment Confidence +10",
+          "summary": "Information models archived in cryogenic vault. Prevents side-channel exploitation."
+        }
+      ]
+    },
+    "quantum_adv_fasr_002": {
+      "id": "quantum_adv_fasr_002",
+      "version": 1,
+      "title": "ADVANCED QUANTUM // DELAYED CHOICE & QUANTUM ERASER",
+      "substation": "NIST / MIT QUANTUM OPTICS BENCH",
+      "workbench_type": "quantum",
+      "fragment_id": "FASR-002",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_quantum_delayed_choice_eraser",
+      "domain": "Quantum Foundations, Entangled Photon Pairs & Complementarity",
+      "description": "Investigate which-way path marking and delayed erasure of idler photons in entangled down-conversion pairs.",
+      "source_references": [
+        "Wheeler_1978_Mathematical_Foundations_Quantum_Theory",
+        "Scully_Druhl_1982_Quantum_Eraser",
+        "Kim_1999_Delayed_Choice_Quantum_Eraser",
+        "Mandel_1991_Coherence_and_Indistinguishability",
+        "Zurek_2003_Decoherence_Einselection"
+      ],
+      "target_parameters": {
+        "min_visibility": 0.70,
+        "min_shielding": 0.85,
+        "target_wavelength_nm": {"min": 500.0, "max": 560.0},
+        "max_slit_width_um": 30.0,
+        "slit_distance_range_um": {"min": 80.0, "max": 160.0}
+      },
+      "claim": {
+        "statement": "A fictional planetary radar uses idler erasure to defeat Core jamming. Coincidence-selected correlations target V >= 0.70 without changing unconditional signal counts or enabling signaling.",
+        "correct_tier": "speculative",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Classical Physical Optics)",
+            "explanation": "REJECTED: Kim et al. demonstrated coincidence-selected delayed-choice erasure, but using it to defeat fictional planetary Core jamming is not established."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: Quantum complementarity is rigorous, but long-baseline entanglement restoration through noisy atmosphere exceeds plausible classical channel limits."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "ACCEPTED: Speculative tier for the fictional radar counter against Core jamming. The underlying coincidence-selected eraser is experimental; its application to this threat is not established."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_quantum_coherence_fringe",
+          "label": "OBS_ERASER_FRINGE: Coincidence-selected correlation meets toy target V >= 0.70",
+          "detail": "The selected signal-idler coincidences show fringes after erasure; unconditional signal counts do not reveal the idler choice. The visibility threshold is an authored target.",
+          "is_valid": true,
+          "requires_experiment": true
+        },
+        {
+          "id": "obs_environmental_decoherence_decay",
+          "label": "OBS_WHICH_PATH: Path marking collapses visibility to V = 0.00 via environmental entanglement",
+          "detail": "Measurement of which-slit trajectory entangles photon state with environment, destroying spatial coherence.",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_superluminal_signaling",
+          "label": "COUNTEREXAMPLE: Faster-Than-Light Superluminal Signaling via Raw Signal Sub-ensemble",
+          "detail": "Hypothetical instantaneous telegraph using raw signal interference pattern without classical coincidence tag.",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: No-signaling theorem strictly forbids faster-than-light communication; fringes emerge only in coincidence counting sub-ensembles."
+        }
+      ],
+      "required_observations": [
+        "obs_environmental_decoherence_decay",
+        "obs_quantum_coherence_fringe"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_no_signaling_theorem",
+          "prompt": "Delayed choice quantum eraser allows instantaneous superluminal communication without classical coincidence channel.",
+          "expected": false,
+          "explanation": "No-Signaling Theorem verified: marginal density matrix of signal photons is completely independent of idler choice."
+        },
+        {
+          "id": "check_wheeler_delayed_choice",
+          "prompt": "The choice to measure wave or particle nature can be delayed until after the quantum entity enters the interferometer.",
+          "expected": true,
+          "explanation": "Wheeler delayed-choice principle verified: quantum behavior is not determined by classical trajectory history prior to detection."
+        },
+        {
+          "id": "check_density_matrix_unitarity",
+          "prompt": "Total density matrix trace remains invariant (Tr(rho) = 1) across all entangled idler state projections.",
+          "expected": true,
+          "explanation": "Born rule unitarity verified: sum of all sub-ensemble projection probabilities equals 1."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_quantum_eraser_radar",
+          "label": "DEPLOY // Quantum Eraser Stealth Radar",
+          "description": "Arm entangled radar array to penetrate Core jamming by erasing ambient scattering noise.",
+          "event_type": "validate_quantum_adv_deploy",
+          "meter_impact": "Scientific Certainty +10, Alignment Confidence +10, Human Agency +5",
+          "summary": "Quantum eraser stealth radar deployed. Penetrates enemy jamming while preserving signal security."
+        },
+        {
+          "id": "withhold_quantum_adv_quarantine",
+          "label": "WITHHOLD // Offline Entanglement Archive",
+          "description": "Archive entangled state coordinates in sealed Faraday vault to prevent quantum state eavesdropping.",
+          "event_type": "validate_quantum_adv_quarantine",
+          "meter_impact": "Scientific Certainty +10, Public Trust +10",
+          "summary": "Entangled state coordinates archived in offline vault. Preserves operator cryptosecurity."
+        }
+      ]
+    },
+    "connectome_adv_fasr_004": {
+      "id": "connectome_adv_fasr_004",
+      "version": 1,
+      "title": "ADVANCED CONNECTOME // RECURRENT ATTRACTOR DYNAMICS",
+      "substation": "NIH BRAIN ATTRACTOR NETWORK BENCH",
+      "workbench_type": "neuro",
+      "fragment_id": "FASR-004",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_attractor_network_stability",
+      "domain": "Computational Neuroscience & Non-Linear Attractor Networks",
+      "description": "Stabilize cortical working memory attractor basins against telepathic Core seizure resonance.",
+      "source_references": [
+        "Hopfield_1982_Neural_Networks_Physical_Systems",
+        "Amit_1989_Modeling_Brain_Function",
+        "Amit_Gutfreund_Sompolinsky_1987_Statistical_Mechanics_Near_Saturation",
+        "Wang_2002_Probabilistic_Decision_Making_Recurrent_Network",
+        "Pearl_2009_Causality_Models_Reasoning_Inference",
+        "BICCN_2021_Multimodal_Cell_Census_Motor_Cortex"
+      ],
+      "circuit_nodes": [
+        {"id": "S_OPTIC_BURST", "label": "Luminance Pulse Sensor", "node_type": "SENSORY", "threshold": 0.20, "base_activity": 0.0},
+        {"id": "S_PULSE_AUDIO", "label": "Acoustic Carrier Sensor", "node_type": "SENSORY", "threshold": 0.20, "base_activity": 0.0},
+        {"id": "I_FEEDFORWARD", "label": "Feedforward Interneuron", "node_type": "INTERNEURON", "threshold": 0.40, "base_activity": 0.0},
+        {"id": "I_LATERAL_INHIB", "label": "GABAergic Inhibitory Interneuron", "node_type": "INTERNEURON", "threshold": 0.35, "base_activity": 0.0},
+        {"id": "M_DESYNC_PULSE", "label": "Desynchronization Reflex", "node_type": "MOTOR", "threshold": 0.45, "base_activity": 0.0},
+        {"id": "M_RUNAWAY_SEIZURE", "label": "Seizure Overflow Motor", "node_type": "MOTOR", "threshold": 0.50, "base_activity": 0.0}
+      ],
+      "circuit_edges": [
+        {"source_id": "S_OPTIC_BURST", "target_id": "I_FEEDFORWARD", "weight": 1.0, "is_fixed": true, "is_candidate": false},
+        {"source_id": "I_FEEDFORWARD", "target_id": "M_DESYNC_PULSE", "weight": 1.2, "is_fixed": false, "is_candidate": true},
+        {"source_id": "S_OPTIC_BURST", "target_id": "I_LATERAL_INHIB", "weight": 1.0, "is_fixed": false, "is_candidate": true},
+        {"source_id": "I_LATERAL_INHIB", "target_id": "M_RUNAWAY_SEIZURE", "weight": -1.5, "is_fixed": false, "is_candidate": true},
+        {"source_id": "I_FEEDFORWARD", "target_id": "M_RUNAWAY_SEIZURE", "weight": 1.0, "is_fixed": true, "is_candidate": false}
+      ],
+      "target_circuit": {
+        "required_connections": [
+          ["I_FEEDFORWARD", "M_DESYNC_PULSE"],
+          ["S_OPTIC_BURST", "I_LATERAL_INHIB"],
+          ["I_LATERAL_INHIB", "M_RUNAWAY_SEIZURE"]
+        ],
+        "forbidden_connections": [
+          ["M_DESYNC_PULSE", "I_FEEDFORWARD"]
+        ],
+        "default_sensory_stimulus": {
+          "S_OPTIC_BURST": 1.0,
+          "S_PULSE_AUDIO": 0.5
+        },
+        "motor_targets": {
+          "M_DESYNC_PULSE": {"min": 0.70, "max": 1.0},
+          "M_RUNAWAY_SEIZURE": {"min": 0.0, "max": 0.35}
+        },
+        "required_causal_intervention": {
+          "node_id": "I_FEEDFORWARD",
+          "target_motor": "M_DESYNC_PULSE",
+          "min_delta": 0.40
+        }
+      },
+      "claim": {
+        "statement": "Recurrent cortical attractor basins can stabilize working memory states against Core telepathic jamming through balanced E/I recurrent loops without inducing epileptic seizure resonance.",
+        "correct_tier": "speculative",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Classical Neuroanatomy)",
+            "explanation": "REJECTED: Hopfield attractor networks are established computational models, but remote neuro-cybernetic memory stabilization in hostile environments is not established medicine."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: Bi-stable decision models (Wang 2002) are validated in primates, but direct countermeasure deployment against synthetic cybernetic hive minds exceeds plausible laboratory bounds."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "ACCEPTED: Speculative tier. Grounded in Hopfield associative dynamics and balanced excitation/inhibition to prevent cognitive overwrite. Validated as advanced theoretical hypothesis."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_causal_circuit_motif",
+          "label": "OBS_ATTRACTOR_BASIN: Causal clamping verifies stable memory attractor basin with Delta M >= 0.40",
+          "detail": "Pearl do-calculus intervention confirms I_LATERAL_INHIB causally suppresses runaway seizure while preserving desync drive.",
+          "is_valid": true,
+          "requires_experiment": true
+        },
+        {
+          "id": "obs_biccn_cell_taxonomy",
+          "label": "OBS_EI_BALANCE: Patch-clamp recording confirms balanced synaptic excitation and inhibition",
+          "detail": "Identified Pvalb/Sst interneuron subpopulation providing robust lateral inhibition across cortical columns.",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_infinite_capacity_network",
+          "label": "COUNTEREXAMPLE: Unbounded Infinite Hopfield Memory Capacity (Zero Spurious Minima)",
+          "detail": "Hypothetical continuous attractor network storing unlimited memories without crosstalk noise or spurious energy minima.",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: Unlimited error-free storage is not supported by this model. The often-cited ~0.14 N retrieval threshold applies to a particular large Hopfield model, not every recurrent network."
+        }
+      ],
+      "required_observations": [
+        "obs_causal_circuit_motif",
+        "obs_biccn_cell_taxonomy"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_hopfield_capacity_bound",
+          "prompt": "In the large, dense binary Hopfield model with random stored patterns, a retrieval transition occurs near 0.14 N patterns under the stated ideal conditions.",
+          "expected": true,
+          "explanation": "Amit, Gutfreund and Sompolinsky analyzed a large Hopfield model at zero temperature: near 0.14 N is a model-specific retrieval threshold, not a universal or error-free capacity. This six-node puzzle does not derive it."
+        },
+        {
+          "id": "check_hebbian_unbounded_growth",
+          "prompt": "Hebbian synaptic plasticity without homeostatic normalization or LTD causes unbounded synaptic weight runaway.",
+          "expected": true,
+          "explanation": "Plasticity stability verified: pure Hebbian LTP ('cells that fire together wire together') leads to runaway epileptic instability without homeostatic scaling."
+        },
+        {
+          "id": "check_single_neuron_consciousness",
+          "prompt": "A single isolated cortical pyramidal neuron in a dish exhibits cognitive decision-making without synaptic network connectivity.",
+          "expected": false,
+          "explanation": "Network emergence fallacy rejected: computation and cognitive decision-making emerge from recurrent population dynamics, not single isolated cells."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_attractor_neuro_shield",
+          "label": "DEPLOY // Attractor Resonance Cortex Shield",
+          "description": "Reinforce human cortical attractor basins to grant immunity against telepathic Core override.",
+          "event_type": "validate_connectome_adv_deploy",
+          "meter_impact": "Human Agency +15, Scientific Certainty +10, Alignment Confidence +5",
+          "summary": "Attractor cortex shield deployed. Grants human resistance fighters cognitive immunity against Core assimilation."
+        },
+        {
+          "id": "withhold_attractor_quarantine",
+          "label": "WITHHOLD // Cryogenic Brain-State Vault",
+          "description": "Archive attractor dynamics in offline biosecurity vault pending multi-electrode safety verification.",
+          "event_type": "validate_connectome_adv_quarantine",
+          "meter_impact": "Scientific Certainty +10, Biosecurity Readiness +10",
+          "summary": "Attractor network model quarantined in cryogenic vault. Prioritizes neurological safety."
+        }
+      ]
+    },
+    "biosecurity_adv_fasr_003": {
+      "id": "biosecurity_adv_fasr_003",
+      "version": 1,
+      "title": "ADVANCED BIOSECURITY // ANTIGENIC DRIFT & MULTI-STRAIN ESCAPE",
+      "substation": "CDC / USAMRIID BSL-4 EVOLUTIONARY BENCH",
+      "workbench_type": "biosecurity",
+      "fragment_id": "FASR-003",
+      "prerequisite_fragment": "FASR-001",
+      "claim_id": "claim_antigenic_escape_broad_spectrum",
+      "domain": "Biosecurity, Evolutionary Epidemiology & Broad-Spectrum Prophylaxis",
+      "description": "Characterize broad-spectrum neutralization titers against rapidly mutating antigenic escape variants.",
+      "source_references": [
+        "Wald_1947_Sequential_Analysis_SPRT",
+        "Graham_Sullivan_2018_Prototype_Pathogen_Approach",
+        "Bedford_2015_Global_Circulation_Influenza_Antigenic_Drift",
+        "Lipsitch_2016_Transmission_Dynamics_R0",
+        "WHO_2020_Laboratory_Biosafety_Manual_4th_Ed"
+      ],
+      "allocation_parameters": {
+        "incubation_temp_c": {"min": 20.0, "max": 45.0, "default": 37.0},
+        "centrifuge_rpm": {"min": 1000.0, "max": 15000.0, "default": 8000.0},
+        "reagent_volume_ul": {"min": 5.0, "max": 50.0, "default": 20.0},
+        "filtration_flow_rate": {"min": 0.1, "max": 2.0, "default": 1.0},
+        "total_reagent_budget": 100.0,
+        "max_cycles": 8
+      },
+      "target_criteria": {
+        "min_cycles": 3,
+        "min_confidence": 0.85,
+        "min_containment_integrity": 0.70,
+        "max_cross_reactivity": 0.30
+      },
+      "claim": {
+        "statement": "Multi-epitope conserved stalk peptide inhibitors maintain neutralising efficacy against antigenic drift escape mutants across 4 sequential passage cycles under continuous BSL-4 negative pressure.",
+        "correct_tier": "speculative",
+        "trustworthiness": "trusted_origin",
+        "is_hostile": false,
+        "options": [
+          {
+            "tier": "established",
+            "label": "ESTABLISHED (Classical Medical Virology)",
+            "explanation": "REJECTED: Broadly neutralizing antibodies targeting conserved viral stalks exist in influenza and HIV, but predicting cross-neutralization for novel xenobiological agents is not established clinical virology."
+          },
+          {
+            "tier": "plausible",
+            "label": "PLAUSIBLE (Direct Extrapolation)",
+            "explanation": "REJECTED: Antigenic cartography (Bedford 2015) maps escape trajectories, but synthesizing pan-variant countermeasures against unobserved biogenic threats exceeds plausible laboratory models."
+          },
+          {
+            "tier": "speculative",
+            "label": "SPECULATIVE (Advanced Non-Standard Theory)",
+            "explanation": "ACCEPTED: Speculative tier. Employs ReVAMPP prototype models and Wald SPRT sequential testing to evaluate stalk neutralization against drift variants. Distinct from hostile weaponization."
+          }
+        ]
+      },
+      "evidence_pool": [
+        {
+          "id": "obs_pathogen_neutralization_assay",
+          "label": "OBS_BROAD_SPECTRUM: Sequential assay confirms >85% neutralization across divergent escape variants",
+          "detail": "Sequential microfluidic assay confirms broad neutralization across multiple mutational escape lineages.",
+          "is_valid": true,
+          "requires_experiment": true
+        },
+        {
+          "id": "obs_prototype_phylogeny",
+          "label": "OBS_STALK_CONSERVATION: Epitope mapping reveals conserved fusion stalk peptide architecture",
+          "detail": "Phylogenetic analysis categorizes invariant stalk loop as shared neutralizable target across prototype families.",
+          "is_valid": true,
+          "requires_experiment": false
+        },
+        {
+          "id": "obs_zero_fitness_cost_escape",
+          "label": "COUNTEREXAMPLE: Multi-Epitope Resistance Mutation with Zero Replicative Fitness Cost",
+          "detail": "Hypothetical super-mutant acquiring resistance across all binding sites with zero structural stability penalty.",
+          "is_valid": false,
+          "rejection_feedback": "COUNTEREXAMPLE DETECTED: Evolutionary trade-off principle violated; multi-epitope escape mutations incur substantial replicative fitness penalties (R0 drops < 1.0)."
+        }
+      ],
+      "required_observations": [
+        "obs_pathogen_neutralization_assay",
+        "obs_prototype_phylogeny"
+      ],
+      "replication_checks": [
+        {
+          "id": "check_antigenic_distance_metric",
+          "prompt": "Cross-neutralization titer drops exponentially with increasing antigenic epitope sequence distance.",
+          "expected": true,
+          "explanation": "Antigenic distance decay verified: Bedford et al. (2015) showed neutralization titers fall log-linearly with amino acid substitutions in receptor-binding sites."
+        },
+        {
+          "id": "check_universal_antigen_immutability",
+          "prompt": "A single monoclonal antibody target region remains completely immutable across unlimited generational passages in vivo.",
+          "expected": false,
+          "explanation": "Viral mutational escape verified: RNA and single-stranded viral polymerases lack proofreading; immune selection pressure drives antigenic drift."
+        },
+        {
+          "id": "check_bsl_aerosol_filtration",
+          "prompt": "High-Efficiency Particulate Air (HEPA) filters capture >= 99.97% of aerosolized viral droplet cores at 0.3 micrometers.",
+          "expected": true,
+          "explanation": "HEPA filtration physics verified: mechanical impaction, interception, and Brownian diffusion achieve >= 99.97% containment at most penetrating particle size (MPPS)."
+        }
+      ],
+      "deployment_choices": [
+        {
+          "id": "deploy_broad_spectrum_shield",
+          "label": "DEPLOY // Broad-Spectrum Prophylactic Shield",
+          "description": "Disperse broad-spectrum fusion stalk inhibitor into regional water and ventilation supply.",
+          "event_type": "validate_biosecurity_adv_deploy",
+          "meter_impact": "Biosecurity Readiness +15, Coordination Capacity +10, Public Trust +5",
+          "summary": "Broad-spectrum prophylactic shield deployed. Protects civilian and bunker personnel against mutating biogenic strains."
+        },
+        {
+          "id": "withhold_variant_quarantine",
+          "label": "WITHHOLD // Deep Cryogenic Strain Archive",
+          "description": "Quarantine mutagenic drift isolates in liquid helium vault to prevent escape.",
+          "event_type": "validate_biosecurity_adv_quarantine",
+          "meter_impact": "Biosecurity Readiness +15, Alignment Confidence +10",
+          "summary": "Drift isolates quarantined in subterranean cryogenic vault. Eliminates contamination hazard."
+        }
+      ]
+    }
+  }
+}
