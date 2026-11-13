@@ -66,14 +66,14 @@
     },
     {
       "file": "neo-denver.png",
-      "setup": "Direct development scene entry to act_02/blackout_street.json, then mapped movement; no progression claim.",
+      "setup": "Direct Denver scene/position setup with prior-act fixture; Fitzsimons and mountain backdrop.",
       "scene": "FIELD_OPS",
       "size": [
         960,
         540
       ],
-      "sha256": "8dedc33904e2026add1a1cc84eb6ea2158d69bff4bd0983dfc27e0c3e2f28a6d",
-      "bytes": 690586
+      "sha256": "8243749679551cb4f3e1b243ba14e3a911432c0e2f4651af8850508bdb7273cb",
+      "bytes": 908717
     },
     {
       "file": "area-51.png",
@@ -175,6 +175,51 @@
       "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
       "sha256": "12e598d7e77810bdd3fc9549dd9ed6911330b85c5d4401239a2d470ba2f3cdb6",
       "bytes": 544880
+    },
+    {
+      "file": "neo-denver-walk.gif",
+      "setup": "Held Right through the Denver/relay boundary; prior-act and starting-position fixtures; enemies cleared for scenery inspection.",
+      "frames": 45,
+      "frame_duration_ms": 200,
+      "size": [
+        768,
+        432
+      ],
+      "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
+      "sha256": "5ca3e146072e2f0ee19908c6a68fe4eb9aed2ea6424b51b35d92725877826218",
+      "bytes": 5234624
+    },
+    {
+      "file": "neo-denver-mountains.png",
+      "setup": "Denver entry at x=96 with the ridge and hillside A visible; direct position and prior-act fixtures.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "5a709bb433a7abbed0fb45f4cd140031ed0cd85304906b5685961908a528f379",
+      "bytes": 793293,
+      "source_capture": "_temp/denver_landmarks_20261113/visuals/denver-entry.png",
+      "camera": [
+        0.0,
+        18.0
+      ]
+    },
+    {
+      "file": "neo-denver-fitzsimons.png",
+      "setup": "Denver campus at x=480 with the Fitzsimons entrance centered; direct position and prior-act fixtures.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "2a1e843c1a140092aca9721f43152aaf017579bf79e70a049ea9244990583742",
+      "bytes": 801509,
+      "source_capture": "_temp/denver_landmarks_20261113/visuals/denver-campus.png",
+      "camera": [
+        248.0,
+        18.0
+      ]
     }
   ]
 }

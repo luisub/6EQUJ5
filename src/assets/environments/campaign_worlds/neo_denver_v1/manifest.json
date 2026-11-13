@@ -13,25 +13,37 @@
       1920,
       540
     ],
-    "sha256": "5332a05acb3b7c6fe9d763515da8e22840eade73f00145e9b087f3d123ae8048"
+    "sha256": "de5c8ae7ca062458fb7f8887a2d2581f0f2fcfe8adae83811ebf302a61b3a093"
   },
   "provenance": {
-    "status": "accepted_background_component",
-    "source": "master_v02.png",
-    "source_sha256": "d4fe14fe5c6bd52bb333e73ba4bfc77e479fb48e9b11ce959b51f072901eb499",
+    "status": "installed_user_requested_background_revision",
+    "source": "art/source/visual_upgrade/candidates/denver_landmarks_v01/master_v02.png",
+    "source_sha256": "85daaf1d94ac912f3fa2371c2ab30576ce356eb2e6822c29f163c4b8a0b2f486",
     "source_dimensions": [
       2172,
       724
     ],
     "crop_box_exclusive": [
       0,
-      50,
+      86,
       2172,
-      661
+      697
     ],
-    "resampling": "Pillow nearest-neighbor downsample",
-    "record": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/neo_denver_v01/provenance.md",
-    "review": "root native 1920x540 inspection; gameplay composition pending",
-    "source_directory": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/neo_denver_v01"
+    "resampling": "FFmpeg nearest-neighbor downsample to 1920x540 RGB",
+    "record": "art/source/visual_upgrade/candidates/denver_landmarks_v01/provenance.md",
+    "references": [
+      {
+        "role": "mountain silhouette and hillside A",
+        "url": "https://www.raftmw.com/wp-content/uploads/2012/04/slide_1.jpg",
+        "sha256": "04032256dff74b751ea77f0bb91c4f667e5af2e3122278fad10a61dfaaa562ea"
+      },
+      {
+        "role": "Fitzsimons Building architectural reference",
+        "url": "https://news.cuanschutz.edu/medicine/magazine-som-cover-history",
+        "image_url": "https://news.cuanschutz.edu/hubfs/School%20of%20Medicine/2026%20Mag%20Hero%20-%205.4.26.png",
+        "sha256": "d25567a1d2af41f57a6114e9b6bdde9c71ffa0e99ceeb580ad3d965ce579ab2b"
+      }
+    ],
+    "composition": "Fictional Colorado backdrop combining the requested landmarks; not a literal geographic view."
   }
 }

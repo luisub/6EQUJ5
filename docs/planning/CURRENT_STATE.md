@@ -28,4 +28,8 @@ The repaired gate remains usable during an active, jammed or failed optional def
 
 Checks use disposable saves and cover immediate gate entry, fresh keyboard/controller-event/mouse activation, skippable destruction and travel, message receipts, save failures and text wrapping. See [pacing evidence](evidence/FREE_TRAVEL/2026-11-13/report.md) for final results and renderer captures.
 
-Formal gameplay/art gates are not promoted by this separation. Native-window play, physical-controller verification, audio acceptance, airborne armed poses, remaining realm art and strict native performance review remain open. The roadmap retains its gameplay task statuses.
+## Denver landmarks — 2026-11-13
+
+Neo-Denver now uses a clearer Fitzsimons-inspired sandstone building and the owner's mountain reference, including its pale crest and hillside A. Both remain background scenery in the existing panorama; routes and collision are unchanged. Native and 2× captures with CRT off/on were inspected, including the street/relay walking transition and Synchronicity arena. The README has a fresh Denver screenshot and walking GIF. Masters, reference sources, export command and archive locations are recorded in [art provenance](../../art/source/visual_upgrade/candidates/denver_landmarks_v01/provenance.md). The 58 focused checks, all 52 level validations and asset-builder dry run passed.
+
+Formal gameplay/art gates are not promoted by these changes. Native-window play, physical-controller verification, audio acceptance, airborne armed poses, remaining realm art and strict native performance review remain open. The roadmap retains its gameplay task statuses.

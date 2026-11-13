@@ -65590,5 +65590,33 @@
     "manifest_path": "_trash/staging-environment-20261113-manifest.json",
     "manifest_sha256": "bce7f0fe4387c5cb7005da93eacf867efc7d913c87b436bc93f277acb2fb710f",
     "restoration": "Keep this archive for recovery only. Recreate .venv at the desired location and install dependencies; do not reuse the stale launcher scripts."
+  },
+  {
+    "original_path": "src/assets/environments/campaign_worlds/neo_denver_v1/background.png",
+    "archive_path": "_trash/2026-11-13_F03/b52df69faf604cecbbcaca6abd526549/video_game/assets/environments/campaign_worlds/neo_denver_v1/background.png",
+    "sha256": "5332a05acb3b7c6fe9d763515da8e22840eade73f00145e9b087f3d123ae8048",
+    "reason": "Preserved before the requested Fitzsimons and mountain background revision.",
+    "restoration": "Verify archived SHA-256 and restore both the background and manifest together; rerun campaign scenery checks."
+  },
+  {
+    "original_path": "src/assets/environments/campaign_worlds/neo_denver_v1/manifest.json",
+    "archive_path": "_trash/2026-11-13_F03/b52df69faf604cecbbcaca6abd526549/video_game/assets/environments/campaign_worlds/neo_denver_v1/manifest.json",
+    "sha256": "c3b293df67495d4662690f89e72ee7bebd4ce89f0cd76ddb04a38dce5ca65b93",
+    "reason": "Preserved before the requested Fitzsimons and mountain background revision.",
+    "restoration": "Verify archived SHA-256 and restore both the background and manifest together; rerun campaign scenery checks."
+  },
+  {
+    "original_path": "docs/media/readme/neo-denver.png",
+    "archive_path": "_trash/2026-11-13_denver_readme/neo-denver.png",
+    "sha256": "8dedc33904e2026add1a1cc84eb6ea2158d69bff4bd0983dfc27e0c3e2f28a6d",
+    "reason": "Preserved README Denver image and capture metadata before refreshing the Fitzsimons/mountain scene.",
+    "restoration": "Verify hash and restore the image and its matching metadata together."
+  },
+  {
+    "original_path": "docs/media/readme/capture.json",
+    "archive_path": "_trash/2026-11-13_denver_readme/capture.json",
+    "sha256": "50afd0dc3573f601ddca2cf7a027be9ed913d9b03fdd6b35a16d110fce6e1b5d",
+    "reason": "Preserved README Denver image and capture metadata before refreshing the Fitzsimons/mountain scene.",
+    "restoration": "Verify hash and restore the image and its matching metadata together."
   }
 ]

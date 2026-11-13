@@ -130,8 +130,39 @@ def capture(output):
             ]
             for name, room, spawn in rooms:
                 fresh()
+                if name == 'neo-denver':
+                    game.campaign.apply_event({'event_id': 'readme_denver_prior_act',
+                                               'type': 'defeat_greenkeeper'})
                 game.change_state(config.STATE_FIELD_OPS, room=room, spawn=spawn,
                                   campaign_route=not room.startswith("act_01/"))
+                if name == 'neo-denver':
+                    scene = game.current_scene
+                    scene.player.x, scene.player.y = 96, 208
+                    scene.player.rect.topleft = (96, 208)
+                    scene.camera.snap_to(104, 224)
+                    game.crt.glitch_timer_ms = 0
+                    still(name, 'Direct Denver scene/position setup with prior-act fixture; Fitzsimons and mountain backdrop.')
+                    still('neo-denver-mountains', 'Denver entry at x=96 with the ridge and hillside A visible; direct position and prior-act fixtures.')
+                    scene.player.x = 480
+                    scene.player.rect.topleft = (480, 208)
+                    scene.camera.snap_to(488, 224)
+                    still('neo-denver-fitzsimons', 'Denver campus at x=480 with the Fitzsimons entrance centered; direct position and prior-act fixtures.')
+                    scene.player.x = 96
+                    scene.player.rect.topleft = (96, 208)
+                    scene.camera.snap_to(104, 224)
+                    frames = []
+                    key(pygame.K_RIGHT)
+                    for index in range(540):
+                        scene.enemy_manager.clear()
+                        step()
+                        if index % 12 == 0:
+                            frames.append(gif_frame())
+                    key(pygame.K_RIGHT, False)
+                    assert scene.room.room_id == 'act_02_relay_rooftops'
+                    gif('neo-denver-walk', frames,
+                        'Held Right through the Denver/relay boundary; prior-act and starting-position fixtures; enemies cleared for scenery inspection.',
+                        duration=200)
+                    continue
                 key(pygame.K_d)
                 step(40)
                 key(pygame.K_d, False)

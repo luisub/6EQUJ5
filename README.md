@@ -47,6 +47,10 @@ Five acts carry the search from Ohio's observatory to blackout streets, sealed h
 
 Ohio follows a compact route through the access trench, campus, salvage yard and radio dish. Walk across open boundaries. Repairing the feedhorn opens the Greenkeeper's gate immediately; staying to defend the dish is optional. Travel animations can be skipped, and area updates stay on the HUD.
 
+![The Fitzsimons Building and the mountain's pale rock crest and hillside A behind Mateo in Neo-Denver](docs/media/readme/neo-denver-mountains.png)
+
+*Neo-Denver — Fitzsimons and the mountain ridge, captured in game.*
+
 <table>
   <tr>
     <td width="50%">
@@ -55,9 +59,9 @@ Ohio follows a compact route through the access trench, campus, salvage yard and
       The first steps beyond the receiver.
     </td>
     <td width="50%">
-      <a href="docs/media/readme/neo-denver.png"><img src="docs/media/readme/neo-denver.png" alt="Mateo on a Neo-Denver street, with storefronts, cars and a dark city skyline" width="100%"></a><br>
+      <a href="docs/media/readme/neo-denver-fitzsimons.png"><img src="docs/media/readme/neo-denver-fitzsimons.png" alt="Mateo in front of the Fitzsimons Building's illuminated entrance and sandstone tower, with the mountain ridge behind it" width="100%"></a><br>
       <strong>02 / NEO-DENVER</strong><br>
-      A city beneath the blackout.
+      Fitzsimons beneath the mountain ridge.
     </td>
   </tr>
   <tr>
@@ -85,6 +89,10 @@ Ohio follows a compact route through the access trench, campus, salvage yard and
     </td>
   </tr>
 </table>
+
+![Mateo walks past the Fitzsimons Building and mountain backdrop into the next Denver section](docs/media/readme/neo-denver-walk.gif)
+
+*Across Neo-Denver: warm sandstone, a blue mountain ridge, and an open path to the next street.*
 
 ## The signal worlds
 
@@ -155,7 +163,7 @@ A new game opens in the basement with three story pages and a galaxy-map briefin
 | Interact / use an exit | Up, E or click the nearby prompt |
 | Charging hazard | After INCOMING, press and hold Space when HOLD JUMP appears |
 | Pause and settings | F2 |
-| Advance dialogue / skip travel | Enter, Space or click; travel can be skipped after a brief opening |
+| Advance dialogue / skip travel | Enter, Space or click; travel can be skipped immediately |
 
 Fresh settings default to **Assisted** combat; choose Classic under **F2 → COMBAT** if you prefer. Gamepad mappings are supported; physical-controller compatibility and a full controller-only playthrough still need testing. See the [full controls](docs/CONTROLS.md) for abilities, menus and retries.
 
@@ -172,7 +180,7 @@ Mateo's airborne fall pose currently lacks a visible gun and can show a gap to t
 
 For progress and verification limits, see [current state](docs/planning/CURRENT_STATE.md), the [content plan](docs/planning/CONTENT_PLAN.md) and the [separation report](docs/migration/REPORT.md).
 
-The flat `src/` directory is installed as the `video_game` Python package. Runtime `assets/` and `data/` travel with the package; `tests/`, `tools/`, `docs/` and `art/` are repository-level development material.
+The flat `src/` directory is installed as the `video_game` Python package. Runtime `assets/` and `data/` travel with the package; `tools/`, `docs/` and `art/` are development material. The test suite is kept locally and excluded from Git; the pytest command below requires that local copy.
 
 ```bash
 SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy SIX_GAME_SAVE_DIR="$(mktemp -d)" .venv/bin/python -m pytest tests -q
