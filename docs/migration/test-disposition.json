@@ -1,0 +1,40 @@
+{
+  "test_ai_worker.py": {
+    "removed_or_renamed": [
+      "test_ai_adapter_midstream_failure_handling",
+      "test_ai_adapter_offline_fallback",
+      "test_ai_worker_no_pygame_imports_or_calls",
+      "test_cancellation_stops_in_flight_stream_promptly",
+      "test_cancelled_or_stale_events_never_reach_active_session",
+      "test_fake_slow_streams_keep_main_loop_responsive",
+      "test_live_ollama_stream_if_available",
+      "test_queue_saturation_handled_safely",
+      "test_worker_graceful_shutdown_within_timeout_budget"
+    ],
+    "added_or_renamed": []
+  },
+  "test_contact_session.py": {
+    "removed_or_renamed": [
+      "test_gate_g1_live_local_model_and_offline_route_parity",
+      "test_offline_twelve_completed_exchanges_limit",
+      "test_online_numbered_evidence_channel_uses_campaign_rules",
+      "test_partial_ai_failure_recovers_to_offline_without_duplication_or_stranding",
+      "test_reconnect_controls_and_channel_help",
+      "test_target_switching_and_cancellation",
+      "test_twelve_completed_exchanges_limit"
+    ],
+    "added_or_renamed": [
+      "test_authored_channel_help",
+      "test_authored_channels_remain_available_after_twelve_exchanges",
+      "test_switching_targets_preserves_transcripts_and_tuning"
+    ]
+  },
+  "test_profile.py": {
+    "removed_or_renamed": [
+      "test_terminal_streaming_cancellation_stability"
+    ],
+    "added_or_renamed": [
+      "test_authored_contact_lifecycle_stability"
+    ]
+  }
+}

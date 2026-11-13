@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "image": {"file": "stream_96x24.png", "dimensions": [96, 24], "mode": "RGBA", "sha256": "d13b7e48089a0dee3c23a8e1517be3517ecce82cf1e2310480bd1edacb39e5f5"},
+  "pivot": [4, 12],
+  "source": {"file": "master_v01.png", "dimensions": [2172, 724], "sha256": "1fe0296fb62794c620a960dcf03b2409b10161f90791a85dc789a79f6ee5291c", "crop_box_exclusive": [42, 302, 2130, 423], "resize": [86, 5], "paste": [4, 10], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [4, 11, 90, 14],
+  "alpha_max": 254,
+  "alpha_at_least_240_pixels": 78,
+  "record": "PROVENANCE.md"
+}

@@ -1,0 +1,3 @@
+# FASR-001: hostile Core-made guardian
+
+One original 256×192 RGBA left-facing static body: angular black machinery, three grounded legs, an asymmetrical receiver blade and a warm amber core. The guardian is a hostile Core obstruction, not the friendly energy intelligence. V01's center leg was difficult to read against the dark realm; v02 adds cool steel edges and mid-values. The paired static 1× fixture is not a game or motion capture. Feet and support connections read at native size, but dark edge contrast and telegraphs require real arena testing. No animation or complete encounter acceptance follows from this pose. Candidate `provenance.md` records all prompts, sources, crop, fit, alpha losses and checks.

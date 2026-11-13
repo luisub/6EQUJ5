@@ -1,0 +1,1822 @@
+{
+  "schema_version": 1,
+  "acts": {
+    "act_01": {
+      "legacy_index": 1,
+      "name": "ACT I: OHIO BIG EAR BUNKER"
+    },
+    "act_02": {
+      "legacy_index": 2,
+      "name": "ACT II: NEO-DENVER BLACKOUT"
+    },
+    "act_03": {
+      "legacy_index": 3,
+      "name": "ACT III: AREA 51 GROOM LAKE S-4"
+    },
+    "act_04": {
+      "legacy_index": 4,
+      "name": "ACT IV: VLA DODLESTON RIFT"
+    },
+    "act_05": {
+      "legacy_index": 5,
+      "name": "ACT V: GOBEKLI TEPE MONOLITHS"
+    }
+  },
+  "rooms": {
+    "bunker_hub": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "bunker_start"
+      ]
+    },
+    "act_01_approach": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "approach_start",
+        "approach_antenna_perimeter",
+        "approach_extension_01",
+        "approach_extension_02",
+        "approach_extension_03",
+        "approach_extension_04",
+        "approach_extension_05",
+        "approach_extension_06",
+        "approach_extension_07"
+      ]
+    },
+    "act_01_salvage_yard": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "yard_start",
+        "yard_depot",
+        "salvage_yard_extension_01",
+        "salvage_yard_extension_02",
+        "salvage_yard_extension_03",
+        "salvage_yard_extension_04",
+        "salvage_yard_extension_05"
+      ]
+    },
+    "act_01_dish_catwalk": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "catwalk_start",
+        "catwalk_feedhorn",
+        "dish_catwalk_extension_01",
+        "dish_catwalk_extension_02",
+        "dish_catwalk_extension_03",
+        "dish_catwalk_extension_04",
+        "dish_catwalk_extension_05"
+      ]
+    },
+    "act_01_greenkeeper_arena": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "pre_boss"
+      ]
+    },
+    "act_01_mandela_test": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "chk_test_01",
+        "chk_test_02"
+      ]
+    },
+    "act_04_dodleston_relay": {
+      "act_id": "act_04",
+      "checkpoints": [
+        "relay_entrance",
+        "relay_hearth_core"
+      ]
+    },
+    "flashback_ehman_1977": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "ehman_desk",
+        "ehman_vault"
+      ]
+    },
+    "act_01_ohio_campus": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "campus_start",
+        "service_mid",
+        "campus_east",
+        "ohio_campus_extension_01",
+        "ohio_campus_extension_02",
+        "ohio_campus_extension_03",
+        "ohio_campus_extension_04",
+        "ohio_campus_extension_05",
+        "ohio_campus_extension_06",
+        "ohio_campus_extension_07",
+        "ohio_campus_extension_08",
+        "ohio_campus_extension_09",
+        "ohio_campus_extension_10"
+      ]
+    },
+    "act_01_perimeter_road": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "perimeter_road_start",
+        "perimeter_road_mid",
+        "perimeter_road_extension_01",
+        "perimeter_road_extension_02",
+        "perimeter_road_extension_03",
+        "perimeter_road_extension_04",
+        "perimeter_road_extension_05",
+        "perimeter_road_extension_06",
+        "perimeter_road_extension_07"
+      ]
+    },
+    "act_01_salvage_outer": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "salvage_outer_start",
+        "salvage_outer_mid",
+        "salvage_outer_extension_01",
+        "salvage_outer_extension_02",
+        "salvage_outer_extension_03",
+        "salvage_outer_extension_04",
+        "salvage_outer_extension_05"
+      ]
+    },
+    "act_01_salvage_runoff": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "salvage_runoff_start",
+        "salvage_runoff_mid",
+        "salvage_runoff_extension_01",
+        "salvage_runoff_extension_02",
+        "salvage_runoff_extension_03",
+        "salvage_runoff_extension_04",
+        "salvage_runoff_extension_05"
+      ]
+    },
+    "act_01_dish_service": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "dish_service_start",
+        "dish_service_mid",
+        "dish_service_extension_01",
+        "dish_service_extension_02",
+        "dish_service_extension_03",
+        "dish_service_extension_04",
+        "dish_service_extension_05"
+      ]
+    },
+    "act_01_dish_return": {
+      "act_id": "act_01",
+      "checkpoints": [
+        "dish_return_start",
+        "dish_return_mid",
+        "dish_return_extension_01",
+        "dish_return_extension_02",
+        "dish_return_extension_03",
+        "dish_return_extension_04",
+        "dish_return_extension_05"
+      ]
+    },
+    "act_02_blackout_street": {
+      "act_id": "act_02",
+      "checkpoints": [
+        "act_02_blackout_street_start",
+        "act_02_blackout_street_checkpoint_1",
+        "act_02_blackout_street_checkpoint_2",
+        "act_02_blackout_street_checkpoint_3",
+        "act_02_blackout_street_checkpoint_4",
+        "act_02_blackout_street_checkpoint_5"
+      ]
+    },
+    "act_02_relay_rooftops": {
+      "act_id": "act_02",
+      "checkpoints": [
+        "act_02_relay_rooftops_start",
+        "act_02_relay_rooftops_checkpoint_1",
+        "act_02_relay_rooftops_checkpoint_2",
+        "act_02_relay_rooftops_checkpoint_3",
+        "act_02_relay_rooftops_checkpoint_4",
+        "act_02_relay_rooftops_checkpoint_5"
+      ]
+    },
+    "act_02_amplifier_station": {
+      "act_id": "act_02",
+      "checkpoints": [
+        "act_02_amplifier_station_start",
+        "act_02_amplifier_station_checkpoint_1",
+        "act_02_amplifier_station_checkpoint_2",
+        "act_02_amplifier_station_checkpoint_3",
+        "act_02_amplifier_station_checkpoint_4",
+        "act_02_amplifier_station_checkpoint_5"
+      ]
+    },
+    "act_02_array_12_arena": {
+      "act_id": "act_02",
+      "checkpoints": [
+        "act_02_array_12_arena_start"
+      ]
+    },
+    "act_03_salt_flats": {
+      "act_id": "act_03",
+      "checkpoints": [
+        "act_03_salt_flats_start",
+        "act_03_salt_flats_checkpoint_1",
+        "act_03_salt_flats_checkpoint_2",
+        "act_03_salt_flats_checkpoint_3",
+        "act_03_salt_flats_checkpoint_4",
+        "act_03_salt_flats_checkpoint_5"
+      ]
+    },
+    "act_03_s4_hangar": {
+      "act_id": "act_03",
+      "checkpoints": [
+        "act_03_s4_hangar_start",
+        "act_03_s4_hangar_checkpoint_1",
+        "act_03_s4_hangar_checkpoint_2",
+        "act_03_s4_hangar_checkpoint_3",
+        "act_03_s4_hangar_checkpoint_4",
+        "act_03_s4_hangar_checkpoint_5"
+      ]
+    },
+    "act_03_telepod_vault": {
+      "act_id": "act_03",
+      "checkpoints": [
+        "act_03_telepod_vault_start",
+        "act_03_telepod_vault_checkpoint_1",
+        "act_03_telepod_vault_checkpoint_2",
+        "act_03_telepod_vault_checkpoint_3",
+        "act_03_telepod_vault_checkpoint_4",
+        "act_03_telepod_vault_checkpoint_5"
+      ]
+    },
+    "act_03_amalgam_arena": {
+      "act_id": "act_03",
+      "checkpoints": [
+        "act_03_amalgam_arena_start"
+      ]
+    },
+    "act_04_rail_yard": {
+      "act_id": "act_04",
+      "checkpoints": [
+        "act_04_rail_yard_start",
+        "act_04_rail_yard_checkpoint_1",
+        "act_04_rail_yard_checkpoint_2",
+        "act_04_rail_yard_checkpoint_3",
+        "act_04_rail_yard_checkpoint_4",
+        "act_04_rail_yard_checkpoint_5"
+      ]
+    },
+    "act_04_rift_array": {
+      "act_id": "act_04",
+      "checkpoints": [
+        "act_04_rift_array_start",
+        "act_04_rift_array_checkpoint_1",
+        "act_04_rift_array_checkpoint_2",
+        "act_04_rift_array_checkpoint_3",
+        "act_04_rift_array_checkpoint_4",
+        "act_04_rift_array_checkpoint_5"
+      ]
+    },
+    "act_04_relay_approach": {
+      "act_id": "act_04",
+      "checkpoints": [
+        "act_04_relay_approach_start",
+        "act_04_relay_approach_checkpoint_1",
+        "act_04_relay_approach_checkpoint_2",
+        "act_04_relay_approach_checkpoint_3",
+        "act_04_relay_approach_checkpoint_4",
+        "act_04_relay_approach_checkpoint_5"
+      ]
+    },
+    "act_04_architect_arena": {
+      "act_id": "act_04",
+      "checkpoints": [
+        "act_04_architect_arena_start"
+      ]
+    },
+    "act_05_pillar_approach": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "act_05_pillar_approach_start",
+        "act_05_pillar_approach_checkpoint_1",
+        "act_05_pillar_approach_checkpoint_2",
+        "act_05_pillar_approach_checkpoint_3",
+        "act_05_pillar_approach_checkpoint_4",
+        "act_05_pillar_approach_checkpoint_5"
+      ]
+    },
+    "act_05_buried_archive": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "act_05_buried_archive_start",
+        "act_05_buried_archive_checkpoint_1",
+        "act_05_buried_archive_checkpoint_2",
+        "act_05_buried_archive_checkpoint_3",
+        "act_05_buried_archive_checkpoint_4",
+        "act_05_buried_archive_checkpoint_5"
+      ]
+    },
+    "act_05_crust_waveguide": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "act_05_crust_waveguide_start",
+        "act_05_crust_waveguide_checkpoint_1",
+        "act_05_crust_waveguide_checkpoint_2",
+        "act_05_crust_waveguide_checkpoint_3",
+        "act_05_crust_waveguide_checkpoint_4",
+        "act_05_crust_waveguide_checkpoint_5"
+      ]
+    },
+    "act_05_core_prime_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "act_05_core_prime_arena_start"
+      ]
+    },
+    "alien_001_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_001_field_start",
+        "alien_001_field_checkpoint_1",
+        "alien_001_field_checkpoint_2",
+        "alien_001_field_checkpoint_3",
+        "alien_001_field_checkpoint_4",
+        "alien_001_field_checkpoint_5"
+      ]
+    },
+    "alien_001_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_001_arena_start"
+      ]
+    },
+    "alien_003_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_003_field_start",
+        "alien_003_field_checkpoint_1",
+        "alien_003_field_checkpoint_2",
+        "alien_003_field_checkpoint_3",
+        "alien_003_field_checkpoint_4",
+        "alien_003_field_checkpoint_5"
+      ]
+    },
+    "alien_003_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_003_arena_start"
+      ]
+    },
+    "alien_005_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_005_field_start",
+        "alien_005_field_checkpoint_1",
+        "alien_005_field_checkpoint_2",
+        "alien_005_field_checkpoint_3",
+        "alien_005_field_checkpoint_4",
+        "alien_005_field_checkpoint_5"
+      ]
+    },
+    "alien_005_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_005_arena_start"
+      ]
+    },
+    "alien_004_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_004_field_start",
+        "alien_004_field_checkpoint_1",
+        "alien_004_field_checkpoint_2",
+        "alien_004_field_checkpoint_3",
+        "alien_004_field_checkpoint_4",
+        "alien_004_field_checkpoint_5"
+      ]
+    },
+    "alien_004_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_004_arena_start"
+      ]
+    },
+    "alien_008_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_008_field_start",
+        "alien_008_field_checkpoint_1",
+        "alien_008_field_checkpoint_2",
+        "alien_008_field_checkpoint_3",
+        "alien_008_field_checkpoint_4",
+        "alien_008_field_checkpoint_5"
+      ]
+    },
+    "alien_008_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_008_arena_start"
+      ]
+    },
+    "alien_009_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_009_field_start",
+        "alien_009_field_checkpoint_1",
+        "alien_009_field_checkpoint_2",
+        "alien_009_field_checkpoint_3",
+        "alien_009_field_checkpoint_4",
+        "alien_009_field_checkpoint_5"
+      ]
+    },
+    "alien_009_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_009_arena_start"
+      ]
+    },
+    "alien_006_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_006_field_start",
+        "alien_006_field_checkpoint_1",
+        "alien_006_field_checkpoint_2",
+        "alien_006_field_checkpoint_3",
+        "alien_006_field_checkpoint_4",
+        "alien_006_field_checkpoint_5"
+      ]
+    },
+    "alien_006_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_006_arena_start"
+      ]
+    },
+    "alien_002_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_002_field_start",
+        "alien_002_field_checkpoint_1",
+        "alien_002_field_checkpoint_2",
+        "alien_002_field_checkpoint_3",
+        "alien_002_field_checkpoint_4",
+        "alien_002_field_checkpoint_5"
+      ]
+    },
+    "alien_002_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_002_arena_start"
+      ]
+    },
+    "alien_scan_h_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_scan_h_field_start",
+        "alien_scan_h_field_checkpoint_1",
+        "alien_scan_h_field_checkpoint_2",
+        "alien_scan_h_field_checkpoint_3",
+        "alien_scan_h_field_checkpoint_4",
+        "alien_scan_h_field_checkpoint_5"
+      ]
+    },
+    "alien_scan_h_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_scan_h_arena_start"
+      ]
+    },
+    "alien_010_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_010_field_start",
+        "alien_010_field_checkpoint_1",
+        "alien_010_field_checkpoint_2",
+        "alien_010_field_checkpoint_3",
+        "alien_010_field_checkpoint_4",
+        "alien_010_field_checkpoint_5"
+      ]
+    },
+    "alien_010_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_010_arena_start"
+      ]
+    },
+    "alien_007_field": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_007_field_start",
+        "alien_007_field_checkpoint_1",
+        "alien_007_field_checkpoint_2",
+        "alien_007_field_checkpoint_3",
+        "alien_007_field_checkpoint_4",
+        "alien_007_field_checkpoint_5"
+      ]
+    },
+    "alien_007_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "alien_007_arena_start"
+      ]
+    },
+    "earth_finale_core_prime_arena": {
+      "act_id": "act_05",
+      "checkpoints": [
+        "earth_finale_core_prime_arena_start"
+      ]
+    }
+  },
+  "civ_ids": [
+    "FASR-001",
+    "FASR-002",
+    "FASR-003",
+    "FASR-004",
+    "FASR-005",
+    "FASR-006",
+    "FASR-007",
+    "FASR-008",
+    "FASR-009",
+    "FASR-010",
+    "FASR-SCAN-H"
+  ],
+  "fragment_ids": [
+    "FASR-001",
+    "FASR-002",
+    "FASR-003",
+    "FASR-004",
+    "FASR-005",
+    "FASR-006",
+    "FASR-007",
+    "FASR-008",
+    "FASR-009",
+    "FASR-010",
+    "FASR-SCAN-H"
+  ],
+  "fragment_sources": {
+    "FASR-001": "FASR-001",
+    "FASR-002": "FASR-002",
+    "FASR-003": "FASR-003",
+    "FASR-004": "FASR-004",
+    "FASR-005": "FASR-005",
+    "FASR-006": "FASR-006",
+    "FASR-007": "FASR-007",
+    "FASR-008": "FASR-008",
+    "FASR-009": "FASR-009",
+    "FASR-010": "FASR-010",
+    "FASR-SCAN-H": "FASR-SCAN-H"
+  },
+  "validation_ids": [
+    "FASR-001",
+    "FASR-002",
+    "FASR-003",
+    "FASR-004"
+  ],
+  "validation_sources": {
+    "FASR-001": "FASR-001",
+    "FASR-002": "FASR-001",
+    "FASR-003": "FASR-001",
+    "FASR-004": "FASR-001"
+  },
+  "validation_scenarios": {
+    "development_fixture": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "development_fixture"
+      ]
+    },
+    "formal_fasr_001": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_entropy_analog_filter"
+      ]
+    },
+    "quantum_fasr_002": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_quantum_coherence_mandela"
+      ]
+    },
+    "connectome_fasr_004": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_connectome_causal_blindspot"
+      ]
+    },
+    "biosecurity_fasr_003": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_pathogen_prototype_inhibition"
+      ]
+    },
+    "formal_adv_fasr_001": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_szilard_information_work"
+      ]
+    },
+    "quantum_adv_fasr_002": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_quantum_delayed_choice_eraser"
+      ]
+    },
+    "connectome_adv_fasr_004": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_attractor_network_stability"
+      ]
+    },
+    "biosecurity_adv_fasr_003": {
+      "versions": [
+        1
+      ],
+      "claim_ids": [
+        "claim_antigenic_escape_broad_spectrum"
+      ]
+    }
+  },
+  "weapon_ids": [
+    "maser_1420"
+  ],
+  "ability_ids": [],
+  "item_ids": [
+    "maser_1420",
+    "analog_coupler",
+    "relay_cipher_cassette",
+    "reality_anchor_1977",
+    "dossier_1977"
+  ],
+  "flag_ids": [
+    "first_mission_available",
+    "trench_coupler_collected",
+    "feedhorn_repaired",
+    "dish_defense_completed",
+    "greenkeeper_defeated",
+    "act_01_completed",
+    "act_02_unlocked",
+    "dodleston_coolant_drained",
+    "dodleston_bulkhead_unlocked",
+    "dodleston_cassette_cached",
+    "flashback_1977_completed",
+    "synchronicity_defeated",
+    "amalgam_defeated",
+    "architect_defeated",
+    "core_prime_defeated",
+    "portal_warden_defeated",
+    "earth_ai_defeated",
+    "guardian_001_defeated",
+    "guardian_003_defeated",
+    "guardian_005_defeated",
+    "guardian_004_defeated",
+    "guardian_008_defeated",
+    "guardian_009_defeated",
+    "guardian_006_defeated",
+    "guardian_002_defeated",
+    "guardian_scan_h_defeated",
+    "guardian_010_defeated",
+    "guardian_007_defeated"
+  ],
+  "choice_ids": [],
+  "timeline_ids": [
+    "2029_CORE",
+    "1977_ANALOG"
+  ],
+  "meters": {
+    "alignment_confidence": {
+      "label": "Alignment Confidence",
+      "initial": 35
+    },
+    "scientific_certainty": {
+      "label": "Scientific Certainty",
+      "initial": 40
+    },
+    "coordination_capacity": {
+      "label": "Coordination Capacity",
+      "initial": 30
+    },
+    "public_trust": {
+      "label": "Public Trust",
+      "initial": 25
+    },
+    "human_agency": {
+      "label": "Human Agency",
+      "initial": 70
+    },
+    "biosecurity_readiness": {
+      "label": "Biosecurity Readiness",
+      "initial": 35
+    }
+  },
+  "new_game": {
+    "current_act": "act_01",
+    "current_room": "bunker_hub",
+    "checkpoint_id": "bunker_start",
+    "timeline_mode": "2029_CORE",
+    "room_flags": {
+      "first_mission_available": true
+    },
+    "inventory": {
+      "maser_1420": 1
+    },
+    "unlocked_weapons": [
+      "maser_1420"
+    ],
+    "active_weapon": "maser_1420"
+  },
+  "events": {
+    "timeline_shift": {
+      "kind": "timeline_shift"
+    },
+    "grant_fragment_fasr_001": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "alignment_confidence": 5
+      }
+    },
+    "grant_fragment_fasr_002": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-002"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-002"
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "human_agency": 5
+      }
+    },
+    "grant_fragment_fasr_003": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-003"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-003"
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "coordination_capacity": 5
+      }
+    },
+    "grant_fragment_fasr_004": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-004"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-004"
+        ]
+      },
+      "meter_deltas": {
+        "human_agency": 5,
+        "alignment_confidence": 5
+      }
+    },
+    "grant_fragment_fasr_005": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-005"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-005"
+        ]
+      },
+      "meter_deltas": {
+        "biosecurity_readiness": 5,
+        "human_agency": 5
+      }
+    },
+    "grant_fragment_fasr_006": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-006"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-006"
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "alignment_confidence": 5
+      }
+    },
+    "grant_fragment_fasr_007": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-007"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-007"
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "coordination_capacity": 5
+      }
+    },
+    "grant_fragment_fasr_008": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-008"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-008"
+        ]
+      },
+      "meter_deltas": {
+        "coordination_capacity": 5,
+        "public_trust": 5
+      }
+    },
+    "grant_fragment_fasr_009": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-009"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-009"
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "human_agency": 5
+      }
+    },
+    "grant_fragment_fasr_010": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-010"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-010"
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "public_trust": 5
+      }
+    },
+    "grant_fragment_fasr_scan_h": {
+      "kind": "grant",
+      "requires": {
+        "contacted_civs": [
+          "FASR-SCAN-H"
+        ]
+      },
+      "grants": {
+        "extracted_fragments": [
+          "FASR-SCAN-H"
+        ]
+      },
+      "meter_deltas": {
+        "human_agency": 5,
+        "alignment_confidence": 5
+      }
+    },
+    "hostile_signal_breach": {
+      "kind": "grant",
+      "meter_deltas": {
+        "alignment_confidence": -10,
+        "public_trust": -5
+      }
+    },
+    "hostile_signal_neutralized": {
+      "kind": "grant",
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "coordination_capacity": 5
+      }
+    },
+    "validate_fasr_001_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-001",
+            "scenario_id": "formal_fasr_001",
+            "scenario_version": 1,
+            "claim_id": "claim_entropy_analog_filter",
+            "observations": [
+              "obs_entropy_seed",
+              "obs_snr_coherence"
+            ],
+            "result": "validated",
+            "confidence": 85,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Landauer_1961_Irreversibility_and_Heat_Generation",
+              "Bennett_1982_Thermodynamics_of_Computation",
+              "Ehman_1977_Wow_Signal_Detection"
+            ],
+            "deployment_decision": "deploy_analog_filter"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "alignment_confidence": 5,
+        "human_agency": 5
+      }
+    },
+    "validate_fasr_001_withhold": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-001",
+            "scenario_id": "formal_fasr_001",
+            "scenario_version": 1,
+            "claim_id": "claim_entropy_analog_filter",
+            "observations": [
+              "obs_entropy_seed",
+              "obs_snr_coherence"
+            ],
+            "result": "validated",
+            "confidence": 85,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Landauer_1961_Irreversibility_and_Heat_Generation",
+              "Bennett_1982_Thermodynamics_of_Computation",
+              "Ehman_1977_Wow_Signal_Detection"
+            ],
+            "deployment_decision": "withhold_quarantine"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "public_trust": 5,
+        "biosecurity_readiness": 5
+      }
+    },
+    "validate_quantum_mandela_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-002",
+            "scenario_id": "quantum_fasr_002",
+            "scenario_version": 1,
+            "claim_id": "claim_quantum_coherence_mandela",
+            "observations": [
+              "obs_environmental_decoherence_decay",
+              "obs_quantum_coherence_fringe"
+            ],
+            "result": "validated",
+            "confidence": 90,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Young_1804_Double_Slit_Interference",
+              "Zurek_2003_Decoherence_Einselection",
+              "Englert_1996_Fringe_Visibility_Which_Way_Information",
+              "Schlosshauer_2005_Decoherence_Measurement",
+              "Caves_1982_Quantum_Limits_Amplifiers",
+              "Joos_Zeh_1985_Emergence_Classical_Properties"
+            ],
+            "deployment_decision": "deploy_mandela_phase_shift"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "human_agency": 10,
+        "public_trust": 5
+      }
+    },
+    "validate_quantum_quarantine": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-002",
+            "scenario_id": "quantum_fasr_002",
+            "scenario_version": 1,
+            "claim_id": "claim_quantum_coherence_mandela",
+            "observations": [
+              "obs_environmental_decoherence_decay",
+              "obs_quantum_coherence_fringe"
+            ],
+            "result": "validated",
+            "confidence": 90,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Young_1804_Double_Slit_Interference",
+              "Zurek_2003_Decoherence_Einselection",
+              "Englert_1996_Fringe_Visibility_Which_Way_Information",
+              "Schlosshauer_2005_Decoherence_Measurement",
+              "Caves_1982_Quantum_Limits_Amplifiers",
+              "Joos_Zeh_1985_Emergence_Classical_Properties"
+            ],
+            "deployment_decision": "withhold_quantum_quarantine"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "biosecurity_readiness": 10,
+        "alignment_confidence": 5
+      }
+    },
+    "validate_connectome_blindspot_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-004",
+            "scenario_id": "connectome_fasr_004",
+            "scenario_version": 1,
+            "claim_id": "claim_connectome_causal_blindspot",
+            "observations": [
+              "obs_biccn_cell_taxonomy",
+              "obs_causal_circuit_motif"
+            ],
+            "result": "validated",
+            "confidence": 90,
+            "claim_tier": "speculative",
+            "source_references": [
+              "White_1986_Structure_Nervous_System_C_Elegans",
+              "Jonas_Kording_2017_Could_Neuroscientist_Understand_Microprocessor",
+              "Pearl_2009_Causality_Models_Reasoning_Inference",
+              "BICCN_2021_Multimodal_Cell_Census_Motor_Cortex",
+              "Bargmann_Marder_2013_From_Connectome_to_Brain_Function"
+            ],
+            "deployment_decision": "deploy_cognitive_blindspot"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "human_agency": 10,
+        "public_trust": 5
+      }
+    },
+    "validate_connectome_quarantine": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-004",
+            "scenario_id": "connectome_fasr_004",
+            "scenario_version": 1,
+            "claim_id": "claim_connectome_causal_blindspot",
+            "observations": [
+              "obs_biccn_cell_taxonomy",
+              "obs_causal_circuit_motif"
+            ],
+            "result": "validated",
+            "confidence": 90,
+            "claim_tier": "speculative",
+            "source_references": [
+              "White_1986_Structure_Nervous_System_C_Elegans",
+              "Jonas_Kording_2017_Could_Neuroscientist_Understand_Microprocessor",
+              "Pearl_2009_Causality_Models_Reasoning_Inference",
+              "BICCN_2021_Multimodal_Cell_Census_Motor_Cortex",
+              "Bargmann_Marder_2013_From_Connectome_to_Brain_Function"
+            ],
+            "deployment_decision": "withhold_neural_quarantine"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "biosecurity_readiness": 10,
+        "alignment_confidence": 5
+      }
+    },
+    "validate_biosecurity_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-003",
+            "scenario_id": "biosecurity_fasr_003",
+            "scenario_version": 1,
+            "claim_id": "claim_pathogen_prototype_inhibition",
+            "observations": [
+              "obs_pathogen_neutralization_assay",
+              "obs_prototype_phylogeny"
+            ],
+            "result": "validated",
+            "confidence": 92,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Wald_1947_Sequential_Analysis_SPRT",
+              "Graham_Sullivan_2018_Prototype_Pathogen_Approach",
+              "WHO_2020_Laboratory_Biosafety_Manual_4th_Ed",
+              "Lipsitch_2016_Transmission_Dynamics_R0",
+              "Fletcher_2014_Clinical_Epidemiology_Diagnostic_Certainty"
+            ],
+            "deployment_decision": "deploy_prophylactic_inhibitor"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "biosecurity_readiness": 10,
+        "scientific_certainty": 10,
+        "public_trust": 5
+      }
+    },
+    "validate_biosecurity_quarantine": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-003",
+            "scenario_id": "biosecurity_fasr_003",
+            "scenario_version": 1,
+            "claim_id": "claim_pathogen_prototype_inhibition",
+            "observations": [
+              "obs_pathogen_neutralization_assay",
+              "obs_prototype_phylogeny"
+            ],
+            "result": "validated",
+            "confidence": 92,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Wald_1947_Sequential_Analysis_SPRT",
+              "Graham_Sullivan_2018_Prototype_Pathogen_Approach",
+              "WHO_2020_Laboratory_Biosafety_Manual_4th_Ed",
+              "Lipsitch_2016_Transmission_Dynamics_R0",
+              "Fletcher_2014_Clinical_Epidemiology_Diagnostic_Certainty"
+            ],
+            "deployment_decision": "withhold_cryogenic_containment"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "biosecurity_readiness": 15,
+        "alignment_confidence": 5
+      }
+    },
+    "validate_formal_adv_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-001",
+            "scenario_id": "formal_adv_fasr_001",
+            "scenario_version": 1,
+            "claim_id": "claim_szilard_information_work",
+            "observations": [
+              "obs_szilard_bit_work",
+              "obs_landauer_dissipation"
+            ],
+            "result": "validated",
+            "confidence": 95,
+            "claim_tier": "established",
+            "source_references": [
+              "Szilard_1929_Decrease_Entropy_Thermodynamic_System",
+              "Landauer_1961_Irreversibility_and_Heat_Generation",
+              "Bennett_1982_Thermodynamics_of_Computation",
+              "Jarzynski_1997_Nonequilibrium_Equality_Free_Energy"
+            ],
+            "deployment_decision": "deploy_szilard_coordination_network"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "coordination_capacity": 10,
+        "scientific_certainty": 10,
+        "human_agency": 5
+      }
+    },
+    "validate_formal_adv_quarantine": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-001",
+            "scenario_id": "formal_adv_fasr_001",
+            "scenario_version": 1,
+            "claim_id": "claim_szilard_information_work",
+            "observations": [
+              "obs_szilard_bit_work",
+              "obs_landauer_dissipation"
+            ],
+            "result": "validated",
+            "confidence": 95,
+            "claim_tier": "established",
+            "source_references": [
+              "Szilard_1929_Decrease_Entropy_Thermodynamic_System",
+              "Landauer_1961_Irreversibility_and_Heat_Generation",
+              "Bennett_1982_Thermodynamics_of_Computation",
+              "Jarzynski_1997_Nonequilibrium_Equality_Free_Energy"
+            ],
+            "deployment_decision": "withhold_szilard_quarantine"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "alignment_confidence": 10
+      }
+    },
+    "validate_quantum_adv_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-002",
+            "scenario_id": "quantum_adv_fasr_002",
+            "scenario_version": 1,
+            "claim_id": "claim_quantum_delayed_choice_eraser",
+            "observations": [
+              "obs_environmental_decoherence_decay",
+              "obs_quantum_coherence_fringe"
+            ],
+            "result": "validated",
+            "confidence": 92,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Wheeler_1978_Mathematical_Foundations_Quantum_Theory",
+              "Scully_Druhl_1982_Quantum_Eraser",
+              "Kim_1999_Delayed_Choice_Quantum_Eraser",
+              "Mandel_1991_Coherence_and_Indistinguishability",
+              "Zurek_2003_Decoherence_Einselection"
+            ],
+            "deployment_decision": "deploy_quantum_eraser_radar"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "alignment_confidence": 10,
+        "human_agency": 5
+      }
+    },
+    "validate_quantum_adv_quarantine": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-002",
+            "scenario_id": "quantum_adv_fasr_002",
+            "scenario_version": 1,
+            "claim_id": "claim_quantum_delayed_choice_eraser",
+            "observations": [
+              "obs_environmental_decoherence_decay",
+              "obs_quantum_coherence_fringe"
+            ],
+            "result": "validated",
+            "confidence": 92,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Wheeler_1978_Mathematical_Foundations_Quantum_Theory",
+              "Scully_Druhl_1982_Quantum_Eraser",
+              "Kim_1999_Delayed_Choice_Quantum_Eraser",
+              "Mandel_1991_Coherence_and_Indistinguishability",
+              "Zurek_2003_Decoherence_Einselection"
+            ],
+            "deployment_decision": "withhold_quantum_adv_quarantine"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "public_trust": 10
+      }
+    },
+    "validate_connectome_adv_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-004",
+            "scenario_id": "connectome_adv_fasr_004",
+            "scenario_version": 1,
+            "claim_id": "claim_attractor_network_stability",
+            "observations": [
+              "obs_causal_circuit_motif",
+              "obs_biccn_cell_taxonomy"
+            ],
+            "result": "validated",
+            "confidence": 94,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Hopfield_1982_Neural_Networks_Physical_Systems",
+              "Amit_1989_Modeling_Brain_Function",
+              "Amit_Gutfreund_Sompolinsky_1987_Statistical_Mechanics_Near_Saturation",
+              "Wang_2002_Probabilistic_Decision_Making_Recurrent_Network",
+              "Pearl_2009_Causality_Models_Reasoning_Inference",
+              "BICCN_2021_Multimodal_Cell_Census_Motor_Cortex"
+            ],
+            "deployment_decision": "deploy_attractor_neuro_shield"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "human_agency": 15,
+        "scientific_certainty": 10,
+        "alignment_confidence": 5
+      }
+    },
+    "validate_connectome_adv_quarantine": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-004",
+            "scenario_id": "connectome_adv_fasr_004",
+            "scenario_version": 1,
+            "claim_id": "claim_attractor_network_stability",
+            "observations": [
+              "obs_causal_circuit_motif",
+              "obs_biccn_cell_taxonomy"
+            ],
+            "result": "validated",
+            "confidence": 94,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Hopfield_1982_Neural_Networks_Physical_Systems",
+              "Amit_1989_Modeling_Brain_Function",
+              "Amit_Gutfreund_Sompolinsky_1987_Statistical_Mechanics_Near_Saturation",
+              "Wang_2002_Probabilistic_Decision_Making_Recurrent_Network",
+              "Pearl_2009_Causality_Models_Reasoning_Inference",
+              "BICCN_2021_Multimodal_Cell_Census_Motor_Cortex"
+            ],
+            "deployment_decision": "withhold_attractor_quarantine"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "biosecurity_readiness": 10
+      }
+    },
+    "validate_biosecurity_adv_deploy": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-003",
+            "scenario_id": "biosecurity_adv_fasr_003",
+            "scenario_version": 1,
+            "claim_id": "claim_antigenic_escape_broad_spectrum",
+            "observations": [
+              "obs_pathogen_neutralization_assay",
+              "obs_prototype_phylogeny"
+            ],
+            "result": "validated",
+            "confidence": 92,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Wald_1947_Sequential_Analysis_SPRT",
+              "Graham_Sullivan_2018_Prototype_Pathogen_Approach",
+              "Bedford_2015_Global_Circulation_Influenza_Antigenic_Drift",
+              "Lipsitch_2016_Transmission_Dynamics_R0",
+              "WHO_2020_Laboratory_Biosafety_Manual_4th_Ed"
+            ],
+            "deployment_decision": "deploy_broad_spectrum_shield"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "biosecurity_readiness": 15,
+        "coordination_capacity": 10,
+        "public_trust": 5
+      }
+    },
+    "validate_biosecurity_adv_quarantine": {
+      "kind": "grant",
+      "requires": {
+        "extracted_fragments": [
+          "FASR-001"
+        ]
+      },
+      "grants": {
+        "validation_records": [
+          {
+            "id": "FASR-003",
+            "scenario_id": "biosecurity_adv_fasr_003",
+            "scenario_version": 1,
+            "claim_id": "claim_antigenic_escape_broad_spectrum",
+            "observations": [
+              "obs_pathogen_neutralization_assay",
+              "obs_prototype_phylogeny"
+            ],
+            "result": "validated",
+            "confidence": 92,
+            "claim_tier": "speculative",
+            "source_references": [
+              "Wald_1947_Sequential_Analysis_SPRT",
+              "Graham_Sullivan_2018_Prototype_Pathogen_Approach",
+              "Bedford_2015_Global_Circulation_Influenza_Antigenic_Drift",
+              "Lipsitch_2016_Transmission_Dynamics_R0",
+              "WHO_2020_Laboratory_Biosafety_Manual_4th_Ed"
+            ],
+            "deployment_decision": "withhold_variant_quarantine"
+          }
+        ]
+      },
+      "meter_deltas": {
+        "biosecurity_readiness": 15,
+        "alignment_confidence": 10
+      }
+    },
+    "collect_analog_coupler": {
+      "kind": "grant",
+      "grants": {
+        "inventory": {
+          "analog_coupler": 1
+        },
+        "room_flags": {
+          "trench_coupler_collected": true
+        }
+      },
+      "meter_deltas": {
+        "coordination_capacity": 5
+      }
+    },
+    "repair_dish_feedhorn": {
+      "kind": "grant",
+      "requires": {
+        "inventory": {
+          "analog_coupler": 1
+        }
+      },
+      "consume": {
+        "inventory": {
+          "analog_coupler": 1
+        }
+      },
+      "grants": {
+        "room_flags": {
+          "feedhorn_repaired": true
+        }
+      },
+      "meter_deltas": {
+        "scientific_certainty": 5,
+        "human_agency": 5
+      }
+    },
+    "complete_dish_defense": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "dish_defense_completed": true
+        }
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "alignment_confidence": 5,
+        "human_agency": 5
+      }
+    },
+    "defeat_greenkeeper": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "greenkeeper_defeated": true,
+          "act_01_completed": true,
+          "act_02_unlocked": true
+        }
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "human_agency": 15,
+        "alignment_confidence": 10
+      }
+    },
+    "relay_action_drain_coolant": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "dodleston_coolant_drained": true
+        }
+      },
+      "meter_deltas": {
+        "coordination_capacity": 5,
+        "scientific_certainty": 5
+      }
+    },
+    "relay_action_power_bulkhead": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "dodleston_bulkhead_unlocked": true
+        }
+      },
+      "meter_deltas": {
+        "coordination_capacity": 5,
+        "human_agency": 5
+      }
+    },
+    "relay_action_cache_cassette": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "dodleston_cassette_cached": true
+        }
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "coordination_capacity": 5
+      }
+    },
+    "complete_flashback_1977": {
+      "kind": "grant",
+      "grants": {
+        "inventory": {
+          "reality_anchor_1977": 1
+        },
+        "room_flags": {
+          "flashback_1977_completed": true
+        }
+      },
+      "meter_deltas": {
+        "scientific_certainty": 10,
+        "human_agency": 10
+      }
+    },
+    "collect_historical_log": {
+      "kind": "grant",
+      "grants": {
+        "inventory": {
+          "dossier_1977": 1
+        }
+      }
+    },
+    "record_contact": {
+      "kind": "contact"
+    },
+    "collect_relay_cassette": {
+      "kind": "grant",
+      "requires": {
+        "room_flags": {
+          "dodleston_cassette_cached": true
+        }
+      },
+      "grants": {
+        "inventory": {
+          "relay_cipher_cassette": 1
+        }
+      }
+    },
+    "defeat_synchronicity": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "synchronicity_defeated": true
+        }
+      }
+    },
+    "defeat_amalgam": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "amalgam_defeated": true
+        }
+      }
+    },
+    "defeat_architect": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "architect_defeated": true
+        }
+      }
+    },
+    "defeat_core_prime": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "core_prime_defeated": true
+        }
+      }
+    },
+    "defeat_portal_warden": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "portal_warden_defeated": true
+        }
+      }
+    },
+    "defeat_earth_ai": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "earth_ai_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_001": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_001_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_003": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_003_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_005": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_005_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_004": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_004_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_008": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_008_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_009": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_009_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_006": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_006_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_002": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_002_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_scan_h": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_scan_h_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_010": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_010_defeated": true
+        }
+      }
+    },
+    "defeat_guardian_007": {
+      "kind": "grant",
+      "grants": {
+        "room_flags": {
+          "guardian_007_defeated": true
+        }
+      }
+    }
+  }
+}

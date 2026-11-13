@@ -1,0 +1,32 @@
+include README.md LICENSE CONTRIBUTING.md
+recursive-include src *.py *.json *.png *.txt *.wav *.ogg *.mp3 *.ttf *.otf
+recursive-include tests *.py *.json
+recursive-include tools *.py *.md
+recursive-include docs *.md
+recursive-include docs/media *.png *.gif *.json
+prune _trash
+prune _temp
+prune art
+prune build
+prune dist
+prune .venv
+prune .agent
+prune .agents
+prune .codex
+prune .claude
+prune .cursor
+prune .gemini
+prune .continue
+prune .copilot
+prune .opencode
+exclude .mcp.json
+prune .windsurf
+prune .cline
+prune .clinerules
+prune .roo
+prune .github/instructions
+prune .github/prompts
+prune .github/agents
+exclude .github/copilot-instructions.md
+global-exclude AGENTS.md AGENTS.override.md AGENTS.local.md CLAUDE.md CLAUDE.local.md GEMINI.md LLM_EXECUTION_PROMPT.md *.prompt.md .aider* .cursorrules .cursorignore .windsurfrules .clinerules .roomodes .roorules*
+global-exclude __pycache__ *.py[cod] .DS_Store

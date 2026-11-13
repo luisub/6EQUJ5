@@ -1,6 +1,0 @@
-{
-  "source": "video_game/tests/test_accessible_controls_integration.py",
-  "backup": "video_game/planning/evidence/CONTROLS/2026-11-12_accessibility/test_backup_director_v01/test_accessible_controls_integration.py",
-  "sha256": "933e3767c33d41a865f2891cdde1c9853c08f95b8d2fdd6cddc69baf4919a7ca",
-  "method": "byte copy and SHA verification before integration-test expansion"
-}

@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "carrier_wraith",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "eea6d696b86a219a013b1ab83613d7865c0f564754241a9f496ca44c8d64ee34"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v02.png", "dimensions": [1448, 1086], "sha256": "a54e5f6e3074845cbbfae11bd8dcb6a6f42712e07881734a972edf998fd6b684", "crop_box_exclusive": [91, 136, 1135, 869], "resize": [78, 55], "paste": [9, 9], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [9, 10, 87, 63],
+  "alpha_at_least_240_pixels": 1481,
+  "record": "PROVENANCE.md"
+}

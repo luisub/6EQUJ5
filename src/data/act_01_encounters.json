@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "rooms": {
+    "act_01_approach": [
+      {
+        "id": "approach_hound_1",
+        "type": "hound",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 220
+      },
+      {
+        "id": "approach_drone_1",
+        "type": "drone",
+        "trigger_x": 80,
+        "x": 352,
+        "y": 116
+      },
+      {
+        "id": "approach_hound_2",
+        "type": "hound",
+        "trigger_x": 180,
+        "x": 480,
+        "y": 220
+      },
+      {
+        "id": "approach_drone_2",
+        "type": "drone",
+        "trigger_x": 300,
+        "x": 608,
+        "y": 116
+      },
+      {
+        "id": "approach_captain",
+        "type": "captain",
+        "trigger_x": 440,
+        "x": 736,
+        "y": 208
+      },
+      {
+        "id": "approach_hound_3",
+        "type": "hound",
+        "trigger_x": 560,
+        "x": 864,
+        "y": 220
+      }
+    ],
+    "act_01_salvage_yard": [
+      {
+        "id": "yard_drone_1",
+        "type": "drone",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 116
+      },
+      {
+        "id": "yard_hound_1",
+        "type": "hound",
+        "trigger_x": 64,
+        "x": 352,
+        "y": 220
+      },
+      {
+        "id": "yard_hound_2",
+        "type": "hound",
+        "trigger_x": 150,
+        "x": 416,
+        "y": 220
+      },
+      {
+        "id": "yard_captain",
+        "type": "captain",
+        "trigger_x": 220,
+        "x": 480,
+        "y": 208
+      },
+      {
+        "id": "yard_drone_2",
+        "type": "drone",
+        "trigger_x": 300,
+        "x": 544,
+        "y": 116
+      }
+    ],
+    "act_01_dish_catwalk": [
+      {
+        "id": "catwalk_hound_1",
+        "type": "hound",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 220
+      },
+      {
+        "id": "catwalk_drone_1",
+        "type": "drone",
+        "trigger_x": 80,
+        "x": 352,
+        "y": 132
+      },
+      {
+        "id": "catwalk_captain",
+        "type": "captain",
+        "trigger_x": 160,
+        "x": 480,
+        "y": 208
+      }
+    ],
+    "act_01_ohio_campus": [
+      {
+        "id": "campus_hound_1",
+        "type": "hound",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 220
+      },
+      {
+        "id": "campus_drone_1",
+        "type": "drone",
+        "trigger_x": 180,
+        "x": 432,
+        "y": 116
+      },
+      {
+        "id": "campus_captain_1",
+        "type": "captain",
+        "trigger_x": 320,
+        "x": 576,
+        "y": 208
+      },
+      {
+        "id": "campus_drone_2",
+        "type": "drone",
+        "trigger_x": 500,
+        "x": 768,
+        "y": 116
+      },
+      {
+        "id": "campus_hound_2",
+        "type": "hound",
+        "trigger_x": 650,
+        "x": 896,
+        "y": 220
+      },
+      {
+        "id": "campus_captain_2",
+        "type": "captain",
+        "trigger_x": 820,
+        "x": 1120,
+        "y": 208
+      }
+    ],
+    "act_01_perimeter_road": [
+      {
+        "id": "perimeter_road_hound_1",
+        "type": "hound",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 220
+      },
+      {
+        "id": "perimeter_road_drone_2",
+        "type": "drone",
+        "trigger_x": 40,
+        "x": 288,
+        "y": 112
+      },
+      {
+        "id": "perimeter_road_hound_3",
+        "type": "hound",
+        "trigger_x": 80,
+        "x": 352,
+        "y": 220
+      },
+      {
+        "id": "perimeter_road_drone_4",
+        "type": "drone",
+        "trigger_x": 120,
+        "x": 416,
+        "y": 112
+      },
+      {
+        "id": "perimeter_road_captain_5",
+        "type": "captain",
+        "trigger_x": 160,
+        "x": 480,
+        "y": 208
+      },
+      {
+        "id": "perimeter_road_drone_6",
+        "type": "drone",
+        "trigger_x": 260,
+        "x": 608,
+        "y": 112
+      }
+    ],
+    "act_01_salvage_outer": [
+      {
+        "id": "salvage_outer_hound_1",
+        "type": "hound",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 220
+      },
+      {
+        "id": "salvage_outer_drone_2",
+        "type": "drone",
+        "trigger_x": 40,
+        "x": 288,
+        "y": 112
+      },
+      {
+        "id": "salvage_outer_hound_3",
+        "type": "hound",
+        "trigger_x": 80,
+        "x": 352,
+        "y": 220
+      },
+      {
+        "id": "salvage_outer_drone_4",
+        "type": "drone",
+        "trigger_x": 120,
+        "x": 416,
+        "y": 112
+      },
+      {
+        "id": "salvage_outer_captain_5",
+        "type": "captain",
+        "trigger_x": 160,
+        "x": 480,
+        "y": 208
+      }
+    ],
+    "act_01_salvage_runoff": [
+      {
+        "id": "salvage_runoff_drone_1",
+        "type": "drone",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 128
+      },
+      {
+        "id": "salvage_runoff_hound_2",
+        "type": "hound",
+        "trigger_x": 40,
+        "x": 288,
+        "y": 220
+      },
+      {
+        "id": "salvage_runoff_drone_3",
+        "type": "drone",
+        "trigger_x": 80,
+        "x": 352,
+        "y": 128
+      },
+      {
+        "id": "salvage_runoff_hound_4",
+        "type": "hound",
+        "trigger_x": 120,
+        "x": 416,
+        "y": 220
+      },
+      {
+        "id": "salvage_runoff_drone_5",
+        "type": "drone",
+        "trigger_x": 160,
+        "x": 480,
+        "y": 128
+      }
+    ],
+    "act_01_dish_service": [
+      {
+        "id": "dish_service_hound_1",
+        "type": "hound",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 220
+      },
+      {
+        "id": "dish_service_drone_2",
+        "type": "drone",
+        "trigger_x": 40,
+        "x": 288,
+        "y": 112
+      },
+      {
+        "id": "dish_service_hound_3",
+        "type": "hound",
+        "trigger_x": 80,
+        "x": 352,
+        "y": 220
+      },
+      {
+        "id": "dish_service_drone_4",
+        "type": "drone",
+        "trigger_x": 120,
+        "x": 416,
+        "y": 112
+      },
+      {
+        "id": "dish_service_captain_5",
+        "type": "captain",
+        "trigger_x": 160,
+        "x": 480,
+        "y": 208
+      }
+    ],
+    "act_01_dish_return": [
+      {
+        "id": "dish_return_drone_1",
+        "type": "drone",
+        "trigger_x": 0,
+        "x": 224,
+        "y": 128
+      },
+      {
+        "id": "dish_return_hound_2",
+        "type": "hound",
+        "trigger_x": 40,
+        "x": 288,
+        "y": 220
+      },
+      {
+        "id": "dish_return_drone_3",
+        "type": "drone",
+        "trigger_x": 80,
+        "x": 352,
+        "y": 128
+      },
+      {
+        "id": "dish_return_hound_4",
+        "type": "hound",
+        "trigger_x": 120,
+        "x": 416,
+        "y": 220
+      },
+      {
+        "id": "dish_return_drone_5",
+        "type": "drone",
+        "trigger_x": 160,
+        "x": 480,
+        "y": 128
+      }
+    ]
+  }
+}

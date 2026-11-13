@@ -1,9 +1,0 @@
-{
-  "source_480x270": "video_game/art/reviews/visual_upgrade/previews/ohio_runtime_v01/approach_settled_native.png",
-  "source_sha256": "cc4917be8739f876c1ba6ea86069f6ce85d6a3b375cf47d38dcc27b867553533",
-  "export_1920x1080": "video_game/art/reviews/visual_upgrade/previews/comparison_baseline_v01/baseline_1920x1080.png",
-  "export_sha256": "1fc16a02b460dbb90990f549af41f37544dbce083079a1c2bd7b2ff7a8cc6cae",
-  "method": "exact nearest-neighbor 4x from original 480x270 offscreen runtime capture",
-  "fixture": "settled direct-entry Ohio spawn; camera (0,18), world rectangle (0,18,480,270); original HUD and actors present; CRT off",
-  "scope": "static baseline only"
-}

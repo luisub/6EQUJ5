@@ -1,0 +1,8 @@
+{
+  "status": "candidate_pending_review",
+  "image": {"file": "vortex_512x512.png", "dimensions": [512, 512], "mode": "RGBA", "sha256": "dacb2d347de7aef80a6da8cdbec529504e9ff46add71f9a74ec59b2bc1293921"},
+  "source": {"file": "vortex_master_v01.png", "dimensions": [1254, 1254], "sha256": "41841f16b85c31f7c0f26d3dfd1be13a87e302c93efe71766ea065936349c552", "crop_box_exclusive": [42, 42, 1212, 1212], "resize": [462, 462], "paste": [25, 25], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [25, 25, 487, 487],
+  "center_rgba": [0, 0, 0, 252],
+  "record": "vortex_provenance.md"
+}

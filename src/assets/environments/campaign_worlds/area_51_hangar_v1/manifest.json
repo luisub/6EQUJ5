@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_world_background",
+  "art_id": "area_51_hangar_v1",
+  "viewport": [
+    480,
+    270
+  ],
+  "density": 2,
+  "image": {
+    "file": "background.png",
+    "dimensions": [
+      1920,
+      540
+    ],
+    "sha256": "33534f00d2f5ab96f4f9e21489bce31c750a7a008256639cb5f39ef90492b0ee"
+  },
+  "provenance": {
+    "status": "accepted_background_component",
+    "source": "master_v02.png",
+    "source_sha256": "e1caf2020a45a461eb8bd2702858a025111864eb19bae4732ec1def540c24d18",
+    "source_dimensions": [
+      2172,
+      724
+    ],
+    "crop_box_exclusive": [
+      0,
+      22,
+      2172,
+      633
+    ],
+    "resampling": "Pillow nearest-neighbor downsample",
+    "record": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/area_51_hangar_v01/provenance.md",
+    "review": "root native1920 inspection; gameplay pending",
+    "source_directory": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/area_51_hangar_v01"
+  }
+}

@@ -1,6 +1,0 @@
-pygame-ce 2.5.8 (SDL 2.32.10, Python 3.12.16)
-BUNKER_HUB render_p95_ms= 2.479 total_p95_ms= 3.489
-CRT_TERMINAL render_p95_ms= 3.025 total_p95_ms= 4.11
-SCIENCE_LAB render_p95_ms= 3.658 total_p95_ms= 4.819
-FIELD_OPS render_p95_ms= 4.529 total_p95_ms= 5.62
-BOSS_BOUNTY render_p95_ms= 3.764 total_p95_ms= 4.779

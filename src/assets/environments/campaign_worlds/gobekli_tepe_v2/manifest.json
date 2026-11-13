@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_world_background",
+  "art_id": "gobekli_tepe_v2",
+  "viewport": [
+    480,
+    270
+  ],
+  "density": 2,
+  "image": {
+    "file": "background.png",
+    "dimensions": [
+      1920,
+      540
+    ],
+    "sha256": "e6547b0057d5784e9cc5d5caf0f429fc259a7cc1e71f7519d9f953d0ddea40a7"
+  },
+  "provenance": {
+    "source": "video_game/art/source/visual_upgrade/candidates/gobekli_traffic_free_v2/background.png",
+    "sha256": "e6547b0057d5784e9cc5d5caf0f429fc259a7cc1e71f7519d9f953d0ddea40a7",
+    "original": "video_game/assets/environments/campaign_worlds/gobekli_tepe_v1/background.png",
+    "original_sha256": "95bd230d690608d02b555c57f06839b57c7df91c0212b106226d52790e8ccd3a",
+    "allowed_roi_exclusive": [
+      1535,
+      140,
+      1660,
+      212
+    ],
+    "review": "root-accepted car-free background component"
+  }
+}

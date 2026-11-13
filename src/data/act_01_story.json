@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "pages": [
+    {
+      "when": "greenkeeper_defeated",
+      "title": "GREENKEEPER NEUTRALIZED",
+      "text": "The Core's excavator lies still. The bunker has room to breathe."
+    },
+    {
+      "when": "dish_defense_completed",
+      "title": "ARRAY SECURED",
+      "text": "The feedhorn held through the 72-second lock. The array is safe for now."
+    },
+    {
+      "when": "fasr_001_received",
+      "title": "FIRST CONTACT",
+      "text": "FASR-001 answered the receiver. The message remains in your records."
+    },
+    {
+      "when": "fasr_001_validated",
+      "title": "SIGNAL TESTED",
+      "text": "The lab recorded a validation and its deployment decision."
+    },
+    {
+      "when": "greenkeeper_defeated",
+      "title": "OHIO SECURED",
+      "text": "The Core's hold on Big Ear is broken. Your next destination is Neo-Denver, where Synchronicity controls the blackout sector. Follow the road out of Ohio."
+    }
+  ]
+}

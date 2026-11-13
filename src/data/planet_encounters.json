@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "worlds": {
+    "alien_001": {
+      "enemy_id": "carrier_wraith",
+      "name": "Carrier Wraith",
+      "art_id": "carrier_wraith",
+      "style": "strafe",
+      "health": 110,
+      "contact_damage": 18,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "carrier_wraith",
+        "damage": 12,
+        "speed": 100,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_003": {
+      "enemy_id": "shard_clipper",
+      "name": "Shard Clipper",
+      "art_id": "shard_clipper",
+      "style": "swoop",
+      "health": 120,
+      "contact_damage": 18,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "shard_clipper",
+        "damage": 12,
+        "speed": 105,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_005": {
+      "enemy_id": "terminator_roller",
+      "name": "Terminator Roller",
+      "art_id": "terminator_roller",
+      "style": "lunge",
+      "health": 130,
+      "contact_damage": 20,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "terminator_roller",
+        "damage": 12,
+        "speed": 100,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_004": {
+      "enemy_id": "plasma_kite",
+      "name": "Plasma Kite",
+      "art_id": "plasma_kite",
+      "style": "swoop",
+      "health": 115,
+      "contact_damage": 18,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "plasma_kite",
+        "damage": 12,
+        "speed": 90,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_008": {
+      "enemy_id": "sevenfold_interceptor",
+      "name": "Sevenfold Interceptor",
+      "art_id": "sevenfold_interceptor",
+      "style": "strafe",
+      "health": 130,
+      "contact_damage": 19,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "sevenfold_interceptor",
+        "damage": 12,
+        "speed": 105,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_009": {
+      "enemy_id": "archive_skimmer",
+      "name": "Archive Skimmer",
+      "art_id": "archive_skimmer",
+      "style": "lunge",
+      "health": 140,
+      "contact_damage": 20,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "archive_skimmer",
+        "damage": 12,
+        "speed": 110,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_006": {
+      "enemy_id": "memorial_sentinel",
+      "name": "Memorial Sentinel",
+      "art_id": "memorial_sentinel",
+      "style": "pulse",
+      "health": 145,
+      "contact_damage": 20,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "memorial_sentinel",
+        "damage": 12,
+        "speed": 90,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_002": {
+      "enemy_id": "lensing_orb",
+      "name": "Lensing Orb",
+      "art_id": "lensing_orb",
+      "style": "pulse",
+      "health": 150,
+      "contact_damage": 21,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "lensing_orb",
+        "damage": 12,
+        "speed": 95,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_scan_h": {
+      "enemy_id": "paradox_knot",
+      "name": "Paradox Knot",
+      "art_id": "paradox_knot",
+      "style": "strafe",
+      "health": 150,
+      "contact_damage": 20,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "paradox_knot",
+        "damage": 12,
+        "speed": 100,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_010": {
+      "enemy_id": "resonance_effigy",
+      "name": "Resonance Effigy",
+      "art_id": "resonance_effigy",
+      "style": "lunge",
+      "health": 160,
+      "contact_damage": 22,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "resonance_effigy",
+        "damage": 12,
+        "speed": 90,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    },
+    "alien_007": {
+      "enemy_id": "beacon_mite",
+      "name": "Beacon Mite",
+      "art_id": "beacon_mite",
+      "style": "swoop",
+      "health": 160,
+      "contact_damage": 22,
+      "telegraph_seconds": 1.0,
+      "encounter_count": 24,
+      "first_trigger_x": 240,
+      "spacing": 132,
+      "max_active": 5,
+      "hazard": {
+        "kind": "planet_charge",
+        "art_id": "beacon_mite",
+        "damage": 12,
+        "speed": 105,
+        "warning_seconds": 1.25,
+        "cooldown_seconds": 7.0,
+        "initial_delay": 8.0
+      }
+    }
+  }
+}

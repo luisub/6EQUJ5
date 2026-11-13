@@ -1,7 +1,0 @@
-{
-  "source": "video_game/engine/crt_renderer.py",
-  "recovery": "video_game/art/reviews/visual_upgrade/previews/native_pre_lazy_recovery_v01/crt_renderer.py",
-  "sha256": "7880ef25674866e4f15ff3ac9dd6799425bf5902a125aa62eff72a7dd7ac29ef",
-  "method": "reconstructed immediately after edit by reversing exact lazy-snapshot patch; forward reapplication byte-identical to current file",
-  "note": "not a contemporaneous pre-edit filesystem copy"
-}

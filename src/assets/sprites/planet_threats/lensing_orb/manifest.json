@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "kind": "planet_threat",
+  "art_id": "lensing_orb",
+  "pivot": [
+    48,
+    64
+  ],
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      96,
+      72
+    ],
+    "sha256": "efca4323604a43f5656fd28d4db21543613a4bccdd9d62e150ea4b87a41c89e1"
+  },
+  "provenance": {
+    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/lensing_orb_v01/body_96x72.png",
+    "sha256": "efca4323604a43f5656fd28d4db21543613a4bccdd9d62e150ea4b87a41c89e1",
+    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/lensing_orb_v01/candidate.json",
+    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/lensing_orb_v01/PROVENANCE.md",
+    "review": "root-accepted original static source"
+  }
+}

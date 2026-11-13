@@ -1,0 +1,6 @@
+{
+  "status": "candidate_pending_review",
+  "image": {"file": "galaxy_map_960x540.png", "dimensions": [960, 540], "mode": "RGB", "sha256": "3845818f6946a98ab6105e003329f3e1fb52d6e43d4731e75d1e838b1f5d82e7"},
+  "source": {"file": "galaxy_map_master_v01.png", "dimensions": [1672, 941], "sha256": "e04c2adc21d3b5c6e2e3e0637ba369d102e7b2d6c7f8150d2a919135941482e6", "crop_box_exclusive": [0, 0, 1672, 941], "resampling": "Pillow nearest-neighbor"},
+  "record": "galaxy_map_provenance.md"
+}

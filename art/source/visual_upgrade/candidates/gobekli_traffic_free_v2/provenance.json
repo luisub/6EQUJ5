@@ -1,0 +1,75 @@
+{
+  "source": "video_game/assets/environments/campaign_worlds/gobekli_tepe_v1/background.png",
+  "source_sha256": "95bd230d690608d02b555c57f06839b57c7df91c0212b106226d52790e8ccd3a",
+  "context_crop_exclusive": [
+    1460,
+    96,
+    1748,
+    258
+  ],
+  "context_file": "original_context_288x162.png",
+  "context_sha256": "bd25e4771d7a8002948eb7ca25d52febe568b4ea0de9af18aca2abdfd44ecc00",
+  "original_roi_file": "original_roi_125x72.png",
+  "original_roi_sha256": "df9fd9ea24775f08bd8be25f150f5ebab6577d8b424906c7520a70d50064def4",
+  "roi_full_exclusive": [
+    1535,
+    140,
+    1660,
+    212
+  ],
+  "roi_context_exclusive": [
+    75,
+    44,
+    200,
+    116
+  ],
+  "iterations": [
+    {
+      "version": "v01",
+      "input": "original_context_288x162.png",
+      "prompt": "Edit this exact 288×162 pixel-art nighttime hillside context. Remove the entire small parked SUV, roof rack, wheels and its shadow. Replace only the SUV area with a natural continuation of the same dim blue-violet rocky hillside, sparse small low grass and distant scrub, with the same nighttime lighting and deliberate pixel clusters. The intended editable region in this input is x=75..199 and y=44..115 (pixel coordinates, right/bottom exclusive at x=200,y=116). Keep all other landscape, ridge heights, stone terrace, bushes, colors, camera and framing precisely registered as in the input; do not change the hill profile, perspective or visible terrace. Do not insert a different vehicle, person, building, object, markings or text. No solid black cover, blur patch, new light or smearing. Return the full same 16:9 context, not a crop, with the empty terrain seamlessly aligned at the edges of the edit rectangle. This is an original fictional game background; match existing pixel-art texture and subdued night palette.",
+      "generated_master": "generated_context_v01.png",
+      "generated_master_dimensions": [
+        1672,
+        941
+      ],
+      "generated_master_sha256": "575888b18666fcc27dd6a464bd4ac2d95fde17033276a410f5233e9d56dd8d6b",
+      "transform": "Nearest-neighbor resize entire generated master to 288×162, crop x=75..199 and y=44..115, paste at (1535,140) on an unmodified copy of the RGB source. No blending or changes outside ROI.",
+      "candidate_roi_sha256": "cb2b9eb84c31503f8469473dfaf4c1a3292e6d2148116eb4e4e9c78be6fc08e5",
+      "candidate_background_sha256": "a05818ab9dcdfd8fa241d4f48dc5678de3745d50baed400c388d4d1214bd40bd"
+    },
+    {
+      "version": "v02",
+      "input": "original_context_288x162.png",
+      "prompt": "Edit this exact small pixel-art hillside image by removing ONLY the parked SUV and its shadow. Keep the input composition and every existing landscape contour, rock band, terrace, bush, brightness and texture unchanged around the vehicle. Fill the removed vehicle with the immediately neighboring dark indigo-blue hillside texture, continuing the horizontal rocky stratum and small subdued grass, without inventing any new large feature. The region to be changed in the original 288×162 input is x=75 through 199, y=44 through 115; its boundary must meet the existing source pixels invisibly on all four edges. Preserve exact registration of the entire input: no zoom, pan, crop, re-render of the scene, changed hill shape or terrace alignment. Do not add vehicles, buildings, lights, people, objects, text, glow, black rectangle, blurry patch or smearing. Return the entire original 16:9 frame with natural matching pixel clusters, not a close-up.",
+      "generated_master": "generated_context_v02.png",
+      "generated_master_dimensions": [
+        1672,
+        941
+      ],
+      "generated_master_sha256": "5b16b64e2c40d01d894ff005bcc766f4ff74070e8fdc900c6a3cb39b7462d350",
+      "transform": "Nearest-neighbor resize entire generated master to 288×162, crop x=75..199 and y=44..115, paste at (1535,140) on an unmodified copy of the RGB source. No blending or changes outside ROI.",
+      "candidate_roi_sha256": "c050973f23035c1860aefb57594faeac5f8da600cec1d030812b39cf0016c9fa",
+      "candidate_background_sha256": "e6547b0057d5784e9cc5d5caf0f429fc259a7cc1e71f7519d9f953d0ddea40a7"
+    }
+  ],
+  "selected": "v02",
+  "output_file": "background.png",
+  "output_sha256": "e6547b0057d5784e9cc5d5caf0f429fc259a7cc1e71f7519d9f953d0ddea40a7",
+  "roi_file": "candidate_roi.png",
+  "roi_sha256": "c050973f23035c1860aefb57594faeac5f8da600cec1d030812b39cf0016c9fa",
+  "mode": "RGB",
+  "dimensions": [
+    1920,
+    540
+  ],
+  "difference_bbox_exclusive": [
+    1535,
+    140,
+    1660,
+    212
+  ],
+  "changed_pixel_count": 8999,
+  "outside_roi_identical": true,
+  "inspection": "No remaining visible SUV in the native full plate. At 4x the patch texture has a mild boundary variation; no obvious seam at 1x. Static source review only, runtime review pending."
+}

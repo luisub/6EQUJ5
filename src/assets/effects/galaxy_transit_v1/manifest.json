@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "galaxy_transit",
+  "images": {
+    "galaxy_map": {
+      "file": "galaxy_map_960x540.png",
+      "dimensions": [
+        960,
+        540
+      ],
+      "sha256": "3845818f6946a98ab6105e003329f3e1fb52d6e43d4731e75d1e838b1f5d82e7"
+    },
+    "vortex": {
+      "file": "vortex_512x512.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "dacb2d347de7aef80a6da8cdbec529504e9ff46add71f9a74ec59b2bc1293921"
+    }
+  },
+  "provenance": {
+    "sources": {
+      "galaxy_map": "video_game/art/source/visual_upgrade/candidates/galaxy_transit_v01/galaxy_map_960x540.png",
+      "vortex": "video_game/art/source/visual_upgrade/candidates/galaxy_transit_v01/vortex_512x512.png"
+    },
+    "sha256": {
+      "galaxy_map": "3845818f6946a98ab6105e003329f3e1fb52d6e43d4731e75d1e838b1f5d82e7",
+      "vortex": "dacb2d347de7aef80a6da8cdbec529504e9ff46add71f9a74ec59b2bc1293921"
+    },
+    "provenance_records": [
+      "video_game/art/source/visual_upgrade/candidates/galaxy_transit_v01/galaxy_map_provenance.md",
+      "video_game/art/source/visual_upgrade/candidates/galaxy_transit_v01/vortex_provenance.md"
+    ],
+    "review": "accepted source components"
+  }
+}

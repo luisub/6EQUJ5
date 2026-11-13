@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "lensing_orb",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "efca4323604a43f5656fd28d4db21543613a4bccdd9d62e150ea4b87a41c89e1"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v02.png", "dimensions": [1448, 1086], "sha256": "2bc7b57b243a38ae95b2a8b50eba803cbbd9587be47fd839cef18229f007da00", "crop_box_exclusive": [223, 267, 1172, 744], "resize": [84, 42], "paste": [6, 21], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [7, 22, 89, 62],
+  "alpha_at_least_240_pixels": 1203,
+  "record": "PROVENANCE.md"
+}

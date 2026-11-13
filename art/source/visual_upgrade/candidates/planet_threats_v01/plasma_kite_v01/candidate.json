@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "plasma_kite",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "979b6d08988c4e7b3c9b708251e7919286c1fc17a5e48b7fa155d20359d0ad04"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v01.png", "dimensions": [1448, 1086], "sha256": "34f230f6eb35ee7b1a8d3f4487e14ea900696f00eb97c1b205539a5deed6dd35", "crop_box_exclusive": [245, 144, 1228, 918], "resize": [70, 55], "paste": [13, 9], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [14, 10, 83, 63],
+  "alpha_at_least_240_pixels": 2157,
+  "record": "PROVENANCE.md"
+}

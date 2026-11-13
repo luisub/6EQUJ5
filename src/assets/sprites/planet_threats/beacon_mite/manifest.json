@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "kind": "planet_threat",
+  "art_id": "beacon_mite",
+  "pivot": [
+    48,
+    64
+  ],
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      96,
+      72
+    ],
+    "sha256": "5575f90c6e48e2bb89a34fc4d46fb48f83dd453ef6ae363cac767d2e1da00c69"
+  },
+  "provenance": {
+    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/beacon_mite_v01/body_96x72.png",
+    "sha256": "5575f90c6e48e2bb89a34fc4d46fb48f83dd453ef6ae363cac767d2e1da00c69",
+    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/beacon_mite_v01/candidate.json",
+    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/beacon_mite_v01/PROVENANCE.md",
+    "review": "root-accepted original static source"
+  }
+}

@@ -1,46 +1,30 @@
 [build-system]
-requires = ["setuptools>=64"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "6equj5"
+name = "6equj5-game"
 version = "1977.815"
-description = "..."
+description = "The Fermi Override: an offline science-fiction action adventure"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.8"
-dependencies = ["ollama>=0.4"]
-authors = [
-    { name = "Big Ear Radio Observatory", email = "receiver@bigear.org" },
-]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "Topic :: Scientific/Engineering :: Astronomy",
-    "Programming Language :: Python :: 3",
-]
+requires-python = ">=3.12"
+dependencies = ["pygame-ce>=2.5.0", "Pillow>=10.0.0", "numpy>=1.24.0"]
 
 [project.scripts]
-6equj5 = "signal_6EQUJ5.__main__:main"
 6equj5-game = "video_game.main:main"
 
 [project.optional-dependencies]
-ai = ["ollama>=0.4"]  # kept for backward compatibility
-game = [
-    "pygame-ce>=2.5.0",
-    "Pillow>=10.0.0",
-    "numpy>=1.24.0",
-]
+dev = ["pytest>=8", "setuptools>=77", "wheel"]
 
 [tool.setuptools]
 include-package-data = false
-
-[tool.setuptools.packages.find]
-where = ["src", "."]
-include = ["signal_6EQUJ5*", "video_game*"]
-exclude = ["video_game.tests*", "video_game._trash*", "video_game._temp*", "video_game.planning*", "video_game.art*"]
-namespaces = false
+packages = ["video_game", "video_game.engine", "video_game.engine.bosses", "video_game.engine.labs", "video_game.engine.scenes", "video_game.engine.ui"]
+package-dir = { video_game = "src" }
 
 [tool.setuptools.package-data]
-signal_6EQUJ5 = ["data/*.txt", "data/**/*.txt"]
 video_game = ["assets/**/*", "data/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

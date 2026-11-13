@@ -1,0 +1,826 @@
+Processing /private/tmp/6equj5-clean-build-xxf32gi1/source
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: 6equj5-game
+  Building wheel for 6equj5-game (pyproject.toml): started
+  Building wheel for 6equj5-game (pyproject.toml): finished with status 'done'
+  Created wheel for 6equj5-game: filename=6equj5_game-1977.815-py3-none-any.whl size=33291412 sha256=54a00915cf29b6cdf1d9f08a2912c48f6b02e038bcdcbba555e3d11da220cdfd
+  Stored in directory: /private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/pip-ephem-wheel-cache-42nrz4j9/wheels/3d/e2/03/26a0fd0e814ed385eb33193f697e4c55e90eb744efa5a45824
+Successfully built 6equj5-game
+running sdist
+running egg_info
+writing 6equj5_game.egg-info/PKG-INFO
+writing dependency_links to 6equj5_game.egg-info/dependency_links.txt
+writing entry points to 6equj5_game.egg-info/entry_points.txt
+writing requirements to 6equj5_game.egg-info/requires.txt
+writing top-level names to 6equj5_game.egg-info/top_level.txt
+reading manifest file '6equj5_game.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '*.txt' under directory 'src'
+warning: no files found matching '*.ogg' under directory 'src'
+warning: no files found matching '*.ttf' under directory 'src'
+warning: no files found matching '*.otf' under directory 'src'
+no previously-included directories found matching '_trash'
+no previously-included directories found matching '_temp'
+no previously-included directories found matching 'art'
+no previously-included directories found matching 'build'
+no previously-included directories found matching 'dist'
+no previously-included directories found matching '.venv'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+warning: no previously-included files matching '.DS_Store' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file '6equj5_game.egg-info/SOURCES.txt'
+running check
+creating 6equj5_game-1977.815
+creating 6equj5_game-1977.815/6equj5_game.egg-info
+creating 6equj5_game-1977.815/docs
+creating 6equj5_game-1977.815/docs/migration
+creating 6equj5_game-1977.815/docs/planning
+creating 6equj5_game-1977.815/docs/planning/evidence/F04/2026-11-10_scene_cache
+creating 6equj5_game-1977.815/docs/planning/milestones
+creating 6equj5_game-1977.815/src
+creating 6equj5_game-1977.815/src/assets
+creating 6equj5_game-1977.815/src/assets/audio
+creating 6equj5_game-1977.815/src/assets/bunker
+creating 6equj5_game-1977.815/src/assets/bunker/inspection
+creating 6equj5_game-1977.815/src/assets/civilizations
+creating 6equj5_game-1977.815/src/assets/effects/approach_maser_flash_v1
+creating 6equj5_game-1977.815/src/assets/effects/energy_filament_v1
+creating 6equj5_game-1977.815/src/assets/effects/energy_filament_v2
+creating 6equj5_game-1977.815/src/assets/effects/galaxy_transit_v1
+creating 6equj5_game-1977.815/src/assets/effects/maser_discharge_v2
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/area_51_hangar_v1
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/area_51_v1
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_archive_v1
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_tepe_v1
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_tepe_v2
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/neo_denver_v1
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/realm_fasr_001_v1
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/realm_fasr_003_v1
+creating 6equj5_game-1977.815/src/assets/environments/campaign_worlds/vla_rift_v1
+creating 6equj5_game-1977.815/src/assets/environments/dodleston_relay_v1
+creating 6equj5_game-1977.815/src/assets/environments/ehman_1977_v1
+creating 6equj5_game-1977.815/src/assets/environments/mandela_annex_v1
+creating 6equj5_game-1977.815/src/assets/environments/ohio
+creating 6equj5_game-1977.815/src/assets/environments/ohio_approach_v1
+creating 6equj5_game-1977.815/src/assets/environments/ohio_approach_v2
+creating 6equj5_game-1977.815/src/assets/environments/ohio_arena_v1
+creating 6equj5_game-1977.815/src/assets/environments/ohio_bunker_v1
+creating 6equj5_game-1977.815/src/assets/environments/ohio_campus_v1
+creating 6equj5_game-1977.815/src/assets/environments/ohio_dish_v1
+creating 6equj5_game-1977.815/src/assets/environments/ohio_salvage_v1
+creating 6equj5_game-1977.815/src/assets/sprites
+creating 6equj5_game-1977.815/src/assets/sprites/bosses
+creating 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/earth_core_ai
+creating 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/guardian_fasr_001
+creating 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/guardian_fasr_003
+creating 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/synchronicity
+creating 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+creating 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper_heavy_v1
+creating 6equj5_game-1977.815/src/assets/sprites/enemies
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+creating 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+creating 6equj5_game-1977.815/src/assets/sprites/mateo
+creating 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+creating 6equj5_game-1977.815/src/assets/sprites/mateo/field_outfit
+creating 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+creating 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/archive_skimmer
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/beacon_mite
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/carrier_wraith
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/lensing_orb
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/memorial_sentinel
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/paradox_knot
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/plasma_kite
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/resonance_effigy
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/sevenfold_interceptor
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/shard_clipper
+creating 6equj5_game-1977.815/src/assets/sprites/planet_threats/terminator_roller
+creating 6equj5_game-1977.815/src/assets/tilesets/bunker
+creating 6equj5_game-1977.815/src/data
+creating 6equj5_game-1977.815/src/data/levels/act_01
+creating 6equj5_game-1977.815/src/data/levels/act_02
+creating 6equj5_game-1977.815/src/data/levels/act_03
+creating 6equj5_game-1977.815/src/data/levels/act_04
+creating 6equj5_game-1977.815/src/data/levels/act_05
+creating 6equj5_game-1977.815/src/data/levels/alien_worlds
+creating 6equj5_game-1977.815/src/data/levels/earth_finale
+creating 6equj5_game-1977.815/src/data/levels/flashback
+creating 6equj5_game-1977.815/src/engine
+creating 6equj5_game-1977.815/src/engine/bosses
+creating 6equj5_game-1977.815/src/engine/labs
+creating 6equj5_game-1977.815/src/engine/scenes
+creating 6equj5_game-1977.815/src/engine/ui
+creating 6equj5_game-1977.815/tests
+creating 6equj5_game-1977.815/tests/fixtures
+creating 6equj5_game-1977.815/tools
+copying files to 6equj5_game-1977.815...
+copying AGENTS.md -> 6equj5_game-1977.815
+copying LICENSE -> 6equj5_game-1977.815
+copying MANIFEST.in -> 6equj5_game-1977.815
+copying README.md -> 6equj5_game-1977.815
+copying pyproject.toml -> 6equj5_game-1977.815
+copying 6equj5_game.egg-info/PKG-INFO -> 6equj5_game-1977.815/6equj5_game.egg-info
+copying 6equj5_game.egg-info/SOURCES.txt -> 6equj5_game-1977.815/6equj5_game.egg-info
+copying 6equj5_game.egg-info/dependency_links.txt -> 6equj5_game-1977.815/6equj5_game.egg-info
+copying 6equj5_game.egg-info/entry_points.txt -> 6equj5_game-1977.815/6equj5_game.egg-info
+copying 6equj5_game.egg-info/requires.txt -> 6equj5_game-1977.815/6equj5_game.egg-info
+copying 6equj5_game.egg-info/top_level.txt -> 6equj5_game-1977.815/6equj5_game.egg-info
+copying docs/ARCHITECTURE.md -> 6equj5_game-1977.815/docs
+copying docs/CONTROLS.md -> 6equj5_game-1977.815/docs
+copying docs/migration/REPORT.md -> 6equj5_game-1977.815/docs/migration
+copying docs/planning/ART_PRODUCTION.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/CODE_STANDARDS_AND_MAP.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/CONTENT_PLAN.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/CURRENT_STATE.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/DATA_CONTRACTS.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/EXECUTION_PROTOCOL.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/ISSUES_AND_DECISIONS.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/PROGRESS_LOG.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/QUALITY_GATES.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/README.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/TODO_ROADMAP.md -> 6equj5_game-1977.815/docs/planning
+copying docs/planning/evidence/F04/2026-11-10_scene_cache/report.md -> 6equj5_game-1977.815/docs/planning/evidence/F04/2026-11-10_scene_cache
+copying docs/planning/milestones/00_foundation.md -> 6equj5_game-1977.815/docs/planning/milestones
+copying docs/planning/milestones/01_contact_loop.md -> 6equj5_game-1977.815/docs/planning/milestones
+copying docs/planning/milestones/02_action_slice.md -> 6equj5_game-1977.815/docs/planning/milestones
+copying docs/planning/milestones/03_science_and_reality.md -> 6equj5_game-1977.815/docs/planning/milestones
+copying docs/planning/milestones/04_campaign.md -> 6equj5_game-1977.815/docs/planning/milestones
+copying docs/planning/milestones/05_release.md -> 6equj5_game-1977.815/docs/planning/milestones
+copying docs/planning/milestones/06_alien_journey.md -> 6equj5_game-1977.815/docs/planning/milestones
+copying src/__init__.py -> 6equj5_game-1977.815/src
+copying src/main.py -> 6equj5_game-1977.815/src
+copying src/assets/all_civilizations_roster.png -> 6equj5_game-1977.815/src/assets
+copying src/assets/before_after_comparison.png -> 6equj5_game-1977.815/src/assets
+copying src/assets/manifest.json -> 6equj5_game-1977.815/src/assets
+copying src/assets/mateo_character_sheet.png -> 6equj5_game-1977.815/src/assets
+copying src/assets/palette_sheet.png -> 6equj5_game-1977.815/src/assets
+copying src/assets/audio/Echoes_of_the_Static_Void.mp3 -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/Static_Bloom.mp3 -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/alarm_lock.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/boss_mortar_launch.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/enemy_telegraph.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/impact_spark.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/manifest.json -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/maser_charge.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/maser_tap.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/player_hurt.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/player_jump.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/player_land.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/player_slide.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/printer_chatter.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/audio/station_chime.wav -> 6equj5_game-1977.815/src/assets/audio
+copying src/assets/bunker/01_distant_structure.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/02_rear_wall.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/03_equipment.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/04_playable_floor.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/05_foreground_props.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/06_lighting_overlay.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/bunker_preview_crt_off.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/bunker_preview_crt_on.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/pygame_live_1440x810_crt_on.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/pygame_live_480x270_crt_off.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/pygame_live_crt_terminal.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/scene_manifest.json -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/tileset_bunker_16x16.png -> 6equj5_game-1977.815/src/assets/bunker
+copying src/assets/bunker/inspection/01_distant_structure_inspect.png -> 6equj5_game-1977.815/src/assets/bunker/inspection
+copying src/assets/bunker/inspection/02_rear_wall_inspect.png -> 6equj5_game-1977.815/src/assets/bunker/inspection
+copying src/assets/bunker/inspection/03_equipment_inspect.png -> 6equj5_game-1977.815/src/assets/bunker/inspection
+copying src/assets/bunker/inspection/04_playable_floor_inspect.png -> 6equj5_game-1977.815/src/assets/bunker/inspection
+copying src/assets/bunker/inspection/05_foreground_props_inspect.png -> 6equj5_game-1977.815/src/assets/bunker/inspection
+copying src/assets/bunker/inspection/06_lighting_overlay_inspect.png -> 6equj5_game-1977.815/src/assets/bunker/inspection
+copying src/assets/civilizations/fasr-001_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-001_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-001_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-001_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-002_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-002_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-002_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-002_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-003_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-003_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-003_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-003_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-004_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-004_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-004_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-004_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-005_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-005_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-005_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-005_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-006_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-006_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-006_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-006_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-007_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-007_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-007_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-007_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-008_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-008_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-008_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-008_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-009_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-009_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-009_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-009_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-010_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-010_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-010_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-010_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-scan-h_composite.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-scan-h_constellation.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-scan-h_env.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/fasr-scan-h_face.png -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/civilizations/manifest.json -> 6equj5_game-1977.815/src/assets/civilizations
+copying src/assets/effects/approach_maser_flash_v1/flash_64x32.png -> 6equj5_game-1977.815/src/assets/effects/approach_maser_flash_v1
+copying src/assets/effects/approach_maser_flash_v1/manifest.json -> 6equj5_game-1977.815/src/assets/effects/approach_maser_flash_v1
+copying src/assets/effects/energy_filament_v1/manifest.json -> 6equj5_game-1977.815/src/assets/effects/energy_filament_v1
+copying src/assets/effects/energy_filament_v1/stream_96x24.png -> 6equj5_game-1977.815/src/assets/effects/energy_filament_v1
+copying src/assets/effects/energy_filament_v2/manifest.json -> 6equj5_game-1977.815/src/assets/effects/energy_filament_v2
+copying src/assets/effects/energy_filament_v2/stream_96x24.png -> 6equj5_game-1977.815/src/assets/effects/energy_filament_v2
+copying src/assets/effects/galaxy_transit_v1/galaxy_map_960x540.png -> 6equj5_game-1977.815/src/assets/effects/galaxy_transit_v1
+copying src/assets/effects/galaxy_transit_v1/manifest.json -> 6equj5_game-1977.815/src/assets/effects/galaxy_transit_v1
+copying src/assets/effects/galaxy_transit_v1/vortex_512x512.png -> 6equj5_game-1977.815/src/assets/effects/galaxy_transit_v1
+copying src/assets/effects/maser_discharge_v2/flash_64x32.png -> 6equj5_game-1977.815/src/assets/effects/maser_discharge_v2
+copying src/assets/effects/maser_discharge_v2/manifest.json -> 6equj5_game-1977.815/src/assets/effects/maser_discharge_v2
+copying src/assets/environments/campaign_worlds/area_51_hangar_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/area_51_hangar_v1
+copying src/assets/environments/campaign_worlds/area_51_hangar_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/area_51_hangar_v1
+copying src/assets/environments/campaign_worlds/area_51_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/area_51_v1
+copying src/assets/environments/campaign_worlds/area_51_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/area_51_v1
+copying src/assets/environments/campaign_worlds/gobekli_archive_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_archive_v1
+copying src/assets/environments/campaign_worlds/gobekli_archive_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_archive_v1
+copying src/assets/environments/campaign_worlds/gobekli_tepe_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_tepe_v1
+copying src/assets/environments/campaign_worlds/gobekli_tepe_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_tepe_v1
+copying src/assets/environments/campaign_worlds/gobekli_tepe_v2/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_tepe_v2
+copying src/assets/environments/campaign_worlds/gobekli_tepe_v2/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/gobekli_tepe_v2
+copying src/assets/environments/campaign_worlds/neo_denver_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/neo_denver_v1
+copying src/assets/environments/campaign_worlds/neo_denver_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/neo_denver_v1
+copying src/assets/environments/campaign_worlds/realm_fasr_001_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/realm_fasr_001_v1
+copying src/assets/environments/campaign_worlds/realm_fasr_001_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/realm_fasr_001_v1
+copying src/assets/environments/campaign_worlds/realm_fasr_003_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/realm_fasr_003_v1
+copying src/assets/environments/campaign_worlds/realm_fasr_003_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/realm_fasr_003_v1
+copying src/assets/environments/campaign_worlds/vla_rift_v1/background.png -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/vla_rift_v1
+copying src/assets/environments/campaign_worlds/vla_rift_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/campaign_worlds/vla_rift_v1
+copying src/assets/environments/dodleston_relay_v1/backdrop_960x576.png -> 6equj5_game-1977.815/src/assets/environments/dodleston_relay_v1
+copying src/assets/environments/dodleston_relay_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/dodleston_relay_v1
+copying src/assets/environments/ehman_1977_v1/backdrop_960x576.png -> 6equj5_game-1977.815/src/assets/environments/ehman_1977_v1
+copying src/assets/environments/ehman_1977_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ehman_1977_v1
+copying src/assets/environments/mandela_annex_v1/backdrop_960x576.png -> 6equj5_game-1977.815/src/assets/environments/mandela_annex_v1
+copying src/assets/environments/mandela_annex_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/mandela_annex_v1
+copying src/assets/environments/ohio/bg_ohio_dish_lattice.png -> 6equj5_game-1977.815/src/assets/environments/ohio
+copying src/assets/environments/ohio/bg_ohio_sky_twilight.png -> 6equj5_game-1977.815/src/assets/environments/ohio
+copying src/assets/environments/ohio/bg_ohio_treeline_fence.png -> 6equj5_game-1977.815/src/assets/environments/ohio
+copying src/assets/environments/ohio/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio
+copying src/assets/environments/ohio/tileset_ohio_16x16.png -> 6equj5_game-1977.815/src/assets/environments/ohio
+copying src/assets/environments/ohio/weather_ohio_mist.png -> 6equj5_game-1977.815/src/assets/environments/ohio
+copying src/assets/environments/ohio_approach_v1/far_1152x544.png -> 6equj5_game-1977.815/src/assets/environments/ohio_approach_v1
+copying src/assets/environments/ohio_approach_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio_approach_v1
+copying src/assets/environments/ohio_approach_v1/world_architecture_1920x576.png -> 6equj5_game-1977.815/src/assets/environments/ohio_approach_v1
+copying src/assets/environments/ohio_approach_v2/equipment_112x64_rgba.png -> 6equj5_game-1977.815/src/assets/environments/ohio_approach_v2
+copying src/assets/environments/ohio_approach_v2/far_1152x544.png -> 6equj5_game-1977.815/src/assets/environments/ohio_approach_v2
+copying src/assets/environments/ohio_approach_v2/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio_approach_v2
+copying src/assets/environments/ohio_approach_v2/world_1920x576.png -> 6equj5_game-1977.815/src/assets/environments/ohio_approach_v2
+copying src/assets/environments/ohio_arena_v1/far_1152x544.png -> 6equj5_game-1977.815/src/assets/environments/ohio_arena_v1
+copying src/assets/environments/ohio_arena_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio_arena_v1
+copying src/assets/environments/ohio_arena_v1/world_1280x576.png -> 6equj5_game-1977.815/src/assets/environments/ohio_arena_v1
+copying src/assets/environments/ohio_bunker_v1/backdrop_960x540.png -> 6equj5_game-1977.815/src/assets/environments/ohio_bunker_v1
+copying src/assets/environments/ohio_bunker_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio_bunker_v1
+copying src/assets/environments/ohio_campus_v1/far_1152x544.png -> 6equj5_game-1977.815/src/assets/environments/ohio_campus_v1
+copying src/assets/environments/ohio_campus_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio_campus_v1
+copying src/assets/environments/ohio_campus_v1/world_2560x576.png -> 6equj5_game-1977.815/src/assets/environments/ohio_campus_v1
+copying src/assets/environments/ohio_dish_v1/far_1152x544.png -> 6equj5_game-1977.815/src/assets/environments/ohio_dish_v1
+copying src/assets/environments/ohio_dish_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio_dish_v1
+copying src/assets/environments/ohio_dish_v1/world_1280x576.png -> 6equj5_game-1977.815/src/assets/environments/ohio_dish_v1
+copying src/assets/environments/ohio_salvage_v1/far_1152x544.png -> 6equj5_game-1977.815/src/assets/environments/ohio_salvage_v1
+copying src/assets/environments/ohio_salvage_v1/manifest.json -> 6equj5_game-1977.815/src/assets/environments/ohio_salvage_v1
+copying src/assets/environments/ohio_salvage_v1/wagon_168x76_rgba.png -> 6equj5_game-1977.815/src/assets/environments/ohio_salvage_v1
+copying src/assets/environments/ohio_salvage_v1/world_1280x576.png -> 6equj5_game-1977.815/src/assets/environments/ohio_salvage_v1
+copying src/assets/sprites/mateo_bunker_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_48x64.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_crouch_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_idle_1_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_idle_2_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_jump_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_run_1_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_run_2_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_run_3_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_run_4_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_shoot_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_slide_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_strip.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_faraday_rig_tune_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_idle_48x64.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_48x64.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_crouch_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_idle_1_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_idle_2_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_jump_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_run_1_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_run_2_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_run_3_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_run_4_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_shoot_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_slide_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_strip.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_navy_chore_tune_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_48x64.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_crouch_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_idle_1_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_idle_2_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_jump_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_run_1_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_run_2_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_run_3_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_run_4_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_shoot_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_slide_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_strip.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_olive_field_tune_96x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/mateo_portrait_128x128.png -> 6equj5_game-1977.815/src/assets/sprites
+copying src/assets/sprites/bosses/greenkeeper.png -> 6equj5_game-1977.815/src/assets/sprites/bosses
+copying src/assets/sprites/bosses/campaign/earth_core_ai/body.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/earth_core_ai
+copying src/assets/sprites/bosses/campaign/earth_core_ai/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/earth_core_ai
+copying src/assets/sprites/bosses/campaign/guardian_fasr_001/body.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/guardian_fasr_001
+copying src/assets/sprites/bosses/campaign/guardian_fasr_001/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/guardian_fasr_001
+copying src/assets/sprites/bosses/campaign/guardian_fasr_003/body.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/guardian_fasr_003
+copying src/assets/sprites/bosses/campaign/guardian_fasr_003/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/guardian_fasr_003
+copying src/assets/sprites/bosses/campaign/synchronicity/body.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/synchronicity
+copying src/assets/sprites/bosses/campaign/synchronicity/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/bosses/campaign/synchronicity
+copying src/assets/sprites/bosses/greenkeeper/charge_1.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/charge_2.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/defeated.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/idle_1.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/idle_2.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/mortar_aim.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/mortar_fire.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/sweep_charge.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/vulnerable_1.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper/vulnerable_2.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper
+copying src/assets/sprites/bosses/greenkeeper_heavy_v1/attack.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper_heavy_v1
+copying src/assets/sprites/bosses/greenkeeper_heavy_v1/exposed.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper_heavy_v1
+copying src/assets/sprites/bosses/greenkeeper_heavy_v1/idle.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper_heavy_v1
+copying src/assets/sprites/bosses/greenkeeper_heavy_v1/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper_heavy_v1
+copying src/assets/sprites/bosses/greenkeeper_heavy_v1/wreck.png -> 6equj5_game-1977.815/src/assets/sprites/bosses/greenkeeper_heavy_v1
+copying src/assets/sprites/enemies/chrysalis_splicer.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/core_enforcer.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/core_operative.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/core_recon_drone.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/phase_watcher.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/precursor_guardian.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/shield_hound.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/static_hound.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/temporal_phantom.png -> 6equj5_game-1977.815/src/assets/sprites/enemies
+copying src/assets/sprites/enemies/chrysalis_splicer/attack.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+copying src/assets/sprites/enemies/chrysalis_splicer/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+copying src/assets/sprites/enemies/chrysalis_splicer/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+copying src/assets/sprites/enemies/chrysalis_splicer/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+copying src/assets/sprites/enemies/chrysalis_splicer/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+copying src/assets/sprites/enemies/chrysalis_splicer/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+copying src/assets/sprites/enemies/chrysalis_splicer/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/chrysalis_splicer
+copying src/assets/sprites/enemies/core_enforcer/attack.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+copying src/assets/sprites/enemies/core_enforcer/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+copying src/assets/sprites/enemies/core_enforcer/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+copying src/assets/sprites/enemies/core_enforcer/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+copying src/assets/sprites/enemies/core_enforcer/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+copying src/assets/sprites/enemies/core_enforcer/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+copying src/assets/sprites/enemies/core_enforcer/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_enforcer
+copying src/assets/sprites/enemies/core_operative/attack.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+copying src/assets/sprites/enemies/core_operative/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+copying src/assets/sprites/enemies/core_operative/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+copying src/assets/sprites/enemies/core_operative/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+copying src/assets/sprites/enemies/core_operative/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+copying src/assets/sprites/enemies/core_operative/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+copying src/assets/sprites/enemies/core_operative/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_operative
+copying src/assets/sprites/enemies/core_recon_drone/attack.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/core_recon_drone/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/core_recon_drone/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/core_recon_drone/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/core_recon_drone/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/core_recon_drone/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/core_recon_drone/windup_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/core_recon_drone/windup_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/core_recon_drone
+copying src/assets/sprites/enemies/phase_watcher/attack.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+copying src/assets/sprites/enemies/phase_watcher/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+copying src/assets/sprites/enemies/phase_watcher/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+copying src/assets/sprites/enemies/phase_watcher/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+copying src/assets/sprites/enemies/phase_watcher/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+copying src/assets/sprites/enemies/phase_watcher/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+copying src/assets/sprites/enemies/phase_watcher/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/phase_watcher
+copying src/assets/sprites/enemies/precursor_guardian/attack.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+copying src/assets/sprites/enemies/precursor_guardian/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+copying src/assets/sprites/enemies/precursor_guardian/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+copying src/assets/sprites/enemies/precursor_guardian/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+copying src/assets/sprites/enemies/precursor_guardian/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+copying src/assets/sprites/enemies/precursor_guardian/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+copying src/assets/sprites/enemies/precursor_guardian/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/precursor_guardian
+copying src/assets/sprites/enemies/shield_hound/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+copying src/assets/sprites/enemies/shield_hound/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+copying src/assets/sprites/enemies/shield_hound/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+copying src/assets/sprites/enemies/shield_hound/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+copying src/assets/sprites/enemies/shield_hound/pounce.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+copying src/assets/sprites/enemies/shield_hound/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+copying src/assets/sprites/enemies/shield_hound/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/shield_hound
+copying src/assets/sprites/enemies/static_hound/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+copying src/assets/sprites/enemies/static_hound/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+copying src/assets/sprites/enemies/static_hound/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+copying src/assets/sprites/enemies/static_hound/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+copying src/assets/sprites/enemies/static_hound/pounce.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+copying src/assets/sprites/enemies/static_hound/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+copying src/assets/sprites/enemies/static_hound/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/static_hound
+copying src/assets/sprites/enemies/temporal_phantom/attack.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+copying src/assets/sprites/enemies/temporal_phantom/death.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+copying src/assets/sprites/enemies/temporal_phantom/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+copying src/assets/sprites/enemies/temporal_phantom/patrol_1.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+copying src/assets/sprites/enemies/temporal_phantom/patrol_2.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+copying src/assets/sprites/enemies/temporal_phantom/recovery.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+copying src/assets/sprites/enemies/temporal_phantom/windup.png -> 6equj5_game-1977.815/src/assets/sprites/enemies/temporal_phantom
+copying src/assets/sprites/mateo/bunker_96x128.png -> 6equj5_game-1977.815/src/assets/sprites/mateo
+copying src/assets/sprites/mateo/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/mateo
+copying src/assets/sprites/mateo/portrait_128x128.png -> 6equj5_game-1977.815/src/assets/sprites/mateo
+copying src/assets/sprites/mateo/faraday_rig/48x64.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/96x128.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/cover_background.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/cover_low.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/crouch.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/death.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/fall.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/idle_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/idle_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/idle_3.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/idle_4.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/jump.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/land.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/recoil.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/run_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/run_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/run_3.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/run_4.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/shoot.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/slide.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/strip.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/tune.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/walk_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/faraday_rig/walk_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/faraday_rig
+copying src/assets/sprites/mateo/field_outfit/idle.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/field_outfit
+copying src/assets/sprites/mateo/field_outfit/jump.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/field_outfit
+copying src/assets/sprites/mateo/field_outfit/run.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/field_outfit
+copying src/assets/sprites/mateo/field_outfit/shoot.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/field_outfit
+copying src/assets/sprites/mateo/field_outfit/slide.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/field_outfit
+copying src/assets/sprites/mateo/navy_chore/48x64.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/96x128.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/cover_background.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/cover_low.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/crouch.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/death.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/fall.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/idle_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/idle_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/idle_3.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/idle_4.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/jump.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/land.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/recoil.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/run_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/run_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/run_3.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/run_4.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/shoot.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/slide.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/strip.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/tune.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/walk_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/navy_chore/walk_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/navy_chore
+copying src/assets/sprites/mateo/olive_field/48x64.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/96x128.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/cover_background.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/cover_low.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/crouch.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/death.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/fall.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/hurt.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/idle_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/idle_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/idle_3.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/idle_4.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/jump.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/land.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/recoil.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/run_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/run_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/run_3.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/run_4.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/shoot.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/slide.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/strip.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/tune.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/walk_1.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/mateo/olive_field/walk_2.png -> 6equj5_game-1977.815/src/assets/sprites/mateo/olive_field
+copying src/assets/sprites/planet_threats/archive_skimmer/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/archive_skimmer
+copying src/assets/sprites/planet_threats/archive_skimmer/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/archive_skimmer
+copying src/assets/sprites/planet_threats/beacon_mite/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/beacon_mite
+copying src/assets/sprites/planet_threats/beacon_mite/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/beacon_mite
+copying src/assets/sprites/planet_threats/carrier_wraith/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/carrier_wraith
+copying src/assets/sprites/planet_threats/carrier_wraith/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/carrier_wraith
+copying src/assets/sprites/planet_threats/lensing_orb/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/lensing_orb
+copying src/assets/sprites/planet_threats/lensing_orb/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/lensing_orb
+copying src/assets/sprites/planet_threats/memorial_sentinel/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/memorial_sentinel
+copying src/assets/sprites/planet_threats/memorial_sentinel/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/memorial_sentinel
+copying src/assets/sprites/planet_threats/paradox_knot/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/paradox_knot
+copying src/assets/sprites/planet_threats/paradox_knot/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/paradox_knot
+copying src/assets/sprites/planet_threats/plasma_kite/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/plasma_kite
+copying src/assets/sprites/planet_threats/plasma_kite/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/plasma_kite
+copying src/assets/sprites/planet_threats/resonance_effigy/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/resonance_effigy
+copying src/assets/sprites/planet_threats/resonance_effigy/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/resonance_effigy
+copying src/assets/sprites/planet_threats/sevenfold_interceptor/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/sevenfold_interceptor
+copying src/assets/sprites/planet_threats/sevenfold_interceptor/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/sevenfold_interceptor
+copying src/assets/sprites/planet_threats/shard_clipper/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/shard_clipper
+copying src/assets/sprites/planet_threats/shard_clipper/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/shard_clipper
+copying src/assets/sprites/planet_threats/terminator_roller/body.png -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/terminator_roller
+copying src/assets/sprites/planet_threats/terminator_roller/manifest.json -> 6equj5_game-1977.815/src/assets/sprites/planet_threats/terminator_roller
+copying src/assets/tilesets/bunker/tileset_bunker_16x16.png -> 6equj5_game-1977.815/src/assets/tilesets/bunker
+copying src/data/act_01_encounters.json -> 6equj5_game-1977.815/src/data
+copying src/data/act_01_story.json -> 6equj5_game-1977.815/src/data
+copying src/data/alien_journey.json -> 6equj5_game-1977.815/src/data
+copying src/data/balance.json -> 6equj5_game-1977.815/src/data
+copying src/data/campaign.json -> 6equj5_game-1977.815/src/data
+copying src/data/campaign_route.json -> 6equj5_game-1977.815/src/data
+copying src/data/civilization_missions.json -> 6equj5_game-1977.815/src/data
+copying src/data/dialogue_offline.json -> 6equj5_game-1977.815/src/data
+copying src/data/galaxy_navigation.json -> 6equj5_game-1977.815/src/data
+copying src/data/lab_scenarios.json -> 6equj5_game-1977.815/src/data
+copying src/data/opening_story.json -> 6equj5_game-1977.815/src/data
+copying src/data/planet_encounters.json -> 6equj5_game-1977.815/src/data
+copying src/data/levels/act_01/approach.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/dish_catwalk.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/dish_return.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/dish_service.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/greenkeeper_arena.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/mandela_test.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/ohio_campus.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/perimeter_road.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/salvage_outer.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/salvage_runoff.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_01/salvage_yard.json -> 6equj5_game-1977.815/src/data/levels/act_01
+copying src/data/levels/act_02/amplifier_station.json -> 6equj5_game-1977.815/src/data/levels/act_02
+copying src/data/levels/act_02/array_12_arena.json -> 6equj5_game-1977.815/src/data/levels/act_02
+copying src/data/levels/act_02/blackout_street.json -> 6equj5_game-1977.815/src/data/levels/act_02
+copying src/data/levels/act_02/relay_rooftops.json -> 6equj5_game-1977.815/src/data/levels/act_02
+copying src/data/levels/act_03/amalgam_arena.json -> 6equj5_game-1977.815/src/data/levels/act_03
+copying src/data/levels/act_03/s4_hangar.json -> 6equj5_game-1977.815/src/data/levels/act_03
+copying src/data/levels/act_03/salt_flats.json -> 6equj5_game-1977.815/src/data/levels/act_03
+copying src/data/levels/act_03/telepod_vault.json -> 6equj5_game-1977.815/src/data/levels/act_03
+copying src/data/levels/act_04/architect_arena.json -> 6equj5_game-1977.815/src/data/levels/act_04
+copying src/data/levels/act_04/dodleston_relay.json -> 6equj5_game-1977.815/src/data/levels/act_04
+copying src/data/levels/act_04/rail_yard.json -> 6equj5_game-1977.815/src/data/levels/act_04
+copying src/data/levels/act_04/relay_approach.json -> 6equj5_game-1977.815/src/data/levels/act_04
+copying src/data/levels/act_04/rift_array.json -> 6equj5_game-1977.815/src/data/levels/act_04
+copying src/data/levels/act_05/buried_archive.json -> 6equj5_game-1977.815/src/data/levels/act_05
+copying src/data/levels/act_05/core_prime_arena.json -> 6equj5_game-1977.815/src/data/levels/act_05
+copying src/data/levels/act_05/crust_waveguide.json -> 6equj5_game-1977.815/src/data/levels/act_05
+copying src/data/levels/act_05/pillar_approach.json -> 6equj5_game-1977.815/src/data/levels/act_05
+copying src/data/levels/alien_worlds/alien_001_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_001_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_002_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_002_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_003_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_003_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_004_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_004_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_005_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_005_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_006_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_006_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_007_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_007_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_008_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_008_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_009_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_009_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_010_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_010_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_scan_h_arena.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/alien_worlds/alien_scan_h_field.json -> 6equj5_game-1977.815/src/data/levels/alien_worlds
+copying src/data/levels/earth_finale/core_prime_arena.json -> 6equj5_game-1977.815/src/data/levels/earth_finale
+copying src/data/levels/flashback/ehman_1977.json -> 6equj5_game-1977.815/src/data/levels/flashback
+copying src/engine/__init__.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/abilities.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/alien_journey.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/animation.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/asset_transactions.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/assets.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/audio.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/campaign.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/campaign_route.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/campaign_scenery.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/codec.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/combat_feedback.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/config.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/contact_session.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/crt_renderer.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/effects.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/encounter_director.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/enemies.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/energy_filament.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/energy_stream_assets.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/environment_activity.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/field_reality.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/firing_lighting.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/flashback.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/galaxy_transit.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/galaxy_transit_assets.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/input.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/mandela_world.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/native_room_assets.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/objectives.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/opening_story.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/planet_encounters.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/planet_threat_assets.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/player.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/protocols.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/room_art_contracts.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/save_game.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/settings.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/state_machine.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/story_sequence.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/temporal_relay.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/temporary_weapons.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/weapons.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/world.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/world_hazards.py -> 6equj5_game-1977.815/src/engine
+copying src/engine/bosses/__init__.py -> 6equj5_game-1977.815/src/engine/bosses
+copying src/engine/bosses/base.py -> 6equj5_game-1977.815/src/engine/bosses
+copying src/engine/bosses/campaign_bosses.py -> 6equj5_game-1977.815/src/engine/bosses
+copying src/engine/bosses/greenkeeper.py -> 6equj5_game-1977.815/src/engine/bosses
+copying src/engine/bosses/greenkeeper_art.py -> 6equj5_game-1977.815/src/engine/bosses
+copying src/engine/labs/__init__.py -> 6equj5_game-1977.815/src/engine/labs
+copying src/engine/labs/biosecurity.py -> 6equj5_game-1977.815/src/engine/labs
+copying src/engine/labs/formal.py -> 6equj5_game-1977.815/src/engine/labs
+copying src/engine/labs/neuro.py -> 6equj5_game-1977.815/src/engine/labs
+copying src/engine/labs/quantum.py -> 6equj5_game-1977.815/src/engine/labs
+copying src/engine/scenes/__init__.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/alien_contact.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/base.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/boss.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/bunker.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/field.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/galaxy_transit.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/lab.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/terminal.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/scenes/title.py -> 6equj5_game-1977.815/src/engine/scenes
+copying src/engine/ui/__init__.py -> 6equj5_game-1977.815/src/engine/ui
+copying src/engine/ui/aim_reticle.py -> 6equj5_game-1977.815/src/engine/ui
+copying src/engine/ui/hud.py -> 6equj5_game-1977.815/src/engine/ui
+copying src/engine/ui/pause.py -> 6equj5_game-1977.815/src/engine/ui
+copying src/engine/ui/text.py -> 6equj5_game-1977.815/src/engine/ui
+copying src/engine/ui/viewport.py -> 6equj5_game-1977.815/src/engine/ui
+copying tests/__init__.py -> 6equj5_game-1977.815/tests
+copying tests/test_accessible_controls_integration.py -> 6equj5_game-1977.815/tests
+copying tests/test_act_01_playthrough.py -> 6equj5_game-1977.815/tests
+copying tests/test_action_story.py -> 6equj5_game-1977.815/tests
+copying tests/test_alien_journey_content.py -> 6equj5_game-1977.815/tests
+copying tests/test_alien_journey_runtime.py -> 6equj5_game-1977.815/tests
+copying tests/test_animation.py -> 6equj5_game-1977.815/tests
+copying tests/test_approach_family_transaction.py -> 6equj5_game-1977.815/tests
+copying tests/test_assets.py -> 6equj5_game-1977.815/tests
+copying tests/test_assisted_survival.py -> 6equj5_game-1977.815/tests
+copying tests/test_audio_lifecycle.py -> 6equj5_game-1977.815/tests
+copying tests/test_authored_receiver.py -> 6equj5_game-1977.815/tests
+copying tests/test_campaign.py -> 6equj5_game-1977.815/tests
+copying tests/test_campaign_scenery.py -> 6equj5_game-1977.815/tests
+copying tests/test_campaign_world_content.py -> 6equj5_game-1977.815/tests
+copying tests/test_campaign_world_route.py -> 6equj5_game-1977.815/tests
+copying tests/test_chapter_boundary.py -> 6equj5_game-1977.815/tests
+copying tests/test_character_facing.py -> 6equj5_game-1977.815/tests
+copying tests/test_checkpoint_audit.py -> 6equj5_game-1977.815/tests
+copying tests/test_codec.py -> 6equj5_game-1977.815/tests
+copying tests/test_combat.py -> 6equj5_game-1977.815/tests
+copying tests/test_combat_assist.py -> 6equj5_game-1977.815/tests
+copying tests/test_contact_session.py -> 6equj5_game-1977.815/tests
+copying tests/test_content.py -> 6equj5_game-1977.815/tests
+copying tests/test_controls_combat_unit.py -> 6equj5_game-1977.815/tests
+copying tests/test_easy_crowds.py -> 6equj5_game-1977.815/tests
+copying tests/test_enemy_render_reuse.py -> 6equj5_game-1977.815/tests
+copying tests/test_enemy_visibility.py -> 6equj5_game-1977.815/tests
+copying tests/test_energy_stream.py -> 6equj5_game-1977.815/tests
+copying tests/test_energy_stream_install.py -> 6equj5_game-1977.815/tests
+copying tests/test_engine_boot.py -> 6equj5_game-1977.815/tests
+copying tests/test_environment_activity.py -> 6equj5_game-1977.815/tests
+copying tests/test_extended_routes.py -> 6equj5_game-1977.815/tests
+copying tests/test_faction_integration.py -> 6equj5_game-1977.815/tests
+copying tests/test_firing_flash_install.py -> 6equj5_game-1977.815/tests
+copying tests/test_firing_lighting.py -> 6equj5_game-1977.815/tests
+copying tests/test_flashback.py -> 6equj5_game-1977.815/tests
+copying tests/test_forward_encounters.py -> 6equj5_game-1977.815/tests
+copying tests/test_forward_flow.py -> 6equj5_game-1977.815/tests
+copying tests/test_galaxy_transit.py -> 6equj5_game-1977.815/tests
+copying tests/test_galaxy_transit_assets.py -> 6equj5_game-1977.815/tests
+copying tests/test_gobekli_traversal.py -> 6equj5_game-1977.815/tests
+copying tests/test_grapple_input.py -> 6equj5_game-1977.815/tests
+copying tests/test_greenkeeper_heavy.py -> 6equj5_game-1977.815/tests
+copying tests/test_greenkeeper_projectiles.py -> 6equj5_game-1977.815/tests
+copying tests/test_guided_hub.py -> 6equj5_game-1977.815/tests
+copying tests/test_guided_progression.py -> 6equj5_game-1977.815/tests
+copying tests/test_hud_dirty_regions.py -> 6equj5_game-1977.815/tests
+copying tests/test_input_settings.py -> 6equj5_game-1977.815/tests
+copying tests/test_intro_powerups.py -> 6equj5_game-1977.815/tests
+copying tests/test_labs.py -> 6equj5_game-1977.815/tests
+copying tests/test_long_route_content.py -> 6equj5_game-1977.815/tests
+copying tests/test_maser_discharge_install.py -> 6equj5_game-1977.815/tests
+copying tests/test_maser_presentation.py -> 6equj5_game-1977.815/tests
+copying tests/test_mechanics_route.py -> 6equj5_game-1977.815/tests
+copying tests/test_native_bunker_backdrop.py -> 6equj5_game-1977.815/tests
+copying tests/test_native_prototype_backdrop.py -> 6equj5_game-1977.815/tests
+copying tests/test_native_room_assets.py -> 6equj5_game-1977.815/tests
+copying tests/test_objectives.py -> 6equj5_game-1977.815/tests
+copying tests/test_offline_independence.py -> 6equj5_game-1977.815/tests
+copying tests/test_ohio_campus_art.py -> 6equj5_game-1977.815/tests
+copying tests/test_opening_story.py -> 6equj5_game-1977.815/tests
+copying tests/test_planet_encounters.py -> 6equj5_game-1977.815/tests
+copying tests/test_planet_field_platforms.py -> 6equj5_game-1977.815/tests
+copying tests/test_planet_threat_assets.py -> 6equj5_game-1977.815/tests
+copying tests/test_player.py -> 6equj5_game-1977.815/tests
+copying tests/test_pointer_controller_input.py -> 6equj5_game-1977.815/tests
+copying tests/test_profile.py -> 6equj5_game-1977.815/tests
+copying tests/test_render_density.py -> 6equj5_game-1977.815/tests
+copying tests/test_room_family_transaction.py -> 6equj5_game-1977.815/tests
+copying tests/test_runtime_integration.py -> 6equj5_game-1977.815/tests
+copying tests/test_salvage_hazard_traversal.py -> 6equj5_game-1977.815/tests
+copying tests/test_save_game.py -> 6equj5_game-1977.815/tests
+copying tests/test_science_claims.py -> 6equj5_game-1977.815/tests
+copying tests/test_simple_bunker_exit.py -> 6equj5_game-1977.815/tests
+copying tests/test_simple_controls.py -> 6equj5_game-1977.815/tests
+copying tests/test_sixfold_worlds.py -> 6equj5_game-1977.815/tests
+copying tests/test_timelines.py -> 6equj5_game-1977.815/tests
+copying tests/test_ui_readability.py -> 6equj5_game-1977.815/tests
+copying tests/test_world.py -> 6equj5_game-1977.815/tests
+copying tests/test_world_hazards.py -> 6equj5_game-1977.815/tests
+copying tests/fixtures/save_v1.json -> 6equj5_game-1977.815/tests/fixtures
+copying tests/fixtures/save_v2.json -> 6equj5_game-1977.815/tests/fixtures
+copying tools/README.md -> 6equj5_game-1977.815/tools
+copying tools/__init__.py -> 6equj5_game-1977.815/tools
+copying tools/act_01_traversal.py -> 6equj5_game-1977.815/tools
+copying tools/audio_sfx_builder.py -> 6equj5_game-1977.815/tools
+copying tools/boss_sprite_builder.py -> 6equj5_game-1977.815/tools
+copying tools/build_approach_family.py -> 6equj5_game-1977.815/tools
+copying tools/build_assets.py -> 6equj5_game-1977.815/tools
+copying tools/build_campaign_art.py -> 6equj5_game-1977.815/tools
+copying tools/build_energy_stream.py -> 6equj5_game-1977.815/tools
+copying tools/build_firing_flash.py -> 6equj5_game-1977.815/tools
+copying tools/build_galaxy_transit.py -> 6equj5_game-1977.815/tools
+copying tools/build_greenkeeper_heavy.py -> 6equj5_game-1977.815/tools
+copying tools/build_maser_discharge.py -> 6equj5_game-1977.815/tools
+copying tools/build_ohio_campus_art.py -> 6equj5_game-1977.815/tools
+copying tools/build_planet_threat.py -> 6equj5_game-1977.815/tools
+copying tools/build_room_family.py -> 6equj5_game-1977.815/tools
+copying tools/bunker_scene_builder.py -> 6equj5_game-1977.815/tools
+copying tools/capture_intro_combat.py -> 6equj5_game-1977.815/tools
+copying tools/capture_runtime_audit.py -> 6equj5_game-1977.815/tools
+copying tools/civ_art_builder.py -> 6equj5_game-1977.815/tools
+copying tools/enemy_sprite_builder.py -> 6equj5_game-1977.815/tools
+copying tools/faction_counter_audit.py -> 6equj5_game-1977.815/tools
+copying tools/faction_runtime_audit.py -> 6equj5_game-1977.815/tools
+copying tools/generate_faction_sprites.py -> 6equj5_game-1977.815/tools
+copying tools/mateo_sprite_builder.py -> 6equj5_game-1977.815/tools
+copying tools/mechanics_route.py -> 6equj5_game-1977.815/tools
+copying tools/ohio_environment_builder.py -> 6equj5_game-1977.815/tools
+copying tools/play_act_01.py -> 6equj5_game-1977.815/tools
+copying tools/preview_assets.py -> 6equj5_game-1977.815/tools
+copying tools/profile_game.py -> 6equj5_game-1977.815/tools
+copying tools/refine_batch_1.py -> 6equj5_game-1977.815/tools
+copying tools/refine_batch_2.py -> 6equj5_game-1977.815/tools
+copying tools/refine_batch_3.py -> 6equj5_game-1977.815/tools
+copying tools/refine_batch_4.py -> 6equj5_game-1977.815/tools
+copying tools/refine_batch_5.py -> 6equj5_game-1977.815/tools
+copying tools/refine_batch_6.py -> 6equj5_game-1977.815/tools
+copying tools/refine_batch_7.py -> 6equj5_game-1977.815/tools
+copying tools/validate_content.py -> 6equj5_game-1977.815/tools
+Writing 6equj5_game-1977.815/setup.cfg
+Creating tar archive
+removing '6equj5_game-1977.815' (and everything under it)
+Processing /tmp/6equj5-clean-build-xxf32gi1/dist/6equj5_game-1977.815.tar.gz
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: 6equj5-game
+  Building wheel for 6equj5-game (pyproject.toml): started
+  Building wheel for 6equj5-game (pyproject.toml): finished with status 'done'
+  Created wheel for 6equj5-game: filename=6equj5_game-1977.815-py3-none-any.whl size=33291412 sha256=2f7e6633dbcaf87dad4c4be249278b2db815e5f63ff859a552b106d9e95edafe
+  Stored in directory: /private/var/folders/v9/d_0z5c956bg0n0s33zzf81s40000gp/T/pip-ephem-wheel-cache-bc0eog1s/wheels/c5/b1/0f/5c7358f521f9c70e92ea64f12b43e2242465136b15812d9b3e
+Successfully built 6equj5-game

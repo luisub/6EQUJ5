@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "archive_skimmer",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "5fa5c18a077c97cfa4929cec0e8de397c60c9d00492f0a103d263310e3277f0d"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v02.png", "dimensions": [1536, 1024], "sha256": "a5296b8deea07f08de39bd79f16f648736fcf6bc9ea9732326db77cee16cad2c", "crop_box_exclusive": [92, 103, 1444, 875], "resize": [84, 48], "paste": [6, 15], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [6, 15, 90, 62],
+  "alpha_at_least_240_pixels": 1075,
+  "record": "PROVENANCE.md"
+}

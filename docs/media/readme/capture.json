@@ -1,0 +1,180 @@
+{
+  "purpose": "README presentation; not gameplay acceptance or a full playthrough",
+  "video_driver": "dummy",
+  "audio_driver": "dummy",
+  "crt_effects": false,
+  "isolated_temporary_saves": true,
+  "seed": 1977,
+  "screenshots": "Unretouched render surfaces at 960 x 540",
+  "captures": [
+    {
+      "file": "observatory.png",
+      "setup": "Fresh game in the bunker; opening already dismissed.",
+      "scene": "BUNKER_HUB",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "8ba33ddc9f4cde8c53fad54a89daeb9cb3980cef4a440f624b2d27c367e28119",
+      "bytes": 775180
+    },
+    {
+      "file": "receiver.png",
+      "setup": "Direct scene entry; initial authored FASR-001 receiver message.",
+      "scene": "CRT_TERMINAL",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "ebf46254101d99929ef81a32bfbe30d62b3f6190f283c26548d6c0462f897f97",
+      "bytes": 57798
+    },
+    {
+      "file": "arc-lance.png",
+      "setup": "Arc Lance collected by mapped D movement; mapped mouse fire.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "bc715f004b5ad9507cc2d5da47e446cc991d5fe4bec38830f60b83995b099b03",
+      "bytes": 575350
+    },
+    {
+      "file": "arc-lance.gif",
+      "setup": "Normal bunker exit, mapped movement to pickup and mouse fire; three seconds.",
+      "frames": 30,
+      "frame_duration_ms": 100,
+      "size": [
+        768,
+        432
+      ],
+      "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
+      "sha256": "6ab6ca9e1054caea3ee224a54becc9008f64b8a800eb9b74973873e21002cecf",
+      "bytes": 563644
+    },
+    {
+      "file": "ohio.png",
+      "setup": "Direct development scene entry to act_01/ohio_campus.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "72f6bc81341f6177d19188e4498c51c1ec96b9d56ecd8c04c81f831f2d00cf39",
+      "bytes": 640633
+    },
+    {
+      "file": "neo-denver.png",
+      "setup": "Direct development scene entry to act_02/blackout_street.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "8dedc33904e2026add1a1cc84eb6ea2158d69bff4bd0983dfc27e0c3e2f28a6d",
+      "bytes": 690586
+    },
+    {
+      "file": "area-51.png",
+      "setup": "Direct development scene entry to act_03/s4_hangar.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "f2d61813a84299ab2e440a949bfe8f65727a3a99c57f2bd22fa34bd063518b2a",
+      "bytes": 625455
+    },
+    {
+      "file": "vla-rift.png",
+      "setup": "Direct development scene entry to act_04/rail_yard.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "e46f018faa0d4ed7e6fd92e8e9b3b043ab0739147ebf263953125045e84de7d7",
+      "bytes": 585571
+    },
+    {
+      "file": "gobekli-tepe.png",
+      "setup": "Direct development scene entry to act_05/pillar_approach.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "e7127cca2b231b047ed99e84044dd402b9ac2218396c5d76ed8bddd15b10b9e1",
+      "bytes": 542575
+    },
+    {
+      "file": "buried-archive.png",
+      "setup": "Direct development scene entry to act_05/buried_archive.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "04773c9c3b8908301f37913afb6be6f22a082a8e4efc73239685796df3d63efb",
+      "bytes": 690398
+    },
+    {
+      "file": "crystal-network.png",
+      "setup": "Direct field entry with staged prior guardian and receipt, then mapped movement.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "4554ba9164f5162a7ed2e9554375faa413d3e2fdce85ff4887ddec94b63639ff",
+      "bytes": 612524
+    },
+    {
+      "file": "signal-jailer.png",
+      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
+      "scene": "BOSS_BOUNTY",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "fa35a3e81c1fca6d58c1997dae4066c02fde9a755c0d2f0e38ef35d5274cbd8b",
+      "bytes": 550243
+    },
+    {
+      "file": "heat-auditor.png",
+      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
+      "scene": "BOSS_BOUNTY",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "ee5d9587973df15a2474d5ac7c150bcd7872d172f473b66e716c6acd115f739c",
+      "bytes": 551828
+    },
+    {
+      "file": "galaxy-map.png",
+      "setup": "First Earth-to-FASR-001 transit with staged portal unlock; schematic map.",
+      "scene": "GALAXY_TRANSIT",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "36a385ffefaefefd2d224dc66c1200ce82dd3d2960f9fc8ba2601504e3ec6598",
+      "bytes": 527881
+    },
+    {
+      "file": "signal-transit.gif",
+      "setup": "Actual first-world map, vortex and arrival; staged portal unlock.",
+      "frames": 41,
+      "frame_duration_ms": 100,
+      "size": [
+        768,
+        432
+      ],
+      "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
+      "sha256": "12e598d7e77810bdd3fc9549dd9ed6911330b85c5d4401239a2d470ba2f3cdb6",
+      "bytes": 544880
+    }
+  ]
+}

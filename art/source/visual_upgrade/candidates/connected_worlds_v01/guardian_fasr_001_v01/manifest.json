@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_boss",
+  "boss_id": "guardian_fasr_001",
+  "image": {"file": "body.png", "dimensions": [256, 192], "sha256": "c8f82147b7310116778888f7d5dbea5ed391348ca3fa93bd887966fa961ba565"},
+  "provenance": {"status": "candidate_pending_review", "source": "master_v02.png", "source_sha256": "332fbd8948385db2ae25bdb977b719c6f1c9e4f12525d622f75c7cda0b8ec8d5", "source_dimensions": [1536, 1024], "crop_box_exclusive": [142, 13, 1374, 985], "resize": [228, 180], "paste": [14, 9], "resampling": "Pillow nearest-neighbor downsample", "record": "provenance.md"}
+}

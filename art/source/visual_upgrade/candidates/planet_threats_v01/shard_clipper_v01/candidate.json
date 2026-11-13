@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "shard_clipper",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "ecf532cf3cc3842a07b58f342b6d2f149e26a4abb35b9a3e95520e691f01924f"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v01.png", "dimensions": [1448, 1086], "sha256": "6e530157cdc2b65de29095571f4f503f2bda945907a53a32e9575e21a0ed853f", "crop_box_exclusive": [269, 160, 1077, 903], "resize": [60, 55], "paste": [18, 9], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [18, 10, 77, 63],
+  "alpha_at_least_240_pixels": 1414,
+  "record": "PROVENANCE.md"
+}

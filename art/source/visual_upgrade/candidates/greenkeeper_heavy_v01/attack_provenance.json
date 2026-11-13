@@ -1,0 +1,13 @@
+{
+  "tool": "image_gen.imagegen",
+  "reference": "source/idle_generated_master.png",
+  "transparent_background": true,
+  "master_size": [
+    1448,
+    1086
+  ],
+  "master_sha256": "b8f909333fab83b9efbf5fa71c2fd3c4da2e8fad9648956faf850a5672355df3",
+  "export_sha256": "f65dac33a95f926fbb680cc6c8969aaffa3981553319e34399c4f3a5914d480e",
+  "transform": "same as idle: alpha under 16 zeroed; Lanczos to 256x192, translated down 11",
+  "status": "candidate for review; not installed"
+}

@@ -1,0 +1,11 @@
+{
+  "wheel": "6equj5_game-1977.815-py3-none-any.whl",
+  "wheel_sha256": "54a00915cf29b6cdf1d9f08a2912c48f6b02e038bcdcbba555e3d11da220cdfd",
+  "sdist": "6equj5_game-1977.815.tar.gz",
+  "sdist_sha256": "3881dda30b4f14fec8598b2f11e913f0e18ca7c3db0f7ae9d1d6f16967e057d3",
+  "wheel_members": 541,
+  "runtime_payload_files": 535,
+  "wheel_from_sdist_payload_identical": true,
+  "previously_tested_runtime_payload_identical": true,
+  "clean_source": "/tmp/6equj5-clean-build-xxf32gi1/source"
+}

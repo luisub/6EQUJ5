@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "kind": "planet_threat",
+  "art_id": "shard_clipper",
+  "pivot": [
+    48,
+    64
+  ],
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      96,
+      72
+    ],
+    "sha256": "ecf532cf3cc3842a07b58f342b6d2f149e26a4abb35b9a3e95520e691f01924f"
+  },
+  "provenance": {
+    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/shard_clipper_v01/body_96x72.png",
+    "sha256": "ecf532cf3cc3842a07b58f342b6d2f149e26a4abb35b9a3e95520e691f01924f",
+    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/shard_clipper_v01/candidate.json",
+    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/shard_clipper_v01/PROVENANCE.md",
+    "review": "root-accepted original static source"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "sevenfold_interceptor",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "d53d6d5f0e5273464e53c2af6523878e5f508242fa974670424b4598c5b06dad"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v01.png", "dimensions": [1448, 1086], "sha256": "d66122ec4a7cce0e39fdd420ec615ff49b05b425eba9c979d43c08d1bc97c858", "crop_box_exclusive": [105, 131, 1304, 929], "resize": [83, 55], "paste": [6, 9], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [6, 9, 88, 64],
+  "alpha_at_least_240_pixels": 1695,
+  "record": "PROVENANCE.md"
+}

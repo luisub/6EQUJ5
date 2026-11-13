@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_boss",
+  "boss_id": "synchronicity",
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      256,
+      192
+    ],
+    "sha256": "3e2ee1446b40f33ab9cd135176a4a3e71c49100f58759cb1f68a1cb5412ed333"
+  },
+  "provenance": {
+    "status": "accepted_single_keypose",
+    "source": "master_v03.png",
+    "source_sha256": "2d4dc4dfefd118913b68ef914c3f0a94790d31d8dc3061843a34a2a9c9ac468b",
+    "source_dimensions": [
+      1448,
+      1086
+    ],
+    "crop_box_exclusive": [
+      144,
+      133,
+      1213,
+      1011
+    ],
+    "resize": [
+      219,
+      180
+    ],
+    "paste": [
+      18,
+      9
+    ],
+    "resampling": "Pillow nearest-neighbor downsample",
+    "record": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/synchronicity_body_v01/provenance.md",
+    "review": "root native256x192 composition onNeoDenver; noanimationacceptance",
+    "source_directory": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/synchronicity_body_v01"
+  }
+}

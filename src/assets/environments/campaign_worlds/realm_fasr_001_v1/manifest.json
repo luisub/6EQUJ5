@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_world_background",
+  "art_id": "realm_fasr_001_v1",
+  "viewport": [
+    480,
+    270
+  ],
+  "density": 2,
+  "image": {
+    "file": "background.png",
+    "dimensions": [
+      1920,
+      540
+    ],
+    "sha256": "82ea545d5728f67360245998873fd471bd2b05efe727bd01e4647aa5026c33a1"
+  },
+  "provenance": {
+    "status": "accepted_component_pending_user_combined_benchmark",
+    "source": "master_v02.png",
+    "source_sha256": "2f11206b833edf7b8375a23c95bc14e071e576f89918c131eada9dbcf8c435a6",
+    "source_dimensions": [
+      2172,
+      724
+    ],
+    "crop_box_exclusive": [
+      0,
+      22,
+      2172,
+      633
+    ],
+    "resampling": "Pillow nearest-neighbor downsample",
+    "record": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/realm_fasr_001_v01/provenance.md",
+    "review": "root native image inspection; user direction review pending",
+    "source_directory": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/realm_fasr_001_v01"
+  }
+}

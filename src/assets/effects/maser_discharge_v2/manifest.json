@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "file": "flash_64x32.png",
+  "sha256": "244482ae198b1aaa23f4bb225085d5e29e3a0123dec289fa3bc9d439d32db3bc",
+  "dimensions": [
+    64,
+    32
+  ],
+  "pivot_right": [
+    12,
+    16
+  ],
+  "pivot_left": [
+    51,
+    16
+  ]
+}

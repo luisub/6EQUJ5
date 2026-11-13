@@ -1,0 +1,1 @@
+tests/test_contact_session.py:494: new blank line at EOF.

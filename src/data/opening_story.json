@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "pages": [
+    {
+      "title": "A SMALL ROCK",
+      "text": "We are descendants of apes, living on a small rock drifting through dark space. In the vacuum, we ask questions larger than ourselves. Perhaps no final answer waits in the back of the book."
+    },
+    {
+      "title": "1977 // THE SIGNAL",
+      "text": "On August 15, 1977, Ohio State’s Big Ear recorded a narrowband signal for about 72 seconds, near the hydrogen line at 1420 MHz, from the direction of Sagittarius. Its intensity code was 6EQUJ5. Its source remains unknown."
+    },
+    {
+      "title": "2029 // YOUR MISSION",
+      "text": "By 2029, the Core has seized Earth’s digital networks. Beneath Big Ear, engineer Mateo “Six” Vargas follows an analog signal beyond its reach. Cross eleven worlds, defeat their guardians, gather their messages, then return to Earth and confront the AI."
+    },
+    {
+      "title": "YOUR SIGNAL ROUTE",
+      "text": "Leave Earth, follow the signal through eleven worlds and recover each guardian's message. Bring them home to confront the Core.",
+      "visual": "galaxy_map"
+    }
+  ]
+}

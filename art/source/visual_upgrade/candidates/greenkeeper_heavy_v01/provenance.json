@@ -1,0 +1,28 @@
+{
+  "tool": "image_gen.imagegen",
+  "reference": "video_game/assets/sprites/bosses/greenkeeper/idle_1.png",
+  "transparent_background": true,
+  "master": "idle_generated_master.png",
+  "master_size": [
+    1448,
+    1086
+  ],
+  "master_sha256": "f2e9166a6cd5470e835a6665df0bcaa837079651b6f69ba0ddc1fea34af432e7",
+  "export": "exports/idle_256x192.png",
+  "export_sha256": "ba84f086a20a41065d020aee9f67422ee4c9f9cc013986d6eaefc88c9c4af769",
+  "transform": "alpha under 16 zeroed; RGBA Lanczos 1448x1086 to 256x192; translated downward to place alpha>=16 foot at row 191",
+  "translated_y": 11,
+  "bounds_before": [
+    1,
+    9,
+    255,
+    181
+  ],
+  "bounds_after": [
+    1,
+    20,
+    255,
+    192
+  ],
+  "status": "idle candidate for review; not installed"
+}

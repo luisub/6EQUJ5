@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "memorial_sentinel",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "2f7dbf202fd2c926d1e08d3a3e0df8702b13d8d38581b94ade149c77db96ca77"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v01.png", "dimensions": [1448, 1086], "sha256": "6e3141835d1b01c0dc2a7d9815c8200281486cf4b2d298381721f0dc4681c600", "crop_box_exclusive": [273, 154, 1128, 932], "resize": [60, 55], "paste": [18, 9], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [19, 9, 78, 64],
+  "alpha_at_least_240_pixels": 2025,
+  "record": "PROVENANCE.md"
+}

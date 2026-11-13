@@ -1,0 +1,14 @@
+{
+  "tool": "image_gen.imagegen",
+  "reference": "source/idle_generated_master.png",
+  "transparent_background": true,
+  "master_size": [
+    1448,
+    1086
+  ],
+  "master_sha256": "8f5f939fa5cf0f9ce9c3d25ab87397cf12296873abb865d3720e8946c6a6e0f7",
+  "export": "wreck_nearest_256x192.png",
+  "export_sha256": "d54d7e427dfd3632e94522fac21bdced7d2bfd935600c9f0483bfdf483ca4f6f",
+  "transform": "alpha under 16 zeroed; nearest-neighbor to 256x192; translated down 11 matching idle",
+  "status": "candidate for review; not installed"
+}

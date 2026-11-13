@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "boss_id": "greenkeeper_act_01",
+  "density": 2,
+  "native_size": [
+    256,
+    192
+  ],
+  "world_size": [
+    128,
+    96
+  ],
+  "anchors": {
+    "foot_y": 96,
+    "mortar_idle": [
+      38,
+      15
+    ],
+    "mortar_attack": [
+      39,
+      16
+    ],
+    "mortar_wreck": [
+      35,
+      40
+    ],
+    "sweep": [
+      5,
+      80
+    ],
+    "reactor_rect": [
+      62,
+      49,
+      23,
+      19
+    ]
+  },
+  "frames": {
+    "idle": {
+      "file": "idle.png",
+      "sha256": "e5aa98b55d761de1d1ea4959e025ff51b7ac310a434752da6eab537d4da0918c"
+    },
+    "attack": {
+      "file": "attack.png",
+      "sha256": "1e607d90a4c4a54bf386c0b24b1d4981a6d8f87e99ab8173958a81fc3fb0eddf"
+    },
+    "exposed": {
+      "file": "exposed.png",
+      "sha256": "f88ac427ed68d7321222d205ceb2f60b9a67f0b111c2707ff6ed0102a92cf1e7"
+    },
+    "wreck": {
+      "file": "wreck.png",
+      "sha256": "d54d7e427dfd3632e94522fac21bdced7d2bfd935600c9f0483bfdf483ca4f6f"
+    }
+  },
+  "coverage": "four key poses: idle, attack, exposed, wreck; not eleven new animation frames"
+}

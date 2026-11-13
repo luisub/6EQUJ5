@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "disclaimer": "Signal route · schematic, not astronomical positions",
+  "locations": [
+    {
+      "id": "earth",
+      "name": "EARTH",
+      "label": "EARTH",
+      "x": 0.1276,
+      "y": 0.7
+    },
+    {
+      "id": "alien_001",
+      "name": "SAGITTARIUS SIGNAL",
+      "label": "SAG SIGNAL",
+      "x": 0.07,
+      "y": 0.5
+    },
+    {
+      "id": "alien_003",
+      "name": "TABBY'S STAR",
+      "label": "TABBY'S STAR",
+      "x": 0.1276,
+      "y": 0.3
+    },
+    {
+      "id": "alien_005",
+      "name": "PROXIMA CENTAURI",
+      "label": "PROXIMA",
+      "x": 0.285,
+      "y": 0.1536
+    },
+    {
+      "id": "alien_004",
+      "name": "ORION NEBULA",
+      "label": "ORION",
+      "x": 0.5,
+      "y": 0.1
+    },
+    {
+      "id": "alien_008",
+      "name": "TRAPPIST-1",
+      "label": "TRAPPIST-1",
+      "x": 0.715,
+      "y": 0.1536
+    },
+    {
+      "id": "alien_009",
+      "name": "'OUMUAMUA TRAJECTORY",
+      "label": "'OUMUAMUA",
+      "x": 0.8724,
+      "y": 0.3
+    },
+    {
+      "id": "alien_006",
+      "name": "CRAB MEMORIAL",
+      "label": "CRAB",
+      "x": 0.93,
+      "y": 0.5
+    },
+    {
+      "id": "alien_002",
+      "name": "SAGITTARIUS A*",
+      "label": "SAG A*",
+      "x": 0.8724,
+      "y": 0.7
+    },
+    {
+      "id": "alien_scan_h",
+      "name": "SCAN-H // ORIGIN UNKNOWN",
+      "label": "SCAN-H ?",
+      "x": 0.715,
+      "y": 0.8464
+    },
+    {
+      "id": "alien_010",
+      "name": "EARTH MEMORY ECHO",
+      "label": "EARTH ECHO",
+      "x": 0.5,
+      "y": 0.9
+    },
+    {
+      "id": "alien_007",
+      "name": "LGM-1 BEACON",
+      "label": "LGM-1",
+      "x": 0.285,
+      "y": 0.8464
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "kind": "planet_threat",
+  "art_id": "paradox_knot",
+  "pivot": [
+    48,
+    64
+  ],
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      96,
+      72
+    ],
+    "sha256": "04976735a2f3e310cbfe2f9a9ac169bbfb408364857d52749887b7c9970b1643"
+  },
+  "provenance": {
+    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/paradox_knot_v01/body_96x72.png",
+    "sha256": "04976735a2f3e310cbfe2f9a9ac169bbfb408364857d52749887b7c9970b1643",
+    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/paradox_knot_v01/candidate.json",
+    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/paradox_knot_v01/PROVENANCE.md",
+    "review": "root-accepted original static source"
+  }
+}

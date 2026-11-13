@@ -1,0 +1,10 @@
+{
+  "status": "candidate_pending_review",
+  "threat_id": "paradox_knot",
+  "image": {"file": "body_96x72.png", "dimensions": [96, 72], "mode": "RGBA", "sha256": "04976735a2f3e310cbfe2f9a9ac169bbfb408364857d52749887b7c9970b1643"},
+  "pivot": [48, 64],
+  "source": {"file": "master_v01.png", "dimensions": [1448, 1086], "sha256": "0c2713c033b94f097a3405eb097a4a8da9994462d3eff3c5a8891f61b9bfc85d", "crop_box_exclusive": [123, 117, 1326, 977], "resize": [78, 56], "paste": [9, 8], "resampling": "Pillow nearest-neighbor"},
+  "alpha_bbox_exclusive": [10, 9, 86, 63],
+  "alpha_at_least_240_pixels": 2258,
+  "record": "PROVENANCE.md"
+}

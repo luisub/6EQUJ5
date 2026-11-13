@@ -1,0 +1,741 @@
+{
+  "schema_version": 1,
+  "acts": {
+    "act_02": {
+      "title": "NEO-DENVER // BLACKOUT",
+      "entry_room": "act_02/blackout_street.json",
+      "entry_spawn": "default",
+      "unlock_flag": "greenkeeper_defeated",
+      "complete_flag": "synchronicity_defeated",
+      "boss_id": "synchronicity",
+      "boss_room": "act_02/array_12_arena.json",
+      "boss_event": "defeat_synchronicity",
+      "next_act": "act_03",
+      "art_id": "neo_denver_v1",
+      "intro": [
+        {
+          "title": "Neo-Denver: restore the route",
+          "text": "The blackout has cut Neo-Denver off from Big Ear. Cross the occupied streets and reach Synchronicity, the machine holding this sector."
+        }
+      ],
+      "victory": [
+        {
+          "title": "Neo-Denver secured",
+          "text": "Synchronicity is destroyed. The route through Neo-Denver is open. Your next destination is Area 51: search its sealed hangars and confront the Amalgam."
+        }
+      ]
+    },
+    "act_03": {
+      "title": "AREA 51 // GROOM LAKE",
+      "entry_room": "act_03/salt_flats.json",
+      "entry_spawn": "default",
+      "unlock_flag": "synchronicity_defeated",
+      "complete_flag": "amalgam_defeated",
+      "boss_id": "amalgam",
+      "boss_room": "act_03/amalgam_arena.json",
+      "boss_event": "defeat_amalgam",
+      "next_act": "act_04",
+      "art_id": "area_51_v1",
+      "intro": [
+        {
+          "title": "Area 51: inside the hangars",
+          "text": "The next part of the route runs through Area 51. Cross the salt flats, enter the hangars and defeat the Amalgam to reach the desert array."
+        }
+      ],
+      "victory": [
+        {
+          "title": "Area 51 cleared",
+          "text": "The Amalgam is destroyed. You can now reach the Very Large Array and the Dodleston relay. Follow the dishes to the Architect guarding the rift."
+        }
+      ]
+    },
+    "act_04": {
+      "title": "VLA // DODLESTON RIFT",
+      "entry_room": "act_04/rail_yard.json",
+      "entry_spawn": "default",
+      "unlock_flag": "amalgam_defeated",
+      "complete_flag": "architect_defeated",
+      "boss_id": "architect",
+      "boss_room": "act_04/architect_arena.json",
+      "boss_event": "defeat_architect",
+      "next_act": "act_05",
+      "art_id": "vla_rift_v1",
+      "intro": [
+        {
+          "title": "The array and the rift",
+          "text": "Reach the radio dishes and investigate the Dodleston relay. The Architect controls the passage to Gobekli Tepe; defeat it to continue."
+        }
+      ],
+      "victory": [
+        {
+          "title": "The rift is open",
+          "text": "The Architect is destroyed. The passage to Gobekli Tepe is clear. Search the ancient archive and face the Portal Warden at the end of Earth's route."
+        }
+      ]
+    },
+    "act_05": {
+      "title": "GÖBEKLI TEPE // MONOLITHS",
+      "entry_room": "act_05/pillar_approach.json",
+      "entry_spawn": "default",
+      "unlock_flag": "architect_defeated",
+      "complete_flag": "portal_warden_defeated",
+      "boss_id": "portal_warden",
+      "boss_room": "act_05/core_prime_arena.json",
+      "boss_event": "defeat_portal_warden",
+      "next_act": null,
+      "art_id": "gobekli_tepe_v1",
+      "intro": [
+        {
+          "title": "Gobekli Tepe: the last Earth gate",
+          "text": "Follow the carved pillars into the buried archive. The Portal Warden guards the way off Earth. Beyond it lie eleven signal worlds, each with a guardian and a message."
+        }
+      ],
+      "victory": [
+        {
+          "title": "Earth gate secured",
+          "text": "The Portal Warden is destroyed. This is the end of the Earth route, not the final battle. Travel to the Sagittarius signal, defeat its guardian and recover the first of eleven messages. The Core awaits your return."
+        }
+      ]
+    }
+  },
+  "rooms": {
+    "act_02_blackout_street": {
+      "path": "act_02/blackout_street.json",
+      "act_id": "act_02",
+      "next_room": "act_02_relay_rooftops",
+      "previous_room": "bunker_hub",
+      "art_id": "neo_denver_v1",
+      "encounters": [
+        {
+          "id": "act_02_blackout_street_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_02_blackout_street_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_02_blackout_street_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_02_blackout_street_signal_003",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-003. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "brick_frontages",
+        "parked_cars",
+        "distant_pedestrians"
+      ],
+      "art_view": [
+        0,
+        0.333333
+      ]
+    },
+    "act_02_relay_rooftops": {
+      "path": "act_02/relay_rooftops.json",
+      "act_id": "act_02",
+      "next_room": "act_02_amplifier_station",
+      "previous_room": "act_02_blackout_street",
+      "art_id": "neo_denver_v1",
+      "encounters": [
+        {
+          "id": "act_02_relay_rooftops_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_02_relay_rooftops_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_02_relay_rooftops_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_02_relay_rooftops_signal_005",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-005. Follow its source beyond Earth.",
+          "events": []
+        },
+        {
+          "id": "act_02_relay_rooftops_signal_004",
+          "x": 560.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-004. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "roofline",
+        "service_vans",
+        "distant_workers"
+      ],
+      "art_view": [
+        0.333333,
+        0.666667
+      ]
+    },
+    "act_02_amplifier_station": {
+      "path": "act_02/amplifier_station.json",
+      "act_id": "act_02",
+      "next_room": "act_02_array_12_arena",
+      "previous_room": "act_02_relay_rooftops",
+      "art_id": "neo_denver_v1",
+      "encounters": [
+        {
+          "id": "act_02_amplifier_station_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_02_amplifier_station_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_02_amplifier_station_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [],
+      "background_poses": [
+        "transformers",
+        "maintenance_trucks",
+        "station_buildings"
+      ],
+      "art_view": [
+        0.666667,
+        1
+      ]
+    },
+    "act_02_array_12_arena": {
+      "path": "act_02/array_12_arena.json",
+      "act_id": "act_02",
+      "next_room": "act_03_salt_flats",
+      "previous_room": "act_02_amplifier_station",
+      "art_id": "neo_denver_v1",
+      "encounters": [],
+      "milestones": [],
+      "background_poses": [
+        "array_dishes"
+      ],
+      "art_view": [
+        0.5,
+        0.5
+      ]
+    },
+    "act_03_salt_flats": {
+      "path": "act_03/salt_flats.json",
+      "act_id": "act_03",
+      "next_room": "act_03_s4_hangar",
+      "previous_room": "act_02_array_12_arena",
+      "art_id": "area_51_v1",
+      "encounters": [
+        {
+          "id": "act_03_salt_flats_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_03_salt_flats_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_03_salt_flats_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [],
+      "background_poses": [
+        "desert_ridge",
+        "service_vehicles",
+        "distant_crews"
+      ]
+    },
+    "act_03_s4_hangar": {
+      "path": "act_03/s4_hangar.json",
+      "act_id": "act_03",
+      "next_room": "act_03_telepod_vault",
+      "previous_room": "act_03_salt_flats",
+      "art_id": "area_51_hangar_v1",
+      "encounters": [
+        {
+          "id": "act_03_s4_hangar_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_03_s4_hangar_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_03_s4_hangar_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_03_s4_hangar_signal_008",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-008. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "hangar_buildings",
+        "service_carts",
+        "distant_technicians"
+      ],
+      "art_view": [
+        0,
+        0.5
+      ]
+    },
+    "act_03_telepod_vault": {
+      "path": "act_03/telepod_vault.json",
+      "act_id": "act_03",
+      "next_room": "act_03_amalgam_arena",
+      "previous_room": "act_03_s4_hangar",
+      "art_id": "area_51_hangar_v1",
+      "encounters": [
+        {
+          "id": "act_03_telepod_vault_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_03_telepod_vault_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_03_telepod_vault_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_03_telepod_vault_signal_009",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-009. Follow its source beyond Earth.",
+          "events": []
+        },
+        {
+          "id": "act_03_telepod_vault_signal_006",
+          "x": 560.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-006. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "containment_pods",
+        "service_equipment"
+      ],
+      "art_view": [
+        0.5,
+        1
+      ]
+    },
+    "act_03_amalgam_arena": {
+      "path": "act_03/amalgam_arena.json",
+      "act_id": "act_03",
+      "next_room": "act_04_rail_yard",
+      "previous_room": "act_03_telepod_vault",
+      "art_id": "area_51_v1",
+      "encounters": [],
+      "milestones": [],
+      "background_poses": [
+        "containment_pods"
+      ],
+      "art_view": [
+        0.5,
+        0.5
+      ]
+    },
+    "act_04_rail_yard": {
+      "path": "act_04/rail_yard.json",
+      "act_id": "act_04",
+      "next_room": "act_04_rift_array",
+      "previous_room": "act_03_amalgam_arena",
+      "art_id": "vla_rift_v1",
+      "encounters": [
+        {
+          "id": "act_04_rail_yard_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_04_rail_yard_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_04_rail_yard_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_04_rail_yard_signal_002",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-002. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "antenna_dishes",
+        "transporter",
+        "track_crew"
+      ],
+      "art_view": [
+        0,
+        0.333333
+      ]
+    },
+    "act_04_rift_array": {
+      "path": "act_04/rift_array.json",
+      "act_id": "act_04",
+      "next_room": "act_04_relay_approach",
+      "previous_room": "act_04_rail_yard",
+      "art_id": "vla_rift_v1",
+      "encounters": [
+        {
+          "id": "act_04_rift_array_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_04_rift_array_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_04_rift_array_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_04_rift_array_signal_scan_h",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-SCAN-H. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "antenna_dishes",
+        "array_buildings",
+        "service_vehicles"
+      ],
+      "art_view": [
+        0.333333,
+        0.666667
+      ]
+    },
+    "act_04_relay_approach": {
+      "path": "act_04/relay_approach.json",
+      "act_id": "act_04",
+      "next_room": "act_04_dodleston_relay",
+      "previous_room": "act_04_rift_array",
+      "art_id": "vla_rift_v1",
+      "encounters": [
+        {
+          "id": "act_04_relay_approach_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 256,
+          "y": 220
+        },
+        {
+          "id": "act_04_relay_approach_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_04_relay_approach_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [],
+      "background_poses": [
+        "brick_cottages",
+        "parked_cars",
+        "distant_figures"
+      ],
+      "art_view": [
+        0.666667,
+        1
+      ]
+    },
+    "act_04_dodleston_relay": {
+      "path": "act_04/dodleston_relay.json",
+      "act_id": "act_04",
+      "next_room": "act_04_architect_arena",
+      "previous_room": "act_04_relay_approach",
+      "art_id": "vla_rift_v1",
+      "encounters": [],
+      "milestones": [
+        {
+          "id": "relay_route_note",
+          "x": 80,
+          "title": "RELAY ROUTE",
+          "text": "The relay terminal remains available here. The rift passage ahead continues from this entrance area.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "relay_interior"
+      ]
+    },
+    "act_04_architect_arena": {
+      "path": "act_04/architect_arena.json",
+      "act_id": "act_04",
+      "next_room": "act_05_pillar_approach",
+      "previous_room": "act_04_dodleston_relay",
+      "art_id": "vla_rift_v1",
+      "encounters": [],
+      "milestones": [],
+      "background_poses": [
+        "rift_geometry"
+      ],
+      "art_view": [
+        0.5,
+        0.5
+      ]
+    },
+    "act_05_pillar_approach": {
+      "path": "act_05/pillar_approach.json",
+      "act_id": "act_05",
+      "next_room": "act_05_buried_archive",
+      "previous_room": "act_04_architect_arena",
+      "art_id": "gobekli_tepe_v1",
+      "encounters": [
+        {
+          "id": "act_05_pillar_approach_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 288,
+          "y": 220
+        },
+        {
+          "id": "act_05_pillar_approach_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_05_pillar_approach_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_05_pillar_approach_signal_010",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-010. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "limestone_pillars",
+        "visitor_shelter",
+        "distant_archaeologists"
+      ]
+    },
+    "act_05_buried_archive": {
+      "path": "act_05/buried_archive.json",
+      "act_id": "act_05",
+      "next_room": "act_05_crust_waveguide",
+      "previous_room": "act_05_pillar_approach",
+      "art_id": "gobekli_archive_v1",
+      "encounters": [
+        {
+          "id": "act_05_buried_archive_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 288,
+          "y": 220
+        },
+        {
+          "id": "act_05_buried_archive_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_05_buried_archive_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [
+        {
+          "id": "act_05_buried_archive_signal_004",
+          "x": 240.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-004. Follow its source beyond Earth.",
+          "events": []
+        },
+        {
+          "id": "act_05_buried_archive_signal_006",
+          "x": 560.0,
+          "title": "SIGNAL CLUE",
+          "text": "A receiver detects a clue associated with FASR-006. Follow its source beyond Earth.",
+          "events": []
+        }
+      ],
+      "background_poses": [
+        "archive_shelves",
+        "stone_walls"
+      ],
+      "art_view": [
+        0,
+        0.5
+      ]
+    },
+    "act_05_crust_waveguide": {
+      "path": "act_05/crust_waveguide.json",
+      "act_id": "act_05",
+      "next_room": "act_05_core_prime_arena",
+      "previous_room": "act_05_buried_archive",
+      "art_id": "gobekli_archive_v1",
+      "encounters": [
+        {
+          "id": "act_05_crust_waveguide_hound_1",
+          "type": "hound",
+          "trigger_x": 64,
+          "x": 288,
+          "y": 220
+        },
+        {
+          "id": "act_05_crust_waveguide_drone_2",
+          "type": "drone",
+          "trigger_x": 256,
+          "x": 480,
+          "y": 116
+        },
+        {
+          "id": "act_05_crust_waveguide_captain_3",
+          "type": "captain",
+          "trigger_x": 512,
+          "x": 784,
+          "y": 208
+        }
+      ],
+      "milestones": [],
+      "background_poses": [
+        "waveguide_machinery",
+        "stone_passage"
+      ],
+      "art_view": [
+        0.5,
+        1
+      ]
+    },
+    "act_05_core_prime_arena": {
+      "path": "act_05/core_prime_arena.json",
+      "act_id": "act_05",
+      "next_room": null,
+      "previous_room": "act_05_crust_waveguide",
+      "art_id": "gobekli_tepe_v1",
+      "encounters": [],
+      "milestones": [],
+      "background_poses": [
+        "core_structure"
+      ],
+      "art_view": [
+        0.5,
+        0.5
+      ]
+    }
+  }
+}
