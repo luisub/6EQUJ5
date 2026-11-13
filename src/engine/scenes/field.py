@@ -14,7 +14,6 @@ from video_game.engine.campaign_route import act_meta, room_meta, store_route, a
 from video_game.engine.campaign_scenery import CampaignScenery
 from video_game.engine.alien_journey import (ledger as journey_ledger, save_ledger as save_journey,
                                                world_by_id, world_for_room)
-from video_game.engine.story_sequence import StorySequence
 from video_game.engine.ui.dialogue import action as dialogue_action
 from video_game.engine.abilities import AbilityManager
 from video_game.engine.animation import AnimationPlayer, load_mateo_animations
@@ -126,7 +125,6 @@ class FieldOpsScene(BaseScene):
         self._fire_pressed: bool = False
         self._fire_released: bool = False
         self._context_up_consumed = False
-        self._retry_space_consumed = False
         self._blocked_exit_notice = 0.0
 
         # Projectiles, arsenal, abilities and combat
@@ -340,7 +338,6 @@ class FieldOpsScene(BaseScene):
         self.machine.input.release_all()
         self._jump_pressed = self._jump_released = False
         self._fire_pressed = self._fire_released = False
-        self._retry_space_consumed = False
         self._checkpoint_notice_remaining = 0.0
         self.prompt_text = ""
         self.room_path = LEVELS_DIR / room_relative_path
@@ -489,7 +486,7 @@ class FieldOpsScene(BaseScene):
         self._defense_respawns = self.player.respawn_count
         self._defense_pressure_delay = 8.0
         self.objective_tracker.post_notification(
-            "DEFEND THE ARRAY", "72s // USE UP AT FEEDHORN TO CLEAR JAMS", "warning", 5.0)
+            "GATE OPEN", "Stay to defend, or continue right.", "success", 2.5)
 
     def _spawn_defense_wave(self, wave):
         """Spawn the scheduled enemies at the edges of the catwalk."""
@@ -505,7 +502,6 @@ class FieldOpsScene(BaseScene):
                 f"{wave_id}_hound_{i}", x=x, y=208.0,
                 patrol_left=max(24.0, x - 80.0), patrol_right=min(self.room.width_px - 32.0, x + 40.0)))
         self._defense_pressure_delay = 8.0
-        self.objective_tracker.post_notification("INCOMING WAVE", wave["name"], "warning", 3.0)
 
     def _update_defense(self, dt: float, is_paused: bool):
         defense = self.holdout
@@ -524,7 +520,7 @@ class FieldOpsScene(BaseScene):
                         self.machine.save_checkpoint()
                     self.enemy_manager.clear()
                     self.objective_tracker.post_notification(
-                        "ARRAY SECURED", "GO RIGHT TO THE GREENKEEPER BASIN", "success", 6.0)
+                        "ARRAY SECURED", "", "success", 2.0)
             if defense.is_active:
                 self._defense_pressure_delay = max(0.0, self._defense_pressure_delay - dt)
                 if self._defense_pressure_delay == 0.0:
@@ -533,7 +529,7 @@ class FieldOpsScene(BaseScene):
         if defense.is_failed:
             self.enemy_manager.clear()
             self.projectile_manager.clear()
-            self.objective_tracker.post_notification("DEFENSE FAILED", defense.failure_reason + " // SPACE / CLICK TO RETRY", "warning", 8.0)
+            self.objective_tracker.post_notification("DEFENSE ENDED", "Retry, or continue right.", "warning", 2.5)
 
     def on_enter(self, previous_state_id: Optional[str] = None, **kwargs):
         """Reset keys, combat state, and snap camera on scene entry."""
@@ -561,12 +557,6 @@ class FieldOpsScene(BaseScene):
         self.route_story = None
         if "room" in kwargs:
             self.load_room(kwargs["room"], spawn_name=kwargs.get("spawn"))
-            if self.campaign_route_active:
-                meta = room_meta(self.room.room_id)
-                act = act_meta(meta.get('act_id'))
-                if kwargs.get('show_intro') and act.get('intro'):
-                    self.route_story = StorySequence(act['intro'], font=self.machine.crt.font_md,
-                                                     auto_advance=False, next_label='Explore')
         elif previous_state_id == config.STATE_BUNKER_HUB:
             if "bunker_exit" in self.room.spawns:
                 self.reset_to_spawn("bunker_exit")
@@ -596,11 +586,11 @@ class FieldOpsScene(BaseScene):
         """Return a short label only for a currently actionable field target."""
         if self.reality.panel_open or self.flashback is not None:
             return None
-        if self.holdout and self.holdout.is_failed:
-            return "SPACE / CLICK: RETRY"
         exit_trigger = self.room.check_exit_trigger(self.player.rect)
         if exit_trigger and exit_trigger.transition != 'walk':
             return "UP / CLICK: ENTER"
+        if self.holdout and self.holdout.is_failed:
+            return "R / CLICK: RETRY"
         if (self.room.room_id == "act_01_dish_catwalk"
                 and abs(self.player.rect.centerx - 320) <= 56):
             if self.holdout and self.holdout.is_active and self.holdout.is_jammed:
@@ -639,12 +629,6 @@ class FieldOpsScene(BaseScene):
                 if self.route_story.done:
                     self.route_story = None
                 self.machine.input.release_all()
-            return
-        if event.type in (pygame.KEYDOWN, pygame.KEYUP) and event.key == pygame.K_SPACE and self._retry_space_consumed:
-            self.machine.input.consume_key(pygame.K_SPACE)
-            self.keys_held.pop(pygame.K_SPACE, None)
-            if event.type == pygame.KEYUP:
-                self._retry_space_consumed = False
             return
         if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
             self._context_up_consumed = bool(self._context_label())
@@ -741,11 +725,10 @@ class FieldOpsScene(BaseScene):
                     return
 
             if (self.holdout and self.holdout.is_failed
-                    and event.key in (pygame.K_r, pygame.K_SPACE, pygame.K_e)
-                    and not getattr(event, 'repeat', False)
-                    and (event.key != pygame.K_SPACE or getattr(event, 'input_fresh', False))):
+                    and event.key in (pygame.K_r, pygame.K_e)
+                    and (event.key != pygame.K_e or not self.room.check_exit_trigger(self.player.rect))
+                    and not getattr(event, 'repeat', False)):
                 # Retry owns its activation; never turn it into a jump, shot or ability.
-                self._retry_space_consumed = event.key == pygame.K_SPACE
                 self.machine.input.release_all()
                 self.keys_held.clear()
                 self.player.active_checkpoint_id = None
@@ -757,7 +740,7 @@ class FieldOpsScene(BaseScene):
                     and event.key in (pygame.K_RETURN, pygame.K_e)
                     and abs(self.player.rect.centerx - 320) <= 56):
                 self.holdout.unjam()
-                self.objective_tracker.post_notification("JAM CLEARED", "FEEDHORN RESTORED", "success", 3.0)
+                self.objective_tracker.post_notification("JAM CLEARED", "", "success", 1.5)
                 return
 
             if (self.room.room_id == "act_01_dish_catwalk"
@@ -828,20 +811,18 @@ class FieldOpsScene(BaseScene):
             self.machine.input.restore_forward_handoff(snapshot)
             self.player.vx = velocity
         if exit_trigger.transition == 'walk':
-            objectives = self.room.raw_data.get('objectives', [])
-            if objectives:
-                self.objective_tracker.post_notification(
-                    self.room.title, objectives[0]['description'], 'info', 4.0)
+            self.objective_tracker.post_notification(self.room.title, '', 'info', 1.5)
 
     def _enter_exit(self, exit_trigger, *, automatic=False):
         target = exit_trigger.target_room
         state = self.machine.campaign.state
-        needs_defense = (target == 'act_01_greenkeeper_arena' or
+        needs_repair = (target == 'act_01_greenkeeper_arena' or
                          (self.room.room_id == 'act_01_dish_catwalk' and
                           target == 'act_01_dish_return'))
         warning = None
-        if needs_defense and not state.room_flags.get('dish_defense_completed', False):
-            warning = ('ARENA SEALED', 'DEFEND DISH FOR 72s BEFORE ENTERING BASIN')
+        if (needs_repair and not state.room_flags.get('feedhorn_repaired', False)
+                and not state.room_flags.get('dish_defense_completed', False)):
+            warning = ('REPAIR FEEDHORN', 'Use the coupler at the dish.')
         elif (self.room.room_id == 'act_01_salvage_yard'
               and target in ('act_01_salvage_runoff', 'act_01_dish_catwalk')
               and not state.room_flags.get('feedhorn_repaired', False)
@@ -1174,9 +1155,9 @@ class FieldOpsScene(BaseScene):
                 if self.machine.campaign.apply_event(evt):
                     self.objective_tracker.post_notification(
                         title="ITEM RECOVERED",
-                        text="COUPLER RECOVERED // GO RIGHT TO THE CATWALK FEEDHORN",
+                        text="Coupler recovered.",
                         kind="success",
-                        duration=4.0,
+                        duration=2.0,
                     )
 
         if self.campaign_route_active and not is_paused and not self.player.is_dead:
@@ -1195,8 +1176,8 @@ class FieldOpsScene(BaseScene):
                             continue
                         seen.add(event_id)
                         self._route_notices = seen
-                    self.objective_tracker.post_notification(milestone['title'], milestone['text'], 'success', 6)
                     if events:
+                        self.objective_tracker.post_notification(milestone['title'], '', 'success', 2)
                         self.machine.save_checkpoint()
         # Update smooth camera tracking
         self.camera.update(self.player.x + 8.0, self.player.y + 16.0, smoothing=0.15)
@@ -1422,7 +1403,7 @@ class FieldOpsScene(BaseScene):
         if self.holdout:
             defense = self.holdout
             info = defense.get_signal_display()
-            line = f"DISH {info['dish_integrity']:.0f}%  {info['remaining']:.0f}s  SIGNAL {info['code']} {info['snr']}σ"
+            line = f"OPTIONAL DEFENSE  {info['remaining']:.0f}s  DISH {info['dish_integrity']:.0f}%"
             pygame.draw.rect(crt.canvas, (4, 10, 9), (6, 54, 245, 24))
             crt.draw_text(line, 10, 56, color=config.COLOR_FIBO_GOLD, size="sm")
             if defense.is_jammed:
@@ -1431,9 +1412,9 @@ class FieldOpsScene(BaseScene):
                             'MOVE LEFT TO FEEDHORN' if center > 376 else 'PRESS E / PAD X TO CLEAR')
                 crt.draw_text('JAMMED: ' + guidance, 10, 67, color=config.COLOR_AMBER_1977, size="sm")
             elif defense.is_failed:
-                crt.draw_text("DEFENSE FAILED // SPACE / CLICK: RETRY", 10, 67, color=config.COLOR_AMBER_1977, size="sm")
+                crt.draw_text("R: RETRY / GATE OPEN", 10, 67, color=config.COLOR_AMBER_1977, size="sm")
             elif defense.is_active:
-                crt.draw_text("HOSTILES DAMAGE ARRAY", 10, 67, color=config.COLOR_CRT_GREEN, size="sm")
+                crt.draw_text("GATE OPEN: CONTINUE RIGHT", 10, 67, color=config.COLOR_CRT_GREEN, size="sm")
 
         if getattr(self.machine, "save_notice", "").startswith("SAVE FAILED"):
             pygame.draw.rect(crt.canvas, (4, 10, 9), (252, 54, 222, 17))

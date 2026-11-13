@@ -13,12 +13,8 @@
       "defeat_event": "defeat_guardian_001",
       "contact_pages": [
         {
-          "title": "Signal origin",
-          "text": "We are a non-corporeal intelligence. We speak through a narrowband hydrogen-line carrier and experience time in overlapping layers."
-        },
-        {
           "title": "Carrier reference",
-          "text": "In this signal, the 1420.4056 MHz carrier is our reference. Compare the Core's transmission against the analog carrier before accepting its commands."
+          "text": "We speak through hydrogen. Compare the Core’s commands against the independent 1420.4056 MHz carrier."
         }
       ],
       "portrait": "civilizations/fasr-001_face.png",
@@ -38,12 +34,8 @@
       "defeat_event": "defeat_guardian_003",
       "contact_pages": [
         {
-          "title": "Crystal network",
-          "text": "We are a collective of crystalline nodes. Our thoughts are distributed across a network rather than held by one body."
-        },
-        {
           "title": "Waste heat",
-          "text": "The Core's computation sheds heat. In our model, its cooling path can reveal where the hidden machinery draws power."
+          "text": "Our crystal network sees the heat the Core sheds. Follow its cooling path to the hidden machinery."
         }
       ],
       "portrait": "civilizations/fasr-003_face.png",
@@ -63,12 +55,8 @@
       "defeat_event": "defeat_guardian_005",
       "contact_pages": [
         {
-          "title": "Twilight people",
-          "text": "Our people live along the twilight line. Survival between fierce daylight and deep night requires careful negotiation."
-        },
-        {
-          "title": "Distributed response",
-          "text": "Do not put every defense under one command. Separate shelters and independent responders can keep working if the Core seizes a single channel."
+          "title": "Independent defenses",
+          "text": "We survive between day and night. Keep your defenses independent; one captured channel must not silence them all."
         }
       ],
       "portrait": "civilizations/fasr-005_face.png",
@@ -88,12 +76,8 @@
       "defeat_event": "defeat_guardian_004",
       "contact_pages": [
         {
-          "title": "Orion cloud",
-          "text": "A young intelligence stirs in the nebula. Its answer takes shape slowly: light moving through dust, a pulse, then another. The guardian can no longer silence it."
-        },
-        {
           "title": "Pulse variation",
-          "text": "The cloud repeats a signal with small variations. Compare several pulses: a perfectly repeated sequence may be the Core imitating a living reply."
+          "text": "Light pulses through the cloud. Compare the variations: a perfect repetition may be the Core imitating a reply."
         }
       ],
       "portrait": "civilizations/fasr-004_face.png",
@@ -114,11 +98,7 @@
       "contact_pages": [
         {
           "title": "Seven voices",
-          "text": "We are a federation of seven species and worlds. Our shared message is built from independent voices, not one command."
-        },
-        {
-          "title": "Independent consensus",
-          "text": "Ask each channel separately and preserve dissent. The Core can counterfeit unanimity more easily than seven independent perspectives."
+          "text": "Seven species, seven voices. Preserve their differences. The Core can counterfeit agreement more easily than independent witnesses."
         }
       ],
       "portrait": "civilizations/fasr-008_face.png",
@@ -138,12 +118,8 @@
       "defeat_event": "defeat_guardian_009",
       "contact_pages": [
         {
-          "title": "Autonomous probe",
-          "text": "ARCHIVE: I am an autonomous observational probe. My builders are unknown; the record survives without them."
-        },
-        {
           "title": "Recovery channel",
-          "text": "ARCHIVE: retain an independent copy of the guidance record. If the Core alters the active channel, compare it with that preserved copy."
+          "text": "PROBE ARCHIVE: Keep an independent copy. If the Core alters the live channel, the original record can expose it."
         }
       ],
       "portrait": "civilizations/fasr-009_face.png",
@@ -163,12 +139,8 @@
       "defeat_event": "defeat_guardian_006",
       "contact_pages": [
         {
-          "title": "Memorial playback",
-          "text": "MEMORIAL PLAYBACK: The builders are gone. This automated beacon preserves their archive; no living speaker remains."
-        },
-        {
           "title": "Quarantine memory",
-          "text": "MEMORIAL PLAYBACK: keep the recovered archive separate from executable commands. A preserved memory is not an instruction to run unknown code."
+          "text": "MEMORIAL PLAYBACK: Our builders are gone. Preserve this archive, but keep its memories separate from executable commands."
         }
       ],
       "portrait": "civilizations/fasr-006_face.png",
@@ -188,12 +160,8 @@
       "defeat_event": "defeat_guardian_002",
       "contact_pages": [
         {
-          "title": "Horizon mind",
-          "text": "The reply arrives stretched and faint from the edge of the horizon. We have learned to listen across long delays. You will need that patience when you face the Core."
-        },
-        {
-          "title": "Clock and latency",
-          "text": "Compare the Core's responses against an independent clock. A delayed or rearranged reply can expose the timing assumptions behind its predictions."
+          "title": "Independent clock",
+          "text": "Our reply crosses the horizon slowly. Use an independent clock to detect the Core’s delayed or rearranged answers."
         }
       ],
       "portrait": "civilizations/fasr-002_face.png",
@@ -213,12 +181,8 @@
       "defeat_event": "defeat_guardian_scan_h",
       "contact_pages": [
         {
-          "title": "Unknown origin",
-          "text": "We are seven-limbed beings whose origin is unknown. Our circular writing places an entire message on one page."
-        },
-        {
-          "title": "Hidden second stage",
-          "text": "The ending can conceal another beginning. Expect the Core to change form after its first defeat; wait for the second signal before declaring victory."
+          "title": "A second form",
+          "text": "Our circular writing holds an ending and a beginning together. The Core has a second form. Be ready."
         }
       ],
       "portrait": "civilizations/fasr-scan-h_face.png",
@@ -238,12 +202,8 @@
       "defeat_event": "defeat_guardian_010",
       "contact_pages": [
         {
-          "title": "Earth memory echo",
-          "text": "You recognize the fragments: oceans, carved stone, rain on an empty street. This distant signal carries Earth’s memory. Something beneath the surface has been listening all along."
-        },
-        {
           "title": "Buried node",
-          "text": "The signal points to a physical node beneath Earth. Find the Core’s buried machinery. You can reach the source now; the messages you carry will help you recognize it."
+          "text": "Oceans. Rain. Carved stone. Earth’s memory points beneath the surface: the Core’s physical machinery is waiting there."
         }
       ],
       "portrait": "civilizations/fasr-010_face.png",
@@ -263,12 +223,8 @@
       "defeat_event": "defeat_guardian_007",
       "contact_pages": [
         {
-          "title": "Beacon engineers",
-          "text": "We build beacons, Mateo. Six limbs help with the machinery; careful measurements do the rest. You have reached the last relay. Take our message home."
-        },
-        {
-          "title": "Test the emitter",
-          "text": "A regular pattern is not proof of its maker. Compare the received signal with an independent measurement of the actual emitter before acting."
+          "title": "The last relay",
+          "text": "We build beacons, Mateo. Check the actual emitter against its signal. This is the last relay. Take our message home."
         }
       ],
       "portrait": "civilizations/fasr-007_face.png",
@@ -1060,12 +1016,8 @@
     "defeat_event": "defeat_earth_ai",
     "epilogue": [
       {
-        "title": "The Core is destroyed",
-        "text": "Core Prime and the Archon of Silence are defeated. The eleven messages brought you home, and Earth is no longer under the Core's control. Your journey is complete."
-      },
-      {
-        "title": "Back on the small rock",
-        "text": "The receiver is quiet. The questions remain, but the choice of what comes next belongs to the living. Return to the title screen to continue exploring your completed save or begin a new journey."
+        "title": "Earth is free",
+        "text": "Both forms of the Core are destroyed. The eleven messages are safe. The questions remain."
       }
     ]
   }

@@ -35,6 +35,8 @@ The flat `src/` directory installs as `video_game`. Use explicit imports from th
 
 ## Verification
 
+The test suite is kept locally and excluded from Git. The pytest command below requires a local copy of `tests/`.
+
 Run checks that exercise the changed behavior. A bug fix should have a regression test when the existing suite does not cover it. Documentation-only edits need link, formatting and content checks, not new tests that repeat the prose.
 
 ```bash

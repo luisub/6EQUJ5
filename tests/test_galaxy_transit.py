@@ -9,7 +9,7 @@ import pytest
 from video_game.engine import config
 from video_game.engine.alien_journey import journey_data, ledger, save_ledger, start_ledger
 from video_game.engine.galaxy_transit import navigation_data, valid_pending
-from video_game.engine.scenes.galaxy_transit import TOTAL_SECONDS, SKIP_GUARD_SECONDS
+from video_game.engine.scenes.galaxy_transit import TOTAL_SECONDS
 from video_game.engine.save_game import SaveError
 from tests.test_campaign_world_route import game, key
 
@@ -29,7 +29,6 @@ def complete_contact_fixture(game):
     save_ledger(game.campaign, prior)
     assert game.save_checkpoint()
     game.change_state(config.STATE_ALIEN_CONTACT, world_id='alien_001')
-    key(game, pygame.K_RETURN)
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_GALAXY_TRANSIT
 
@@ -73,11 +72,10 @@ def test_automatic_phases_and_saved_arrival_do_not_repeat_on_continue(game):
     assert game.current_scene.room.room_id == 'alien_001_field'
 
 
-def test_skip_guard_controller_and_input_release(game):
+def test_immediate_arrival_ignores_repeats_and_clears_controller_input(game):
     begin(game)
-    key(game, pygame.K_RETURN)
+    game.handle_event(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RETURN, repeat=True))
     assert game.current_state_name == config.STATE_GALAXY_TRANSIT
-    game.update(SKIP_GUARD_SECONDS)
     game.handle_event(pygame.event.Event(pygame.CONTROLLERBUTTONDOWN, button=pygame.CONTROLLER_BUTTON_A))
     assert game.current_state_name == config.STATE_FIELD_OPS
     assert not game.input.held('move_right') and not game.input.held('fire')
@@ -115,7 +113,6 @@ def test_pending_contact_leg_survives_continue_without_duplicate_receipt(game):
 
 def test_arrival_save_failure_retains_pending_and_retry_is_safe(game, monkeypatch):
     begin(game)
-    game.update(SKIP_GUARD_SECONDS)
     saved_before = game.save_store.path.read_bytes()
     original = game.save_store.save
     def fail(*args, **kwargs):

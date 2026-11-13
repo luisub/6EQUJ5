@@ -29,7 +29,6 @@ from video_game.engine.bosses.campaign_bosses import BOSSES, AlienGuardian, Port
 from video_game.engine.alien_journey import (journey_data, ledger as journey_ledger,
     save_ledger as save_journey, start_ledger, world_by_id, dispatch as dispatch_journey, earth_portal_ready)
 from video_game.engine.campaign_route import act_meta, room_meta, store_route
-from video_game.engine.galaxy_transit import display_name
 from video_game.engine.campaign_scenery import CampaignScenery, load_campaign_boss
 from video_game.engine.native_room_assets import load_native_room_family
 from video_game.engine.objectives import Objective
@@ -38,7 +37,7 @@ from video_game.engine.scenes.base import BaseScene
 from video_game.engine.story_sequence import StorySequence, earned_story_pages
 from video_game.engine.ui.hud import render_global_hud
 from video_game.engine.ui.aim_reticle import render_aim_reticle
-from video_game.engine.ui.dialogue import action as dialogue_action
+from video_game.engine.ui.dialogue import action as dialogue_action, NEXT_BUTTON
 from video_game.engine.weapons import ArsenalManager, ProjectileManager, StarterMaser
 from video_game.engine.combat_feedback import CombatFeedback, SceneAtmosphere
 from video_game.engine.temporary_weapons import WeaponPickups, render_weapon_timer, style_temporary_flash
@@ -189,10 +188,7 @@ class BossScene(BaseScene):
         self.camera.snap_to(self.player.x, self.player.y)
         self.boss.reset_to_pristine()
         self.boss.skip_intro()
-        self.encounter_intro_remaining = 1.5
-        # Frame the complete boss body during the safe arrival reveal.
-        reveal_left = max(0, self.boss.rect.right - self.camera.viewport_w + 16)
-        self.camera.snap_to(reveal_left + self.camera.viewport_w / 2, self.player.y)
+        self.encounter_intro_remaining = 0.0
         self.is_fight_active = True
         self.is_defeated_sequence = False
         self.defeat_banner_timer = 0.0
@@ -248,8 +244,6 @@ class BossScene(BaseScene):
     def handle_event(self, event: pygame.Event):
         """Process player combat inputs and debug keys."""
         if self.is_defeated_sequence:
-            if self.destruction and not self.destruction.done:
-                return
             action = dialogue_action(event, self.machine.crt)
             advance, back = action == 'next', action == 'back'
             if self.story_save_pending and (advance or back):
@@ -481,13 +475,10 @@ class BossScene(BaseScene):
         if self.journey_world:
             world = world_by_id(self.journey_world)
             completed = len(journey_ledger(self.machine.campaign)['receipts'])
-            destination = display_name(world['next_world'] or 'earth')
             pages = [{'title': f'{self.boss.title.title()} defeated',
-                      'text': f'You defeated the guardian at {display_name(world["id"])}. '
-                              f'{world["civ_id"]} can now share its message. Record it before '
-                              f'leaving for {destination}.'}]
+                      'text': f'{world["civ_id"]} is ready to transmit.'}]
             next_label = 'Receive message'
-            detail = f'{completed} / 11 messages recovered · Message {completed + 1} awaits'
+            detail = f'{completed} / 11 messages recovered'
         elif self.journey_final:
             pages = journey_data()['final_earth'].get('epilogue', [])
             next_label, detail = 'Finish journey', 'All 11 messages recovered. Earth is free.'
@@ -695,8 +686,12 @@ class BossScene(BaseScene):
         )
 
         # 9. Defeat victory banner
-        if self.is_defeated_sequence and self.story and (not self.destruction or self.destruction.done):
+        if self.is_defeated_sequence and self.story and (self.story_save_pending or not self.destruction or self.destruction.done):
             self.story.render(crt, save_pending=self.story_save_pending)
+        elif self.is_defeated_sequence:
+            pygame.draw.rect(crt.canvas, (7, 17, 25), NEXT_BUTTON, border_radius=3)
+            crt.draw_text('ENTER / A: CONTINUE', NEXT_BUTTON.x + 10, NEXT_BUTTON.y + 8,
+                          color=config.COLOR_FIBO_GOLD, size='sm')
 
         # 10. Player Death banner
         if self.player.is_dead:

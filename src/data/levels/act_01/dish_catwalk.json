@@ -972,7 +972,7 @@
   "objectives": [
     {
       "id": "defend_dish_feedhorn",
-      "description": "Fit the coupler at the central feedhorn. Defend the dish for 72 seconds to open the basin."
+      "description": "Repair the feedhorn to open the basin. Stay for the optional defense, or continue right."
     }
   ],
   "required_flags": [

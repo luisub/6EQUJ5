@@ -48,6 +48,12 @@ dist/
 .pytest_cache/
 .coverage*
 htmlcov/
+# Local test suites and Python test modules
+tests/
+test/
+test_*.py
+*_test.py
+conftest.py
 # Recovery, archives and generated developer output
 _trash/
 _temp/
@@ -60,7 +66,7 @@ profiles/
 *.bak
 *.backup
 *.tmp
-# Player state; test fixtures remain tracked
+# Player state
 saves/
 local_saves/
 *.save

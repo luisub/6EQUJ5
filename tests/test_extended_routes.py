@@ -97,7 +97,7 @@ def test_context_click_consumed_and_space_still_jumps(game):
     game.input.begin_frame()
     game.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=p))
     assert field.room.room_id == 'act_01_dish_catwalk'
-    assert field.objective_tracker.active_notification.title == 'ARENA SEALED'
+    assert field.objective_tracker.active_notification.title == 'REPAIR FEEDHORN'
     game.update(1 / 60)
     assert not game.input.held('fire')
     assert not field.projectile_manager.projectiles

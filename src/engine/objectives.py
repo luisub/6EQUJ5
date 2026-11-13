@@ -156,23 +156,12 @@ class ObjectiveTracker:
                 station_id="repair",
             )
 
-        # Stage 5: Perimeter 72-second defense
-        if not state.room_flags.get("dish_defense_completed", False):
-            return Objective(
-                id="obj_defend_perimeter",
-                title="DEFEND ANTENNA ARRAY",
-                description="Defend the horn reflector array for 72 seconds against Core incursions.",
-                hint="[E] SURFACE AIRLOCK [RIGHT]",
-                station_id="field",
-                is_completed=False,
-            )
-
-        # Stage 6: Defense completed -> Confront Greenkeeper in boss arena
+        # Repair opens the basin immediately; the timed defense is optional.
         if not state.room_flags.get("greenkeeper_defeated", False):
             return Objective(
                 id="obj_defeat_greenkeeper",
                 title="NEUTRALIZE GREENKEEPER",
-                description="The array is secure. Continue right into the reflector basin.",
+                description="The gate is open. Continue right; defending the dish is optional.",
                 hint="[E] BASIN AIRLOCK OR BUNKER NEXT",
                 station_id="field",
                 is_completed=False,
@@ -210,12 +199,6 @@ class ObjectiveTracker:
                 self.last_objective_id = current.id
             elif self.last_objective_id != current.id:
                 self.last_objective_id = current.id
-                self.post_notification(
-                    title="OBJECTIVE UPDATED",
-                    text=current.title,
-                    kind="success",
-                    duration=3.5,
-                )
 
 
 class DishDefenseHoldout:

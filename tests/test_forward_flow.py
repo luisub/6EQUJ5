@@ -144,7 +144,7 @@ def test_alias_exact_size_and_complete_family(game, tmp_path, alias, family, siz
     assert load_native_room_family(root, alias, size) is None
 
 
-@pytest.mark.parametrize('method', ['space', 'click'])
+@pytest.mark.parametrize('method', ['retry_key', 'click'])
 def test_failed_defense_retry_uses_fresh_input_without_fire_or_jump(game, method):
     field = game.current_scene
     game.campaign.apply_event({'event_id': 'fixture_retry_coupler', 'type': 'collect_analog_coupler'})
@@ -152,18 +152,18 @@ def test_failed_defense_retry_uses_fresh_input_without_fire_or_jump(game, method
     field.load_room('act_01/dish_catwalk.json', 'catwalk_start')
     assert field.holdout.is_active
     field.holdout.fail('fixture failure')
-    assert field._context_label() == 'SPACE / CLICK: RETRY'
+    assert field._context_label() == 'R / CLICK: RETRY'
     game.open_pause()
-    if method == 'space':
-        event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_SPACE))
+    if method == 'retry_key':
+        event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_r))
     else:
         pos = (round(220 * game.crt.win_w / 480), round(213 * game.crt.win_h / 270))
         event(game, pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=pos))
     assert field.holdout.is_failed
     game.pause.close()
     game.input.release_all()
-    if method == 'space':
-        event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_SPACE))
+    if method == 'retry_key':
+        event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_r))
     else:
         event(game, pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=pos))
     assert field.holdout.is_active
@@ -172,11 +172,11 @@ def test_failed_defense_retry_uses_fresh_input_without_fire_or_jump(game, method
     step(game)
     assert not field.projectile_manager.projectiles
     assert not field._jump_pressed
-    if method == 'space':
-        event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_SPACE, repeat=True))
+    if method == 'retry_key':
+        event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_r, repeat=True))
         step(game)
         assert not game.input.held('jump') and not field._jump_pressed
-        event(game, pygame.event.Event(pygame.KEYUP, key=pygame.K_SPACE))
+        event(game, pygame.event.Event(pygame.KEYUP, key=pygame.K_r))
 
 
 def test_yard_coupler_gate_throttles_and_allows_earned_and_repaired(game, monkeypatch):
@@ -234,4 +234,7 @@ def test_held_retry_sources_are_not_fresh(game):
     event(game, pygame.event.Event(pygame.KEYUP, key=pygame.K_SPACE))
     event(game, pygame.event.Event(pygame.MOUSEBUTTONUP, button=1, pos=pos))
     event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_SPACE))
+    assert field.holdout.is_failed and game.input.held('jump')
+    event(game, pygame.event.Event(pygame.KEYUP, key=pygame.K_SPACE))
+    event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_r))
     assert field.holdout.is_active

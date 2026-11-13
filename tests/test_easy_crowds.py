@@ -196,8 +196,8 @@ def test_boss_retry_uses_fresh_input_without_carrying_controls(game, kind):
         click(pygame.MOUSEBUTTONDOWN)
     assert not scene.player.is_dead  # The same inputs cannot retry a live encounter.
     for _ in range(5):
-        game.update(1 / 60)  # Reveal updates suppress combat but retain physical freshness.
-    assert scene.encounter_intro_remaining > 0
+        game.update(1 / 60)  # Combat starts immediately; held controls retain physical freshness.
+    assert scene.encounter_intro_remaining == 0
     scene.player.take_damage(10000, ignore_invulnerable=True)
     assert scene.player.is_dead
     if kind == "space":

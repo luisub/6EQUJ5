@@ -69,7 +69,9 @@ def render_global_hud(
         kind = getattr(notification, "kind", "info")
         color = {"success": config.COLOR_CRT_GREEN, "warning": config.COLOR_AMBER_1977,
                  "danger": (230, 50, 50)}.get(kind, config.COLOR_FIBO_GOLD)
-        message = f"{getattr(notification, 'title', 'NOTICE')}: {getattr(notification, 'text', '')}"
+        message = getattr(notification, 'title', 'NOTICE')
+        if getattr(notification, 'text', ''):
+            message += ': ' + notification.text
         message = _fit_label(crt.font_sm, message, 346)
         width = crt.font_sm.size(message)[0] + 12
         pygame.draw.rect(crt.canvas, (5, 14, 9), (120, 19, width, 13))

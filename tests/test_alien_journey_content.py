@@ -24,8 +24,9 @@ def test_all_civilizations_have_ordered_worlds_portraits_and_registry():
     assert len({world['guardian_title'] for world in worlds}) == 11
     for i, world in enumerate(worlds):
         assert world['next_world'] == (worlds[i+1]['id'] if i+1 < len(worlds) else None)
-        assert len(world['contact_pages']) == 2
-        assert len({page['title'] for page in world['contact_pages']}) == 2
+        assert len(world['contact_pages']) == 1
+        assert len(world['contact_pages'][0]['text'].split()) <= 30
+        assert world['contact_pages'][0]['title']
         assert all(1 <= len(page['title'].strip()) <= 60 for page in world['contact_pages'])
         assert all(len(page['text'].split()) <= 45 for page in world['contact_pages'])
         assert (DATA.parent / 'assets' / world['portrait']).is_file()

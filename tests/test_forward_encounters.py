@@ -240,7 +240,7 @@ def test_catwalk_arena_exit_is_gated_by_defense(game):
     field.player.rect.topleft = (field.player.x, field.player.y)
     key(game, pygame.KEYDOWN, pygame.K_e)
     assert game.current_state_name == config.STATE_FIELD_OPS
-    assert field.objective_tracker.active_notification.title == 'ARENA SEALED'
+    assert field.objective_tracker.active_notification.title == 'REPAIR FEEDHORN'
     game.campaign.apply_event({'event_id': 'fixture_defense', 'type': 'complete_dish_defense'})
     key(game, pygame.KEYDOWN, pygame.K_e)
     assert game.current_state_name == config.STATE_BOSS_BOUNTY

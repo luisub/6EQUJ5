@@ -262,7 +262,7 @@ def test_earned_earth_progress_overrides_missing_opening_signal(game):
     assert not game.campaign.state.validation_records
 
 
-def test_reveal_has_no_false_attack_or_weakness_alerts(game, monkeypatch):
+def test_immediate_boss_arrival_has_no_false_attack_alerts(game, monkeypatch):
     from video_game.engine.bosses.base import STATE_ATTACK, STATE_TELEGRAPH, BossAttackTelegraph
     portal_fixture(game)
     key(game, pygame.K_RETURN)
@@ -279,10 +279,10 @@ def test_reveal_has_no_false_attack_or_weakness_alerts(game, monkeypatch):
         return original(text, *args, **kwargs)
     monkeypatch.setattr(game.crt, 'draw_text', capture)
     game.render()
-    assert 'SECTOR BOSS APPROACHING' in drawn
-    assert scene.boss.title in drawn
-    assert not any('LOCK-ON' in text or 'TARGETED' in text or 'VULNERABLE' in text for text in drawn)
-    game.update(1.6)
+    assert 'SECTOR BOSS APPROACHING' not in drawn
+    assert any(scene.boss.title in text for text in drawn)
+    assert not any('LOCK-ON' in text or 'TARGETED' in text for text in drawn)
+    assert any('VULNERABLE' in text for text in drawn) == scene.boss.weak_point_exposed
     assert scene._active_threat() is None
     scene.boss.phase_state = STATE_TELEGRAPH
     scene.boss.telegraphs.append(BossAttackTelegraph('fixture', 1.0))

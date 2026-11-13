@@ -189,7 +189,7 @@ def test_next_repair_uses_campaign_event_and_keeps_manual_guard(tmp_path):
         assert ObjectiveTracker().get_active_objective(campaign).station_id == 'repair'
         key(machine, pygame.K_SPACE)
         assert campaign.state.room_flags.get('feedhorn_repaired')
-        assert ObjectiveTracker().get_active_objective(campaign).id == 'obj_defend_perimeter'
+        assert ObjectiveTracker().get_active_objective(campaign).id == 'obj_defeat_greenkeeper'
         assert machine.current_state_name == config.STATE_BUNKER_HUB
     finally:
         machine.close()

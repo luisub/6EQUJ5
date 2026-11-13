@@ -45,7 +45,7 @@ Run, jump and aim through occupied streets and alien terrain. Charge the starter
 
 Five acts carry the search from Ohio's observatory to blackout streets, sealed hangars, desert radio dishes and an ancient buried archive.
 
-Ohio follows a compact route through the access trench, campus, salvage yard and radio dish. Walk across the edge of an open path to reach the next area; doors mark major entrances. Recover the coupler, restore the feedhorn and hold the dish before entering the Greenkeeper's basin.
+Ohio follows a compact route through the access trench, campus, salvage yard and radio dish. Walk across open boundaries. Repairing the feedhorn opens the Greenkeeper's gate immediately; staying to defend the dish is optional. Travel animations can be skipped, and area updates stay on the HUD.
 
 <table>
   <tr>

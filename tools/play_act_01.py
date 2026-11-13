@@ -224,7 +224,7 @@ class Act01PlaythroughRunner:
         assert self.machine.campaign.state.inventory.get("analog_coupler", 0) == 0
 
         obj = tracker.get_active_objective(self.machine.campaign)
-        assert obj.id == "obj_defend_perimeter"
+        assert obj.id == "obj_defeat_greenkeeper"
 
         self.log_step("STAGE_05_REPAIR", "INSTALL_COUPLER_AT_WORKBENCH", {
             "summary": "Consumed analog coupler to repair dish feedhorn; catwalk access unlocked.",

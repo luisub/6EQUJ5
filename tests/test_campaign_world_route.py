@@ -227,22 +227,21 @@ def test_relay_is_crossable_from_entrance_with_held_right(game):
     assert game.current_scene.player.health == 100
 
 
-def test_boss_reveal_is_safe_and_frames_body(game):
+def test_boss_arrival_accepts_movement_and_fire_immediately(game):
     ohio_fixture(game)
     act = route_data()['acts']['act_02']
     game.change_state(config.STATE_BOSS_BOUNTY, room=act['boss_room'], boss_id=act['boss_id'],
                       campaign_act='act_02', spawn='default')
     scene = game.current_scene
-    assert scene.boss.rect.left >= scene.camera.x
-    assert scene.boss.rect.right <= scene.camera.x + scene.camera.viewport_w
-    health = scene.player.health
-    game.handle_event(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_x))
-    for _ in range(60):
-        game.update(1 / 60)
-    assert scene.encounter_intro_remaining > 0
-    assert scene.player.health == health and scene.boss.health == scene.boss.max_health
-    assert not scene.proj_mgr.projectiles
-    assert not game.input.held('fire')
+    assert scene.encounter_intro_remaining == 0
+    assert scene.camera.x <= scene.player.x < scene.camera.x + scene.camera.viewport_w
+    x, health = scene.player.x, scene.player.health
+    game.handle_event(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RIGHT))
+    game.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=(900, 250)))
+    game.update(1 / 60)
+    assert scene.player.x > x and scene.player.health == health
+    assert scene.proj_mgr.projectiles
+    assert game.input.held('move_right') and game.input.held('auto_fire')
 
 
 def test_route_is_cached_and_rejects_escaping_paths(monkeypatch):

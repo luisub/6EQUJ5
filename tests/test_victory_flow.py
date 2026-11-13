@@ -16,7 +16,7 @@ def test_guardian_destruction_waits_for_reading_and_survives_continue(game):
     world, scene = enter_first_guardian(game, acknowledge=False)
     assert ledger(game.campaign)['stage'] == 'guardian'
     assert scene.destruction and not scene.destruction.done
-    key(game, pygame.K_RETURN)
+    game.handle_event(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RETURN, repeat=True))
     assert scene.story.index == 0 and game.current_scene is scene
     game.open_pause()
     elapsed = scene.destruction.elapsed

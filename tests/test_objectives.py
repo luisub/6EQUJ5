@@ -368,7 +368,7 @@ def test_approach_exit_loads_salvage_yard_and_pickup(tmp_path, monkeypatch):
         machine.close()
 
 
-def test_objective_change_banner_keeps_detailed_hint_out_of_transient_text():
+def test_objective_change_updates_hud_without_a_duplicate_banner():
     from video_game.engine.objectives import ObjectiveTracker
 
     campaign = Campaign(save_id='objective_notice_fixture')
@@ -376,5 +376,6 @@ def test_objective_change_banner_keeps_detailed_hint_out_of_transient_text():
     tracker.last_objective_id = 'previous_objective'
     tracker.update(0, campaign)
     objective = tracker.get_active_objective(campaign)
-    assert tracker.active_notification.text == objective.title
+    assert tracker.active_notification is None
+    assert tracker.last_objective_id == objective.id
     assert objective.hint

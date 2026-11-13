@@ -524,8 +524,8 @@ def test_objective_tracker_transitions_and_guidance():
     # Stage 5: Repaired feedhorn -> Defend array
     campaign.apply_event({"event_id": "rep_1", "type": "repair_dish_feedhorn"})
     obj5 = tracker.get_active_objective(campaign)
-    assert obj5.id == "obj_defend_perimeter"
-    assert "DEFEND" in obj5.title
+    assert obj5.id == "obj_defeat_greenkeeper"
+    assert "GREENKEEPER" in obj5.title
     assert obj5.station_id == "field"
 
     # Stage 6: Defended dish -> Neutralize Greenkeeper
@@ -629,7 +629,7 @@ def test_act_01_complete_mission_chain_flow_without_dead_ends():
 
     # Step 5: 72-Second Dish Holdout Defense
     obj = tracker.get_active_objective(campaign)
-    assert obj.id == "obj_defend_perimeter"
+    assert obj.id == "obj_defeat_greenkeeper"
     assert obj.station_id == "field"
 
     defended = campaign.apply_event({"event_id": "def_dish", "type": "complete_dish_defense"})

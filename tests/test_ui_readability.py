@@ -90,7 +90,6 @@ def test_relay_scroll_keeps_complete_long_message(game):
 
 def test_boss_title_alert_and_player_stats_have_disjoint_visible_text(game):
     game.change_state(config.STATE_BOSS_BOUNTY)
-    game.update(1.6)  # Real combat begins after the safe reveal.
     game.current_scene.boss.weak_point_exposed=True
     game.current_scene.boss.phase_state = 'ATTACK'  # Explicit active-attack layout fixture.
     crt=game.crt; original=crt.draw_text; drawn=[]
@@ -232,7 +231,6 @@ def test_bunker_station_prompts_fit_measured_screen_bounds(game, monkeypatch):
 
 def test_boss_exposure_label_has_own_line_and_fits_panel(game, monkeypatch):
     game.change_state(config.STATE_BOSS_BOUNTY)
-    game.update(1.6)  # Real combat begins after the safe reveal.
     scene = game.current_scene; scene.boss.weak_point_exposed = True; seen = {}
     scene.boss.phase_state = 'ATTACK'  # Explicit active-attack layout fixture.
     original = game.crt.draw_text

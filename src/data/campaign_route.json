@@ -21,7 +21,7 @@
       "victory": [
         {
           "title": "Neo-Denver secured",
-          "text": "Synchronicity is destroyed. The route through Neo-Denver is open. Your next destination is Area 51: search its sealed hangars and confront the Amalgam."
+          "text": "The blackout is over. The desert route is open."
         }
       ]
     },
@@ -45,7 +45,7 @@
       "victory": [
         {
           "title": "Area 51 cleared",
-          "text": "The Amalgam is destroyed. You can now reach the Very Large Array and the Dodleston relay. Follow the dishes to the Architect guarding the rift."
+          "text": "The hangars are clear. Follow the signal to the radio array."
         }
       ]
     },
@@ -69,7 +69,7 @@
       "victory": [
         {
           "title": "The rift is open",
-          "text": "The Architect is destroyed. The passage to Gobekli Tepe is clear. Search the ancient archive and face the Portal Warden at the end of Earth's route."
+          "text": "The rift is open. Gobekli Tepe lies ahead."
         }
       ]
     },
@@ -93,7 +93,7 @@
       "victory": [
         {
           "title": "Earth gate secured",
-          "text": "The Portal Warden is destroyed. This is the end of the Earth route, not the final battle. Travel to the Sagittarius signal, defeat its guardian and recover the first of eleven messages. The Core awaits your return."
+          "text": "The Earth gate is open. Follow the signal into space."
         }
       ]
     }

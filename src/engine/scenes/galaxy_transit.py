@@ -15,7 +15,6 @@ MAP_SECONDS = 2.5
 VORTEX_SECONDS = 1.2
 ARRIVAL_SECONDS = 0.4
 TOTAL_SECONDS = MAP_SECONDS + VORTEX_SECONDS + ARRIVAL_SECONDS
-SKIP_GUARD_SECONDS = 0.7
 MAP_AREA = (32, 68, 416, 132)
 
 
@@ -71,9 +70,10 @@ class GalaxyTransitScene(BaseScene):
             self.save_failed = True
 
     def handle_event(self, event):
-        skip = ((event.type == pygame.KEYDOWN and event.key in (pygame.K_RETURN, pygame.K_SPACE, pygame.K_F5))
+        skip = ((event.type == pygame.KEYDOWN and not getattr(event, 'repeat', False)
+                 and event.key in (pygame.K_RETURN, pygame.K_SPACE, pygame.K_F5))
                 or (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1))
-        if skip and (self.save_failed or self.elapsed >= SKIP_GUARD_SECONDS):
+        if skip:
             self._finish()
 
     def update(self, dt):
@@ -149,7 +149,7 @@ class GalaxyTransitScene(BaseScene):
         crt.draw_text('From ' + display_name(source), 24, 220, color=(112, 223, 229), size='sm', has_shadow=False)
         objective = 'Confront the Core with all eleven messages.' if destination == 'earth' else 'Find the guardian. Recover the next message.'
         crt.draw_text(objective, 24, 234, color=(232, 235, 227), size='sm', has_shadow=False)
-        message = 'Could not save. Enter / F5: retry arrival' if self.save_failed else 'Enter / A / click: arrive' if self.elapsed >= SKIP_GUARD_SECONDS else 'Plotting the next leg...'
+        message = 'Could not save. Enter / F5: retry arrival' if self.save_failed else 'Enter / A / click: arrive'
         crt.draw_text(message, 24, 249, color=(241, 201, 123), size='sm', has_shadow=False)
         crt.draw_text('Schematic · not to scale', 330, 249, color=(156, 180, 188), size='sm', has_shadow=False)
 

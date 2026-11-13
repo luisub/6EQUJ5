@@ -52,7 +52,7 @@ def test_actual_reward_story_inputs_pause_and_continue(game):
     scene = enter_victory(game)
     assert game.campaign.state.room_flags['greenkeeper_defeated']
     assert game.save_store.load().campaign.state.room_flags['greenkeeper_defeated']
-    assert [p['title'] for p in scene.story.pages] == ['GREENKEEPER NEUTRALIZED', 'OHIO SECURED']
+    assert [p['title'] for p in scene.story.pages] == ['GREENKEEPER NEUTRALIZED']
     assert all('ACT II UNLOCKED' not in p['text'].upper() for p in scene.story.pages)
     health = scene.player.health
     press(game, pygame.K_F2)
@@ -65,8 +65,6 @@ def test_actual_reward_story_inputs_pause_and_continue(game):
     game.input.begin_frame()
     game.handle_event(pygame.event.Event(pygame.CONTROLLERBUTTONDOWN, button=pygame.CONTROLLER_BUTTON_A))
     assert scene.story.index == 1 and scene.player.health == health
-    game.input.begin_frame()
-    game.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=(NEXT_BUTTON.centerx * game.crt.win_w / 480, NEXT_BUTTON.centery * game.crt.win_h / 270)))
     assert game.current_state_name == config.STATE_FIELD_OPS
     assert game.current_scene.room.room_id == 'act_02_blackout_street'
     before = game.campaign.to_dict()
@@ -219,7 +217,7 @@ def test_guided_signal_yard_field_repair_defense_and_boss_story(game):
     scene.boss.take_damage(1000, hit_pos=(scene.boss.x, scene.boss.y))
     game.update(1 / 60)
     assert [p['title'] for p in scene.story.pages] == [
-        'GREENKEEPER NEUTRALIZED', 'ARRAY SECURED', 'FIRST CONTACT', 'SIGNAL TESTED', 'OHIO SECURED']
+        'GREENKEEPER NEUTRALIZED']
     assert game.save_store.load().campaign.state.room_flags['greenkeeper_defeated']
 
 
