@@ -2,7 +2,7 @@
 
 The current scope is five Earth acts, eleven signal worlds and a return to Earth. The game is offline; live-model integration belongs to the separate legacy application.
 
-Start with [current state](CURRENT_STATE.md), the [roadmap](TODO_ROADMAP.md) and the task's milestone card. [CONTRIBUTING.md](../../CONTRIBUTING.md) contains setup, coding conventions and verification commands.
+Start with [current state](CURRENT_STATE.md), the [roadmap](TODO_ROADMAP.md) and the task's milestone card. [CONTRIBUTING.md](../CONTRIBUTING.md) contains setup, coding conventions and verification commands.
 
 ## Document ownership
 

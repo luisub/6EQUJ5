@@ -1,7 +1,0 @@
-{
-  "schema_version": 1,
-  "kind": "campaign_boss",
-  "boss_id": "synchronicity",
-  "image": {"file": "body.png", "dimensions": [256, 192], "sha256": "3e2ee1446b40f33ab9cd135176a4a3e71c49100f58759cb1f68a1cb5412ed333"},
-  "provenance": {"status": "candidate_pending_review", "source": "master_v03.png", "source_sha256": "2d4dc4dfefd118913b68ef914c3f0a94790d31d8dc3061843a34a2a9c9ac468b", "source_dimensions": [1448, 1086], "crop_box_exclusive": [144, 133, 1213, 1011], "resize": [219, 180], "paste": [18, 9], "resampling": "Pillow nearest-neighbor downsample", "record": "provenance.md"}
-}

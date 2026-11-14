@@ -2,7 +2,7 @@
 
 The current game uses the flat `src/` layout, installed as `video_game`. The legacy AI application is a separate repository. This map describes existing files; historical task cards may name planned or retired modules.
 
-Coding conventions and checks are in [CONTRIBUTING.md](../../CONTRIBUTING.md). See [architecture](../ARCHITECTURE.md) for package boundaries.
+Coding conventions and checks are in [CONTRIBUTING.md](../CONTRIBUTING.md). See [architecture](../ARCHITECTURE.md) for package boundaries.
 
 ## Runtime ownership
 
@@ -39,14 +39,15 @@ Keep Pygame display, event and surface operations on the main thread. The audio 
 
 | Location | Purpose |
 |---|---|
-| [tests/](../../tests/) | Behavior, input, persistence, content and rendering checks |
-| [tools/](../../tools/) | Maintained builders, validators, capture tools and profiling |
-| [art/source/](../../art/source/) | Rebuild masters and provenance |
-| [art/palettes/](../../art/palettes/) | Palette definitions |
+| [tests/](../../src/tests/) | Behavior, input, persistence, content and rendering checks |
+| [tests/fixtures/](../../src/tests/fixtures/) | Versioned deterministic regression inputs |
+| [tools/](../../src/tools/) | Maintained builders, validators, capture tools and profiling |
+| [art/source/](../../src/art/source/) | Rebuild masters and provenance |
+| [art/palettes/](../../src/art/palettes/) | Palette definitions |
 | [docs/](../) | Public documentation and development records |
-| `_temp/`, `captures/`, `profiles/` | Ignored generated output |
+| `_temp/` | Ignored generated output |
 | `_trash/` | Ignored recovery archive with restoration records |
 
-Use Python 3.12 in the local `.venv`. Run tools as `python -m tools.<name>` from the repository root. Wheels contain runtime code and resources; they exclude developer material and local assistant instructions.
+Use Python 3.12 in the local `.venv`. Run tools as `.venv/bin/python -m video_game.tools.<name>` from the repository root. Wheels contain runtime code and resources; they exclude developer material and local assistant instructions.
 
 Some modules are large. Split by responsibility only when the change needs it, preserving callers and behavior. Avoid parallel implementations and wrappers that merely rename existing interfaces.

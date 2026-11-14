@@ -1,7 +1,8 @@
 # Game assets
 
 `src/assets/` contains runtime exports. `src/art/source/` holds the masters and
-export recipes; `src/art/reviews/` holds art reviews. Keep new candidates out of
+export recipes, grouped by content; `src/art/briefs/` and `src/art/references/`
+retain authored direction and design research. Keep new candidates out of
 the runtime tree until their dimensions, transparency, placement and game
 rendering have been checked.
 
@@ -9,7 +10,7 @@ rendering have been checked.
 
 | Content | Runtime location | Selection and rebuild owner |
 |---|---|---|
-| Ohio rooms | `environments/ohio_*` | `engine/room_art_contracts.py`, `engine/native_room_assets.py`; masters under `src/art/source/visual_upgrade/` |
+| Ohio rooms | `environments/ohio_*` | `engine/room_art_contracts.py`, `engine/native_room_assets.py`; masters under `src/art/source/environments/` |
 | Later Earth backgrounds | `environments/campaign_worlds/` | `engine/campaign_scenery.py` and route metadata; `tools/build_campaign_art.py` validates exports |
 | Alien world panoramas | `environments/campaign_worlds/realm_fasr_<id>_v1/` | `data/alien_journey.json`; each installed family has its own image hash and provenance |
 | Alien guardians | `sprites/bosses/campaign/guardian_fasr_<id>/` | The same journey roster; `tools/build_campaign_art.py` validates body exports |
@@ -20,11 +21,17 @@ rendering have been checked.
 | Civilization dossiers | `civilizations/` | `civilizations/manifest.json`; the small portraits, charts and environment plates are dossier artwork, not full-size landscapes |
 | Title and sound | `ui/`, `audio/` | Title metadata, `engine/audio.py` and the scene music map |
 
-New alien-world sources are grouped by civilization under
-[`src/art/source/alien_worlds/`](../src/art/source/alien_worlds/). Earlier reviewed
-masters remain under [`src/art/source/visual_upgrade/`](../src/art/source/visual_upgrade/),
-with their existing provenance. A version suffix is an asset identifier, not a
-reliable indication that a file can be deleted.
+All eleven alien-world source families are grouped by civilization under
+[`src/art/source/alien_worlds/`](../src/art/source/alien_worlds/). Other sources
+are grouped under `environments/`, `bosses/`, `effects/`, `mateo/` and `props/`.
+See the [source guide](../src/art/README.md) for ownership. A version suffix is
+an asset identifier, not a reliable indication that a file can be deleted.
+
+The source layout no longer depends on review/candidate directories. The Ohio
+campus builder uses `source/environments/`; firing-flash and maser transaction
+tests use `source/effects/`; Greenkeeper tests use `source/bosses/`. Runtime
+loaders use only packaged `src/assets/` and `src/data/`, never art sources,
+`_temp/` or `_trash/`.
 
 Panoramas are opaque 1920 × 540 PNGs. Guardian bodies are transparent 256 × 192
 PNGs. Their runtime family contains one active export and one manifest; the
@@ -65,9 +72,16 @@ writes directly to the canonical clip paths.
 
 Per-file original paths, archive paths, SHA-256 hashes and restoration steps
 are recorded in [`migration/archive-manifest.json`](migration/archive-manifest.json).
-Local recovery copies are in `_trash/2026-11-13_asset_cleanup/`. They are excluded
+Local recovery copies are in `_trash/2026-11-13_asset_cleanup/` and
+`_trash/2026-11-14_repository_cleanup/`. They are excluded
 from Git and runtime packages. Restore an image and its matching manifest
 together; preserve any newer active version first.
+
+The repository cleanup archived 88 byte-identical generated-image copies and
+one duplicate FASR-003 guardian source family. Descriptive masters remain in the
+source tree; no runtime image pixels changed. Old verification reports, enlarged
+review images and one-off candidate capture scripts are also recoverable in the
+archive. Authored prompts and design references remain beside the source guide.
 
 For future cleanup, verify dynamic references and builder inputs, preserve
 unique material, and update the archive records before removing a runtime copy.

@@ -1,5 +1,0 @@
-# FASR-001: imagined signal-space relay
-
-The source profile `src/signal_6EQUJ5/data/civilizations/fasr_001_sagittarius/info.txt` names Sagittarius Signal Origin, a patient non-corporeal energy intelligence with nonlinear time and an unknown origin. This plate is a fictional relay dimension, not a claimed actual planet, physical site or scientific visualization. Curved resonant arcs, translucent crystals, violet nebula and quiet cyan pulse traces give it a distinct geometry from Earth. Existing civilization face art is separate.
-
-V01 has strong cyan flares at actor height and a bright floor stripe. V02 reduces the competing highlights and provides a quiet lower strip, although cyan signal marks become quite subdued. Some decorative platforms can look traversable; the scene, actor, collision, HUD and telegraphs need real integration review. The line is roughly y=480 in the candidate. This is one background component, not an accepted complete world. Full prompts, source, hashes and exact crop are in the candidate's `provenance.md`.

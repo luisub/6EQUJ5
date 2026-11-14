@@ -35,7 +35,7 @@ The flat `src/` directory installs as `video_game`. Use explicit imports from th
 
 ## Verification
 
-Tests and fixtures are versioned. Pytest discovers `tests/` and `src/tests/`; the shared test paths support either location. Use relative imports between test modules.
+Tests and fixtures are versioned under `src/tests/`; pytest discovers that directory. Deterministic input and timing baselines belong in `src/tests/fixtures/`, while builder tests use the maintained masters in `src/art/source/`. Use relative imports between test modules.
 
 Run checks that exercise the changed behavior. A bug fix should have a regression test when the existing suite does not cover it. Documentation-only edits need link, formatting and content checks, not new tests that repeat the prose.
 
@@ -45,7 +45,7 @@ SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy SIX_GAME_SAVE_DIR="$(mktemp -d)" .ve
 .venv/bin/python -m video_game.tools.build_assets --dry-run
 ```
 
-Use temporary saves and settings in tests and capture tools. Never write into a player's save directory. Give captures an explicit, unused output directory under `_temp/`, `captures/` or `profiles/`. Useful commands are listed in [developer tools](../src/tools/README.md).
+Use temporary saves and settings in tests and capture tools. Never write into a player's save directory. Give captures an explicit, unused output directory under `_temp/`. Useful commands are listed in [developer tools](../src/tools/README.md). Temporary output, historical reviews and `_trash/` must not become inputs for the game or maintained tests.
 
 After packaging changes, build a clean wheel and a wheel from the source distribution. Check their contents and boot the installed game outside the checkout in an environment without AI packages. Wheels must contain runtime assets/data and exclude tests, tools, docs, art masters and local assistant files.
 

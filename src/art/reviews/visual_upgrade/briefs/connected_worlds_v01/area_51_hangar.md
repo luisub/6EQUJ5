@@ -1,5 +1,0 @@
-# Area 51 hangar / vault: first candidate
-
-One invented 1920×540 opaque industrial interior distinguishes planned S-4 hangar and containment spaces from the exterior desert. It uses a pressure hall, gantry, closed steel bays, empty cyan-lit glass pods, analog consoles, utility cart and small amber practicals. It is not evidence of a real restricted facility or its contents. Neither historical photograph nor real floor plan was supplied to image generation. The outdoor public-history context is preserved in `references/world_expansion_v01/{README,SOURCES}.md`.
-
-V01's floor texture extended well below the intended y=480 junction. V02 removes that strip and has a quiet lower region, apart from a few cart-wheel pixels. Repeated steel doors are similar and could suggest functional exits; the bright pods and decorative objects need actual actor, collision and telegraph contrast checks. This is a candidate only, not a complete room or art-gate acceptance. Full prompts, source, hashes and exact crop are in its `provenance.md`.

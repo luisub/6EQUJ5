@@ -1,3 +1,0 @@
-# Compact energy filament: one still candidate
-
-A right-facing 96×24 transparent static stream starts at muzzle pivot `(4,12)`, is bounded to 86×5 native pixels and tapers right. Its connected warm-white/amber core and very small cyan accents replace a wide multiray impression in the proposed presentation. The original generated source has a finer coil; native downsampling reduces that detail, so the runtime view and animation timing need review. The generated alpha tops out at 253; root accepts a near-opaque core. Old maser artwork remains unchanged. This isolated sprite is a candidate and makes no claims about implementation, fan behavior, damage or cadence. See the source `PROVENANCE.md` for prompts, exact crop, hashes and alpha measurements.

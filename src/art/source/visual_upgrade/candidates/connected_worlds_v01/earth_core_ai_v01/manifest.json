@@ -1,7 +1,0 @@
-{
-  "schema_version": 1,
-  "kind": "campaign_boss",
-  "boss_id": "earth_core_ai",
-  "image": {"file": "body.png", "dimensions": [256, 192], "sha256": "17637488ef8a2ea45f0890429e2338cde9c9c892b5b476a30b6012fad0348264"},
-  "provenance": {"status": "candidate_pending_review", "source": "master_v02.png", "source_sha256": "fa14abef8172fb85fb21363207f97f83536a5c85e7ac5e72417a845af6400ce5", "source_dimensions": [1448, 1086], "crop_box_exclusive": [42, 17, 1346, 1046], "resize": [228, 180], "paste": [14, 9], "resampling": "Pillow nearest-neighbor downsample", "record": "provenance.md"}
-}

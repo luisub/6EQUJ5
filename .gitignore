@@ -66,6 +66,5 @@ local_saves/
 *.save
 *.sav
 
-# Historical/generated evidence; retain the active F04 timing fixtures
-docs/planning/evidence/*
-!docs/planning/evidence/F04/
+# Historical/generated evidence; active fixtures belong in src/tests/fixtures
+docs/planning/evidence/

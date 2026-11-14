@@ -1,5 +1,0 @@
-# Göbekli buried archive: first candidate
-
-One invented 1920×540 opaque subterranean research archive distinguishes the buried room from the exterior site. Limestone strata, a T-shaped fragment with stylized bird and fox motifs, storage shelves, analogue research equipment, copper conduits, a sealed deep-blue vault and small amber pools express the game's fictional cultural-memory work. The archive, waveguide and vault are invented and make no claims about actual structures or beliefs. The real-site archaeological context is preserved in `references/world_expansion_v01/{README,SOURCES}.md`; no photograph was supplied to the generator.
-
-V01's pervasive warm light weakened the nighttime direction; v02 preserves stone material but cools the general field and isolates practical lamps. Some dark ceiling texture extends into the HUD band. The bright, visually prominent vault door and desks may suggest interactions; actual actor, telegraph and collision readability plus floor registration require an in-game review. The candidate is not a full room or art-gate acceptance. Full prompts, source, hashes and exact crop are in its `provenance.md`.

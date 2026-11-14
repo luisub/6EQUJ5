@@ -1,69 +1,85 @@
-# Current state — alien worlds, combat and travel
+# Current state — 2026-11-14
 
-## Latest validation — 2026-11-13
+## Repository and validation
 
-The nine worlds after FASR-003 now have distinct native panoramas and guardians, produced and reviewed one civilization at a time. Together with the existing FASR-001 and FASR-003 families, all eleven worlds load their own art. Each new panorama is continuous at 1920 × 540; each guardian is a transparent 256 × 192 export. Masters, export recipes and provenance are grouped under `src/art/source/alien_worlds/`. See the [asset guide](../ASSETS.md) for active families and retained fallback versions.
+The offline game lives in this checkout; the legacy AI application is separate.
+The flat `src/` directory installs as `video_game`, and `.venv/bin/6equj5-game`
+remains the launch command. Runtime resources live in `src/assets/` and `src/data/`.
 
-World-specific snow, rain, dust, embers and signal motes use bounded particles behind actors. Guardian hit effects follow their artwork's light colors. Runtime review corrected Proxima's floating feet, off-screen teleports in the Archive Lock, Horizon Lens and Amalgam encounters, and the Beacon Forger's recovery-core position.
+The [repository audit](../maintenance/REPOSITORY_AUDIT.md) records the cleanup,
+verification results and [directory tree](../maintenance/repository-tree.txt).
+Art masters now have descriptive domain folders in `src/art/source/`; retained
+briefs and research live in `src/art/briefs/` and `src/art/references/`.
+Tests and their deterministic fixtures live in `src/tests/`.
+Old build copies, completed temporary runs, duplicate masters and historical
+review output are preserved in `_trash/2026-11-14_repository_cleanup/`.
+See the [asset guide](../ASSETS.md) for current ownership and necessary fallbacks.
 
-Boss health now increases along the journey. A small core offers bonus damage during recovery; body shots always deal damage. With perfect aim and actual firing/projectile simulation, assisted starter-weapon guardian fights take about 10–13 seconds, compared with about 3 seconds before this pass. The two-form finale takes about 23 seconds. These fixtures ignore incoming damage and are not human difficulty ratings. Both damage zones of paired-column attacks are now warned.
+The baseline before cleanup had 1,335 passing tests and two failures: missing
+historical FASR-001 portrait source and FIELD_OPS render P95 of 5.533 ms against
+5.0 ms. The portrait rebuild now expects originals in
+`src/art/source/civilizations/legacy_ascii/`, rather than reading `_trash`.
+No replacement portraits or relaxed performance limits hide these issues.
+The final rerun also passed 1,335 tests with the same two failures (FIELD_OPS
+render P95: 5.322 ms). All 52 levels, the asset dry run, 48 focused checks and
+18 export reproductions passed. Direct and sdist-derived wheels each contain
+564 matching runtime files and boot outside the checkout, including all eleven
+native world/guardian families. See the audit for evidence and limits.
 
-The shared briefing/travel map uses a fixed winding route. The ship follows its drawn connection, then a centered vortex rotates and expands. Travel remains immediately skippable and preserves the arrival-save boundary. README captures now show Proxima, its guardian and the revised travel sequence.
+## Launch, movement and campaign
 
-Seven obsolete or duplicate runtime files were archived with hashes and restoration instructions. Required loader fallbacks and rebuild masters remain. Direct and source-distribution wheels each match all 568 runtime files byte-for-byte and boot outside the checkout; all eleven native world and guardian families load from the installed package.
+Launch displays the banner, soundtrack, one Press Start action and the
+“by @luisub 2026” credit. Starting creates a fresh run immediately; settings
+persist. Held start input cannot dismiss the opening story. Continue and
+save recovery remain available through the existing developer APIs.
 
-The full test run recorded **1,334 passed and 2 failed**. The unresolved checks are the missing historical FASR-001 portrait rebuild source and FIELD_OPS render P95 of 5.598 ms against the unchanged 5.0 ms budget. After the final Beacon Forger core adjustment, **112 focused checks passed**. All 52 levels, the asset dry run and reproducibility checks for all 18 new exports passed. Native and 2× CRT captures cover every new world and guardian. Local evidence is under `_temp/worlds_verification_20261113/`, `_temp/alien_worlds_20261113/` and `docs/planning/evidence/WORLD_ART/2026-11-13_alien_world_refresh/`.
+The basement opening retains the owner's supplied passage and galaxy briefing.
+Ohio connects approach → campus → salvage yard → dish → Greenkeeper, with
+3,520 px of authored terrain. Collection, science, repair and defense remain
+optional; NEXT and empty-lab Continue Outside lead to the field. Walk boundaries
+work in both directions and both combat modes, without door prompts.
+The ordinary Act II–V rooms are 960 px wide. Old checkpoint aliases still work.
 
-These checks use isolated saves and settings. They do not establish human campaign acceptance, audible quality, controller hardware support or native performance. Historical results below describe earlier increments.
+Leaving an incomplete optional defense grants no reward. Space remains jump;
+R or the retry button restarts failed defense. Boss arrivals allow immediate
+movement and firing. Defeating each boss still unlocks earned progression.
+The eleven-world guardian/message journey leads back to both final Core forms.
+Only defeating both final forms completes the journey.
 
-The current game is installed at `/Users/nzlab-la/Desktop/Github/6EQUJ5` as a standalone offline repository, with the user-requested flat src layout. `video_game` remains its installed import name and `6equj5-game` remains its command. The historical AI application is installed separately at `/Users/nzlab-la/Desktop/Github/6EQUJ5-AI` from commit 120c39b604bca5a4a9dfef4d34b131b6751da0f9. Both local environments were recreated. Final-location validation gave 1,184 game tests passed with the same two known failures, and 22 AI tests passed. See the [transfer record](../migration/TRANSFER_COMPLETE.md) for backups and exact results.
+## Artwork, combat and travel
 
-All authored runtime assets/data, the intro-map briefing, current combat effects, Arc Lance/Nova Scatter temporary weapons, science, progression and save-envelope version 2 are preserved. Live AI adapters/workers were retired; the normal receiver continues through its authored channels. Rebuild civilization text is now owned by this repository.
+All eleven alien worlds have distinct 1920 × 540 native panoramas and transparent
+256 × 192 guardian bodies. They were produced and reviewed one civilization at
+a time; preserve that workflow. Proxima's feet, teleport visibility, paired attack
+warnings and the Beacon Forger recovery-core alignment are corrected.
+World-specific weather and signal particles are bounded and remain behind actors.
+Denver retains its Fitzsimons-inspired building and mountain panorama.
 
-The pre-separation baseline on a complete working-tree copy was 1,212 passed, 2 failed, 2 live tests excluded. The two failures were the missing FASR-001 legacy portrait source and FIELD_OPS render P95 5.881 ms against the unchanged 5.0 ms threshold. See [migration report](../migration/REPORT.md) for final validation and package evidence.
+Body hits always damage guardians; a small recovery core offers bonus damage.
+The earlier perfect-aim projectile fixtures took about 10–13 seconds per guardian
+and 23 seconds for the two-form finale. These ignore incoming damage and are not
+human difficulty ratings. Temporary weapon expiration and earned rewards remain.
 
-Historical current-state snapshots, captures and reports are preserved under `_trash/2026-11-13_separation`; [archive manifest](../migration/archive-manifest.json) records their paths and hashes. Art masters, provenance, maintained tools and active test fixtures remain in their owned directories. `_trash` and build outputs are not runtime package contents.
+Boss victories use a 2.6-second destruction effect, skippable with a fresh input.
+Victory, contact and ending text each fit one short page and require acknowledgement.
+Contact receipts save before travel. Briefing and travel share a winding route;
+the ship reaches its destination before a centered vortex opens. The 4.1-second
+transition is immediately skippable, but arrival still requires a successful save.
 
-## Campaign flow — 2026-11-13
+The README uses promotional title artwork, thirteen renderer screenshots and
+three renderer GIFs. Capture fixtures are disclosed in the media notes.
 
-Boss victories play a 2.6-second breakup using the existing body artwork, followed by a short manual summary. A fresh Enter, controller A or button click can continue immediately, including during the breakup. A guardian's summary leads to its civilization's one-page message; recording that message saves the receipt before travel. Both forms of the final Core must be defeated, and the ending finishes at the title screen with the completed journey saved. Continue can resume a defeated guardian's pending summary without repeating combat or rewards.
+## Remaining work and evidence
 
-The opening map and travel map share the same ordered route and curved connections. Travel shows the actual departure, destination and recovered-message count. After the ship reaches its destination node, the vortex opens at the screen center. Travel can be skipped immediately with a fresh input; arrival still requires a successful save. The title now shows the banner, soundtrack and a single Press Start action. Each start immediately creates a fresh run, with no save-selection or replacement dialog; settings persist. A small “by @luisub 2026” credit sits beneath the title. Area briefings no longer stop movement. Victory pages and contact dialogue use measured text wrapping and explicit Next/Return buttons; reading does not advance on a timer. The opening passage is unchanged.
+Armed airborne poses, guardian motion polish, human fairness/full-playthrough
+review, audible quality, physical controllers and native display performance
+remain open. J01–J06 and formal acceptance gates retain their roadmap status.
+Headless tests and staged captures do not establish those acceptance criteria.
 
-Verification used temporary saves: 97 focused gameplay checks passed, followed by 73 checks covering the repaired route scripts, content, controls, persistence and maintenance conventions. All 52 levels validated and the asset-builder dry run passed. The initial broad run reported 1,191 passed and 11 failed; nine failures were corrected and covered by the successful rerun. Two previously documented issues remain: the missing legacy FASR-001 portrait rebuild source and a frame-budget failure (this run: SCIENCE_LAB total P95 8.373 ms against 8.0 ms). Thresholds and asset checks were preserved. Renderer captures cover the menu, guardian breakup, contact, map, both final forms and ending, with CRT/native and integer-scale inspection. These checks do not establish a human playthrough, physical-controller or audio acceptance.
-
-## Earth route pacing — 2026-11-13
-
-Ohio now connects the access trench, campus, salvage yard and dish directly before the Greenkeeper. The existing campus art is retained. Five duplicate-art corridors are bypassed, and the four active rooms use their native authored widths (3,520 px total rather than 42,240 px). The ordinary Act II–V rooms are 960 px each, with consecutive panorama slices across open boundaries. Walking between areas works in both directions in both combat modes, without an airlock or interaction prompt on the path. Existing boss and relay entry behavior is preserved.
-
-Collection, feedhorn repair and dish defense are optional. The Ohio route and Greenkeeper entrance remain open from a fresh campaign; the boss still must be defeated to advance. Old checkpoint names resolve inside the shorter geometry and support death recovery. Enemy positions, pickups and raised steps fit the new bounds. See [route evidence](evidence/EARTH_ROUTE/2026-11-13/report.md) for the earlier shortening pass and its validation: **1,208 passed, 1 failed** (the existing missing FASR-001 portrait rebuild source). Renderer budget checks passed that run with thresholds unchanged; 125 focused checks, all 52 levels and the asset-builder dry run also passed.
-
-## Player-controlled pacing — 2026-11-13
-
-The repaired gate remains usable during an active, jammed or failed optional defense. Leaving does not grant the defense reward or mark it complete. Space remains jump after a failed defense; R or the retry button restarts it. Boss arrivals accept movement and shooting immediately. Area arrival notices contain only the location name, routine milestone paragraphs and duplicate objective banners are removed, and earned victory/contact/ending screens each fit one short page.
-
-Checks use disposable saves and cover immediate gate entry, fresh keyboard/controller-event/mouse activation, skippable destruction and travel, message receipts, save failures and text wrapping. See [pacing evidence](evidence/FREE_TRAVEL/2026-11-13/report.md) for final results and renderer captures.
-
-## Denver landmarks — 2026-11-13
-
-Neo-Denver now uses a clearer Fitzsimons-inspired sandstone building and the owner's mountain reference, including its pale crest and hillside A. Both remain background scenery in the existing panorama; routes and collision are unchanged. Native and 2× captures with CRT off/on were inspected, including the street/relay walking transition and Synchronicity arena. The README has a fresh Denver screenshot and walking GIF. Masters, reference sources, export command and archive locations are recorded in [art provenance](../../src/art/source/visual_upgrade/candidates/denver_landmarks_v01/provenance.md). The 58 focused checks, all 52 level validations and asset-builder dry run passed.
-
-Formal gameplay/art gates are not promoted by these changes. Native-window play, physical-controller verification, audio acceptance, airborne armed poses, guardian animation polish and strict native performance review remain open. The roadmap retains its gameplay task statuses.
-
-
-## Arcade launch and repository layout — 2026-11-14
-
-Launch shows the title artwork, music and a pulsing Press Start prompt, with “by @luisub 2026” beneath the logo. Keyboard, mouse and controller start actions create a fresh run immediately. Settings persist, and held start input cannot skip the opening story. Save recovery remains available to developer checks through the existing API.
-
-The contributor guide is now `docs/CONTRIBUTING.md`; developer tools and art masters are in `src/tools/` and `src/art/`. All 535 previously tracked art files are unchanged. Build metadata stays at the root, so installation and game launch commands are unchanged. Tool commands now use `python -m video_game.tools.<name>`. Tests are versioned in `src/tests/`; discovery also supports the earlier root location.
-
-Validation: 1,229 tests passed, with the two documented failures still present: the missing FASR-001 legacy portrait source and FIELD_OPS render P95 of 5.117 ms against the unchanged 5.0 ms budget. All 52 levels and the asset dry run passed. A temporary future layout collected all 1,231 tests and passed 88 focused tests. Clean direct and source-distribution wheels contain the same 539 runtime files, matching the checkout byte-for-byte; art masters, tools and tests remain excluded from runtime wheels. An extracted wheel launched the title, music playback and fresh start outside the checkout. Native and 2× title captures were inspected with CRT off/on. These checks use dummy SDL and do not establish audible quality or physical-controller acceptance.
-
-
-## Open Ohio route — 2026-11-13
-
-From a fresh campaign, NEXT goes outside and the Ohio path remains open through the campus, salvage yard and dish into Greenkeeper's arena. Neither signal analysis, a coupler nor feedhorn repair is required. Both combat modes support walking across these boundaries; defeating Greenkeeper still unlocks Neo-Denver. Optional collection, science, repair and defense retain their own requirements and rewards.
-
-The empty lab now offers Continue Outside in guided and manual views, with keyboard, mouse and controller-event support. Scenarios without their sample no longer display as ready. Native and 2× CRT captures were inspected using temporary saves. Boundary captures use explicit position fixtures without granting campaign progress.
-
-Validation: 186 focused checks and all 52 levels passed. The broad run recorded 1,235 passes and four failures; two expected-goal assertions described the former mandatory science route and were updated and covered by the passing focused run. The two previously documented failures remain: missing legacy portrait source and FIELD_OPS render P95 5.083 ms against the unchanged 5.0 ms threshold. No player saves or Git history were modified.
+Historical validation narratives were consolidated without discarding them.
+The full preceding state is preserved at
+`_trash/2026-11-14_repository_cleanup/documentation-before-cleanup/CURRENT_STATE.md`.
+Earlier migration records remain in [migration/REPORT.md](../migration/REPORT.md)
+and [TRANSFER_COMPLETE.md](../migration/TRANSFER_COMPLETE.md). Per-file archive
+paths, SHA-256 hashes and restoration instructions are in the
+[archive manifest](../migration/archive-manifest.json).

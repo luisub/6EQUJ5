@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "kind": "campaign_world_background",
-  "art_id": "gobekli_tepe_v1",
-  "viewport": [480, 270],
-  "density": 2,
-  "image": {"file": "background.png", "dimensions": [1920, 540], "sha256": "95bd230d690608d02b555c57f06839b57c7df91c0212b106226d52790e8ccd3a"},
-  "provenance": {"status": "candidate_pending_review", "source": "master_v02.png", "source_sha256": "fdf1e4dd736ebe1905bf59628225b35ec5c8ac6febc7e5175fb7fca74b23becf", "source_dimensions": [2172, 724], "crop_box_exclusive": [0, 57, 2172, 668], "resampling": "Pillow nearest-neighbor downsample", "record": "provenance.md"}
-}

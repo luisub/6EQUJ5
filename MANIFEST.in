@@ -1,6 +1,5 @@
 include README.md LICENSE docs/CONTRIBUTING.md
 recursive-include src *.py *.json *.png *.txt *.wav *.ogg *.mp3 *.ttf *.otf
-recursive-include tests *.py *.json
 recursive-include src/tools *.py *.md
 recursive-include docs *.md
 recursive-include docs/media *.png *.gif *.json

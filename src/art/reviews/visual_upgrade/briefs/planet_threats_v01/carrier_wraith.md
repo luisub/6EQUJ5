@@ -1,5 +1,0 @@
-# FASR-001 Carrier Wraith: one original pose
-
-A fictional hostile Core-corrupted signal anomaly, not the patient friendly Sagittarius Signal Origin. One isolated 96×72 RGBA hovering body with nominal pivot `(48,64)`, contained within x≈6–90 and y≈8–64. Its silhouette is a compact asymmetrical forked phase-mask or manta echo with swept fins, dark energetic membrane, restrained cyan/violet rims and an opaque warm carrier core. It must read distinctly from the repeated box robot and the friendly contact; no humanoid limbs, background, shadow, writing or baked projectile. Keep the height compact for a separately controlled jumpable enlarged hazard.
-
-The single still supports runtime hover/dip and a later moving hazard; it is not an animation or gameplay-fairness acceptance. Inspect transparent edges, exact bounds, center and core opacity, plus 1×/4× and a labeled static composition over the FASR-001 relay. Source identity follows `planning/evidence/PLANET_ENCOUNTERS/2026-11-13_world_threats/briefs/001_carrier_wraith.md` and `src/signal_6EQUJ5/data/civilizations/fasr_001_sagittarius/info.txt`. These are fictional story cues, not scientific claims.

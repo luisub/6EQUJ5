@@ -7,9 +7,8 @@ Each task card adds concrete checks to these shared gates. Record observed evide
 Run from `/Users/nzlab-la/Desktop/Github/6EQUJ5` using the dedicated environment.
 
 ```sh
-/opt/anaconda3/envs/6equj5_game/bin/python -m pytest video_game/tests -q
-/opt/anaconda3/envs/6equj5_game/bin/python -m pytest tests -q
-/opt/anaconda3/envs/6equj5_game/bin/python -m video_game.main
+SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy SIX_GAME_SAVE_DIR="$(mktemp -d)" .venv/bin/python -m pytest -q
+.venv/bin/python -m video_game.main
 ```
 
 The last command is an interactive run. Dummy SDL checks exercise rendering and assertions. Real-window input/audio checks require a graphical session and their own evidence. Respect the execution environment's actual permission controls when launching a GUI.
@@ -17,14 +16,14 @@ The last command is an interactive run. Dummy SDL checks exercise rendering and 
 Tests write preview PNGs only under pytest's temporary directory. To export the current bunker and terminal deliberately, choose a separate output directory (existing files with the same names there are overwritten):
 
 ```sh
-SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy /opt/anaconda3/envs/6equj5_game/bin/python -m video_game.tools.preview_assets --output-dir video_game/planning/evidence/F02/2026-11-10_checkpoint/previews
+SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy .venv/bin/python -m video_game.tools.preview_assets --output-dir _temp/scene-previews-NEW
 ```
 
 The dummy drivers permit headless capture; omit them for a real graphical display. The preview command is in the tools package. Future commands in task cards are implementation requirements until implemented and verified.
 
 ## Checkpoint maintenance
 
-The audit parses active Python files, checks module purpose/caller/modification headers and rejects wildcard imports. It discovers modules rather than maintaining a second file registry. The asset audit validates the current manifest references, locks and dimensions; scene and preview tests exercise behavior. File length is a review signal, not a hard cap. Assess responsibilities and readability in review instead of compressing code. Investigate suspected unused files against imports, dynamic references, manifests, builders, packaging and runtime behavior before applying the retirement protocol.
+The audit parses active Python files, checks module docstrings and rejects wildcard imports. It discovers modules rather than maintaining a second file registry. The asset audit validates the current manifest references, locks and dimensions; scene and preview tests exercise behavior. File length is a review signal, not a hard cap. Assess responsibilities and readability in review instead of compressing code. Investigate suspected unused files against imports, dynamic references, manifests, builders, packaging and runtime behavior before applying the retirement protocol.
 
 The game tree has a tracked checkpoint at `a43c2b3`, but the working tree also contains modified and untracked files that the checkpoint cannot recover. Do not assume a checkout or local copies provide an independent backup. Before any replacement or retirement, make and verify a separate recovery copy of each affected file and record its original location and SHA-256; use the archive procedure for retirements. Preserve the working tree and avoid destructive cleanup. Establish and verify an independent recoverable backup; I11 remains open, including recovery of the missing historical portrait sources.
 
@@ -33,18 +32,18 @@ The game tree has a tracked checkpoint at `a43c2b3`, but the working tree also c
 F06's focused tests use temporary directories and cover both supported save versions, invalid versions and data, partial writes, failed replacement, explicit backup recovery, title controls and continuing through the normal game entry point after a process restart:
 
 ```sh
-/opt/anaconda3/envs/6equj5_game/bin/python -m pytest video_game/tests/test_save_game.py -q
+.venv/bin/python -m pytest src/tests/test_save_game.py -q
 ```
 
-For a manually launched development session, set `SIX_GAME_SAVE_DIR` to a chosen writable test directory before starting the game. The title offers New Game, Continue and Restore Backup; F5 saves at the bunker. Do not use a real player save for fault injection. The actual macOS user-data path and supported save formats are in DATA_CONTRACTS.md.
+For a manually launched development session, set `SIX_GAME_SAVE_DIR` to a chosen writable test directory before starting the game. The title has a single Press Start action that starts a fresh run; Continue and recovery remain programmatic APIs. F5 saves at the bunker. Do not use a real player save for fault injection. The actual macOS user-data path and supported save formats are in DATA_CONTRACTS.md.
 
 ## Safe asset builds
 
 Use the macOS game environment. The normal command preserves complete locked groups:
 
 ```sh
-/opt/anaconda3/envs/6equj5_game/bin/python -m video_game.tools.build_assets
-/opt/anaconda3/envs/6equj5_game/bin/python -m video_game.tools.build_assets --replace FASR-001 --dry-run
+.venv/bin/python -m video_game.tools.build_assets
+.venv/bin/python -m video_game.tools.build_assets --replace FASR-001 --dry-run
 ```
 
 Remove `--dry-run` only to explicitly replace that group. Repeat `--replace` for multiple IDs, or select `mateo`, `bunker`, or `review`. Each civilization group comprises its face, environment, composite, chart and shared manifest; `mateo` owns the sprites and character sheet; `bunker` owns its layers, tileset, previews and scene manifest; `review` owns the palette, comparison and roster sheets. Bunker builds consume the existing Mateo bunker sprite; review builds consume civilization exports and the preserved legacy portraits. Group output paths and source names are explicit in the builders. The individual `mateo_sprite_builder` and `bunker_scene_builder` module commands default to preserving their own groups and accept `--replace mateo` or `--replace bunker` respectively. `--assets-dir` and `--archive-dir` permit isolated experiments; keep the archive outside the active asset directory.
@@ -112,4 +111,4 @@ A failed gate creates a concrete issue and keeps dependent work planned. Indepen
 
 ## Current audit override (2026-11-11)
 
-See [CONTRIBUTING.md](../../CONTRIBUTING.md), [controls](../CONTROLS.md) and [current state](CURRENT_STATE.md) before using historical task-stage claims. The separated game is offline; its active suite no longer includes the retired live-model tests. Run the current suite without carrying forward historical deselections. Keep manual/visual/audio/native-performance gates distinct from component and keyboard integration tests. The annex connectors demonstrate mechanics access; the connected Earth/alien route and its remaining acceptance limits are recorded in CURRENT_STATE.md. Retired static A14/S11 card generators were historically reported archived under `_trash/2026-11-11_G3_audit/retired/`, and the later A13/S09 static generators at `_trash/2026-11-11_tool_retirement/retirement.json`. Both paths were absent during the 2026-11-12 cleanup audit, so their recovery records could not be verified. Their short dummy profiling and fixture captures do not establish native performance or visual/fairness acceptance. New runtime captures use `python -m tools.capture_runtime_audit --output-dir PATH` and disclose fixtures.
+See [CONTRIBUTING.md](../CONTRIBUTING.md), [controls](../CONTROLS.md) and [current state](CURRENT_STATE.md) before using historical task-stage claims. The separated game is offline; its active suite no longer includes the retired live-model tests. Run the current suite without carrying forward historical deselections. Keep manual/visual/audio/native-performance gates distinct from component and keyboard integration tests. The annex connectors demonstrate mechanics access; the connected Earth/alien route and its remaining acceptance limits are recorded in CURRENT_STATE.md. Retired static A14/S11 card generators were historically reported archived under `_trash/2026-11-11_G3_audit/retired/`, and the later A13/S09 static generators at `_trash/2026-11-11_tool_retirement/retirement.json`. Both paths were absent during the 2026-11-12 cleanup audit, so their recovery records could not be verified. Their short dummy profiling and fixture captures do not establish native performance or visual/fairness acceptance. New runtime captures use `.venv/bin/python -m video_game.tools.capture_runtime_audit --output-dir PATH` and disclose fixtures.

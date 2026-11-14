@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "kind": "campaign_world_background",
-  "art_id": "area_51_v1",
-  "viewport": [480, 270],
-  "density": 2,
-  "image": {"file": "background.png", "dimensions": [1920, 540], "sha256": "03b1e9fc29ab297f1d6a2d08221eb6920b80110ce030a67a6121b0385b45f763"},
-  "provenance": {"status": "candidate_pending_review", "source": "master_v01.png", "source_sha256": "58f42640ac892a5ee0746d19308849ec7398520435fdfc1dfc44c35557661c95", "source_dimensions": [2172, 724], "crop_box_exclusive": [0, 7, 2172, 618], "resampling": "Pillow nearest-neighbor downsample", "record": "provenance.md"}
-}

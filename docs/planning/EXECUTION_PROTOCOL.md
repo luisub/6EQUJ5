@@ -1,6 +1,6 @@
 # Development workflow
 
-Use [CONTRIBUTING.md](../../CONTRIBUTING.md) for setup and code conventions. The [roadmap](TODO_ROADMAP.md) owns task status; [quality gates](QUALITY_GATES.md) defines acceptance.
+Use [CONTRIBUTING.md](../CONTRIBUTING.md) for setup and code conventions. The [roadmap](TODO_ROADMAP.md) owns task status; [quality gates](QUALITY_GATES.md) defines acceptance.
 
 ## Working on a task
 
@@ -26,7 +26,7 @@ A feature can pass automated checks while human playtesting, art, audio or nativ
 
 ## Evidence
 
-Use explicit, unused directories under `_temp/`, `captures/` or `profiles/` for generated output. Use temporary saves and settings. Keep durable reports with the relevant development record; promote only the evidence that is needed.
+Use explicit, unused directories under `_temp/` for generated output. Use temporary saves and settings. Keep durable reports with the relevant development record; promote only the evidence that is needed. Test fixtures belong in `src/tests/fixtures/`, and rebuild masters belong in `src/art/source/`; neither may depend on temporary output or archived reviews.
 
 Record the command, environment, observed result and limitations. Disclose injected prerequisites and direct scene entry. A staged event does not prove the player completed the skipped activity. Dummy SDL does not establish native performance, audible quality, controller hardware support or human playability.
 

@@ -1,5 +1,0 @@
-# Göbekli background: vehicle removal patch
-
-Remove the distant SUV and its shadow from the installed fictional Göbekli background, keeping all other content unchanged. The source is RGB 1920×540, SHA-256 `95bd230d690608d02b555c57f06839b57c7df91c0212b106226d52790e8ccd3a`. The only permitted full-image edit rectangle is `(1535,140,1660,212)` exclusive, 125×72; use the inspected context `(1460,96,1748,258)` (288×162), whose editable rectangle is `(75,44,200,116)`. Restore contiguous dark blue rocky hillside, low grass and scrub consistent with the adjacent landscape. Preserve terrace geometry and night lighting; do not add replacement vehicles, text, conspicuous blur or opaque cover.
-
-New creative pixels must originate from an image-generation edit. Package only the generated rectangle into a copy of the original plate and verify every outside-rectangle RGB pixel is identical. Keep original context/ROI, generated master, prompts, mapping and hashes. Inspect native and enlarged edges, full plate, and the region for a vehicle ghost or seam. This is a candidate for a new family; existing runtime/source artwork is never overwritten.

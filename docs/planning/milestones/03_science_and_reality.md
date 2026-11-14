@@ -30,7 +30,7 @@ Acceptance checks
 - [x] Established observations and speculative rewards have correct claim labels.
 - [x] A valid experiment unlocks only its intended evidence.
 
-Save evidence under `video_game/planning/evidence/S01/`. Record failures and resource needs in ISSUES_AND_DECISIONS.md, update PROGRESS_LOG.md, then update the roadmap and current handoff. Use EXECUTION_PROTOCOL.md for restoration if a migration or replacement fails. Status: done. [S01 Evidence Report](../evidence/S01/report.md).
+Save evidence under `video_game/planning/evidence/S01/`. Record failures and resource needs in ISSUES_AND_DECISIONS.md, update PROGRESS_LOG.md, then update the roadmap and current handoff. Use EXECUTION_PROTOCOL.md for restoration if a migration or replacement fails. Status: done. [S01 Evidence Report](../../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/S01/report.md).
 
 <a id="s02"></a>
 
@@ -58,7 +58,7 @@ Acceptance checks
 - [x] Wrong but plausible graphs receive understandable feedback.
 - [x] Repeated trials are reproducible and cannot double-grant rewards.
 
-Save evidence under `video_game/planning/evidence/S02/`. Record failures and resource needs in ISSUES_AND_DECISIONS.md, update PROGRESS_LOG.md, then update the roadmap and current handoff. Use EXECUTION_PROTOCOL.md for restoration if a migration or replacement fails. Status: done. [S02 Evidence Report](../evidence/S02/report.md).
+Save evidence under `video_game/planning/evidence/S02/`. Record failures and resource needs in ISSUES_AND_DECISIONS.md, update PROGRESS_LOG.md, then update the roadmap and current handoff. Use EXECUTION_PROTOCOL.md for restoration if a migration or replacement fails. Status: done. [S02 Evidence Report](../../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/S02/report.md).
 
 <a id="s03"></a>
 
@@ -86,7 +86,7 @@ Acceptance checks
 - [x] Seeded cases cover success, premature deployment and recovery.
 - [x] User feedback explains the evidence behind outcomes.
 
-Save evidence under `video_game/planning/evidence/S03/`. Record failures and resource needs in ISSUES_AND_DECISIONS.md, update PROGRESS_LOG.md, then update the roadmap and current handoff. Use EXECUTION_PROTOCOL.md for restoration if a migration or replacement fails. Status: done. [S03 Evidence Report](../evidence/S03/report.md).
+Save evidence under `video_game/planning/evidence/S03/`. Record failures and resource needs in ISSUES_AND_DECISIONS.md, update PROGRESS_LOG.md, then update the roadmap and current handoff. Use EXECUTION_PROTOCOL.md for restoration if a migration or replacement fails. Status: done. [S03 Evidence Report](../../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/S03/report.md).
 
 <a id="s04"></a>
 

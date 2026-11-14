@@ -2,12 +2,15 @@
 
 One directory per civilization holds the reviewed background and guardian masters,
 their runtime exports and the generation/export record. The route order is
-FASR-005, FASR-004, FASR-008, FASR-009, FASR-006, FASR-002, FASR-SCAN-H,
-FASR-010 and FASR-007. The earlier FASR-001 and FASR-003 families retain their
-existing source records.
+FASR-001, FASR-003, FASR-005, FASR-004, FASR-008, FASR-009, FASR-006,
+FASR-002, FASR-SCAN-H, FASR-010 and FASR-007. FASR-001 and FASR-003 have
+separate `background/` and `guardian/` folders, with their original recipes and
+provenance. Their duplicate FASR-003 source alias is archived.
 
 | Civilization | Background | Guardian |
 |---|---|---|
+| FASR-001 | Sagittarius signal landscape | Radio-array guardian |
+| FASR-003 | Cobalt crystal-network landscape | Copper and charcoal heat auditor |
 | FASR-005 | Blue-violet twilight outpost and mountain shields | Armored solar siege crab |
 | FASR-004 | Lilac cloud refinery and suspended condensers | Crescent-finned gas harvester |
 | FASR-008 | Teal ocean port and seven-world assembly hall | Ivory and brass mobile siege organ |
@@ -18,12 +21,14 @@ existing source records.
 | FASR-010 | Rainy forest reclaiming an old observatory | Stone-and-root memory colossus |
 | FASR-007 | Indigo insectoid beacon workshops | Gold-edged mantis engineer |
 
-`background_master.png` and `guardian_master.png` are untouched generated source
+For the nine families from FASR-005 onward, `background_master.png` and
+`guardian_master.png` are untouched generated source
 images. `background.png` is the opaque 1920 × 540 panorama; `body.png` is the
 transparent 256 × 192 guardian. `provenance.json` records prompts, original
 generation filenames, hashes and export settings.
 
-To reproduce exports from a civilization's masters:
+To reproduce exports for those nine families (the earlier two use the recipes
+in their separate provenance records):
 
 ```bash
 .venv/bin/python src/art/source/alien_worlds/export.py src/art/source/alien_worlds/fasr_005
