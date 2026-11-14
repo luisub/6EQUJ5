@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "frames": 4,
+  "dimensions": [
+    512,
+    96
+  ],
+  "foot_pivot": [
+    64,
+    90
+  ],
+  "sha256": "48ce153e7049f862209aa80d8661fc3e6cc1319fdb788c079822a3f780f0b4cc",
+  "provenance": {
+    "source": "src/art/source/finale/park_family/master.png",
+    "source_sha256": "9a0312f7747f78d9d50ebd59eec91b8fc17c61beb3ac95662726ac24c6fd209e",
+    "recipe": "src/art/source/finale/recipe.json",
+    "builder": "tools/build_finale_art.py",
+    "resampling": "nearest",
+    "source_dimensions": [
+      2172,
+      724
+    ],
+    "registration": {
+      "shared_crop": [
+        10,
+        137,
+        523,
+        570
+      ],
+      "size": [
+        85,
+        72
+      ],
+      "foot_y": 90
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "purpose": "Staged final-progress renderer review, not a full campaign playthrough",
+  "isolated_saves": true,
+  "crt": false,
+  "drivers": "dummy",
+  "captures": [
+    {
+      "file": "core-network.png",
+      "size": [
+        960,
+        540
+      ],
+      "setup": "Eleven prior victories and receipts staged; final arena after 100 normal updates.",
+      "sha256": "c29763b90abe5050b935f8173f39dddbba4f1aed3dc9f504a8eae854db993248",
+      "bytes": 658581
+    },
+    {
+      "file": "central-park.png",
+      "size": [
+        960,
+        540
+      ],
+      "setup": "All ending pages acknowledged; native peaceful park with families, birds, water and Mateo.",
+      "sha256": "f2f3fd87896f679655eb8822aaed9079e1409109797f1707c4c58226dfc73b57",
+      "bytes": 989464
+    },
+    {
+      "file": "central-park-walk.gif",
+      "size": [
+        960,
+        540
+      ],
+      "frames": 50,
+      "frame_duration_ms": 100,
+      "setup": "Five seconds of mapped Right movement; actual park animation, no composited art.",
+      "sha256": "e76240c6761b462a11165a052c5e0a0285116cda3735d44f7a69d076e7833e5e",
+      "bytes": 16036278
+    }
+  ],
+  "command": ".venv/bin/python -m video_game.tools.capture_finale --output _temp/finale-capture-NEW"
+}

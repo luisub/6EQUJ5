@@ -86,6 +86,15 @@ Each boss has an intro card, phase data, telegraphs, health/death behavior, retr
 
 ## Endings and release reachability
 
-Implement Fermi Override, Controlled Peace and Severed Signal under the rules in DATA_CONTRACTS.md. All endings need authored text, consequences of the six meters, audio, credits access and post-ending save behavior. Exact wording is authored in P08.
+The current user-directed ending is the **Fermi Override and restored Earth**:
+both final Core forms must fall, six dialogue pages confirm the disconnection
+and recovery, then four more pages accompany a walkable Central Park, Denver,
+three springs later. The park remains open after reading, with an explicit title
+exit and saved message recovery. See [the current story](../STORY.md).
+
+Controlled Peace, Severed Signal, six-meter consequences and a credits sequence
+are earlier P08 proposals, not alternate endings implemented in this release.
+The formal P08 acceptance dependencies remain in the roadmap; this implemented
+ending increment does not imply acceptance of those older proposals.
 
 Create a reachability matrix covering every room exit, mission prerequisite, fragment, validation, ability and ending. Run it against both a fresh campaign and migrated save fixtures. Preserve a full offline completion route and measured live-dialogue sessions.

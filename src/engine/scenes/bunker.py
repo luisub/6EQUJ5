@@ -301,8 +301,7 @@ class BunkerHubScene(BaseScene):
                 if dispatch_journey(self.machine):
                     return True
             if current.get('stage') == 'complete':
-                self.machine.change_state(config.STATE_FIELD_OPS, room='act_01/approach.json', spawn='bunker_exit')
-                return True
+                return dispatch_journey(self.machine)
         if state.room_flags.get("greenkeeper_defeated", False):
             destination = departure(self.machine.campaign)
             if destination:

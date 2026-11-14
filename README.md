@@ -191,6 +191,23 @@ Original synthesized instrumentals, 65–107 seconds per loop. All tracks are in
 The story follows the 1977 signal through eleven worlds and back to Earth.
 
 <details>
+<summary><strong>The return to Earth — ending spoilers</strong></summary>
+
+The Core waits beneath Earth in a cathedral of servers, cables and cascading green code. Its projected face watches Mateo through two final forms: **Core Prime** and **Archon of Silence**.
+
+![Mateo confronts the Core's green projected face inside its machine cathedral](docs/media/readme/core-network.png)
+
+Six closing dialogue pages bring the eleven messages home. The Core's control network disconnects, cities can hear one another again, and local crews take back the hospitals, power and water systems. **We saved the world.**
+
+Three springs later, walk through **Central Park, Denver**: green trees, sunlight, water, flying birds and families with animated walking poses. Four more dialogue pages let Mateo and Big Ear reflect on the recovery. The park stays open after the conversation; walk, reread the messages or return to the title when you are ready. The gentle terrestrial-memory theme returns here.
+
+![Mateo walks through restored Central Park beside the water as families stroll and birds fly](docs/media/readme/central-park-walk.gif)
+
+*[Park still →](docs/media/readme/central-park.png) · [Story and ending notes →](docs/STORY.md)*
+
+</details>
+
+<details>
 <summary><strong>About the images</strong></summary>
 
 The opening banner is promotional artwork inspired by the game's visuals. Every image and animation below it is captured from the actual game renderer. Some locations use direct scene entry and staged campaign progress; these are development previews, not a full playthrough. Full scenes retain their in-game HUD. The three creature animations are labeled detail crops. GIFs preserve native pixels with a 256-color palette.
@@ -230,12 +247,13 @@ The journey opens in the basement with three story pages and a galaxy-map briefi
 | Charging hazard | Press and hold Space when HOLD JUMP appears |
 | Pause and settings | F2 |
 | Advance dialogue / skip travel | Enter, Space or click; travel can be skipped immediately |
+| Restored park | Left / Right to walk; Enter or click Next to read; Esc to return to title |
 
 Fresh settings default to **Assisted** combat; choose Classic under **F2 → COMBAT** if you prefer. Gamepad mappings are supported; physical-controller compatibility and a full controller-only playthrough still need testing. See the [full controls](docs/CONTROLS.md) for abilities, menus and retries.
 
 ## Project status
 
-**In development.** The connected Earth route, eleven-world guardian and information loop, return to Earth and final AI encounter are implemented. Each alien field has a distinct minor foe and a warned charging hazard.
+**In development.** The connected Earth route, eleven-world guardian and information loop, final AI encounter and walkable restored-Denver ending are implemented. Each alien field has a distinct minor foe and a warned charging hazard.
 
 All eleven signal worlds now have their own panoramic backgrounds, guardian artwork and music. Three creature families have distance-driven leg animation. Later guardians take more sustained fire and expose a vulnerable core between attacks. Full playtesting, remaining animation polish and performance checks on real displays are still in progress.
 

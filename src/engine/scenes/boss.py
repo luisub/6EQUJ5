@@ -9,6 +9,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import pygame
 
 from video_game.engine import config
+from video_game.engine.core_network import CoreNetwork
 from video_game.engine.animation import AnimationPlayer, load_mateo_animations
 from video_game.engine.effects import EffectManager, load_maser_presentation
 from video_game.engine.energy_stream_assets import load_energy_filament
@@ -131,6 +132,7 @@ class BossScene(BaseScene):
         self.campaign_act = kwargs.get('campaign_act')
         self.journey_world = kwargs.get('journey_world')
         self.journey_final = bool(kwargs.get('journey_final', False))
+        self.core_network = CoreNetwork() if self.journey_final else None
         current = journey_ledger(self.machine.campaign)
         if self.journey_world and (current.get('world_id') != self.journey_world or current.get('stage') != 'guardian'):
             self.machine.change_state(config.STATE_BUNKER_HUB)
@@ -482,7 +484,7 @@ class BossScene(BaseScene):
             detail = f'{completed} / 11 messages recovered'
         elif self.journey_final:
             pages = journey_data()['final_earth'].get('epilogue', [])
-            next_label, detail = 'Finish journey', 'All 11 messages recovered. Earth is free.'
+            next_label, detail = 'See the new world', 'The Core is disconnected. Earth is free.'
         else:
             pages = (act_meta(self.campaign_act).get('victory', []) if self.campaign_act
                      else earned_story_pages(self.machine.campaign))
@@ -523,7 +525,7 @@ class BossScene(BaseScene):
                     save_journey(self.machine.campaign, current)
                     self.story_save_pending = True
                     return
-            self.machine.change_state(config.STATE_BUNKER_HUB if to_bunker else config.STATE_TITLE_BOOT)
+            self.machine.change_state(config.STATE_BUNKER_HUB if to_bunker else config.STATE_RESTORED_EARTH)
             return
         if self.journey_world:
             if not to_bunker:
@@ -587,6 +589,9 @@ class BossScene(BaseScene):
             self.room.render_background(crt.canvas, self.camera)
         if self.campaign_scenery:
             self.campaign_scenery.render_activity(crt, self.camera)
+
+        if self.journey_final and self.core_network:
+            self.core_network.render(crt, self.boss, self.camera, self.destruction)
 
         self.atmosphere.render(crt, self.camera)
 

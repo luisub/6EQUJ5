@@ -20,9 +20,12 @@ ART_IDS = {'act_02': 'neo_denver_v1', 'act_03': 'area_51_v1',
 ALIEN_CIV_IDS = tuple(f'{number:03d}' for number in range(1, 11)) + ('scan_h',)
 ALIEN_BACKGROUND_IDS = frozenset(f'realm_fasr_{ident}_v1' for ident in ALIEN_CIV_IDS)
 GUARDIAN_IDS = frozenset(f'guardian_fasr_{ident}' for ident in ALIEN_CIV_IDS)
-BACKGROUND_IDS = (frozenset(ART_IDS.values()) | {'area_51_hangar_v1', 'gobekli_archive_v1', 'gobekli_tepe_v2'}
+BACKGROUND_IDS = (frozenset(ART_IDS.values()) | {'area_51_hangar_v1', 'gobekli_archive_v1', 'gobekli_tepe_v2',
+                                              'core_network', 'denver_restored'}
                   | ALIEN_BACKGROUND_IDS)
 _BACKGROUND_DIRECTORIES = {
+    'core_network': 'earth_finale/core_network',
+    'denver_restored': 'earth_finale/central_park',
     'neo_denver_v1': 'neo_denver',
     'area_51_v1': 'area_51/exterior',
     'area_51_hangar_v1': 'area_51/hangar',

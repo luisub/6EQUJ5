@@ -5,6 +5,7 @@ HOW TO MODIFY: Keep attack warnings visible, counters achievable, and retries de
 import math
 import pygame
 from ..attack_visuals import render_attack_field
+from ..core_network import render_projection_scan
 
 from .base import (Boss, BossAttackTelegraph, BossProjectile, boss_balance, STATE_TRANSITION,
                    STATE_TELEGRAPH, STATE_ATTACK, STATE_RECOVERY)
@@ -266,6 +267,7 @@ class PortalWarden(MandelaArchitect):
 class EarthFinalAI(CorePrime):
     """Core Prime reforms as the Archon with a separate full health bar."""
     event_type = 'defeat_earth_ai'
+    color = (88, 235, 150)
 
     def reset_to_pristine(self):
         super().reset_to_pristine()
@@ -296,9 +298,7 @@ class EarthFinalAI(CorePrime):
 
     def render(self, surface, camera, *, crt=None):
         super().render(surface, camera, crt=crt)
-        if self.final_stage == 2 and not self.is_defeated:
-            outline = self.rect.move(-int(camera.x), -int(camera.y)).inflate(8, 8)
-            pygame.draw.ellipse(surface, (200, 115, 245), outline, 2)
+        render_projection_scan(surface, self, camera)
 
     def prepare(self, player_pos):
         if self.final_stage == 1:

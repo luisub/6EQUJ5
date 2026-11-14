@@ -158,6 +158,9 @@ def dispatch(machine):
         machine.change_state(config.STATE_GALAXY_TRANSIT)
         return True
     stage = current['stage']
+    if stage == 'complete' and machine.campaign.state.room_flags.get('earth_ai_defeated', False):
+        machine.change_state(config.STATE_RESTORED_EARTH)
+        return True
     if stage == 'contact':
         machine.change_state(config.STATE_ALIEN_CONTACT, world_id=current['world_id'])
         return True

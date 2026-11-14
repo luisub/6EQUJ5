@@ -189169,5 +189169,19 @@
     "sha256": "eaf5d4f2df0b3373316400f7ef3647dd57ab38d2357b88434e686ef234e9c342",
     "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
     "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/earth_core_ai/body.png",
+    "archive_path": "_trash/2026-11-14_F03/8c86f537fd9f49af80e4a47fc45ffa64/video_game/assets/sprites/bosses/campaign/earth_core_ai/body.png",
+    "sha256": "17637488ef8a2ea45f0890429e2338cde9c9c892b5b476a30b6012fad0348264",
+    "reason": "Replaced the final Core body with an original green-code projection.",
+    "restoration": "Verify SHA-256, preserve the current file, then copy to original_path with its matching manifest."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/earth_core_ai/manifest.json",
+    "archive_path": "_trash/2026-11-14_F03/8c86f537fd9f49af80e4a47fc45ffa64/video_game/assets/sprites/bosses/campaign/earth_core_ai/manifest.json",
+    "sha256": "4c221349e22f0951ee2adbc431f01ca3587f3079011e37425455410f515b8729",
+    "reason": "Replaced the final Core body with an original green-code projection.",
+    "restoration": "Verify SHA-256, preserve the current file, then copy to original_path with its matching manifest."
   }
 ]

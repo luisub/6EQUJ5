@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "description": "Original generated finale artwork; technical registration and export by tools/build_finale_art.py.",
+  "families": [
+    {
+      "key": "central_park",
+      "kind": "background",
+      "id": "denver_restored",
+      "source": "exec-e0a79072-a61f-4a8a-988d-580ea5406af2.png",
+      "crop_top": 70,
+      "prompt": "Create ONE original finished 2D pixel-art game background for the hopeful ending of 6EQUJ5, a detailed cinematic side-scrolling game. Extra-wide panoramic composition, 1920 x 540 aspect ratio (32:9), no text, no UI, no borders. A beautiful restored Central Park in Denver, Colorado, three springs after liberation from a dystopian machine regime. Sunlit spring morning, lush green cottonwood and willow trees, leafy canopy, meadows of tiny flowers, a blue-green lake and a gently curving creek with sparkling water, footbridge in the middle distance, subtle Denver skyline and distant Rocky Mountains under clear blue sky. Sunbeams filter through leaves; warm golden light, emerald vegetation, turquoise water, deep cool green shadows; specific crafted pixel clusters and crisp readable edges like a premium 1990s/modern high-detail pixel-art adventure, NOT photography, not painterly blur. Side-on low camera for characters walking horizontally. Composition: peaceful landscape top 78 percent; a continuous pale warm stone park path runs horizontally the full width at exactly 82 percent image height, suitable for grounded walking sprites; foreground bottom 18 percent is lush grasses, flowers and dark earth along the path. Beautiful open water visible across the middle behind the path, large trees at far left and right framing an open sunny center. Keep path completely open, no people or birds painted in (animated sprites will be added in game). No combat, ruins, dystopian structures, giant foreground obstacles or typography. Make it feel earned, alive, spacious, beautiful and distinctly Colorado."
+    },
+    {
+      "key": "core_network",
+      "kind": "background",
+      "id": "core_network",
+      "source": "exec-d3f97855-26b1-4fab-acd1-b6cc9e1b2e9c.png",
+      "crop_top": 80,
+      "prompt": "Create a finished ORIGINAL pixel-art environment for the final boss fight of the 2D side-scrolling game 6EQUJ5. Wide panorama, 1920 x 540 composition, no UI or captions. A colossal underground machine cathedral beneath Earth, inspired by the atmosphere of The Matrix: deep black-green negative space, symmetrical ranks of ancient server monoliths, thousands of fine emerald fiber-optic cables dropping from a high vanishing ceiling, luminous green code-like light patterns on narrow glass columns, suspended data conduits, black metallic floor reflecting green light. It should feel like the physical infrastructure behind a manufactured reality. Detailed high-quality cinematic pixel art, precise pixel clusters, hard edges and rich dark materials, controlled emerald light with a few cold white highlights. The main chamber is open across the center, especially lower left for a small human protagonist and lower right for a separate boss sprite to be overlaid. A massive circular dark socket or projection chamber sits above the right-center, empty, ready for the boss projection. No creature, no person, no face, no text, no logos, no recognizable film characters. Side-on horizontal playable floor at 89 percent of image height; keep the ground traversal band open and flat. Foreground lower 11 percent: dark mechanical platform edge. Depth and scale in the server stacks, but quiet background contrast so a glowing green boss and olive-clad player remain readable. No purple stone ruins or medieval motifs."
+    },
+    {
+      "key": "park_family",
+      "kind": "walk",
+      "id": "park_family",
+      "source": "exec-3a477e73-951d-4dc6-b3c8-6ec169013105.png",
+      "prompt": "Create ONE professional pixel-art sprite sheet on a truly transparent background for the peaceful ending of a side-scrolling game. EXACTLY FOUR equal-width cells in a single horizontal row, each cell shows the SAME family group walking toward the RIGHT in side profile. No text, no labels, no dividers, no extra rows. Family: two adults and their young child, relaxed, happy, walking together in a sunny Colorado park. One adult has short dark hair, a teal shirt and dark blue trousers; the other has medium brown hair, a warm ochre cardigan and blue trousers; the child between them has a coral red shirt and green shorts. The child holds a parent's hand. All clothed, no weapons or bags hiding the legs. Three separate readable human silhouettes in each group, no overlap that hides their feet. Carefully consistent clothing, faces, body proportions and spacing in all four cells. FOUR distinct anatomically credible walk poses: right-foot contact, passing, left-foot contact, passing; opposing arms/legs, bent knees, planted feet. All feet share the same baseline; no jumping. Soft sunlight from upper left, muted earth colors with readable dark outline, detailed crisp pixel clusters matching premium 2D adventure pixel art. Each group should fit a roughly 128 by 96 game-pixel footprint with parents about 70 pixels tall, child about 42 pixels tall. Output large enough for clean nearest-neighbor export. Leave generous transparent separation around each group, no ground, background, shadow tile or checkerboard. Do not add extra people or different camera views."
+    },
+    {
+      "key": "core_projection",
+      "kind": "boss",
+      "id": "earth_core_ai",
+      "source": "exec-d83f5de9-b6ea-498c-b9ff-0f7d9d1b6615.png",
+      "prompt": "Create ONE original final boss sprite for a high-detail 2D pixel-art science-fiction game, on a truly transparent background. The Core: an immense artificial intelligence manifested as a disembodied humanlike geometric face made of thousands of small luminous emerald circuit fragments and vertical green data ribbons, suspended above a dark graphite projection pedestal with heavy cables and server fins. A stern, expressionless, non-celebrity face, front/three-quarter view looking slightly LEFT toward the player. Strong readable silhouette: large floating face in upper two-thirds, narrow energy tether connecting to pedestal in lower third; some trailing cable arcs left/right. Matrix-inspired atmosphere of a machine intelligence controlling perceived reality, but an original design with no film logos or recognizable actors. Crisp premium pixel art with intricate angular pixel clusters, black-green shadows, green midtones, pale mint white eyes and cheek highlights, dark steel with copper contacts. No organic body, no hands, no legs, no weapons, no purple monster. Whole object fits within a 4:3 rectangular sprite cell, all cables inside the frame, ample transparent margin. Bottom of pedestal is the ground anchor. Face/upper pedestal fills the central vulnerable silhouette, clear bright focal point in the middle. No floor, backdrop, words, frame, UI, cast shadow sheet or checkerboard. It must remain readable when exported to 256 by 192 pixels."
+    }
+  ]
+}

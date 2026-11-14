@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_world_background",
+  "art_id": "denver_restored",
+  "viewport": [
+    480,
+    270
+  ],
+  "density": 2,
+  "image": {
+    "file": "background.png",
+    "dimensions": [
+      1920,
+      540
+    ],
+    "sha256": "bfdaf4933ab858d1dc0abbb95732b2294e0035cd60eea97dff6475bdb20136bb"
+  },
+  "provenance": {
+    "source": "src/art/source/finale/central_park/master.png",
+    "source_sha256": "33eb11cf96e8f89aac9ed6d1dd4879819ca611a273419bfd64acb2f374411510",
+    "recipe": "src/art/source/finale/recipe.json",
+    "builder": "tools/build_finale_art.py",
+    "resampling": "nearest",
+    "source_dimensions": [
+      2172,
+      724
+    ],
+    "registration": {
+      "resize": [
+        1920,
+        640
+      ],
+      "crop": [
+        0,
+        70,
+        1920,
+        610
+      ]
+    }
+  }
+}

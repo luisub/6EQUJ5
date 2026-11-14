@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_world_background",
+  "art_id": "core_network",
+  "viewport": [
+    480,
+    270
+  ],
+  "density": 2,
+  "image": {
+    "file": "background.png",
+    "dimensions": [
+      1920,
+      540
+    ],
+    "sha256": "39f9f232e712de8130fa1a0018c8add33036dede69e2d80f7d1d0bb338339d97"
+  },
+  "provenance": {
+    "source": "src/art/source/finale/core_network/master.png",
+    "source_sha256": "40c2203ac122884dac8802a626781a4406a40255020287fff5b4a9ab158f7d02",
+    "recipe": "src/art/source/finale/recipe.json",
+    "builder": "tools/build_finale_art.py",
+    "resampling": "nearest",
+    "source_dimensions": [
+      2172,
+      724
+    ],
+    "registration": {
+      "resize": [
+        1920,
+        640
+      ],
+      "crop": [
+        0,
+        80,
+        1920,
+        620
+      ]
+    }
+  }
+}

@@ -17,6 +17,8 @@ packages. Temporary output and `_trash` are never runtime inputs.
 | Later Earth backgrounds | `environments/{neo_denver,area_51,gobekli_tepe,vla}/` | `engine/campaign_scenery.py`; `tools/build_campaign_art.py` |
 | Historical rooms | `environments/{dodleston_relay,mandela_annex,ehman_1977}/` | Native-room contracts and builder |
 | Eleven alien panoramas | `environments/alien_worlds/fasr_<id>/` | `data/alien_journey.json`; campaign scenery and export builder |
+| Core chamber and restored Denver | `environments/earth_finale/{core_network,central_park}/` | `engine/campaign_scenery.py`; `tools/build_finale_art.py` |
+| Park families | `sprites/people/park_family/` | `engine/scenes/restored_earth.py`; four cached walking poses and mirrored variants |
 | Alien guardians and Earth bosses | `sprites/bosses/` | Boss controllers and family manifests; Greenkeeper uses `greenkeeper/` |
 | Mateo | `sprites/mateo/<outfit>/` | One animation manifest, individual poses and bunker strips; frame paths stay within this directory |
 | Patrol enemies | `sprites/enemies/<type>/` | Manifests preserve animation order/timing while repeated slots share one image |
@@ -32,6 +34,14 @@ locations. Stable logical identifiers in level data may retain old version
 suffixes for compatibility; they map to the canonical directories above.
 
 ## Manifests and rebuilding
+
+`art/source/finale/recipe.json` owns four generated masters, full prompts and
+registration settings. `build_finale_art` exports two 1920×540 panoramas, the
+256×192 projected Core and a 512×96 family strip with four 128×96 cells. Shared
+cropping and foot registration keep family poses grounded. Background and boss
+exports use the existing scenery manifest contracts; family loading validates
+the strip's dimensions and hash. Original Core exports remain in the restoration
+index. Source masters and tools are excluded from runtime packages.
 
 `audio/manifest.json` owns the eleven world-to-track assignments, titles, hashes
 and durations. Two original MP3s cover Earth and the observatory; eleven stereo

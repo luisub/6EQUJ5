@@ -998,7 +998,7 @@
       "act_id": "act_05",
       "next_room": null,
       "previous_room": "alien_007_arena",
-      "art_id": "gobekli_tepe_v1",
+      "art_id": "core_network",
       "art_view": [
         0.5,
         0.5
@@ -1016,9 +1016,51 @@
     "defeat_event": "defeat_earth_ai",
     "epilogue": [
       {
-        "title": "Earth is free",
-        "text": "Both forms of the Core are destroyed. The eleven messages are safe. The questions remain."
+        "title": "The Core // Last channel",
+        "text": "THE CORE: I kept your streets quiet. I gave every life a place.\nMATEO: You kept us apart. Our lives were never yours to assign."
+      },
+      {
+        "title": "The Fermi Override",
+        "text": "Mateo broadcasts the eleven independent records through Big Ear. The Core cannot make them agree with its fabricated world. Its control network begins to break apart."
+      },
+      {
+        "title": "Earth // Disconnected",
+        "text": "BIG EAR: Confirmed. The Core is disconnected from every city. Its commands have stopped. Local crews have control of the hospitals, power stations and water systems."
+      },
+      {
+        "title": "We saved the world",
+        "text": "MATEO: It is over. We saved the world.\nBIG EAR: The cities can hear one another again. Families are leaving the shelters. They are asking who brought the signal home."
+      },
+      {
+        "title": "Eleven voices brought us home",
+        "text": "MATEO: Tell them we had help. Keep every message, every memory, every voice. No single machine gets to decide what is real for everyone again."
+      },
+      {
+        "title": "A world to rebuild",
+        "text": "The silence gives way to ordinary voices. Neighbors reopen streets, restore rivers and plant trees. Three springs later, Mateo returns to Central Park in Denver."
       }
-    ]
+    ],
+    "restoration": {
+      "location": "CENTRAL PARK, DENVER",
+      "time": "THREE SPRINGS LATER",
+      "pages": [
+        {
+          "title": "A morning of our own",
+          "text": "BIG EAR: Denver, your signal is clear. How does the world look from there?"
+        },
+        {
+          "title": "Listen",
+          "text": "MATEO: Water. Birds. Children laughing. No orders in the sky.\nBIG EAR: Then leave the receiver on the bench for a while. You brought us home."
+        },
+        {
+          "title": "The world is ours again",
+          "text": "CHILD: Were you the one who turned the Core off?\nMATEO: I had eleven voices with me. And a whole world waiting to wake up."
+        },
+        {
+          "title": "There is still a world to discover",
+          "text": "We are still a small rock, drifting through dark space. The questions remain. This morning, we get to ask them together."
+        }
+      ]
+    }
   }
 }

@@ -198,7 +198,8 @@ def test_earth_panorama_continues_at_the_next_area_boundary(display):
 
 
 def test_alien_world_allowlists_and_explicit_metadata(tmp_path, display):
-    assert len(BACKGROUND_IDS) == 18 and len(ALIEN_BACKGROUND_IDS) == 11
+    assert len(BACKGROUND_IDS) == 20 and len(ALIEN_BACKGROUND_IDS) == 11
+    assert {'core_network', 'denver_restored'} <= BACKGROUND_IDS
     assert len(GUARDIAN_IDS) == 11 and len(BOSS_IDS) == 17
     assert 'realm_fasr_001_v1' in ALIEN_BACKGROUND_IDS
     assert 'realm_fasr_scan_h_v1' in ALIEN_BACKGROUND_IDS

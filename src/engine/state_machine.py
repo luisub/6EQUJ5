@@ -24,6 +24,7 @@ from .scenes.field import FieldOpsScene
 from .scenes.boss import BossScene
 from .scenes.alien_contact import AlienContactScene
 from .scenes.galaxy_transit import GalaxyTransitScene
+from .scenes.restored_earth import RestoredEarthScene
 from .ui.hud import render_global_hud
 from .ui.pause import PauseOverlay
 
@@ -82,6 +83,7 @@ class GameStateMachine:
             config.STATE_BOSS_BOUNTY: BossScene(self),
             config.STATE_ALIEN_CONTACT: AlienContactScene(self),
             config.STATE_GALAXY_TRANSIT: GalaxyTransitScene(self),
+            config.STATE_RESTORED_EARTH: RestoredEarthScene(self),
         }
         self.current_state_name = config.STATE_TITLE_BOOT
         self.current_scene = self.scenes[self.current_state_name]
@@ -274,6 +276,7 @@ class GameStateMachine:
                                   (config.STATE_BOSS_BOUNTY, BossScene),
                                   (config.STATE_ALIEN_CONTACT, AlienContactScene),
                                   (config.STATE_GALAXY_TRANSIT, GalaxyTransitScene),
+                                  (config.STATE_RESTORED_EARTH, RestoredEarthScene),
                                   (config.STATE_SCIENCE_LAB, ScienceLabScene),
                                   (config.STATE_CRT_TERMINAL, CRTTerminalScene)):
             self.scenes[state] = scene_type(self)
@@ -348,7 +351,8 @@ class GameStateMachine:
                 and self.current_scene.pointer_context_hit(event)):
             self._dispatch(self.current_scene.activate_context)
             return
-        if not is_controller and self.current_state_name in (config.STATE_BUNKER_HUB, config.STATE_FIELD_OPS, config.STATE_BOSS_BOUNTY):
+        if not is_controller and self.current_state_name in (config.STATE_BUNKER_HUB, config.STATE_FIELD_OPS,
+                                                            config.STATE_BOSS_BOUNTY, config.STATE_RESTORED_EARTH):
             self._route_input_event(event)
         if event.type == pygame.CONTROLLERBUTTONDOWN:
             # Bridge menu and authored interaction controls without fabricating
@@ -370,7 +374,8 @@ class GameStateMachine:
                 elif event.button == pygame.CONTROLLER_BUTTON_A:
                     key = pygame.K_RETURN
             elif self.current_state_name in (config.STATE_CRT_TERMINAL, config.STATE_SCIENCE_LAB,
-                                              config.STATE_ALIEN_CONTACT, config.STATE_GALAXY_TRANSIT):
+                                              config.STATE_ALIEN_CONTACT, config.STATE_GALAXY_TRANSIT,
+                                              config.STATE_RESTORED_EARTH):
                 key = {pygame.CONTROLLER_BUTTON_A: pygame.K_RETURN,
                        pygame.CONTROLLER_BUTTON_B: pygame.K_ESCAPE}.get(event.button)
             elif self.current_state_name == config.STATE_FIELD_OPS and event.button == pygame.CONTROLLER_BUTTON_X:

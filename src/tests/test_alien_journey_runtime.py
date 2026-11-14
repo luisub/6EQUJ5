@@ -166,9 +166,15 @@ def test_final_ai_requires_all_guardians_and_receipts_then_plays_epilogue(game):
     assert game.current_scene is scene and scene.story.index == 0
     for _ in scene.story.pages:
         key(game, pygame.K_RETURN)
-    assert game.current_state_name == config.STATE_TITLE_BOOT
+    assert game.current_state_name == config.STATE_RESTORED_EARTH
     assert ledger(game.campaign)['stage'] == 'complete'
     assert game.save_store.load().campaign.state.room_flags['earth_ai_defeated']
+    park = game.current_scene
+    for _ in park.pages:
+        key(game, pygame.K_RETURN)
+    assert game.current_scene is park
+    key(game, pygame.K_ESCAPE)
+    assert game.current_state_name == config.STATE_TITLE_BOOT
 
 
 def test_teleport_waits_through_pause_and_ignores_inputs(game):

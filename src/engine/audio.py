@@ -18,6 +18,7 @@ AUDIO_DIR = config.AUDIO_ASSETS_DIR
 
 TRACK_BUNKER = "Static_Bloom.mp3"
 TRACK_COMBAT = "Echoes_of_the_Static_Void.mp3"
+TRACK_RESTORED = "terrestrial_memory.ogg"
 
 
 class AudioManager:
@@ -262,6 +263,8 @@ class AudioManager:
         target = None
         if state_name in bunker_states:
             target = TRACK_BUNKER
+        elif state_name == config.STATE_RESTORED_EARTH:
+            target = TRACK_RESTORED if self._audio_path(TRACK_RESTORED) else TRACK_BUNKER
         elif state_name in combat_states:
             target = self.world_tracks.get(world_id, TRACK_COMBAT)
             if self._audio_path(target) is None:

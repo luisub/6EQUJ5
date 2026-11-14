@@ -84,46 +84,254 @@
   "unaccounted_removals": 0,
   "latest_update": {
     "date": "2026-11-14",
-    "pass": "hud_and_creature_motion",
+    "pass": "core_liberation_and_restored_denver",
     "changes": [
-      "Upper-right compact weapon timer",
-      "Galaxy captions simplified",
-      "Enemy arrival labels removed",
-      "SCAN-H Rift Raptor dinosaurs",
-      "Four-pose distance-driven motion for raptors, Resonance Effigies and Beacon Mites",
-      "Grounded Beacon Mite movement"
+      "Original machine-cathedral Core arena and green-code projected intelligence",
+      "Six ending pages confirming Core disconnection and world recovery",
+      "Walkable Central Park, Denver, three springs later, with four saved dialogue pages",
+      "Four-pose walking families, flying birds, water glints and sunlight",
+      "Completed-save park recovery, save retries and New-game isolation",
+      "README ending gallery, story guide and reproducible art/capture tools"
     ],
-    "runtime_asset_files": 298,
     "full_suite": {
-      "passed": 1343,
-      "failed": 1,
-      "duration_seconds": 194.26,
-      "remaining_failure": "test_profile.py::test_scene_frame_budgets",
-      "field_render_p95_ms": 5.54,
-      "render_budget_ms": 5.0,
-      "isolated_profile": "1 passed in 3.36 seconds"
+      "passed": 1360,
+      "failed": 0,
+      "duration_seconds": 184.2,
+      "render_budget_assertions": "Unchanged; passed in this run. Earlier timing variation remains documented."
     },
     "focused_tests": {
-      "hud_and_navigation": 86,
-      "creatures_assets_and_hazards": 104
+      "ending_journey_story_audio": 55,
+      "scenery_and_park": 40
     },
-    "hud_layout_cases": 144,
-    "full_flush_pixel_parity": true,
+    "initial_full_run": {
+      "passed": 1359,
+      "failed": 1,
+      "cause": "Background allowlist test still expected 18 entries; updated to 20 and explicitly checked both new backgrounds."
+    },
     "levels_validated": 52,
     "protected_asset_groups_validated": 14,
-    "installed_wheel": "Clean source copy; installed outside checkout; fresh game boot and all three animated enemies/hazards rendered successfully.",
-    "asset_rebuilds": {
-      "families": 3,
-      "exact_export_matches": true
+    "runtime_asset_files": 315,
+    "test_modules": 87,
+    "asset_rebuild": {
+      "masters": 4,
+      "exports": 8,
+      "byte_identical": true
     },
-    "archive_records_verified": 29,
-    "visual_checks": [
-      "Native and 2x CRT HUD",
-      "Opening and travel map captions",
-      "Actual-scene leg-cycle frame samples",
-      "Memory Extractor warning and energy attack"
+    "installed_wheel": {
+      "runtime_assets": 315,
+      "core_native_art": true,
+      "park_native_art": true,
+      "family_frames": 4,
+      "completed_save_recovery": true,
+      "park_music_streamed": true,
+      "dialogue_layout": [
+        {
+          "page": 1,
+          "lines": 1
+        },
+        {
+          "page": 2,
+          "lines": 3
+        },
+        {
+          "page": 3,
+          "lines": 2
+        },
+        {
+          "page": 4,
+          "lines": 2
+        }
+      ],
+      "park_render_p95_ms": 5.491374991834164,
+      "drivers": "dummy",
+      "limitations": "Explicit prior-progress and final-victory fixtures; no human playthrough or audible/native-display acceptance.",
+      "new_game_isolation": true,
+      "wheel_files": 463,
+      "outside_checkout": true
+    },
+    "new_archive_records_verified": 2,
+    "readme_captures_verified": 29,
+    "local_links_checked": 176,
+    "missing_local_links": [],
+    "visual_review": [
+      "Core Prime and Archon native captures",
+      "Six-page ending first-page render",
+      "Park dialogue native layout; all four pages measured within bounds",
+      "Peaceful park native render and animated family frame samples"
     ],
-    "evidence": "_temp/enemy-motion-review/; _temp/hud-review-vm_a85vs/; updated maintained README captures",
-    "limits": "Headless staged captures and dummy audio; no human campaign or native-display performance acceptance."
-  }
+    "evidence": [
+      "docs/media/readme/finale-capture.json",
+      "_temp/finale-full-suite-final.log",
+      "_temp/finale-focused-final.log",
+      "_temp/finale-scenery-regression.log",
+      "_temp/finale-installed.json",
+      "_temp/finale-doc-check.json"
+    ],
+    "limits": "Dummy SDL and explicit prior-progress/placement fixtures. Both final forms were defeated with mapped fire in the capture and runtime test. These checks do not establish a human full-game playthrough, audible quality, physical-controller compatibility or native-display performance. Formal gates unchanged."
+  },
+  "previous_updates": [
+    {
+      "date": "2026-11-14",
+      "pass": "world_music_and_readme_refresh",
+      "changes": [
+        "Eleven original 32-bar instrumental world scores; thirteen total music tracks",
+        "World-aware exploration, guardian and contact music with non-restarting fades",
+        "Native-resolution 256-color README animations, creature detail crops and active guardian attack"
+      ],
+      "runtime_asset_files": 309,
+      "installed_runtime_files": 449,
+      "full_suite": {
+        "passed": 1351,
+        "failed": 1,
+        "duration_seconds": 201.55,
+        "remaining_failure": "test_profile.py::test_scene_frame_budgets",
+        "scene": "BOSS_BOUNTY",
+        "render_p95_ms": 5.394,
+        "render_budget_ms": 5.0,
+        "isolated_profile": "1 passed in 3.35 seconds"
+      },
+      "focused_audio_and_journey_tests": 38,
+      "levels_validated": 52,
+      "protected_asset_groups_validated": 14,
+      "installed_wheel": {
+        "boot": true,
+        "streamed_music_tracks": 13,
+        "world_tracks": 11,
+        "volume_and_mute": true,
+        "outside_checkout": true,
+        "audio_driver": "dummy"
+      },
+      "audio_measurements": [
+        {
+          "file": "beacon_network.ogg",
+          "duration_seconds": 65.085,
+          "integrated_lufs": -18.4,
+          "true_peak_dbfs": -4.5,
+          "loop_seam_sample_delta": 0.004956
+        },
+        {
+          "file": "crab_memorial.ogg",
+          "duration_seconds": 101.053,
+          "integrated_lufs": -18.5,
+          "true_peak_dbfs": -6.8,
+          "loop_seam_sample_delta": 0.006291
+        },
+        {
+          "file": "crystal_lattice.ogg",
+          "duration_seconds": 71.111,
+          "integrated_lufs": -18.1,
+          "true_peak_dbfs": -5.6,
+          "loop_seam_sample_delta": 0.008526
+        },
+        {
+          "file": "event_horizon.ogg",
+          "duration_seconds": 89.302,
+          "integrated_lufs": -18.7,
+          "true_peak_dbfs": -6.3,
+          "loop_seam_sample_delta": 0.003032
+        },
+        {
+          "file": "interstellar_archive.ogg",
+          "duration_seconds": 106.667,
+          "integrated_lufs": -18.5,
+          "true_peak_dbfs": -4.7,
+          "loop_seam_sample_delta": 0.001116
+        },
+        {
+          "file": "orion_nursery.ogg",
+          "duration_seconds": 91.429,
+          "integrated_lufs": -18.2,
+          "true_peak_dbfs": -8.3,
+          "loop_seam_sample_delta": 0.008177
+        },
+        {
+          "file": "proxima_twilight.ogg",
+          "duration_seconds": 98.462,
+          "integrated_lufs": -18.5,
+          "true_peak_dbfs": -6.1,
+          "loop_seam_sample_delta": 0.004948
+        },
+        {
+          "file": "rift_hunt.ogg",
+          "duration_seconds": 73.846,
+          "integrated_lufs": -18.4,
+          "true_peak_dbfs": -6.6,
+          "loop_seam_sample_delta": 0.002035
+        },
+        {
+          "file": "sagittarius_signal.ogg",
+          "duration_seconds": 83.478,
+          "integrated_lufs": -18.4,
+          "true_peak_dbfs": -5.3,
+          "loop_seam_sample_delta": 0.002554
+        },
+        {
+          "file": "terrestrial_memory.ogg",
+          "duration_seconds": 87.273,
+          "integrated_lufs": -18.3,
+          "true_peak_dbfs": -6.0,
+          "loop_seam_sample_delta": 0.008762
+        },
+        {
+          "file": "trappist_orbits.ogg",
+          "duration_seconds": 68.571,
+          "integrated_lufs": -18.7,
+          "true_peak_dbfs": -5.2,
+          "loop_seam_sample_delta": 0.003122
+        }
+      ],
+      "music_bytes_added": 13895353,
+      "sfx_rebuild_preserves_music": true,
+      "readme_captures_verified": 26,
+      "archive_records_verified": 16,
+      "readme_missing_local_links": [],
+      "visual_review": "Native gameplay stills and leg-cycle frame samples inspected; HTML generated with Pandoc. Browser page review blocked by local-origin permission; no browser layout acceptance claimed.",
+      "evidence": "Maintained docs/media/readme/capture.json; _temp/world-music-tests.log; _temp/world-music-installed.json; _temp/world-music-doc-check.json",
+      "limits": "Dummy SDL verifies decoding and stream lifecycle, not speaker quality. Staged captures do not establish a human playthrough or native-display performance. Formal gates unchanged."
+    },
+    {
+      "date": "2026-11-14",
+      "pass": "hud_and_creature_motion",
+      "changes": [
+        "Upper-right compact weapon timer",
+        "Galaxy captions simplified",
+        "Enemy arrival labels removed",
+        "SCAN-H Rift Raptor dinosaurs",
+        "Four-pose distance-driven motion for raptors, Resonance Effigies and Beacon Mites",
+        "Grounded Beacon Mite movement"
+      ],
+      "runtime_asset_files": 298,
+      "full_suite": {
+        "passed": 1343,
+        "failed": 1,
+        "duration_seconds": 194.26,
+        "remaining_failure": "test_profile.py::test_scene_frame_budgets",
+        "field_render_p95_ms": 5.54,
+        "render_budget_ms": 5.0,
+        "isolated_profile": "1 passed in 3.36 seconds"
+      },
+      "focused_tests": {
+        "hud_and_navigation": 86,
+        "creatures_assets_and_hazards": 104
+      },
+      "hud_layout_cases": 144,
+      "full_flush_pixel_parity": true,
+      "levels_validated": 52,
+      "protected_asset_groups_validated": 14,
+      "installed_wheel": "Clean source copy; installed outside checkout; fresh game boot and all three animated enemies/hazards rendered successfully.",
+      "asset_rebuilds": {
+        "families": 3,
+        "exact_export_matches": true
+      },
+      "archive_records_verified": 29,
+      "visual_checks": [
+        "Native and 2x CRT HUD",
+        "Opening and travel map captions",
+        "Actual-scene leg-cycle frame samples",
+        "Memory Extractor warning and energy attack"
+      ],
+      "evidence": "_temp/enemy-motion-review/; _temp/hud-review-vm_a85vs/; updated maintained README captures",
+      "limits": "Headless staged captures and dummy audio; no human campaign or native-display performance acceptance."
+    }
+  ]
 }

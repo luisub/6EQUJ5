@@ -8,33 +8,30 @@
       256,
       192
     ],
-    "sha256": "17637488ef8a2ea45f0890429e2338cde9c9c892b5b476a30b6012fad0348264"
+    "sha256": "e69ec644fcd6ea76c1c6123f194b53ee8ba12d9816731e3a02684af838139f7a"
   },
   "provenance": {
-    "status": "accepted_single_keypose",
-    "source": "master_v02.png",
-    "source_sha256": "fa14abef8172fb85fb21363207f97f83536a5c85e7ac5e72417a845af6400ce5",
+    "source": "src/art/source/finale/core_projection/master.png",
+    "source_sha256": "c4eba07f67e93daec7586e08022a58e2470e9cc6097e3b58fb5ac0620818ee68",
+    "recipe": "src/art/source/finale/recipe.json",
+    "builder": "tools/build_finale_art.py",
+    "resampling": "nearest",
     "source_dimensions": [
       1448,
       1086
     ],
-    "crop_box_exclusive": [
-      42,
-      17,
-      1346,
-      1046
-    ],
-    "resize": [
-      228,
-      180
-    ],
-    "paste": [
-      14,
-      9
-    ],
-    "resampling": "Pillow nearest-neighbor downsample",
-    "record": "src/art/source/bosses/earth_core_ai_v01/provenance.md",
-    "review": "root nativeEarthhangarcomposition; noanimationacceptance",
-    "source_directory": "src/art/source/bosses/earth_core_ai_v01"
+    "registration": {
+      "crop": [
+        338,
+        3,
+        1103,
+        1076
+      ],
+      "size": [
+        128,
+        180
+      ],
+      "foot_y": 189
+    }
   }
 }

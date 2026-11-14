@@ -20,6 +20,12 @@
 
 The receiver resolves authored dialogue locally. Its small codec retains the historical six-bin 6EQUJ5 decoding rules. No live model adapter, worker or network service participates in progression.
 
+The journey ledger gates the final two-form Core fight on eleven earned receipts.
+After its six-page ending saves completion, `RESTORED_EARTH` provides a peaceful,
+walkable park with four separately saved dialogue acknowledgements. Completed
+Continue/recovery routes back there through the bunker. The park shares mapped
+movement, pause, audio and animation services, with no combat state carried over.
+
 Runtime assets and authored data are resolved relative to package files, so the installed wheel runs outside the checkout. Developer tools resolve repository-level art masters and are intentionally excluded from runtime wheels. A source checkout with art masters is required for art rebuilds; the source distribution supports rebuilding the runtime wheel.
 
 The game loads from `src/assets/` and `src/data/`. Maintained builders use named source families under `src/art/source/`; tests use those sources and `src/tests/fixtures/`. Neither runtime loading nor maintained checks may require `_temp/`, `_trash/`, build outputs or historical review folders.

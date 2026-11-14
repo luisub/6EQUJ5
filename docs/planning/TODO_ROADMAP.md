@@ -6,6 +6,13 @@ Repository organization was audited on 2026-11-14. Active sources and fixtures w
 
 # Execution roadmap
 
+2026-11-14 ending increment: original green-code Core chamber/projection, six
+liberation pages and a walkable restored Central Park with four aftermath pages
+are implemented. Completed-save recovery, page-save retries and explicit park
+exit are covered. See [story](../STORY.md) and [current validation](CURRENT_STATE.md).
+P08's older alternate-ending proposal and formal acceptance dependencies remain
+open; this user-directed happy ending does not promote those gates.
+
 2026-11-14 presentation follow-up: compact upper-right weapon timers, simplified
 map captions, quiet enemy arrivals, SCAN-H dinosaurs and distance-driven leg
 cycles for Raptors, Resonance Effigies and Beacon Mites are implemented. See

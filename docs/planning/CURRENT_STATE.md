@@ -8,7 +8,9 @@ remains the launch command. Runtime resources live in `src/assets/` and `src/dat
 
 The [repository audit](../maintenance/REPOSITORY_AUDIT.md) records the current
 [tree](../maintenance/repository-tree.txt) and [verification](../maintenance/verification.json).
-Runtime asset files decreased from 425 to 295; 76 retained files have canonical
+The canonical-layout audit reduced runtime assets from 425 to 295; the latest
+soundtrack, motion and finale additions bring the current total to 315. In that audit,
+76 retained files acquired canonical
 paths and 136 retired project files are recoverable under
 `_trash/2026-11-14_asset_layout/`. Music/SFX use `assets/audio`; all bitmap scene
 backgrounds use `assets/environments`, grouped by location. Ohio rooms are distinct
@@ -16,12 +18,13 @@ locations with one shared far plane. Mateo and enemy animation manifests reuse
 canonical images without changing timing. No exact runtime-media duplicates remain.
 
 Art masters, briefs and research stay under `src/art/`; tests and deterministic
-fixtures stay in `src/tests/`. The 85 maintained test modules include the unique
+fixtures stay in `src/tests/`. The 87 maintained test modules include the unique
 transaction checks migrated from the retired approach builder. The old comparison
 sheet product and its missing historical-portrait check were retired together;
 the missing source was not recovered or replaced with modern artwork.
 
-All 52 levels and 14 protected asset groups validate. Twenty seeded renderer
+The earlier layout audit validated all 52 levels and 14 protected asset groups.
+Twenty seeded renderer
 captures are byte-identical. Clean direct/sdist wheels contain 434 runtime files,
 boot independently and load every native world/guardian pair. Installed resource
 tracing covers all rooms, both music tracks and SFX without escaping the owned
@@ -90,13 +93,14 @@ and 23 seconds for the two-form finale. These ignore incoming damage and are not
 human difficulty ratings. Temporary weapon expiration and earned rewards remain.
 
 Boss victories use a 2.6-second destruction effect, skippable with a fresh input.
-Victory, contact and ending text each fit one short page and require acknowledgement.
+Victory and contact text use short pages requiring acknowledgement. The final
+ending now spans six pages, followed by four pages in the restored park.
 Contact receipts save before travel. Briefing and travel share a winding route;
 the ship reaches its destination before a centered vortex opens. The 4.1-second
 transition is immediately skippable, but arrival still requires a successful save.
 
-The README uses promotional title artwork, thirteen renderer screenshots and
-three renderer GIFs. Capture fixtures are disclosed in the media notes.
+The README uses promotional title artwork, fifteen embedded renderer screenshots
+and seven renderer GIFs, with seven additional full-scene stills linked. Capture fixtures are disclosed in the media notes.
 
 ## Remaining work and evidence
 
@@ -135,3 +139,51 @@ saves and disclosed progression/placement fixtures. Changed captures and the old
 audio manifest are preserved with restoration records. Original composed tracks
 and source recipes are licensed with the repository. Human listening on actual
 speakers remains part of A12 acceptance.
+
+Latest validation: 1,351 tests passed; the render-budget test measured BOSS_BOUNTY
+at 5.394 ms P95 against 5.0 ms in the full suite, then passed alone in 3.35 seconds.
+All 38 focused audio/journey checks, 52 levels and 14 asset groups pass. A clean
+wheel boots outside the checkout and streams all thirteen tracks, with volume
+and mute verified. World scores measure −18.7 to −18.1 LUFS and stay below
+−4.5 dBFS true peak. All 26 media hashes, 16 archive records and README links
+verify. Native captures were inspected; the local browser preview was blocked
+by its origin permission check, so rendered README layout acceptance remains open.
+
+## Core liberation and restored Denver
+
+The final chamber now has its own machine-cathedral panorama and original green
+projected Core, with bounded falling-code activity and a faster second-form scan.
+Its two full-health forms, eleven required receipts, attack behavior and earned
+victory flag remain intact. Six closing dialogue pages explain the independent
+broadcast, disconnection of the Core's control network, restored city links and
+local control of hospitals, power and water. Mateo explicitly confirms that they
+saved the world. See [the story and ending](../STORY.md).
+
+Completion opens `RESTORED_EARTH`, three springs later in Central Park, Denver.
+The native panorama contains trees, water, warm light and the distant skyline;
+bounded glints, birds and three four-pose family groups animate around a walkable
+Mateo. Four more dialogue pages wait for input and save each acknowledgement.
+The park remains open after reading, with message replay and explicit title exit.
+Completed Continue/recovery returns through the bunker to the saved park page;
+New game resets the scene. Page-save and final-completion failures retain the
+previous durable progress and allow retry. The terrestrial-memory score returns
+for the homecoming. Missing optional park scenery has a simple green fallback.
+
+Four canonical image masters and a complete recipe rebuild eight exports exactly.
+The replaced Core body and manifest are archived with verified hashes. Three new
+README captures have their own metadata, bringing the maintained gallery to 29.
+The capture tool stages eleven prior receipts/victories and a player position,
+then defeats both final forms with mapped fire before entering the park. Actual
+Core, dialogue, park and walking-pose captures were inspected. They remain staged
+renderer evidence rather than a human campaign playthrough.
+
+Final validation: **1,360 tests passed in 184.20 seconds**, including the unchanged
+render-budget assertions. All 55 focused ending/journey/story/audio checks and
+40 scenery/park checks pass, as do 52 levels and 14 protected asset groups. The
+initial full run exposed an old background-count assertion; it now checks all
+20 backgrounds, including both finale additions. A clean wheel with 315 runtime
+asset files boots outside the checkout, renders the Core and park, recovers a
+saved park page, streams the homecoming music and resets correctly on New game.
+Park render P95 measured 5.49 ms with dummy SDL during that bounded probe; this
+is not native-display certification. All 29 README media hashes, two new archive
+records and checked local links verify. Formal gate statuses are unchanged.

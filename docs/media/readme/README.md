@@ -16,7 +16,7 @@ small author credit is rendered separately by the game.
 
 All other PNGs are unretouched 960 × 540 render surfaces from the game. Full-scene GIFs now retain the native 960 × 540 pixels and use a shared 256-color palette without dithering. Arc Lance and transit run at 10 frames per second; the Denver walk runs at 5. The three creature GIFs use unscaled 440 × 184 crops at (520, 320), sampled every five simulation frames and encoded at 80 ms per frame. Their linked PNGs show the complete scene and HUD.
 
-The main README embeds fourteen full screenshots and six animations. Six additional stills are linked: the receiver, Arc Lance, galaxy map and three complete creature scenes. `capture.json` records the setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. Proxima shows its twilight outpost and Flare Bastion guardian. The superseded `neo-denver.png` is archived under `_trash/2026-11-14_repository_compaction/docs/media/readme/`.
+The main README embeds fifteen full screenshots and seven animations. Seven additional stills are linked: the receiver, Arc Lance, galaxy map, three complete creature scenes and restored Central Park. `capture.json` records the original 26 captures; `finale-capture.json` records the three finale additions. Both include setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. Proxima shows its twilight outpost and Flare Bastion guardian. The superseded `neo-denver.png` is archived under `_trash/2026-11-14_repository_compaction/docs/media/readme/`.
 
 | Media | Setup |
 |---|---|
@@ -33,6 +33,8 @@ The main README embeds fourteen full screenshots and six animations. Six additio
 | `galaxy-map.png`, `signal-transit.gif` | First Earth-to-FASR-001 crossing after a staged portal unlock. |
 | `rift-raptor`, `resonance-effigy`, `beacon-mite` PNG/GIF pairs | Staged prior progress, player/enemy placement and extended attack cooldown; ordinary runtime updates drive the patrol and leg cycle. GIFs are labeled native detail crops; PNGs retain the full HUD. |
 | `memory-extractor.png` | Staged guardian progress, then ordinary runtime updates through the first warning into an active energy-field attack. |
+| `core-network.png` | Eleven prior victories and receipts staged, then 100 normal final-arena updates. |
+| `central-park.png`, `central-park-walk.gif` | Same prior-progress fixture and player x=250 for the fight; mapped fire defeats both full-health Core forms. Acknowledging the six earned ending pages enters the park. The GIF shows five seconds of mapped Right movement at 10 fps, with actual family strides, birds and glints. |
 
 Proxima and the travel media were refreshed together on 2026-11-13. Travel now follows an irregular route and presents the gate at the screen center. The previous map, animation and matching metadata are indexed in the [archive record](../../maintenance/archive-manifest.json).
 
@@ -50,8 +52,14 @@ From an installed repository checkout, choose a **new, unused output directory**
 
 ```bash
 .venv/bin/python -m video_game.tools.capture_readme --output _temp/readme-capture-NEW
+.venv/bin/python -m video_game.tools.capture_finale --output _temp/finale-capture-NEW
 ```
 
 The command refuses to overwrite an existing directory. Review the generated media before copying it here. Keep the matching `capture.json` with the files; the command does not regenerate the promotional banner or modify the README.
+
+The finale command creates six review captures. This gallery retains the Core
+still, peaceful park still and park walk; their matching subset of metadata is
+saved as `finale-capture.json`. It also captures the second form and two dialogue
+views for local review. Both commands use temporary saves and settings.
 
 Earlier gallery images are preserved in `_trash/`; use the restoration index to locate them. This gallery does not replace source masters or runtime artwork.
