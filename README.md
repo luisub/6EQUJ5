@@ -104,6 +104,10 @@ Earth is only the beginning. Follow the signal into **eleven distant worlds**, c
 
 *FASR-003 / The crystal network. An imagined intelligence beneath the light of Tabby's Star.*
 
+![Mateo crosses Proxima's twilight outpost beneath layered mountains, radio masts and amber station lights](docs/media/readme/proxima-twilight.png)
+
+*FASR-005 / Proxima. A weather station between the frozen night and the red dwarf's light.*
+
 <table>
   <tr>
     <td width="50%">
@@ -115,6 +119,13 @@ Earth is only the beginning. Follow the signal into **eleven distant worlds**, c
       <a href="docs/media/readme/heat-auditor.png"><img src="docs/media/readme/heat-auditor.png" alt="The armored Heat Auditor glows orange against the blue crystal realm" width="100%"></a><br>
       <strong>THE HEAT AUDITOR</strong><br>
       FASR-003 / Tabby's Star · Crystal network
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <a href="docs/media/readme/flare-bastion.png"><img src="docs/media/readme/flare-bastion.png" alt="The armored Flare Bastion confronts Mateo outside Proxima's weather station" width="100%"></a><br>
+      <strong>THE FLARE BASTION</strong><br>
+      FASR-005 / Proxima · Twilight line
     </td>
   </tr>
 </table>
@@ -132,7 +143,7 @@ The story is fiction inspired by astronomical locations and signals. The travel 
 <details>
 <summary><strong>About the images</strong></summary>
 
-The opening banner is promotional artwork inspired by the game's visuals. Every image and animation below it is captured from the actual game renderer. Some locations use direct scene entry and staged campaign progress; these are development previews, not a full playthrough. Screenshots retain their in-game HUD. The two featured alien realms and guardians are the current art benchmarks.
+The opening banner is promotional artwork inspired by the game's visuals. Every image and animation below it is captured from the actual game renderer. Some locations use direct scene entry and staged campaign progress; these are development previews, not a full playthrough. Screenshots retain their in-game HUD.
 
 See the [capture notes and reproduction command](docs/media/readme/README.md). Click a gallery image to see it at full size.
 
@@ -176,7 +187,7 @@ Fresh settings default to **Assisted** combat; choose Classic under **F2 → COM
 
 **In development.** The connected Earth route, eleven-world guardian and information loop, return to Earth and final AI encounter are implemented. Each alien field has a distinct minor foe and a warned charging hazard.
 
-FASR-001 and FASR-003 have the realm backdrops and guardians shown above. The other nine alien realms currently use temporary existing-art fallbacks for their backgrounds and guardians. Full playtesting, animation polish and performance checks on real displays are still in progress.
+All eleven signal worlds now have their own panoramic backgrounds and guardian artwork. Later guardians take more sustained fire and expose a vulnerable core between attacks. Full playtesting, animation polish and performance checks on real displays are still in progress.
 
 <details>
 <summary><strong>Known limits and development details</strong></summary>
@@ -194,7 +205,7 @@ SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy SIX_GAME_SAVE_DIR="$(mktemp -d)" .ve
 .venv/bin/python -m pip wheel --no-deps . -w dist
 ```
 
-The known missing legacy portrait rebuild input and intermittent render-budget failure are documented in the separation report; tests retain their assertions. See [contributor instructions](docs/CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md) and [developer tools](src/tools/README.md).
+The known missing legacy portrait rebuild input and intermittent render-budget failure are documented in the separation report; tests retain their assertions. See [contributor instructions](docs/CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md), the [asset guide](docs/ASSETS.md) and [developer tools](src/tools/README.md).
 
 </details>
 

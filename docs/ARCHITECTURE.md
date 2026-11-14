@@ -8,7 +8,7 @@
 | src/engine | Scenes, mapped input, physics, combat, receiver, science and persistence |
 | src/assets | Exported runtime images, audio, fonts and asset manifests |
 | src/data | Authored campaign, dialogue, levels, opening and journey data |
-| tests | Unit, mapped-input, persistence and regression tests |
+| src/tests | Unit, mapped-input, persistence and regression tests |
 | src/tools | Maintained builders, validators, captures and profiling commands |
 | src/art/source | Unique rebuild masters, civilization text and provenance |
 | docs | Current controls, architecture, planning and migration records |
@@ -19,3 +19,6 @@
 The receiver resolves authored dialogue locally. Its small codec retains the historical six-bin 6EQUJ5 decoding rules. No live model adapter, worker or network service participates in progression.
 
 Runtime assets and authored data are resolved relative to package files, so the installed wheel runs outside the checkout. Developer tools resolve repository-level art masters and are intentionally excluded from runtime wheels. A source checkout with art masters is required for art rebuilds; the source distribution supports rebuilding the runtime wheel.
+
+The [asset guide](ASSETS.md) identifies active image families, source masters,
+required fallback versions and archived exports.

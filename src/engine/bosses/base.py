@@ -4,6 +4,10 @@
 # HOW TO MODIFY: Inherit Boss and implement phase-specific attacks, telegraph rendering, and weak point logic.
 """
 
+from functools import lru_cache
+import json
+import math
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import pygame
 
@@ -25,6 +29,13 @@ STATE_RECOVERY: str = "RECOVERY"
 STATE_VULNERABLE: str = "VULNERABLE"
 STATE_TRANSITION: str = "TRANSITION"
 STATE_DEFEATED: str = "DEFEATED"
+
+
+@lru_cache(maxsize=1)
+def boss_balance():
+    """Load encounter tuning once, before combat begins."""
+    path = Path(__file__).resolve().parents[2] / 'data' / 'balance.json'
+    return json.loads(path.read_text(encoding='utf-8'))['bosses']
 
 
 class BossAttackTelegraph:
@@ -296,6 +307,21 @@ class Boss(CombatTarget):
             hit_x=hit_pos[0],
             hit_y=hit_pos[1],
         )
+
+    def projectile_clip(self, projectile: Any, start: Tuple[float, float],
+                        end: Tuple[float, float], body_clip: Any):
+        """Resolve aimed core hits without letting shots cross intervening walls."""
+        if not self.weak_point_exposed or self.weak_point_rect is None:
+            return body_clip
+        speed = math.hypot(projectile.vx, projectile.vy)
+        if speed == 0:
+            return body_clip
+        entry = body_clip[0]
+        horizon = (self.width + self.height) * 2.0 / speed
+        ahead = (entry[0] + projectile.vx * horizon, entry[1] + projectile.vy * horizon)
+        if self.weak_point_rect.clipline(entry, ahead):
+            return self.weak_point_rect.clipline(start, end)
+        return body_clip
 
     def apply_defeat_reward(self, campaign: Any) -> bool:
         """

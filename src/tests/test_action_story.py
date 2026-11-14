@@ -43,7 +43,7 @@ def enter_victory(machine):
     machine.change_state(config.STATE_BOSS_BOUNTY)
     scene = machine.current_scene
     machine.update(1.6)  # Allow the safe arrival reveal to finish.
-    scene.boss.take_damage(1000, hit_pos=(scene.boss.x, scene.boss.y))
+    scene.boss.take_damage(scene.boss.max_health, hit_pos=(scene.boss.x, scene.boss.y))
     machine.update(1 / 60)
     return scene
 
@@ -93,7 +93,7 @@ def test_save_failure_freezes_and_retries_without_double_reward(game, monkeypatc
     game.session_active = True
     scene = game.current_scene
     game.update(1.6)  # Allow the safe arrival reveal to finish.
-    scene.boss.take_damage(1000, hit_pos=(scene.boss.x, scene.boss.y))
+    scene.boss.take_damage(scene.boss.max_health, hit_pos=(scene.boss.x, scene.boss.y))
     game.update(1 / 60)
     assert scene.story_save_pending
     before = game.campaign.to_dict()
@@ -128,14 +128,14 @@ def test_simultaneous_death_does_not_grant_victory(game):
     game.change_state(config.STATE_BOSS_BOUNTY)
     scene = game.current_scene
     game.update(1.6)  # Allow the safe arrival reveal to finish.
-    scene.boss.take_damage(1000, hit_pos=(scene.boss.x, scene.boss.y))
+    scene.boss.take_damage(scene.boss.max_health, hit_pos=(scene.boss.x, scene.boss.y))
     scene.player.health = 0
     scene.player.is_dead = True
     game.update(1 / 60)
     assert not game.campaign.state.room_flags.get('greenkeeper_defeated', False)
     assert not scene.is_defeated_sequence
     press(game, pygame.K_r)
-    assert not scene.player.is_dead and scene.boss.health == 300
+    assert not scene.player.is_dead and scene.boss.health == scene.boss.max_health
 
 
 def test_guided_signal_yard_field_repair_defense_and_boss_story(game):
@@ -216,7 +216,7 @@ def test_guided_signal_yard_field_repair_defense_and_boss_story(game):
     assert game.current_state_name == config.STATE_BOSS_BOUNTY
     scene = game.current_scene
     game.update(1.6)  # Allow the safe arrival reveal to finish.
-    scene.boss.take_damage(1000, hit_pos=(scene.boss.x, scene.boss.y))
+    scene.boss.take_damage(scene.boss.max_health, hit_pos=(scene.boss.x, scene.boss.y))
     game.update(1 / 60)
     assert [p['title'] for p in scene.story.pages] == [
         'GREENKEEPER NEUTRALIZED']

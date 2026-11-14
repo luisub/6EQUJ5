@@ -30,6 +30,68 @@ from video_game.engine.save_game import SaveStore
 from video_game.engine.settings import SettingsStore
 
 
+def fight_greenkeeper(machine, tick, key):
+    """Follow visible warnings with ordinary movement, jump and mouse fire."""
+    boss_scene = machine.current_scene
+    machine.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1,
+                                            pos=(machine.crt.win_w - 20, machine.crt.win_h // 2)))
+    desired_x = 250
+    move_key = None
+    jump_held = False
+    changes = []
+    last_health = boss_scene.boss.health
+    for frame in range(3600):
+        player, boss = boss_scene.player, boss_scene.boss
+        danger_x = [x for x, _ in boss.pending_mortar_targets]
+        danger_x += [p.x for p in boss.projectiles if p.is_active]
+        if danger_x and any(abs(player.rect.centerx - x) < 55 for x in danger_x):
+            safe = [x for x in (140, 220, 300, 380)
+                    if all(abs(x + 8 - danger) >= 65 for danger in danger_x)]
+            if safe:
+                desired_x = min(safe, key=lambda x: abs(x - player.x))
+        charging = boss.charge_duration > 0 or (boss.phase_state == 'TELEGRAPH'
+                                              and boss.current_attack_type == 'charge')
+        if charging and boss.rect.left - player.rect.right < 125:
+            desired_x = max(80, boss.rect.left - 180)
+        if boss.rect.left < 160:
+            # Once the bulldozer reaches the left wall, cross behind
+            # it instead of firing from inside its body bounds.
+            desired_x = boss.rect.right + 90
+        wanted_key = (pygame.K_d if player.x < desired_x - 8 else
+                      pygame.K_a if player.x > desired_x + 8 else None)
+        if wanted_key != move_key:
+            if move_key is not None:
+                key(move_key, False)
+            if wanted_key is not None:
+                key(wanted_key)
+            move_key = wanted_key
+        sweep_warning = (boss.current_attack_type == 'sweep'
+                         and boss.phase_state == 'TELEGRAPH'
+                         and any(t.timer < 0.35 for t in boss.telegraphs))
+        needs_jump = (boss.sweep_active or sweep_warning
+                      or (charging and boss.rect.colliderect(player.rect.inflate(80, 0))))
+        if needs_jump != jump_held:
+            key(pygame.K_SPACE, needs_jump)
+            jump_held = needs_jump
+        target = boss.weak_point_rect.center
+        px = round((target[0] - boss_scene.camera.x) * machine.crt.win_w / 480)
+        py = round((target[1] - boss_scene.camera.y) * machine.crt.win_h / 270)
+        machine.handle_event(pygame.event.Event(pygame.MOUSEMOTION, pos=(px, py),
+                                                rel=(0, 0), buttons=(1, 0, 0)))
+        tick()
+        if boss.health != last_health:
+            changes.append({'frame': frame, 'health': boss.health,
+                            'phase': boss.current_phase})
+            last_health = boss.health
+        if player.is_dead or boss.is_defeated:
+            break
+    if move_key is not None:
+        key(move_key, False)
+    key(pygame.K_SPACE, False)
+    machine.handle_event(pygame.event.Event(pygame.MOUSEBUTTONUP, button=1, pos=(0, 0)))
+    return frame, changes
+
+
 def traverse(probe_yard=False, through_repair=False, through_defense=False, complete=False, output_dir=None, recovery=False):
     if recovery:
         complete = True
@@ -47,6 +109,10 @@ def _traverse_in_directory(save, probe_yard=False, through_repair=False, through
         pygame.display.set_mode((480, 270))
     machine = GameStateMachine(CRTRenderer(scale=1), save_store=SaveStore(save),
                                settings_store=SettingsStore(save))
+    # Pointer coordinates must match the actual window, including standalone
+    # runs that previously opened the 480x270 logical canvas as the window.
+    if pygame.display.get_surface().get_size() != (machine.crt.win_w, machine.crt.win_h):
+        pygame.display.set_mode((machine.crt.win_w, machine.crt.win_h))
     if recovery:
         # Preserve the historical unattended-damage/retry fixture under Classic.
         assert machine.change_settings(combat_mode='classic')
@@ -527,7 +593,7 @@ def _traverse_in_directory(save, probe_yard=False, through_repair=False, through
                         while boss_scene.encounter_intro_remaining > 0:
                             tick()
                         assert not boss_scene.player.is_dead and boss_scene.player.health == 100
-                        assert boss_scene.boss.health == 300 and boss_scene.boss.current_phase == 1
+                        assert boss_scene.boss.health == boss_scene.boss.max_health and boss_scene.boss.current_phase == 1
                         trace.append({'action': 'boss_death_exit_reentry',
                                       'saved_defense': True, 'saved_completion': False,
                                       'health': boss_scene.player.health,
@@ -536,7 +602,7 @@ def _traverse_in_directory(save, probe_yard=False, through_repair=False, through
                 before = boss_scene.player.abilities.selected_ability_id
                 tap(pygame.K_r)
                 after = boss_scene.player.abilities.selected_ability_id
-                assert not boss_scene.player.is_dead and boss_scene.boss.health == 300
+                assert not boss_scene.player.is_dead and boss_scene.boss.health == boss_scene.boss.max_health
                 assert before == after
                 trace.append({'action': 'boss_retry', 'ability_before': before,
                               'ability_after': after, 'health': boss_scene.player.health,
@@ -563,24 +629,10 @@ def _traverse_in_directory(save, probe_yard=False, through_repair=False, through
                         break
                 machine.handle_event(pygame.event.Event(pygame.MOUSEBUTTONUP, button=1, pos=(0, 0)))
             else:
-                key(pygame.K_d)
-                moving = True
-                changes = []
-                last_health = boss_scene.boss.health
-                for frame in range(2500):
-                    player, boss = boss_scene.player, boss_scene.boss
-                    if player.x >= 250 and moving:
-                        key(pygame.K_d, False); moving = False
-                    if frame % 15 == 0: key(pygame.K_x)
-                    if frame % 15 == 1: key(pygame.K_x, False)
-                    tick()
-                    if boss.health != last_health:
-                        changes.append({'frame': frame, 'health': boss.health,
-                                        'phase': boss.current_phase})
-                        last_health = boss.health
-                    if player.is_dead or boss.is_defeated: break
+                frame, changes = fight_greenkeeper(machine, tick, key)
+                player, boss = boss_scene.player, boss_scene.boss
             if not boss.is_defeated:
-                raise RuntimeError('Boss attempt ended without victory')
+                raise RuntimeError(f'Boss attempt ended without victory: boss={boss.health}, player={player.health}, frame={frame}')
             tick()  # Resolve the defeat event through the boss scene.
             assert machine.campaign.state.room_flags.get('act_01_completed')
             trace.append({'action': 'boss_defeated', 'frame': frame,
@@ -603,16 +655,8 @@ def _traverse_in_directory(save, probe_yard=False, through_repair=False, through
                 assert boss_scene.is_defeated_sequence
                 boss_scene.retry_from_checkpoint()
                 saved_bytes = SaveStore(save).path.read_bytes()
-                assert boss_scene.boss.health == 300
-                key(pygame.K_d)
-                moving = True
-                for replay_frame in range(2500):
-                    if boss_scene.player.x >= 250 and moving:
-                        key(pygame.K_d, False); moving = False
-                    if replay_frame % 15 == 0: key(pygame.K_x)
-                    if replay_frame % 15 == 1: key(pygame.K_x, False)
-                    tick()
-                    if boss_scene.player.is_dead or boss_scene.boss.is_defeated: break
+                assert boss_scene.boss.health == boss_scene.boss.max_health
+                replay_frame, _ = fight_greenkeeper(machine, tick, key)
                 assert boss_scene.boss.is_defeated
                 tick()
                 assert machine.campaign.to_dict() == before_replay
@@ -697,7 +741,7 @@ print(json.dumps(result))
                     'retired': len(v['retired']), 'peak_living_at_tick_boundaries': v['peak']} for room, v in observed.items()},
                 'simulated_seconds': round(ticks / 60, 3),
                 'wall_seconds': round(time.perf_counter() - start, 3),
-                'gate_g2': 'not verified', 'driver': 'headless coordinate-timed keyboard and mouse events, 60 Hz' if not recovery else 'headless coordinate-timed keyboard recovery fixture, 60 Hz'}
+                'gate_g2': 'not verified', 'driver': 'headless coordinate-timed keyboard and mouse events, 60 Hz' if not recovery else 'headless coordinate-timed keyboard/mouse recovery and warning-based boss evasion, 60 Hz'}
     finally:
         machine.close()
         if owned_pygame:

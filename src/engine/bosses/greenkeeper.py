@@ -14,6 +14,7 @@ from video_game.engine.weapons import HitResult
 from video_game.engine.bosses.greenkeeper_art import load_family
 from video_game.engine.bosses.base import (
     Boss,
+    boss_balance,
     BossAttackTelegraph,
     BossProjectile,
     PHASE_1,
@@ -55,17 +56,10 @@ class Greenkeeper(Boss):
             y=y,
             width=128 if heavy else 64,
             height=96 if heavy else 48,
-            max_health=300,
+            max_health=boss_balance()['health']['greenkeeper'],
             title="THE GREENKEEPER",
             subtitle="ACT I OVERSEER // TERRAFORMING WARDEN",
         )
-        # Configure phase thresholds: Phase 1 (300-200), Phase 2 (200-100), Phase 3 (100-0)
-        self.phase_thresholds = {
-            PHASE_1: 300,
-            PHASE_2: 200,
-            PHASE_3: 100,
-        }
-
         # Attack cycle variables
         self.attack_cycle_timer: float = 1.0
         self.volley_count: int = 0
@@ -164,26 +158,6 @@ class Greenkeeper(Boss):
         if self.attack_visual_timer > 0 or self.sweep_active:
             return 'attack'
         return 'idle'
-
-    def projectile_clip(self, projectile: Any, start: Tuple[float, float],
-                        end: Tuple[float, float], body_clip: Any):
-        """Let an aimed shot travel to the exposed core before resolving impact.
-
-        Look ahead only to select the collision shape. The returned collision is
-        always clipped to this frame's segment, so intervening walls and other
-        targets still win in the projectile manager's normal distance ordering.
-        """
-        if not self.weak_point_exposed or self.weak_point_rect is None:
-            return body_clip
-        speed = math.hypot(projectile.vx, projectile.vy)
-        if speed == 0:
-            return body_clip
-        entry = body_clip[0]
-        horizon = (self.width + self.height) * 2.0 / speed
-        ahead = (entry[0] + projectile.vx * horizon, entry[1] + projectile.vy * horizon)
-        if self.weak_point_rect.clipline(entry, ahead):
-            return self.weak_point_rect.clipline(start, end)
-        return body_clip
 
     def reset_to_pristine(self):
         """Reset Greenkeeper state cleanly, purging all attacks and projectiles."""

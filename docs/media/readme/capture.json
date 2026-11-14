@@ -160,8 +160,8 @@
         960,
         540
       ],
-      "sha256": "36a385ffefaefefd2d224dc66c1200ce82dd3d2960f9fc8ba2601504e3ec6598",
-      "bytes": 527881
+      "sha256": "721012d278d0077dacd983376e880c21fcb689b18d797587399992db09469c8a",
+      "bytes": 485421
     },
     {
       "file": "signal-transit.gif",
@@ -173,8 +173,8 @@
         432
       ],
       "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
-      "sha256": "12e598d7e77810bdd3fc9549dd9ed6911330b85c5d4401239a2d470ba2f3cdb6",
-      "bytes": 544880
+      "sha256": "54f92602867fb89038104660c57cf8f1511b23f230e49a79805a5940f840b688",
+      "bytes": 307567
     },
     {
       "file": "neo-denver-walk.gif",
@@ -220,6 +220,28 @@
         248.0,
         18.0
       ]
+    },
+    {
+      "file": "proxima-twilight.png",
+      "setup": "Proxima field midpoint; prior victories, receipts and player position are scenery fixtures.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "25a4cd31406548bd907ada560b9ab4a8840ee23c2a8e82230a7daa2d51949bc9",
+      "bytes": 694923
+    },
+    {
+      "file": "flare-bastion.png",
+      "setup": "Proxima guardian with staged journey ledger; 0.2 seconds of runtime.",
+      "scene": "BOSS_BOUNTY",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "13a0999584ddbb6d426a9fb1755e22e728766124187a2aab7d5ba6281d6dce9d",
+      "bytes": 691370
     }
   ]
 }

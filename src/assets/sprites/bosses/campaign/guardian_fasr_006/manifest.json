@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_boss",
+  "boss_id": "guardian_fasr_006",
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      256,
+      192
+    ],
+    "sha256": "95ff325c14d8c9780ec8b48248030aa503ad4e8472c76a1973c4ebb5630bbbb5"
+  },
+  "provenance": {
+    "source": "src/art/source/alien_worlds/fasr_006/body.png",
+    "record": "src/art/source/alien_worlds/fasr_006/provenance.json",
+    "generator": "OpenAI image_gen",
+    "review": "Export visually inspected; actual renderer review recorded separately",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA."
+  }
+}

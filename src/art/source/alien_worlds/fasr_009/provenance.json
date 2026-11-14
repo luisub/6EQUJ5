@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-009",
+  "title": "INTERSTELLAR // 'OUMUAMUA ECHO",
+  "guardian_title": "THE TRAJECTORY INTERCEPTOR",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-55f5c249-e85f-4f23-af12-962dd5c5d0aa.png",
+    "prompt": "Create a singleverywidecontinuous panorama for a detailed2D side-scrolling pixel-artsciencefiction game6EQUJ5. Approximately3.55:1, runtime1920x540. INTERSTELLAR \u2014 OUMUAMUA ECHO. Silent ancient autonomous probe found in interstellar darkness, imagined fictionalinterior/exterior interface. Side-on enormous derelict observation deck cut into a long carbon-black asteroid: left fractured basalt ribs and heavilyweatheredmetalshipwreck sections with collapsed antennae; centre a vast asymmetrical tilted obelisk with thinantiquegold luminouscircuitchannels and nested hexagonal observationarrays; right monumental exposed trusses, incompletelongrangereceiver and cryogenicpipework fadinginto shadow. Behindthemachine a hugequietblackstarfield and faint coldblue distantdusthaze, sparse tiny white stars, no bright nebula wallpaper. Ancient materialwear, chips,silt, bundledcables, tinyambermaintenance lights. Mutedgraphite, slateblue, darkbronze, onlya fewgoldlights. HUNTDOWN crisp intricatepixelclusters, Kingdom negative space and atmosphere, StarRenegades restrained contrast. Clear layered depth; no repeatedmotifs or tilingseams. Perfectorthographic side-oncamera, longhorizontal composition; lower30percent verydark quiet supportscenery forbrightactors. No foreground playablefloor, platforms, characters, villains, labels, symbols, text, UI, collagepanels or border. Distinct alienengineering, mysterious andinhabitablewithoutlookinglikean ordinarycity.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "fc22d0c8a90ec2b6cbd7dc0e490cb828f4effcae9c05cd20d7981449c7e45fbe",
+    "export_sha256": "5ee02a6e1fd88cb01a63e332f68322499dc9d84dc9940dda211a4c9a1d1c2834",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-9c91de74-d573-4582-83dc-01a239a56312.png",
+    "prompt": "One complete isolated boss sprite on TRANSPARENT background for6EQUJ5 detailed2D pixel-art shooter. THE TRAJECTORY INTERCEPTOR, an ancient autonomous alien probe. Distinct threatening angular silhouette: a narrow forward-pointing lance hull balanced above a single enormous segmented spoked mono-wheel, tall swept-back dorsal blade fin, short articulated stabilizer feet at wheel sides. Upper body resembles an antique precision navigation instrument fused with a predatory obsidian dart, very long pointed nose facesLEFT, aft fins and concentric instrument rings toRIGHT. Palladium-white and darkgunmetal plating, worn gold inlays, one intense ice-blue lens onthefront, restrained cyan energy seams; no crab legs, no tank treads, no humanoidshape. Orthographic side-on, fully visible within4:3boundingbox, wheelbottom andstabilizerpads ononeflatbaseline. HUNTDOWN crisp handcrafted pixelclusters and mechanicaldetail, StarRenegades clearvalue separation. Strongreadable shapes at256x192pixels/128x96worldunits. No clouds, smoke, externalglows, floor, scenery, letters, text, UI, border, checkerboard or background. Transparentspace around entire sprite, generousmargin. Serious sciencefiction antagonist, notcartooncute.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "5cc3fe3e0a0212264b6510203b9bf805381f4f1475bf07aae9cdc28bc4becaa9",
+    "export_sha256": "e6365be28f01665628974ad1d31aaeb039321cd4feaf269f2a8d3b17d842c94e",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

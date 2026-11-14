@@ -290,17 +290,17 @@ class Act01PlaythroughRunner:
 
         # Combat Phase 1: Heavy Armor
         boss.skip_intro()
-        boss.take_damage(100)
+        boss.take_damage(boss.max_health // 3)
         assert boss.current_phase == 2
         boss.update(1.0)
 
         # Combat Phase 2: Dual Trench Sweepers
-        boss.take_damage(100)
+        boss.take_damage(boss.max_health // 3)
         assert boss.current_phase == 3
         boss.update(1.0)
 
         # Combat Phase 3: Overcharged Reactor Core Exposed
-        boss.take_damage(100)
+        boss.take_damage(boss.max_health // 3)
         assert boss.is_defeated is True
 
         resolution = boss.resolve_simultaneous_death(not boss_scene.player.is_dead)

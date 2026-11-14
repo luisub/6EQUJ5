@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-004",
+  "title": "ORION // STELLAR NURSERY",
+  "guardian_title": "THE CLOUD HARVESTER",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-b2b15240-c2ef-45fc-9f79-c7eeef97d87e.png",
+    "prompt": "A single continuous very wide panoramic BACKGROUND for 6EQUJ5, a mature 2D pixel-art side-scrolling shooter; target1920x540, about3.55:1. ORION \u2014 STELLAR NURSERY. An ancient abandoned gas-harvesting refinery on a chain of dark floating basalt shelves inside a vast star-forming cloud. Visual progression left to right: jagged violet mineral cliffs and delicate far-away antennae in blue haze; huge asymmetrical skeletal collector dish and suspended ribbed industrial condensers, bundled conduits with small cold turquoise indicator lights; far-right broken observatory arches around one distant pale-blue newborn star seen through swirling muted mauve and indigo dust. Long horizontal readable setting, varied landmarks, tiny utility lights, no repeated buildings. Foreground-adjacent lower30percent dark desaturated shale and shadowy pipes, no giant neon shapes. HUNTDOWN pixel-detail and weathered materials, Kingdom atmospheric depth, StarRenegades careful value separation and controlled cool lighting. Clear handcrafted-looking pixel clusters, precise architecture, no painterly blur or gradients replacing detail. Orthographic camera, perfectly side-on. Three receding terrain layers, atmospheric dust catches the same blue/lilac light as sources. Space and quiet dark zones for characters. No playable platforms, foreground floor, characters, enemies, text, letters, UI, borders, watermarks or collage panels. One seamless landscape across entirewidth, no squaretiled profile imagery. Night mood and restrained saturation, small bright focal details.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "12c04423268ff2e0f23dd7ae49cea3849c096be491ada646428b8beec69bcc5b",
+    "export_sha256": "ebd186e54ef6e17526148b9c1e8fc9d7db4605d1fa17c887934391d5c6446569",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-c1ef396d-831c-439f-ae92-387b46181ebd.png",
+    "prompt": "Create one isolated full-body boss sprite on a fully transparent background for detailed2D pixel-art shooter 6EQUJ5. THE CLOUD HARVESTER, Orion guardian: a menacing tall industrial manta-like harvesting automaton, not humanoid, not an aircraft. Its body is a battered dark-violet gas condenser in a protective skeletal shell; sweeping crescent collector vanes curve over its back, three articulated hooked support legs anchor to a single baseline, broad forward siphon claw aims LEFT. Ivory-white optical core and small bright cold-cyan vent slits contrast the dark machinery. Asymmetric valves, coiled hoses, segmented fins, steel scratches, clear silhouette; a striking alien villain rather than commonrobot. HUNTDOWN intricate pixel art with crisp deliberate pixel clusters; Star Renegades restrained lavender highlights and teal edges. Orthographic side-on stance facing LEFT, entire creature visible, no perspectivescene, no ground, scenery, separate shadow, smoke cloud, particles, lettering, UI or border. Transparent pixels around complete silhouette, ample margin. Shape fits a4:3 boundingbox, designed to read clearly at256x192 runtime pixels and128x96world units. All three feet level at the same bottom baseline. Tight controlled emissive details only, NO outside glow clouds.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "a23e72bcfd75ad60a747193b8de4f19f2186ab7046118230b0181f13bf365925",
+    "export_sha256": "8410a537bd6af5bcdb9aa7ac907079ed341a4634af8eb9eb5e14193860a2eba1",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-SCAN-H",
+  "title": "UNKNOWN // HEPTAPOD SIGNAL",
+  "guardian_title": "THE LINEAR SENTINEL",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-fff8772b-dcf3-4412-ac72-106c9b83b644.png",
+    "prompt": "One continuous very wide panorama for 6EQUJ5, a mature 2D pixel-art science-fiction game, about3.55:1 target1920x540. UNKNOWN \u2014 HEPTAPOD SIGNAL. A truly alien tidal plain under an overcast night sky with no familiar city. Left huge softly eroded slate monoliths and basalt arches rising from shallow blackwater; centre a half-buried asymmetrical shell-shaped structure of dark ribbed stone, seven subtly different curved buttresses; right suspended smooth obsidian chambers tethered by organic-looking cables and a distant mist-covered shoreline. Mineral textures, wet stone, sparse pale gray-green light from narrow structural seams, tiny warm white beacons on low ridges. A faint veiled moon behind dark clouds, very quiet. Distinct calm ominous landscape of unfamiliar materials, NO repeated pillars tiled across screen. HUNTDOWN detailed crisp pixel-art materialwork with Kingdom foggy atmosphere and StarRenegades deliberate value separation. Three receding layers in desaturated gray-green/charcoal/blue, small sources illuminate nearby mist with matching restrained color. Side-on orthographic view, lower30percent darkquiet water and rock behind movingactors. No foreground floor, platforms, playableobjects, creatures, monsters, text, circularwriting, UI, logos or borders. No giant glow, no busy colorfulnebula, no atmospheric overlay obscuring action.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "c3a641f546fc510984e53d57ccd0f82bef76c067d22c8ff37e016623838599c5",
+    "export_sha256": "51c1ba09d7022c9bf4bb0938879ed89d72c3c870c27b700bd944d6cd23b45d52",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-14256f81-65b0-4bc7-afd0-0eb90b911d1c.png",
+    "prompt": "Create one complete isolated alien boss sprite on a transparent background for6EQUJ5, a detailed2D pixel-art science-fiction shooter. THE LINEAR SENTINEL of the unknown heptapod realm. An enormous nonhuman seven-limbed organism with a heavy asymmetrical pale mineralized mantle, like a leaning sea shell fused to an ancient armored cephalopod. Long blunt head to the LEFT with one narrow warm-white horizontal eye slit; overlapping chalk-gray and oxidized silver shell plates wrap a dark slate-green flexible body. Seven sturdy tentacular legs spread along the ground beneath its broad low body, tips touching the same baseline; one front limb raised slightly as a threat while supporting others stay grounded. A few restrained pale sea-green bioluminescent fissures and amber eye, textured ridged skin, no ordinaryrobotjoints or tanktreads. Broad unmistakably organic silhouette, alien and menacing but no gore, notcute. Perfect side-on orthographic view facingLEFT, completebody fullyvisible with clear transparent margins,4:3 bounding proportions designed for256x192 sprite. Crisp deliberate HUNTDOWN/StarRenegades pixel clusters; light shell ridges separate creature fromdark gray-green scenery. No background, floor, shadowplane, fog, inkclouds, detachedparticles, glowclouds, writing, logos, UI, border or checkerboard.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "5ccf1317c89cd024a42e973bdeba14a43542d147a8769ebabb6c0d2e64d5f3a4",
+    "export_sha256": "033e5b4116cc1233409d60dace5a2069c307d7ef41d418019551a15ab5fc67f3",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

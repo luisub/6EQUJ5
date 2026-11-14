@@ -373,6 +373,7 @@ class FieldOpsScene(BaseScene):
         self.campaign_scenery = (CampaignScenery(getattr(getattr(self.machine, 'assets', None), 'root', None),
                                                   self.room, room_meta(self.room.room_id))
                                  if self.campaign_route_active or self.room.room_id in OHIO_ACTIVITY_ROOMS else None)
+        self.atmosphere = SceneAtmosphere(self.room.room_id)
         self._route_notices = set()
         self.firing_lighting = self._load_firing_lighting()
         self.maser_presentation = load_maser_presentation(getattr(getattr(self.machine, 'assets', None), 'root', None))

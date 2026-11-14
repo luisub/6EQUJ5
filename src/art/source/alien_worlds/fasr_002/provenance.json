@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-002",
+  "title": "SAGITTARIUS A* // HORIZON",
+  "guardian_title": "THE HORIZON LENS",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-42a148f1-e23f-45c8-bd61-94da688f854d.png",
+    "prompt": "One continuous very wide background panorama for 6EQUJ5, a mature detailed 2D pixel-art side-scrolling shooter. Approximately3.55:1, runtime1920x540. SAGITTARIUS A* \u2014 HORIZON. A ruined observatory and gravimetric laboratory near an imagined black-hole interface. At left huge cracked pale-stone buttresses and fractured dark metallic lens supports; centre a vast tilted black gravitational lens in the distant sky, surrounded by one slender pale-gold light ring, mostly black and unobtrusive, not a bright spiral; right weathered cylindrical chronometer towers and a broken double arch linked by slack cables. Low blue-violet haze behind asymmetrical cliff terraces. Dark indigo, charcoal and worn blue steel with sparse tiny amber instrument lights. Architecture has intricate bolts, conduits, stone fractures and quiet material detail, not repeated procedural blocks. HUNTDOWN crisp pixel clusters, Kingdom dark atmospheric layering, Star Renegades controlled value hierarchy. Perfectly side-on orthographic camera. Continuous horizontal readable landscape, no separate panels, no tiled patterns. Lower30percent quiet dark rock and shadow for moving actors; no foreground playable floor, platforms, characters, monsters, text, UI, logos or borders. Cold vast mysterious space with believable abandoned engineering; limited light emphasizes depth and selected landmarks, no excessive bloom.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "ff42f3a294a412fcf3c35e5aa1cea595718f54855661b0e80ab18d6817173747",
+    "export_sha256": "aa540de2a256c6ab71a00fe5e44b8671c7a1747f79161adb39a55547717e55d0",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-a45f10e0-10d6-41e9-8191-2ce92b5a28ae.png",
+    "prompt": "One isolated whole-body enemy boss sprite on fully transparent background for6EQUJ5 detailed2D pixel-art shooter. THE HORIZON LENS: a massive nested gyroscope surrounding a pitch-black spherical optical core, a bright thin icy-white crescent along one side of the core, three interlocking thick indigo-metal and tarnished silver rings with small turquoise regulators. The rings sit on a heavy low arched mechanical cradle with two wide grounded feet, broad dramatic circular upper silhouette, not a humanoid, insect, crab, tank or pointed aircraft. A smaller forward-facing lens assembly projects LEFT from the side of the ring, pale-teal slit aimed atplayer. Asymmetrical damaged mechanical halo, worn metal plates, rivets, exposed precision gears and tiny clockwork arms. Fully side-on orthographic game sprite, entire structure visible andcentered within4:3 frame, both feet at the same horizontal baseline. Strong readable silhouette at256x192runtimepixels, carefully grouped crisp pixel-art marks inspiredby HUNTDOWN and StarRenegades. Restrained white/teal emission highlights clearly separate antagonist from a dark violet observatory. No external glows, smoke, cloud, scenery, ground, cast-shadow plane, lettering, UI, border or checkerboard. Leave transparent margins around complete shape.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "73d9a6274c217fbbe7417bc2636ffae7f74cc81a923c64cca2a51a7376931de3",
+    "export_sha256": "5c6e287d70de98c50ed8eac0cac18dd46af83da7a31d144c09c859fd66e15a78",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

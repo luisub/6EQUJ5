@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-008",
+  "title": "TRAPPIST-1 // SEVEN WORLDS",
+  "guardian_title": "THE CHORUS SUPPRESSOR",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-84f48f6d-5785-4528-933e-75d8047f268f.png",
+    "prompt": "One very wide continuous panorama, approximately3.55:1, for mature2D pixel-art side-scrolling science-fiction game6EQUJ5. TRAPPIST-1 \u2014 SEVEN WORLDS. A nocturnal diplomatic port on a dark teal alien ocean, seven distant differently sized moons/planets very small and partially clouded in the upper night sky, not a row of huge circles. Distinct architecture speaks of seven cultures: left terraced basalt terraces and angular docking spires, center an asymmetrical domed assembly hall of weathered bronze ribs and sea-green glass, hanging connecting bridges and tidal machinery, right slender ceramic towers and low illuminated shipyards. One continuous believable inhabited landscape, intricate worn materials, no repeated buildings or seamless tile copies. Moody deep sea blues and muted teal with sparse warm ivory window light and copper accents. Layered coastal cliffs and fog reveal distance, restrained lit mist close to practical lights. Perfectly side-on orthographic camera. Detailed crisp HUNTDOWN pixel-art craftsmanship, Kingdom quiet atmosphericdepth, StarRenegades value contrast. Dark quiet lower30percent behind gameplay actors, no foreground floor or playableplatforms. No characters, monsters, text, UI, emblems, border, collagepanels. Target1920x540 runtime background. Keep landmarks comfortably inside wideframe, soft cold sky and specific small lights, nooverblownneon.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "843fa8a72d5f06ea9b0b19d0062d0a714c911e370bdee5bd296eba0fda9c3e7f",
+    "export_sha256": "8208f10ab87b3d0b7ff12014d6d0f4eb2f291f4f70f81bedc3e03a52db81726f",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-69419451-4bdd-4d2f-957d-3b7cfa1451c8.png",
+    "prompt": "One isolated imposing enemyboss sprite on fully transparentbackground for detailed2D pixel-art shooter6EQUJ5. THE CHORUS SUPPRESSOR of TRAPPIST1. A mobile seven-chamber siege organ: towering asymmetrical armored resonator on two massive continuous tank treads, stacked vertical brass sound horns and segmented ceramic resonating chambers, a thick hydraulicarm at the LEFT ends in a huge circular directional speaker cannon, central yellow-white optical slit. Broad rectangular vertical silhouette, compact proportions4:3, weighty lowtrackbase. NOT a crab, NO insect legs, NO humanoid, NO ordinary tankturret. Antique ivory ceramic armor with copper/brass structuralribs and blackoil in joints, weatheredscratches, subtleteal accents, sevenamber resonancecores embedded atvariousheights. True side-on orthographic sprite facing LEFT, completefullbody visible and centred, tread bottoms preciselyononehorizontalbaseline. Pixel-art precision inspiredby HUNTDOWN and StarRenegades: crisp clusters, readableat256x192pixels and128x96worldunits, bright sparseemissivepoints separating villain fromdarktealscenery, notoverbloomed. No scenery, floor, externalshadow, cloud, particles, text, labels, symbols, UI, border, giantglow orcheckerboard. Transparentpixelsaroundentirebody, generousmargin.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "419d0dcb44b536027f0b3d299f0addc8ef5c7a8115c7087ac814226a3c51a5f3",
+    "export_sha256": "ad488b5ca1f32693f082b5256657436d85791c09709e5c7c82a556b180e3b845",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_world_background",
+  "art_id": "realm_fasr_scan_h_v1",
+  "viewport": [
+    480,
+    270
+  ],
+  "density": 2,
+  "image": {
+    "file": "background.png",
+    "dimensions": [
+      1920,
+      540
+    ],
+    "sha256": "51c1ba09d7022c9bf4bb0938879ed89d72c3c870c27b700bd944d6cd23b45d52"
+  },
+  "provenance": {
+    "source": "src/art/source/alien_worlds/fasr_scan_h/background.png",
+    "record": "src/art/source/alien_worlds/fasr_scan_h/provenance.json",
+    "generator": "OpenAI image_gen",
+    "review": "Export visually inspected; actual renderer review recorded separately",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8."
+  }
+}

@@ -65618,5 +65618,89 @@
     "sha256": "50afd0dc3573f601ddca2cf7a027be9ed913d9b03fdd6b35a16d110fce6e1b5d",
     "reason": "Preserved README Denver image and capture metadata before refreshing the Fitzsimons/mountain scene.",
     "restoration": "Verify hash and restore the image and its matching metadata together."
+  },
+  {
+    "original_path": "src/assets/environments/campaign_worlds/gobekli_tepe_v1/background.png",
+    "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/environments/campaign_worlds/gobekli_tepe_v1/background.png",
+    "sha256": "95bd230d690608d02b555c57f06839b57c7df91c0212b106226d52790e8ccd3a",
+    "reason": "Superseded runtime G\u00f6bekli background with baked vehicle; authored routes always use car-free gobekli_tepe_v2.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+  },
+  {
+    "original_path": "src/assets/environments/campaign_worlds/gobekli_tepe_v1/manifest.json",
+    "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/environments/campaign_worlds/gobekli_tepe_v1/manifest.json",
+    "sha256": "439b87776dcb80bb0e9556f0098ac5e0cdfb9b1ed061302037aac9df4182128d",
+    "reason": "Superseded runtime G\u00f6bekli background with baked vehicle; authored routes always use car-free gobekli_tepe_v2.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+  },
+  {
+    "original_path": "src/assets/sprites/mateo/field_outfit/idle.png",
+    "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/idle.png",
+    "sha256": "1803f2d18ab20e35234a058622040ed00afd39c3c413917730e6c172e33fc2c6",
+    "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+  },
+  {
+    "original_path": "src/assets/sprites/mateo/field_outfit/run.png",
+    "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/run.png",
+    "sha256": "bee6f3966c809d281552f813f45206b119cb3e88f0f301189e18b4a47a2504f2",
+    "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+  },
+  {
+    "original_path": "src/assets/sprites/mateo/field_outfit/jump.png",
+    "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/jump.png",
+    "sha256": "381a119410ad23e23b32bff07510e76c9edac69e966b3460111ddd8cd9daa5cd",
+    "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+  },
+  {
+    "original_path": "src/assets/sprites/mateo/field_outfit/slide.png",
+    "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/slide.png",
+    "sha256": "fcb9d89d2c52780b0e17c5dee55a606bcd5efedacbb9d924ca811ff101a32cfd",
+    "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+  },
+  {
+    "original_path": "src/assets/sprites/mateo/field_outfit/shoot.png",
+    "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/shoot.png",
+    "sha256": "20bccbef41688051630afa0855134d7396f20dfc4c50a1023e7be22639a020cf",
+    "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_005/body.png",
+    "archive_path": "_trash/2026-11-13_F03/65674ddfc66143c8b6a5e6ebc5ac3a36/video_game/assets/sprites/bosses/campaign/guardian_fasr_005/body.png",
+    "sha256": "f4eaf4fbfc197269719c37e288d0557a541cce3299a5c326f28deb719fd13f05",
+    "reason": "Preserve the initial FASR-005 guardian export before correcting transparent padding so its feet meet the arena floor.",
+    "restoration": "Verify both archived SHA-256 hashes and preserve the current body and manifest before restoring this pair together. This older export has excess lower padding; the current export fixes its floor anchor."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_005/manifest.json",
+    "archive_path": "_trash/2026-11-13_F03/65674ddfc66143c8b6a5e6ebc5ac3a36/video_game/assets/sprites/bosses/campaign/guardian_fasr_005/manifest.json",
+    "sha256": "fa55b5964b510d39a60fd44fe89c838468942972bfce98d5784ba21c384df597",
+    "reason": "Preserve the initial FASR-005 guardian export before correcting transparent padding so its feet meet the arena floor.",
+    "restoration": "Verify both archived SHA-256 hashes and preserve the current body and manifest before restoring this pair together. This older export has excess lower padding; the current export fixes its floor anchor."
+  },
+  {
+    "original_path": "docs/media/readme/galaxy-map.png",
+    "archive_path": "_trash/2026-11-13_worlds_readme/galaxy-map.png",
+    "sha256": "36a385ffefaefefd2d224dc66c1200ce82dd3d2960f9fc8ba2601504e3ec6598",
+    "reason": "Preserved README galaxy media and its capture metadata before the irregular-route and centered-transit refresh.",
+    "restoration": "Verify SHA-256, preserve newer media, then restore these images and their matching capture.json together. This archive depicts the earlier circular route."
+  },
+  {
+    "original_path": "docs/media/readme/signal-transit.gif",
+    "archive_path": "_trash/2026-11-13_worlds_readme/signal-transit.gif",
+    "sha256": "12e598d7e77810bdd3fc9549dd9ed6911330b85c5d4401239a2d470ba2f3cdb6",
+    "reason": "Preserved README galaxy media and its capture metadata before the irregular-route and centered-transit refresh.",
+    "restoration": "Verify SHA-256, preserve newer media, then restore these images and their matching capture.json together. This archive depicts the earlier circular route."
+  },
+  {
+    "original_path": "docs/media/readme/capture.json",
+    "archive_path": "_trash/2026-11-13_worlds_readme/capture.json",
+    "sha256": "dca07be13dd63d19e466be93fb7aa0fc2998f1110cd54ee8e344080e6b7dda69",
+    "reason": "Preserved README galaxy media and its capture metadata before the irregular-route and centered-transit refresh.",
+    "restoration": "Verify SHA-256, preserve newer media, then restore these images and their matching capture.json together. This archive depicts the earlier circular route."
   }
 ]

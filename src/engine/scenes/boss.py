@@ -171,6 +171,7 @@ class BossScene(BaseScene):
         self.campaign_scenery = (CampaignScenery(getattr(getattr(self.machine, 'assets', None), 'root', None),
                                                   self.room, room_meta(self.room.room_id))
                                  if self.campaign_act or self.journey_world or self.journey_final else None)
+        self.atmosphere = SceneAtmosphere(self.room.room_id)
         spawn_id = kwargs.get("spawn", "arena_checkpoint")
         if spawn_id in self.room.spawns:
             sp = self.room.spawns[spawn_id]

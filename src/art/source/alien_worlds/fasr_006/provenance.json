@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-006",
+  "title": "CRAB // MEMORIAL BEACON",
+  "guardian_title": "THE ARCHIVE LOCK",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-0946a6d1-7d35-4a62-b114-1931cb1cfdda.png",
+    "prompt": "Create one continuous very wide panoramic background for 6EQUJ5, a mature 2D side-scrolling pixel-art game, target1920x540 (about3.55:1). CRAB \u2014 MEMORIAL BEACON. A silent automated monument on a deserted moon, left low basalt ridges and broken copper relay frames dissolving into cold blue haze; central immense leaning archive towers with deep ribbed recesses, sealed stone vaults and ancient brass memory cylinders; right a solitary monumental beacon mast rises behind a collapsed observatory and miles of abandoned cables. Faint red-violet supernova filaments high in the distant starry sky, very muted, not a bright wallpaper. Solemn empty setting: extinct builders, machines still keeping their memories. Worn dark blue stone, oxidized copper, desaturated steel, tiny warm amber memory lamps reflected on wet stone ledges. No people or bones. Crisp HUNTDOWN pixel-art detail and material wear, Kingdom atmospheric layered silhouettes, Star Renegades controlled complementary accent lighting. Perfect side-on orthographic view, asymmetrical varied landmarks, continuous horizontal composition with NO tiling or repeating profile panels. Dark quiet lower30percent for moving actors; no foreground game floor or playable platforms. No enemies, UI, text, lettering, borders, logo, smoke explosions or overwhelming bloom. Architecture readable but softer and darker than the future game actors.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "64c1666ae1b927ee8fb24b477f8225f56618ef02b7cc242a0df3fec9967f44aa",
+    "export_sha256": "d7a496d219bf44e259e37ac26dee4266615cd57b7fcfcb102d9f748aa4b7b7b9",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-4a5632eb-bee6-4c90-b715-dabe3c3eae0c.png",
+    "prompt": "One isolated whole-body enemy boss sprite on a completely transparent background for 6EQUJ5, detailed2D pixel-art science-fiction shooter. THE ARCHIVE LOCK. A huge walking archive vault, a heavy bell-shaped body made of stacked weathered bronze memory drums encased in cracked dark sandstone ribs, tall central sealed vertical vault door with a narrow glowing white-amber keyhole, two enormous curved shield plates flanking its body. Four short muscular piston legs support this very heavy arched bell/cathedral silhouette. One big ring mechanism near the front points LEFT, small ash-orange memory windows and warm copper highlights. Monolithic guardian of an extinct civilization, solemn and threatening; no ordinary crab, no tank, no humanoid head or arms. Fullbody visible, side-on orthographic facing LEFT, all feet share one horizontal floor baseline, compact4:3 proportions suitable for256x192sprite. Intricate HUNTDOWN pixel-art texture and crisp clusters, legible larger shapes, restrained highlights against cooldarkblue scenery. Preserve clear silhouette; no excessive tiny detail that becomes noise at128x96logicalsize. No external glow clouds, smoke, floor, scenery, text, writtenrunes, UI, border or checkerboard. Transparent margin around complete body.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "b3527fcb09ec35c63cb0dfcd9290b9288add954fb269beca15715157752492aa",
+    "export_sha256": "95ff325c14d8c9780ec8b48248030aa503ad4e8472c76a1973c4ebb5630bbbb5",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

@@ -786,65 +786,38 @@ def test_encounter_playable_with_starter_weapon():
 # ==============================================================================
 
 def test_boss_equipment_clears_all_phases():
-    """
-    Acceptance Check: Each phase can be completed with available Act I equipment.
-    Dr. Mateo Vargas equipped with Starter Waveguide Maser and slide-kick can deplete:
-    - Phase 1 (300 -> 200 HP) via standard fire (15 dmg) and weak point hits (30 dmg).
-    - Phase 2 (200 -> 100 HP) via charged maser blast (75 dmg) to jammed bulldozer cowl.
-    - Phase 3 (100 -> 0 HP) via exposed reactor meltdown targeting.
-    """
+    """Weak points amplify damage; crossing each health third changes phase."""
     boss = Greenkeeper(x=460.0, y=192.0)
-    assert boss.health == 300
+    assert boss.health == boss.max_health
     assert boss.current_phase == PHASE_1
-
-    # 1. Clear Phase 1 (300 -> 200 HP)
-    # Boss exposes exhaust weak point (vulnerable)
     boss.phase_state = STATE_VULNERABLE
     boss.weak_point_exposed = True
     wp = boss.weak_point_rect
     assert wp is not None
+    hit = boss.take_damage(15, hit_pos=wp.center)
+    assert hit.damage_dealt == 30
+    assert boss.health == boss.max_health - 30
 
-    # Normal shot hitting weak point: 15 * 2.0 = 30 damage
-    hit1 = boss.take_damage(15, hit_pos=(wp.centerx, wp.centery))
-    assert hit1.damage_dealt == 30
-    assert boss.health == 270
-
-    # Charged shot hitting weak point: 75 * 2.0 = 150 damage (capped by phase threshold at 200)
-    # Actually take_damage doesn't clamp to phase threshold, but transitions phase when passing threshold!
-    # Let's hit with standard 70 damage to drop to 200
-    hit2 = boss.take_damage(70, hit_pos=(boss.x + 30, boss.y + 30))
-    assert boss.health == 200
-    assert boss.current_phase == PHASE_2
-    assert boss.phase_state == "TRANSITION"
-
-    # Finish transition to begin Phase 2 active combat
+    # Direct health-boundary hits isolate transitions; sustained real-weapon
+    # endurance is exercised separately in test_boss_balance.py.
+    boss.take_damage(boss.health - boss.phase_thresholds[PHASE_2],
+                     hit_pos=(boss.x + 30, boss.y + 30))
+    assert boss.health == boss.phase_thresholds[PHASE_2]
+    assert boss.current_phase == PHASE_2 and boss.phase_state == "TRANSITION"
     boss.update(1.1)
-    assert boss.current_phase == PHASE_2
-    assert boss.phase_state != "TRANSITION"
-
-    # 2. Clear Phase 2 (200 -> 100 HP)
-    # Bulldozer jam exposes cowl weak point
     boss.phase_state = STATE_VULNERABLE
     boss.weak_point_exposed = True
-    # Charged maser shot directly to cowl (50 * 2.0 = 100 damage)
-    hit3 = boss.take_damage(50, hit_pos=(wp.centerx, wp.centery))
-    assert hit3.damage_dealt == 100
-    assert boss.health == 100
-    assert boss.current_phase == PHASE_3
-    assert boss.phase_state == "TRANSITION"
-
-    # Finish transition to begin Phase 3 active combat
+    expected = boss.health - boss.phase_thresholds[PHASE_3]
+    hit = boss.take_damage(expected // 2, hit_pos=wp.center)
+    assert hit.damage_dealt == expected
+    assert boss.health == boss.phase_thresholds[PHASE_3]
+    assert boss.current_phase == PHASE_3 and boss.phase_state == "TRANSITION"
     boss.update(1.1)
-    assert boss.current_phase == PHASE_3
-
-    # 3. Clear Phase 3 (100 -> 0 HP)
-    # Critical meltdown: core permanently exposed
-    assert boss.weak_point_exposed is True
-    hit4 = boss.take_damage(50, hit_pos=(wp.centerx, wp.centery))
-    assert hit4.damage_dealt == 100
-    assert boss.health == 0
-    assert boss.is_dead is True
-    assert boss.is_defeated is True
+    assert boss.weak_point_exposed
+    remaining = boss.health
+    hit = boss.take_damage((remaining + 1) // 2, hit_pos=wp.center)
+    assert hit.damage_dealt == remaining
+    assert boss.health == 0 and boss.is_dead and boss.is_defeated
     assert boss.current_phase == PHASE_DEFEATED
 
 
@@ -915,8 +888,8 @@ def test_boss_reset_clears_attacks_and_restores_arena():
     boss.reset_to_pristine()
 
     # Assert completely restored baseline
-    assert boss.health == 300
-    assert boss.max_health == 300
+    assert boss.health == boss.max_health
+    assert boss.max_health > 300
     assert boss.current_phase == PHASE_1
     assert boss.is_dead is False
     assert boss.is_defeated is False
@@ -984,7 +957,7 @@ def test_boss_scene_pre_boss_checkpoint_lifecycle(tmp_path):
     # Pre-boss checkpoint registered
     assert boss_scene.player.active_checkpoint_id == "pre_boss"
     assert boss_scene.player.health == 100
-    assert boss_scene.boss.health == 300
+    assert boss_scene.boss.health == boss_scene.boss.max_health
     assert boss_scene.boss.current_phase == PHASE_1
 
     # Simulate player taking lethal damage during Phase 2
@@ -997,7 +970,7 @@ def test_boss_scene_pre_boss_checkpoint_lifecycle(tmp_path):
     boss_scene.retry_from_checkpoint()
     assert boss_scene.player.is_dead is False
     assert boss_scene.player.health == 100
-    assert boss_scene.boss.health == 300
+    assert boss_scene.boss.health == boss_scene.boss.max_health
     assert boss_scene.boss.current_phase == PHASE_1
     assert len(boss_scene.boss.projectiles) == 0
     assert len(boss_scene.boss.telegraphs) == 0

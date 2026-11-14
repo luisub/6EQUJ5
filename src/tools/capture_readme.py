@@ -177,6 +177,22 @@ def capture(output):
             key(pygame.K_d, False)
             step(150)
             still("crystal-network", "Direct field entry with staged prior guardian and receipt, then mapped movement.")
+
+            current = world(2, "field")
+            game.change_state(config.STATE_FIELD_OPS, room=current["field_room"], spawn="default",
+                              journey_world=current["id"], campaign_route=True)
+            scene = game.current_scene
+            scene.player.x, scene.player.y = scene.room.width_px / 2, 208
+            scene.player.rect.topleft = (round(scene.player.x), 208)
+            scene.camera.snap_to(scene.player.x + 8, 224)
+            game.crt.glitch_timer_ms = 0
+            still("proxima-twilight", "Proxima field midpoint; prior victories, receipts and player position are scenery fixtures.")
+
+            current = world(2, "guardian")
+            game.change_state(config.STATE_BOSS_BOUNTY, room=current["arena_room"],
+                              boss_id=current["boss_id"], journey_world=current["id"], spawn="default")
+            step(12)
+            still("flare-bastion", "Proxima guardian with staged journey ledger; 0.2 seconds of runtime.")
             for index, name in [(0, "signal-jailer"), (1, "heat-auditor")]:
                 current = world(index, "guardian")
                 game.change_state(config.STATE_BOSS_BOUNTY, room=current["arena_room"],

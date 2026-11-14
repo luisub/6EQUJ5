@@ -28,7 +28,6 @@ from PIL import Image, ImageDraw
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SPRITES_ROOT = REPO_ROOT / "src" / "assets" / "sprites"
 MATEO_ROOT = SPRITES_ROOT / "mateo"
-FIELD_OUTFIT_DIR = MATEO_ROOT / "field_outfit"
 OLIVE_FIELD_DIR = MATEO_ROOT / "olive_field"
 EVIDENCE_DIR = REPO_ROOT / "_temp" / "refine" / "ART_BATCH_4"
 BRAIN_ARTIFACT_DIR = REPO_ROOT / "_temp" / "refine_artifacts"
@@ -773,7 +772,7 @@ def main():
     print(" 6EQUJ5 ART BATCH 4: 6-ITERATION DEEP PASS (5 SPRITES)")
     print("═══════════════════════════════════════════════════════════════")
 
-    FIELD_OUTFIT_DIR.mkdir(parents=True, exist_ok=True)
+    OLIVE_FIELD_DIR.mkdir(parents=True, exist_ok=True)
     EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
 
     before_imgs: List[Image.Image] = []
@@ -782,7 +781,7 @@ def main():
 
     for action in TARGET_ACTIONS:
         out_filename = f"{action}.png"
-        target_path = FIELD_OUTFIT_DIR / out_filename
+        target_path = OLIVE_FIELD_DIR / f"{SOURCE_MAP[action]}.png"
         # Read pristine untouched baseline from flat archive
         flat_baseline = SPRITES_ROOT / f"mateo_olive_field_{SOURCE_MAP[action]}_96x128.png"
         assert flat_baseline.exists(), f"Baseline sprite missing: {flat_baseline}"
@@ -816,13 +815,8 @@ def main():
         a_sol, a_orph, a_cav = count_orphans_and_cavities(refined_img)
         a_col = count_unique_colors(refined_img)
 
-        # Save to target field_outfit directory
+        # Keep one runtime copy at the path used by the animation manifest.
         refined_img.save(target_path)
-
-        # Also sync back to olive_field directory
-        sync_target = OLIVE_FIELD_DIR / f"{SOURCE_MAP[action]}.png"
-        if sync_target.parent.exists():
-            refined_img.save(sync_target)
 
         metric_record = {
             "action": action,

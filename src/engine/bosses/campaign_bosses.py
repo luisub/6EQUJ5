@@ -5,8 +5,11 @@ HOW TO MODIFY: Keep attack warnings visible, counters achievable, and retries de
 import math
 import pygame
 
-from .base import (Boss, BossAttackTelegraph, BossProjectile, STATE_TRANSITION,
+from .base import (Boss, BossAttackTelegraph, BossProjectile, boss_balance, STATE_TRANSITION,
                    STATE_TELEGRAPH, STATE_ATTACK, STATE_RECOVERY)
+
+# A 128px body stays inside both edge views of the 640px arenas (480px camera).
+TELEPORT_POSITIONS = (180, 265, 350)
 
 
 class CampaignBoss(Boss):
@@ -14,7 +17,10 @@ class CampaignBoss(Boss):
     color = (100, 210, 240)
     attack_name = 'PULSE'
 
-    def __init__(self, boss_id, title, health=300):
+    def __init__(self, boss_id, title, health=None):
+        self.tuning = boss_balance()
+        if health is None:
+            health = self.tuning['health'][boss_id]
         super().__init__(boss_id, 330, 144, 128, 96, health, title, self.attack_name)
         self.reset_to_pristine()
 
@@ -24,17 +30,26 @@ class CampaignBoss(Boss):
 
     def reset_to_pristine(self):
         super().reset_to_pristine()
-        self.cooldown = 1.5
+        self.cooldown = self.tuning['first_attack_delay']
         self.attack_timer = 0.0
         self.attack_index = 0
         self.attack_rects = []
-        self.weak_point_rect = self.rect.copy()
-        self.weak_point_exposed = True
+        self.animation_time = 0.0
+        self.hit_flash_timer = 0.0
+        self._flash_source = None
+        self._flash_surface = None
+        self._update_weak_point()
+
+    def _update_weak_point(self):
+        self.weak_point_rect = pygame.Rect(0, 0, 30, 24)
+        dx, dy = self.tuning['weak_point_offsets'].get(self.target_id, (0, 0))
+        self.weak_point_rect.center = (self.rect.centerx + dx, self.rect.centery + dy)
+        self.weak_point_exposed = self.phase_state == STATE_RECOVERY
 
     def trigger_transition(self, target_phase):
         super().trigger_transition(target_phase)
         self.attack_rects.clear()
-        self.cooldown = 1.5
+        self.cooldown = self.tuning['first_attack_delay']
         if self.target_id == 'core_prime' and target_phase >= 3:
             self.title = 'ARCHON OF SILENCE'
 
@@ -45,12 +60,18 @@ class CampaignBoss(Boss):
         self.defeat_reward_granted = applied
         return applied
 
+    def take_damage(self, *args, **kwargs):
+        result = super().take_damage(*args, **kwargs)
+        if result.damage_dealt > 0:
+            self.hit_flash_timer = 0.12
+        return result
+
     def update(self, dt, player_pos=(120, 208)):
         super().update(dt)
+        self.animation_time += dt
+        self.hit_flash_timer = max(0.0, self.hit_flash_timer - dt)
         if self.is_dead or self.phase_state == STATE_TRANSITION:
             return
-        self.weak_point_exposed = True
-        self.weak_point_rect = self.rect.copy()
         if self.phase_state == STATE_TELEGRAPH:
             self.attack_timer -= dt
             if self.attack_timer <= 0:
@@ -62,7 +83,7 @@ class CampaignBoss(Boss):
             if self.attack_timer <= 0:
                 self.attack_rects.clear()
                 self.phase_state = STATE_RECOVERY
-                self.cooldown = 1.7
+                self.cooldown = self.tuning['recovery_seconds'][self.current_phase - 1]
         else:
             self.cooldown -= dt
             if self.cooldown <= 0:
@@ -70,6 +91,7 @@ class CampaignBoss(Boss):
                 self.prepare(player_pos)
                 self.phase_state = STATE_TELEGRAPH
                 self.attack_timer = 1.25
+        self._update_weak_point()
 
     def prepare(self, player_pos):
         raise NotImplementedError
@@ -97,12 +119,24 @@ class CampaignBoss(Boss):
             pygame.draw.circle(surface, p.color, camera.world_to_screen(p.x, p.y), int(p.radius))
         r = self.rect.move(-int(camera.x), -int(camera.y))
         art = getattr(self, 'art_surface', None)
+        if art is not None and art is not self._flash_source:
+            self._flash_source = art
+            self._flash_surface = art.copy()
+            self._flash_surface.fill((*self.color, 0), special_flags=pygame.BLEND_RGB_ADD)
         if art is not None and crt is not None:
             crt.composite_native(art, (r.centerx - 64, r.bottom - 96), (128, 96))
+            if self.hit_flash_timer > 0:
+                self._flash_surface.set_alpha(round(150 * self.hit_flash_timer / 0.12))
+                crt.composite_native(self._flash_surface, (r.centerx - 64, r.bottom - 96), (128, 96))
         elif art is not None:
             surface.blit(pygame.transform.smoothscale(art, (128, 96)), (r.centerx - 64, r.bottom - 96))
         else:
             self.draw_body(surface, r)
+        if self.weak_point_exposed:
+            core = self.weak_point_rect.move(-int(camera.x), -int(camera.y))
+            pygame.draw.ellipse(surface, (255, 218, 124), core, 2)
+            pygame.draw.circle(surface, (255, 245, 196), core.center,
+                               3 + round(1 + math.sin(self.animation_time * 9)))
 
     def draw_body(self, surface, r):
         pygame.draw.rect(surface, self.color, r, 3)
@@ -115,7 +149,7 @@ class Synchronicity(CampaignBoss):
     color = (110, 200, 240)
 
     def __init__(self):
-        super().__init__('synchronicity', 'SYNCHRONICITY ARRAY', 270)
+        super().__init__('synchronicity', 'SYNCHRONICITY ARRAY')
 
     def prepare(self, player_pos):
         # Alternating ground/high lanes leave an obvious standing or jumping counter.
@@ -139,10 +173,10 @@ class Amalgam(CampaignBoss):
     color = (200, 100, 180)
 
     def __init__(self):
-        super().__init__('amalgam', 'THE AMALGAM', 300)
+        super().__init__('amalgam', 'THE AMALGAM')
 
     def prepare(self, player_pos):
-        self.pending_x = (360, 440, 510)[self.attack_index % 3]
+        self.pending_x = TELEPORT_POSITIONS[self.attack_index % len(TELEPORT_POSITIONS)]
         self.telegraphs.append(BossAttackTelegraph('pod', 1.25, target_rect=pygame.Rect(self.pending_x, 144, self.width, self.height)))
 
     def fire(self, player_pos):
@@ -164,7 +198,7 @@ class MandelaArchitect(CampaignBoss):
     color = (120, 220, 170)
 
     def __init__(self):
-        super().__init__('architect', 'MANDELA ARCHITECT', 300)
+        super().__init__('architect', 'MANDELA ARCHITECT')
 
     def prepare(self, player_pos):
         # Three alternate vertical sectors, one remains safe between them.
@@ -186,7 +220,7 @@ class CorePrime(CampaignBoss):
     color = (240, 120, 90)
 
     def __init__(self):
-        super().__init__('core_prime', 'CORE PRIME', 390)
+        super().__init__('core_prime', 'CORE PRIME')
 
     def prepare(self, player_pos):
         # The final third becomes Archon and exchanges the floor wave for aimed bolts.
@@ -222,7 +256,7 @@ class PortalWarden(MandelaArchitect):
     color = (210, 175, 110)
 
     def __init__(self):
-        CampaignBoss.__init__(self, 'portal_warden', 'GOBEKLI PORTAL WARDEN', 300)
+        CampaignBoss.__init__(self, 'portal_warden', 'GOBEKLI PORTAL WARDEN')
 
 
 class EarthFinalAI(CorePrime):
@@ -237,7 +271,7 @@ class EarthFinalAI(CorePrime):
         # Core Prime retains its identity through its own three health phases.
         Boss.trigger_transition(self, target_phase)
         self.attack_rects.clear()
-        self.cooldown = 1.5
+        self.cooldown = self.tuning['first_attack_delay']
 
     def trigger_defeat(self):
         if self.final_stage == 1:
@@ -245,7 +279,7 @@ class EarthFinalAI(CorePrime):
             self.health = self.max_health
             self.title = 'ARCHON OF SILENCE'
             self.attack_rects.clear()
-            self.cooldown = 1.5
+            self.cooldown = self.tuning['first_attack_delay']
             Boss.trigger_transition(self, 3)
         else:
             super().trigger_defeat()
@@ -281,15 +315,15 @@ class EarthFinalAI(CorePrime):
 GUARDIAN_PATTERNS = {
     'guardian_fasr_001': ((100, 220, 245), 'lanes', 0, 1.25),
     'guardian_fasr_003': ((240, 125, 95), 'volley', 1, 1.10),
-    'guardian_fasr_005': ((170, 230, 135), 'columns', 2, 1.35),
+    'guardian_fasr_005': ((245, 170, 70), 'columns', 2, 1.35),
     'guardian_fasr_004': ((195, 130, 245), 'crossfire', 3, 1.30),
     'guardian_fasr_008': ((245, 200, 110), 'fan', 4, 1.20),
     'guardian_fasr_009': ((140, 195, 240), 'lance', 5, 1.15),
-    'guardian_fasr_006': ((210, 180, 135), 'teleport', 6, 1.40),
-    'guardian_fasr_002': ((150, 245, 215), 'teleport_fan', 7, 1.25),
-    'guardian_fasr_scan_h': ((245, 215, 145), 'paired_columns', 8, 1.40),
-    'guardian_fasr_010': ((145, 210, 150), 'alternating', 9, 1.30),
-    'guardian_fasr_007': ((240, 115, 150), 'pulse_fan', 10, 1.20),
+    'guardian_fasr_006': ((235, 178, 100), 'teleport', 6, 1.40),
+    'guardian_fasr_002': ((185, 220, 255), 'teleport_fan', 7, 1.25),
+    'guardian_fasr_scan_h': ((180, 220, 202), 'paired_columns', 8, 1.40),
+    'guardian_fasr_010': ((230, 185, 95), 'alternating', 9, 1.30),
+    'guardian_fasr_007': ((215, 145, 235), 'pulse_fan', 10, 1.20),
 }
 
 
@@ -300,7 +334,9 @@ class AlienGuardian(CampaignBoss):
         self.event_type = world['defeat_event']
         self.color, self.pattern, self.silhouette, self.warning_seconds = GUARDIAN_PATTERNS[world['boss_id']]
         title = world.get('guardian_title', world.get('title', 'ALIEN GUARDIAN'))
-        super().__init__(world['boss_id'], title.upper(), 270 + 15 * (self.silhouette % 3))
+        tuning = boss_balance()
+        health = tuning['guardian_base_health'] + tuning['guardian_health_per_world'] * self.silhouette
+        super().__init__(world['boss_id'], title.upper(), health)
 
     def update(self, dt, player_pos=(120, 208)):
         # Base's common 1.25s warning is adjusted by each guardian after creation.
@@ -314,7 +350,7 @@ class AlienGuardian(CampaignBoss):
 
     def prepare(self, player_pos):
         self.pending_lane = None
-        self.pending_x = (345, 420, 495)[self.attack_index % 3]
+        self.pending_x = TELEPORT_POSITIONS[self.attack_index % len(TELEPORT_POSITIONS)]
         if self.pattern in ('columns', 'paired_columns'):
             x = (110, 235, 360)[self.attack_index % 3]
             self.pending_lane = pygame.Rect(x, 150, 55, 90)
@@ -327,6 +363,11 @@ class AlienGuardian(CampaignBoss):
             # Aim line announces the projectile direction without obscuring the floor.
             self.pending_lane = pygame.Rect(100, 195 + (self.attack_index % 2) * 20, 250, 12)
         self.telegraphs.append(BossAttackTelegraph(self.pattern, self.warning_seconds, target_rect=self.pending_lane))
+        if self.pattern == 'paired_columns':
+            x = 110 if self.pending_lane.x != 110 else 360
+            self.pending_secondary_lane = pygame.Rect(x, 150, 55, 90)
+            self.telegraphs.append(BossAttackTelegraph(self.pattern, self.warning_seconds,
+                                                       target_rect=self.pending_secondary_lane))
 
     def fire(self, player_pos):
         pattern = self.pattern
@@ -336,8 +377,7 @@ class AlienGuardian(CampaignBoss):
         if pattern in ('lanes', 'alternating', 'columns', 'crossfire', 'pulse_fan', 'paired_columns'):
             self.attack_rects = [self.pending_lane]
             if pattern == 'paired_columns':
-                x = 110 if self.pending_lane.x != 110 else 360
-                self.attack_rects.append(pygame.Rect(x, 150, 55, 90))
+                self.attack_rects.append(self.pending_secondary_lane)
         if pattern in ('volley', 'fan', 'lance', 'teleport', 'teleport_fan', 'crossfire', 'pulse_fan'):
             dx, dy = player_pos[0] - self.rect.centerx, player_pos[1] - self.rect.centery
             length = max(1, math.hypot(dx, dy))

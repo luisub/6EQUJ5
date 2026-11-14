@@ -346,7 +346,7 @@ def test_modern_outdoor_activity_remains_available(display, act_id, room_id, art
     assert scene.vehicle is not None and scene.person is not None
 
 
-@pytest.mark.parametrize('art_id', ['gobekli_tepe_v1', 'gobekli_archive_v1'])
+@pytest.mark.parametrize('art_id', ['gobekli_tepe_v2', 'gobekli_archive_v1'])
 def test_archaeological_art_override_never_adds_modern_activity(display, art_id):
     room = SimpleNamespace(act_id='act_03', room_id='act_03_test', width_px=3840)
     scene = CampaignScenery(ASSETS_DIR, room, {'art_id':art_id})

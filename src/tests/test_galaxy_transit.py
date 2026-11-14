@@ -8,8 +8,8 @@ import pytest
 
 from video_game.engine import config
 from video_game.engine.alien_journey import journey_data, ledger, save_ledger, start_ledger
-from video_game.engine.galaxy_transit import navigation_data, valid_pending
-from video_game.engine.scenes.galaxy_transit import TOTAL_SECONDS
+from video_game.engine.galaxy_transit import navigation_data, valid_pending, leg_position, leg_points, route_ids
+from video_game.engine.scenes.galaxy_transit import TOTAL_SECONDS, MAP_SECONDS, MAP_AREA, VORTEX_CENTER
 from video_game.engine.save_game import SaveError
 from .test_campaign_world_route import game, key
 
@@ -158,3 +158,57 @@ def test_new_game_does_not_inherit_pending_leg(game):
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_FIELD_OPS
     assert game.current_scene.room.room_id == 'act_01_approach'
+
+
+def test_briefing_and_transit_share_every_curve_at_different_sizes():
+    route = route_ids()
+    for source, destination in zip(route, route[1:]):
+        normalized = leg_points(source, destination, (0, 0, 1, 1))
+        assert all(0 <= x <= 1 and 0 <= y <= 1 for x, y in normalized)
+        for area in (MAP_AREA, (60, 78, 355, 64)):
+            x, y, width, height = area
+            expected = [(x + px * width, y + py * height) for px, py in normalized]
+            for actual, point in zip(leg_points(source, destination, area), expected):
+                assert actual == pytest.approx(point)
+        for progress in (0, .1, .5, .9, 1):
+            assert leg_points(source, destination, MAP_AREA, progress)[-1] == pytest.approx(leg_position(source, destination, MAP_AREA, progress))
+
+
+def test_vortex_stays_centered_for_edge_destinations_and_return_to_earth(game):
+    begin(game)
+    scene = game.current_scene
+    route = route_ids()
+    assert scene.vortex_frames
+    # These are display-only leg fixtures. Earned arrivals remain covered above.
+    for source, destination in zip(route, route[1:]):
+        scene.pending = {'source': source, 'destination': destination}
+        for elapsed in (MAP_SECONDS + .05, 3.3, TOTAL_SECONDS - .01):
+            scene.elapsed = elapsed
+            game.render()
+            pixels = pygame.surfarray.array3d(game.crt.render_surface)
+            # Bright cyan gate pixels, excluding the caption bands.
+            gate = (pixels[:, 114:430, 1] > 165) & (pixels[:, 114:430, 2] > 130) & (pixels[:, 114:430, 0] < 90)
+            xs, ys = gate.nonzero()
+            assert len(xs) > 50
+            center = ((xs.min() + xs.max()) / 2, (ys.min() + ys.max()) / 2 + 114)
+            assert center == pytest.approx((2 * VORTEX_CENTER[0], 2 * VORTEX_CENTER[1]), abs=12)
+            assert 114 < ys.min() + 114 < ys.max() + 114 < 430
+
+
+def test_gate_render_uses_cached_frames_and_missing_art_still_arrives(game, monkeypatch):
+    begin(game)
+    scene = game.current_scene
+    def unexpected(*args, **kwargs):
+        raise AssertionError('Travel frame transformed or loaded during rendering')
+    with monkeypatch.context() as rendering:
+        rendering.setattr(pygame.transform, 'rotozoom', unexpected)
+        rendering.setattr(pygame.image, 'load', unexpected)
+        for elapsed in (MAP_SECONDS + .01, 3.1, 3.9):
+            scene.elapsed = elapsed
+            game.render()
+    scene.assets = None
+    scene.vortex_frames = []
+    game.render()
+    key(game, pygame.K_RETURN)
+    assert game.current_state_name == config.STATE_FIELD_OPS
+    assert 'pending_transit' not in ledger(game.campaign)

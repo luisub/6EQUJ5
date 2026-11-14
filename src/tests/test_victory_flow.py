@@ -111,8 +111,9 @@ def test_route_marker_follows_drawn_path_without_teleporting():
         assert path[0] == points[source] and path[-1] == points[destination]
         for i, point in enumerate(path):
             assert leg_position(source, destination, area, i / 24) == pytest.approx(point)
-        # Nodes are adjacent on the itinerary, not arbitrary jumps across the map.
-        assert all(pygame.Vector2(a).distance_to(b) < 5 for a, b in zip(path, path[1:]))
+        # Even the longer return leg moves smoothly at the game's frame rate.
+        frames = [leg_position(source, destination, area, i / 150) for i in range(151)]
+        assert all(pygame.Vector2(a).distance_to(b) < 2 for a, b in zip(frames, frames[1:]))
 
 
 def test_dialogue_pagination_keeps_every_word_inside_the_panel(game):

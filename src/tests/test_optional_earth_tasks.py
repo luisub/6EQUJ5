@@ -38,7 +38,7 @@ def test_fresh_next_crosses_all_ohio_boundaries_without_collection(game, mode):
     # A lethal hit isolates the normal victory/save transition from combat skill.
     game.handle_event(pygame.event.Event(pygame.KEYUP, key=pygame.K_RIGHT))
     boss = game.current_scene
-    boss.boss.take_damage(1000, hit_pos=(boss.boss.x, boss.boss.y))
+    boss.boss.take_damage(boss.boss.max_health, hit_pos=(boss.boss.x, boss.boss.y))
     game.update(1 / 60)
     assert game.campaign.state.room_flags['greenkeeper_defeated']
     key(game, pygame.K_RETURN)

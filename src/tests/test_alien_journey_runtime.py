@@ -202,7 +202,7 @@ def test_continue_mid_teleport_resumes_saved_destination(game):
     assert ledger(game.campaign)['receipts'] == ['FASR-001']
 
 
-def test_world_and_arena_scenery_resolve_authored_and_profile_fallback(game):
+def test_world_and_arena_scenery_resolve_authored_art(game):
     portal_fixture(game)
     key(game, pygame.K_RETURN)
     finish_travel(game)
@@ -218,7 +218,7 @@ def test_world_and_arena_scenery_resolve_authored_and_profile_fallback(game):
     game.render()
 
 
-def test_next_world_uses_native_and_preserves_005_fallback(game):
+def test_next_world_and_proxima_use_native_landscapes(game):
     from types import SimpleNamespace
     from video_game.engine.campaign_scenery import CampaignScenery, load_campaign_background
     world, _ = enter_first_guardian(game)
@@ -231,11 +231,10 @@ def test_next_world_uses_native_and_preserves_005_fallback(game):
     assert load_campaign_background(root, 'realm_fasr_003_v1') is not None
     assert scene.campaign_scenery.background_source == {'kind':'native', 'art_id':'realm_fasr_003_v1'}
     game.render()
-    # FASR-005 has not received its own original background in this increment.
-    assert load_campaign_background(root, 'realm_fasr_005_v1') is None
+    assert load_campaign_background(root, 'realm_fasr_005_v1') is not None
     later = CampaignScenery(root, SimpleNamespace(act_id='act_05', room_id='alien_005_field', width_px=3840),
                             {'art_id':'realm_fasr_005_v1'})
-    assert later.background_source == {'kind':'profile_blockout', 'art_id':'realm_fasr_005_v1'}
+    assert later.background_source == {'kind':'native', 'art_id':'realm_fasr_005_v1'}
 
 
 def test_earned_journey_objective_overrides_missing_ohio_signal(game):

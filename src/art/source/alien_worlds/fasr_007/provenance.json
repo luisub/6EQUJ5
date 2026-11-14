@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-007",
+  "title": "LGM-1 // BEACON NETWORK",
+  "guardian_title": "THE BEACON FORGER",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-b6fcd1ee-c647-4768-90bc-9272702d82d3.png",
+    "prompt": "Create one continuous very wide panoramic background for6EQUJ5, a mature detailed2D pixel-art science-fiction shooter, approximately3.55:1 target1920x540. LGM-1 \u2014 BEACON NETWORK. A meticulous insectoid engineering civilization on a remote cold moon. Left interlocking hexagonal stone foundations and low domed workshops in dark indigo, centre an asymmetrical cluster of delicate gold-wire lattice antennae and chitin-like folded metal arches surrounding a low beacon relay, right tall narrow tapering signal towers with small white-blue lamps and suspended cable webs. Architecture is precise and unfamiliar, built like insect nests and analog machinery, not a regular human city. In the distance receding serrated hills and a tiny bright pulsar point with a faint diagonal beam high in a spacious navy/violet sky. Dark violet, graphite blue and muted bronze with only sparse cyan-white and warmgold sources; light lightly catches nearby dust and metal edges. HUNTDOWN crisp intricatepixelclusters and worn materials, Kingdom atmosphere and depth, StarRenegades readable color/value hierarchy. Perfect side-on orthographic background, continuous landscape without repeated tiles or identical towers. Quiet dark lower30percent for combat actors, no foreground gamefloor or playable platforms. No creatures, characters, bosses, lettering, runes, UI, labels, collage, border orlogo. No huge brightplanet or explosive bloom. Eerie patient engineering and coherent practicallighting.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "98945a8ceeda45ac5ea9c95e0fe11562080e8cf45d28f5408c47c8ea06102c8c",
+    "export_sha256": "e2fde97e211a0ab72802d2eeeab6eb3ab7a3705d8b5e23a11d0f6e6e3915980c",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-0eb8d772-b666-477a-a3f4-1cca7ea6b12f.png",
+    "prompt": "One isolated complete boss sprite on a fully transparent background for6EQUJ5, a detailed2D pixel-art shooter. THE BEACON FORGER, an imposing insectoid engineer corrupted into a war machine. A giant mantis-like creature with upright curved thorax, angular long head facingLEFT, two huge raised scythe forearms framing its head, four strong jointed walking legs, folded broad chitin wings on its back wired into a delicate antenna crown. Metallic chitin of tarnished champagne-gold and dark purple, pale ivory blade edges, exposed precise mechanical tendons, tiny magenta optical eyes and a single warm-white signal core in its chest. Broad diagonal silhouette, body leaning towardLEFT, not a crab, tracked tank, ordinaryhumanrobot or delicate tinybug. Visibly powerful articulated structure, no guns necessary. Strong crisp pixel clusters and textured metal inspired byHUNTDOWN andStarRenegades. Entire body within4:3bounds, designedfor256x192runtimepixels and128x96worldunits. Fullyside-on orthographic withallfeet ononelevelbaseline, cleartransparent margin. Brightbodyedges separate it from darkindigo beaconlandscape; controlled small emissive sources only. No background, floor, shadowsurface, smoke, clouds, detachedparticles, externalglow, letters, UI, border orcheckerboard. Mature menace, notcartooncute.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "a881d595e1afe149f1154cb912e751b3e8f93c7744dbd7cdc5cc3be0622c84ac",
+    "export_sha256": "b79b41f2a83b5b649d9fff11d85c8600490eb7365ec79926ab59cdf536d94e72",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

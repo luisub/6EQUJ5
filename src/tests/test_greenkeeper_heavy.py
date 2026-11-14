@@ -30,7 +30,7 @@ def test_promotion_validates_and_uses_complete_family(tmp_path):
     assert tuple(boss.rect) == (428, 144, 128, 96)
     assert boss.mortar_muzzle == (467, 160)
     assert tuple(boss.weak_point_rect) == (490, 193, 23, 19)
-    assert boss.health == 300
+    assert boss.health == boss.max_health
     # Explicit coordinates always specify the selected body's top-left.
     assert tuple(Greenkeeper(100, 90, asset_root=assets).rect) == (100, 90, 128, 96)
 
@@ -79,7 +79,7 @@ def test_pose_selection_attacks_and_retry_are_registered(tmp_path):
     boss.trigger_defeat(); assert boss._heavy_pose() == 'wreck'
     boss.reset_to_pristine()
     assert boss._heavy_pose() == 'idle' and tuple(boss.rect) == (428,144,128,96)
-    assert not boss.projectiles and not boss.telegraphs and boss.health == 300
+    assert not boss.projectiles and not boss.telegraphs and boss.health == boss.max_health
 
 
 def test_native_render_uses_cached_frames_without_io(tmp_path, monkeypatch):

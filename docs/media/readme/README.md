@@ -10,7 +10,7 @@ Created on 2026-11-13 for the [game README](../../../README.md).
 
 All other PNGs are unretouched 960 × 540 render surfaces from the game. The GIFs show captured frames at 768 × 432, exported with nearest-neighbor scaling and a shared 128-color palette. Arc Lance and transit run at 10 frames per second; the Denver walk runs at 5.
 
-The main README embeds eleven screenshots and three animations. Three additional stills are linked from their captions: the receiver, Arc Lance and galaxy map. `capture.json` records the setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver now has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. The earlier `neo-denver.png` capture remains preserved; other locations retain their earlier setup.
+The main README embeds thirteen screenshots and three animations. Three additional stills are linked from their captions: the receiver, Arc Lance and galaxy map. `capture.json` records the setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. Proxima shows its twilight outpost and Flare Bastion guardian. The earlier `neo-denver.png` capture remains preserved.
 
 | Media | Setup |
 |---|---|
@@ -22,7 +22,11 @@ The main README embeds eleven screenshots and three animations. Three additional
 | `neo-denver-mountains.png`, `neo-denver-fitzsimons.png` | Native renderer views at player x=96 and x=480 respectively, with camera centered on the player and the same prior-act fixture. Both keep their HUD and actual gameplay layers. |
 | `crystal-network.png` | FASR-003 field with staged prior guardian progress and receipt; mapped movement after entry. |
 | `signal-jailer.png`, `heat-auditor.png` | Guardian scenes with staged journey ledgers and 1.6 seconds of runtime. |
+| `proxima-twilight.png` | Proxima field midpoint with staged prior victories, receipts and player position. |
+| `flare-bastion.png` | Proxima guardian with a staged journey ledger and 0.2 seconds of runtime. |
 | `galaxy-map.png`, `signal-transit.gif` | First Earth-to-FASR-001 crossing after a staged portal unlock. Map positions are fictional and schematic. |
+
+Proxima and the travel media were refreshed together on 2026-11-13. Travel now follows an irregular route and presents the gate at the screen center. The previous map, animation and matching metadata are indexed in the [archive record](../../migration/archive-manifest.json).
 
 The captures use temporary saves and settings, dummy SDL video/audio, a fixed random seed, and disabled CRT effects. HUD elements remain visible. Scene fixtures demonstrate current rendering; they do not establish an earned campaign playthrough, native display performance, audible quality or controller acceptance.
 

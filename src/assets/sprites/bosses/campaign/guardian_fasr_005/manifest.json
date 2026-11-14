@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_boss",
+  "boss_id": "guardian_fasr_005",
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      256,
+      192
+    ],
+    "sha256": "57adcd370b3b3ec0d1f87edb7518480d57139cd38d395129b801b29b672e6b64"
+  },
+  "provenance": {
+    "source": "src/art/source/alien_worlds/fasr_005/body.png",
+    "record": "src/art/source/alien_worlds/fasr_005/provenance.json",
+    "generator": "OpenAI image_gen",
+    "review": "Export visually inspected; in-game review pending",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA; faint source residue excluded from floor anchor."
+  }
+}

@@ -1,7 +1,4 @@
-"""PURPOSE: Present a saved, skippable galaxy-map and vortex travel sequence.
-CALLED BY: GameStateMachine when an earned journey leg is pending.
-HOW TO MODIFY: Preserve schematic labels, input guard and durable-arrival retry.
-"""
+"""Saved, skippable travel along the signal route, then through a centered gate."""
 import math
 import pygame
 
@@ -16,6 +13,8 @@ VORTEX_SECONDS = 1.2
 ARRIVAL_SECONDS = 0.4
 TOTAL_SECONDS = MAP_SECONDS + VORTEX_SECONDS + ARRIVAL_SECONDS
 MAP_AREA = (32, 68, 416, 132)
+VORTEX_CENTER = (240, 134)
+VORTEX_FRAME_SIZE = 384
 
 
 class GalaxyTransitScene(BaseScene):
@@ -28,6 +27,7 @@ class GalaxyTransitScene(BaseScene):
         self.assets = None
         self.vortex_frames = []
         self.receipts = []
+        self.shade = pygame.Surface((480, 270), pygame.SRCALPHA)
 
     def on_enter(self, **kwargs):
         current = ledger(self.machine.campaign)
@@ -44,19 +44,19 @@ class GalaxyTransitScene(BaseScene):
         self.assets = load_galaxy_transit(getattr(getattr(self.machine, 'assets', None), 'root', None))
         self.vortex_frames = []
         if self.assets:
-            # A small, gentle back-and-forth turn; original authored art is not
-            # replaced by a procedural portal. Precompute outside update/render.
+            # Fixed-size native frames keep the aperture centered as it rotates.
+            # Nothing is transformed, decoded or allocated during the animation.
             vortex = self.assets['vortex']
-            for index in range(16):
-                progress = index / 15
-                if progress < 0.32:
-                    scale = 0.17 + 0.18 * progress / 0.32
-                elif progress < 0.48:
-                    scale = 0.35 - 0.07 * (progress - 0.32) / 0.16
-                else:
-                    scale = 0.28 + 0.24 * (progress - 0.48) / 0.52
-                angle = 6 * math.sin(progress * math.pi)
-                self.vortex_frames.append(pygame.transform.rotozoom(vortex, angle, scale))
+            for index in range(64):
+                progress = index / 63
+                eased = progress * progress * (3 - 2 * progress)
+                angle = 65 * progress
+                extent = 128 + 176 * eased
+                scale = extent / vortex.get_width()
+                rotated = pygame.transform.rotozoom(vortex, angle, scale)
+                frame = pygame.Surface((VORTEX_FRAME_SIZE, VORTEX_FRAME_SIZE), pygame.SRCALPHA)
+                frame.blit(rotated, rotated.get_rect(center=frame.get_rect().center))
+                self.vortex_frames.append(frame)
         self.machine.input.release_all()
 
     def on_exit(self):
@@ -92,11 +92,6 @@ class GalaxyTransitScene(BaseScene):
         return 'arrival'
 
     def _map(self, crt):
-        if self.assets:
-            crt.composite_native(self.assets['galaxy_map'], (0, 0), (480, 270))
-        shade = pygame.Surface((480, 270), pygame.SRCALPHA)
-        shade.fill((2, 7, 15, 125))
-        crt.canvas.blit(shade, (0, 0))
         source, destination = self.pending['source'], self.pending['destination']
         route = route_ids()
         points = map_points(MAP_AREA)
@@ -124,21 +119,22 @@ class GalaxyTransitScene(BaseScene):
             pygame.draw.circle(crt.canvas, color, (x, y), 5 if loc_id in (source, destination) else 3, 1)
             # Only route numbers live on the map; full names have room in the caption.
             label = 'Earth' if index == 0 else str(index)
-            dx, dy = x - 240, y - 134
-            distance = max(1, math.hypot(dx, dy))
-            lx = x + dx / distance * 14 - crt.font_sm.size(label)[0] / 2
-            ly = y + dy / distance * 14 - 4
+            lx = x + 8
+            ly = y - 10
             crt.draw_text(label, lx, ly, color=color, size='sm', has_shadow=False)
-        if self.phase != 'map' and self.vortex_frames and destination in points:
-            progress = min(1.0, max(0.0, (self.elapsed - MAP_SECONDS) / VORTEX_SECONDS))
-            frame = self.vortex_frames[min(15, round(progress * 15))]
-            # The gate opens at the node the ship actually reached.
-            crt.canvas.blit(frame, frame.get_rect(center=points[destination]))
-        pygame.draw.rect(crt.canvas, (7, 17, 25), (160, 113, 160, 39), border_radius=4)
-        crt.draw_text(f'{len(self.receipts)} / 11 messages recovered', 175, 120,
-                      color=(232, 235, 227), size='sm', has_shadow=False)
-        stop = f'Next: world {route.index(destination)} of 11' if destination != 'earth' else 'Final battle: Earth'
-        crt.draw_text(stop, 175, 136, color=(156, 180, 188), size='sm', has_shadow=False)
+
+    def _vortex(self, crt):
+        if not self.vortex_frames:
+            return
+        progress = max(0.0, min(1.0, (self.elapsed - MAP_SECONDS) / (VORTEX_SECONDS + ARRIVAL_SECONDS)))
+        frame = self.vortex_frames[round(progress * (len(self.vortex_frames) - 1))]
+        size = VORTEX_FRAME_SIZE // 2
+        dest = (VORTEX_CENTER[0] - size // 2, VORTEX_CENTER[1] - size // 2)
+        crt.composite_native(frame, dest, (size, size))
+
+    def _captions(self, crt):
+        source, destination = self.pending['source'], self.pending['destination']
+        route = route_ids()
         pygame.draw.rect(crt.canvas, (7, 17, 25), (12, 8, 456, 49), border_radius=4)
         pygame.draw.rect(crt.canvas, (7, 17, 25), (12, 215, 456, 48), border_radius=4)
         heading = 'ARRIVING' if self.phase == 'arrival' else 'ENTERING THE GATE' if self.phase == 'vortex' else 'FOLLOWING THE SIGNAL'
@@ -146,6 +142,8 @@ class GalaxyTransitScene(BaseScene):
         crt.draw_text(display_name(destination), 24, 32, color=(232, 235, 227), size='lg', has_shadow=False)
         step = route.index(destination) if destination != 'earth' else 12
         crt.draw_text(f'LEG {step} / 12', 384, 17, color=(156, 180, 188), size='sm', has_shadow=False)
+        crt.draw_text(f'{len(self.receipts)} / 11 messages', 352, 41,
+                      color=(156, 180, 188), size='sm', has_shadow=False)
         crt.draw_text('From ' + display_name(source), 24, 220, color=(112, 223, 229), size='sm', has_shadow=False)
         objective = 'Confront the Core with all eleven messages.' if destination == 'earth' else 'Find the guardian. Recover the next message.'
         crt.draw_text(objective, 24, 234, color=(232, 235, 227), size='sm', has_shadow=False)
@@ -156,4 +154,12 @@ class GalaxyTransitScene(BaseScene):
     def render(self, crt):
         crt.clear((2, 4, 12))
         if self.pending:
-            self._map(crt)
+            if self.assets:
+                crt.composite_native(self.assets['galaxy_map'], (0, 0), (480, 270))
+            self.shade.fill((2, 7, 15, 100 if self.phase == 'map' else 210))
+            crt.canvas.blit(self.shade, (0, 0))
+            if self.phase == 'map':
+                self._map(crt)
+            else:
+                self._vortex(crt)
+            self._captions(crt)

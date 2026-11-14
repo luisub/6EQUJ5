@@ -85,11 +85,11 @@ def test_act_01_greenkeeper_3phase_mechanics():
     boss = Greenkeeper(100.0, 100.0)
     boss.skip_intro()
     assert boss.current_phase == 1
-    assert boss.health == 300
+    assert boss.health == boss.max_health
 
-    # Phase 1 -> Phase 2 (100 damage)
-    res = boss.take_damage(100)
-    assert res.damage_dealt == 100
+    # Phase 1 -> Phase 2 (one third of health)
+    res = boss.take_damage(boss.max_health // 3)
+    assert res.damage_dealt == boss.max_health // 3
     assert boss.current_phase == 2
     assert boss.phase_state == "TRANSITION"
 
@@ -97,17 +97,17 @@ def test_act_01_greenkeeper_3phase_mechanics():
     boss.update(1.0)
     assert boss.phase_state != "TRANSITION"
 
-    # Phase 2 -> Phase 3 (100 damage)
-    res = boss.take_damage(100)
-    assert res.damage_dealt == 100
+    # Phase 2 -> Phase 3 (one third of health)
+    res = boss.take_damage(boss.max_health // 3)
+    assert res.damage_dealt == boss.max_health // 3
     assert boss.current_phase == 3
     assert boss.phase_state == "TRANSITION"
 
     boss.update(1.0)
 
-    # Phase 3 -> Defeated (100 damage)
-    res = boss.take_damage(100)
-    assert res.damage_dealt == 100
+    # Phase 3 -> Defeated (one third of health)
+    res = boss.take_damage(boss.max_health // 3)
+    assert res.damage_dealt == boss.max_health // 3
     assert boss.is_defeated is True
 
 
@@ -184,11 +184,11 @@ def test_fresh_save_failure_retry_and_save_boundaries(tmp_path):
     assert not actions['defense_retry']['ability_edge_pending']
     assert actions['defense_retry']['ability_before'] == actions['defense_retry']['ability_after']
     assert actions['defense_result']['completed'] and actions['defense_saved']['completed']
-    assert actions['boss_death']['boss_health'] == 300
+    assert actions['boss_death']['boss_health'] == Greenkeeper().max_health
     assert actions['boss_death_exit_reentry']['health'] == 100
-    assert actions['boss_death_exit_reentry']['boss_health'] == 300
+    assert actions['boss_death_exit_reentry']['boss_health'] == Greenkeeper().max_health
     assert not actions['boss_death_exit_reentry']['saved_completion']
-    assert actions['boss_death_again']['boss_health'] == 300
+    assert actions['boss_death_again']['boss_health'] == Greenkeeper().max_health
     assert actions['boss_retry']['ability_before'] == actions['boss_retry']['ability_after']
     assert actions['boss_replay_idempotent']['saved_before_exit'] is True
     assert actions['boss_exit_saved']['completed']

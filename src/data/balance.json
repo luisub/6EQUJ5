@@ -298,6 +298,23 @@
       "telegraph_color": [230, 160, 40]
     }
   },
+  "bosses": {
+    "health": {
+      "greenkeeper": 2100,
+      "synchronicity": 2400,
+      "amalgam": 2700,
+      "architect": 3000,
+      "portal_warden": 3300,
+      "core_prime": 3600
+    },
+    "guardian_base_health": 2800,
+    "guardian_health_per_world": 100,
+    "weak_point_offsets": {
+      "guardian_fasr_007": [-23, 6]
+    },
+    "first_attack_delay": 0.45,
+    "recovery_seconds": [1.2, 1.0, 0.8]
+  },
   "simulation": {
     "fixed_dt": 0.008333333333333333,
     "max_accumulator": 0.10,

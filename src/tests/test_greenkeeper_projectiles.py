@@ -41,7 +41,7 @@ def test_core_hits_at_actual_window_from_both_sides(start,direction,dt,steps):
 def test_no_early_hit_and_lifetime_does_not_create_instant_core_damage():
     b=boss_open(); p=ProjectileManager(); bolt=fire(p,400,b.weak_point_rect.centery,lifetime=.05)
     assert p.update(.05,Room(),targets=[b]) == []
-    assert b.health==300 and not bolt.active
+    assert b.health==b.max_health and not bolt.active
 
 
 def test_diagonal_aim_reaches_window_with_small_steps():
@@ -71,7 +71,7 @@ def test_closed_and_off_target_resolve_at_body():
 def test_wall_before_body_or_between_body_and_core_wins(col):
     b=boss_open(); p=ProjectileManager(); fire(p,380,b.weak_point_rect.centery)
     hits=p.update(.3,Room({(col,12)}),targets=[b])
-    assert hits==[] and b.health==300 and not p.projectiles
+    assert hits==[] and b.health==b.max_health and not p.projectiles
 
 
 def test_front_target_blocks_core_and_behind_target_for_nonpiercing():
@@ -80,7 +80,7 @@ def test_front_target_blocks_core_and_behind_target_for_nonpiercing():
     p=ProjectileManager(); fire(p,400,b.weak_point_rect.centery)
     hits=p.update(.3,Room(),targets=[behind,b,front])
     assert [h.target_id for h in hits]==['front']
-    assert b.health==300 and behind.health==100
+    assert b.health==b.max_health and behind.health==100
 
 
 def test_charged_pierce_preserves_order_and_hits_each_once():
@@ -98,5 +98,5 @@ def test_shared_fan_damages_core_only_once():
     fire(p,400,b.weak_point_rect.centery,shared=shared)
     fire(p,400,b.weak_point_rect.centery,shared=shared)
     hits=p.update(.2,Room(),targets=[b])
-    assert len(hits)==1 and hits[0].damage_dealt==20 and b.health==280
+    assert len(hits)==1 and hits[0].damage_dealt==20 and b.health==b.max_health-20
     assert b.target_id in shared and not p.projectiles

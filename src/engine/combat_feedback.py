@@ -151,17 +151,61 @@ class CombatFeedback:
                 crt.draw_text(event['text'], x, y, color=event['color'], size='sm')
 
 
+ALIEN_ATMOSPHERES = {
+    # Color and motion belong to the environment, below weapon/attack contrast.
+    'alien_001': ('dust', (64, 99, 114), 3, -1),
+    'alien_003': ('embers', (122, 83, 65), 4, -9),
+    'alien_005': ('snow', (94, 110, 126), -8, 12),
+    'alien_004': ('dust', (107, 88, 119), 4, -4),
+    'alien_008': ('dust', (66, 112, 113), -3, 2),
+    'alien_009': ('dust', (117, 103, 76), 7, -1),
+    'alien_006': ('embers', (116, 87, 70), -5, -6),
+    'alien_002': ('drift', (86, 89, 120), 11, 0),
+    'alien_scan_h': ('mist', (88, 108, 100), -2, 5),
+    'alien_010': ('rain', (71, 104, 95), -7, 26),
+    'alien_007': ('signal', (97, 94, 124), 0, -10),
+}
+
+
 class SceneAtmosphere:
-    """Slow cool background motes reserve the strongest contrast for action."""
-    def __init__(self):
+    """Sparse far/near weather, drawn behind combat and outside the HUD band."""
+    def __init__(self, room_id=''):
         self.elapsed = 0.0
+        world_id = room_id.removesuffix('_field').removesuffix('_arena')
+        self.profile = ALIEN_ATMOSPHERES.get(world_id)
+        self.motes = ()
+        if self.profile:
+            _, color, _, _ = self.profile
+            self.motes = tuple(
+                (index * 113 % 480, index * 47 % 156,
+                 .55 if index < 8 else 1.0, .08 if index < 8 else .22,
+                 tuple(round(channel * (.6 if index < 8 else 1)) for channel in color))
+                for index in range(16)
+            )
 
     def update(self, dt, paused=False):
-        if not paused and dt > 0:
-            self.elapsed += dt
+        if not paused and isinstance(dt, (int, float)) and math.isfinite(dt) and dt > 0:
+            self.elapsed = (self.elapsed + min(dt, .1)) % 3600
 
     def render(self, crt, camera):
-        for index in range(12):
-            x = round((index * 67 + self.elapsed * (1 + index % 3) - camera.x * .12) % 480)
-            y = round(88 + (index * 31) % 127 + 3 * math.sin(self.elapsed * .35 + index))
-            pygame.draw.line(crt.canvas, (78, 103, 113), (x, y), (x + 1, y), 1)
+        if not math.isfinite(camera.x):
+            return
+        if self.profile is None:
+            for index in range(12):
+                x = round((index * 67 + self.elapsed * (1 + index % 3) - camera.x * .12) % 480)
+                y = round(88 + (index * 31) % 127 + 3 * math.sin(self.elapsed * .35 + index))
+                pygame.draw.line(crt.canvas, (78, 103, 113), (x, y), (x + 1, y), 1)
+            return
+        kind, _, vx, vy = self.profile
+        for index, (seed_x, seed_y, speed, parallax, color) in enumerate(self.motes):
+            sway = 2 * math.sin(self.elapsed * .45 + index) if kind in ('snow', 'dust', 'embers') else 0
+            x = round((seed_x + self.elapsed * vx * speed + sway - camera.x * parallax) % 480)
+            y = 68 + round((seed_y + self.elapsed * vy * speed) % 156)
+            if kind == 'rain':
+                pygame.draw.line(crt.canvas, color, (x, y), (x - 1, y + (4 if speed == 1 else 2)))
+            elif kind == 'mist':
+                pygame.draw.line(crt.canvas, color, (x, y), (x + 2, y + 1))
+            elif kind == 'signal':
+                pygame.draw.line(crt.canvas, color, (x, y), (x, y + 2))
+            else:
+                pygame.draw.line(crt.canvas, color, (x, y), (x + 1, y))

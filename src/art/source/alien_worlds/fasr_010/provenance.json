@@ -1,0 +1,35 @@
+{
+  "civilization": "FASR-010",
+  "title": "TERRESTRIAL MEMORY // DISTANT ECHO",
+  "guardian_title": "THE MEMORY EXTRACTOR",
+  "created": "2026-11-13",
+  "generator": "OpenAI image_gen",
+  "design_references": [
+    "https://www.madvfx.com/blogs/the-interplay-of-light-and-vfx-in-games-how-they-work-together",
+    "https://www.madvfx.com/blogs/color-theory-in-real-time-vfx"
+  ],
+  "background": {
+    "master": "background_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-529ad478-7920-4229-bb3f-51c9b269f271.png",
+    "prompt": "Create one continuous very wide panorama for6EQUJ5, a mature detailed2D pixel-art side-scrolling science-fiction game. Approximately3.55:1, runtime1920x540. TERRESTRIAL MEMORY \u2014 DISTANT ECHO. An impossible off-world memory of ancient Earth: rainy moonlit mountain forest swallowing a lost analog observatory. Left gigantic crooked conifer roots and layered misty blue mountain silhouettes, centre broken pale limestone terraces and a collapsed copper observation dome threaded with vines, right moss-covered carved stone arches and a dark abandoned radio tower leaning among trees. Familiar natural materials mixed with subtly impossible geometry, no moderncity, cars or repetitive industrial panels. Tall tree silhouettes vary organically. Deep pinegreen, blue-black and muted teal, small amber lanterns inside the old dome and cool faint moonlight on wet leaves; quiet dark groundplane and shallow reflectedwater inlower30percent. Crisp HUNTDOWN pixel-art craft, Kingdom nighttime atmosphere and natural depth, StarRenegades clear restrained light contrast. Perfectly side-on orthographic background, three receding layers, continuous horizontal landscape with no tilingseams. No foreground playablefloor, platforms, characters, creatures, text, labels, UI, borders or symbols. Do not place bright glowing giant shapes behind the actor zone. Detailed but calm scenery, a melancholy remembered Earth.",
+    "export": "Aspect-preserving cover crop to1920x540; Lanczos; centering0.5,0.8.",
+    "master_sha256": "8e108aea02c4b2476e45a6001cf53ddf27672457b01defcad44fe86dc5b9cbe9",
+    "export_sha256": "30d087dffd5157989c24a11c8cb50e91827eebdb69d1594d3397c2d0d3c2b48b",
+    "dimensions": [
+      1920,
+      540
+    ]
+  },
+  "guardian": {
+    "master": "guardian_master.png",
+    "source": "/Users/nzlab-la/Desktop/Github/generated_images/exec-20549665-d648-4b2a-b576-a2b2368988b8.png",
+    "prompt": "One isolated full-body villain sprite for6EQUJ5, a mature detailed2D pixel-art science-fiction shooter. Fully transparentbackground. THE MEMORY EXTRACTOR: an enormous hunched stone-and-root colossus with gorilla-like weight, a low elongated faceless obsidian head pointingLEFT, broad layered shoulder slabs of pale weathered limestone, short powerful hindlegs and huge long forearms ending in stone knuckles ontheground. Dark woody tendons and tangled roots connect the stones; moss lies in shoulder cracks; embedded antique brass cylinders and warm amber memory-glass chambers across its hunched back reveal stolen technological memory. Two small amber eye slits recessed deep in the black face. Asymmetric broken stone silhouette, heavy threatening animal stance, not a conventional humanoid robot, not a crab or tank. A few restrained emerald veins in the roots; pale stone edges and amber glass contrast with darkgreen woodland. Orthographic side-on facingLEFT, allbody visible, groundedfeet/knuckles share one baseline. Crisp HUNTDOWN pixel-art textures, StarRenegades strong readable shape at256x192pixels (128x96worldunits). Compact4:3 boundingbox with broad low pose. No text, symbols, runes, UI, background, floor, shadowplane, smoke, clouds, vegetation groundpatch, external glow or checkerboard. Transparent margin around entire figure.",
+    "export": "Trim to alpha>=64 body bounds, fit within248x184 without distortion, bottom-center in256x192RGBA.",
+    "master_sha256": "6cce55f7284dd19187af914612c66ee653d1358505e128429fda9000f5178fed",
+    "export_sha256": "ffb001ac8159d6dbb29cee1d806aa58ff7f893eb9b9d721152de3c52664fbd17",
+    "dimensions": [
+      256,
+      192
+    ]
+  }
+}

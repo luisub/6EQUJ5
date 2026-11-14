@@ -59,17 +59,22 @@ def map_points(area):
 
 
 def leg_position(source, destination, area, progress):
-    """A slightly curved segment shared by the drawn route and moving marker."""
-    points = map_points(area)
+    """A stable curved leg, shared by the briefing, route and moving ship."""
+    # Construct the curve in normalized coordinates so the compact opening map
+    # follows exactly the same path as the larger travel view.
+    points = map_points((0, 0, 1, 1))
     start, end = points[source], points[destination]
     mid = ((start[0] + end[0]) / 2, (start[1] + end[1]) / 2)
-    x, y, width, height = area
-    dx, dy = mid[0] - (x + width / 2), mid[1] - (y + height / 2)
-    length = max(1, math.hypot(dx, dy))
-    control = (mid[0] + dx / length * 8, mid[1] + dy / length * 8)
+    dx, dy = end[0] - start[0], end[1] - start[1]
+    length = max(0.001, math.hypot(dx, dy))
+    direction = 1 if sum(map(ord, source + destination)) % 2 else -1
+    bend = min(0.07, length * 0.18) * direction
+    control = (mid[0] - dy / length * bend, mid[1] + dx / length * bend)
     t = max(0.0, min(1.0, progress))
-    return tuple((1 - t) ** 2 * start[i] + 2 * (1 - t) * t * control[i] + t * t * end[i]
-                 for i in range(2))
+    point = tuple((1 - t) ** 2 * start[i] + 2 * (1 - t) * t * control[i] + t * t * end[i]
+                  for i in range(2))
+    x, y, width, height = area
+    return x + point[0] * width, y + point[1] * height
 
 
 def leg_points(source, destination, area, progress=1.0):
