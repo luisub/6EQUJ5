@@ -27,7 +27,7 @@ def family_copy(tmp_path):
     pygame.init()
     pygame.display.set_mode((960, 540))
     root = tmp_path / 'assets'
-    shutil.copytree(ASSETS / 'environments/ohio_campus_v1', root / 'environments/ohio_campus_v1')
+    shutil.copytree(ASSETS / 'environments/ohio/campus', root / 'environments/ohio/campus')
     yield root
     pygame.quit()
 
@@ -52,7 +52,7 @@ def test_campus_family_contract_coverage_and_rebuild(family_copy, tmp_path):
     rebuilt_far = tmp_path / 'far.png'
     build_far(rebuilt_far)
     assert hashlib.sha256(rebuilt_far.read_bytes()).hexdigest() == FAR_HASH
-    assert hashlib.sha256((family_copy / 'environments/ohio_campus_v1/far_1152x544.png').read_bytes()).hexdigest() == FAR_HASH
+    assert hashlib.sha256((family_copy / 'environments/ohio/campus/far.png').read_bytes()).hexdigest() == FAR_HASH
 
 
 def test_far_rebuild_rejects_unreviewed_master(tmp_path):
@@ -65,7 +65,7 @@ def test_far_rebuild_rejects_unreviewed_master(tmp_path):
 
 @pytest.mark.parametrize('defect', ['world_size', 'world_origin', 'far_repeat', 'world_hash', 'far_hash', 'far_alpha'])
 def test_corrupt_family_falls_back_completely(family_copy, defect):
-    base = family_copy / 'environments/ohio_campus_v1'
+    base = family_copy / 'environments/ohio/campus'
     manifest = base / 'manifest.json'
     doc = json.loads(manifest.read_text())
     if defect == 'world_size':
@@ -79,7 +79,7 @@ def test_corrupt_family_falls_back_completely(family_copy, defect):
     elif defect == 'far_hash':
         doc['layers'][0]['sha256'] = '0' * 64
     else:
-        far_path = base / 'far_1152x544.png'
+        far_path = base / 'far.png'
         with Image.open(far_path) as source:
             far = source.convert('RGBA')
         far.putpixel((0, 0), (0, 0, 0, 0))

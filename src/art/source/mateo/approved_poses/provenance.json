@@ -1,0 +1,36 @@
+{
+  "purpose": "Accepted export masters for five revised olive outfit base poses; preserve these after procedural base-pose rebuilds. Original flat exports are superseded.",
+  "preserved_on": "2026-11-14",
+  "files": [
+    {
+      "pose": "idle_1",
+      "source_export": "src/assets/sprites/mateo/olive_field/idle_1.png",
+      "file": "idle_1.png",
+      "sha256": "1803f2d18ab20e35234a058622040ed00afd39c3c413917730e6c172e33fc2c6"
+    },
+    {
+      "pose": "run_1",
+      "source_export": "src/assets/sprites/mateo/olive_field/run_1.png",
+      "file": "run_1.png",
+      "sha256": "bee6f3966c809d281552f813f45206b119cb3e88f0f301189e18b4a47a2504f2"
+    },
+    {
+      "pose": "jump",
+      "source_export": "src/assets/sprites/mateo/olive_field/jump.png",
+      "file": "jump.png",
+      "sha256": "381a119410ad23e23b32bff07510e76c9edac69e966b3460111ddd8cd9daa5cd"
+    },
+    {
+      "pose": "shoot",
+      "source_export": "src/assets/sprites/mateo/olive_field/shoot.png",
+      "file": "shoot.png",
+      "sha256": "20bccbef41688051630afa0855134d7396f20dfc4c50a1023e7be22639a020cf"
+    },
+    {
+      "pose": "slide",
+      "source_export": "src/assets/sprites/mateo/olive_field/slide.png",
+      "file": "slide.png",
+      "sha256": "fcb9d89d2c52780b0e17c5dee55a606bcd5efedacbb9d924ca811ff101a32cfd"
+    }
+  ]
+}

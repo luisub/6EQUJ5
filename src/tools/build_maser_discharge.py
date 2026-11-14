@@ -13,7 +13,7 @@ from pathlib import Path
 from video_game.engine.asset_transactions import fcntl, promote_group, recover_pending
 from video_game.engine.config import ASSETS_DIR
 from video_game.engine.effects import MASER_FAMILY, MASER_MANIFEST, MASER_NAME, validate_maser_bytes
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks
 
 OUTPUTS = (MASER_FAMILY / MASER_NAME, MASER_FAMILY / 'manifest.json')
 
@@ -61,7 +61,7 @@ def build_discharge(*, assets_dir=ASSETS_DIR, archive_dir=None, source=None, pro
             for path in OUTPUTS:
                 _no_symlinks(root / path)
                 _no_symlinks(stage / path)
-            saved = promote_group(root, stage, archive, 'maser_discharge_v2', OUTPUTS)
+            saved = promote_group(root, stage, archive, 'maser_discharge', OUTPUTS)
         return {'status': 'promoted', 'archive': str(saved), 'manifest': MASER_MANIFEST}
     finally:
         os.close(descriptor)

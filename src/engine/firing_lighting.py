@@ -13,7 +13,7 @@ from pathlib import Path
 import pygame
 from PIL import Image
 
-FLASH_FAMILY = Path('effects/approach_maser_flash_v1')
+FLASH_FAMILY = Path('effects/firing_flash')
 FLASH_NAME = 'flash_64x32.png'
 FLASH_SHA256 = '027df21d8bb8d6d21f1421ad7bb50845e941a6907de2af430571fd95374ef7e5'
 FLASH_MANIFEST = {'schema_version': 1, 'room_id': 'act_01_approach',

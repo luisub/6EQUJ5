@@ -13,7 +13,7 @@ from pathlib import Path
 from video_game.engine.asset_transactions import fcntl, promote_group, recover_pending
 from video_game.engine.config import ASSETS_DIR
 from video_game.engine.firing_lighting import FLASH_FAMILY, FLASH_MANIFEST, FLASH_NAME, validate_flash_bytes
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks
 
 OUTPUTS = (FLASH_FAMILY / FLASH_NAME, FLASH_FAMILY / 'manifest.json')
 
@@ -61,7 +61,7 @@ def build_flash(*, assets_dir=ASSETS_DIR, archive_dir=None, source=None, promote
             for path in OUTPUTS:
                 _no_symlinks(root / path)
                 _no_symlinks(stage / path)
-            saved = promote_group(root, stage, archive, 'approach_maser_flash_v1', OUTPUTS)
+            saved = promote_group(root, stage, archive, 'firing_flash', OUTPUTS)
         return {'status': 'promoted', 'archive': str(saved), 'manifest': FLASH_MANIFEST}
     finally:
         os.close(descriptor)

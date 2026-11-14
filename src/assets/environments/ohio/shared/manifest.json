@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "environment_id": "act_01_ohio",
+  "description": "Shared Ohio collision tiles and ground mist; native room scenery uses its own canonical manifest.",
+  "tile_size": 16,
+  "assets": {
+    "tileset_ohio": {
+      "file": "tileset.png",
+      "dimensions": [
+        256,
+        128
+      ],
+      "sha256": "4c2afe5f03ef87b869cf8d88df536d8fa772438471da888220ff3b378b397e8d",
+      "alpha_mode": "RGBA",
+      "tile_rows": {
+        "0": "SOLID_CONCRETE",
+        "1": "SOLID_TERRAIN_MUD",
+        "2": "ONE_WAY_CATWALK_GRATING",
+        "3": "ONE_WAY_SCRAP_PLATES",
+        "4": "HAZARD_SUMP_LIQUID",
+        "5": "COVER_SANDBAGS_CRATES",
+        "6": "PROPS_FIXTURES",
+        "7": "AIRLOCK_BULKHEAD_DOORS"
+      }
+    },
+    "weather_ohio_mist": {
+      "file": "mist.png",
+      "dimensions": [
+        480,
+        270
+      ],
+      "sha256": "63fad0e9bf09499d6bec0f5b26b1c340b655ed77330f5946f816df2b00d98840",
+      "blend_mode": "alpha",
+      "max_alpha": 38
+    }
+  }
+}

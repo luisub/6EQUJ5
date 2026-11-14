@@ -1366,9 +1366,5 @@
         }
       }
     }
-  },
-  "shared": {
-    "portrait": "sprites/mateo/portrait_128x128.png",
-    "bunker": "sprites/mateo/bunker_96x128.png"
   }
 }

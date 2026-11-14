@@ -15,7 +15,7 @@ import pygame
 from .native_room_assets import _inside_without_symlinks
 
 LOGGER = logging.getLogger(__name__)
-FAMILY = Path('effects/galaxy_transit_v1')
+FAMILY = Path('effects/galaxy_transit')
 IMAGES = {
     'galaxy_map': ('galaxy_map_960x540.png', (960, 540), 'RGB'),
     'vortex': ('vortex_512x512.png', (512, 512), 'RGBA'),

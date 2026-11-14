@@ -1,49 +1,57 @@
 {
   "schema_version": 1,
   "boss_id": "greenkeeper_act_01",
-  "name": "Core Warden Greenkeeper",
+  "density": 2,
   "native_size": [
-    64,
-    48
+    256,
+    192
   ],
-  "frames": {
-    "idle_1": "idle_1.png",
-    "idle_2": "idle_2.png",
-    "charge_1": "charge_1.png",
-    "charge_2": "charge_2.png",
-    "mortar_aim": "mortar_aim.png",
-    "mortar_fire": "mortar_fire.png",
-    "sweep_charge": "sweep_charge.png",
-    "vulnerable_1": "vulnerable_1.png",
-    "vulnerable_2": "vulnerable_2.png",
-    "hurt": "hurt.png",
-    "defeated": "defeated.png"
-  },
-  "animations": {
-    "idle": [
-      "idle_1",
-      "idle_2"
+  "world_size": [
+    128,
+    96
+  ],
+  "anchors": {
+    "foot_y": 96,
+    "mortar_idle": [
+      38,
+      15
     ],
-    "charge": [
-      "charge_1",
-      "charge_2"
+    "mortar_attack": [
+      39,
+      16
     ],
-    "mortar": [
-      "mortar_aim",
-      "mortar_fire"
+    "mortar_wreck": [
+      35,
+      40
     ],
     "sweep": [
-      "sweep_charge"
+      5,
+      80
     ],
-    "vulnerable": [
-      "vulnerable_1",
-      "vulnerable_2"
-    ],
-    "hurt": [
-      "hurt"
-    ],
-    "defeated": [
-      "defeated"
+    "reactor_rect": [
+      62,
+      49,
+      23,
+      19
     ]
-  }
+  },
+  "frames": {
+    "idle": {
+      "file": "idle.png",
+      "sha256": "e5aa98b55d761de1d1ea4959e025ff51b7ac310a434752da6eab537d4da0918c"
+    },
+    "attack": {
+      "file": "attack.png",
+      "sha256": "1e607d90a4c4a54bf386c0b24b1d4981a6d8f87e99ab8173958a81fc3fb0eddf"
+    },
+    "exposed": {
+      "file": "exposed.png",
+      "sha256": "f88ac427ed68d7321222d205ceb2f60b9a67f0b111c2707ff6ed0102a92cf1e7"
+    },
+    "wreck": {
+      "file": "wreck.png",
+      "sha256": "d54d7e427dfd3632e94522fac21bdced7d2bfd935600c9f0483bfdf483ca4f6f"
+    }
+  },
+  "coverage": "four key poses: idle, attack, exposed, wreck; not eleven new animation frames"
 }

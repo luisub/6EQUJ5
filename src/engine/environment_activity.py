@@ -15,7 +15,7 @@ class ServiceTraffic:
         self.right = self.left = None
         if asset_root is None:
             return
-        path = Path(asset_root) / "environments/ohio_salvage_v1/wagon_168x76_rgba.png"
+        path = Path(asset_root) / "environments/ohio/salvage_yard/wagon.png"
         try:
             image = pygame.image.load(str(path)).convert_alpha()
             self.left = pygame.transform.scale(image, (72, 33))

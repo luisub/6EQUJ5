@@ -5,6 +5,7 @@ HOW TO MODIFY: Keep temporary assets, rollback, corruption and fallback checks.
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -146,10 +147,10 @@ def test_temp_transaction_rolls_back_when_manifest_promotion_fails(setup, monkey
 def test_symlink_target_and_archive_inside_root_are_rejected(setup):
     root, source = setup
     outside = root.parent / 'outside'; outside.mkdir()
-    (root / 'effects').mkdir(); (root / 'effects' / 'energy_filament_v1').symlink_to(outside, target_is_directory=True)
+    (root / 'effects').mkdir(); (root / FAMILY).symlink_to(outside, target_is_directory=True)
     with pytest.raises(ValueError, match='[Ss]ymlink'):
         build_energy_stream.build(source, {'source':'test fixture'}, assets_dir=root)
-    (root / 'effects' / 'energy_filament_v1').unlink()
+    (root / FAMILY).unlink()
     with pytest.raises(ValueError, match='outside'):
         build_energy_stream.build(source, {'source':'test fixture'}, assets_dir=root, archive_dir=root/'archive')
 
@@ -175,72 +176,22 @@ def test_invalid_provenance_never_stages_files(setup):
     assert not (root / FAMILY).exists()
 
 
-def test_v2_promotion_is_additive_and_loader_prefers_then_falls_back(setup, display):
-    from video_game.engine.energy_stream_assets import FAMILY_V2, load_energy_filament_with_family
+
+@pytest.mark.parametrize("retired_name", ["energy_filament_v1", "energy_filament_v2"])
+@pytest.mark.parametrize("defect", ["missing", "corrupt"])
+def test_only_canonical_family_is_loaded(setup, display, retired_name, defect):
+    from video_game.engine.energy_stream_assets import load_energy_filament_with_family
     root, source = setup
-    build_energy_stream.build(source, {'source': 'v1 fixture'}, assets_dir=root, promote=True)
-    old_image = (root / FAMILY / IMAGE_NAME).read_bytes()
-    old_manifest = (root / FAMILY / 'manifest.json').read_bytes()
-    first, family = load_energy_filament_with_family(root)
-    assert first is not None and family == FAMILY
-    second_source = root.parent / 'source_v2.png'
-    image = Image.open(source).convert('RGBA')
-    ImageDraw.Draw(image).line((4, 12, 88, 12), fill=(255, 220, 180, 253), width=2)
-    image.save(second_source)
-    result = build_energy_stream.build(second_source, {'source': 'v2 fixture'}, assets_dir=root,
-                                       promote=True, version=2)
-    assert result['status'] == 'promoted'
-    assert (root / FAMILY / IMAGE_NAME).read_bytes() == old_image
-    assert (root / FAMILY / 'manifest.json').read_bytes() == old_manifest
-    second, family = load_energy_filament_with_family(root)
-    assert family == FAMILY_V2 and second is not None
-    assert second.get_at((20, 12)) != first.get_at((20, 12))
-    (root / FAMILY_V2 / IMAGE_NAME).write_bytes(b'corrupt')
-    fallback, family = load_energy_filament_with_family(root)
-    assert family == FAMILY and fallback is not None
-    assert fallback.get_at((20, 12)) == first.get_at((20, 12))
-    assert (root / FAMILY / IMAGE_NAME).read_bytes() == old_image
-
-
-@pytest.mark.parametrize('bad_version', [0, 3, True, '2', None])
-def test_builder_rejects_unlisted_family_versions(setup, bad_version):
-    root, source = setup
-    with pytest.raises(ValueError, match='version'):
-        build_energy_stream.build(source, {'source': 'test fixture'}, assets_dir=root,
-                                  promote=True, version=bad_version)
-    assert not (root / 'effects').exists()
-
-
-def test_v2_manifest_last_rollback_and_v1_remains_unchanged(setup, monkeypatch):
-    from video_game.engine.energy_stream_assets import FAMILY_V2
-    root, source = setup
-    build_energy_stream.build(source, {'source': 'v1 fixture'}, assets_dir=root, promote=True)
-    old_image = (root / FAMILY / IMAGE_NAME).read_bytes()
-    old_manifest = (root / FAMILY / 'manifest.json').read_bytes()
-    original = asset_transactions.os.replace
-    def fail_manifest(src, dst):
-        if Path(dst) == root / FAMILY_V2 / 'manifest.json':
-            raise OSError('v2 manifest failure')
-        return original(src, dst)
-    monkeypatch.setattr(asset_transactions.os, 'replace', fail_manifest)
-    with pytest.raises(OSError, match='v2 manifest failure'):
-        build_energy_stream.build(source, {'source': 'v2 fixture'}, assets_dir=root,
-                                  promote=True, version=2)
-    assert not (root / FAMILY_V2 / IMAGE_NAME).exists()
-    assert not (root / FAMILY_V2 / 'manifest.json').exists()
-    assert (root / FAMILY / IMAGE_NAME).read_bytes() == old_image
-    assert (root / FAMILY / 'manifest.json').read_bytes() == old_manifest
-    assert not (root.parent / '.assets-asset-build-pending.json').exists()
-
-
-def test_v2_symlink_rejected_without_touching_v1(setup):
-    from video_game.engine.energy_stream_assets import FAMILY_V2
-    root, source = setup
-    build_energy_stream.build(source, {'source': 'v1 fixture'}, assets_dir=root, promote=True)
-    original = (root / FAMILY / IMAGE_NAME).read_bytes()
-    outside = root.parent / 'outside-v2'; outside.mkdir()
-    (root / FAMILY_V2).symlink_to(outside, target_is_directory=True)
-    with pytest.raises(ValueError, match='[Ss]ymlink'):
-        build_energy_stream.build(source, {'source': 'v2 fixture'}, assets_dir=root,
-                                  promote=True, version=2)
-    assert (root / FAMILY / IMAGE_NAME).read_bytes() == original
+    build_energy_stream.build(source, {"source": "canonical fixture"}, assets_dir=root, promote=True)
+    image, family = load_energy_filament_with_family(root)
+    assert image is not None and family == FAMILY
+    assert family == Path("effects/energy_filament")
+    retired = root / "effects" / retired_name
+    shutil.copytree(root / FAMILY, retired)
+    active = root / FAMILY / IMAGE_NAME
+    if defect == "missing":
+        active.unlink()
+    else:
+        active.write_bytes(b"corrupt")
+    assert load_energy_filament_with_family(root) == (None, None)
+    assert (retired / IMAGE_NAME).read_bytes() == source.read_bytes()

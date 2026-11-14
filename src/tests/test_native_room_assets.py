@@ -10,14 +10,15 @@ from pathlib import Path
 import pygame
 import pytest
 from video_game.engine import config
-from video_game.engine.native_room_assets import NativeApproachFamily, load_approach_family
+from video_game.engine.native_room_assets import NativeApproachFamily, load_native_room_family
 from video_game.engine.save_game import SaveStore
 from video_game.engine.settings import SettingsStore
 from video_game.engine.state_machine import GameStateMachine
 from video_game.engine.crt_renderer import CRTRenderer
 from video_game.engine.assets import AssetCache
 from video_game.engine.world import Camera
-from video_game.tools.build_approach_family import build_family
+from video_game.tools.build_room_family import build_family
+from video_game.engine.room_art_contracts import family_directory, manifest_template
 
 
 @pytest.fixture
@@ -34,47 +35,48 @@ def family_root(tmp_path, display):
     world=pygame.Surface((1920,576),pygame.SRCALPHA);world.fill((0,0,0,0));pygame.draw.rect(world,(11,225,33,255),(400,120,20,20))
     world.set_at((300,490),(11,225,33,255));world.set_at((10,10),(11,225,33,255))
     fs=tmp_path/'source_far.png';ws=tmp_path/'source_world.png';pygame.image.save(far,str(fs));pygame.image.save(world,str(ws))
-    result=build_family(assets_dir=root, archive_dir=tmp_path/'archive',far=fs,world=ws,promote=True)
+    prop=tmp_path/'equipment.png'; image=pygame.Surface((112,64),pygame.SRCALPHA);image.set_at((0,0),(10,20,30,255));pygame.image.save(image,str(prop))
+    result=build_family('ohio_approach_v2', assets_dir=root, archive_dir=tmp_path/'archive',far=fs,world=ws,props=[prop],promote=True)
     assert result['status']=='promoted'
     return root
 
 
 def test_builder_promoted_fixture_loads_exact_validated_family(family_root):
-    family=load_approach_family(family_root,'act_01_approach',(960,288))
+    family=load_native_room_family(family_root,'act_01_approach',(960,288))
     assert family is not None
     assert family.far.get_size()==(1152,544) and family.world.get_size()==(1920,576)
-    assert load_approach_family(family_root,'act_01_salvage_yard',(960,288)) is None
-    assert load_approach_family(family_root,'act_01_approach',(640,288)) is None
+    assert load_native_room_family(family_root,'act_01_salvage_yard',(960,288)) is None
+    assert load_native_room_family(family_root,'act_01_approach',(640,288)) is None
 
 
 def test_invalid_partial_pending_and_symlink_fall_back_whole_family(family_root, tmp_path, caplog):
-    base=family_root/'environments/ohio_approach_v1'; manifest=base/'manifest.json';old=manifest.read_bytes();data=json.loads(old)
+    base=family_root/family_directory('ohio_approach_v2'); manifest=base/'manifest.json';old=manifest.read_bytes();data=json.loads(old)
     data['layers'][1]['file']='../escape.png';manifest.write_text(json.dumps(data))
     with caplog.at_level(logging.WARNING):
-        assert load_approach_family(family_root,'act_01_approach',(960,288)) is None
+        assert load_native_room_family(family_root,'act_01_approach',(960,288)) is None
     assert 'fallback' in caplog.text.lower()
     for mutate in ('density','dimensions'):
         data=json.loads(old)
         if mutate=='density': data['density']=3
         else: data['layers'][1]['dimensions']=[1919,576]
         manifest.write_text(json.dumps(data))
-        assert load_approach_family(family_root,'act_01_approach',(960,288)) is None
+        assert load_native_room_family(family_root,'act_01_approach',(960,288)) is None
     manifest.write_bytes(old)
-    far=base/'far_1152x544.png'; payload=far.read_bytes();far.write_bytes(payload+b'bad')
-    assert load_approach_family(family_root,'act_01_approach',(960,288)) is None
+    far=base/'../shared/far.png'; payload=far.read_bytes();far.write_bytes(payload+b'bad')
+    assert load_native_room_family(family_root,'act_01_approach',(960,288)) is None
     far.write_bytes(payload)
-    world=base/'world_architecture_1920x576.png'; original=world.read_bytes();world.unlink()
-    assert load_approach_family(family_root,'act_01_approach',(960,288)) is None
+    world=base/'world.png'; original=world.read_bytes();world.unlink()
+    assert load_native_room_family(family_root,'act_01_approach',(960,288)) is None
     substitute=tmp_path/'linked.png';substitute.write_bytes(original);world.symlink_to(substitute)
-    assert load_approach_family(family_root,'act_01_approach',(960,288)) is None
+    assert load_native_room_family(family_root,'act_01_approach',(960,288)) is None
     world.unlink();world.write_bytes(original)
     journal=family_root.parent/f'.{family_root.name}-asset-build-pending.json';journal.write_text('{}')
-    assert load_approach_family(family_root,'act_01_approach',(960,288)) is None
-    journal.unlink(); assert load_approach_family(family_root,'act_01_approach',(960,288)) is not None
+    assert load_native_room_family(family_root,'act_01_approach',(960,288)) is None
+    journal.unlink(); assert load_native_room_family(family_root,'act_01_approach',(960,288)) is not None
     # Even a correctly hashed all-opaque world image is not this layered contract.
     opaque=pygame.Surface((1920,576),pygame.SRCALPHA);opaque.fill((1,2,3,255));pygame.image.save(opaque,str(world))
     data=json.loads(old);data['layers'][1]['sha256']=hashlib.sha256(world.read_bytes()).hexdigest();manifest.write_text(json.dumps(data))
-    assert load_approach_family(family_root,'act_01_approach',(960,288)) is None
+    assert load_native_room_family(family_root,'act_01_approach',(960,288)) is None
 
 
 def test_fractional_camera_quantization_coverage_and_atomic_fallback(display):
@@ -124,7 +126,7 @@ def test_actual_field_native_order_and_room_change_fallback(family_root, tmp_pat
     game=GameStateMachine(CRTRenderer(scale=1),save_store=SaveStore(tmp_path/'save'),settings_store=SettingsStore(tmp_path/'save'))
     try:
         game.start_new_game();game.change_state(config.STATE_FIELD_OPS);field=game.current_scene
-        field.native_approach=load_approach_family(family_root,'act_01_approach',(960,288))
+        field.native_approach=load_native_room_family(family_root,'act_01_approach',(960,288))
         monkeypatch.setattr(field.room,'render_weather',lambda *args:None)
         field.camera.x=0;field.camera.y=0;field.prompt_text='';game.render()
         # Native 1px checker survives; world alpha is above far in the same scene.
@@ -139,7 +141,7 @@ def test_actual_field_native_order_and_room_change_fallback(family_root, tmp_pat
         assert field.native_approach is None
         field.load_room('act_01/approach.json',spawn_name='bunker_exit')
         assert field.native_approach is not None
-        world=family_root/'environments/ohio_approach_v1/world_architecture_1920x576.png'
+        world=family_root/family_directory('ohio_approach_v2')/'world.png'
         original=world.read_bytes();world.write_bytes(original+b'corrupt')
         field.load_room('act_01/approach.json',spawn_name='bunker_exit')
         assert field.native_approach is None
@@ -157,7 +159,7 @@ def test_actual_field_native_order_and_room_change_fallback(family_root, tmp_pat
 
 def test_configured_root_new_bunker_reentry_and_continue(family_root, tmp_path):
     shutil.copytree(config.ASSETS_DIR, family_root, dirs_exist_ok=True,
-                    ignore=shutil.ignore_patterns('ohio_approach_v1'))
+                    ignore=shutil.ignore_patterns('approach', 'shared'))
     save=tmp_path/'save_route'
     first=GameStateMachine(CRTRenderer(scale=1),save_store=SaveStore(save),settings_store=SettingsStore(save))
     try:
@@ -181,8 +183,8 @@ def test_configured_root_new_bunker_reentry_and_continue(family_root, tmp_path):
 def _make_v2_family(root, family_id):
     from video_game.engine.room_art_contracts import manifest_template
     doc = manifest_template(family_id)
-    base = root / 'environments' / family_id
-    base.mkdir(parents=True)
+    base = root / family_directory(family_id)
+    base.mkdir(parents=True, exist_ok=True)
     for item in doc['layers'] + doc['props']:
         image = pygame.Surface(item['dimensions'], pygame.SRCALPHA)
         if item['id'] == 'far':
@@ -191,13 +193,14 @@ def _make_v2_family(root, family_id):
             image.fill((0, 0, 0, 0))
             image.set_at((0, 0), (200, 30, 40, 255))
         path = base / item['file']
+        path.parent.mkdir(parents=True, exist_ok=True)
         pygame.image.save(image, str(path))
         item['sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
     (base / 'manifest.json').write_text(json.dumps(doc))
     return base, doc
 
 
-def test_schema2_registered_props_and_full_fallback(family_root):
+def test_registered_props_and_corrupt_canonical_family_are_atomic(family_root):
     from video_game.engine.native_room_assets import load_native_room_family
     base, doc = _make_v2_family(family_root, 'ohio_approach_v2')
     family = load_native_room_family(family_root, 'act_01_approach', (960, 288))
@@ -207,10 +210,11 @@ def test_schema2_registered_props_and_full_fallback(family_root):
     assert family.world.get_at((1609, 416)).a == 0
     source = base / doc['props'][0]['file']
     assert hashlib.sha256(source.read_bytes()).hexdigest() == doc['props'][0]['sha256']
-    # The installed v1 remains intact when ANY part of v2 is invalid.
+    # A retired versioned copy cannot rescue a damaged active family.
+    retired = family_root / 'environments/ohio_approach_v2'
+    shutil.copytree(base, retired)
     source.write_bytes(source.read_bytes() + b'corrupt')
-    fallback = load_native_room_family(family_root, 'act_01_approach', (960, 288))
-    assert fallback is not None and fallback.world.get_at((1608, 416)).a == 0
+    assert load_native_room_family(family_root, 'act_01_approach', (960, 288)) is None
     journal = family_root.parent / f'.{family_root.name}-asset-build-pending.json'
     journal.write_text('{}')
     assert load_native_room_family(family_root, 'act_01_approach', (960, 288)) is None
@@ -250,7 +254,7 @@ def test_generic_builder_to_actual_field_room_routes(tmp_path, display, monkeypa
     source_root = tmp_path / 'source'; source_root.mkdir()
     root = tmp_path / 'assets'
     shutil.copytree(config.ASSETS_DIR, root, ignore=shutil.ignore_patterns(
-        'ohio_approach_v1', 'ohio_approach_v2', 'ohio_salvage_v1', 'ohio_dish_v1'))
+        'approach', 'salvage_yard', 'dish', 'arena', 'shared'))
     cases = [
         ('ohio_approach_v2', 'act_01/approach.json', 'bunker_exit'),
         ('ohio_salvage_v1', 'act_01/salvage_yard.json', 'yard_entrance'),
@@ -313,7 +317,7 @@ def test_arena_native_loader_reentry_and_full_fallback(tmp_path, display, monkey
     from video_game.tools.build_room_family import build_family as build_room_family
     source_root = tmp_path/'source'; source_root.mkdir()
     source, doc = _make_v2_family(source_root, 'ohio_arena_v1')
-    root = tmp_path/'assets'; shutil.copytree(config.ASSETS_DIR,root,ignore=shutil.ignore_patterns('ohio_arena_v1'))
+    root = tmp_path/'assets'; shutil.copytree(config.ASSETS_DIR,root,ignore=shutil.ignore_patterns('approach', 'salvage_yard', 'dish', 'arena', 'shared'))
     build_room_family('ohio_arena_v1',assets_dir=root,archive_dir=tmp_path/'archive',
                       far=source/doc['layers'][0]['file'],world=source/doc['layers'][1]['file'],props=[],promote=True)
     game=GameStateMachine(CRTRenderer(scale=1),save_store=SaveStore(tmp_path/'save'),settings_store=SettingsStore(tmp_path/'save'))
@@ -324,14 +328,14 @@ def test_arena_native_loader_reentry_and_full_fallback(tmp_path, display, monkey
         with monkeypatch.context() as patch:
             original_open=Path.open
             def no_family_read(path, *args, **kwargs):
-                if path.is_relative_to(root/'environments/ohio_arena_v1'):
+                if path.is_relative_to(root/family_directory('ohio_arena_v1')):
                     pytest.fail('frame family asset read')
                 return original_open(path, *args, **kwargs)
             patch.setattr(Path,'open',no_family_read)
             patch.setattr(pygame.image,'load',lambda *a,**kw: pytest.fail('frame image load'))
             game.render()
         game.change_state(config.STATE_BUNKER_HUB)
-        world=root/'environments/ohio_arena_v1/world_1280x576.png';old=world.read_bytes();world.write_bytes(old+b'bad')
+        world=root/family_directory('ohio_arena_v1')/'world.png';old=world.read_bytes();world.write_bytes(old+b'bad')
         game.change_state(config.STATE_BOSS_BOUNTY); assert game.current_scene.native_room is None
         game.render()
         game.change_state(config.STATE_BUNKER_HUB);world.write_bytes(old)

@@ -14,7 +14,7 @@ from video_game.engine.asset_transactions import fcntl, promote_group
 from video_game.engine.config import ASSETS_DIR
 from video_game.engine.planet_threat_assets import (THREAT_IDS, FAMILY_ROOT, IMAGE_NAME,
                                                    DIMENSIONS, PIVOT, validate_planet_threat_bytes)
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks
 
 
 def build(art_id, source, provenance, *, assets_dir=ASSETS_DIR, archive_dir=None, promote=False):

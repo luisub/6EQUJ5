@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "room_id": "act_01_ohio_campus",
+  "density": 2,
+  "viewport": [
+    480,
+    270
+  ],
+  "world": [
+    1280,
+    288
+  ],
+  "layers": [
+    {
+      "id": "far",
+      "file": "far.png",
+      "dimensions": [
+        1152,
+        544
+      ],
+      "parallax": [
+        0.1,
+        0.05
+      ],
+      "rounding": "native_nearest",
+      "alpha": "opaque",
+      "repeat": false,
+      "origin": [
+        0,
+        0
+      ],
+      "sha256": "201353a9d2be77ad7f583e800e88baada55bdcc94702875caae3ec3b5fdc4e7a"
+    },
+    {
+      "id": "world",
+      "file": "world.png",
+      "dimensions": [
+        2560,
+        576
+      ],
+      "parallax": [
+        1,
+        1
+      ],
+      "rounding": "logical_nearest",
+      "alpha": "straight",
+      "repeat": false,
+      "origin": [
+        0,
+        0
+      ],
+      "sha256": "8b3f82966bbed8df0399ce7ec185f94cf7846063b7fa0adf2ceb5a65d2a0362c"
+    }
+  ],
+  "props": []
+}

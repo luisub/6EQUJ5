@@ -248,10 +248,10 @@ def test_missing_or_invalid_required_assets_are_actionable(tmp_path, monkeypatch
 
     asset_root = tmp_path / "assets"
     shutil.copytree(config.ASSETS_DIR, asset_root)
-    missing = asset_root / "bunker/03_equipment.png"
+    missing = asset_root / "environments/ohio/bunker/foreground.png"
     missing.unlink()
     monkeypatch.setattr(config, "ASSETS_DIR", asset_root)
-    with pytest.raises(AssetLoadError, match="03_equipment.png"):
+    with pytest.raises(AssetLoadError, match="foreground.png"):
         run_game(max_frames=1)
     assert not pygame.get_init()
     manifest = asset_root / "civilizations/manifest.json"

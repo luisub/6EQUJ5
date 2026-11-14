@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/media/readme/title-art.png" alt="6EQUJ5: The Fermi Override — promotional key art with an observatory, a lone explorer and a cyan signal crossing a violet alien landscape" width="100%">
+  <img src="src/assets/ui/title_banner.png" alt="6EQUJ5: The Fermi Override — promotional key art with an observatory, a lone explorer and a cyan signal crossing a violet alien landscape" width="100%">
 </p>
 
 <h1 align="center">6EQUJ5: The Fermi Override</h1>
@@ -194,7 +194,7 @@ All eleven signal worlds now have their own panoramic backgrounds and guardian a
 
 Mateo's airborne fall pose currently lacks a visible gun and can show a gap to the firing effect. Headless checks do not establish native display performance, physical-controller compatibility, audible quality or a human full-game playthrough.
 
-For progress and verification limits, see [current state](docs/planning/CURRENT_STATE.md), the [content plan](docs/planning/CONTENT_PLAN.md) and the [separation report](docs/migration/REPORT.md).
+For progress and verification limits, see [current state](docs/planning/CURRENT_STATE.md), the [content plan](docs/planning/CONTENT_PLAN.md) and the [repository audit](docs/maintenance/REPOSITORY_AUDIT.md).
 
 The flat `src/` directory is installed as the `video_game` Python package. Runtime `assets/` and `data/` travel with the package; `src/tools/`, `docs/` and `src/art/` are development material. Maintained tests and their fixtures live in `src/tests/`.
 
@@ -205,7 +205,7 @@ SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy SIX_GAME_SAVE_DIR="$(mktemp -d)" .ve
 .venv/bin/python -m pip wheel --no-deps . -w dist
 ```
 
-The known missing legacy portrait rebuild input and intermittent render-budget failure remain covered by their original assertions. See the [repository audit and directory tree](docs/maintenance/REPOSITORY_AUDIT.md), [contributor instructions](docs/CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md), [asset guide](docs/ASSETS.md) and [developer tools](src/tools/README.md).
+Runtime artwork is organized by location and asset type; duplicate and obsolete exports are archived. The field-scene timing budget remains under review. See the [repository audit and directory tree](docs/maintenance/REPOSITORY_AUDIT.md), [contributor instructions](docs/CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md), [asset guide](docs/ASSETS.md) and [developer tools](src/tools/README.md).
 
 </details>
 

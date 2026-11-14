@@ -301,7 +301,7 @@ def test_planet_image_and_asymmetric_collision_bounds_mirror_for_leftward_pass(t
 def test_wagon_remains_in_original_left_facing_orientation(display):
     room=flat_room('act_01_perimeter_road');room.act_id='act_01'
     hazard=WorldHazards(ASSETS_DIR,room,config('earth_wagon','ohio_wagon'))
-    source=pygame.image.load(str(ASSETS_DIR/'environments/ohio_salvage_v1/wagon_168x76_rgba.png')).convert_alpha()
+    source=pygame.image.load(str(ASSETS_DIR/'environments/ohio/salvage_yard/wagon.png')).convert_alpha()
     expected=pygame.transform.scale(source,(144,66))
     assert pygame.image.tobytes(hazard.image,'RGBA')==pygame.image.tobytes(expected,'RGBA')
 

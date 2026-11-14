@@ -20,7 +20,7 @@ from video_game.engine.world import Camera, Room
 
 MAX_PARTICLES = 128
 MAX_BURSTS = 16
-MASER_FAMILY = Path('effects/maser_discharge_v2')
+MASER_FAMILY = Path('effects/maser_discharge')
 MASER_NAME = 'flash_64x32.png'
 MASER_SHA256 = '244482ae198b1aaa23f4bb225085d5e29e3a0123dec289fa3bc9d439d32db3bc'
 MASER_MANIFEST = {'schema_version': 1, 'file': MASER_NAME, 'sha256': MASER_SHA256,

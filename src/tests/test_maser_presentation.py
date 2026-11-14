@@ -147,6 +147,11 @@ def test_charged_release_pause_and_reset_on_actual_field(presentation, tmp_path,
         assert flash['is_charged'] and flash['maser_presentation']
         assert flash['aim_vector'] == (scene.projectile_manager.projectiles[-1].dir_x,
                                         scene.projectile_manager.projectiles[-1].dir_y)
+        # Scene music preloads on its worker; this assertion concerns warmed rendering.
+        music_worker = machine.audio._load_thread
+        if music_worker is not None:
+            music_worker.join(3)
+            assert not music_worker.is_alive(), 'music preload did not finish'
         with monkeypatch.context() as patch:
             patch.setattr(Path, 'read_bytes', lambda *_: pytest.fail('per-frame asset read'))
             patch.setattr(Path, 'read_text', lambda *_args, **_kwargs: pytest.fail('per-frame manifest read'))

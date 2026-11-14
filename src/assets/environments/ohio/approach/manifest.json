@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "room_id": "act_01_approach",
+  "density": 2,
+  "viewport": [
+    480,
+    270
+  ],
+  "world": [
+    960,
+    288
+  ],
+  "layers": [
+    {
+      "id": "far",
+      "file": "../shared/far.png",
+      "dimensions": [
+        1152,
+        544
+      ],
+      "parallax": [
+        0.1,
+        0.05
+      ],
+      "rounding": "native_nearest",
+      "alpha": "opaque",
+      "repeat": false,
+      "origin": [
+        0,
+        0
+      ],
+      "sha256": "f57b938219cb4d228ad3f6339a854b2cc770bf15b97bdb36f83a1df31997718e"
+    },
+    {
+      "id": "world",
+      "file": "world.png",
+      "dimensions": [
+        1920,
+        576
+      ],
+      "parallax": [
+        1,
+        1
+      ],
+      "rounding": "logical_nearest",
+      "alpha": "straight",
+      "repeat": false,
+      "origin": [
+        0,
+        0
+      ],
+      "sha256": "cffef0606db604f55a5821a3a8cce467dbd32b2efda80cfb22183d167398e4e3"
+    }
+  ],
+  "props": [
+    {
+      "id": "equipment",
+      "file": "equipment.png",
+      "dimensions": [
+        112,
+        64
+      ],
+      "origin_world": [
+        804,
+        208
+      ],
+      "alpha": "straight",
+      "placement": "after_world_before_tiles",
+      "collision": "none",
+      "sha256": "0c8431ad457f575f50288811b1468d5c3b26f6f31668cea510eab2d67aee3476"
+    }
+  ]
+}

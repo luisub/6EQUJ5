@@ -27,7 +27,7 @@ COLLISION_NAMES = {
     COLLISION_COVER: "COVER",
 }
 
-ENV_ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets" / "environments" / "ohio"
+ENV_ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets" / "environments" / "ohio" / "shared"
 _ENV_CACHE: Dict[str, Optional[pygame.Surface]] = {}
 _TILE_RECTS = [[pygame.Rect(col * 16, row * 16, 16, 16) for row in range(8)] for col in range(16)]
 _AIRLOCK_LABEL_SURF: Optional[pygame.Surface] = None
@@ -45,11 +45,8 @@ def get_airlock_label_surf() -> pygame.Surface:
 def preload_env_assets():
     """Warm up all environment textures into memory to prevent first-frame render stalls."""
     for asset_name in (
-        "tileset_ohio_16x16.png",
-        "bg_ohio_sky_twilight.png",
-        "bg_ohio_treeline_fence.png",
-        "bg_ohio_dish_lattice.png",
-        "weather_ohio_mist.png",
+        "tileset.png",
+        "mist.png",
     ):
         get_env_asset(asset_name)
 
@@ -550,65 +547,31 @@ class Room:
         return False
 
     def render_background(self, surface: pygame.Surface, camera: Camera):
-        """Render multi-layer parallax background."""
-        sky = get_env_asset("bg_ohio_sky_twilight.png")
-        fence = get_env_asset("bg_ohio_treeline_fence.png")
-        dish = get_env_asset("bg_ohio_dish_lattice.png")
+        """Draw a quiet procedural fallback when canonical room artwork is unavailable."""
+        # Procedural fallback
+        surface.fill((10, 16, 24))
+        sky_offset_x = int(camera.x * 0.15)
+        tower_x = (240 - sky_offset_x) % 600 - 60
+        tower_color = (14, 22, 32)
+        pygame.draw.line(surface, tower_color, (tower_x, 30), (tower_x, 240), 2)
+        pygame.draw.line(surface, tower_color, (tower_x - 14, 240), (tower_x + 14, 240), 2)
+        pygame.draw.line(surface, tower_color, (tower_x - 8, 120), (tower_x + 8, 120), 1)
+        pygame.draw.line(surface, tower_color, (tower_x - 12, 180), (tower_x + 12, 180), 1)
 
-        if sky is not None and fence is not None and dish is not None:
-            surf_w = surface.get_width()
-
-            # Layer 1: Distant Ohio twilight sky with blinking radio beacons (ratio 0.10, 0.05)
-            sky_w = sky.get_width()
-            sky_x = -int(camera.x * 0.10) % sky_w
-            sky_y = -int(camera.y * 0.05)
-            surface.blit(sky, (sky_x - sky_w, sky_y))
-            surface.blit(sky, (sky_x, sky_y))
-            if sky_x + sky_w < surf_w:
-                surface.blit(sky, (sky_x + sky_w, sky_y))
-
-            # Layer 2: Midground security perimeter chainlink fence and treeline (ratio 0.35, 0.15)
-            fence_w = fence.get_width()
-            fence_x = -int(camera.x * 0.35) % fence_w
-            fence_y = -int(camera.y * 0.15)
-            surface.blit(fence, (fence_x - fence_w, fence_y))
-            surface.blit(fence, (fence_x, fence_y))
-            if fence_x + fence_w < surf_w:
-                surface.blit(fence, (fence_x + fence_w, fence_y))
-
-            # Layer 3: Near-background Ohio Big Ear dish lattice space-frame (ratio 0.65, 0.25)
-            dish_w = dish.get_width()
-            dish_x = -int(camera.x * 0.65) % dish_w
-            dish_y = -int(camera.y * 0.25)
-            surface.blit(dish, (dish_x - dish_w, dish_y))
-            surface.blit(dish, (dish_x, dish_y))
-            if dish_x + dish_w < surf_w:
-                surface.blit(dish, (dish_x + dish_w, dish_y))
-        else:
-            # Procedural fallback
-            surface.fill((10, 16, 24))
-            sky_offset_x = int(camera.x * 0.15)
-            tower_x = (240 - sky_offset_x) % 600 - 60
-            tower_color = (14, 22, 32)
-            pygame.draw.line(surface, tower_color, (tower_x, 30), (tower_x, 240), 2)
-            pygame.draw.line(surface, tower_color, (tower_x - 14, 240), (tower_x + 14, 240), 2)
-            pygame.draw.line(surface, tower_color, (tower_x - 8, 120), (tower_x + 8, 120), 1)
-            pygame.draw.line(surface, tower_color, (tower_x - 12, 180), (tower_x + 12, 180), 1)
-
-            fence_offset_x = int(camera.x * 0.45)
-            wall_y = 210 - int(camera.y * 0.25)
-            pygame.draw.rect(surface, (16, 26, 22), (0, wall_y, surface.get_width(), surface.get_height() - wall_y))
-            for fx in range(- (fence_offset_x % 24), surface.get_width() + 24, 24):
-                pygame.draw.line(surface, (20, 36, 30), (fx, wall_y - 28), (fx, wall_y), 1)
-                pygame.draw.line(surface, (20, 36, 30), (fx, wall_y - 28), (fx + 24, wall_y), 1)
+        fence_offset_x = int(camera.x * 0.45)
+        wall_y = 210 - int(camera.y * 0.25)
+        pygame.draw.rect(surface, (16, 26, 22), (0, wall_y, surface.get_width(), surface.get_height() - wall_y))
+        for fx in range(- (fence_offset_x % 24), surface.get_width() + 24, 24):
+            pygame.draw.line(surface, (20, 36, 30), (fx, wall_y - 28), (fx, wall_y), 1)
+            pygame.draw.line(surface, (20, 36, 30), (fx, wall_y - 28), (fx + 24, wall_y), 1)
 
     def render_tiles(self, surface: pygame.Surface, camera: Camera, tileset_surf: Optional[pygame.Surface] = None):
         """
         Render visible collision tiles and blocks.
-        Supports modular 16x16 pixel-art tiles from tileset_ohio_16x16.png
+        Supports modular 16x16 pixel-art tiles from ohio/shared/tileset.png
         with contextual edge selection, autotiling, and clean procedural fallback.
         """
-        ts = tileset_surf or get_env_asset("tileset_ohio_16x16.png")
+        ts = tileset_surf or get_env_asset("tileset.png")
         min_col, max_col, min_row, max_row = camera.get_visible_tile_range(self.tile_size)
 
         for r in range(min_row, max_row):
@@ -714,7 +677,7 @@ class Room:
 
     def render_weather(self, surface: pygame.Surface, camera: Camera, anim_time: float = 0.0):
         """Render atmospheric autumn weather mist overlay."""
-        mist = get_env_asset("weather_ohio_mist.png")
+        mist = get_env_asset("mist.png")
         if mist is not None:
             mist_w = mist.get_width()
             mist_x = -int(camera.x * 0.85 + anim_time * 16.0) % mist_w
@@ -735,7 +698,7 @@ class Room:
 
     def render_objects(self, surface: pygame.Surface, camera: Camera):
         """Render level props, terminals, airlock doors, and antenna masts."""
-        ts = get_env_asset("tileset_ohio_16x16.png")
+        ts = get_env_asset("tileset.png")
 
         for obj in self.objects:
             if not obj.is_active_in_timeline(self.active_timeline):

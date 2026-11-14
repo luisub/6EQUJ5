@@ -22,6 +22,6 @@ Start with [current state](CURRENT_STATE.md), the [roadmap](TODO_ROADMAP.md) and
 
 Older plans describe the former combined repository, live AI and proposed modules that may not exist. Use the current code, [architecture](../ARCHITECTURE.md) and separation record to resolve those differences. Historical reports do not establish current test results.
 
-Paths in current documentation are relative to this repository unless stated otherwise. Archived `video_game/` paths refer to the layout before separation; use the [archive manifest](../migration/archive-manifest.json) to locate preserved material.
+Paths in current documentation are relative to this repository unless stated otherwise. Archived `video_game/` paths refer to the layout before separation; use the [archive manifest](../maintenance/archive-manifest.json) to locate preserved material.
 
 Implemented features still require their stated gameplay, art, audio and native-performance checks before a release is accepted. Windows and Linux support remains unverified until exercised on those platforms.

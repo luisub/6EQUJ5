@@ -5,11 +5,29 @@ CALLED BY: CLI execution during build or asset verification.
 HOW TO MODIFY: Adjust palettes or pixel clusters; maintain zero wildcard imports.
 """
 
+import hashlib
+import io
 import json
 from pathlib import Path
 from PIL import Image, ImageDraw
 
 SPRITES_DIR = Path(__file__).resolve().parents[2] / "src" / "assets" / "sprites" / "enemies"
+
+
+_FRAME_EXPORTS = {}
+
+
+def save_frame(image, directory, filename):
+    """Write each unique frame once and retain its animation alias."""
+    stream = io.BytesIO()
+    image.save(stream, format="PNG")
+    data = stream.getvalue()
+    digest = hashlib.sha256(data).hexdigest()
+    exported = _FRAME_EXPORTS.setdefault(directory.name, {})
+    canonical = next((name for name, record in exported.items() if record[0] == digest), filename)
+    exported[filename] = (digest, canonical)
+    if canonical == filename:
+        (directory / filename).write_bytes(data)
 
 
 def create_frame(w: int, h: int, draw_fn) -> Image.Image:
@@ -23,6 +41,7 @@ def create_frame(w: int, h: int, draw_fn) -> Image.Image:
 def generate_core_enforcer():
     out_dir = SPRITES_DIR / "core_enforcer"
     out_dir.mkdir(parents=True, exist_ok=True)
+    _FRAME_EXPORTS[out_dir.name] = {}
     w, h = 24, 32
 
     # Colors
@@ -60,18 +79,19 @@ def generate_core_enforcer():
             draw.rectangle([17, 12, 21, 20], fill=c_metal)
             draw.rectangle([18, 14, 22, 18], fill=c_armor_dark)
 
-    create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)).save(out_dir / "patrol_1.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, 1, False)).save(out_dir / "patrol_2.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, 0, True)).save(out_dir / "windup.png")
-    create_frame(w, h, lambda d, w, h: (draw_base(d, 0, True), d.line([(23, 11), (24, 11)], fill=c_eye))).save(out_dir / "attack.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)).save(out_dir / "recovery.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, -1, False, hurt=True)).save(out_dir / "hurt.png")
-    create_frame(w, h, lambda d, w, h: d.rectangle([4, 24, 20, 31], fill=c_armor_dark)).save(out_dir / "death.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)), out_dir, "patrol_1.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 1, False)), out_dir, "patrol_2.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 0, True)), out_dir, "windup.png")
+    save_frame(create_frame(w, h, lambda d, w, h: (draw_base(d, 0, True), d.line([(23, 11), (24, 11)], fill=c_eye))), out_dir, "attack.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)), out_dir, "recovery.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, -1, False, hurt=True)), out_dir, "hurt.png")
+    save_frame(create_frame(w, h, lambda d, w, h: d.rectangle([4, 24, 20, 31], fill=c_armor_dark)), out_dir, "death.png")
 
 
 def generate_core_operative():
     out_dir = SPRITES_DIR / "core_operative"
     out_dir.mkdir(parents=True, exist_ok=True)
+    _FRAME_EXPORTS[out_dir.name] = {}
     w, h = 20, 32
 
     c_suit = (40, 48, 56, 255)
@@ -100,18 +120,19 @@ def generate_core_operative():
         else:
             draw.rectangle([12, 12, 16, 18], fill=(20, 25, 30, 255))
 
-    create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)).save(out_dir / "patrol_1.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, 1, False)).save(out_dir / "patrol_2.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, 0, True)).save(out_dir / "windup.png")
-    create_frame(w, h, lambda d, w, h: (draw_base(d, 0, True), d.point((19, 11), fill=c_glow))).save(out_dir / "attack.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)).save(out_dir / "recovery.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, 0, False, hurt=True)).save(out_dir / "hurt.png")
-    create_frame(w, h, lambda d, w, h: d.rectangle([2, 26, 17, 31], fill=c_suit)).save(out_dir / "death.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)), out_dir, "patrol_1.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 1, False)), out_dir, "patrol_2.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 0, True)), out_dir, "windup.png")
+    save_frame(create_frame(w, h, lambda d, w, h: (draw_base(d, 0, True), d.point((19, 11), fill=c_glow))), out_dir, "attack.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 0, False)), out_dir, "recovery.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, 0, False, hurt=True)), out_dir, "hurt.png")
+    save_frame(create_frame(w, h, lambda d, w, h: d.rectangle([2, 26, 17, 31], fill=c_suit)), out_dir, "death.png")
 
 
 def generate_shield_hound():
     out_dir = SPRITES_DIR / "shield_hound"
     out_dir.mkdir(parents=True, exist_ok=True)
+    _FRAME_EXPORTS[out_dir.name] = {}
     w, h = 32, 24
 
     c_beast = (85, 55, 40, 255)
@@ -140,18 +161,19 @@ def generate_shield_hound():
         draw.line([(28, 5), (30, 5)], fill=c_phosphor)
         draw.line([(28, 15), (30, 15)], fill=c_phosphor)
 
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, False)).save(out_dir / "patrol_1.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, False)).save(out_dir / "patrol_2.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, True, False)).save(out_dir / "windup.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, True, True)).save(out_dir / "pounce.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, False)).save(out_dir / "recovery.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, False, hurt=True)).save(out_dir / "hurt.png")
-    create_frame(w, h, lambda d, w, h: d.rectangle([4, 18, 28, 23], fill=c_beast)).save(out_dir / "death.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, False)), out_dir, "patrol_1.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, False)), out_dir, "patrol_2.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, True, False)), out_dir, "windup.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, True, True)), out_dir, "pounce.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, False)), out_dir, "recovery.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, False, hurt=True)), out_dir, "hurt.png")
+    save_frame(create_frame(w, h, lambda d, w, h: d.rectangle([4, 18, 28, 23], fill=c_beast)), out_dir, "death.png")
 
 
 def generate_phase_watcher():
     out_dir = SPRITES_DIR / "phase_watcher"
     out_dir.mkdir(parents=True, exist_ok=True)
+    _FRAME_EXPORTS[out_dir.name] = {}
     w, h = 20, 36
 
     c_grey = (160, 170, 185, 255)
@@ -175,18 +197,19 @@ def generate_phase_watcher():
             # Psychic drain beam emitter focus
             draw.ellipse([8, 16, 11, 19], fill=(220, 160, 255, 255))
 
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_1.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_2.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "windup.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, True)).save(out_dir / "attack.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "recovery.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)).save(out_dir / "hurt.png")
-    create_frame(w, h, lambda d, w, h: d.ellipse([4, 28, 15, 35], fill=c_aura)).save(out_dir / "death.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_1.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_2.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "windup.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, True)), out_dir, "attack.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "recovery.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)), out_dir, "hurt.png")
+    save_frame(create_frame(w, h, lambda d, w, h: d.ellipse([4, 28, 15, 35], fill=c_aura)), out_dir, "death.png")
 
 
 def generate_chrysalis_splicer():
     out_dir = SPRITES_DIR / "chrysalis_splicer"
     out_dir.mkdir(parents=True, exist_ok=True)
+    _FRAME_EXPORTS[out_dir.name] = {}
     w, h = 28, 24
 
     c_chitin = (60, 70, 50, 255)
@@ -212,18 +235,19 @@ def generate_chrysalis_splicer():
         draw.line([(22, 10), (27, 8)], fill=c_acid if spit else c_chitin, width=1)
         draw.line([(22, 13), (27, 14)], fill=c_acid if spit else c_chitin, width=1)
 
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_1.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_2.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "windup.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, True)).save(out_dir / "attack.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "recovery.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)).save(out_dir / "hurt.png")
-    create_frame(w, h, lambda d, w, h: d.ellipse([4, 16, 23, 22], fill=c_chitin)).save(out_dir / "death.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_1.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_2.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "windup.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, True)), out_dir, "attack.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "recovery.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)), out_dir, "hurt.png")
+    save_frame(create_frame(w, h, lambda d, w, h: d.ellipse([4, 16, 23, 22], fill=c_chitin)), out_dir, "death.png")
 
 
 def generate_precursor_guardian():
     out_dir = SPRITES_DIR / "precursor_guardian"
     out_dir.mkdir(parents=True, exist_ok=True)
+    _FRAME_EXPORTS[out_dir.name] = {}
     w, h = 32, 40
 
     c_stone = (70, 75, 80, 255)
@@ -256,18 +280,19 @@ def generate_precursor_guardian():
             draw.rectangle([1, 14, 6, 26], fill=c_brass)
             draw.rectangle([26, 14, 31, 26], fill=c_brass)
 
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_1.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_2.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "windup.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, True)).save(out_dir / "attack.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "recovery.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)).save(out_dir / "hurt.png")
-    create_frame(w, h, lambda d, w, h: d.rectangle([4, 30, 28, 38], fill=c_stone_dark)).save(out_dir / "death.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_1.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_2.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "windup.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, True)), out_dir, "attack.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "recovery.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)), out_dir, "hurt.png")
+    save_frame(create_frame(w, h, lambda d, w, h: d.rectangle([4, 30, 28, 38], fill=c_stone_dark)), out_dir, "death.png")
 
 
 def generate_temporal_phantom():
     out_dir = SPRITES_DIR / "temporal_phantom"
     out_dir.mkdir(parents=True, exist_ok=True)
+    _FRAME_EXPORTS[out_dir.name] = {}
     w, h = 24, 32
 
     c_amber = (230, 160, 40, 220)
@@ -288,13 +313,13 @@ def generate_temporal_phantom():
         draw.line([(7, 26), (6, 31)], fill=c_amber)
         draw.line([(16, 26), (17, 31)], fill=c_amber)
 
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_1.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "patrol_2.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "windup.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, True)).save(out_dir / "attack.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False)).save(out_dir / "recovery.png")
-    create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)).save(out_dir / "hurt.png")
-    create_frame(w, h, lambda d, w, h: d.rectangle([6, 28, 17, 31], outline=c_amber)).save(out_dir / "death.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_1.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "patrol_2.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "windup.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, True)), out_dir, "attack.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False)), out_dir, "recovery.png")
+    save_frame(create_frame(w, h, lambda d, w, h: draw_base(d, False, hurt=True)), out_dir, "hurt.png")
+    save_frame(create_frame(w, h, lambda d, w, h: d.rectangle([6, 28, 17, 31], outline=c_amber)), out_dir, "death.png")
 
 
 def update_manifest():
@@ -354,6 +379,12 @@ def update_manifest():
                 }
             }
         }
+
+    for key, entry in enemies.items():
+        exported = _FRAME_EXPORTS.get(key, {})
+        for clip in entry["animations"].values():
+            clip["frames"] = [str(Path(frame).with_name(exported[Path(frame).name][1]))
+                              if Path(frame).name in exported else frame for frame in clip["frames"]]
 
     data["enemies"] = enemies
     manifest_path.write_text(json.dumps(data, indent=2), encoding="utf-8")

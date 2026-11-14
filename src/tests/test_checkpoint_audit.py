@@ -74,16 +74,16 @@ def test_art_milestone_1_asset_dimensions_and_locks():
         assert entry["authored_lock"] is True
         assert entry["status"] == "production_v2"
         assert entry["native_size"] == [128, 128]
-        for field in ("face_png", "env_png", "composite_png", "constellation_png"):
+        for field in ("face_png", "env_png", "constellation_png"):
             path = civ_dir / entry[field]
             assert path.resolve().is_relative_to(civ_dir.resolve()), f"Invalid path for {cid}: {path}"
             with Image.open(path) as image:
                 assert image.size == (128, 128), f"{cid} {field} must be 128x128"
 
-    bunker_dir = assets / "bunker"
-    bunker = json.loads((bunker_dir / "scene_manifest.json").read_text(encoding="utf-8"))
+    bunker_dir = assets / "environments/ohio/bunker"
+    bunker = json.loads((bunker_dir / "scene.json").read_text(encoding="utf-8"))
     assert bunker["canvas_size"] == [480, 270]
-    assert len(bunker["layers"]) == 6
+    assert bunker["layers"] == ["foreground.png", "lighting.png"]
     for layer in bunker["layers"]:
         path = bunker_dir / layer
         assert path.resolve().is_relative_to(bunker_dir.resolve()), f"Invalid layer path: {path}"
@@ -97,10 +97,7 @@ def test_art_milestone_1_asset_dimensions_and_locks():
         with Image.open(path) as image:
             assert image.size == size
     for relative, size in (
-        ("sprites/mateo_portrait_128x128.png", (128, 128)),
-        ("mateo_character_sheet.png", (1180, 520)),
-        ("palette_sheet.png", (480, 270)),
+        ("ui/palette_sheet.png", (480, 270)),
     ):
         with Image.open(assets / relative) as image:
             assert image.size == size
-    assert (assets / "before_after_comparison.png").exists()

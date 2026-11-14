@@ -17,7 +17,7 @@ from .settings import SettingsError, SettingsStore
 # Preserve the old state_machine imports while scenes move to their own modules.
 from .scenes.base import BaseScene
 from .scenes.title import TitleBootScene
-from .scenes.bunker import BunkerHubScene, LAYER_FILES, MILESTONE_CIVS
+from .scenes.bunker import BunkerHubScene, MILESTONE_CIVS
 from .scenes.terminal import CRTTerminalScene
 from .scenes.lab import ScienceLabScene
 from .scenes.field import FieldOpsScene

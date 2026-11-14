@@ -180,14 +180,14 @@ def test_selected_replacement_repairs_missing_related_output(asset_copy, tmp_pat
     assert next(entry for entry in record["files"] if entry["path"].endswith("fasr-001_constellation.png"))["existed"] is False
 
 
-def test_review_sheets_preserve_sources_and_are_stable(asset_copy, tmp_path):
+def test_palette_rebuild_preserves_other_assets_and_is_stable(asset_copy, tmp_path):
     before = hashes(asset_copy)
     archive = tmp_path / "archive"
     for _ in range(2):
-        build_assets.build_selected_groups(["review"], groups=["review"],
+        build_assets.build_selected_groups(["palette"], groups=["palette"],
                                            assets_dir=asset_copy, archive_dir=archive)
         after = hashes(asset_copy)
-        assert {path for path in before if before[path] != after[path]} <= set(build_assets.REVIEW_FILES)
+        assert {path for path in before if before[path] != after[path]} <= {"ui/palette_sheet.png"}
         if _ == 0:
             first = after
     assert after == first
@@ -224,57 +224,31 @@ def test_concurrent_builder_or_startup_is_rejected(asset_copy):
         os.close(descriptor)
 
 
-def test_bunker_layers_have_explicit_alpha_and_no_context_flags():
-    bunker_dir = build_assets.ASSETS_DIR / "bunker"
-    for name in ("01_distant_structure.png", "02_rear_wall.png", "03_equipment.png",
-                 "04_playable_floor.png", "05_foreground_props.png", "06_lighting_overlay.png"):
-        img = Image.open(bunker_dir / name)
-        assert img.size == (480, 270)
-        assert img.mode == "RGBA"
-        unique_alphas = {entry[1] for entry in img.getchannel("A").getcolors(65536)}
-        assert 254 not in unique_alphas, f"Layer {name} still contains legacy alpha=254 context flag"
-        if name == "01_distant_structure.png":
-            assert unique_alphas == {255}, "Layer 01 must be solid opaque base"
-        elif name in ("02_rear_wall.png", "03_equipment.png", "04_playable_floor.png", "05_foreground_props.png"):
-            assert unique_alphas == {0, 255}, f"Layer {name} must have binary alpha mask (0 or 255)"
-        elif name == "06_lighting_overlay.png":
-            assert 0 in unique_alphas, "Layer 06 must have transparent regions"
-            assert max(unique_alphas) <= 128, "Layer 06 light glow peaks must stay <= 128"
-            assert len(unique_alphas) > 20, "Layer 06 must provide smooth radial falloff"
+
+def test_bunker_overlays_preserve_alpha_and_runtime_canvas():
+    bunker_dir = build_assets.ASSETS_DIR / "environments/ohio/bunker"
+    for name in ("foreground.png", "lighting.png"):
+        with Image.open(bunker_dir / name) as image:
+            assert image.size == (480, 270) and image.mode == "RGBA"
+            values = {value for value, count in enumerate(image.getchannel("A").histogram()) if count}
+            assert 254 not in values
+            if name == "foreground.png":
+                assert values == {0, 255}
+            else:
+                assert 0 in values and max(values) <= 128 and len(values) > 20
 
 
-def test_bunker_tileset_has_no_border_seams():
-    tileset_path = build_assets.ASSETS_DIR / "bunker/tileset_bunker_16x16.png"
-    img = Image.open(tileset_path)
-    assert img.size == (128, 64)
-    # Check that tile 0 border does not have uniform artificial dark rectangle
-    border_pixels = [img.getpixel((x, 0)) for x in range(16)] + [img.getpixel((0, y)) for y in range(16)]
-    assert len(set(border_pixels)) > 3, "Tileset edges should not be an artificial single-color border"
-
-
-def test_bunker_inspection_previews_exist_and_match_canvas():
-    inspect_dir = build_assets.ASSETS_DIR / "bunker/inspection"
-    assert inspect_dir.is_dir()
-    for name in ("01_distant_structure_inspect.png", "02_rear_wall_inspect.png",
-                 "03_equipment_inspect.png", "04_playable_floor_inspect.png",
-                 "05_foreground_props_inspect.png", "06_lighting_overlay_inspect.png"):
-        img_path = inspect_dir / name
-        assert img_path.is_file(), f"Missing inspection preview: {name}"
-        img = Image.open(img_path)
-        assert img.size == (480, 270)
-
-
-def test_bunker_scene_manifest_has_layer_metadata():
-    manifest_path = build_assets.ASSETS_DIR / "bunker/scene_manifest.json"
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    assert "layer_metadata" in manifest
-    assert len(manifest["layer_metadata"]) == 6
-    for idx, layer in enumerate(manifest["layer_metadata"]):
-        assert layer["z_order"] == idx
-        assert layer["blend_mode"] == "alpha_composite"
-        assert "alpha_type" in layer
-        assert "role" in layer
-
+def test_bunker_scene_manifest_has_only_active_overlays_and_canonical_sprites():
+    directory = build_assets.ASSETS_DIR / "environments/ohio/bunker"
+    manifest = json.loads((directory / "scene.json").read_text())
+    assert manifest["canvas_size"] == [480, 270]
+    assert manifest["layers"] == ["foreground.png", "lighting.png"]
+    for key, size in (("mateo_idle", [48, 64]), ("mateo_bunker", [96, 128])):
+        entry = manifest[key]
+        assert entry["size"] == size
+        assert entry["file"].startswith("sprites/mateo/")
+        with Image.open(build_assets.ASSETS_DIR / entry["file"]) as image:
+            assert list(image.size) == size
 
 def test_mateo_sprite_manifest_validates_bounds_and_attachments():
     manifest_path = build_assets.ASSETS_DIR / "sprites/mateo/manifest.json"

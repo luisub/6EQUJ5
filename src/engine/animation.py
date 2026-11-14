@@ -12,6 +12,8 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import pygame
 
+from .native_room_assets import _inside_without_symlinks
+
 
 class AnimationClip:
     """Immutable metadata and loaded surface frames for a single animation state."""
@@ -261,7 +263,7 @@ def load_mateo_animations(
     if cache_key in _LOADED_ANIM_CACHE:
         return _LOADED_ANIM_CACHE[cache_key]
 
-    manifest_file = asset_root / "sprites" / "mateo" / "manifest.json"
+    manifest_file = _inside_without_symlinks(asset_root, Path("sprites/mateo/manifest.json"))
     if not manifest_file.is_file():
         raise FileNotFoundError(f"Missing Mateo animation manifest: {manifest_file}")
 
@@ -279,7 +281,12 @@ def load_mateo_animations(
     for anim_name, a_data in anim_entries.items():
         frames: List[pygame.Surface] = []
         for frame_rel in a_data.get("frames", []):
-            frame_path = asset_root / frame_rel
+            if not isinstance(frame_rel, str):
+                raise ValueError('Mateo frame path must be a string')
+            relative = Path(frame_rel)
+            if relative.is_absolute() or '..' in relative.parts or relative.parts[:2] != ('sprites', 'mateo'):
+                raise ValueError(f'Mateo frame must stay inside sprites/mateo: {frame_rel}')
+            frame_path = _inside_without_symlinks(asset_root, relative)
             if frame_path.is_file():
                 surf = pygame.image.load(str(frame_path)).convert_alpha()
                 frames.append(surf)

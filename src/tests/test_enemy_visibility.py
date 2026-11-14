@@ -2,6 +2,7 @@
 CALLED BY: pytest tests/test_enemy_visibility.py.
 HOW TO MODIFY: Preserve default pixels, caller coverage and cache lifecycle checks.
 """
+import json
 import pygame
 import pytest
 
@@ -97,6 +98,10 @@ def test_bounded_cache_reload_and_missing_sprite(display, monkeypatch, tmp_path)
     path = directory / 'patrol_1.png'
     pygame.image.save(sprite(), path)
     monkeypatch.setattr(module, 'ENEMY_SPRITES_DIR', tmp_path)
+    (tmp_path / 'manifest.json').write_text(json.dumps({'schema_version': 1, 'enemies': {
+        'static_hound': {'animations': {'patrol': {
+            'frames': ['sprites/enemies/static_hound/patrol_1.png'] * 2,
+            'frame_duration_ms': 250, 'loop': True}}}}}))
     manager = EnemyManager()
     manager.enemies.append(StaticHound('hound', 30, 30))
     before = pixels(manager, highlight=True)

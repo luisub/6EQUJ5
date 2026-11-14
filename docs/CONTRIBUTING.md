@@ -49,12 +49,12 @@ Use temporary saves and settings in tests and capture tools. Never write into a 
 
 After packaging changes, build a clean wheel and a wheel from the source distribution. Check their contents and boot the installed game outside the checkout in an environment without AI packages. Wheels must contain runtime assets/data and exclude tests, tools, docs, art masters and local assistant files.
 
-Inspect rendered output after visual changes. Dummy SDL checks and staged captures do not establish human playability, physical-controller support, audible quality or native display performance. Record actual results and limitations. Known portrait-source and render-budget failures are documented in the [migration report](migration/REPORT.md); retain the assertions and investigate any changed failure.
+Inspect rendered output after visual changes. Dummy SDL checks and staged captures do not establish human playability, physical-controller support, audible quality or native display performance. Record actual results and limitations. Known portrait-source and render-budget failures are documented in the [repository audit](maintenance/REPOSITORY_AUDIT.md); retain the assertions and investigate any changed failure.
 
 ## Artwork and cleanup
 
 `src/art/source/` owns rebuild masters and provenance; `src/assets/` contains runtime exports. Asset paths can be constructed from IDs and manifests, so a missing text-search match does not prove an asset is unused.
 
-Before retiring unique material, preserve it in `_trash/` and record original path, archive path, SHA-256, reason and restoration steps in `_trash/TRASH_LOG.md` and `docs/migration/archive-manifest.json`. Keep recovery snapshots and player data intact.
+Before retiring unique material, preserve it in `_trash/` and record original path, archive path, SHA-256, reason and restoration steps in `_trash/TRASH_LOG.md` and `docs/maintenance/archive-manifest.json`. Keep recovery snapshots and player data intact.
 
 Keep public documentation concrete: what works, how to run it, and what remains unfinished. Do not publish generated success claims or present promotional artwork as gameplay. Local assistant instructions and session files are ignored; public contributor guidance belongs here.

@@ -37,7 +37,7 @@ After packaging changes, inspect clean wheels built both from the checkout and f
 1. Check imports, manifests, builders, tests, packaging and dynamically constructed resource paths.
 2. Verify the replacement through its real caller. Preserve source masters, provenance, user edits and saves.
 3. Move unique retired material to `_trash/<date>_<task>/<original-relative-path>`.
-4. Record original and archived paths, SHA-256, reason, replacement, checks and restoration steps in `_trash/TRASH_LOG.md` and `docs/migration/archive-manifest.json`.
+4. Record original and archived paths, SHA-256, reason, replacement, checks and restoration steps in `_trash/TRASH_LOG.md` and `docs/maintenance/archive-manifest.json`.
 5. Update references and rerun affected checks. Verify rebuilds when source locations change.
 6. To restore, check the archive hash, confirm the original path is free, restore it, revert dependent references and rerun the checks.
 

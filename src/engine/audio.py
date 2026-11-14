@@ -12,7 +12,7 @@ import pygame
 
 from video_game.engine import config
 
-AUDIO_DIR = Path(__file__).resolve().parent.parent / "assets" / "audio"
+AUDIO_DIR = config.AUDIO_ASSETS_DIR
 
 TRACK_BUNKER = "Static_Bloom.mp3"
 TRACK_COMBAT = "Echoes_of_the_Static_Void.mp3"
@@ -30,7 +30,7 @@ class AudioManager:
     _music_owner = None
 
     def __init__(self, audio_dir: Optional[Path] = None):
-        self.audio_dir: Path = audio_dir or AUDIO_DIR
+        self.audio_dir: Path = Path(audio_dir) if audio_dir is not None else AUDIO_DIR
         self.enabled: bool = False
         self.is_muted: bool = False
         self.master_volume: float = 1.0
@@ -52,6 +52,21 @@ class AudioManager:
         self._target_fade_ms = 1000
 
         self._init_mixer()
+
+    def _audio_path(self, filename):
+        """Resolve one file inside the audio bank without following redirects."""
+        if not isinstance(filename, str):
+            return None
+        relative = Path(filename)
+        if relative.is_absolute() or relative.name != filename or filename in ('', '.', '..'):
+            return None
+        root = self.audio_dir.absolute()
+        path = root / relative
+        if root.is_symlink() or path.is_symlink():
+            return None
+        if not path.resolve().is_relative_to(root.resolve()) or not path.is_file():
+            return None
+        return path
 
     def _init_mixer(self):
         """Safely initialize pygame.mixer with headless fallback."""
@@ -86,8 +101,8 @@ class AudioManager:
         ]
 
         for s_name in sound_names:
-            s_path = self.audio_dir / s_name
-            if s_path.exists():
+            s_path = self._audio_path(s_name)
+            if s_path is not None:
                 try:
                     snd = pygame.mixer.Sound(str(s_path))
                     # Prevent clipping by setting sensible baseline volume
@@ -163,6 +178,9 @@ class AudioManager:
                     self._load_thread = None
                     return
             generation, path, loop, fade_ms = request
+            path = self._audio_path(path.name)
+            if path is None:
+                continue
             try:
                 data = path.read_bytes()
             except OSError:
@@ -177,12 +195,11 @@ class AudioManager:
         Stream background music track with smooth cross-fade.
         Safe against already-playing duplicate requests.
         """
+        track_path = self._audio_path(track_filename)
+        if track_path is None:
+            return
         if not self.enabled:
             self.current_track = track_filename
-            return
-
-        track_path = self.audio_dir / track_filename
-        if not track_path.exists():
             return
 
         try:
@@ -305,8 +322,8 @@ class AudioManager:
                         # for the remaining fade inside SDL_mixer.
                         if busy:
                             pygame.mixer.music.stop()
-                        target_path = self.audio_dir / self.target_track
-                        if target_path.exists():
+                        target_path = self._audio_path(self.target_track)
+                        if target_path is not None:
                             self.current_track = self.target_track
                             self._queue_music((self._music_generation, target_path,
                                                self._target_loop, self._target_fade_ms))

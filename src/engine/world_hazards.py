@@ -90,7 +90,7 @@ class WorldHazards:
                     or getattr(room, 'act_id', None) != MODERN_WAGON_ACTS[room_id]):
                 return
             try:
-                source = pygame.image.load(str(Path(asset_root) / 'environments/ohio_salvage_v1/wagon_168x76_rgba.png')).convert_alpha()
+                source = pygame.image.load(str(Path(asset_root) / 'environments/ohio/salvage_yard/wagon.png')).convert_alpha()
                 self.image = pygame.transform.scale(source, (144, 66))
             except (OSError, pygame.error):
                 return

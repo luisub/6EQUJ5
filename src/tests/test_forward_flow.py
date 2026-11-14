@@ -3,6 +3,7 @@ CALLED BY: pytest tests/test_forward_flow.py.
 HOW TO MODIFY: Keep routed input and explicit fixture disclosures.
 Positions and campaign events below are fixtures, not a playthrough.
 """
+from video_game.engine.room_art_contracts import family_directory, SHARED_FAR_PATH
 import shutil
 from pathlib import Path
 
@@ -131,12 +132,14 @@ def test_old_campus_checkpoint_resolves_inside_shortened_room(game):
     ('act_01_dish_return', 'ohio_dish_v1', (640, 288)),
 ])
 def test_alias_exact_size_and_complete_family(game, tmp_path, alias, family, size):
-    source = config.ASSETS_DIR / 'environments' / family
+    source = config.ASSETS_DIR / family_directory(family)
     root = tmp_path / 'assets'
-    shutil.copytree(source, root / 'environments' / family)
+    shutil.copytree(source, root / family_directory(family))
+    (root / SHARED_FAR_PATH).parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(config.ASSETS_DIR / SHARED_FAR_PATH, root / SHARED_FAR_PATH)
     assert load_native_room_family(root, alias, size) is not None
     assert load_native_room_family(root, alias, (size[0] + 1, size[1])) is None
-    manifest = root / 'environments' / family / 'manifest.json'
+    manifest = root / family_directory(family) / 'manifest.json'
     manifest.write_text('{}')
     assert load_native_room_family(root, alias, size) is None
 

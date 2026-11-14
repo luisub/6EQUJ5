@@ -20,11 +20,6 @@ MILESTONE_CIVS = (
     "FASR-001", "FASR-002", "FASR-003", "FASR-004", "FASR-005",
     "FASR-006", "FASR-007", "FASR-008", "FASR-009", "FASR-010", "FASR-SCAN-H"
 )
-LAYER_FILES = (
-    "01_distant_structure.png", "02_rear_wall.png", "03_equipment.png",
-    "04_playable_floor.png", "05_foreground_props.png", "06_lighting_overlay.png"
-)
-
 # Horizontal interaction stations across the bunker floor (x: 124.0 to 364.0)
 BUNKER_STATIONS = {
     "lab": {
@@ -57,7 +52,7 @@ def station_prompt_rect(crt, label, sprite_x):
 
 
 class BunkerHubScene(BaseScene):
-    """6-Layer 480x270 Ohio Big Ear Bunker with proximity station interactions and dossier."""
+    """Ohio Big Ear bunker with a native background and two foreground overlays."""
 
     NEXT_BUTTON = pygame.Rect(12, 42, 220, 22)
     DETAILS_BUTTON = pygame.Rect(400, 244, 72, 18)
@@ -78,12 +73,12 @@ class BunkerHubScene(BaseScene):
         self.opening_story = None
         self._opening_guarded = set()
 
-        self.layers = machine.assets.bunker_layers()
+        self.overlays = machine.assets.bunker_overlays()
         self.native_backdrop = self._load_native_backdrop()
         outfits = ("navy_chore", "olive_field", "faraday_rig")
-        self.strips = [machine.assets.image(f"sprites/mateo_{outfit}_strip.png", (1056, 128)) for outfit in outfits]
+        self.strips = [machine.assets.image(f"sprites/mateo/{outfit}/strip.png", (1056, 128)) for outfit in outfits]
         self.mateo_surf = machine.assets.bunker_sprite("mateo_bunker", (96, 128))
-        self.palette_surf = machine.assets.image("palette_sheet.png", (480, 270))
+        self.palette_surf = machine.assets.image("ui/palette_sheet.png", (480, 270))
 
     def _load_native_backdrop(self):
         """Load the optional whole bunker backdrop only at scene setup/entry."""
@@ -470,11 +465,11 @@ class BunkerHubScene(BaseScene):
             self.machine.render_global_hud(crt, location_label="PALETTE SHEET // [V] NEXT VIEW")
             return
 
-        # Only a complete validated native backdrop replaces pre-actor layers.
+        # Missing or damaged scenery leaves a usable room without reading retired art.
         if self.native_backdrop is None or not self.native_backdrop.render(crt, known_clean=True):
-            for layer_surf in self.layers[:4]:
-                if layer_surf:
-                    crt.canvas.blit(layer_surf, (0, 0))
+            pygame.draw.rect(crt.canvas, (15, 23, 26), (0, 24, 480, 176))
+            pygame.draw.rect(crt.canvas, (28, 31, 30), (0, 200, 480, 70))
+            pygame.draw.line(crt.canvas, (55, 70, 58), (0, 200), (480, 200))
 
         # Render Mateo shadow and animated sprite
         mx = int(self.mateo_x)
@@ -485,8 +480,7 @@ class BunkerHubScene(BaseScene):
             sprite = frame if self.is_facing_right else pygame.transform.flip(frame, True, False)
             crt.canvas.blit(sprite, (mx, 122))
 
-        # Render foreground props and lighting overlay (layers 4..5)
-        for layer_surf in self.layers[4:]:
+        for layer_surf in self.overlays:
             if layer_surf:
                 crt.canvas.blit(layer_surf, (0, 0))
 

@@ -80,61 +80,9 @@ class Greenkeeper(Boss):
         self.anim_timer: float = 0.0
         self.damage_flash_timer: float = 0.0
         self.attack_visual_timer: float = 0.0
-        self.sprites: Dict[str, pygame.Surface] = {}
-        self._load_sprites()
 
         # Initialize weak point rect
         self._update_weak_point()
-
-    def _load_sprites(self):
-        """Load and cache Greenkeeper 16-bit pixel art sprite frames."""
-        sprite_dir = Path(__file__).resolve().parent.parent.parent / "assets" / "sprites" / "bosses" / "greenkeeper"
-        if not sprite_dir.exists():
-            return
-        frame_names = [
-            "idle_1", "idle_2",
-            "charge_1", "charge_2",
-            "mortar_aim", "mortar_fire",
-            "sweep_charge",
-            "vulnerable_1", "vulnerable_2",
-            "hurt", "defeated"
-        ]
-        for name in frame_names:
-            p = sprite_dir / f"{name}.png"
-            if p.exists():
-                try:
-                    self.sprites[name] = pygame.image.load(str(p))
-                except Exception:
-                    pass
-
-    def _get_current_sprite(self) -> Optional[pygame.Surface]:
-        """Resolve current visual sprite based on combat state and animation timer."""
-        if not self.sprites:
-            return None
-
-        if self.is_defeated or self.phase_state == STATE_DEFEATED:
-            return self.sprites.get("defeated")
-
-        if getattr(self, "damage_flash_timer", 0.0) > 0.0 and int(self.damage_flash_timer * 30) % 2 == 0:
-            return self.sprites.get("hurt")
-
-        if self.weak_point_exposed or self.phase_state == STATE_VULNERABLE:
-            frame = 1 if int(self.vulnerability_timer * 4) % 2 == 0 else 2
-            return self.sprites.get(f"vulnerable_{frame}", self.sprites.get("vulnerable_1"))
-
-        if self.charge_duration > 0.0:
-            frame = 1 if int(self.anim_timer * 10) % 2 == 0 else 2
-            return self.sprites.get(f"charge_{frame}", self.sprites.get("charge_1"))
-
-        if self.sweep_active or (self.current_attack_type == "sweep" and self.phase_state == STATE_ATTACK):
-            return self.sprites.get("sweep_charge")
-
-        if self.current_attack_type == "mortar" and self.phase_state == STATE_ATTACK:
-            return self.sprites.get("mortar_fire" if self.attack_cycle_timer < 0.2 else "mortar_aim")
-
-        # Idle baseline
-        frame = 1 if int(self.anim_timer * 3) % 2 == 0 else 2
-        return self.sprites.get(f"idle_{frame}", self.sprites.get("idle_1"))
 
     def _update_weak_point(self):
         """Update absolute coordinates of the core weak point relative to boss position."""
@@ -435,7 +383,7 @@ class Greenkeeper(Boss):
 
         # 2. Render Greenkeeper Chassis
         sprite = (self.heavy_logical_sprites[self._heavy_pose()] if self.heavy_sprites is not None
-                  else self._get_current_sprite())
+                  else None)
         if sprite is not None:
             if self.heavy_sprites is not None and crt is not None:
                 crt.composite_native(self.heavy_sprites[self._heavy_pose()], (sc_x, sc_y), (128, 96))

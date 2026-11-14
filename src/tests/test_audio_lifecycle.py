@@ -258,3 +258,56 @@ def test_mixer_initialization_failure_is_safe(monkeypatch, tmp_path):
     audio.update(0.1)
     audio.stop_all()
     assert audio.current_track is None and audio._load_thread is None
+
+
+@pytest.mark.parametrize('escape', ['parent', 'absolute', 'symlink'])
+def test_music_rejects_paths_outside_audio_without_reads(audio_fixture, tmp_path, monkeypatch, escape):
+    make, music, _, _, threads, _ = audio_fixture
+    outside = tmp_path.parent / (tmp_path.name + '-outside.mp3')
+    outside.write_bytes(b'outside audio')
+    if escape == 'parent':
+        name = '../' + outside.name
+    elif escape == 'absolute':
+        name = str(outside)
+    else:
+        (tmp_path / 'linked.mp3').symlink_to(outside)
+        name = 'linked.mp3'
+    audio = make()
+    monkeypatch.setattr(Path, 'read_bytes', lambda *_: pytest.fail('rejected music was read'))
+    audio.play_music(name)
+    audio.update(0)
+    assert not threads and audio.current_track is None and audio.target_track is None
+    assert not music.mock_calls
+
+
+def test_fade_target_revalidates_before_worker_read(audio_fixture, tmp_path, monkeypatch):
+    make, music, _, _, threads, _ = audio_fixture
+    audio = make()
+    music.get_busy.return_value = True
+    audio.play_music(TRACK_COMBAT, fade_ms=100)
+    outside = tmp_path.parent / (tmp_path.name + '-outside.mp3')
+    outside.write_bytes(b'outside audio')
+    (tmp_path / TRACK_COMBAT).unlink()
+    (tmp_path / TRACK_COMBAT).symlink_to(outside)
+    monkeypatch.setattr(Path, 'read_bytes', lambda *_: pytest.fail('redirected music was read'))
+    music.get_busy.return_value = False
+    audio.update(0.2)
+    assert not threads
+    music.load.assert_not_called()
+    music.play.assert_not_called()
+
+
+def test_sfx_symlink_is_skipped_and_contained_file_loads(monkeypatch, tmp_path):
+    monkeypatch.setattr(AudioManager, '_init_mixer', lambda self: None)
+    outside = tmp_path.parent / (tmp_path.name + '-outside.wav')
+    outside.write_bytes(b'outside audio')
+    (tmp_path / 'maser_tap.wav').symlink_to(outside)
+    valid = tmp_path / 'player_jump.wav'
+    valid.write_bytes(b'contained fixture')
+    sound = MagicMock()
+    monkeypatch.setattr(pygame.mixer, 'Sound', sound)
+    audio = AudioManager(tmp_path)
+    audio.enabled = True
+    audio._load_sfx_bank()
+    sound.assert_called_once_with(str(valid))
+    assert 'player_jump' in audio.sfx_bank and 'maser_tap' not in audio.sfx_bank

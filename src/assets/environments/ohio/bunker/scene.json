@@ -1,0 +1,32 @@
+{
+  "canvas_size": [
+    480,
+    270
+  ],
+  "layers": [
+    "foreground.png",
+    "lighting.png"
+  ],
+  "mateo_idle": {
+    "file": "sprites/mateo/navy_chore/48x64.png",
+    "size": [
+      48,
+      64
+    ],
+    "foot_pivot": [
+      24,
+      62
+    ]
+  },
+  "mateo_bunker": {
+    "file": "sprites/mateo/navy_chore/idle_1.png",
+    "size": [
+      96,
+      128
+    ],
+    "foot_pivot": [
+      48,
+      124
+    ]
+  }
+}

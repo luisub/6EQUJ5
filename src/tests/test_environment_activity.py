@@ -21,7 +21,7 @@ def display(monkeypatch):
 
 def test_traffic_uses_solid_cutout_with_grounded_wheels_and_no_frame_io(display, monkeypatch):
     traffic = ServiceTraffic(ASSETS_DIR)
-    source = pygame.image.load(str(ASSETS_DIR / 'environments/ohio_salvage_v1/wagon_168x76_rgba.png')).convert_alpha()
+    source = pygame.image.load(str(ASSETS_DIR / 'environments/ohio/salvage_yard/wagon.png')).convert_alpha()
     expected = pygame.transform.scale(source, (72, 33))
     assert traffic.left.get_size() == (72, 33)
     assert traffic.left.get_alpha() == 255

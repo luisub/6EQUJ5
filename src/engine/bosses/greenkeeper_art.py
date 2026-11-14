@@ -1,7 +1,7 @@
 """MODULE: video_game/engine/bosses/greenkeeper_art.py
 PURPOSE: Validate and load the reviewed Greenkeeper key-pose family atomically.
 CALLED BY: Greenkeeper and the Greenkeeper asset builder and tests.
-HOW TO MODIFY: Preserve exact hashes, dimensions, anchors and complete legacy fallback.
+HOW TO MODIFY: Preserve exact hashes, dimensions, anchors and procedural fallback.
 """
 import hashlib
 import io
@@ -12,7 +12,7 @@ from pathlib import Path
 import pygame
 from PIL import Image
 
-FAMILY = Path('sprites/bosses/greenkeeper_heavy_v1')
+FAMILY = Path('sprites/bosses/greenkeeper')
 HASHES = {
     'idle': 'e5aa98b55d761de1d1ea4959e025ff51b7ac310a434752da6eab537d4da0918c',
     'attack': '1e607d90a4c4a54bf386c0b24b1d4981a6d8f87e99ab8173958a81fc3fb0eddf',
@@ -42,7 +42,7 @@ def validate_bytes(name, data):
 
 
 def load_family(asset_root):
-    """Load all four verified surfaces, or return None and use the legacy family."""
+    """Load all four verified surfaces, or return None and use the procedural fallback."""
     root = Path(asset_root).resolve()
     journal = root.parent / f'.{root.name}-asset-build-pending.json'
     try:
@@ -61,5 +61,5 @@ def load_family(asset_root):
             images[name] = pygame.image.load(io.BytesIO(data), name + '.png')
         return images
     except (OSError, ValueError, TypeError, pygame.error) as exc:
-        logging.getLogger(__name__).info('Greenkeeper heavy art unavailable; using legacy: %s', exc)
+        logging.getLogger(__name__).info('Greenkeeper heavy art unavailable; using procedural fallback: %s', exc)
         return None

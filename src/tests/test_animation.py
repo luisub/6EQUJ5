@@ -9,6 +9,8 @@ HOW TO MODIFY: Add focused test cases when new animation clips or outfits are in
 from video_game.engine import config
 
 from pathlib import Path
+import json
+import shutil
 import pytest
 import pygame
 
@@ -21,6 +23,44 @@ from video_game.engine.player import Player, PlayerConfig, PlayerInput
 from video_game.engine.world import Room
 
 ASSETS_DIR = config.ASSETS_DIR
+
+
+@pytest.mark.parametrize('escape', ['parent', 'absolute', 'symlink'])
+def test_animation_manifest_cannot_load_frames_outside_sprites(tmp_path, monkeypatch, pygame_setup, escape):
+    root = tmp_path / 'assets'
+    sprite_root = root / 'sprites/mateo'
+    shutil.copytree(ASSETS_DIR / 'sprites/mateo', sprite_root)
+    outside = tmp_path / 'outside.png'
+    pygame.image.save(pygame.Surface((96, 128), pygame.SRCALPHA), str(outside))
+    manifest_path = sprite_root / 'manifest.json'
+    manifest = json.loads(manifest_path.read_text())
+    if escape == 'parent':
+        frame = '../outside.png'
+    elif escape == 'absolute':
+        frame = str(outside)
+    else:
+        (sprite_root / 'linked.png').symlink_to(outside)
+        frame = 'sprites/mateo/linked.png'
+    for animation in manifest['outfits']['olive_field']['animations'].values():
+        animation['frames'] = [frame]
+    manifest_path.write_text(json.dumps(manifest))
+    monkeypatch.setattr(pygame.image, 'load', lambda *_args, **_kwargs: pytest.fail('escaped frame was loaded'))
+    with pytest.raises(ValueError):
+        load_mateo_animations(root, outfit='olive_field')
+
+
+def test_missing_contained_animation_frame_keeps_transparent_placeholder(tmp_path, pygame_setup):
+    root = tmp_path / 'assets'
+    sprite_root = root / 'sprites/mateo'
+    shutil.copytree(ASSETS_DIR / 'sprites/mateo', sprite_root)
+    manifest_path = sprite_root / 'manifest.json'
+    manifest = json.loads(manifest_path.read_text())
+    manifest['outfits']['olive_field']['animations']['idle']['frames'] = ['sprites/mateo/olive_field/missing.png']
+    manifest_path.write_text(json.dumps(manifest))
+    clips = load_mateo_animations(root, outfit='olive_field')
+    image = clips['idle'].frames[0]
+    assert image.get_size() == (96, 128)
+    assert not image.get_bounding_rect().size[0]
 
 
 @pytest.fixture(scope="module")

@@ -13,16 +13,6 @@ from PIL import Image
 
 
 LOGGER = logging.getLogger(__name__)
-FAMILY = Path('environments/ohio_approach_v1')
-LAYERS = (
-    {'id':'far', 'file':'far_1152x544.png', 'dimensions':[1152,544],
-     'parallax':[0.1,0.05], 'rounding':'native_nearest', 'alpha':'opaque',
-     'repeat':False, 'origin':[0,0]},
-    {'id':'world', 'file':'world_architecture_1920x576.png', 'dimensions':[1920,576],
-     'parallax':[1,1], 'rounding':'logical_nearest', 'alpha':'straight',
-     'repeat':False, 'origin':[0,0]},
-)
-
 
 def _inside_without_symlinks(root, relative):
     """Accept only files below the root with no symlink in their family path."""
@@ -136,74 +126,6 @@ class ExtendedNativeRoomFamily(NativeApproachFamily):
         return self.far.subsurface(far_rect), self._world_crop
 
 
-def load_approach_family(asset_root, room_id, world_size):
-    """Return a fully validated optional family, or None for complete legacy fallback.
-
-    A pending transaction is never read through direct fixture/preview entry
-    points; the normal game startup owns locked recovery. Reload per room entry
-    instead of holding a process-wide stale image cache.
-    """
-    if room_id != 'act_01_approach' or tuple(world_size) != (960,288):
-        return None
-    root = Path(asset_root).resolve()
-    journal = root.parent / f'.{root.name}-asset-build-pending.json'
-    if journal.exists() or journal.is_symlink():
-        LOGGER.warning('Native approach fallback: asset transaction pending')
-        return None
-    try:
-        manifest_path = _inside_without_symlinks(root, FAMILY / 'manifest.json')
-        if not manifest_path.exists():
-            if manifest_path.parent.exists():
-                LOGGER.warning('Native approach fallback: incomplete family has no manifest')
-            else:
-                LOGGER.info('Native approach family not installed; using legacy background')
-            return None
-        manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
-        if (not isinstance(manifest, dict) or type(manifest.get('schema_version')) is not int
-                or manifest.get('schema_version') != 1 or type(manifest.get('density')) is not int):
-            raise ValueError('invalid schema')
-        if (manifest.get('room_id') != room_id or manifest.get('density') != 2
-                or manifest.get('viewport') != [480,270] or manifest.get('world') != [960,288]):
-            raise ValueError('room, density, viewport or world mismatch')
-        entries = manifest.get('layers')
-        if not isinstance(entries, list) or len(entries) != len(LAYERS):
-            raise ValueError('expected exactly far and world layers')
-        surfaces = []
-        for entry, expected in zip(entries, LAYERS):
-            if not isinstance(entry, dict) or set(entry) != set(expected) | {'sha256'}:
-                raise ValueError('unexpected layer metadata')
-            if any(type(entry[k]) is not type(v) or entry[k] != v for k,v in expected.items()):
-                raise ValueError(f"invalid {expected['id']} layer contract")
-            sha = entry['sha256']
-            if not isinstance(sha,str) or len(sha)!=64 or any(ch not in '0123456789abcdef' for ch in sha):
-                raise ValueError('invalid source hash')
-            path = _inside_without_symlinks(root, FAMILY / expected['file'])
-            if _digest(path) != sha:
-                raise ValueError(f"hash mismatch: {expected['id']}")
-            with path.open('rb') as stream:
-                header = stream.read(26)
-                if len(header) != 26 or header[:8] != b'\x89PNG\r\n\x1a\n' or header[12:16] != b'IHDR':
-                    raise ValueError('layer is not a PNG')
-                if header[25] not in ((2, 6) if expected['id'] == 'far' else (6,)):
-                    raise ValueError('PNG color mode does not match layer contract')
-            image = pygame.image.load(str(path)).convert_alpha()
-            if list(image.get_size()) != expected['dimensions']:
-                raise ValueError('image dimensions mismatch')
-            visible = pygame.mask.from_surface(image, 0).count()
-            total = image.get_width() * image.get_height()
-            if expected['id'] == 'far':
-                if pygame.mask.from_surface(image, 254).count() != total:
-                    raise ValueError('far plane is not opaque')
-                image = image.convert()  # validated opaque; avoid needless per-pixel alpha blending
-            elif visible == 0 or visible == total:
-                raise ValueError('world plane must have transparent and visible pixels')
-            surfaces.append(image)
-        return NativeApproachFamily(*surfaces)
-    except (OSError, ValueError, TypeError, KeyError, pygame.error) as exc:
-        LOGGER.warning('Native approach fallback: %s', exc)
-        return None
-
-
 def _strict_equal(value, expected):
     """Compare JSON types as well as values (notably bool versus integer)."""
     if type(value) is not type(expected):
@@ -217,7 +139,7 @@ def _strict_equal(value, expected):
 
 def _load_room_family_v2(asset_root, family_id, room_id, world_size):
     """Validate every schema-2 component before producing any visible layer."""
-    from video_game.engine.room_art_contracts import manifest_template
+    from video_game.engine.room_art_contracts import component_path, family_directory, manifest_template
 
     root = Path(asset_root).resolve()
     journal = root.parent / f'.{root.name}-asset-build-pending.json'
@@ -228,7 +150,7 @@ def _load_room_family_v2(asset_root, family_id, room_id, world_size):
         template = manifest_template(family_id)
         if template['room_id'] != room_id or template['world'] != list(world_size):
             return None
-        directory = Path('environments') / family_id
+        directory = family_directory(family_id)
         manifest_path = _inside_without_symlinks(root, directory / 'manifest.json')
         if not manifest_path.exists():
             if manifest_path.parent.exists():
@@ -259,7 +181,7 @@ def _load_room_family_v2(asset_root, family_id, room_id, world_size):
                 sha = entry['sha256']
                 if not isinstance(sha, str) or len(sha) != 64 or any(c not in '0123456789abcdef' for c in sha):
                     raise ValueError('invalid component hash')
-                path = _inside_without_symlinks(root, directory / filename)
+                path = _inside_without_symlinks(root, component_path(family_id, filename))
                 if _digest(path) != sha:
                     raise ValueError(f"hash mismatch: {expected['id']}")
                 with path.open('rb') as stream:
@@ -302,7 +224,7 @@ def _load_room_family_v2(asset_root, family_id, room_id, world_size):
 
 
 def load_native_room_family(asset_root, room_id, world_size):
-    """Select an allowlisted complete family, falling back to approach v1 or legacy."""
+    """Select an allowlisted complete family, or return None for the procedural fallback."""
     from video_game.engine.room_art_contracts import ROOM_ART_FAMILIES, manifest_template
 
     # Reuse complete, unchanged canonical families only for these exact-size rooms.
@@ -328,8 +250,6 @@ def load_native_room_family(asset_root, room_id, world_size):
     if original != list(world_size) and not extended:
         return None
     family = _load_room_family_v2(asset_root, family_id, canonical['room_id'], original)
-    if family is None and room_id == 'act_01_approach':
-        family = load_approach_family(asset_root, room_id, original)
     if extended and family is not None:
         return ExtendedNativeRoomFamily(family, original[0], world_size[0])
     if family is not None:
@@ -361,7 +281,8 @@ class NativeOpaqueBackdrop:
 
 def load_native_opaque_backdrop(asset_root, room_id, world_size, *, cached=None):
     """Load an allowlisted whole opaque family, or return None for legacy fallback."""
-    from video_game.engine.room_art_contracts import OPAQUE_BACKDROP_FAMILIES, backdrop_manifest_template
+    from video_game.engine.room_art_contracts import (OPAQUE_BACKDROP_FAMILIES,
+                                                       backdrop_manifest_template, family_directory)
 
     family_id = next((candidate for candidate in OPAQUE_BACKDROP_FAMILIES
                       if backdrop_manifest_template(candidate)['room_id'] == room_id), None)
@@ -376,7 +297,7 @@ def load_native_opaque_backdrop(asset_root, room_id, world_size, *, cached=None)
         template = backdrop_manifest_template(family_id)
         if template['world'] != list(world_size):
             return None
-        directory = Path('environments') / family_id
+        directory = family_directory(family_id)
         path = _inside_without_symlinks(root, directory / 'manifest.json')
         if not path.exists():
             if path.parent.exists():

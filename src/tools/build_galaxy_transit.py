@@ -13,7 +13,7 @@ import tempfile
 from video_game.engine.asset_transactions import fcntl, promote_group
 from video_game.engine.config import ASSETS_DIR
 from video_game.engine.galaxy_transit_assets import FAMILY, IMAGES, validate_transit_image
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks
 
 
 def build(galaxy_map, vortex, provenance, *, assets_dir=ASSETS_DIR, archive_dir=None, promote=False):
@@ -67,7 +67,7 @@ def build(galaxy_map, vortex, provenance, *, assets_dir=ASSETS_DIR, archive_dir=
             if (root / FAMILY).exists():
                 raise FileExistsError('Galaxy transit family appeared during staging')
             members = tuple(FAMILY / info[0] for info in IMAGES.values()) + (FAMILY / 'manifest.json',)
-            saved = promote_group(root, stage, archive, 'galaxy_transit_v1', members)
+            saved = promote_group(root, stage, archive, 'galaxy_transit', members)
         return {'status': 'promoted', 'manifest': manifest, 'archive': str(saved)}
     finally:
         os.close(descriptor)

@@ -12,15 +12,13 @@ import tempfile
 
 from video_game.engine.asset_transactions import fcntl, promote_group
 from video_game.engine.config import ASSETS_DIR
-from video_game.engine.energy_stream_assets import DIMENSIONS, FAMILY, FAMILIES, IMAGE_NAME, PIVOT, validate_stream_bytes
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks
+from video_game.engine.energy_stream_assets import DIMENSIONS, FAMILY, IMAGE_NAME, PIVOT, validate_stream_bytes
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks
 
 
-def build(source, provenance, *, assets_dir=ASSETS_DIR, archive_dir=None, promote=False, version=1):
+def build(source, provenance, *, assets_dir=ASSETS_DIR, archive_dir=None, promote=False):
     """Validate a complete reviewed source or promote it into an absent family."""
-    if type(version) is not int or version not in FAMILIES:
-        raise ValueError('Energy-stream version must be 1 or 2')
-    family = FAMILIES[version]
+    family = FAMILY
     if not isinstance(provenance, dict) or not provenance:
         raise ValueError('A nonempty provenance object is required')
     json.dumps(provenance, allow_nan=False)
@@ -68,7 +66,7 @@ def build(source, provenance, *, assets_dir=ASSETS_DIR, archive_dir=None, promot
             if (root / family).exists():
                 raise FileExistsError('Energy-stream family appeared during staging')
             paths = (family / IMAGE_NAME, family / 'manifest.json')
-            saved = promote_group(root, stage, archive, f'energy_filament_v{version}', paths)
+            saved = promote_group(root, stage, archive, 'energy_filament', paths)
         return {'status': 'promoted', 'manifest': manifest, 'archive': str(saved)}
     finally:
         os.close(descriptor)
@@ -81,10 +79,9 @@ def main(argv=None):
     parser.add_argument('--assets-dir', type=Path, default=ASSETS_DIR)
     parser.add_argument('--archive-dir', type=Path)
     parser.add_argument('--promote', action='store_true')
-    parser.add_argument('--version', type=int, choices=(1, 2), default=1)
     args = parser.parse_args(argv)
     result = build(args.source, json.loads(args.provenance.read_text(encoding='utf-8')),
-                   assets_dir=args.assets_dir, archive_dir=args.archive_dir, promote=args.promote, version=args.version)
+                   assets_dir=args.assets_dir, archive_dir=args.archive_dir, promote=args.promote)
     print(json.dumps(result, indent=2))
     return 0
 

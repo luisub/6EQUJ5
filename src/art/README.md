@@ -27,7 +27,7 @@ captures or generation filenames. They do not override current manifests or
 the [current state](../../docs/planning/CURRENT_STATE.md). Historical validation
 outputs, recovery snapshots and one-off inspection scripts are preserved under
 `_trash/`; exact locations and hashes are in the
-[archive manifest](../../docs/migration/archive-manifest.json).
+[archive manifest](../../docs/maintenance/archive-manifest.json).
 
 Use detailed pixel art, quiet scenery behind readable actors, restrained lights,
 and distinct silhouettes/materials for each civilization. Keep gameplay at

@@ -10,7 +10,7 @@ HOW TO MODIFY:
 """
 
 from pathlib import Path
-import tempfile
+import shutil
 from PIL import Image, ImageDraw
 
 REPO_ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -18,7 +18,6 @@ ASSETS_DIR = REPO_ROOT_DIR / "src" / "assets"
 SPRITES_DIR = ASSETS_DIR / "sprites"
 ART_SOURCE_DIR = REPO_ROOT_DIR / "src" / "art" / "source"
 MATEO_SOURCE = "concept_mateo_idle_1794333616733.jpg"
-BUNKER_SOURCE = "concept_bunker_clean_1794333595362.jpg"
 CONCEPTS_DIR = ART_SOURCE_DIR / "mateo"
 
 OUTFIT_PALETTES = {
@@ -214,83 +213,45 @@ def _build_pose(parts, pose_name):
     return canvas.crop((16, 0, 112, 128))
 
 
-def _build_mateo_portrait_128(navy_128, concepts_dir, sprites_dir):
-    """Build 128x128 Mateo portrait matching the exact style of all_civilizations_roster.png."""
-    env = Image.new("RGBA", (128, 128), (6, 10, 16, 255))
-    bunker_src = resolve_source(BUNKER_SOURCE, "bunker", concepts_dir)
-    if bunker_src.is_file():
-        b_raw = Image.open(bunker_src).convert("RGB").crop((180, 140, 620, 580)).resize((128, 128), Image.Resampling.NEAREST)
-        bp, ep = b_raw.quantize(colors=24, method=Image.Quantize.MEDIANCUT).convert("RGB").load(), env.load()
-        for py in range(128):
-            for px in range(128):
-                r, g, b = bp[px, py]
-                ep[px, py] = (int(r * 0.42), int(g * 0.46), int(b * 0.50), 255)
-    bust_112 = _scale2x_epx(navy_128.crop((36, 4, 92, 60)))
-    env.paste(bust_112, (8, 16), bust_112)
-    ImageDraw.Draw(env).rectangle((0, 0, 127, 127), outline=(42, 88, 68, 255))
-    env.save(sprites_dir / "mateo_portrait_128x128.png")
-    return env
+APPROVED_OLIVE_POSES = ("idle_1", "run_1", "jump", "shoot", "slide")
+
+
+def _apply_approved_poses(assets_dir, concepts_dir):
+    """Preserve accepted revisions after generating the older base rig."""
+    for pose in APPROVED_OLIVE_POSES:
+        source = resolve_source(f"approved_poses/olive_field/{pose}.png", "mateo", concepts_dir)
+        with Image.open(source) as image:
+            if image.size != (96, 128) or image.mode != "RGBA":
+                raise ValueError(f"Invalid approved Mateo pose: {source}")
+        shutil.copyfile(source, assets_dir / "sprites/mateo/olive_field" / f"{pose}.png")
 
 
 def _render_mateo_assets(assets_dir, concepts_dir=None):
-    """Generate 128x128 portrait, 48x64 & 96x128 sprites for 3 outfits and 11 poses, plus master sheet."""
-    sprites_dir = assets_dir / "sprites"
-    sprites_dir.mkdir(parents=True, exist_ok=True)
-    mateo_dir = sprites_dir / "mateo"
+    """Generate canonical outfit strips and base poses."""
+    mateo_dir = assets_dir / "sprites" / "mateo"
     mateo_dir.mkdir(parents=True, exist_ok=True)
     base_128 = _extract_base_mateo_128(concepts_dir)
     navy_128 = _recolor_outfit(base_128, "navy_chore")
-    port_128, sheet = _build_mateo_portrait_128(navy_128, concepts_dir, sprites_dir), Image.new("RGBA", (1180, 520), (6, 9, 14, 255))
-    port_128.save(mateo_dir / "portrait_128x128.png")
-    s_draw = ImageDraw.Draw(sheet)
-    s_draw.text((16, 10), "6EQUJ5: THE FERMI OVERRIDE - DR. MATEO 'SIX' VARGAS (HUNTDOWN 16-BIT RIG: 3 OUTFITS x 11 ACTIONS)", fill=(51, 255, 102, 255))
-    sheet.paste(port_128, (16, 42))
-    s_draw.text((18, 176), "128x128 BUST PORTRAIT", fill=(255, 158, 44, 255))
-    for o_idx, (o_key, o_meta) in enumerate(OUTFIT_PALETTES.items()):
-        outfit_128 = navy_128 if o_key == "navy_chore" else _recolor_outfit(base_128, o_key)
-        parts, ry, strip = _slice_parts(outfit_128), 42 + o_idx * 156, Image.new("RGBA", (1056, 128), (0, 0, 0, 0))
-        s_draw.text((160, ry - 13), o_meta["label"], fill=(255, 158, 44, 255))
-        outfit_dir = mateo_dir / o_key
+    for outfit in OUTFIT_PALETTES:
+        outfit_128 = navy_128 if outfit == "navy_chore" else _recolor_outfit(base_128, outfit)
+        parts = _slice_parts(outfit_128)
+        strip = Image.new("RGBA", (1056, 128), (0, 0, 0, 0))
+        outfit_dir = mateo_dir / outfit
         outfit_dir.mkdir(parents=True, exist_ok=True)
-        for p_idx, p_name in enumerate(POSE_NAMES):
-            cell_96 = _build_pose(parts, p_name)
-            cell_48 = cell_96.resize((48, 64), Image.Resampling.NEAREST)
-            cell_96.save(sprites_dir / f"mateo_{o_key}_{p_name}_96x128.png")
-            cell_96.save(outfit_dir / f"{p_name}.png")
-            strip.paste(cell_96, (p_idx * 96, 0), cell_96)
-            if p_name == "idle_1":
-                cell_48.save(sprites_dir / f"mateo_{o_key}_48x64.png")
-                cell_96.save(sprites_dir / f"mateo_{o_key}_96x128.png")
-                cell_48.save(outfit_dir / "48x64.png")
-                cell_96.save(outfit_dir / "96x128.png")
-                if o_key == "navy_chore":
-                    cell_48.save(sprites_dir / "mateo_idle_48x64.png")
-                    cell_96.save(sprites_dir / "mateo_bunker_96x128.png")
-                    cell_96.save(mateo_dir / "bunker_96x128.png")
-            px, thumb = 160 + p_idx * 91, cell_96.crop((4, 0, 92, 126))
-            s_draw.rectangle((px, ry, px + 88, ry + 126), fill=(10, 16, 22, 255), outline=(34, 62, 52, 255))
-            sheet.paste(thumb, (px, ry), thumb)
-            if o_idx == 0: s_draw.text((px + 18, ry + 128), p_name.upper(), fill=(170, 215, 195, 255))
-        strip.save(sprites_dir / f"mateo_{o_key}_strip.png")
+        for index, pose in enumerate(POSE_NAMES):
+            cell = _build_pose(parts, pose)
+            cell.save(outfit_dir / f"{pose}.png")
+            strip.paste(cell, (index * 96, 0), cell)
+            if pose == "idle_1" and outfit == "navy_chore":
+                cell.resize((48, 64), Image.Resampling.NEAREST).save(outfit_dir / "48x64.png")
         strip.save(outfit_dir / "strip.png")
-    sheet.save(assets_dir / "mateo_character_sheet.png")
-    return sheet
-
-
-def build_mateo_portrait_128(navy_128):
-    """Render a portrait for existing callers without replacing protected files."""
-    with tempfile.TemporaryDirectory(prefix="mateo-portrait-") as temporary:
-        return _build_mateo_portrait_128(navy_128, CONCEPTS_DIR, Path(temporary))
+    _apply_approved_poses(assets_dir, concepts_dir)
 
 
 def build_all_mateo_assets(*, replace=False, dry_run=False):
     """Safely preserve or explicitly rebuild the complete Mateo group."""
     from .build_assets import build_selected_groups
-    result = build_selected_groups(["mateo"] if replace else [], dry_run=dry_run, groups=["mateo"])
-    if dry_run:
-        return result
-    with Image.open(ASSETS_DIR / "mateo_character_sheet.png") as sheet:
-        return sheet.copy()
+    return build_selected_groups(["mateo"] if replace else [], dry_run=dry_run, groups=["mateo"])
 
 
 def build_all_action_poses(assets_dir=ASSETS_DIR, concepts_dir=None):
@@ -307,6 +268,7 @@ def build_all_action_poses(assets_dir=ASSETS_DIR, concepts_dir=None):
         for p_name in ACTION_POSE_NAMES:
             cell_96 = _build_pose(parts, p_name)
             cell_96.save(outfit_dir / f"{p_name}.png")
+    _apply_approved_poses(assets_dir, concepts_dir)
 
 
 if __name__ == "__main__":

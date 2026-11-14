@@ -13,7 +13,7 @@ from pathlib import Path
 from video_game.engine.asset_transactions import fcntl, promote_group, recover_pending
 from video_game.engine.bosses.greenkeeper_art import FAMILY, HASHES, MANIFEST, validate_bytes
 from video_game.engine.config import ASSETS_DIR
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks
 
 
 def build(*, assets_dir=ASSETS_DIR, source, archive_dir=None, promote=False):
@@ -50,7 +50,7 @@ def build(*, assets_dir=ASSETS_DIR, source, archive_dir=None, promote=False):
             (stage / FAMILY / 'manifest.json').write_text(json.dumps(MANIFEST, indent=2) + '\n', encoding='utf-8')
             for path in paths:
                 _no_symlinks(root / path); _no_symlinks(stage / path)
-            saved = promote_group(root, stage, archive, 'greenkeeper_heavy_v1', paths)
+            saved = promote_group(root, stage, archive, 'greenkeeper', paths)
         return {'status': 'promoted', 'archive': str(saved), 'manifest': MANIFEST}
     finally:
         os.close(fd)

@@ -19,4 +19,18 @@ A14 and S11 static acceptance-card generators were retired to `_trash/2026-11-11
 
 The A13 and S09 static evidence generators were retired to `_trash/2026-11-11_tool_retirement/retired/`: their fixed verdicts and figures could misrepresent results, and A13 also substituted default measurements. See its `retirement.json` for hashes and restoration. Use `profile_game` for measured CPU data and `faction_runtime_audit` for fixture-based runtime captures, subject to the limits above. Historical reports and images are preserved and do not establish current acceptance.
 
-The historical `refine_batch_*` scripts are preserved for rebuild provenance. They can overwrite runtime art; inspect their operations and use a protected staging copy before running them. Their review outputs go under `_temp/refine/`.
+The seven historical `refine_batch_*` scripts are archived under
+`_trash/2026-11-14_repository_compaction/src/tools/`. They have no active callers
+and modify old artwork in place; preserve them as provenance, not current build
+commands. Use the maintained builders above for new exports. The
+[restoration index](../../docs/maintenance/archive-manifest.json) records their
+original paths and hashes.
+
+Current asset layout uses one export location per family. `build_room_family`
+owns Ohio/native room exports; `build_campaign_art` owns later Earth and alien
+panoramas; `build_greenkeeper_heavy` writes the canonical Greenkeeper folder.
+The retired schema-1 approach builder, old Greenkeeper bitmap generator and old
+Ohio texture generator are recoverable under `_trash/2026-11-14_asset_layout/`.
+`build_assets` maintains civilizations, Mateo, bunker overlays and the palette;
+unused comparison sheets, composites, inspection images and portrait output are
+no longer generated. See [asset ownership](../../docs/ASSETS.md).

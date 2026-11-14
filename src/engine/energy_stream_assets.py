@@ -14,9 +14,7 @@ import pygame
 from .native_room_assets import _inside_without_symlinks
 
 LOGGER = logging.getLogger(__name__)
-FAMILY = Path('effects/energy_filament_v1')  # Retained v1 public contract.
-FAMILY_V2 = Path('effects/energy_filament_v2')
-FAMILIES = {1: FAMILY, 2: FAMILY_V2}
+FAMILY = Path('effects/energy_filament')
 IMAGE_NAME = 'stream_96x24.png'
 DIMENSIONS = (96, 24)
 PIVOT = (4, 12)
@@ -71,18 +69,15 @@ def _load_family(root, family):
 
 
 def load_energy_filament_with_family(asset_root):
-    """Prefer validated v2, then validated v1; report the exact selected family."""
+    """Load the canonical family; invalid artwork uses the procedural renderer."""
     if asset_root is None:
         return None, None
     root = Path(asset_root).resolve()
     journal = root.parent / f'.{root.name}-asset-build-pending.json'
     if journal.exists() or journal.is_symlink():
         return None, None
-    for version in (2, 1):
-        image = _load_family(root, FAMILIES[version])
-        if image is not None:
-            return image, FAMILIES[version]
-    return None, None
+    image = _load_family(root, FAMILY)
+    return (image, FAMILY) if image is not None else (None, None)
 
 
 def load_energy_filament(asset_root):

@@ -65,17 +65,6 @@
       "bytes": 640633
     },
     {
-      "file": "neo-denver.png",
-      "setup": "Direct Denver scene/position setup with prior-act fixture; Fitzsimons and mountain backdrop.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "8243749679551cb4f3e1b243ba14e3a911432c0e2f4651af8850508bdb7273cb",
-      "bytes": 908717
-    },
-    {
       "file": "area-51.png",
       "setup": "Direct development scene entry to act_03/s4_hangar.json, then mapped movement; no progression claim.",
       "scene": "FIELD_OPS",

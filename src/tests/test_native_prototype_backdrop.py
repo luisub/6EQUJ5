@@ -109,7 +109,7 @@ def test_reality_background_routes_and_timeline_layers(prototype_game, monkeypat
         original_open = Path.open
 
         def no_family_read(path, *a, **kw):
-            if path.is_relative_to(root / 'environments/mandela_annex_v1'):
+            if path.is_relative_to(root / 'environments/mandela_annex'):
                 pytest.fail('family file read during frame')
             return original_open(path, *a, **kw)
         patch.setattr(Path, 'open', no_family_read)
@@ -161,7 +161,7 @@ def test_key_routes_reload_correct_family_and_corrupt_falls_back(prototype_game,
     assert field.room.room_id == 'flashback_ehman_1977' and field.flashback is not None
     assert field.native_opaque.surface.get_at((100, 100))[:3] == (90, 40, 50)
     assert field.player.health == health and field.player.rect.size == hitbox
-    path = root / 'environments/ehman_1977_v1/backdrop_960x576.png'
+    path = root / 'environments/ehman_1977/background.png'
     path.write_bytes(path.read_bytes() + b'corrupt')
     field.load_room('flashback/ehman_1977.json', spawn_name='ehman_entrance')
     assert field.native_opaque is None

@@ -93,3 +93,17 @@ def test_native_render_uses_cached_frames_without_io(tmp_path, monkeypatch):
     monkeypatch.setattr(pygame.image, 'load', lambda *args, **kwargs: pytest.fail('frame-time I/O'))
     boss.render(surface,camera,crt=crt); boss.render(surface,camera,crt=crt)
     assert crt.calls == [((256,192),(428,144),(128,96))]*2
+
+
+def test_missing_art_renders_procedural_boss_without_bitmap_reads(tmp_path, monkeypatch):
+    assets = tmp_path / 'assets'; assets.mkdir()
+    monkeypatch.setattr(pygame.image, 'load', lambda *_args, **_kwargs: pytest.fail('fallback loaded a bitmap'))
+    boss = Greenkeeper(100, 120, asset_root=assets)
+    assert boss.heavy_sprites is None and boss.rect.size == (64, 48)
+    boss.skip_intro()
+    surface = pygame.Surface((480, 270), pygame.SRCALPHA)
+    boss.render(surface, Camera())
+    assert surface.get_bounding_rect().width >= boss.width
+    assert surface.get_at((110, 145)).a > 0
+    health = boss.health
+    assert boss.take_damage(10).damage_dealt > 0 and boss.health < health

@@ -1,4 +1,5 @@
 """Verify every journey world uses its own complete runtime art families."""
+from video_game.engine.campaign_scenery import background_directory
 import hashlib
 import json
 import shutil
@@ -54,7 +55,7 @@ def test_all_installed_world_families_have_distinct_images_and_provenance(displa
     for world in journey_data()['worlds']:
         art_id = journey_data()['rooms'][world['id'] + '_field']['art_id']
         for relative, hashes in (
-            (f'environments/campaign_worlds/{art_id}', backgrounds),
+            (background_directory(art_id), backgrounds),
             (f"sprites/bosses/campaign/{world['boss_id']}", guardians),
         ):
             directory = ASSETS_DIR / relative
@@ -69,7 +70,7 @@ def test_all_installed_world_families_have_distinct_images_and_provenance(displa
 
 def test_new_world_corruption_is_not_accepted_as_native_art(tmp_path, display):
     root = tmp_path / 'assets'
-    for relative in ('environments/campaign_worlds/realm_fasr_005_v1',
+    for relative in ('environments/alien_worlds/fasr_005',
                      'sprites/bosses/campaign/guardian_fasr_005'):
         directory = root / relative
         shutil.copytree(ASSETS_DIR / relative, directory)

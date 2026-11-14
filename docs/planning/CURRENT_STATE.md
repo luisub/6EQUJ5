@@ -6,25 +6,33 @@ The offline game lives in this checkout; the legacy AI application is separate.
 The flat `src/` directory installs as `video_game`, and `.venv/bin/6equj5-game`
 remains the launch command. Runtime resources live in `src/assets/` and `src/data/`.
 
-The [repository audit](../maintenance/REPOSITORY_AUDIT.md) records the cleanup,
-verification results and [directory tree](../maintenance/repository-tree.txt).
-Art masters now have descriptive domain folders in `src/art/source/`; retained
-briefs and research live in `src/art/briefs/` and `src/art/references/`.
-Tests and their deterministic fixtures live in `src/tests/`.
-Old build copies, completed temporary runs, duplicate masters and historical
-review output are preserved in `_trash/2026-11-14_repository_cleanup/`.
-See the [asset guide](../ASSETS.md) for current ownership and necessary fallbacks.
+The [repository audit](../maintenance/REPOSITORY_AUDIT.md) records the current
+[tree](../maintenance/repository-tree.txt) and [verification](../maintenance/verification.json).
+Runtime asset files decreased from 425 to 295; 76 retained files have canonical
+paths and 136 retired project files are recoverable under
+`_trash/2026-11-14_asset_layout/`. Music/SFX use `assets/audio`; all bitmap scene
+backgrounds use `assets/environments`, grouped by location. Ohio rooms are distinct
+locations with one shared far plane. Mateo and enemy animation manifests reuse
+canonical images without changing timing. No exact runtime-media duplicates remain.
 
-The baseline before cleanup had 1,335 passing tests and two failures: missing
-historical FASR-001 portrait source and FIELD_OPS render P95 of 5.533 ms against
-5.0 ms. The portrait rebuild now expects originals in
-`src/art/source/civilizations/legacy_ascii/`, rather than reading `_trash`.
-No replacement portraits or relaxed performance limits hide these issues.
-The final rerun also passed 1,335 tests with the same two failures (FIELD_OPS
-render P95: 5.322 ms). All 52 levels, the asset dry run, 48 focused checks and
-18 export reproductions passed. Direct and sdist-derived wheels each contain
-564 matching runtime files and boot outside the checkout, including all eleven
-native world/guardian families. See the audit for evidence and limits.
+Art masters, briefs and research stay under `src/art/`; tests and deterministic
+fixtures stay in `src/tests/`. The 85 maintained test modules include the unique
+transaction checks migrated from the retired approach builder. The old comparison
+sheet product and its missing historical-portrait check were retired together;
+the missing source was not recovered or replaced with modern artwork.
+
+All 52 levels and 14 protected asset groups validate. Twenty seeded renderer
+captures are byte-identical. Clean direct/sdist wheels contain 434 runtime files,
+boot independently and load every native world/guardian pair. Installed resource
+tracing covers all rooms, both music tracks and SFX without escaping the owned
+asset/data directories. Final full suite: 1,337 passed and one FIELD_OPS render-budget failure
+(5.249 ms P95 versus 5.0 ms), without warnings. The isolated timing check passed;
+the unchanged threshold remains open. All 86 focused checks passed.
+
+Earlier repository and documentation cleanups are preserved in their dated
+`_trash` folders. `docs/migration/` is retired; the sole full restoration index is
+`docs/maintenance/archive-manifest.json`. See the [asset guide](../ASSETS.md) for
+current ownership, source/export pairs and procedural fallbacks.
 
 ## Launch, movement and campaign
 
@@ -79,7 +87,7 @@ Headless tests and staged captures do not establish those acceptance criteria.
 Historical validation narratives were consolidated without discarding them.
 The full preceding state is preserved at
 `_trash/2026-11-14_repository_cleanup/documentation-before-cleanup/CURRENT_STATE.md`.
-Earlier migration records remain in [migration/REPORT.md](../migration/REPORT.md)
-and [TRANSFER_COMPLETE.md](../migration/TRANSFER_COMPLETE.md). Per-file archive
+Earlier migration records remain in [migration/REPORT.md](../../_trash/2026-11-14_repository_compaction/docs/migration/REPORT.md)
+and [TRANSFER_COMPLETE.md](../../_trash/2026-11-14_repository_compaction/docs/migration/TRANSFER_COMPLETE.md). Per-file archive
 paths, SHA-256 hashes and restoration instructions are in the
-[archive manifest](../migration/archive-manifest.json).
+[archive manifest](../maintenance/archive-manifest.json).

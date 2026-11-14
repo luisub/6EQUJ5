@@ -1,0 +1,18 @@
+{
+  "purpose": "Preserve the approved compositing overlays as lossless rebuild inputs during canonical asset consolidation. No artwork or pixels changed.",
+  "created": "2026-11-14",
+  "files": [
+    {
+      "original_path": "src/assets/bunker/05_foreground_props.png",
+      "final_path": "src/assets/environments/ohio/bunker/foreground.png",
+      "source_master": "src/art/source/bunker/overlays/foreground.png",
+      "sha256": "d2711e79ecda1a3575bedca1fa79a0c4f6baf17bc25e97ac7ee91a00c48ba9ba"
+    },
+    {
+      "original_path": "src/assets/bunker/06_lighting_overlay.png",
+      "final_path": "src/assets/environments/ohio/bunker/lighting.png",
+      "source_master": "src/art/source/bunker/overlays/lighting.png",
+      "sha256": "d47d6d721a8053285be3f7622b6fe57c81109529dd3989dea6003d2b0d3fba20"
+    }
+  ]
+}

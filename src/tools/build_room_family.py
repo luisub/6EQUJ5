@@ -14,8 +14,9 @@ from video_game.engine.asset_transactions import fcntl, promote_group, recover_p
 from video_game.engine.config import ASSETS_DIR
 from video_game.engine.room_art_contracts import (
     OPAQUE_BACKDROP_FAMILIES, ROOM_ART_FAMILIES, backdrop_manifest_template, manifest_template,
+    SHARED_FAR_FAMILIES, SHARED_FAR_FILE, SHARED_FAR_PATH, component_path, family_directory,
 )
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks, _relative, _sha, _validate_image
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks, _relative, _sha, _validate_image
 
 
 def _records(template):
@@ -24,11 +25,10 @@ def _records(template):
 
 def _paths(family_id, template):
     """Derive only the exact ordered targets in the allowlisted contract."""
-    directory = Path('environments') / family_id
     names = [item['file'] for item in _records(template)] + ['manifest.json']
-    if len(names) != len(set(names)) or any(not isinstance(name, str) or Path(name).name != name for name in names):
+    if len(names) != len(set(names)):
         raise ValueError('Unsafe or duplicate room family filenames')
-    return tuple(_relative(directory / name) for name in names)
+    return tuple(_relative(component_path(family_id, name)) for name in names)
 
 
 def _check_paths(root, paths):
@@ -53,6 +53,29 @@ def _source_manifest(template, sources):
     for record, path in zip(records, paths):
         record['sha256'] = _sha(path)
     return template, paths
+
+
+def _validate_shared_far(root, family_id, manifest):
+    """A single-family transaction must preserve every other room's far plane."""
+    if family_id not in SHARED_FAR_FAMILIES:
+        return
+    digest = manifest['layers'][0]['sha256']
+    shared = _no_symlinks(root / SHARED_FAR_PATH)
+    if shared.exists() and _sha(shared) != digest:
+        raise ValueError('Shared Ohio far plane cannot be replaced by a single-family build')
+    for other_id in SHARED_FAR_FAMILIES - {family_id}:
+        path = _no_symlinks(root / family_directory(other_id) / 'manifest.json')
+        if not path.exists():
+            continue
+        try:
+            other = json.loads(path.read_text(encoding='utf-8'))
+            far = other['layers'][0]
+            matches = (far['id'] == 'far' and far['file'] == SHARED_FAR_FILE
+                       and far['sha256'] == digest)
+        except (OSError, ValueError, KeyError, TypeError, IndexError) as exc:
+            raise ValueError(f'Cannot verify shared far dependency: {other_id}') from exc
+        if not matches:
+            raise ValueError(f'Shared far would invalidate room family: {other_id}')
 
 
 def _build(family_id, template_factory, sources, *, assets_dir, archive_dir, promote):
@@ -89,14 +112,16 @@ def _build(family_id, template_factory, sources, *, assets_dir, archive_dir, pro
                       else 'partial_not_inspected')
             return {'status': status, 'integrity': 'not_inspected', 'files': presence}
         manifest, sources = _source_manifest(template, sources)
+        _validate_shared_far(root, family_id, manifest)
         if not promote:
             return {'status': 'validated', 'manifest': manifest}
         with tempfile.TemporaryDirectory(prefix='room-art-stage-', dir=root.parent) as temporary:
             stage = _no_symlinks(temporary)
             _check_paths(stage, paths)
-            directory = stage / 'environments' / family_id
+            directory = stage / family_directory(family_id)
             directory.mkdir(parents=True)
             for source, relative in zip(sources, paths[:-1]):
+                (stage / relative).parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, stage / relative)
             staged, _ = _source_manifest(template_factory(family_id),
                                          [stage / path for path in paths[:-1]])

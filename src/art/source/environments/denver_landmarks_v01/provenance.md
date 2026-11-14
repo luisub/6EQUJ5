@@ -29,7 +29,7 @@ The crop is `(0, 86, 2172, 697)`, using exclusive right/bottom coordinates. Runt
 
 ## Installation and review
 
-The existing campaign-art validator checked the export; `promote_group` installed the PNG and then its manifest under the asset lock. The previous pair is preserved in `_trash/2026-11-13_F03/b52df69faf604cecbbcaca6abd526549/`, with hashes and restoration instructions. `docs/migration/archive-manifest.json` indexes both originals.
+The existing campaign-art validator checked the export; `promote_group` installed the PNG and then its manifest under the asset lock. The previous pair is preserved in `_trash/2026-11-13_F03/b52df69faf604cecbbcaca6abd526549/`, with hashes and restoration instructions. `docs/maintenance/archive-manifest.json` indexes both originals.
 
 Actual renderer inspection covers Denver entry, middle and end views, relay rooftops, amplifier station and the Synchronicity arena. Entry captures include CRT off/on at 960 × 540 and 1920 × 1080. A held-Right fixture crosses the street/relay boundary without an interruption. Captures use temporary saves/settings and explicit prior-progress/position fixtures; the walk clears enemies to inspect scrolling. They are not a human playthrough, controller-hardware or native-performance acceptance.
 

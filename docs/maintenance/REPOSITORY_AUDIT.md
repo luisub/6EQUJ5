@@ -1,118 +1,92 @@
-# Repository organization audit — 2026-11-14
+# Repository audit — 2026-11-14
 
-The active checkout now separates runtime resources, rebuild sources, tests and
-documentation. Confirmed obsolete material is recoverable in `_trash/`.
-The game boots from independently installed packages, and the full suite has
-the same two known failures as before cleanup, with no new failures.
+The asset-layout pass consolidated runtime files into their owning folders,
+updated their consumers and removed retired exports, builders and tests. Music
+loads from `src/assets/audio`; bitmap scene backgrounds load from
+`src/assets/environments`. Source masters, documentation and `_trash` are not
+runtime inputs.
 
-- [Complete active directory tree](repository-tree.txt)
-- [Exact source relocations and before/after hashes](source-moves.json)
+- [Current directory tree](repository-tree.txt)
 - [Verification summary](verification.json)
-- [Per-file archive and restoration index](../migration/archive-manifest.json)
+- [Full restoration index](archive-manifest.json)
+- [Asset ownership and rebuild guide](../ASSETS.md)
 
-## Findings and changes
+## Consolidation
 
-| Area | Finding | Result |
-|---|---|---|
-| Runtime loading | Normal gameplay loads package assets/data, not temporary art folders. Manifest source paths were descriptive provenance. | Kept the flat `src` → `video_game` package and stable runtime identifiers; corrected provenance paths. |
-| Temporary output | Completed verification runs included copied environments, package trees and repeated tests. | Moved `_temp/`, stale `build/`, `dist/`, generated package metadata and caches to the cleanup archive. |
-| Art sources | Active masters were nested under `visual_upgrade/candidates`; source and review material were mixed. | Consolidated masters under descriptive source domains; retained briefs and research separately. |
-| Duplicate art | 88 UUID-named generated images matched descriptive masters; the FASR-003 guardian source was duplicated. | Archived the duplicates after SHA-256 comparison. Also merged two unreferenced identical Göbekli source exports. |
-| Runtime leftovers | Three old bunker captures and one duplicate tileset had no runtime, manifest or maintained-builder readers. | Archived all four; runtime inventory decreased from 568 to 564 files. |
-| Rebuild dependencies | The historical portrait comparison builder read originals from `_trash`; a firing-flash recipe and tests used review paths. | Active inputs now resolve from `src/art/source/`. Missing historical portraits remain an explicit failure. |
-| Test organization | Two deterministic timing fixtures lived among historical evidence. The geometry test retained an obsolete expansion name. | Moved fixtures into `src/tests/fixtures/scene_timing/`; renamed the module to `test_world_geometry.py`; simplified discovery/import paths. |
-| Documentation | Several current instructions used earlier root layouts; historical links pointed to moved evidence. | Updated commands and links; consolidated the current-state handoff; retained prior narrative snapshots. |
+Runtime assets decreased from **425 to 295 files** (30.6% fewer), and from
+48,841,607 to 41,392,223 bytes. **76 retained files** now have canonical paths.
+There are **no byte-identical media duplicates inside `src/assets`**.
 
-There are **363 recorded source relocations**, including art, briefs, two timing
-fixtures and one test-module rename. **15,007 files were moved to `_trash`**, and
-three prior documentation snapshots were copied there before consolidation.
-The 15,010 archive records total **2.46 GB (2.29 GiB)**. Moving preserves recovery
-copies; it does not reclaim their disk space.
+**136 retired project files** are preserved under
+`_trash/2026-11-14_asset_layout/`, with hashes, reasons and restoration steps.
+Code/document snapshots are recorded separately. All **579 original media files**
+in the active `src/` and `docs/` trees are preserved byte-for-byte in the active
+checkout or this archive. Archiving does not reclaim their disk space.
 
-All **698 original image, audio and font files** under source/documentation
-were found unchanged at their retained or archived locations. Every new archive
-record passed SHA-256 verification. Existing recovery archives were preserved.
-
-## Directory ownership
-
-| Path | Contents |
+| Area | Result |
 |---|---|
-| `src/main.py`, `src/engine/` | Entry point and game implementation |
-| `src/assets/`, `src/data/` | Installed runtime exports and authored content |
-| `src/art/source/environments/` | Ohio and other Earth scenery masters |
-| `src/art/source/alien_worlds/` | All eleven world/guardian source families |
-| `src/art/source/effects/`, `bosses/`, `mateo/`, `props/`, `planet_threats/` | Domain-specific art masters and export records |
-| `src/art/source/civilizations/`, `bunker/` | Original dossier/bunker rebuild inputs |
-| `src/art/briefs/`, `references/`, `palettes/` | Retained prompts, visual contracts, research and palettes |
-| `src/tests/`, `src/tests/fixtures/` | Maintained tests and their input fixtures |
-| `src/tools/` | Maintained builders, validators, captures and profiling tools |
-| `docs/media/readme/` | Current README images, GIFs and capture notes |
-| `docs/planning/` | Current roadmap, contracts and acceptance criteria |
-| `docs/migration/`, `docs/maintenance/` | Historical transfer records and this organization audit |
-| `_trash/2026-11-14_repository_cleanup/` | Retired material, pre-cleanup snapshots and verification records |
-| `.venv/` | Existing local Python environment; retained |
+| Ohio scenery | Distinct approach, campus, salvage yard, dish, arena and bunker rooms grouped under `environments/ohio/`; obsolete approach v1 retired |
+| Shared scenery | Four identical far planes replaced by one `ohio/shared/far.png`; shared replacement cannot invalidate other rooms |
+| Other backgrounds | Earth locations and eleven alien worlds have one active directory per location, without versioned runtime folder names |
+| Bunker | Current background and two overlays grouped together; old layers, tileset, inspection sheets and previews archived |
+| Mateo | Organized outfit animations only; flat duplicates, unused snapshots and unused portrait archived; bunker reuses navy idle |
+| Enemy animation | Seventeen repeated image files replaced with manifest aliases; frame order and timing preserved |
+| Bosses and effects | Current Greenkeeper and effect families use canonical names; obsolete bitmap fallbacks archived; procedural recovery retained |
+| Civilization dossiers | Face, environment vignette and constellation retained; eleven unused composites and review products archived |
+| Build tools | Old approach, Greenkeeper-bitmap and Ohio-texture generators archived; supported transaction checks retained in current builders |
+| Tests | One obsolete approach-builder test module archived after migrating unique safety cases; 85 maintained test modules remain |
+| Metadata | Stale aggregate asset registry removed; current family manifests own resource references |
 
-The [full tree](repository-tree.txt) lists active files. Archive contents, Git
-internals, local assistant state and environment internals are collapsed or omitted.
-The complete pre-cleanup inventory and tree are preserved in the
-[verification folder](../../_trash/2026-11-14_repository_cleanup/verification/).
-
-## Test-file disposition
-
-All **86 maintained test modules** still exercise active behavior, supported
-builders or failure handling. None was removed simply because it is old or
-failing. The archived temporary copies contain **688 test scripts**, including
-tests inside copied dependency environments; those are not part of active test
-discovery. The two timing fixtures are now ordinary versioned test inputs.
-
-Runtime fallbacks, locked builder baselines, transaction-recovery code and
-reproducible source exports remain where they have a demonstrated consumer.
-For example, similarly named Ohio, energy-stream and Mateo files are not all
-interchangeable duplicates. See the [asset guide](../ASSETS.md).
+The accepted bunker overlays and five refined olive poses have explicit lossless
+rebuild masters. These source/export pairs have different responsibilities.
+Historical source versions and provenance remain under `src/art`, outside the
+runtime tree. Optional missing/corrupt backgrounds use procedural rendering;
+small dossier plates are no longer reused as gameplay backgrounds.
 
 ## Verification
 
-| Check | Result |
-|---|---|
-| Before-cleanup full suite | 1,335 passed; 2 known failures |
-| After-cleanup full suite | 1,335 passed; the same 2 failures |
-| Focused relocation/boot/source checks | 48 passed |
-| Authored level validation | All 52 passed |
-| Asset-builder dry run | Passed; locked groups preserved |
-| Alien-master export reproduction | All 18 exports match byte-for-byte |
-| Ohio campus source validation | Both locked outputs validated |
-| Firing-flash recipe | Identical RGBA pixels; current PNG encoding differs, so the accepted original bytes were retained |
-| Runtime art provenance | All 161 source paths resolve |
-| Clean direct wheel and wheel rebuilt from sdist | Each has 564 runtime files, matching current checkout hashes |
-| Installed game smoke, each wheel | Main loop, fresh-start opening, all 11 native backgrounds and guardians passed with fallback disabled |
-| Installed resource independence | Outside-checkout runs; zero Python file opens inside the checkout; tools, tests and masters absent from runtime packages |
-| Syntax and metadata | 203 active Python files parsed; source/documentation JSON parsed |
-| Preservation | All 15,010 archive hashes and all 698 original media files verified |
-| Git | Index unchanged; no stage, commit, push, pull or history rewrite |
+The final full suite reports **1,337 passed, one timing failure, no warnings**.
+FIELD_OPS render P95 is **5.249 ms** against the unchanged **5.0 ms** limit.
+The final focused checks pass **86/86**. Detailed results are recorded in
+[verification.json](verification.json).
+All **52 levels** validate; all **14 protected asset groups** pass the builder
+dry run. Twenty seeded renderer screenshots/GIFs match their pre-change files
+byte-for-byte. No normal artwork or animation timing changed.
 
-The missing historical FASR-001 portrait prevents rebuilding the old before/after
-comparison sheet. Its expected input now lives under
-`src/art/source/civilizations/legacy_ascii/`; that directory documents the
-required originals. It is not needed to play the installed game.
+Both a clean wheel and a wheel rebuilt from the source distribution contain
+**434 matching runtime files**. Each boots outside the checkout, enters the
+opening bunker and loads all eleven native world/guardian pairs. The installed
+package excludes source masters, tools and tests. Actual resource-read tracing
+covers all 52 rooms, eleven guardians, both music tracks and sound effects;
+see the verification summary for its checked categories and results.
 
-The FIELD_OPS render P95 was **5.533 ms before** and **5.322 ms after**, against
-the unchanged **5.0 ms** threshold. These measurements do not establish a
-performance improvement; the existing timing check remains failing.
+The initial full suite passed 1,336 tests and hit the existing FIELD_OPS timing
+budget (13.187 ms total P95 against 8.0 ms); the isolated timing check then passed.
+A test-only audio preload race was corrected before the final run: per-frame
+no-read assertions now wait for the already requested background music read.
+No exception was suppressed and no timing threshold changed.
 
-Checks used disposable saves/settings and dummy SDL. They do not establish
-human campaign acceptance, audible quality, physical-controller compatibility
-or native-display performance. Gameplay acceptance gates are unchanged.
+The old historical-portrait failure disappeared because the obsolete comparison
+sheet product and its test were retired together. Those missing portraits were
+**not recovered**, and modern portraits were not substituted. Supported
+transaction, path-containment, corrupt-asset and procedural-fallback checks
+remain active.
 
-## Recovery and future work
+Checks use disposable saves/settings and dummy SDL. They establish automated
+behavior and package independence, not audible quality, controller hardware,
+native-display performance or a human campaign playthrough.
 
-The [archive manifest](../migration/archive-manifest.json) records the original
-path, archived path, SHA-256, reason and restoration instructions for each file.
-Verify its hash and copy it back only when the target is free; preserve newer
-work first. Restore paired image/manifests together. Canonical source moves are
-recorded separately in [source-moves.json](source-moves.json).
+## Earlier cleanup and restoration
 
-Keep new runtime exports in `src/assets`, source masters in their art domain,
-test inputs in `src/tests/fixtures`, and temporary checks in an explicitly chosen
-scratch output directory. Generated verification environments and captures can
-be archived after their useful results are recorded. Missing portrait originals,
-native performance and the existing human/art acceptance work remain open.
+The first pass archived 15,007 temporary/build/review files and grouped art
+sources by subject. The second pass archived `docs/migration/`, seven one-off
+refinement scripts and redundant gallery/maintenance material. Previous reports
+and exact results remain in their dated `_trash` directories. The sole current
+restoration index is `docs/maintenance/archive-manifest.json`; no historical
+migration document is a game dependency.
+
+Per-file retirement and relocation records and the current validation logs are
+under [asset-layout evidence](../../_trash/2026-11-14_asset_layout/verification/).
+Verify hashes before restoring. Preserve newer files and restore dependent
+images, manifests and consumers together. No player saves or Git index/history
+were changed; no stage, commit, push or pull was performed.

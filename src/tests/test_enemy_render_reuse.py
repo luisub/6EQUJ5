@@ -4,6 +4,8 @@ PURPOSE: Verify enemy render output and bounded reuse of telegraph and sprite su
 CALLED BY: pytest.
 HOW TO MODIFY: Preserve pre-change pixel hashes and test observable cache invalidation.
 """
+import json
+from pathlib import Path
 
 import hashlib
 
@@ -95,6 +97,10 @@ def test_reloading_enemy_sprites_invalidates_mirrored_sources(display, monkeypat
     path = directory / "patrol_1.png"
     pygame.image.save(sprite(9), path)
     monkeypatch.setattr(enemies, "ENEMY_SPRITES_DIR", tmp_path)
+    (tmp_path / 'manifest.json').write_text(json.dumps({'schema_version': 1, 'enemies': {
+        'static_hound': {'animations': {'patrol': {
+            'frames': ['sprites/enemies/static_hound/patrol_1.png'] * 2,
+            'frame_duration_ms': 250, 'loop': True}}}}}))
     manager = EnemyManager()
     hound = StaticHound("h", 15, 15)
     hound.facing = "right"
@@ -108,3 +114,36 @@ def test_reloading_enemy_sprites_invalidates_mirrored_sources(display, monkeypat
     manager.render(target, Camera(64, 64))
     assert pygame.image.tobytes(target, "RGBA") != before
     assert manager._flipped_sprites["static_hound_patrol_1"][0] is manager.sprite_cache["static_hound_patrol_1"]
+
+
+def test_manifest_aliases_reuse_one_decode_and_reject_external_frames(display, monkeypatch, tmp_path):
+    import video_game.engine.enemies as enemies
+    directory = tmp_path / 'static_hound'; directory.mkdir()
+    path = directory / 'patrol.png'
+    pygame.image.save(sprite(9), path)
+    outside = tmp_path.parent / (tmp_path.name + '-outside.png')
+    pygame.image.save(sprite(99), outside)
+    (directory / 'linked.png').symlink_to(outside)
+    frame = 'sprites/enemies/static_hound/patrol.png'
+    animations = {
+        'patrol': {'frames': [frame, frame]},
+        'hurt': {'frames': [frame]},
+        'attack': {'frames': [frame]},
+        'invalid_parent': {'frames': ['sprites/enemies/static_hound/../../../outside.png']},
+        'invalid_absolute': {'frames': [str(outside)]},
+        'invalid_symlink': {'frames': ['sprites/enemies/static_hound/linked.png']},
+        'invalid_family': {'frames': ['sprites/enemies/core_recon_drone/patrol.png']},
+    }
+    (tmp_path / 'manifest.json').write_text(json.dumps({'enemies': {'static_hound': {'animations': animations}}}))
+    monkeypatch.setattr(enemies, 'ENEMY_SPRITES_DIR', tmp_path)
+    loads = []
+    original = pygame.image.load
+    def load(source, *args, **kwargs):
+        loads.append(Path(source).resolve())
+        return original(source, *args, **kwargs)
+    monkeypatch.setattr(pygame.image, 'load', load)
+    manager = EnemyManager()
+    assert loads == [path.resolve()]
+    assert set(manager.sprite_cache) == {'static_hound_patrol_1', 'static_hound_patrol_2',
+                                        'static_hound_hurt', 'static_hound_pounce'}
+    assert len({id(image) for image in manager.sprite_cache.values()}) == 1

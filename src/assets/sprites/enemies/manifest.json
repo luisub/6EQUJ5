@@ -261,28 +261,28 @@
         },
         "windup": {
           "frames": [
-            "sprites/enemies/shield_hound/windup.png"
+            "sprites/enemies/shield_hound/patrol_2.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/shield_hound/pounce.png"
+            "sprites/enemies/shield_hound/patrol_2.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/shield_hound/recovery.png"
+            "sprites/enemies/shield_hound/patrol_2.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/shield_hound/hurt.png"
+            "sprites/enemies/shield_hound/patrol_2.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
@@ -308,7 +308,7 @@
         "patrol": {
           "frames": [
             "sprites/enemies/phase_watcher/patrol_1.png",
-            "sprites/enemies/phase_watcher/patrol_2.png"
+            "sprites/enemies/phase_watcher/patrol_1.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
@@ -329,14 +329,14 @@
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/phase_watcher/recovery.png"
+            "sprites/enemies/phase_watcher/windup.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/phase_watcher/hurt.png"
+            "sprites/enemies/phase_watcher/windup.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
@@ -362,7 +362,7 @@
         "patrol": {
           "frames": [
             "sprites/enemies/chrysalis_splicer/patrol_1.png",
-            "sprites/enemies/chrysalis_splicer/patrol_2.png"
+            "sprites/enemies/chrysalis_splicer/patrol_1.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
@@ -383,14 +383,14 @@
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/chrysalis_splicer/recovery.png"
+            "sprites/enemies/chrysalis_splicer/windup.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/chrysalis_splicer/hurt.png"
+            "sprites/enemies/chrysalis_splicer/windup.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
@@ -416,7 +416,7 @@
         "patrol": {
           "frames": [
             "sprites/enemies/precursor_guardian/patrol_1.png",
-            "sprites/enemies/precursor_guardian/patrol_2.png"
+            "sprites/enemies/precursor_guardian/patrol_1.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
@@ -437,14 +437,14 @@
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/precursor_guardian/recovery.png"
+            "sprites/enemies/precursor_guardian/windup.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/precursor_guardian/hurt.png"
+            "sprites/enemies/precursor_guardian/windup.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
@@ -470,7 +470,7 @@
         "patrol": {
           "frames": [
             "sprites/enemies/temporal_phantom/patrol_1.png",
-            "sprites/enemies/temporal_phantom/patrol_2.png"
+            "sprites/enemies/temporal_phantom/patrol_1.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
@@ -484,21 +484,21 @@
         },
         "attack": {
           "frames": [
-            "sprites/enemies/temporal_phantom/attack.png"
+            "sprites/enemies/temporal_phantom/windup.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/temporal_phantom/recovery.png"
+            "sprites/enemies/temporal_phantom/windup.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/temporal_phantom/hurt.png"
+            "sprites/enemies/temporal_phantom/windup.png"
           ],
           "frame_duration_ms": 120,
           "loop": false

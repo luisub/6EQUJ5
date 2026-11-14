@@ -1,41 +1,85 @@
 {
   "date": "2026-11-14",
-  "archive_files": 15010,
-  "moved_to_trash": 15007,
-  "prior_document_snapshots": 3,
-  "archived_bytes": 2464069171,
-  "archive_hashes_verified": 15010,
-  "canonical_source_relocations": 363,
-  "original_media_unchanged_or_archived": 698,
-  "maintained_test_modules": 86,
-  "archived_test_script_copies": 688,
-  "tests_before": {
-    "passed": 1335,
-    "failed": 2,
-    "field_render_p95_ms": 5.533
+  "pass": "canonical_asset_layout",
+  "preservation": {
+    "unaccounted_removals": [],
+    "original_media_preserved": 579,
+    "missing_media": [],
+    "asset_files_before": 425,
+    "asset_files_after": 295,
+    "asset_bytes_before": 48841607,
+    "asset_bytes_after": 41392223,
+    "runtime_media_duplicate_groups": [],
+    "asset_category_files": {
+      "ui": 3,
+      "civilizations": 34,
+      "audio": 15,
+      "environments": 62,
+      "sprites": 172,
+      "effects": 9
+    },
+    "archive_records_verified": 262,
+    "archived_project_files": 136,
+    "archived_cache_files": 116,
+    "preserved_snapshots": 10,
+    "source_test_modules": 85,
+    "archive_bytes": 10399832
   },
-  "tests_after": {
-    "passed": 1335,
-    "failed": 2,
-    "field_render_p95_ms": 5.322
+  "canonical_relocations": 76,
+  "tests": {
+    "passed": 1337,
+    "failed": 1,
+    "warnings": 0,
+    "duration_seconds": 178.5,
+    "remaining_failure": "test_profile.py::test_scene_frame_budgets",
+    "field_render_p95_ms": 5.249,
+    "render_budget_ms": 5.0,
+    "isolated_profile": "1 passed; full-suite timing remains above budget",
+    "focused_passed": 86,
+    "obsolete_feature_note": "Comparison-sheet product and missing historical-portrait check retired together; missing portraits were not recovered. Unique old approach safety checks migrated."
   },
-  "focused_tests_passed": 48,
   "levels_validated": 52,
-  "asset_dry_run": "passed",
-  "alien_exports_reproduced": 18,
-  "direct_and_sdist_wheel_runtime_files": 564,
-  "installed_worlds_verified_per_wheel": 11,
-  "checkout_file_reads_in_installed_smokes": 0,
-  "python_files_parsed": 203,
+  "protected_asset_groups_validated": 14,
+  "identical_renderer_captures": 20,
+  "runtime_media_duplicate_groups": 0,
+  "packaging": {
+    "clean_direct_wheel": "passed",
+    "sdist_rebuilt_wheel": "passed",
+    "matching_runtime_files": 434,
+    "world_guardian_pairs_per_wheel": 11,
+    "checkout_file_reads": 0,
+    "source_distribution_tests_match_final_checkout": true
+  },
+  "installed_resource_trace": {
+    "rooms": 52,
+    "guardians": 11,
+    "categories": {
+      "asset_metadata": 46,
+      "audio_bytes": 2,
+      "font_load": 1,
+      "game_data": 60,
+      "image_bytes": 8,
+      "image_load": 196,
+      "image_stream_sha256": 8,
+      "music_stream_sha256": 2,
+      "sfx_load": 12
+    },
+    "violations": [],
+    "evidence": "_trash/2026-11-14_asset_layout/verification/final-installed-resource-trace.json"
+  },
+  "python_files_parsed": 193,
   "git_index_unchanged": true,
-  "known_failures": [
-    "Historical FASR-001 legacy portrait source missing (comparison-sheet rebuild).",
-    "FIELD_OPS render P95 exceeds the unchanged 5.0 ms threshold."
-  ],
+  "archive_index": "docs/maintenance/archive-manifest.json",
+  "evidence_directory": "_trash/2026-11-14_asset_layout/verification",
+  "earlier_verification": "_trash/2026-11-14_asset_layout/before/docs/maintenance/verification.json",
   "limits": [
-    "Headless automated checks; not a human full-campaign playthrough.",
-    "No audible-quality, physical-controller or native-display performance certification."
+    "Dummy SDL and scripted scene fixtures; not a human campaign playthrough.",
+    "No audible-quality, physical-controller or native-display performance certification.",
+    "Field-scene timing threshold unchanged and still fails in the full suite."
   ],
-  "local_markdown_links_checked": 329,
-  "broken_local_markdown_links": 0
+  "local_markdown_links_checked": 352,
+  "broken_local_links": 0,
+  "active_cache_directories": 0,
+  "runtime_asset_symlinks": 0,
+  "unaccounted_removals": 0
 }

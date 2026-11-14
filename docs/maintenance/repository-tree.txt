@@ -1,14 +1,14 @@
 6EQUJ5/
-Active checkout after cleanup — 2026-11-14
-Git internals, local assistant state and cache contents omitted. Archive and environment interiors collapsed.
+Active checkout after asset consolidation — 2026-11-14
+Git internals, local assistant state and caches omitted. Archive and virtual environment contents collapsed.
 
-├── .venv/  [local Python environment; contents omitted]
-├── _trash/  [recoverable archives; contents omitted]
+├── .venv/  [contents omitted]
+├── _trash/  [contents omitted]
 ├── docs/
 │   ├── maintenance/
+│   │   ├── archive-manifest.json
 │   │   ├── repository-tree.txt
 │   │   ├── REPOSITORY_AUDIT.md
-│   │   ├── source-moves.json
 │   │   └── verification.json
 │   ├── media/
 │   │   └── readme/
@@ -25,7 +25,6 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │       ├── neo-denver-fitzsimons.png
 │   │       ├── neo-denver-mountains.png
 │   │       ├── neo-denver-walk.gif
-│   │       ├── neo-denver.png
 │   │       ├── observatory.png
 │   │       ├── ohio.png
 │   │       ├── proxima-twilight.png
@@ -33,30 +32,7 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │       ├── receiver.png
 │   │       ├── signal-jailer.png
 │   │       ├── signal-transit.gif
-│   │       ├── title-art.png
 │   │       └── vla-rift.png
-│   ├── migration/
-│   │   ├── verification/
-│   │   │   ├── clean-build.txt
-│   │   │   ├── final-wheel-features.txt
-│   │   │   ├── final-wheel-install.txt
-│   │   │   ├── installed-cli.log
-│   │   │   ├── installed-final-v2.json
-│   │   │   ├── installed-final-v2.log
-│   │   │   ├── installed-smoke.log
-│   │   │   ├── package-results.json
-│   │   │   ├── wheel-audit.json
-│   │   │   └── whitespace.txt
-│   │   ├── archive-manifest.json
-│   │   ├── directory-tree.json
-│   │   ├── layout-manifest.json
-│   │   ├── migration-manifest.json
-│   │   ├── preservation-summary.json
-│   │   ├── REPORT.md
-│   │   ├── resource-preservation.json
-│   │   ├── test-disposition.json
-│   │   ├── TRANSFER_COMPLETE.md
-│   │   └── validated-versions.json
 │   ├── planning/
 │   │   ├── evidence/
 │   │   │   ├── EARTH_ROUTE/
@@ -369,6 +345,10 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │       │   └── vulture_echo_guardian_revision_master.png
 │   │   │   │       └── provenance.md
 │   │   │   ├── bunker/
+│   │   │   │   ├── overlays/
+│   │   │   │   │   ├── foreground.png
+│   │   │   │   │   ├── lighting.png
+│   │   │   │   │   └── provenance.json
 │   │   │   │   ├── concept_04_pulsar_maser_halo_chamber.jpg
 │   │   │   │   ├── concept_bunker_480x270_1794333458698.jpg
 │   │   │   │   └── concept_bunker_clean_1794333595362.jpg
@@ -413,10 +393,8 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   │   └── info.txt
 │   │   │   │   ├── fasr_010_gobekli_tepe/
 │   │   │   │   │   └── info.txt
-│   │   │   │   ├── fasr_scan_h_heptapod/
-│   │   │   │   │   └── info.txt
-│   │   │   │   └── legacy_ascii/
-│   │   │   │       └── README.md
+│   │   │   │   └── fasr_scan_h_heptapod/
+│   │   │   │       └── info.txt
 │   │   │   ├── effects/
 │   │   │   │   ├── compact_energy_stream_v01/
 │   │   │   │   │   ├── candidate.json
@@ -554,7 +532,8 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   │   ├── master_v02.png
 │   │   │   │   │   └── provenance.md
 │   │   │   │   ├── ohio/
-│   │   │   │   │   └── ohio_materials_and_palettes.json
+│   │   │   │   │   ├── ohio_materials_and_palettes.json
+│   │   │   │   │   └── README.md
 │   │   │   │   ├── ohio_approach_v01/
 │   │   │   │   │   ├── source/
 │   │   │   │   │   │   └── ohio_approach_environment_generated_master.png
@@ -602,6 +581,14 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │       ├── master_v02.png
 │   │   │   │       └── provenance.md
 │   │   │   ├── mateo/
+│   │   │   │   ├── approved_poses/
+│   │   │   │   │   ├── olive_field/
+│   │   │   │   │   │   ├── idle_1.png
+│   │   │   │   │   │   ├── jump.png
+│   │   │   │   │   │   ├── run_1.png
+│   │   │   │   │   │   ├── shoot.png
+│   │   │   │   │   │   └── slide.png
+│   │   │   │   │   └── provenance.json
 │   │   │   │   ├── mateo_olive_recoil_v01/
 │   │   │   │   │   ├── source/
 │   │   │   │   │   │   └── mateo_olive_recoil_generated_master.png
@@ -710,185 +697,149 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   ├── printer_chatter.wav
 │   │   │   ├── Static_Bloom.mp3
 │   │   │   └── station_chime.wav
-│   │   ├── bunker/
-│   │   │   ├── inspection/
-│   │   │   │   ├── 01_distant_structure_inspect.png
-│   │   │   │   ├── 02_rear_wall_inspect.png
-│   │   │   │   ├── 03_equipment_inspect.png
-│   │   │   │   ├── 04_playable_floor_inspect.png
-│   │   │   │   ├── 05_foreground_props_inspect.png
-│   │   │   │   └── 06_lighting_overlay_inspect.png
-│   │   │   ├── 01_distant_structure.png
-│   │   │   ├── 02_rear_wall.png
-│   │   │   ├── 03_equipment.png
-│   │   │   ├── 04_playable_floor.png
-│   │   │   ├── 05_foreground_props.png
-│   │   │   ├── 06_lighting_overlay.png
-│   │   │   ├── bunker_preview_crt_off.png
-│   │   │   ├── bunker_preview_crt_on.png
-│   │   │   ├── scene_manifest.json
-│   │   │   └── tileset_bunker_16x16.png
 │   │   ├── civilizations/
-│   │   │   ├── fasr-001_composite.png
 │   │   │   ├── fasr-001_constellation.png
 │   │   │   ├── fasr-001_env.png
 │   │   │   ├── fasr-001_face.png
-│   │   │   ├── fasr-002_composite.png
 │   │   │   ├── fasr-002_constellation.png
 │   │   │   ├── fasr-002_env.png
 │   │   │   ├── fasr-002_face.png
-│   │   │   ├── fasr-003_composite.png
 │   │   │   ├── fasr-003_constellation.png
 │   │   │   ├── fasr-003_env.png
 │   │   │   ├── fasr-003_face.png
-│   │   │   ├── fasr-004_composite.png
 │   │   │   ├── fasr-004_constellation.png
 │   │   │   ├── fasr-004_env.png
 │   │   │   ├── fasr-004_face.png
-│   │   │   ├── fasr-005_composite.png
 │   │   │   ├── fasr-005_constellation.png
 │   │   │   ├── fasr-005_env.png
 │   │   │   ├── fasr-005_face.png
-│   │   │   ├── fasr-006_composite.png
 │   │   │   ├── fasr-006_constellation.png
 │   │   │   ├── fasr-006_env.png
 │   │   │   ├── fasr-006_face.png
-│   │   │   ├── fasr-007_composite.png
 │   │   │   ├── fasr-007_constellation.png
 │   │   │   ├── fasr-007_env.png
 │   │   │   ├── fasr-007_face.png
-│   │   │   ├── fasr-008_composite.png
 │   │   │   ├── fasr-008_constellation.png
 │   │   │   ├── fasr-008_env.png
 │   │   │   ├── fasr-008_face.png
-│   │   │   ├── fasr-009_composite.png
 │   │   │   ├── fasr-009_constellation.png
 │   │   │   ├── fasr-009_env.png
 │   │   │   ├── fasr-009_face.png
-│   │   │   ├── fasr-010_composite.png
 │   │   │   ├── fasr-010_constellation.png
 │   │   │   ├── fasr-010_env.png
 │   │   │   ├── fasr-010_face.png
-│   │   │   ├── fasr-scan-h_composite.png
 │   │   │   ├── fasr-scan-h_constellation.png
 │   │   │   ├── fasr-scan-h_env.png
 │   │   │   ├── fasr-scan-h_face.png
 │   │   │   └── manifest.json
 │   │   ├── effects/
-│   │   │   ├── approach_maser_flash_v1/
+│   │   │   ├── energy_filament/
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── stream_96x24.png
+│   │   │   ├── firing_flash/
 │   │   │   │   ├── flash_64x32.png
 │   │   │   │   └── manifest.json
-│   │   │   ├── energy_filament_v1/
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── stream_96x24.png
-│   │   │   ├── energy_filament_v2/
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── stream_96x24.png
-│   │   │   ├── galaxy_transit_v1/
+│   │   │   ├── galaxy_transit/
 │   │   │   │   ├── galaxy_map_960x540.png
 │   │   │   │   ├── manifest.json
 │   │   │   │   └── vortex_512x512.png
-│   │   │   └── maser_discharge_v2/
+│   │   │   └── maser_discharge/
 │   │   │       ├── flash_64x32.png
 │   │   │       └── manifest.json
 │   │   ├── environments/
-│   │   │   ├── campaign_worlds/
-│   │   │   │   ├── area_51_hangar_v1/
+│   │   │   ├── alien_worlds/
+│   │   │   │   ├── fasr_001/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── area_51_v1/
+│   │   │   │   ├── fasr_002/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── gobekli_archive_v1/
+│   │   │   │   ├── fasr_003/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── gobekli_tepe_v2/
+│   │   │   │   ├── fasr_004/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── neo_denver_v1/
+│   │   │   │   ├── fasr_005/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_001_v1/
+│   │   │   │   ├── fasr_006/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_002_v1/
+│   │   │   │   ├── fasr_007/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_003_v1/
+│   │   │   │   ├── fasr_008/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_004_v1/
+│   │   │   │   ├── fasr_009/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_005_v1/
+│   │   │   │   ├── fasr_010/
 │   │   │   │   │   ├── background.png
 │   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_006_v1/
-│   │   │   │   │   ├── background.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_007_v1/
-│   │   │   │   │   ├── background.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_008_v1/
-│   │   │   │   │   ├── background.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_009_v1/
-│   │   │   │   │   ├── background.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_010_v1/
-│   │   │   │   │   ├── background.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── realm_fasr_scan_h_v1/
-│   │   │   │   │   ├── background.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   └── vla_rift_v1/
+│   │   │   │   └── fasr_scan_h/
 │   │   │   │       ├── background.png
 │   │   │   │       └── manifest.json
-│   │   │   ├── dodleston_relay_v1/
-│   │   │   │   ├── backdrop_960x576.png
+│   │   │   ├── area_51/
+│   │   │   │   ├── exterior/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   └── hangar/
+│   │   │   │       ├── background.png
+│   │   │   │       └── manifest.json
+│   │   │   ├── dodleston_relay/
+│   │   │   │   ├── background.png
 │   │   │   │   └── manifest.json
-│   │   │   ├── ehman_1977_v1/
-│   │   │   │   ├── backdrop_960x576.png
+│   │   │   ├── ehman_1977/
+│   │   │   │   ├── background.png
 │   │   │   │   └── manifest.json
-│   │   │   ├── mandela_annex_v1/
-│   │   │   │   ├── backdrop_960x576.png
+│   │   │   ├── gobekli_tepe/
+│   │   │   │   ├── archive/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   └── surface/
+│   │   │   │       ├── background.png
+│   │   │   │       └── manifest.json
+│   │   │   ├── mandela_annex/
+│   │   │   │   ├── background.png
+│   │   │   │   └── manifest.json
+│   │   │   ├── neo_denver/
+│   │   │   │   ├── background.png
 │   │   │   │   └── manifest.json
 │   │   │   ├── ohio/
-│   │   │   │   ├── bg_ohio_dish_lattice.png
-│   │   │   │   ├── bg_ohio_sky_twilight.png
-│   │   │   │   ├── bg_ohio_treeline_fence.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   ├── tileset_ohio_16x16.png
-│   │   │   │   └── weather_ohio_mist.png
-│   │   │   ├── ohio_approach_v1/
-│   │   │   │   ├── far_1152x544.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── world_architecture_1920x576.png
-│   │   │   ├── ohio_approach_v2/
-│   │   │   │   ├── equipment_112x64_rgba.png
-│   │   │   │   ├── far_1152x544.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── world_1920x576.png
-│   │   │   ├── ohio_arena_v1/
-│   │   │   │   ├── far_1152x544.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── world_1280x576.png
-│   │   │   ├── ohio_bunker_v1/
-│   │   │   │   ├── backdrop_960x540.png
-│   │   │   │   └── manifest.json
-│   │   │   ├── ohio_campus_v1/
-│   │   │   │   ├── far_1152x544.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── world_2560x576.png
-│   │   │   ├── ohio_dish_v1/
-│   │   │   │   ├── far_1152x544.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── world_1280x576.png
-│   │   │   └── ohio_salvage_v1/
-│   │   │       ├── far_1152x544.png
-│   │   │       ├── manifest.json
-│   │   │       ├── wagon_168x76_rgba.png
-│   │   │       └── world_1280x576.png
+│   │   │   │   ├── approach/
+│   │   │   │   │   ├── equipment.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   └── world.png
+│   │   │   │   ├── arena/
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   └── world.png
+│   │   │   │   ├── bunker/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── foreground.png
+│   │   │   │   │   ├── lighting.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   └── scene.json
+│   │   │   │   ├── campus/
+│   │   │   │   │   ├── far.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   └── world.png
+│   │   │   │   ├── dish/
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   └── world.png
+│   │   │   │   ├── salvage_yard/
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── wagon.png
+│   │   │   │   │   └── world.png
+│   │   │   │   └── shared/
+│   │   │   │       ├── far.png
+│   │   │   │       ├── manifest.json
+│   │   │   │       ├── mist.png
+│   │   │   │       └── tileset.png
+│   │   │   └── vla/
+│   │   │       ├── background.png
+│   │   │       └── manifest.json
 │   │   ├── sprites/
 │   │   │   ├── bosses/
 │   │   │   │   ├── campaign/
@@ -931,34 +882,17 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   │   └── synchronicity/
 │   │   │   │   │       ├── body.png
 │   │   │   │   │       └── manifest.json
-│   │   │   │   ├── greenkeeper/
-│   │   │   │   │   ├── charge_1.png
-│   │   │   │   │   ├── charge_2.png
-│   │   │   │   │   ├── defeated.png
-│   │   │   │   │   ├── hurt.png
-│   │   │   │   │   ├── idle_1.png
-│   │   │   │   │   ├── idle_2.png
-│   │   │   │   │   ├── manifest.json
-│   │   │   │   │   ├── mortar_aim.png
-│   │   │   │   │   ├── mortar_fire.png
-│   │   │   │   │   ├── sweep_charge.png
-│   │   │   │   │   ├── vulnerable_1.png
-│   │   │   │   │   └── vulnerable_2.png
-│   │   │   │   ├── greenkeeper_heavy_v1/
-│   │   │   │   │   ├── attack.png
-│   │   │   │   │   ├── exposed.png
-│   │   │   │   │   ├── idle.png
-│   │   │   │   │   ├── manifest.json
-│   │   │   │   │   └── wreck.png
-│   │   │   │   └── greenkeeper.png
+│   │   │   │   └── greenkeeper/
+│   │   │   │       ├── attack.png
+│   │   │   │       ├── exposed.png
+│   │   │   │       ├── idle.png
+│   │   │   │       ├── manifest.json
+│   │   │   │       └── wreck.png
 │   │   │   ├── enemies/
 │   │   │   │   ├── chrysalis_splicer/
 │   │   │   │   │   ├── attack.png
 │   │   │   │   │   ├── death.png
-│   │   │   │   │   ├── hurt.png
 │   │   │   │   │   ├── patrol_1.png
-│   │   │   │   │   ├── patrol_2.png
-│   │   │   │   │   ├── recovery.png
 │   │   │   │   │   └── windup.png
 │   │   │   │   ├── core_enforcer/
 │   │   │   │   │   ├── attack.png
@@ -988,27 +922,17 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   ├── phase_watcher/
 │   │   │   │   │   ├── attack.png
 │   │   │   │   │   ├── death.png
-│   │   │   │   │   ├── hurt.png
 │   │   │   │   │   ├── patrol_1.png
-│   │   │   │   │   ├── patrol_2.png
-│   │   │   │   │   ├── recovery.png
 │   │   │   │   │   └── windup.png
 │   │   │   │   ├── precursor_guardian/
 │   │   │   │   │   ├── attack.png
 │   │   │   │   │   ├── death.png
-│   │   │   │   │   ├── hurt.png
 │   │   │   │   │   ├── patrol_1.png
-│   │   │   │   │   ├── patrol_2.png
-│   │   │   │   │   ├── recovery.png
 │   │   │   │   │   └── windup.png
 │   │   │   │   ├── shield_hound/
 │   │   │   │   │   ├── death.png
-│   │   │   │   │   ├── hurt.png
 │   │   │   │   │   ├── patrol_1.png
-│   │   │   │   │   ├── patrol_2.png
-│   │   │   │   │   ├── pounce.png
-│   │   │   │   │   ├── recovery.png
-│   │   │   │   │   └── windup.png
+│   │   │   │   │   └── patrol_2.png
 │   │   │   │   ├── static_hound/
 │   │   │   │   │   ├── death.png
 │   │   │   │   │   ├── hurt.png
@@ -1018,27 +942,12 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   │   ├── recovery.png
 │   │   │   │   │   └── windup.png
 │   │   │   │   ├── temporal_phantom/
-│   │   │   │   │   ├── attack.png
 │   │   │   │   │   ├── death.png
-│   │   │   │   │   ├── hurt.png
 │   │   │   │   │   ├── patrol_1.png
-│   │   │   │   │   ├── patrol_2.png
-│   │   │   │   │   ├── recovery.png
 │   │   │   │   │   └── windup.png
-│   │   │   │   ├── chrysalis_splicer.png
-│   │   │   │   ├── core_enforcer.png
-│   │   │   │   ├── core_operative.png
-│   │   │   │   ├── core_recon_drone.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   ├── phase_watcher.png
-│   │   │   │   ├── precursor_guardian.png
-│   │   │   │   ├── shield_hound.png
-│   │   │   │   ├── static_hound.png
-│   │   │   │   └── temporal_phantom.png
+│   │   │   │   └── manifest.json
 │   │   │   ├── mateo/
 │   │   │   │   ├── faraday_rig/
-│   │   │   │   │   ├── 48x64.png
-│   │   │   │   │   ├── 96x128.png
 │   │   │   │   │   ├── cover_background.png
 │   │   │   │   │   ├── cover_low.png
 │   │   │   │   │   ├── crouch.png
@@ -1064,7 +973,6 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   │   └── walk_2.png
 │   │   │   │   ├── navy_chore/
 │   │   │   │   │   ├── 48x64.png
-│   │   │   │   │   ├── 96x128.png
 │   │   │   │   │   ├── cover_background.png
 │   │   │   │   │   ├── cover_low.png
 │   │   │   │   │   ├── crouch.png
@@ -1089,8 +997,6 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   │   ├── walk_1.png
 │   │   │   │   │   └── walk_2.png
 │   │   │   │   ├── olive_field/
-│   │   │   │   │   ├── 48x64.png
-│   │   │   │   │   ├── 96x128.png
 │   │   │   │   │   ├── cover_background.png
 │   │   │   │   │   ├── cover_low.png
 │   │   │   │   │   ├── crouch.png
@@ -1114,96 +1020,45 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   │   │   │   ├── tune.png
 │   │   │   │   │   ├── walk_1.png
 │   │   │   │   │   └── walk_2.png
-│   │   │   │   ├── bunker_96x128.png
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── portrait_128x128.png
-│   │   │   ├── planet_threats/
-│   │   │   │   ├── archive_skimmer/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── beacon_mite/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── carrier_wraith/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── lensing_orb/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── memorial_sentinel/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── paradox_knot/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── plasma_kite/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── resonance_effigy/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── sevenfold_interceptor/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   ├── shard_clipper/
-│   │   │   │   │   ├── body.png
-│   │   │   │   │   └── manifest.json
-│   │   │   │   └── terminator_roller/
-│   │   │   │       ├── body.png
-│   │   │   │       └── manifest.json
-│   │   │   ├── mateo_bunker_96x128.png
-│   │   │   ├── mateo_faraday_rig_48x64.png
-│   │   │   ├── mateo_faraday_rig_96x128.png
-│   │   │   ├── mateo_faraday_rig_crouch_96x128.png
-│   │   │   ├── mateo_faraday_rig_idle_1_96x128.png
-│   │   │   ├── mateo_faraday_rig_idle_2_96x128.png
-│   │   │   ├── mateo_faraday_rig_jump_96x128.png
-│   │   │   ├── mateo_faraday_rig_run_1_96x128.png
-│   │   │   ├── mateo_faraday_rig_run_2_96x128.png
-│   │   │   ├── mateo_faraday_rig_run_3_96x128.png
-│   │   │   ├── mateo_faraday_rig_run_4_96x128.png
-│   │   │   ├── mateo_faraday_rig_shoot_96x128.png
-│   │   │   ├── mateo_faraday_rig_slide_96x128.png
-│   │   │   ├── mateo_faraday_rig_strip.png
-│   │   │   ├── mateo_faraday_rig_tune_96x128.png
-│   │   │   ├── mateo_idle_48x64.png
-│   │   │   ├── mateo_navy_chore_48x64.png
-│   │   │   ├── mateo_navy_chore_96x128.png
-│   │   │   ├── mateo_navy_chore_crouch_96x128.png
-│   │   │   ├── mateo_navy_chore_idle_1_96x128.png
-│   │   │   ├── mateo_navy_chore_idle_2_96x128.png
-│   │   │   ├── mateo_navy_chore_jump_96x128.png
-│   │   │   ├── mateo_navy_chore_run_1_96x128.png
-│   │   │   ├── mateo_navy_chore_run_2_96x128.png
-│   │   │   ├── mateo_navy_chore_run_3_96x128.png
-│   │   │   ├── mateo_navy_chore_run_4_96x128.png
-│   │   │   ├── mateo_navy_chore_shoot_96x128.png
-│   │   │   ├── mateo_navy_chore_slide_96x128.png
-│   │   │   ├── mateo_navy_chore_strip.png
-│   │   │   ├── mateo_navy_chore_tune_96x128.png
-│   │   │   ├── mateo_olive_field_48x64.png
-│   │   │   ├── mateo_olive_field_96x128.png
-│   │   │   ├── mateo_olive_field_crouch_96x128.png
-│   │   │   ├── mateo_olive_field_idle_1_96x128.png
-│   │   │   ├── mateo_olive_field_idle_2_96x128.png
-│   │   │   ├── mateo_olive_field_jump_96x128.png
-│   │   │   ├── mateo_olive_field_run_1_96x128.png
-│   │   │   ├── mateo_olive_field_run_2_96x128.png
-│   │   │   ├── mateo_olive_field_run_3_96x128.png
-│   │   │   ├── mateo_olive_field_run_4_96x128.png
-│   │   │   ├── mateo_olive_field_shoot_96x128.png
-│   │   │   ├── mateo_olive_field_slide_96x128.png
-│   │   │   ├── mateo_olive_field_strip.png
-│   │   │   ├── mateo_olive_field_tune_96x128.png
-│   │   │   └── mateo_portrait_128x128.png
-│   │   ├── ui/
-│   │   │   ├── title_banner.json
-│   │   │   └── title_banner.png
-│   │   ├── all_civilizations_roster.png
-│   │   ├── before_after_comparison.png
-│   │   ├── manifest.json
-│   │   ├── mateo_character_sheet.png
-│   │   └── palette_sheet.png
+│   │   │   │   └── manifest.json
+│   │   │   └── planet_threats/
+│   │   │       ├── archive_skimmer/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── beacon_mite/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── carrier_wraith/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── lensing_orb/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── memorial_sentinel/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── paradox_knot/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── plasma_kite/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── resonance_effigy/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── sevenfold_interceptor/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       ├── shard_clipper/
+│   │   │       │   ├── body.png
+│   │   │       │   └── manifest.json
+│   │   │       └── terminator_roller/
+│   │   │           ├── body.png
+│   │   │           └── manifest.json
+│   │   └── ui/
+│   │       ├── palette_sheet.png
+│   │       ├── title_banner.json
+│   │       └── title_banner.png
 │   ├── data/
 │   │   ├── levels/
 │   │   │   ├── act_01/
@@ -1371,7 +1226,6 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   ├── test_alien_journey_runtime.py
 │   │   ├── test_alien_world_art.py
 │   │   ├── test_animation.py
-│   │   ├── test_approach_family_transaction.py
 │   │   ├── test_assets.py
 │   │   ├── test_assisted_survival.py
 │   │   ├── test_audio_lifecycle.py
@@ -1453,9 +1307,8 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   ├── tools/
 │   │   ├── __init__.py
 │   │   ├── act_01_traversal.py
+│   │   ├── asset_build_common.py
 │   │   ├── audio_sfx_builder.py
-│   │   ├── boss_sprite_builder.py
-│   │   ├── build_approach_family.py
 │   │   ├── build_assets.py
 │   │   ├── build_campaign_art.py
 │   │   ├── build_energy_stream.py
@@ -1478,18 +1331,10 @@ Git internals, local assistant state and cache contents omitted. Archive and env
 │   │   ├── generate_faction_sprites.py
 │   │   ├── mateo_sprite_builder.py
 │   │   ├── mechanics_route.py
-│   │   ├── ohio_environment_builder.py
 │   │   ├── play_act_01.py
 │   │   ├── preview_assets.py
 │   │   ├── profile_game.py
 │   │   ├── README.md
-│   │   ├── refine_batch_1.py
-│   │   ├── refine_batch_2.py
-│   │   ├── refine_batch_3.py
-│   │   ├── refine_batch_4.py
-│   │   ├── refine_batch_5.py
-│   │   ├── refine_batch_6.py
-│   │   ├── refine_batch_7.py
 │   │   └── validate_content.py
 │   ├── __init__.py
 │   └── main.py

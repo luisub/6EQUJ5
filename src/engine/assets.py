@@ -2,8 +2,7 @@
 MODULE: video_game/engine/assets.py
 PURPOSE: Validate existing manifests and cache required Pygame asset surfaces.
 CALLED BY: GameStateMachine and its scenes.
-HOW TO MODIFY: Resolve manifest paths within the asset root and retain current
-  alpha-mask behavior until the bunker layer migration in C02.
+HOW TO MODIFY: Resolve manifests within their owned asset folders.
 """
 
 import json
@@ -22,17 +21,14 @@ class AssetCache:
     def __init__(self, asset_root):
         self.root = Path(asset_root).resolve()
         self._surfaces = {}
-        self.master_manifest = self._manifest("manifest.json") if (self.root / "manifest.json").is_file() else {}
-        self.bunker_manifest = self._manifest("bunker/scene_manifest.json")
+        self.bunker_manifest = self._manifest("environments/ohio/bunker/scene.json")
         self.civilizations = self._manifest("civilizations/manifest.json")
-        self.mateo_manifest = self._manifest("sprites/mateo/manifest.json") if (self.root / "sprites/mateo/manifest.json").is_file() else {}
         layers = self.bunker_manifest.get("layers")
         if (self.bunker_manifest.get("canvas_size") != [480, 270] or not isinstance(layers, list)
-                or len(layers) != 6 or any(not isinstance(name, str) for name in layers)
-                or len(set(layers)) != 6):
-            raise AssetLoadError("Invalid bunker manifest: expected six 480x270 layers")
+                or layers != ["foreground.png", "lighting.png"]):
+            raise AssetLoadError("Invalid bunker manifest: expected foreground and lighting overlays")
         for name in layers:
-            self._resolve(Path("bunker") / name)
+            self._resolve(Path("environments/ohio/bunker") / name)
         if not isinstance(self.civilizations, dict) or not self.civilizations:
             raise AssetLoadError("Invalid civilization manifest: expected civilization entries")
 
@@ -59,21 +55,6 @@ class AssetCache:
         key = (str(relative), tuple(size), mode)
         if key not in self._surfaces:
             path = self._resolve(relative)
-            if not path.is_file():
-                rel_str = str(relative)
-                if rel_str.startswith("sprites/mateo_") and rel_str.endswith("_strip.png"):
-                    outfit = rel_str.removeprefix("sprites/mateo_").removesuffix("_strip.png")
-                    candidate = self.root / "sprites" / "mateo" / outfit / "strip.png"
-                    if candidate.is_file():
-                        path = candidate
-                elif rel_str == "sprites/mateo_portrait_128x128.png":
-                    candidate = self.root / "sprites" / "mateo" / "portrait_128x128.png"
-                    if candidate.is_file():
-                        path = candidate
-                elif rel_str == "sprites/mateo_bunker_96x128.png":
-                    candidate = self.root / "sprites" / "mateo" / "bunker_96x128.png"
-                    if candidate.is_file():
-                        path = candidate
             try:
                 surface = pygame.image.load(str(path)).convert_alpha()
             except (pygame.error, OSError, FileNotFoundError) as exc:
@@ -83,8 +64,8 @@ class AssetCache:
             self._surfaces[key] = surface
         return self._surfaces[key]
 
-    def bunker_layers(self):
-        return [self.image(Path("bunker") / name, (480, 270))
+    def bunker_overlays(self):
+        return [self.image(Path("environments/ohio/bunker") / name, (480, 270))
                 for name in self.bunker_manifest["layers"]]
 
     def bunker_sprite(self, name, size):
@@ -93,6 +74,8 @@ class AssetCache:
             path = entry["file"]
             if not isinstance(path, str) or entry["size"] != list(size):
                 raise ValueError(f"expected a relative path and size {tuple(size)}")
+            if Path(path).parts[:2] != ("sprites", "mateo"):
+                raise ValueError("bunker sprites must belong to sprites/mateo")
         except (KeyError, TypeError, ValueError) as exc:
             raise AssetLoadError(f"Invalid bunker sprite {name}: {exc}") from exc
         return self.image(path, size)

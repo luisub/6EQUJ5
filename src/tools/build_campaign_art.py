@@ -16,13 +16,13 @@ from pathlib import Path
 
 from PIL import Image
 from video_game.engine.asset_transactions import fcntl, promote_group
-from video_game.engine.campaign_scenery import BACKGROUND_IDS, BOSS_IDS
+from video_game.engine.campaign_scenery import BACKGROUND_IDS, BOSS_IDS, background_directory
 from video_game.engine.config import ASSETS_DIR
-from video_game.tools.build_approach_family import _check_pending, _no_symlinks
+from video_game.tools.asset_build_common import _check_pending, _no_symlinks
 
 def build(kind, art_id, source, provenance, *, assets_dir=ASSETS_DIR, archive_dir=None, promote=False):
     if kind == 'background' and art_id in BACKGROUND_IDS:
-        relative = Path('environments/campaign_worlds') / art_id
+        relative = background_directory(art_id)
         filename, dimensions, mode = 'background.png', (1920, 540), 'RGB'
         manifest = {'schema_version': 1, 'kind': 'campaign_world_background', 'art_id': art_id,
                     'viewport': [480, 270], 'density': 2}

@@ -14,7 +14,7 @@ import pytest
 from video_game.engine.campaign_scenery import (
     ALIEN_BACKGROUND_IDS, BACKGROUND_IDS, BOSS_IDS, GUARDIAN_IDS,
     CampaignScenery, load_campaign_background, load_campaign_boss,
-    load_profile_blockout, _load_existing_guardian,
+    _load_existing_guardian,
 )
 from video_game.engine.config import ASSETS_DIR
 from video_game.engine.world import Camera
@@ -35,7 +35,7 @@ def test_background_builder_validation_and_loader_integrity(tmp_path, display):
     Image.new('RGB', (1920, 540), (30, 42, 53)).save(source)
     result = build('background', 'neo_denver_v1', source, {'source': 'test'}, assets_dir=root)
     assert result['status'] == 'validated'
-    family = root / 'environments/campaign_worlds/neo_denver_v1'; family.mkdir(parents=True)
+    family = root / 'environments/neo_denver'; family.mkdir(parents=True)
     (family / 'background.png').write_bytes(source.read_bytes())
     (family / 'manifest.json').write_text(json.dumps(result['manifest']))
     assert load_campaign_background(root, 'neo_denver_v1') is not None
@@ -79,9 +79,9 @@ def test_builder_rejects_pending_journal_symlink_and_non_rgba(tmp_path, display)
         build('background', 'neo_denver_v1', source, {'source':'test'}, assets_dir=root)
     assert load_campaign_background(root, 'neo_denver_v1') is None
     journal.unlink()
-    family_parent = root / 'environments/campaign_worlds'; family_parent.mkdir(parents=True)
+    family_parent = root / 'environments'; family_parent.mkdir(parents=True)
     outside = tmp_path / 'elsewhere'; outside.mkdir()
-    (family_parent / 'neo_denver_v1').symlink_to(outside, target_is_directory=True)
+    (family_parent / 'neo_denver').symlink_to(outside, target_is_directory=True)
     with pytest.raises(ValueError, match='[Ss]ymlink'):
         build('background', 'neo_denver_v1', source, {'source':'test'}, assets_dir=root)
     assert load_campaign_background(root, 'neo_denver_v1') is None
@@ -109,7 +109,7 @@ def test_background_ground_tracks_camera_y_without_scaling(tmp_path, display):
     image = Image.new('RGB', (1920, 540), (4, 5, 6))
     image.paste((255, 0, 0), (0, 480, 1920, 481)); image.save(source)
     manifest = build('background', 'neo_denver_v1', source, {'source':'test'}, assets_dir=root)['manifest']
-    family = root / 'environments/campaign_worlds/neo_denver_v1'; family.mkdir(parents=True)
+    family = root / 'environments/neo_denver'; family.mkdir(parents=True)
     (family / 'background.png').write_bytes(source.read_bytes())
     (family / 'manifest.json').write_text(json.dumps(manifest))
     scene = CampaignScenery(root, SimpleNamespace(act_id='act_02', room_id='act_02_street', width_px=3840))
@@ -135,7 +135,7 @@ def test_room_art_view_uses_authored_source_slice_without_scaling(tmp_path, disp
     image.paste((30, 210, 40), (640, 0, 641, 540))
     image.save(source)
     manifest = build('background', 'area_51_hangar_v1', source, {'source':'test'}, assets_dir=root)['manifest']
-    family = root / 'environments/campaign_worlds/area_51_hangar_v1'; family.mkdir(parents=True)
+    family = root / 'environments/area_51/hangar'; family.mkdir(parents=True)
     (family / 'background.png').write_bytes(source.read_bytes())
     (family / 'manifest.json').write_text(json.dumps(manifest))
     room = SimpleNamespace(act_id='act_03', room_id='act_03_s4_hangar', width_px=3840)
@@ -208,7 +208,7 @@ def test_alien_world_allowlists_and_explicit_metadata(tmp_path, display):
     source = tmp_path / 'realm.png'
     Image.new('RGB', (1920, 540), (12, 25, 35)).save(source)
     manifest = build('background', 'realm_fasr_001_v1', source, {'source':'test'}, assets_dir=root)['manifest']
-    family = root / 'environments/campaign_worlds/realm_fasr_001_v1'; family.mkdir(parents=True)
+    family = root / 'environments/alien_worlds/fasr_001'; family.mkdir(parents=True)
     (family / 'background.png').write_bytes(source.read_bytes())
     (family / 'manifest.json').write_text(json.dumps(manifest))
     room = SimpleNamespace(act_id='act_05', room_id='alien_001_field', width_px=3840)
@@ -239,34 +239,65 @@ def test_guardian_body_uses_strict_manifest_and_corruption_fallback(tmp_path, di
         build('boss', 'guardian_fasr_011', source, {'source':'test'}, assets_dir=root)
 
 
-def test_existing_profile_and_guardian_blockouts_are_distinct_and_verified(display):
-    background_hashes = set()
+def test_existing_guardian_fallbacks_are_distinct_and_verified(display):
     guardian_hashes = set()
-    for art_id in sorted(ALIEN_BACKGROUND_IDS):
-        image = load_profile_blockout(ASSETS_DIR, art_id)
-        assert image is not None and image.get_size() == (1920, 540)
-        background_hashes.add(hashlib.sha256(pygame.image.tobytes(image, 'RGBA')).hexdigest())
     for guardian in sorted(GUARDIAN_IDS):
         image = _load_existing_guardian(ASSETS_DIR, guardian)
         assert image is not None and image.get_size() == (256, 192)
         guardian_hashes.add(hashlib.sha256(pygame.image.tobytes(image, 'RGBA')).hexdigest())
-    assert len(background_hashes) == 11
     assert len(guardian_hashes) >= 9  # Nine existing authored enemy silhouettes are reused.
 
 
-def test_profile_blockout_is_per_realm_and_rejects_tampering(tmp_path, display):
+@pytest.mark.parametrize('defect', ['missing', 'corrupt'])
+def test_invalid_alien_background_uses_procedural_scene_without_dossier_reads(tmp_path, display, monkeypatch, defect):
     import shutil
-    root = tmp_path / 'assets'; directory = root / 'civilizations'; directory.mkdir(parents=True)
-    shutil.copy2(ASSETS_DIR / 'civilizations/manifest.json', directory / 'manifest.json')
-    shutil.copy2(ASSETS_DIR / 'civilizations/fasr-002_env.png', directory / 'fasr-002_env.png')
-    room = SimpleNamespace(act_id='act_05', room_id='alien_002_field', width_px=3840)
-    scene = CampaignScenery(root, room, {'art_id':'realm_fasr_002_v1'})
-    assert scene.background is not None
-    assert scene.background_source == {'kind':'profile_blockout', 'art_id':'realm_fasr_002_v1'}
-    assert scene.person is None and scene.vehicle is None
-    (directory / 'fasr-002_env.png').write_bytes(b'corrupted')
-    assert load_profile_blockout(root, 'realm_fasr_002_v1') is None
-    assert CampaignScenery(root, room, {'art_id':'realm_fasr_002_v1'}).background is None
+    from video_game.engine import config
+    from video_game.engine.assets import AssetCache
+    from video_game.engine.crt_renderer import CRTRenderer
+    from video_game.engine.save_game import SaveStore
+    from video_game.engine.settings import SettingsStore
+    from video_game.engine.state_machine import GameStateMachine
+    root = tmp_path / 'assets'
+    shutil.copytree(ASSETS_DIR, root)
+    background = root / 'environments/alien_worlds/fasr_002/background.png'
+    if defect == 'missing':
+        background.unlink()
+    else:
+        background.write_bytes(b'corrupt')
+    game = GameStateMachine(CRTRenderer(scale=1), save_store=SaveStore(tmp_path/'save'),
+                            settings_store=SettingsStore(tmp_path/'settings'))
+    try:
+        game.assets = AssetCache(root)
+        assert game.start_new_game()[0]
+        game.change_state(config.STATE_FIELD_OPS)
+        original_open = Path.open
+        original_load = pygame.image.load
+        def open_without_dossiers(path, *args, **kwargs):
+            assert 'civilizations' not in path.parts, 'background read a dossier asset'
+            return original_open(path, *args, **kwargs)
+        def load_without_dossiers(path, *args, **kwargs):
+            if isinstance(path, (str, Path)):
+                assert 'civilizations' not in Path(path).parts, 'background loaded a dossier image'
+            return original_load(path, *args, **kwargs)
+        monkeypatch.setattr(Path, 'open', open_without_dossiers)
+        monkeypatch.setattr(pygame.image, 'load', load_without_dossiers)
+        # Direct scene entry is a fixture; no campaign completion is claimed.
+        game.change_state(config.STATE_FIELD_OPS, room='alien_worlds/alien_002_field.json',
+                          spawn='default', campaign_route=True, journey_world='alien_002')
+        scene = game.current_scene
+        assert scene.campaign_scenery.background is None
+        assert scene.campaign_scenery.person is None and scene.campaign_scenery.vehicle is None
+        calls = []
+        render = scene.room.render_background
+        def record_background(*args, **kwargs):
+            calls.append(True)
+            return render(*args, **kwargs)
+        monkeypatch.setattr(scene.room, 'render_background', record_background)
+        game.render()
+        assert calls == [True]
+        assert game.crt.render_surface.get_at((100, 100))[:3] != (0, 0, 0)
+    finally:
+        game.close()
 
 
 @pytest.mark.parametrize('art_id', ['area_51_hangar_v1'])
@@ -283,7 +314,7 @@ def test_activity_preserves_source_opacity_scale_and_ground_anchor(display, monk
     room = SimpleNamespace(act_id='act_02', room_id='act_02_blackout_street', width_px=3840)
     scene = CampaignScenery(ASSETS_DIR, room, {'art_id':'neo_denver_v1'})
     originals = (
-        ('vehicle', 'environments/ohio_salvage_v1/wagon_168x76_rgba.png', (72, 33)),
+        ('vehicle', 'environments/ohio/salvage_yard/wagon.png', (72, 33)),
         ('person', 'sprites/mateo/navy_chore/idle_1.png', (21, 28)),
     )
     for attr, path, size in originals:
@@ -370,7 +401,14 @@ def test_act_v_uses_only_verified_car_free_v2_not_v1_fallback(tmp_path, display)
     old=tmp_path/'old.png';new=tmp_path/'new.png'
     Image.new('RGB',(1920,540),(51,20,12)).save(old)
     Image.new('RGB',(1920,540),(17,32,49)).save(new)
-    build('background','gobekli_tepe_v1',old,{'source':'fixture'},assets_dir=root,promote=True)
+    retired = root / 'environments/campaign_worlds/gobekli_tepe_v1'
+    retired.mkdir(parents=True)
+    (retired / 'background.png').write_bytes(old.read_bytes())
+    (retired / 'manifest.json').write_text(json.dumps({'schema_version': 1, 'kind': 'campaign_background',
+        'art_id': 'gobekli_tepe_v1', 'image': {'file': 'background.png', 'dimensions': [1920, 540],
+        'sha256': hashlib.sha256(old.read_bytes()).hexdigest()}, 'provenance': {'source': 'retired fixture'}}))
+    with pytest.raises(ValueError):
+        build('background','gobekli_tepe_v1',old,{'source':'fixture'},assets_dir=root,promote=True)
     room=SimpleNamespace(act_id='act_05',room_id='act_05_pillar_approach',width_px=3840)
     scene=CampaignScenery(root,room,{'art_id':'gobekli_tepe_v1'})
     assert scene.background is None  # Never silently expose the old baked vehicle.
@@ -381,10 +419,10 @@ def test_act_v_uses_only_verified_car_free_v2_not_v1_fallback(tmp_path, display)
     assert scene.background_source=={'kind':'native','art_id':'gobekli_tepe_v2'}
     assert scene.background.get_at((0,0))[:3]==(17,32,49)
     assert scene.vehicle is None and scene.person is None
-    (root/'environments/campaign_worlds/gobekli_tepe_v2/background.png').write_bytes(b'bad')
+    (root/'environments/gobekli_tepe/surface/background.png').write_bytes(b'bad')
     scene=CampaignScenery(root,room,{'art_id':'gobekli_tepe_v1'})
     assert scene.background is None  # Corrupt v2 must not expose v1.
-    assert load_campaign_background(root,'gobekli_tepe_v1') is not None
+    assert load_campaign_background(root,'gobekli_tepe_v1') is None
 
 
 def test_guardian_loader_rejects_empty_and_fully_opaque_even_with_valid_hash(tmp_path, display):

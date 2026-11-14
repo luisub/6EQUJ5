@@ -19,6 +19,7 @@ import pygame
 from PIL import Image, ImageDraw
 
 from video_game.engine import config
+from video_game.engine.campaign_scenery import background_directory
 from video_game.engine.alien_journey import journey_data, save_ledger
 from video_game.engine.crt_renderer import CRTRenderer
 from video_game.engine.save_game import SaveStore
@@ -151,8 +152,8 @@ def capture(world_id: str, output: Path) -> None:
                 'runtime_art': {
                     name: hashlib.sha256(path.read_bytes()).hexdigest()
                     for name, path in {
-                        'background': game.assets.root / 'environments/campaign_worlds'
-                            / journey_data()['rooms'][world_id + '_field']['art_id'] / 'background.png',
+                        'background': game.assets.root / background_directory(
+                            journey_data()['rooms'][world_id + '_field']['art_id']) / 'background.png',
                         'guardian': game.assets.root / 'sprites/bosses/campaign' / world['boss_id'] / 'body.png',
                     }.items()
                 },

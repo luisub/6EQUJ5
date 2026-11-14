@@ -22,26 +22,21 @@ ALIEN_BACKGROUND_IDS = frozenset(f'realm_fasr_{ident}_v1' for ident in ALIEN_CIV
 GUARDIAN_IDS = frozenset(f'guardian_fasr_{ident}' for ident in ALIEN_CIV_IDS)
 BACKGROUND_IDS = (frozenset(ART_IDS.values()) | {'area_51_hangar_v1', 'gobekli_archive_v1', 'gobekli_tepe_v2'}
                   | ALIEN_BACKGROUND_IDS)
+_BACKGROUND_DIRECTORIES = {
+    'neo_denver_v1': 'neo_denver',
+    'area_51_v1': 'area_51/exterior',
+    'area_51_hangar_v1': 'area_51/hangar',
+    'vla_rift_v1': 'vla',
+    'gobekli_tepe_v2': 'gobekli_tepe/surface',
+    'gobekli_archive_v1': 'gobekli_tepe/archive',
+    **{f'realm_fasr_{ident}_v1': f'alien_worlds/fasr_{ident}' for ident in ALIEN_CIV_IDS},
+}
 INTERIOR_BACKGROUND_IDS = frozenset({'area_51_hangar_v1', 'gobekli_archive_v1'})
 # Modern traffic and the reused staff pose belong only in contemporary settings.
 MODERN_ACTIVITY_ACTS = frozenset({'act_02', 'act_03', 'act_04'})
 MODERN_ACTIVITY_ART_IDS = frozenset({'neo_denver_v1', 'area_51_v1', 'area_51_hangar_v1', 'vla_rift_v1'})
 BOSS_IDS = frozenset({'synchronicity', 'amalgam', 'architect', 'core_prime',
                       'portal_warden', 'earth_core_ai'}) | GUARDIAN_IDS
-# These are previously installed civilization profile images, not new realm art.
-PROFILE_HASHES = {
-    '001':'8c6f75d13f42639e7c5a0b635ea7b5fd8a6fea6a29d0d5d2d1696d5a08dc749a',
-    '002':'0c622af3a2dd384bc50d12e1670a3948d5cb971d08d127d9e08597e20ee20635',
-    '003':'1eba36dbcee2f8ec2307b36cbc2f927bf630b171386f986365e61a4a9e30691e',
-    '004':'51eda698d404d000e8586fbd88d666f412b25b9add6ed308611f6fc1a64bf43a',
-    '005':'1a202ca064084bf2de50cd02f823ef8670a5438337c2625ba2c20f9b1cf79d46',
-    '006':'ecc0b6d2ddeeb74110447d4b8d8994c677c18420814e2be7db6fbb2ac8710c8e',
-    '007':'f45973ede81969de7417ad75ef1201d5018ed2c26bc4e983c201adcc08573e64',
-    '008':'e30dbde3c65210b3b7fc7789bae939b12f25878073a6adf90581e023ab14c5a9',
-    '009':'6434381b3aeadacce3daae50fccb0b6d2852313510029d5612ba0ecc5221cc40',
-    '010':'7cb802833cd65ba8657e0bc58187263b5992d8197f6b4dc89341b89a1dee5fd8',
-    'scan_h':'04998748e07a1321f89ced38b1e338bc3203c8558592e961f361c3f195bcfb94',
-}
 # Existing patrol poses serve as temporary, recognizable combat silhouettes.
 FALLBACK_ENEMIES = {
     'core_recon_drone': (24,20,'b758a58eb6d61a1265548b3adde9dc6a9c14dc116881d5dccd979fe3eaaeaea8'),
@@ -66,35 +61,12 @@ def _journal_pending(root):
     return journal.exists() or journal.is_symlink()
 
 
-def load_profile_blockout(asset_root, art_id):
-    """Reuse one verified civilization environment as a temporary backdrop."""
-    if asset_root is None or not isinstance(art_id, str) or art_id not in ALIEN_BACKGROUND_IDS:
-        return None
-    ident = art_id.removeprefix('realm_fasr_').removesuffix('_v1')
-    civ_id = 'FASR-' + ('SCAN-H' if ident == 'scan_h' else ident)
-    filename = f'fasr-{ident.replace("_", "-")}_env.png'
-    root = Path(asset_root).resolve()
+def background_directory(art_id):
+    """Return the canonical directory for an installed background identity."""
     try:
-        if _journal_pending(root):
-            return None
-        manifest = json.loads(_inside_without_symlinks(root, Path('civilizations/manifest.json')).read_text())
-        entry = manifest[civ_id]
-        if entry.get('env_png') != filename or entry.get('native_size') != [128,128]:
-            raise ValueError('invalid civilization environment mapping')
-        path = _inside_without_symlinks(root, Path('civilizations') / filename)
-        if _digest(path) != PROFILE_HASHES[ident]:
-            raise ValueError('civilization environment hash mismatch')
-        image = pygame.image.load(str(path)).convert_alpha()
-        if image.get_size() != (128,128) or pygame.mask.from_surface(image,254).count() != 128*128:
-            raise ValueError('civilization environment must be opaque 128x128')
-        tile = pygame.transform.scale(image, (540,540)).convert()
-        background = pygame.Surface((1920,540)).convert()
-        for x in range(0,1920,540):
-            background.blit(tile, (x,0))
-        return background
-    except (OSError, ValueError, TypeError, KeyError, AttributeError, pygame.error) as exc:
-        LOGGER.info('Civilization blockout unavailable for %s: %s', civ_id, exc)
-        return None
+        return Path('environments') / _BACKGROUND_DIRECTORIES[art_id]
+    except (KeyError, TypeError) as exc:
+        raise ValueError(f'Unknown installed background: {art_id}') from exc
 
 
 def _load_existing_guardian(asset_root, boss_id):
@@ -139,7 +111,7 @@ def load_campaign_background(asset_root, art_id):
     try:
         if journal.exists() or journal.is_symlink():
             return None
-        relative = Path('environments/campaign_worlds') / art_id
+        relative = background_directory(art_id)
         manifest_path = _inside_without_symlinks(root, relative / 'manifest.json')
         manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
         if not isinstance(manifest, dict) or set(manifest) != {'schema_version', 'kind', 'art_id', 'viewport', 'density', 'image', 'provenance'}:
@@ -260,10 +232,6 @@ class CampaignScenery:
             self.background = load_campaign_background(asset_root, art_id)
             if self.background is not None:
                 self.background_source = {'kind': 'native', 'art_id': art_id}
-            elif alien_room:
-                self.background = load_profile_blockout(asset_root, art_id)
-                if self.background is not None:
-                    self.background_source = {'kind': 'profile_blockout', 'art_id': art_id}
             if self.background is not None:
                 self._background_view = pygame.Surface((960, 540)).convert()
         self.vehicle = self.person = None
@@ -276,7 +244,7 @@ class CampaignScenery:
         # Ohio has its own traffic controller; avoid two overlapping vehicles.
         if room.act_id in MODERN_ACTIVITY_ACTS and art_id not in INTERIOR_BACKGROUND_IDS:
             try:
-                source = pygame.image.load(str(root / 'environments/ohio_salvage_v1/wagon_168x76_rgba.png')).convert_alpha()
+                source = pygame.image.load(str(root / 'environments/ohio/salvage_yard/wagon.png')).convert_alpha()
                 self.vehicle = pygame.transform.scale(source, (72, 33))
             except (OSError, pygame.error):
                 pass

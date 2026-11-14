@@ -15,6 +15,7 @@ from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, Union
 import pygame
 
 from video_game.engine import config
+from video_game.engine.native_room_assets import _inside_without_symlinks
 from video_game.engine.weapons import (
     CombatTarget,
     HitResult,
@@ -1870,29 +1871,50 @@ class EnemyManager:
         self._load_sprites()
 
     def _load_sprites(self):
-        """Warm enemy sprites into surface cache."""
+        """Load canonical frame files through their animation aliases."""
+        self.sprite_cache.clear()
         self._flipped_sprites.clear()
         self._hostile_rims.clear()
-        for sub, name in [
-            ("core_recon_drone", "core_recon_drone"),
-            ("static_hound", "static_hound"),
-            ("core_enforcer", "core_enforcer"),
-            ("core_operative", "core_operative"),
-            ("shield_hound", "shield_hound"),
-            ("phase_watcher", "phase_watcher"),
-            ("chrysalis_splicer", "chrysalis_splicer"),
-            ("precursor_guardian", "precursor_guardian"),
-            ("temporal_phantom", "temporal_phantom"),
-        ]:
-            d = ENEMY_SPRITES_DIR / sub
-            if d.exists():
-                for p in d.glob("*.png"):
+        root = ENEMY_SPRITES_DIR.resolve()
+        try:
+            manifest_path = _inside_without_symlinks(root, Path("manifest.json"))
+            entries = json.loads(manifest_path.read_text(encoding="utf-8"))["enemies"]
+        except (OSError, ValueError, KeyError, TypeError):
+            return
+        if not isinstance(entries, dict):
+            return
+        decoded = {}
+        for name in (
+            "core_recon_drone", "static_hound", "core_enforcer", "core_operative",
+            "shield_hound", "phase_watcher", "chrysalis_splicer", "precursor_guardian",
+            "temporal_phantom",
+        ):
+            entry = entries.get(name, {})
+            animations = entry.get("animations", {}) if isinstance(entry, dict) else {}
+            if not isinstance(animations, dict):
+                continue
+            for animation, clip in animations.items():
+                if not isinstance(animation, str) or not isinstance(clip, dict):
+                    continue
+                frames = clip.get("frames", [])
+                if not isinstance(frames, list):
+                    continue
+                key_name = "pounce" if animation == "attack" and "hound" in name else animation
+                for index, frame in enumerate(frames, 1):
                     try:
-                        surf = pygame.image.load(str(p)).convert_alpha()
-                        key = f"{name}_{p.stem}"
-                        self.sprite_cache[key] = surf
-                    except Exception:
-                        pass
+                        if not isinstance(frame, str):
+                            raise ValueError("Enemy frame path must be a string")
+                        relative = Path(frame)
+                        if (relative.is_absolute() or ".." in relative.parts
+                                or relative.parts[:3] != ("sprites", "enemies", name)):
+                            raise ValueError("Enemy frame must stay in its own sprite family")
+                        path = _inside_without_symlinks(root, Path(*relative.parts[2:]))
+                        if path not in decoded:
+                            decoded[path] = pygame.image.load(str(path)).convert_alpha()
+                        key = f"{name}_{key_name}" + (f"_{index}" if len(frames) > 1 else "")
+                        self.sprite_cache[key] = decoded[path]
+                    except (OSError, ValueError, pygame.error):
+                        continue
 
     def add_enemy(self, enemy: Enemy):
         """Register enemy in manager."""

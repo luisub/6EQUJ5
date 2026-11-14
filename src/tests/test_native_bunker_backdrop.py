@@ -22,9 +22,9 @@ def bunker_assets(tmp_path):
     pygame.init()
     pygame.display.set_mode((960, 540))
     root = tmp_path / 'assets'
-    shutil.copytree(config.ASSETS_DIR, root, ignore=shutil.ignore_patterns('ohio_bunker_v1'))
-    base = root / 'environments/ohio_bunker_v1'
-    base.mkdir(parents=True)
+    shutil.copytree(config.ASSETS_DIR, root)
+    base = root / 'environments/ohio/bunker'
+    base.mkdir(parents=True, exist_ok=True)
     doc = backdrop_manifest_template('ohio_bunker_v1')
     image = pygame.Surface((960, 540))
     image.fill((15, 30, 45))
@@ -39,7 +39,7 @@ def bunker_assets(tmp_path):
 
 def test_backdrop_validation_fallback_and_crop_are_atomic(bunker_assets, tmp_path):
     root = bunker_assets
-    base = root / 'environments/ohio_bunker_v1'
+    base = root / 'environments/ohio/bunker'
     manifest = base / 'manifest.json'
     old = manifest.read_bytes()
     doc = json.loads(old)
@@ -105,7 +105,7 @@ def test_bunker_scene_layers_palette_reentry_and_input(bunker_assets, tmp_path, 
         scene.on_enter()
         assert scene.native_backdrop is not None
         transparent = pygame.Surface((480, 270), pygame.SRCALPHA)
-        scene.layers = [transparent.copy() for _ in range(6)]
+        scene.overlays = [transparent.copy() for _ in range(2)]
         # Controlled actor and both foreground layers prove scene compositing order.
         actor = pygame.Surface((1056, 128), pygame.SRCALPHA)
         actor.fill((0, 0, 0, 0))
@@ -114,13 +114,13 @@ def test_bunker_scene_layers_palette_reentry_and_input(bunker_assets, tmp_path, 
         scene.outfit_idx = 0
         scene.pose_idx = 0
         scene.mateo_x = 140
-        pygame.draw.rect(scene.layers[4], (10, 240, 20, 255), (140, 122, 2, 2))
-        pygame.draw.rect(scene.layers[5], (10, 20, 240, 255), (143, 122, 2, 2))
+        pygame.draw.rect(scene.overlays[0], (10, 240, 20, 255), (140, 122, 2, 2))
+        pygame.draw.rect(scene.overlays[1], (10, 20, 240, 255), (143, 122, 2, 2))
         with monkeypatch.context() as patch:
             original_open = Path.open
 
             def no_family_io(path, *a, **kw):
-                if path.is_relative_to(bunker_assets / 'environments/ohio_bunker_v1'):
+                if path.is_relative_to(bunker_assets / 'environments/ohio/bunker'):
                     pytest.fail('family read during frame')
                 return original_open(path, *a, **kw)
             patch.setattr(Path, 'open', no_family_io)
@@ -145,7 +145,7 @@ def test_bunker_scene_layers_palette_reentry_and_input(bunker_assets, tmp_path, 
         assert not scene.dossier_open
         game.handle_event(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_e))
         assert game.current_state_name == config.STATE_SCIENCE_LAB
-        manifest = bunker_assets / 'environments/ohio_bunker_v1/manifest.json'
+        manifest = bunker_assets / 'environments/ohio/bunker/manifest.json'
         manifest.unlink()
         game.change_state(config.STATE_BUNKER_HUB)
         assert game.current_scene.native_backdrop is None
@@ -177,7 +177,7 @@ def test_bunker_reentry_reuses_only_a_fully_revalidated_backdrop(bunker_assets, 
         other = load_native_opaque_backdrop(second_root, 'bunker_hub', (480, 270), cached=warmed)
         assert other is not None and other is not warmed
 
-        base = bunker_assets / 'environments/ohio_bunker_v1'
+        base = bunker_assets / 'environments/ohio/bunker'
         manifest = base / 'manifest.json'
         document = json.loads(manifest.read_text())
         image_path = base / document['backdrop']['file']

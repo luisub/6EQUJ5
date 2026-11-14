@@ -335,7 +335,7 @@ def test_ohio_environment_assets_exist_and_match_manifest():
     and match the schema and checksums in manifest.json.
     """
     import hashlib
-    env_dir = config.ASSETS_DIR / 'environments/ohio'
+    env_dir = config.ASSETS_DIR / 'environments/ohio/shared'
     manifest_path = env_dir / "manifest.json"
     assert manifest_path.exists()
 
@@ -344,6 +344,7 @@ def test_ohio_environment_assets_exist_and_match_manifest():
 
     assert manifest["schema_version"] == 1
     assert manifest["environment_id"] == "act_01_ohio"
+    assert {item["file"] for item in manifest["assets"].values()} == {"tileset.png", "mist.png"}
 
     for asset_key, info in manifest["assets"].items():
         asset_file = env_dir / info["file"]

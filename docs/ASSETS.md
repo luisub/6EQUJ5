@@ -1,88 +1,85 @@
 # Game assets
 
-`src/assets/` contains runtime exports. `src/art/source/` holds the masters and
-export recipes, grouped by content; `src/art/briefs/` and `src/art/references/`
-retain authored direction and design research. Keep new candidates out of
-the runtime tree until their dimensions, transparency, placement and game
-rendering have been checked.
+The installed game reads exports from `src/assets/` and campaign content from
+`src/data/`. Music and sound effects belong in `assets/audio`; scene backgrounds
+belong in `assets/environments`. Loaders resolve these directories relative to
+the installed `video_game` package, independent of the working directory.
+Source masters and export recipes belong in `src/art/source/`, outside runtime
+packages. Temporary output and `_trash` are never runtime inputs.
 
-## Active families
+## Runtime ownership
 
-| Content | Runtime location | Selection and rebuild owner |
+| Content | Location within `src/assets/` | Selection and rebuild owner |
 |---|---|---|
-| Ohio rooms | `environments/ohio_*` | `engine/room_art_contracts.py`, `engine/native_room_assets.py`; masters under `src/art/source/environments/` |
-| Later Earth backgrounds | `environments/campaign_worlds/` | `engine/campaign_scenery.py` and route metadata; `tools/build_campaign_art.py` validates exports |
-| Alien world panoramas | `environments/campaign_worlds/realm_fasr_<id>_v1/` | `data/alien_journey.json`; each installed family has its own image hash and provenance |
-| Alien guardians | `sprites/bosses/campaign/guardian_fasr_<id>/` | The same journey roster; `tools/build_campaign_art.py` validates body exports |
-| Other bosses | `sprites/bosses/` | `engine/bosses/`; separate animation and body manifests |
-| Mateo | `sprites/mateo/<outfit>/` | `sprites/mateo/manifest.json` is the animation source of truth |
-| Patrol enemies and planet threats | `sprites/enemies/`, `sprites/planet_threats/` | Enemy animation manifests and `engine/planet_encounters.py` |
-| Combat effects and galaxy travel | `effects/` | Each loader validates its family manifest before use |
-| Civilization dossiers | `civilizations/` | `civilizations/manifest.json`; the small portraits, charts and environment plates are dossier artwork, not full-size landscapes |
-| Title and sound | `ui/`, `audio/` | Title metadata, `engine/audio.py` and the scene music map |
+| Music and sound effects | `audio/` | `engine/audio.py`; two music tracks and twelve effects; absolute paths, traversal and symlink redirects rejected |
+| Ohio rooms | `environments/ohio/{approach,campus,salvage_yard,dish,arena,bunker}/` | `engine/room_art_contracts.py`, `native_room_assets.py`; `tools/build_room_family.py` |
+| Shared Ohio textures | `environments/ohio/shared/` | One far plane for approach, salvage, dish and arena; tileset and mist used by world/hazard rendering |
+| Later Earth backgrounds | `environments/{neo_denver,area_51,gobekli_tepe,vla}/` | `engine/campaign_scenery.py`; `tools/build_campaign_art.py` |
+| Historical rooms | `environments/{dodleston_relay,mandela_annex,ehman_1977}/` | Native-room contracts and builder |
+| Eleven alien panoramas | `environments/alien_worlds/fasr_<id>/` | `data/alien_journey.json`; campaign scenery and export builder |
+| Alien guardians and Earth bosses | `sprites/bosses/` | Boss controllers and family manifests; Greenkeeper uses `greenkeeper/` |
+| Mateo | `sprites/mateo/<outfit>/` | One animation manifest, individual poses and bunker strips; frame paths stay within this directory |
+| Patrol enemies | `sprites/enemies/<type>/` | Manifests preserve animation order/timing while repeated slots share one image |
+| Planet threats | `sprites/planet_threats/<type>/` | `engine/planet_encounters.py` |
+| Combat and travel effects | `effects/{energy_filament,maser_discharge,firing_flash,galaxy_transit}/` | Validated family loaders and builders |
+| Civilization dossiers | `civilizations/` | Portrait, environment vignette and constellation chart per civilization; these small UI plates are not scene backgrounds |
+| Title and developer palette | `ui/` | Title screen and bunker developer view |
 
-All eleven alien-world source families are grouped by civilization under
-[`src/art/source/alien_worlds/`](../src/art/source/alien_worlds/). Other sources
-are grouped under `environments/`, `bosses/`, `effects/`, `mateo/` and `props/`.
-See the [source guide](../src/art/README.md) for ownership. A version suffix is
-an asset identifier, not a reliable indication that a file can be deleted.
+Ohio's approach, campus, salvage yard, dish and arena are different rooms, not
+alternate city versions. Their directories now reflect that distinction. The
+campus has its own far plane. Area 51 and Göbekli Tepe each have two distinct
+locations. Stable logical identifiers in level data may retain old version
+suffixes for compatibility; they map to the canonical directories above.
 
-The source layout no longer depends on review/candidate directories. The Ohio
-campus builder uses `source/environments/`; firing-flash and maser transaction
-tests use `source/effects/`; Greenkeeper tests use `source/bosses/`. Runtime
-loaders use only packaged `src/assets/` and `src/data/`, never art sources,
-`_temp/` or `_trash/`.
+## Manifests and rebuilding
 
-Panoramas are opaque 1920 × 540 PNGs. Guardian bodies are transparent 256 × 192
-PNGs. Their runtime family contains one active export and one manifest; the
-original generated master and export recipe belong in the source tree.
+Family manifests own filenames, geometry, hashes and animation order. The unused
+aggregate `assets/manifest.json` was retired because it described an obsolete
+subset. There is no second runtime registry to keep synchronized.
 
-Guardian combat targets are tuned in `src/data/balance.json`. The optional
-`weak_point_offsets` values use logical pixels from the body's rectangle center;
-the Beacon Forger uses an offset to align its recovery target with its chest
-reactor. When replacing a body, inspect its feet, hit flash and recovery marker
-in the arena, as well as validating the export manifest.
+`build_assets --dry-run` checks the protected civilization, Mateo, bunker-overlay
+and palette groups. Room, effect, campaign and Greenkeeper builders retain
+transaction locks, staged validation and recoverable replacement. Shared Ohio
+far-plane replacements must agree with every dependent family; changing one
+room cannot silently invalidate the others.
 
-## Versions that still have a purpose
+Bunker art consists of a native background plus `foreground.png` and
+`lighting.png`; `scene.json` references those overlays and canonical Mateo poses.
+The approved overlays and five refined olive-field poses have lossless rebuild
+masters under `src/art/source/bunker/overlays/` and
+`src/art/source/mateo/approved_poses/`. These source/export pairs are intentional.
+The accepted shared Ohio tileset and mist remain runtime exports; the old
+procedural generator did not reproduce them and has been archived.
 
-| Files kept | Why both are present |
-|---|---|
-| `ohio_approach_v2` and `ohio_approach_v1` | The room loader prefers v2 and validates v1 if v2 is unavailable. The two world plates currently share pixels, but their family contracts differ. |
-| `energy_filament_v2` and `energy_filament_v1` | The stream loader explicitly tries v2, then v1. |
-| `maser_discharge_v2` and `approach_maser_flash_v1` | The current discharge presentation and the fallback firing-light renderer use separate contracts. |
-| Flat `sprites/mateo_*` files and organized outfit clips | Some flat files are older rebuild baselines; the bunker still uses manifest-backed strips and sprite references. Several active clips have since changed, so the flat files are not all interchangeable duplicates. |
-| Basic enemy/boss poses and animation folders | The basic poses support fallback rendering and legacy builders. |
-| Bunker layers and inspection images | The asset rebuild group includes both exports and review products. |
+Other source families are grouped by environment, boss, effect, character and
+civilization. The [source guide](../src/art/README.md) records their ownership.
+Do not replace accepted exports with an older procedural baseline. Build into a
+temporary directory and compare pixels before an intentional replacement.
 
-The top-level `src/assets/manifest.json` describes the original locked asset
-groups. Newer families have their own manifests; that top-level file is not a
-complete inventory of everything the game loads. Follow the scene loader and
-family manifest before changing a path.
+Panoramas are opaque 1920 × 540 PNGs; guardian bodies are transparent
+256 × 192 PNGs. Keep their manifest geometry and foot anchors aligned with the
+480 × 270 gameplay coordinates and 960 × 540 renderer. Combat core offsets in
+`data/balance.json` use logical pixels from the body's rectangle center.
 
-## Archived exports
+## Retirement and recovery
 
-The obsolete `gobekli_tepe_v1` runtime family is archived: every authored Göbekli
-route selects the car-free v2 background. The legacy identifier remains valid
-in route metadata and isolated compatibility tests. Its source masters remain
-available.
+The 2026-11-14 asset-layout pass retired duplicate flat Mateo exports, repeated
+enemy frames, obsolete approach/energy versions, old bunker layers and previews,
+old Greenkeeper fallback bitmaps, unused civilization composites and review
+sheets. Current image pixels and normal animation timing are preserved. Missing
+or corrupt optional room, effect and boss art uses procedural fallback instead
+of loading a second historical image family.
 
-Five `sprites/mateo/field_outfit/` images were exact duplicates of the active
-`olive_field` clips. Those copies are archived, and the refinement builder now
-writes directly to the canonical clip paths.
+The obsolete comparison-sheet product and its historical-portrait source check
+were retired together. The missing historical portraits were **not recovered**;
+modern portraits were not substituted. Supported transaction safety cases from
+the old approach-builder tests now live with the canonical room-builder tests.
 
-Per-file original paths, archive paths, SHA-256 hashes and restoration steps
-are recorded in [`migration/archive-manifest.json`](migration/archive-manifest.json).
-Local recovery copies are in `_trash/2026-11-13_asset_cleanup/` and
-`_trash/2026-11-14_repository_cleanup/`. They are excluded
-from Git and runtime packages. Restore an image and its matching manifest
-together; preserve any newer active version first.
+All retired material is recoverable under `_trash/2026-11-14_asset_layout/`.
+Earlier cleanups remain in their dated directories. The sole full restoration
+index is [maintenance/archive-manifest.json](maintenance/archive-manifest.json),
+which records original path, archive path, SHA-256 and reason. Restore matching
+images, manifests and consumers together, preserving newer files first.
 
-The repository cleanup archived 88 byte-identical generated-image copies and
-one duplicate FASR-003 guardian source family. Descriptive masters remain in the
-source tree; no runtime image pixels changed. Old verification reports, enlarged
-review images and one-off candidate capture scripts are also recoverable in the
-archive. Authored prompts and design references remain beside the source guide.
-
-For future cleanup, verify dynamic references and builder inputs, preserve
-unique material, and update the archive records before removing a runtime copy.
-Run the affected loader tests and the asset-builder dry run afterward.
+See the [repository audit](maintenance/REPOSITORY_AUDIT.md) for the current tree,
+package checks, actual resource-read tracing and verification limits.
