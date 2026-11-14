@@ -4,6 +4,8 @@
 
 <h1 align="center">6EQUJ5: The Fermi Override</h1>
 
+<p align="center"><sub>by @luisub 2026</sub></p>
+
 > ... we, descendants of apes... living on a small rock, drifting through dark space, in the vacuum, asking questions bigger than ourselves ... Maybe there is no final answer waiting in the back of the book.
 >
 > On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-second narrowband signal at 1420 MHz — the hydrogen line — from the direction of Sagittarius. The signal was real. It has never been explained. Its intensity code reads **6EQUJ5**.
@@ -148,12 +150,15 @@ python3.12 -m venv .venv
 
 You can also launch with `.venv/bin/python -m video_game.main`. The game runs **entirely offline** and needs no model service. The legacy AI terminal is maintained in a separate repository. Recreate `.venv` after moving this checkout; virtual environments contain absolute paths.
 
-A new game opens in the basement with three story pages and a galaxy-map briefing. Click **Next** to follow the opening, or **Skip** to begin immediately. Checkpoints and earned discoveries persist. Continue starts in the bunker and resumes the saved route or interrupted conversation; a pending world journey resumes its transition.
+Launch opens on the title banner and soundtrack. **Press Start** begins a fresh run immediately, every time. Your display, audio and combat settings stay saved.
+
+The journey opens in the basement with three story pages and a galaxy-map briefing. Click **Next** to follow the opening, or **Skip** to begin immediately.
 
 ## Controls
 
 | Action | Keyboard / mouse |
 |---|---|
+| Title / fresh start | Enter, Space, click, controller A or Start |
 | Opening story | Click Next / press N to advance; click Skip / press Enter to skip all pages |
 | Move | Left / Right or A / D |
 | Jump | Space or W |
@@ -180,16 +185,16 @@ Mateo's airborne fall pose currently lacks a visible gun and can show a gap to t
 
 For progress and verification limits, see [current state](docs/planning/CURRENT_STATE.md), the [content plan](docs/planning/CONTENT_PLAN.md) and the [separation report](docs/migration/REPORT.md).
 
-The flat `src/` directory is installed as the `video_game` Python package. Runtime `assets/` and `data/` travel with the package; `tools/`, `docs/` and `art/` are development material. The test suite is kept locally and excluded from Git; the pytest command below requires that local copy.
+The flat `src/` directory is installed as the `video_game` Python package. Runtime `assets/` and `data/` travel with the package; `src/tools/`, `docs/` and `src/art/` are development material. Tests are versioned. Pytest discovers them in `tests/` or `src/tests/`.
 
 ```bash
-SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy SIX_GAME_SAVE_DIR="$(mktemp -d)" .venv/bin/python -m pytest tests -q
-.venv/bin/python -m tools.validate_content
-.venv/bin/python -m tools.build_assets --dry-run
+SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy SIX_GAME_SAVE_DIR="$(mktemp -d)" .venv/bin/python -m pytest -q
+.venv/bin/python -m video_game.tools.validate_content
+.venv/bin/python -m video_game.tools.build_assets --dry-run
 .venv/bin/python -m pip wheel --no-deps . -w dist
 ```
 
-The known missing legacy portrait rebuild input and intermittent render-budget failure are documented in the separation report; tests retain their assertions. See [contributor instructions](CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md) and [developer tools](tools/README.md).
+The known missing legacy portrait rebuild input and intermittent render-budget failure are documented in the separation report; tests retain their assertions. See [contributor instructions](docs/CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md) and [developer tools](src/tools/README.md).
 
 </details>
 

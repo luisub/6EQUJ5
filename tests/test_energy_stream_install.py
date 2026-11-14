@@ -13,7 +13,7 @@ import pytest
 
 from video_game.engine import asset_transactions
 from video_game.engine.energy_stream_assets import FAMILY, IMAGE_NAME, load_energy_filament
-from tools import build_energy_stream
+from video_game.tools import build_energy_stream
 
 
 @pytest.fixture

@@ -9,7 +9,7 @@ import pygame
 import pytest
 
 from video_game.engine import config
-from tests.test_gobekli_traversal import machine, jump_to, key, step
+from .test_gobekli_traversal import machine, jump_to, key, step
 
 ROOT = config.DATA_DIR / 'levels/alien_worlds'
 ROOMS = tuple(f'alien_{code}' for code in ('001', '003', '005', '004', '008', '009',

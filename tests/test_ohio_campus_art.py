@@ -17,7 +17,7 @@ from PIL import Image
 from video_game.engine.native_room_assets import load_native_room_family
 from video_game.engine.room_art_contracts import manifest_template
 from video_game.engine.world import Camera
-from tools.build_ohio_campus_art import FAR_HASH, FAR_MASTER, WORLD_HASH, build_far, build_world
+from video_game.tools.build_ohio_campus_art import FAR_HASH, FAR_MASTER, WORLD_HASH, build_far, build_world
 
 ASSETS = config.ASSETS_DIR
 

@@ -4,7 +4,7 @@ Created on 2026-11-13 for the [game README](../../../README.md).
 
 ## Promotional artwork
 
-`title-art.png` is generated promotional key art, not a gameplay screenshot. It was created with image generation using the game's existing observatory, guardian and crystal-realm screenshots as visual references. Its panoramic composition combines an observatory, a small explorer, a cyan radio signal and violet crystal architecture with the game title. It is documentation artwork only; runtime assets are unchanged.
+`title-art.png` is generated promotional key art, not a gameplay screenshot. It was created with image generation using the game's existing observatory, guardian and crystal-realm screenshots as visual references. Its panoramic composition combines an observatory, a small explorer, a cyan radio signal and violet crystal architecture with the game title. The same image is reused unchanged as `src/assets/ui/title_banner.png` for the arcade title screen. The small author credit is rendered separately by the game.
 
 ## Actual game captures
 
@@ -31,7 +31,7 @@ The captures use temporary saves and settings, dummy SDL video/audio, a fixed ra
 From an installed repository checkout, choose a **new, unused output directory**:
 
 ```bash
-.venv/bin/python -m tools.capture_readme --output _temp/readme-capture-NEW
+.venv/bin/python -m video_game.tools.capture_readme --output _temp/readme-capture-NEW
 ```
 
 The command refuses to overwrite an existing directory. Review the generated media before copying it here. Keep the matching `capture.json` with the files; the command does not regenerate the promotional banner or modify the README.

@@ -14,7 +14,7 @@ import pytest
 from video_game.engine import asset_transactions
 from video_game.engine.planet_threat_assets import (FAMILY_ROOT, THREAT_IDS, WORLD_THREAT_IDS,
                                                       load_planet_threat)
-from tools import build_planet_threat
+from video_game.tools import build_planet_threat
 
 
 @pytest.fixture

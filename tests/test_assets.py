@@ -17,7 +17,7 @@ from PIL import Image
 import pytest
 
 from video_game.engine import asset_transactions
-from tools import build_assets
+from video_game.tools import build_assets
 
 
 @pytest.fixture
@@ -122,7 +122,7 @@ def test_interrupted_process_recovers_before_game_load(asset_copy, tmp_path):
 import os
 from pathlib import Path
 from video_game.engine import asset_transactions
-from tools import build_assets
+from video_game.tools import build_assets
 assets, archive = map(Path, __import__("sys").argv[1:])
 replace = asset_transactions.os.replace
 def crash(source, target):

@@ -8,11 +8,13 @@ HOW TO MODIFY:
 ═══════════════════════════════════════════════════════
 """
 
+from . import REPO_ROOT
+
 import os
 import sys
 from pathlib import Path
 
-REPO_ROOT_DIR = Path(__file__).resolve().parent.parent
+REPO_ROOT_DIR = REPO_ROOT
 if str(REPO_ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT_DIR))
 
@@ -23,7 +25,7 @@ import pygame  # noqa: E402
 import pytest  # noqa: E402
 from video_game.engine import config  # noqa: E402
 from video_game.engine.crt_renderer import CRTRenderer  # noqa: E402
-from tools.preview_assets import export_previews  # noqa: E402
+from video_game.tools.preview_assets import export_previews  # noqa: E402
 from video_game.engine.state_machine import GameStateMachine  # noqa: E402
 from video_game.main import run_game  # noqa: E402
 
@@ -204,7 +206,7 @@ def test_seconds_match_recorded_timing_at_30_60_and_120_fps(monkeypatch):
     import json
     import pytest
 
-    evidence = Path(__file__).resolve().parent.parent / "docs/planning/evidence/F04/2026-11-10_scene_cache"
+    evidence = REPO_ROOT / "docs/planning/evidence/F04/2026-11-10_scene_cache"
     baseline = json.loads((evidence / "baseline_timing.json").read_text())
     trajectories = json.loads((evidence / "baseline_trajectories.json").read_text())
     pygame.init()

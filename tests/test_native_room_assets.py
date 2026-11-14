@@ -17,7 +17,7 @@ from video_game.engine.state_machine import GameStateMachine
 from video_game.engine.crt_renderer import CRTRenderer
 from video_game.engine.assets import AssetCache
 from video_game.engine.world import Camera
-from tools.build_approach_family import build_family
+from video_game.tools.build_approach_family import build_family
 
 
 @pytest.fixture
@@ -246,7 +246,7 @@ def test_schema2_room_routing_and_invalid_family_is_atomic(tmp_path, display, fa
 
 
 def test_generic_builder_to_actual_field_room_routes(tmp_path, display, monkeypatch):
-    from tools.build_room_family import build_family as build_room_family
+    from video_game.tools.build_room_family import build_family as build_room_family
     source_root = tmp_path / 'source'; source_root.mkdir()
     root = tmp_path / 'assets'
     shutil.copytree(config.ASSETS_DIR, root, ignore=shutil.ignore_patterns(
@@ -310,7 +310,7 @@ def test_prop_bake_preserves_translucent_compositing(tmp_path, display):
 
 
 def test_arena_native_loader_reentry_and_full_fallback(tmp_path, display, monkeypatch):
-    from tools.build_room_family import build_family as build_room_family
+    from video_game.tools.build_room_family import build_family as build_room_family
     source_root = tmp_path/'source'; source_root.mkdir()
     source, doc = _make_v2_family(source_root, 'ohio_arena_v1')
     root = tmp_path/'assets'; shutil.copytree(config.ASSETS_DIR,root,ignore=shutil.ignore_patterns('ohio_arena_v1'))

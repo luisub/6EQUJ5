@@ -1,0 +1,10 @@
+{
+  "source": "docs/media/readme/title-art.png",
+  "sha256": "aab2c401d87af18dbc77f254f57f3a7f42af1d1e675b26c4e9b16bcdf4683068",
+  "dimensions": [
+    2172,
+    724
+  ],
+  "usage": "Arcade title banner. Copied unchanged from the existing generated key art; scaled proportionally once at scene construction. Credit is rendered separately by the title scene.",
+  "source_record": "docs/media/readme/README.md"
+}

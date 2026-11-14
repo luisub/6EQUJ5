@@ -4,6 +4,8 @@ CALLED BY: pytest tests/test_approach_family_transaction.py.
 HOW TO MODIFY: Use temporary assets and failure injection; never write live game assets.
 """
 
+from . import REPO_ROOT
+
 import json
 import os
 import subprocess
@@ -13,7 +15,7 @@ from pathlib import Path
 import pytest
 from PIL import Image, UnidentifiedImageError
 from video_game.engine import asset_transactions
-from tools import build_approach_family as builder
+from video_game.tools import build_approach_family as builder
 
 
 @pytest.fixture
@@ -145,7 +147,7 @@ def test_interrupted_child_recovers_before_next_explicit_attempt(inputs):
 import os, sys
 from pathlib import Path
 from video_game.engine import asset_transactions
-from tools.build_approach_family import build_family
+from video_game.tools.build_approach_family import build_family
 root, far, world, archive = map(Path, sys.argv[1:])
 real = asset_transactions.os.replace
 def crash(source, target):
@@ -157,7 +159,7 @@ asset_transactions.os.replace = crash
 build_family(assets_dir=root, far=far, world=world, archive_dir=archive, promote=True)
 '''
     result = subprocess.run([sys.executable, '-c', script, str(assets), str(far), str(world), str(archive)],
-                            cwd=Path(__file__).resolve().parents[1], env=os.environ.copy(), check=False)
+                            cwd=REPO_ROOT, env=os.environ.copy(), check=False)
     assert result.returncode == 71
     journal = assets.parent / '.assets-asset-build-pending.json'
     assert journal.exists()
@@ -201,10 +203,10 @@ def test_bad_recovery_paths_fail_closed_without_touching_assets(inputs, tmp_path
 def test_real_cli_dry_run_without_writes(inputs):
     assets, far, world, archive = inputs
     before = snapshot(assets)
-    result = subprocess.run([sys.executable, '-m', 'tools.build_approach_family',
+    result = subprocess.run([sys.executable, '-m', 'video_game.tools.build_approach_family',
                              '--assets-dir', str(assets), '--archive-dir', str(archive),
                              '--far', str(far), '--world', str(world), '--dry-run'],
-                            cwd=Path(__file__).resolve().parents[1], env=os.environ.copy(),
+                            cwd=REPO_ROOT, env=os.environ.copy(),
                             capture_output=True, text=True, check=True)
     assert json.loads(result.stdout)['status'] == 'validated'
     assert snapshot(assets) == before

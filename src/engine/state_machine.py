@@ -86,6 +86,7 @@ class GameStateMachine:
         self.current_state_name = config.STATE_TITLE_BOOT
         self.current_scene = self.scenes[self.current_state_name]
         self.current_scene.on_enter()
+        self.audio.transition_scene_music(self.current_state_name)
 
     def change_state(self, new_state_name, **kwargs):
         if new_state_name not in self.scenes:
@@ -352,6 +353,7 @@ class GameStateMachine:
             key = None
             if self.current_state_name == config.STATE_TITLE_BOOT:
                 key = {pygame.CONTROLLER_BUTTON_A: pygame.K_RETURN,
+                       pygame.CONTROLLER_BUTTON_START: pygame.K_RETURN,
                        pygame.CONTROLLER_BUTTON_B: pygame.K_ESCAPE,
                        pygame.CONTROLLER_BUTTON_DPAD_UP: pygame.K_UP,
                        pygame.CONTROLLER_BUTTON_DPAD_DOWN: pygame.K_DOWN}.get(event.button)

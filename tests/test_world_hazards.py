@@ -15,7 +15,7 @@ from video_game.engine.player import Player, PlayerInput
 from video_game.engine.world import Camera, Room
 from video_game.engine.world_hazards import (ARCHAEOLOGICAL_EFFIGY_ROOMS, MODERN_WAGON_ACTS,
                                              MODERN_WAGON_ROOMS, WorldHazards)
-from tools.build_planet_threat import build
+from video_game.tools.build_planet_threat import build
 
 
 @pytest.fixture

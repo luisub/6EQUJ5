@@ -11,7 +11,7 @@ from video_game.engine.alien_journey import journey_data, ledger, save_ledger, s
 from video_game.engine.galaxy_transit import navigation_data, valid_pending
 from video_game.engine.scenes.galaxy_transit import TOTAL_SECONDS
 from video_game.engine.save_game import SaveError
-from tests.test_campaign_world_route import game, key
+from .test_campaign_world_route import game, key
 
 
 def begin(game):

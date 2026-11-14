@@ -5,6 +5,8 @@ CALLED BY: pytest (`python -m pytest tests -q`).
 HOW TO MODIFY: Exercise real event routing and user-data paths in temporary directories.
 """
 
+from . import REPO_ROOT
+
 from dataclasses import asdict
 import json
 import os
@@ -155,7 +157,7 @@ from video_game.engine.settings import SettingsStore
 print(json.dumps(asdict(SettingsStore().load()), sort_keys=True))
 '''
     env = dict(os.environ, SIX_GAME_SAVE_DIR=str(directory))
-    result = subprocess.run([sys.executable, "-c", script], cwd=Path(__file__).resolve().parents[1],
+    result = subprocess.run([sys.executable, "-c", script], cwd=REPO_ROOT,
                             env=env, capture_output=True, text=True, check=True)
     assert json.loads(result.stdout) == asdict(Settings(volume=80, crt_effects=False, scale=1))
 
@@ -234,5 +236,5 @@ def test_game_launch_receives_explicit_development_mode(display, monkeypatch):
     assert game_main.run_game(development=True) == 0
     assert observed == [False, True]
     result = subprocess.run([sys.executable, "-m", "video_game.main", "--help"],
-                            cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True, check=True)
+                            cwd=REPO_ROOT, capture_output=True, text=True, check=True)
     assert "--dev" in result.stdout

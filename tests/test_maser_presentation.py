@@ -2,6 +2,8 @@
 CALLED BY: pytest.
 HOW TO MODIFY: Cover normal input, rendering, fallback and projectile invariants.
 """
+
+from . import REPO_ROOT
 from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
@@ -16,9 +18,9 @@ from video_game.engine.save_game import SaveStore
 from video_game.engine.settings import SettingsStore
 from video_game.engine.state_machine import GameStateMachine
 from video_game.engine.weapons import ProjectileManager
-from tools.build_maser_discharge import build_discharge
+from video_game.tools.build_maser_discharge import build_discharge
 
-SOURCE = (Path(__file__).resolve().parents[1] / 'art/source/visual_upgrade/candidates'
+SOURCE = (REPO_ROOT / 'src/art/source/visual_upgrade/candidates'
           / 'maser_discharge_v02/export/maser_discharge_v02_64x32.png')
 
 

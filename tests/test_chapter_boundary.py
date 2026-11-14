@@ -8,7 +8,7 @@ import pygame
 import pytest
 
 from video_game.engine import config
-from tests.test_simple_bunker_exit import game, key, setup_stage
+from .test_simple_bunker_exit import game, key, setup_stage
 
 
 @pytest.mark.parametrize('action', ['enter', 'up', 'button'])

@@ -3,6 +3,8 @@ PURPOSE: Verify Greenkeeper art-family integrity, geometry and combat-state cont
 CALLED BY: pytest during focused and full game checks.
 HOW TO MODIFY: Keep isolated asset roots and cover validation, fallback and reset.
 """
+
+from . import REPO_ROOT
 import shutil
 from pathlib import Path
 
@@ -14,9 +16,9 @@ from video_game.engine.bosses.base import PHASE_2, STATE_IDLE, STATE_VULNERABLE
 from video_game.engine.bosses.greenkeeper import Greenkeeper
 from video_game.engine.bosses.greenkeeper_art import FAMILY, HASHES, load_family
 from video_game.engine.world import Camera
-from tools.build_greenkeeper_heavy import build
+from video_game.tools.build_greenkeeper_heavy import build
 
-SOURCE = Path(__file__).resolve().parents[1] / 'art/source/visual_upgrade/candidates/greenkeeper_heavy_v01/exports'
+SOURCE = REPO_ROOT / 'src/art/source/visual_upgrade/candidates/greenkeeper_heavy_v01/exports'
 
 
 def test_promotion_validates_and_uses_complete_family(tmp_path):

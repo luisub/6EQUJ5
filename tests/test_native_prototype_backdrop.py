@@ -13,7 +13,7 @@ from video_game.engine.crt_renderer import CRTRenderer
 from video_game.engine.save_game import SaveStore
 from video_game.engine.settings import SettingsStore
 from video_game.engine.state_machine import GameStateMachine
-from tools.build_room_family import build_backdrop_family
+from video_game.tools.build_room_family import build_backdrop_family
 
 def key(game, code):
     game.input.begin_frame()

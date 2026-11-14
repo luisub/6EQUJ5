@@ -31,7 +31,7 @@ from video_game.engine.world import (
     RoomCheckpoint,
     SpawnPoint,
 )
-from tools.validate_content import validate_all_levels, validate_level_file
+from video_game.tools.validate_content import validate_all_levels, validate_level_file
 
 LEVELS_DIR = config.DATA_DIR / "levels"
 APPROACH_PATH = LEVELS_DIR / "act_01" / "approach.json"

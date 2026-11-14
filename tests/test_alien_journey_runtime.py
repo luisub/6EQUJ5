@@ -9,7 +9,7 @@ from video_game.engine import config
 from video_game.engine.alien_journey import journey_data, ledger, save_ledger
 from video_game.engine.save_game import SaveError
 from video_game.engine.scenes.galaxy_transit import TOTAL_SECONDS
-from tests.test_campaign_world_route import game, key
+from .test_campaign_world_route import game, key
 
 
 def portal_fixture(game):

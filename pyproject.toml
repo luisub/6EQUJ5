@@ -26,5 +26,5 @@ package-dir = { video_game = "src" }
 video_game = ["assets/**/*", "data/**/*"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "src/tests"]
 pythonpath = ["."]

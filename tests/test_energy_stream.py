@@ -15,7 +15,7 @@ from video_game.engine.save_game import SaveStore
 from video_game.engine.settings import SettingsStore
 from video_game.engine.state_machine import GameStateMachine
 from video_game.engine.weapons import CombatTarget, ProjectileManager
-from tests.test_combat_assist import _room
+from .test_combat_assist import _room
 
 
 @pytest.fixture(autouse=True)

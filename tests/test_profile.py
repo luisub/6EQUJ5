@@ -10,6 +10,8 @@ HOW TO MODIFY:
 ═══════════════════════════════════════════════════════
 """
 
+from . import REPO_ROOT
+
 import builtins
 import gc
 import os
@@ -17,7 +19,7 @@ import sys
 from pathlib import Path
 from typing import List
 
-REPO_ROOT_DIR = Path(__file__).resolve().parent.parent
+REPO_ROOT_DIR = REPO_ROOT
 if str(REPO_ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT_DIR))
 
@@ -30,7 +32,7 @@ from video_game.engine import config  # noqa: E402
 from video_game.engine.crt_renderer import CRTRenderer  # noqa: E402
 from video_game.engine.settings import SettingsStore  # noqa: E402
 from video_game.engine.state_machine import GameStateMachine  # noqa: E402
-from tools.profile_game import BenchmarkProfileSession, get_process_memory_mb  # noqa: E402
+from video_game.tools.profile_game import BenchmarkProfileSession, get_process_memory_mb  # noqa: E402
 
 
 @pytest.fixture(autouse=True)
@@ -132,7 +134,7 @@ def test_authored_contact_lifecycle_stability():
 
 def test_cli_isolates_state_and_requires_explicit_output(tmp_path, monkeypatch, capsys):
     """A short real run neither touches player data nor writes unrequested metrics."""
-    from tools import profile_game
+    from video_game.tools import profile_game
     player_dir = tmp_path / "player"
     player_dir.mkdir()
     settings = player_dir / "settings.json"
@@ -167,7 +169,7 @@ def test_cli_isolates_state_and_requires_explicit_output(tmp_path, monkeypatch, 
     ["--headless", "--graphical"], ["--mode", "full", "--duration", "1"],
 ])
 def test_cli_rejects_invalid_options_before_initialization(options, monkeypatch):
-    from tools import profile_game
+    from video_game.tools import profile_game
     monkeypatch.setattr(profile_game, "BenchmarkProfileSession", lambda **kw: pytest.fail("initialized"))
     with pytest.raises(SystemExit) as error:
         profile_game.main(options)
@@ -175,7 +177,7 @@ def test_cli_rejects_invalid_options_before_initialization(options, monkeypatch)
 
 
 def test_graphical_option_is_forwarded(monkeypatch):
-    from tools import profile_game
+    from video_game.tools import profile_game
     class Stop(Exception):
         pass
     def capture(**kwargs):
@@ -223,7 +225,7 @@ def test_synthetic_keys_move_and_fire_in_real_field(monkeypatch):
 
 
 def test_cpu_profiler_closes_owned_session_on_error(monkeypatch):
-    from tools import profile_game
+    from video_game.tools import profile_game
     class BrokenMachine:
         def change_state(self, scene_id):
             raise RuntimeError("failure")

@@ -9,7 +9,7 @@ from pathlib import Path
 
 from video_game.engine.campaign import Campaign
 from video_game.engine.save_game import SaveStore
-from tools.mechanics_route import run_route
+from video_game.tools.mechanics_route import run_route
 
 
 def test_earned_references_and_older_save_compatibility(tmp_path, monkeypatch):

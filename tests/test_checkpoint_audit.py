@@ -6,6 +6,8 @@ HOW TO MODIFY: Add focused checks when a contract changes; review unused files
   through their actual callers and dynamic references before retiring them.
 """
 
+from . import REPO_ROOT
+
 from video_game.engine import config
 
 import ast
@@ -15,7 +17,7 @@ from pathlib import Path
 from PIL import Image
 import pytest
 
-GAME_ROOT_DIR = Path(__file__).resolve().parent.parent
+GAME_ROOT_DIR = REPO_ROOT
 EXCLUDED_DIRECTORIES = {"_trash", "_temp", "__pycache__", ".pytest_cache", ".venv", "build", "dist", "evidence", "art"}
 
 

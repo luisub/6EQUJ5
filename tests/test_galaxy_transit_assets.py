@@ -13,7 +13,7 @@ import pytest
 
 from video_game.engine import asset_transactions
 from video_game.engine.galaxy_transit_assets import FAMILY, IMAGES, load_galaxy_transit
-from tools import build_galaxy_transit
+from video_game.tools import build_galaxy_transit
 
 
 @pytest.fixture

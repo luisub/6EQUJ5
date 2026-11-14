@@ -2,7 +2,7 @@
 CALLED BY: pytest tests/test_mechanics_route.py.
 HOW TO MODIFY: Keep all saves/settings and captures inside pytest temporary paths.
 """
-from tools.mechanics_route import run_route
+from video_game.tools.mechanics_route import run_route
 
 
 def test_earned_campaign_mechanics_and_child_continue(tmp_path):

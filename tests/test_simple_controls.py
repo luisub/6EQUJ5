@@ -78,7 +78,7 @@ def test_hud_shows_goal_without_persistent_control_legend(game, monkeypatch):
     assert not any('MOUSE AIM' in text or '2029_CORE' in text for text in drawn)
 
 
-def test_title_details_and_bunker_context_are_clickable(game):
+def test_title_start_and_bunker_context_are_clickable(game):
     game.change_state(config.STATE_TITLE_BOOT)
     pygame.display.set_mode((game.crt.win_w, game.crt.win_h))
     def click(rect):
@@ -87,13 +87,13 @@ def test_title_details_and_bunker_context_are_clickable(game):
             pos=(int(rect.centerx * game.crt.win_w / 480),
                  int(rect.centery * game.crt.win_h / 270))))
     title = game.current_scene
-    click(title.DETAILS)
-    assert title.show_details
-    key(game, pygame.K_SPACE)
-    assert not title.show_details
-    key(game, pygame.K_SPACE)
+    click(title.PRIMARY)
     assert game.current_state_name == config.STATE_BUNKER_HUB
+    game.handle_event(pygame.event.Event(pygame.MOUSEBUTTONUP, button=1, pos=(0, 0)))
+    key(game, pygame.K_DOWN)
+    game.handle_event(pygame.event.Event(pygame.KEYUP, key=pygame.K_DOWN))
     bunker = game.current_scene
+    assert bunker.opening_story is None
     click(bunker.DETAILS_BUTTON)
     assert bunker.dossier_open
     click(bunker.DETAILS_BUTTON)

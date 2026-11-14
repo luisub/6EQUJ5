@@ -8,8 +8,8 @@ from video_game.engine.galaxy_transit import leg_position, leg_points, map_point
 from video_game.engine.save_game import SaveError
 from video_game.engine.ui.dialogue import paginate
 from video_game.engine.ui.text import wrap_text_pixels
-from tests.test_campaign_world_route import game, key
-from tests.test_alien_journey_runtime import enter_first_guardian
+from .test_campaign_world_route import game, key
+from .test_alien_journey_runtime import enter_first_guardian
 
 
 def test_guardian_destruction_waits_for_reading_and_survives_continue(game):

@@ -9,8 +9,8 @@
 | src/assets | Exported runtime images, audio, fonts and asset manifests |
 | src/data | Authored campaign, dialogue, levels, opening and journey data |
 | tests | Unit, mapped-input, persistence and regression tests |
-| tools | Maintained builders, validators, captures and profiling commands |
-| art/source | Unique rebuild masters, civilization text and provenance |
+| src/tools | Maintained builders, validators, captures and profiling commands |
+| src/art/source | Unique rebuild masters, civilization text and provenance |
 | docs | Current controls, architecture, planning and migration records |
 | _trash | Ignored historical implementations, captures and recovery copies |
 

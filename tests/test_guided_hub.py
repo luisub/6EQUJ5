@@ -52,10 +52,10 @@ def skip_opening(machine):
     assert machine.current_scene.opening_story is None
 
 
-def test_start_continue_and_cancel_replacement(tmp_path):
+def test_start_always_replaces_prior_run(tmp_path):
     first = game(tmp_path)
     try:
-        assert first.current_scene._buttons()[0][0] == 'START'
+        assert first.current_scene.banner.get_size() == (960, 320)
         key(first, pygame.K_RETURN)
         assert first.current_state_name == config.STATE_BUNKER_HUB
         save_id = first.campaign.state.save_id
@@ -63,40 +63,33 @@ def test_start_continue_and_cancel_replacement(tmp_path):
         first.close()
     second = game(tmp_path)
     try:
-        assert second.current_scene._buttons()[0][0] == 'CONTINUE'
-        key(second, pygame.K_n)
-        assert second.current_scene.confirm_new
         key(second, pygame.K_RETURN)
-        assert second.current_state_name == config.STATE_TITLE_BOOT
-        assert not second.current_scene.confirm_new
-        key(second, pygame.K_c)
         assert second.current_state_name == config.STATE_BUNKER_HUB
-        assert second.campaign.state.save_id == save_id
+        assert second.current_scene.opening_story.index == 0
+        assert second.campaign.state.save_id != save_id
+        assert second.save_store.load().campaign.state.save_id == second.campaign.state.save_id
         assert second.settings.combat_mode == 'classic'
     finally:
         second.close()
 
 
-def test_save_options_and_missing_backup_leave_main_save_intact(tmp_path):
+def test_missing_backup_api_leaves_main_save_intact(tmp_path):
     store = SaveStore(tmp_path)
     tmp_path.mkdir(parents=True, exist_ok=True)
     store.path.write_text('{broken')
     original = store.path.read_bytes()
     machine = game(tmp_path)
     try:
-        click(machine, *machine.current_scene.OPTIONS.center)
-        click(machine, *machine.current_scene.LOWER_LEFT.center)
+        assert machine.continue_game(recover=True).status == 'missing'
         assert machine.current_state_name == config.STATE_TITLE_BOOT
-        assert 'NO BACKUP' in machine.current_scene.status
         assert store.path.read_bytes() == original
-        key(machine, pygame.K_c)
-        assert 'DAMAGED' in machine.current_scene.status
+        assert machine.continue_game().status == 'corrupt'
         assert store.path.read_bytes() == original
     finally:
         machine.close()
 
 
-def test_future_save_stays_intact_and_cancel_is_default(tmp_path):
+def test_start_preserves_unreadable_save_before_starting_fresh(tmp_path):
     store = SaveStore(tmp_path)
     tmp_path.mkdir(parents=True, exist_ok=True)
     store.path.write_text(json.dumps({'schema_version': 999}))
@@ -104,12 +97,9 @@ def test_future_save_stays_intact_and_cancel_is_default(tmp_path):
     machine = game(tmp_path)
     try:
         key(machine, pygame.K_RETURN)
-        assert 'NEWER' in machine.current_scene.status
-        key(machine, pygame.K_n)
-        assert machine.current_scene.confirm_new
-        key(machine, pygame.K_SPACE)
-        assert not machine.current_scene.confirm_new
-        assert store.path.read_bytes() == original
+        assert machine.current_state_name == config.STATE_BUNKER_HUB
+        assert store.load().status == 'ok'
+        assert next(store.directory.glob('campaign.preserved-*.json')).read_bytes() == original
     finally:
         machine.close()
 
@@ -209,7 +199,7 @@ def test_dossier_captures_mouse_and_does_not_trigger_next(tmp_path):
         machine.close()
 
 
-def test_controller_a_starts_exits_and_cancels_replacement(tmp_path, monkeypatch):
+def test_controller_a_starts_exits_and_restarts(tmp_path, monkeypatch):
     from pygame._sdl2 import controller
     class Joy:
         def __init__(self, index): self.index = index
@@ -235,17 +225,17 @@ def test_controller_a_starts_exits_and_cancels_replacement(tmp_path, monkeypatch
         button(pygame.CONTROLLERBUTTONDOWN, pygame.CONTROLLER_BUTTON_A)
         button(pygame.CONTROLLERBUTTONUP, pygame.CONTROLLER_BUTTON_A)
         assert machine.current_state_name == config.STATE_FIELD_OPS
+        old_id = machine.campaign.state.save_id
         machine.change_state(config.STATE_TITLE_BOOT)
-        key(machine, pygame.K_n)
-        assert machine.current_scene.confirm_new
         button(pygame.CONTROLLERBUTTONDOWN, pygame.CONTROLLER_BUTTON_A)
-        assert not machine.current_scene.confirm_new
-        assert machine.current_state_name == config.STATE_TITLE_BOOT
+        assert machine.current_state_name == config.STATE_BUNKER_HUB
+        assert machine.campaign.state.save_id != old_id
+        assert machine.current_scene.opening_story.index == 0
     finally:
         machine.close()
 
 
-def test_explicit_replace_button_starts_new_save(tmp_path):
+def test_one_click_starts_new_save(tmp_path):
     first = game(tmp_path)
     try:
         key(first, pygame.K_RETURN)
@@ -254,11 +244,7 @@ def test_explicit_replace_button_starts_new_save(tmp_path):
         first.close()
     second = game(tmp_path)
     try:
-        assert not second.current_scene.show_options
-        assert 'NEW GAME' in [b[0] for b in second.current_scene._buttons()]
-        click(second, *second.current_scene.NEW_GAME.center)
-        assert second.current_scene.confirm_new
-        click(second, *second.current_scene.LOWER_RIGHT.center)  # explicit replacement
+        click(second, *second.current_scene.PRIMARY.center)
         assert second.current_state_name == config.STATE_BUNKER_HUB
         assert second.campaign.state.save_id != old_id
     finally:

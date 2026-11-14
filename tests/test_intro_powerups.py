@@ -14,7 +14,7 @@ from video_game.engine.opening_story import OpeningStory
 from video_game.engine.temporary_weapons import PROFILES, WeaponPickups
 from video_game.engine.weapons import CombatTarget, ProjectileManager
 from video_game.engine.world import Room
-from tests.test_opening_story import game, key, controller, click, title_start
+from .test_opening_story import game, key, controller, click, title_start
 
 
 def step(game, frames=1):

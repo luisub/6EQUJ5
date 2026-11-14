@@ -18,7 +18,7 @@ from video_game.engine.campaign_scenery import (
 )
 from video_game.engine.config import ASSETS_DIR
 from video_game.engine.world import Camera
-from tools.build_campaign_art import build
+from video_game.tools.build_campaign_art import build
 
 
 @pytest.fixture

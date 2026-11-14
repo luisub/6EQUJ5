@@ -2,6 +2,8 @@
 CALLED BY: pytest.
 HOW TO MODIFY: Use isolated asset roots and retain entry/re-entry and no-frame-I/O checks.
 """
+
+from . import REPO_ROOT
 import json
 import shutil
 from pathlib import Path
@@ -15,9 +17,9 @@ from video_game.engine.firing_lighting import FLASH_FAMILY, FLASH_MANIFEST, FLAS
 from video_game.engine.save_game import SaveStore
 from video_game.engine.settings import SettingsStore
 from video_game.engine.state_machine import GameStateMachine
-from tools.build_firing_flash import build_flash
+from video_game.tools.build_firing_flash import build_flash
 
-SOURCE = (Path(__file__).resolve().parents[1] / 'art/reviews/visual_upgrade/previews'
+SOURCE = (REPO_ROOT / 'src/art/reviews/visual_upgrade/previews'
           / 'firing_flash_registration_v01/cell_v01/firing_flash_64x32.png')
 
 

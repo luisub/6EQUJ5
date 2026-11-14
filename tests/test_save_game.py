@@ -6,6 +6,8 @@ HOW TO MODIFY: Exercise real entry points and preserve user files in failures;
   all tests use isolated temporary save directories.
 """
 
+from . import REPO_ROOT
+
 import json
 import os
 from pathlib import Path
@@ -22,7 +24,6 @@ from video_game.engine.save_game import SaveError, SaveStore
 from video_game.engine.state_machine import GameStateMachine
 
 FIXTURES = Path(__file__).parent / "fixtures"
-REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture
@@ -228,7 +229,7 @@ print(json.dumps(result.campaign.to_dict(), sort_keys=True))
     assert json.loads(result.stdout) == campaign.to_dict()
 
 
-def test_normal_game_entry_continues_checkpoint_after_process_restart(store):
+def test_normal_game_entry_starts_fresh_after_process_restart(store):
     campaign = seeded_development_campaign()
     shift(campaign)
     store.save(campaign)
@@ -242,7 +243,7 @@ class ObservedMachine(GameStateMachine):
     def close(self):
         print("RESTORED=" + json.dumps(self.campaign.to_dict(), sort_keys=True))
         super().close()
-with patch.object(main, "GameStateMachine", ObservedMachine), patch.object(pygame.event, "get", return_value=[pygame.event.Event(pygame.KEYDOWN, key=pygame.K_c)]):
+with patch.object(main, "GameStateMachine", ObservedMachine), patch.object(pygame.event, "get", return_value=[pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RETURN)]):
     assert main.run_game(max_frames=1) == 1
 '''
     environment = dict(os.environ, SIX_GAME_SAVE_DIR=str(store.directory), SDL_VIDEODRIVER="dummy",
@@ -250,19 +251,21 @@ with patch.object(main, "GameStateMachine", ObservedMachine), patch.object(pygam
     result = subprocess.run([sys.executable, "-c", script], cwd=REPO_ROOT, env=environment,
                             capture_output=True, text=True, check=True)
     line = next(line for line in result.stdout.splitlines() if line.startswith("RESTORED="))
-    assert json.loads(line.removeprefix("RESTORED=")) == campaign.to_dict()
+    fresh = json.loads(line.removeprefix("RESTORED="))
+    assert fresh["save_id"] != campaign.state.save_id
+    assert fresh["extracted_fragments"] == []
+    assert fresh["timeline_mode"] == "2029_CORE"
 
 
-def test_title_new_confirm_cancel_continue_and_safe_autosave(store, monkeypatch):
+def test_new_run_continue_api_and_safe_autosave(store, monkeypatch):
     monkeypatch.setenv("SDL_VIDEODRIVER", "dummy")
     monkeypatch.setenv("SDL_AUDIODRIVER", "dummy")
     pygame.init()
     pygame.display.set_mode((config.WINDOW_WIDTH, config.WINDOW_HEIGHT))
     machine = GameStateMachine(CRTRenderer(), save_store=store, development=True)
-    key(machine, pygame.K_c)
-    assert "NO SAVE" in machine.current_scene.status and machine.current_state_name == config.STATE_TITLE_BOOT
-    key(machine, pygame.K_r)
-    assert "NO BACKUP" in machine.current_scene.status
+    assert machine.continue_game().status == "missing"
+    assert machine.continue_game(recover=True).status == "missing"
+    assert machine.current_state_name == config.STATE_TITLE_BOOT
     key(machine, pygame.K_n)
     assert machine.current_state_name == config.STATE_BUNKER_HUB
     machine.handle_event(pygame.event.Event(pygame.KEYUP, key=pygame.K_n))
@@ -274,18 +277,14 @@ def test_title_new_confirm_cancel_continue_and_safe_autosave(store, monkeypatch)
     assert store.load().campaign.timeline_mode == "1977_ANALOG"
     machine.close()
     machine = GameStateMachine(CRTRenderer(), save_store=store)
-    key(machine, pygame.K_n)
-    assert machine.current_scene.confirm_new
-    key(machine, pygame.K_ESCAPE)
-    assert not machine.current_scene.confirm_new and store.load().campaign.state.save_id == save_id
-    key(machine, pygame.K_c)
+    assert machine.continue_game().status == "ok"
     assert machine.current_state_name == config.STATE_BUNKER_HUB
     assert machine.campaign.state.save_id == save_id and machine.campaign.timeline_mode == "1977_ANALOG"
     machine.close()
     pygame.quit()
 
 
-def test_title_recovery_and_replacement_confirmation(store, monkeypatch):
+def test_recovery_api_and_immediate_new_run(store, monkeypatch):
     monkeypatch.setenv("SDL_VIDEODRIVER", "dummy")
     monkeypatch.setenv("SDL_AUDIODRIVER", "dummy")
     campaign = seeded_development_campaign()
@@ -296,9 +295,8 @@ def test_title_recovery_and_replacement_confirmation(store, monkeypatch):
     pygame.init()
     pygame.display.set_mode((config.WINDOW_WIDTH, config.WINDOW_HEIGHT))
     machine = GameStateMachine(CRTRenderer(), save_store=store)
-    key(machine, pygame.K_c)
-    assert "DAMAGED SAVE" in machine.current_scene.status
-    key(machine, pygame.K_r)
+    assert machine.continue_game().status == "corrupt"
+    assert machine.continue_game(recover=True).status == "ok"
     assert machine.current_state_name == config.STATE_BUNKER_HUB
     assert machine.campaign.state.extracted_fragments == ["FASR-001"]
     assert next(store.directory.glob("campaign.preserved-*.json")).read_bytes() == b"{broken"
@@ -306,8 +304,6 @@ def test_title_recovery_and_replacement_confirmation(store, monkeypatch):
     prior = store.path.read_bytes()
     machine = GameStateMachine(CRTRenderer(), save_store=store)
     key(machine, pygame.K_n)
-    assert machine.current_scene.confirm_new and store.path.read_bytes() == prior
-    key(machine, pygame.K_y)
     assert machine.current_state_name == config.STATE_BUNKER_HUB
     assert machine.campaign.state.extracted_fragments == []
     assert store.backup_path.read_bytes() == prior
@@ -347,7 +343,7 @@ def test_bunker_save_failure_blocks_departure_until_retry(store, monkeypatch):
     pygame.quit()
 
 
-def test_confirmed_new_game_preserves_unreadable_version_file(store, monkeypatch):
+def test_new_game_preserves_unreadable_version_file(store, monkeypatch):
     monkeypatch.setenv("SDL_VIDEODRIVER", "dummy")
     monkeypatch.setenv("SDL_AUDIODRIVER", "dummy")
     store.directory.mkdir(parents=True)
@@ -356,11 +352,8 @@ def test_confirmed_new_game_preserves_unreadable_version_file(store, monkeypatch
     pygame.init()
     pygame.display.set_mode((config.WINDOW_WIDTH, config.WINDOW_HEIGHT))
     machine = GameStateMachine(CRTRenderer(), save_store=store)
-    key(machine, pygame.K_c)
-    assert "NEWER SAVE" in machine.current_scene.status
+    assert machine.continue_game().status == "future_version"
     key(machine, pygame.K_n)
-    assert machine.current_scene.confirm_new and store.path.read_bytes() == original
-    key(machine, pygame.K_y)
     assert machine.current_state_name == config.STATE_BUNKER_HUB
     assert next(store.directory.glob("campaign.preserved-*.json")).read_bytes() == original
     assert store.load().status == "ok"
@@ -368,7 +361,7 @@ def test_confirmed_new_game_preserves_unreadable_version_file(store, monkeypatch
     pygame.quit()
 
 
-def test_title_reports_damaged_backup_without_changing_files(store, monkeypatch):
+def test_recovery_api_reports_damaged_backup_without_changing_files(store, monkeypatch):
     monkeypatch.setenv("SDL_VIDEODRIVER", "dummy")
     monkeypatch.setenv("SDL_AUDIODRIVER", "dummy")
     store.directory.mkdir(parents=True)
@@ -377,8 +370,7 @@ def test_title_reports_damaged_backup_without_changing_files(store, monkeypatch)
     pygame.init()
     pygame.display.set_mode((config.WINDOW_WIDTH, config.WINDOW_HEIGHT))
     machine = GameStateMachine(CRTRenderer(), save_store=store)
-    key(machine, pygame.K_r)
-    assert machine.current_scene.status.startswith("BACKUP DAMAGED")
+    assert machine.continue_game(recover=True).status == "corrupt"
     assert store.path.read_bytes() == b"{broken primary"
     assert store.backup_path.read_bytes() == b"{broken backup"
     machine.close()

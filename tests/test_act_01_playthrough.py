@@ -11,11 +11,13 @@ HOW TO MODIFY:
 ═══════════════════════════════════════════════════════
 """
 
+from . import REPO_ROOT
+
 import os
 import sys
 from pathlib import Path
 
-REPO_ROOT_DIR = Path(__file__).resolve().parent.parent
+REPO_ROOT_DIR = REPO_ROOT
 if str(REPO_ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT_DIR))
 
@@ -27,13 +29,13 @@ import pytest  # noqa: E402
 from video_game.engine import config  # noqa: E402
 from video_game.engine.bosses.greenkeeper import Greenkeeper  # noqa: E402
 from video_game.engine.objectives import DishDefenseHoldout  # noqa: E402
-from tools.play_act_01 import Act01PlaythroughRunner  # noqa: E402
+from video_game.tools.play_act_01 import Act01PlaythroughRunner  # noqa: E402
 
 
 @pytest.fixture(autouse=True)
 def isolated_save_directory(tmp_path, monkeypatch):
     monkeypatch.setenv("SIX_GAME_SAVE_DIR", str(tmp_path / "saves"))
-    monkeypatch.setattr("tools.play_act_01.EVIDENCE_DIR", tmp_path)
+    monkeypatch.setattr("video_game.tools.play_act_01.EVIDENCE_DIR", tmp_path)
 
 
 def test_act_01_canonical_playthrough_route():
@@ -112,7 +114,7 @@ def test_act_01_greenkeeper_3phase_mechanics():
 
 def test_fresh_save_normal_input_reaches_salvage_yard():
     """Actual events cross the approach sump and wall before taking the exit."""
-    from tools.act_01_traversal import traverse
+    from video_game.tools.act_01_traversal import traverse
     result = traverse()
     assert result['room'] == 'act_01_salvage_yard'
     assert [entry['action'] for entry in result['trace'][:2]] == ['contact', 'formal_validation']
@@ -147,7 +149,7 @@ def test_salvage_encounter_starts_within_room(tmp_path):
 
 def test_complete_fresh_save_keyboard_route_and_child_reload(tmp_path):
     """The ordered offline route completes the actual holdout and boss with keys."""
-    from tools.act_01_traversal import traverse
+    from video_game.tools.act_01_traversal import traverse
     result = traverse(complete=True, output_dir=tmp_path)
     actions = result['trace']
     assert [e['room'] for e in actions if e['action'] == 'exit_interaction'] == [
@@ -170,7 +172,7 @@ def test_complete_fresh_save_keyboard_route_and_child_reload(tmp_path):
 
 def test_fresh_save_failure_retry_and_save_boundaries(tmp_path):
     """Actual enemy pressure and boss attacks precede retry and victory."""
-    from tools.act_01_traversal import traverse
+    from video_game.tools.act_01_traversal import traverse
     result = traverse(recovery=True, output_dir=tmp_path)
     actions = {entry['action']: entry for entry in result['trace']}
     assert actions['defense_pause']['paused_frames'] == 120

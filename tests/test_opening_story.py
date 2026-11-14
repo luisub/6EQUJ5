@@ -110,13 +110,15 @@ def test_controller_a_or_any_dpad_skips_without_handoff(game,button):
     controller(game,button,down=False)
 
 
-def test_controller_start_press_must_release_before_it_can_skip(game):
+@pytest.mark.parametrize("start", [pygame.CONTROLLER_BUTTON_A, pygame.CONTROLLER_BUTTON_START])
+def test_controller_start_press_is_guarded_until_release(game, start):
     game.input._controller_state[37] = {'buttons':set(),'axes':{}}
-    controller(game,pygame.CONTROLLER_BUTTON_A)
+    controller(game,start)
     assert game.current_scene.opening_story is not None
-    controller(game,pygame.CONTROLLER_BUTTON_A)
+    controller(game,start)
     assert game.current_scene.opening_story is not None
-    controller(game,pygame.CONTROLLER_BUTTON_A,down=False)
+    assert not game.pause.active
+    controller(game,start,down=False)
     controller(game,pygame.CONTROLLER_BUTTON_A)
     assert game.current_scene.opening_story is None and game.current_state_name == config.STATE_BUNKER_HUB
 
@@ -166,7 +168,7 @@ def test_continue_and_later_bunker_return_do_not_replay(game):
     title_start(game);key(game,pygame.K_RETURN,down=False);key(game,pygame.K_RIGHT)
     key(game,pygame.K_RIGHT,down=False)
     game.change_state(config.STATE_TITLE_BOOT)
-    key(game,pygame.K_RETURN)
+    assert game.continue_game().status == "ok"
     assert game.current_state_name == config.STATE_BUNKER_HUB and game.current_scene.opening_story is None
     game.change_state(config.STATE_FIELD_OPS)
     game.change_state(config.STATE_BUNKER_HUB)
@@ -176,8 +178,7 @@ def test_continue_and_later_bunker_return_do_not_replay(game):
 def test_existing_save_explicit_new_game_restarts_opening(game):
     assert game.start_new_game()[0]
     game.change_state(config.STATE_TITLE_BOOT)
-    key(game,pygame.K_n);assert game.current_scene.confirm_new
-    key(game,pygame.K_y)
+    key(game,pygame.K_n)
     assert game.current_state_name == config.STATE_BUNKER_HUB and game.current_scene.opening_story is not None
 
 
@@ -186,7 +187,8 @@ def test_failed_new_game_save_does_not_open_story(game,monkeypatch):
     monkeypatch.setattr(game.save_store,'save',fail)
     key(game,pygame.K_RETURN)
     assert game.current_state_name == config.STATE_TITLE_BOOT and not game.session_active
-    assert 'SAVE FAILED' in game.current_scene.status
+    assert 'PRESS START TO RETRY' in game.current_scene.status
+    assert 'SAVE FAILED' in game.save_notice
 
 
 def test_pause_and_focus_loss_freeze_opening_without_input_leak(game):
@@ -237,3 +239,62 @@ def test_non_skip_key_held_through_skip_cannot_activate_station(game):
     assert game.current_state_name == config.STATE_BUNKER_HUB
     key(game,pygame.K_e,down=False);key(game,pygame.K_e)
     assert game.current_state_name == config.STATE_CRT_TERMINAL
+
+
+@pytest.mark.parametrize("action", ["enter", "space", "click", "controller_a", "controller_start"])
+def test_arcade_start_replaces_progress_in_one_action(game, action):
+    assert game.start_new_game()[0]
+    game.campaign.apply_event({"event_id": "old-timeline", "type": "timeline_shift",
+                               "payload": {"timeline_mode": "1977_ANALOG"}})
+    assert game.save_checkpoint()
+    previous_id = game.campaign.state.save_id
+    game.change_state(config.STATE_TITLE_BOOT)
+    if action == "click":
+        click(game, (240, 210))
+    elif action.startswith("controller"):
+        game.input._controller_state[37] = {"buttons": set(), "axes": {}}
+        button = pygame.CONTROLLER_BUTTON_A if action == "controller_a" else pygame.CONTROLLER_BUTTON_START
+        controller(game, button)
+    else:
+        key(game, pygame.K_RETURN if action == "enter" else pygame.K_SPACE)
+    assert game.current_state_name == config.STATE_BUNKER_HUB
+    assert game.current_scene.opening_story.index == 0
+    assert not game.pause.active
+    assert game.campaign.state.save_id != previous_id
+    assert game.campaign.timeline_mode == "2029_CORE"
+    assert game.save_store.load().campaign.state.save_id == game.campaign.state.save_id
+
+
+def test_failed_restart_keeps_existing_run_and_allows_retry(game, monkeypatch):
+    assert game.start_new_game()[0]
+    game.change_state(config.STATE_TITLE_BOOT)
+    previous = game.campaign.to_dict()
+    saved_bytes = game.save_store.path.read_bytes()
+    save = game.save_store.save
+
+    def fail(*args, **kwargs):
+        raise SaveError("fixture failure")
+
+    monkeypatch.setattr(game.save_store, "save", fail)
+    key(game, pygame.K_RETURN)
+    assert game.current_state_name == config.STATE_TITLE_BOOT
+    assert game.campaign.to_dict() == previous
+    assert game.save_store.path.read_bytes() == saved_bytes
+    monkeypatch.setattr(game.save_store, "save", save)
+    key(game, pygame.K_RETURN, down=False)
+    key(game, pygame.K_RETURN)
+    assert game.current_state_name == config.STATE_BUNKER_HUB
+    assert game.campaign.state.save_id != previous["save_id"]
+
+
+def test_title_starts_music_before_player_input(game):
+    from video_game.engine.audio import TRACK_BUNKER
+
+    worker = game.audio._load_thread
+    if worker is not None:
+        worker.join(timeout=2)
+    game.update(1 / 60)
+    assert game.current_state_name == config.STATE_TITLE_BOOT
+    assert game.audio.current_track == TRACK_BUNKER
+    assert pygame.mixer.music.get_busy()
+    assert not game.save_store.has_existing_data()

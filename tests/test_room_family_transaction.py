@@ -3,6 +3,8 @@ PURPOSE: Verify explicit multi-room asset contracts and recoverable family promo
 CALLED BY: pytest tests/test_room_family_transaction.py.
 HOW TO MODIFY: Use temporary asset roots and preserve installed approach-v1 fixtures.
 """
+
+from . import REPO_ROOT
 import json
 import os
 from pathlib import Path
@@ -15,7 +17,7 @@ from video_game.engine import asset_transactions
 from video_game.engine.room_art_contracts import (
     OPAQUE_BACKDROP_FAMILIES, ROOM_ART_FAMILIES, backdrop_manifest_template, manifest_template,
 )
-from tools import build_room_family as builder
+from video_game.tools import build_room_family as builder
 
 
 def snapshot(root):
@@ -167,10 +169,10 @@ def test_real_cli_requires_family_and_dry_run_does_not_write(assets_and_sources)
     root, inputs, archive = assets_and_sources
     far, world, props = inputs['ohio_dish_v1']
     before = snapshot(root)
-    result = subprocess.run([sys.executable, '-m', 'tools.build_room_family',
+    result = subprocess.run([sys.executable, '-m', 'video_game.tools.build_room_family',
                              '--family', 'ohio_dish_v1', '--assets-dir', str(root), '--archive-dir', str(archive),
                              '--far', str(far), '--world', str(world), '--dry-run'],
-                            cwd=Path(__file__).resolve().parents[1], env=os.environ.copy(),
+                            cwd=REPO_ROOT, env=os.environ.copy(),
                             text=True, capture_output=True, check=True)
     assert json.loads(result.stdout)['status'] == 'validated'
     assert snapshot(root) == before and not archive.exists()
@@ -185,7 +187,7 @@ def test_process_interruption_recovers_absent_family_before_new_attempt(assets_a
 import os, sys
 from pathlib import Path
 from video_game.engine import asset_transactions
-from tools.build_room_family import build_family
+from video_game.tools.build_room_family import build_family
 root, far, world, prop, archive = map(Path, sys.argv[1:])
 real = asset_transactions.os.replace
 def crash(source, target):
@@ -197,7 +199,7 @@ asset_transactions.os.replace = crash
 build_family('ohio_salvage_v1', assets_dir=root, far=far, world=world, props=[prop], archive_dir=archive, promote=True)
 '''
     result = subprocess.run([sys.executable, '-c', script, str(root), str(far), str(world), str(props[0]), str(archive)],
-                            cwd=Path(__file__).resolve().parents[1], env=os.environ.copy(), check=False)
+                            cwd=REPO_ROOT, env=os.environ.copy(), check=False)
     assert result.returncode == 71
     journal = root.parent / '.assets-asset-build-pending.json'
     assert journal.exists()
@@ -355,9 +357,9 @@ def test_backdrop_rejects_nonopaque_wrong_size_symlinks_and_lock(backdrop_source
 def test_backdrop_cli_requires_correct_arguments_and_does_not_write(backdrop_sources):
     root, source, archive = backdrop_sources
     before = snapshot(root)
-    command = [sys.executable, '-m', 'tools.build_room_family', '--family', 'ohio_bunker_v1',
+    command = [sys.executable, '-m', 'video_game.tools.build_room_family', '--family', 'ohio_bunker_v1',
                '--assets-dir', str(root), '--archive-dir', str(archive)]
-    options = dict(cwd=Path(__file__).resolve().parents[1], env=os.environ.copy(), text=True, capture_output=True)
+    options = dict(cwd=REPO_ROOT, env=os.environ.copy(), text=True, capture_output=True)
     result = subprocess.run([*command, '--backdrop', str(source), '--dry-run'], **options, check=True)
     assert json.loads(result.stdout)['status'] == 'validated'
     invalid = subprocess.run([*command, '--far', str(source)], **options, check=False)
@@ -372,7 +374,7 @@ def test_backdrop_process_interruption_recovers_absent_family(backdrop_sources):
 import os, sys
 from pathlib import Path
 from video_game.engine import asset_transactions
-from tools.build_room_family import build_backdrop_family
+from video_game.tools.build_room_family import build_backdrop_family
 root, source, archive = map(Path, sys.argv[1:])
 real = asset_transactions.os.replace
 def crash(src, dst):
@@ -384,7 +386,7 @@ asset_transactions.os.replace = crash
 build_backdrop_family('ohio_bunker_v1', assets_dir=root, archive_dir=archive, backdrop=source, promote=True)
 '''
     result = subprocess.run([sys.executable, '-c', script, str(root), str(source), str(archive)],
-                            cwd=Path(__file__).resolve().parents[1], env=os.environ.copy(), check=False)
+                            cwd=REPO_ROOT, env=os.environ.copy(), check=False)
     assert result.returncode == 71
     journal = root.parent / '.assets-asset-build-pending.json'
     assert journal.exists()
