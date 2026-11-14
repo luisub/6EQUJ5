@@ -65,7 +65,7 @@ Acceptance: all relevant J01–J03 and P05/P09 criteria pass with evidence; no h
 
 Dependencies — J03 for earned travel; user-directed parallel implementation. Resource flag — STANDARD. Status: in progress.
 
-Deliver a fictional schematic with all twelve locations, a readable source/destination route and an original vortex for all twelve world handoffs; persist each pending ordered leg before departure, replay after Continue, and clear only on a successful arrival save. Support automatic progression, guarded mapped skip, pause/focus and a plain fallback. Preserve the existing envelope and receipts.
+Deliver a galaxy map with all twelve locations, a readable source/destination route and an original vortex for all twelve world handoffs; persist each pending ordered leg before departure, replay after Continue, and clear only on a successful arrival save. Support automatic progression, guarded mapped skip, pause/focus and a plain fallback. Preserve the existing envelope and receipts.
 
 Acceptance: ordered route and recovery pass without skipped or duplicated receipts; actual installed art, motion, readable controls, native-window comfort and full campaign behavior receive appropriate review. The 23,740-frame portal-seeded probe proved earned progression, all twelve three-phase legs and final autosave/child Continue using pre-promotion fallback. Isolated-art and actual-root component captures are separate evidence. No full human/native-window or formal art acceptance is claimed. [Evidence](../../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/VISUAL_POLISH/2026-11-13_solid_activity_laser/report.md).
 

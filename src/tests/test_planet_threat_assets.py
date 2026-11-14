@@ -13,7 +13,7 @@ import pytest
 
 from video_game.engine import asset_transactions
 from video_game.engine.planet_threat_assets import (FAMILY_ROOT, THREAT_IDS, WORLD_THREAT_IDS,
-                                                      load_planet_threat)
+                                                      load_planet_threat, load_planet_threat_run)
 from video_game.tools import build_planet_threat
 
 
@@ -125,3 +125,40 @@ def test_injected_promotion_failure_rolls_back(sources,monkeypatch):
         build_planet_threat.build('carrier_wraith',source,{'source':'test'},assets_dir=root,promote=True)
     assert not (root/family/'body.png').exists() and not (root/family/'manifest.json').exists()
     assert not (root.parent/'.assets-asset-build-pending.json').exists()
+
+
+def test_optional_run_poses_load_and_corruption_keeps_static_fallback(sources, display):
+    root, source = sources
+    sheet = Image.new('RGBA', (384, 72))
+    for index in range(4):
+        frame = Image.open(source).copy()
+        ImageDraw.Draw(frame).rectangle((15 + index * 5, 45, 20 + index * 5, 60),
+                                        fill=(30, 200, 90, 255))
+        sheet.paste(frame, (index * 96, 0))
+    run = source.with_name('run.png')
+    sheet.save(run)
+    build_planet_threat.build('carrier_wraith', source, {'source': 'fixture'},
+                              assets_dir=root, run_source=run, promote=True)
+    frames = load_planet_threat_run(root, 'carrier_wraith')
+    assert len(frames) == 4
+    assert len({pygame.image.tobytes(frame, 'RGBA') for frame in frames}) == 4
+    (root / FAMILY_ROOT / 'carrier_wraith' / 'run.png').write_bytes(b'broken')
+    assert load_planet_threat_run(root, 'carrier_wraith') == ()
+    assert load_planet_threat(root, 'carrier_wraith') is not None
+
+
+def test_explicit_replacement_archives_original_and_rolls_back_on_failure(sources, monkeypatch):
+    root, source = sources
+    build_planet_threat.build('carrier_wraith', source, {'source': 'first'}, assets_dir=root, promote=True)
+    directory = root / FAMILY_ROOT / 'carrier_wraith'
+    before = {path.name: path.read_bytes() for path in directory.iterdir()}
+    original = asset_transactions.os.replace
+    def fail(src, dst):
+        if Path(dst) == directory / 'manifest.json' and not str(src).endswith('.f03-recovery'):
+            raise OSError('replace fixture')
+        return original(src, dst)
+    monkeypatch.setattr(asset_transactions.os, 'replace', fail)
+    with pytest.raises(OSError, match='replace fixture'):
+        build_planet_threat.build('carrier_wraith', source, {'source': 'replacement'},
+                                  assets_dir=root, promote=True, replace_existing=True)
+    assert {path.name: path.read_bytes() for path in directory.iterdir()} == before

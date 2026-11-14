@@ -12,6 +12,7 @@ import pygame
 from .enemies import (Enemy, EnemyConfig, STATE_ATTACK, STATE_DEATH, STATE_HURT,
                       STATE_PATROL, STATE_RECOVERY, STATE_WINDUP)
 from .world import COLLISION_ONE_WAY, COLLISION_SOLID
+from .planet_threat_assets import STRIDE_LENGTH
 
 DATA_PATH = Path(__file__).resolve().parent.parent / 'data' / 'planet_encounters.json'
 STYLES = frozenset(('strafe', 'swoop', 'pulse', 'lunge'))
@@ -71,15 +72,21 @@ class PlanetThreat(Enemy):
         # Hover is a patrol motion. Keep its phase fixed during attacks,
         # damage, stun and recovery so resuming patrol cannot jump in y.
         self.hover_phase = 0.0
+        self.stride_distance = 0.0
+        self.last_move_distance = 0.0
 
     def reset_to_spawn(self):
         super().reset_to_spawn()
         self._attack_hit = False
         self.hover_phase = 0.0
+        self.stride_distance = 0.0
+        self.last_move_distance = 0.0
 
     def update(self, dt, player, room, manager, is_paused=False, decoy=None):
         if is_paused or dt <= 0:
             return
+        previous_x = self.x
+        self.last_move_distance = 0.0
         super().update(dt)
         self.anim_time += dt
         self.cooldown_timer = max(0, self.cooldown_timer - dt)
@@ -150,12 +157,14 @@ class PlanetThreat(Enemy):
                 self.state, self.state_timer = STATE_RECOVERY, self.cfg.recovery_time
                 self.cooldown_timer = self.cfg.attack_cooldown
         self.rect.topleft = (round(self.x), round(self.y))
+        self.last_move_distance = abs(self.x - previous_x)
+        self.stride_distance += self.last_move_distance
 
 
 class PlanetEncounter:
     """Monotonic, bounded spawns: nothing is persisted to campaign state."""
 
-    def __init__(self, room, manager, world_id, assisted=False, *, body=None, data_path=DATA_PATH):
+    def __init__(self, room, manager, world_id, assisted=False, *, body=None, run_frames=(), data_path=DATA_PATH):
         self.room, self.manager, self.assisted = room, manager, assisted
         self.spec = world_config(world_id, data_path)
         self.body = body
@@ -178,6 +187,8 @@ class PlanetEncounter:
             self.hurt_body = body.copy()
             self.hurt_body.fill((255, 175, 130, 255), special_flags=pygame.BLEND_RGBA_MULT)
             self.hurt_body_left = pygame.transform.flip(self.hurt_body, True, False)
+        self.run_frames = tuple(run_frames) if body is not None else ()
+        self.run_frames_left = tuple(pygame.transform.flip(frame, True, False) for frame in self.run_frames)
 
     def _safe(self, x):
         rect = pygame.Rect(x, 216, 40, 24)
@@ -234,10 +245,6 @@ class PlanetEncounter:
         return enemy
 
     def render(self, crt, camera):
-        if self.warning:
-            x, y = camera.world_to_screen(self.warning['x'], 216)
-            x = max(8, min(camera.viewport_w - 56, x))
-            crt.draw_text('INCOMING', int(x), int(y) - 14, color=(255, 190, 65), size='sm')
         if self.body is None:
             return
         layers = []
@@ -248,6 +255,9 @@ class PlanetEncounter:
             left = enemy.facing == 'left'
             if enemy.state == STATE_HURT:
                 image = self.hurt_body_left if left else self.hurt_body
+            elif self.run_frames and enemy.last_move_distance > 0 and enemy.state in (STATE_PATROL, STATE_ATTACK):
+                frames = self.run_frames_left if left else self.run_frames
+                image = frames[int(enemy.stride_distance / STRIDE_LENGTH * len(frames)) % len(frames)]
             else:
                 image = self.body_left if left else self.body
             layers.append((image, (2 * x - (47 if left else 48), 2 * y - 64), 0))

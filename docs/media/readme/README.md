@@ -30,9 +30,13 @@ The main README embeds thirteen screenshots and three animations. Three addition
 | `signal-jailer.png`, `heat-auditor.png` | Guardian scenes with staged journey ledgers and 1.6 seconds of runtime. |
 | `proxima-twilight.png` | Proxima field midpoint with staged prior victories, receipts and player position. |
 | `flare-bastion.png` | Proxima guardian with a staged journey ledger and 0.2 seconds of runtime. |
-| `galaxy-map.png`, `signal-transit.gif` | First Earth-to-FASR-001 crossing after a staged portal unlock. Map positions are fictional and schematic. |
+| `galaxy-map.png`, `signal-transit.gif` | First Earth-to-FASR-001 crossing after a staged portal unlock. |
 
 Proxima and the travel media were refreshed together on 2026-11-13. Travel now follows an irregular route and presents the gate at the screen center. The previous map, animation and matching metadata are indexed in the [archive record](../../maintenance/archive-manifest.json).
+
+Arc Lance and travel captures were refreshed on 2026-11-14 to show the compact
+upper-right timer and simplified map captions. Previous captures and metadata
+are preserved under `_trash/2026-11-14_enemy_motion/docs/media/readme/`.
 
 The captures use temporary saves and settings, dummy SDL video/audio, a fixed random seed, and disabled CRT effects. HUD elements remain visible. Scene fixtures demonstrate current rendering; they do not establish an earned campaign playthrough, native display performance, audible quality or controller acceptance.
 

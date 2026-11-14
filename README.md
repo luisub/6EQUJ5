@@ -138,7 +138,7 @@ Earth is only the beginning. Follow the signal into **eleven distant worlds**, c
 
 *The first crossing: Earth → FASR-001. [Explore the route map →](docs/media/readme/galaxy-map.png)*
 
-The story is fiction inspired by astronomical locations and signals. The travel map is schematic; its positions are fictional and not to scale.
+The story follows the 1977 signal through eleven worlds and back to Earth.
 
 <details>
 <summary><strong>About the images</strong></summary>
@@ -177,7 +177,7 @@ The journey opens in the basement with three story pages and a galaxy-map briefi
 | Charge a shot | Hold and release the right mouse button |
 | Leave the bunker | Enter or Up |
 | Interact / use an exit | Up, E or click the nearby prompt |
-| Charging hazard | After INCOMING, press and hold Space when HOLD JUMP appears |
+| Charging hazard | Press and hold Space when HOLD JUMP appears |
 | Pause and settings | F2 |
 | Advance dialogue / skip travel | Enter, Space or click; travel can be skipped immediately |
 

@@ -12,13 +12,39 @@
       96,
       72
     ],
-    "sha256": "57673674a24585325bedaea519e12b77dd61483543b9a2a85f85cddc3b22b969"
+    "sha256": "9f41bd9d11335db6aca0167ec89b06a819255aa844a98611de3274d6b01b62d4"
   },
   "provenance": {
-    "source": "src/art/source/planet_threats/resonance_effigy_v01/body_96x72.png",
-    "sha256": "57673674a24585325bedaea519e12b77dd61483543b9a2a85f85cddc3b22b969",
-    "candidate_metadata": "src/art/source/planet_threats/resonance_effigy_v01/candidate.json",
-    "provenance_record": "src/art/source/planet_threats/resonance_effigy_v01/PROVENANCE.md",
-    "review": "root-accepted original static source"
+    "source": "src/art/source/planet_threats/resonance_effigy/run_master.png",
+    "provenance_record": "src/art/source/planet_threats/resonance_effigy/provenance.json",
+    "master_sha256": "e94e6a179e6212ae7438a82a497a24629460994b979a7876bd42c7145e2e18bb",
+    "export": {
+      "cell_width": 543,
+      "shared_crop": [
+        26,
+        208,
+        521,
+        465
+      ],
+      "content_size": [
+        84,
+        44
+      ],
+      "origin": [
+        6,
+        20
+      ],
+      "resampling": "nearest",
+      "alpha_floor": 32,
+      "idle_frame": 1
+    }
+  },
+  "run": {
+    "file": "run.png",
+    "dimensions": [
+      384,
+      72
+    ],
+    "sha256": "fbcca837858e41d9c404772e1c7aac60e8f6e6c7934b0783060573ce630054e5"
   }
 }

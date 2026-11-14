@@ -133,7 +133,9 @@ def test_cached_warning_and_sprite_draw_without_image_io(source,monkeypatch):
         def draw_text(self,*args,**kwargs):self.text.append(args)
         def composite_native(self,*args):self.images.append(args)
     crt=CRT();monkeypatch.setattr(pygame.image,'load',lambda *_a,**_kw:pytest.fail('render performed image IO'))
-    step(h,p,camera,480);h.render(crt,camera);assert crt.text and crt.text[0][0]=='INCOMING'
+    step(h,p,camera,480);h.render(crt,camera)
+    assert not crt.text
+    assert crt.canvas.get_at((camera.viewport_w - 8, 184))[:3] == (244, 189, 75)
     step(h,p,camera,75);h.render(crt,camera);assert len(crt.images)==1
 
 

@@ -149,7 +149,6 @@ class GalaxyTransitScene(BaseScene):
         crt.draw_text(objective, 24, 234, color=(232, 235, 227), size='sm', has_shadow=False)
         message = 'Could not save. Enter / F5: retry arrival' if self.save_failed else 'Enter / A / click: arrive'
         crt.draw_text(message, 24, 249, color=(241, 201, 123), size='sm', has_shadow=False)
-        crt.draw_text('Schematic · not to scale', 330, 249, color=(156, 180, 188), size='sm', has_shadow=False)
 
     def render(self, crt):
         crt.clear((2, 4, 12))

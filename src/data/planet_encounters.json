@@ -178,10 +178,10 @@
       }
     },
     "alien_scan_h": {
-      "enemy_id": "paradox_knot",
-      "name": "Paradox Knot",
-      "art_id": "paradox_knot",
-      "style": "strafe",
+      "enemy_id": "rift_raptor",
+      "name": "Rift Raptor",
+      "art_id": "rift_raptor",
+      "style": "lunge",
       "health": 150,
       "contact_damage": 20,
       "telegraph_seconds": 1.0,
@@ -191,7 +191,7 @@
       "max_active": 5,
       "hazard": {
         "kind": "planet_charge",
-        "art_id": "paradox_knot",
+        "art_id": "rift_raptor",
         "damage": 12,
         "speed": 100,
         "warning_seconds": 1.25,
@@ -225,7 +225,7 @@
       "enemy_id": "beacon_mite",
       "name": "Beacon Mite",
       "art_id": "beacon_mite",
-      "style": "swoop",
+      "style": "lunge",
       "health": 160,
       "contact_damage": 22,
       "telegraph_seconds": 1.0,

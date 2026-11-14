@@ -1,6 +1,6 @@
-"""PURPOSE: Validate schematic navigation and safely commit inter-world arrivals.
+"""PURPOSE: Validate navigation and safely commit inter-world arrivals.
 CALLED BY: Alien journey dispatch and the galaxy transit scene.
-HOW TO MODIFY: Keep travel positions fictional, preserve pending saves and ordered receipts.
+HOW TO MODIFY: Preserve pending saves and ordered receipts.
 """
 from copy import deepcopy
 from functools import lru_cache
@@ -13,7 +13,7 @@ PATH = Path(__file__).resolve().parent.parent / 'data' / 'galaxy_navigation.json
 
 @lru_cache(maxsize=1)
 def navigation_data():
-    """Return validated display-only schematic coordinates, or a safe empty map."""
+    """Return validated route coordinates, or a safe empty map."""
     try:
         data = json.loads(PATH.read_text(encoding='utf-8'))
         locations = data['locations']
@@ -35,7 +35,7 @@ def navigation_data():
             raise ValueError('location roster mismatch')
         return data
     except (OSError, ValueError, TypeError, KeyError, AttributeError):
-        return {'schema_version': 1, 'disclaimer': 'SCHEMATIC // POSITIONS NOT TO SCALE', 'locations': []}
+        return {'schema_version': 1, 'locations': []}
 
 
 def locations_by_id():

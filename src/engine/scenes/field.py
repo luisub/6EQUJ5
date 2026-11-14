@@ -23,7 +23,7 @@ from video_game.engine.energy_filament import EnergyFilament
 from video_game.engine.enemies import CoreReconDrone, EnemyManager, StaticHound
 from video_game.engine.encounter_director import ForwardEncounter
 from video_game.engine.planet_encounters import PlanetEncounter, world_config as planet_world_config
-from video_game.engine.planet_threat_assets import load_planet_threat
+from video_game.engine.planet_threat_assets import load_planet_threat, load_planet_threat_run
 from video_game.engine.world_hazards import ARCHAEOLOGICAL_EFFIGY_ROOMS, MODERN_WAGON_ROOMS, WorldHazards
 from video_game.engine.environment_activity import ServiceTraffic
 from video_game.engine.flashback import FlashbackController, FlashbackSnapshot, FlashbackStage
@@ -218,7 +218,7 @@ class FieldOpsScene(BaseScene):
         assisted = getattr(getattr(self.machine, "settings", None), "combat_mode", "classic") == "assisted"
         if self.journey_world and self.room.room_id == f'{self.journey_world}_field':
             self.forward_encounter = PlanetEncounter(self.room, self.enemy_manager, self.journey_world, assisted,
-                                                       body=self._planet_body)
+                                                       body=self._planet_body, run_frames=self._planet_run_frames)
             return
         data_path = (LEVELS_DIR.parent / 'alien_journey.json' if self.journey_world
                      else LEVELS_DIR.parent / 'campaign_route.json'
@@ -342,6 +342,7 @@ class FieldOpsScene(BaseScene):
         self.room_path = LEVELS_DIR / room_relative_path
         self.room = Room.load_from_file(self.room_path)
         self._planet_body = None
+        self._planet_run_frames = ()
         self.world_hazards = None
         asset_root = getattr(getattr(self.machine, 'assets', None), 'root', None)
         if self.journey_world and self.room.room_id == f'{self.journey_world}_field':
@@ -349,6 +350,7 @@ class FieldOpsScene(BaseScene):
             if spec:
                 loaded = load_planet_threat(asset_root, spec['art_id'])
                 self._planet_body = loaded[0] if loaded else None
+                self._planet_run_frames = load_planet_threat_run(asset_root, spec['art_id']) if loaded else ()
                 self.world_hazards = WorldHazards(asset_root, self.room, spec.get('hazard'))
         elif self.room.room_id in MODERN_WAGON_ROOMS:
             self.world_hazards = WorldHazards(asset_root, self.room,

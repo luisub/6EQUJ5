@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pygame
 
-from .planet_threat_assets import WORLD_THREAT_IDS, load_planet_threat
+from .planet_threat_assets import WORLD_THREAT_IDS, STRIDE_LENGTH, load_planet_threat, load_planet_threat_run
 
 # Only traversable contemporary exteriors; never archaeological or alien rooms.
 MODERN_WAGON_ACTS = {
@@ -32,6 +32,8 @@ class WorldHazards:
         self.room = room
         self.enabled = False
         self.image = None
+        self.run_frames = ()
+        self.stride_distance = 0.0
         self.hit_bounds = None
         self.contact_bounds = None
         self.kind = None
@@ -77,6 +79,8 @@ class WorldHazards:
             # Directional source bodies face right; this pass moves left.
             # Mirror once at entry and mirror bounds before mapping to logical pixels.
             self.image = pygame.transform.scale(pygame.transform.flip(source, True, False), (120, 90))
+            self.run_frames = tuple(pygame.transform.scale(pygame.transform.flip(frame, True, False), (120, 90))
+                                    for frame in load_planet_threat_run(asset_root, art_id))
             left, top, right, bottom = bounds
             left, right = source.get_width() - right, source.get_width() - left
             # Source-space bounds become logical coordinates after 1.25x at 2x density.
@@ -127,6 +131,7 @@ class WorldHazards:
         self.phase = 'delay' if self.enabled else 'disabled'
         self.timer = self.initial_delay if self.enabled else 0.0
         self.x = 0.0
+        self.stride_distance = 0.0
         self.hit_this_pass = False
         self.action_cue = False
         self._cue_player = None
@@ -214,6 +219,7 @@ class WorldHazards:
             if self.phase == 'active':
                 old = self._contact_body(self.x)
                 self.x -= self.speed * remaining
+                self.stride_distance += self.speed * remaining
                 body = self._contact_body(self.x)
                 swept = old.union(body)
                 viewport = pygame.Rect(round(camera.x), 0, camera.viewport_w, max(1, getattr(camera, 'world_h', 288)))
@@ -237,10 +243,11 @@ class WorldHazards:
         if self.phase == 'warning':
             x = camera.viewport_w - 14
             pygame.draw.polygon(crt.canvas, (244, 189, 75), [(x, 184), (x + 9, 178), (x + 9, 190)])
-            crt.draw_text('INCOMING', camera.viewport_w - 95, 162, color=(255, 210, 125), size='sm')
         elif self.phase == 'active':
             sx, sy = camera.world_to_screen(self.x, self.origin_y)
-            crt.composite_native(self.image, (sx, sy), self.logical_size)
+            image = (self.run_frames[int(self.stride_distance / (STRIDE_LENGTH * 1.25) * len(self.run_frames)) % len(self.run_frames)]
+                     if self.run_frames else self.image)
+            crt.composite_native(image, (sx, sy), self.logical_size)
             player = self._cue_player
             scene = getattr(player, 'combat_context', None)
             machine = getattr(scene, 'machine', None)

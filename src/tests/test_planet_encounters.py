@@ -381,3 +381,61 @@ def test_swoop_patrol_phase_is_frame_rate_independent(game):
     for _ in range(120):b.update(1/60,scene.player,scene.room,scene.enemy_manager)
     assert a.hover_phase==pytest.approx(b.hover_phase,abs=1e-10)
     assert a.y==pytest.approx(b.y,abs=1e-10)
+
+
+def test_ground_stride_follows_displacement_and_stops_for_pause_stun_and_walls(game, monkeypatch):
+    scene = game.current_scene
+    threat = PlanetThreat('stride_fixture', 1000, 216, world_config('alien_scan_h'))
+    threat.cooldown_timer = 100
+    start = threat.x
+    threat.update(.1, scene.player, scene.room, scene.enemy_manager)
+    assert threat.stride_distance == pytest.approx(abs(threat.x - start))
+    assert threat.stride_distance > 0
+    distance = threat.stride_distance
+    threat.update(.1, scene.player, scene.room, scene.enemy_manager, is_paused=True)
+    assert threat.stride_distance == distance
+    threat.apply_status('stun', .5)
+    threat.update(.1, scene.player, scene.room, scene.enemy_manager)
+    assert threat.stride_distance == distance and threat.last_move_distance == 0
+    threat.clear_statuses()
+    monkeypatch.setattr(scene.room, 'check_rect_collision', lambda rect: {'solid': True, 'hazard': False})
+    threat.update(.1, scene.player, scene.room, scene.enemy_manager)
+    assert threat.stride_distance == distance and threat.last_move_distance == 0
+    threat.reset_to_spawn()
+    assert threat.stride_distance == threat.last_move_distance == 0
+
+
+@pytest.mark.parametrize('world', ('alien_scan_h', 'alien_010', 'alien_007'))
+def test_animated_creatures_have_cached_directional_leg_cycles(game, monkeypatch, world):
+    from video_game.engine.planet_threat_assets import STRIDE_LENGTH
+    game.change_state(config.STATE_FIELD_OPS, room=f'alien_worlds/{world}_field.json',
+                      spawn='default', journey_world=world, campaign_route=True)
+    scene = game.current_scene
+    director = scene.forward_encounter
+    assert len(director.run_frames) == 4
+    assert len(scene.world_hazards.run_frames) == 4
+    threat = PlanetThreat('run_fixture', 400, 216, world_config(world), custom_body=True)
+    scene.enemy_manager.add_enemy(threat)
+    def unexpected(*args, **kwargs):
+        pytest.fail('Rendering should reuse cached poses')
+    monkeypatch.setattr(pygame.image, 'load', unexpected)
+    monkeypatch.setattr(pygame.transform, 'flip', unexpected)
+    class Recorder:
+        def __init__(self): self.layers = []
+        def composite_native_effects(self, layers): self.layers.extend(layers)
+    images = []
+    for index in range(4):
+        threat.stride_distance = index * STRIDE_LENGTH / 4
+        threat.last_move_distance = 1
+        threat.facing = 'left'
+        result = Recorder()
+        director.render(result, scene.camera)
+        image, dest, _ = result.layers[0]
+        assert image is director.run_frames_left[index]
+        assert dest[1] == 2 * scene.camera.world_to_screen(0, threat.rect.bottom)[1] - 64
+        images.append(pygame.image.tobytes(image.subsurface((0, 40, 96, 24)), 'RGBA'))
+    assert len(set(images)) == 4
+    threat.last_move_distance = 0
+    result = Recorder()
+    director.render(result, scene.camera)
+    assert result.layers[0][0] is director.body_left

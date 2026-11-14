@@ -210,7 +210,7 @@ def capture(output):
                 if i % 6 == 0:
                     frames.append(gif_frame())
                 if i == 90:
-                    still("galaxy-map", "First Earth-to-FASR-001 transit with staged portal unlock; schematic map.")
+                    still("galaxy-map", "First Earth-to-FASR-001 transit with staged portal unlock.")
             gif("signal-transit", frames, "Actual first-world map, vortex and arrival; staged portal unlock.")
             for record in records:
                 path = output / record["file"]

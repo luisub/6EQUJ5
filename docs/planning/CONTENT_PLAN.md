@@ -2,7 +2,7 @@
 
 **Current art continuation:** FASR-001 and FASR-003 realm backgrounds and static guardians have bounded component review; nine remaining realm backgrounds and guardian families are temporary. Eleven minor-foe static bodies are separate. The 003 story's crystalline collective and structure are fiction; the long-term dimming evidence cited in its [brief](../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/WORLD_ART/2026-11-13_sequential_continuation/docs_start_v01/fasr_003_art_brief.md) favors dust. See [current state](CURRENT_STATE.md); formal J02 and art gates remain open.
 
-**World handoff update:** Earth-to-first-world, each subsequent alien world, and the final return use a saved, automatic galaxy map and vortex. The twelve displayed locations are fictional schematic markers, not astronomical coordinates. The 12-leg scripted progression ran against the pre-promotion fallback; actual authored components were reviewed separately. J05 remains in progress pending full acceptance. [Evidence](../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/VISUAL_POLISH/2026-11-13_solid_activity_laser/report.md).
+**World handoff update:** Earth-to-first-world, each subsequent alien world, and the final return use a saved, automatic galaxy map and vortex. The map connects Earth and eleven signal worlds. The 12-leg scripted progression ran against the pre-promotion fallback; actual authored components were reviewed separately. J05 remains in progress pending full acceptance. [Evidence](../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/VISUAL_POLISH/2026-11-13_solid_activity_laser/report.md).
 
 ## User-directed story revision — active work
 

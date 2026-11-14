@@ -15,6 +15,12 @@ Run tools as `python -m video_game.tools.<name>` from a repository checkout. Art
 - `play_act_01`: shortcut integration fixture that writes its route log under `_temp/play_act_01/`. Its verdict is NOT_VERIFIED for G2; use normal controls for acceptance.
 - Domain asset builders produce artwork/audio exports. Historical static evidence generators are preserved under `_trash/2026-11-13_separation/historical-tools/` with hashes and restoration instructions; their illustrations do not establish completion, measurements, or review quality.
 
+`build_planet_threat --art-id NAME --master PATH --provenance PATH --promote`
+registers four horizontal walking poses to the existing sprite geometry. Add
+`--replace-existing` for an intentional replacement with automatic archival.
+The three animated creature families record complete commands in their source
+`provenance.json`; static families continue to use `--source`.
+
 A14 and S11 static acceptance-card generators were retired to `_trash/2026-11-11_G3_audit/retired/`; their hardcoded scores and mismatched content were misleading. Original hashes and restoration instructions are in its `retirement.json`. Historical report commands refer to those archived versions. Tests, source masters, recovery copies and useful measurement/capture tools remain preserved.
 
 The A13 and S09 static evidence generators were retired to `_trash/2026-11-11_tool_retirement/retired/`: their fixed verdicts and figures could misrepresent results, and A13 also substituted default measurements. See its `retirement.json` for hashes and restoration. Use `profile_game` for measured CPU data and `faction_runtime_audit` for fixture-based runtime captures, subject to the limits above. Historical reports and images are preserved and do not establish current acceptance.

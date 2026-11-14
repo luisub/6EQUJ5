@@ -90,3 +90,7 @@ under [asset-layout evidence](../../_trash/2026-11-14_asset_layout/verification/
 Verify hashes before restoring. Preserve newer files and restore dependent
 images, manifests and consumers together. No player saves or Git index/history
 were changed; no stage, commit, push or pull was performed.
+
+## HUD and creature motion follow-up — 2026-11-14
+
+Runtime assets now total 298 files. Three animated creature families have one canonical export directory each, with idle body, four-pose run strip and validated manifest; their two-file source directories hold the run master and complete provenance/rebuild recipe. SCAN-H uses Rift Raptor dinosaurs. Superseded Paradox Knot exports/brief and old static source folders are archived, as are replaced dog/mite exports and four refreshed README captures with matching metadata. Twenty-nine new archive records have verified hashes. See `verification.json` → `latest_update` for current checks: 1,343 tests passed; one existing full-run field-render timing failure at 5.54 ms (isolated check passed), 52 level validations, clean installed boot and three animated-family checks.

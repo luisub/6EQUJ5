@@ -7,6 +7,7 @@ HOW TO MODIFY: Keep layout disjoint with zero element overlap and maintain font 
 
 import pygame
 from .. import config
+from ..temporary_weapons import WEAPON_TIMER_RECT
 from .text import wrap_text_pixels
 
 
@@ -72,7 +73,10 @@ def render_global_hud(
         message = getattr(notification, 'title', 'NOTICE')
         if getattr(notification, 'text', ''):
             message += ': ' + notification.text
-        message = _fit_label(crt.font_sm, message, 346)
+        arsenal = getattr(player, 'arsenal', None)
+        # Leave the right-hand countdown visible alongside long notifications.
+        right = WEAPON_TIMER_RECT.left - 6 if getattr(arsenal, 'temporary_id', None) else 478
+        message = _fit_label(crt.font_sm, message, right - 120 - 12)
         width = crt.font_sm.size(message)[0] + 12
         pygame.draw.rect(crt.canvas, (5, 14, 9), (120, 19, width, 13))
         pygame.draw.rect(crt.canvas, color, (120, 19, width, 13), 1)

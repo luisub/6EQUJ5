@@ -37,8 +37,8 @@
         960,
         540
       ],
-      "sha256": "bc715f004b5ad9507cc2d5da47e446cc991d5fe4bec38830f60b83995b099b03",
-      "bytes": 575350
+      "sha256": "990822d46795107d33b15670ca7d8d26950e9f24814eda77b3b761fa7d58de9a",
+      "bytes": 586049
     },
     {
       "file": "arc-lance.gif",
@@ -50,8 +50,8 @@
         432
       ],
       "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
-      "sha256": "6ab6ca9e1054caea3ee224a54becc9008f64b8a800eb9b74973873e21002cecf",
-      "bytes": 563644
+      "sha256": "26174a1518a30252b58bd118fe37a453ee0c7c9957ecde520a93a61c7a68bcbc",
+      "bytes": 579618
     },
     {
       "file": "ohio.png",
@@ -143,14 +143,14 @@
     },
     {
       "file": "galaxy-map.png",
-      "setup": "First Earth-to-FASR-001 transit with staged portal unlock; schematic map.",
+      "setup": "First Earth-to-FASR-001 transit with staged portal unlock.",
       "scene": "GALAXY_TRANSIT",
       "size": [
         960,
         540
       ],
-      "sha256": "721012d278d0077dacd983376e880c21fcb689b18d797587399992db09469c8a",
-      "bytes": 485421
+      "sha256": "c65ed3230f4e22250d4c20a70b905cd2736d880c6778584a140a5400bcd26759",
+      "bytes": 483163
     },
     {
       "file": "signal-transit.gif",
@@ -162,8 +162,8 @@
         432
       ],
       "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
-      "sha256": "54f92602867fb89038104660c57cf8f1511b23f230e49a79805a5940f840b688",
-      "bytes": 307567
+      "sha256": "6a418c4733b3fd3f092ff02d5b7b24bbbcc3b39cf50c1aec803dfdd8257c3d13",
+      "bytes": 309604
     },
     {
       "file": "neo-denver-walk.gif",

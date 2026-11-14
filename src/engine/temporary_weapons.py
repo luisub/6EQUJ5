@@ -6,6 +6,7 @@ import math
 
 import pygame
 
+from . import config
 from .weapons import AnalogWeapon, WeaponConfig, get_muzzle_world_pos, resolve_aim_vector
 from .world import COLLISION_ONE_WAY, COLLISION_SOLID
 
@@ -16,6 +17,8 @@ PROFILES = {
     'nova_scatter': dict(name='NOVA SCATTER', damage=70, cadence=.23, duration=16.0,
                          color=(255, 169, 65), spread=(0, -10, 10), pierce=1),
 }
+
+WEAPON_TIMER_RECT = pygame.Rect(config.INTERNAL_WIDTH - 112, 19, 104, 27)
 
 
 def style_temporary_flash(flash, weapon_id):
@@ -141,10 +144,13 @@ def render_weapon_timer(crt, arsenal):
     if not arsenal or not arsenal.temporary_id:
         return
     profile = PROFILES[arsenal.temporary_id]
-    panel = pygame.Rect(8, 81, 167, 27)
+    panel = WEAPON_TIMER_RECT
     pygame.draw.rect(crt.canvas, (5, 16, 27), panel)
     color = profile['color'] if arsenal.temporary_remaining > 3 else (255, 210, 110)
-    pygame.draw.rect(crt.canvas, (35, 53, 66), (14, 100, 154, 3))
-    pygame.draw.rect(crt.canvas, color, (14, 100, round(154 * arsenal.temporary_remaining / profile['duration']), 3))
+    bar = pygame.Rect(panel.x + 6, panel.y + 19, panel.width - 12, 3)
+    pygame.draw.rect(crt.canvas, (35, 53, 66), bar)
+    remaining = max(0.0, min(1.0, arsenal.temporary_remaining / profile['duration']))
+    pygame.draw.rect(crt.canvas, color, (bar.x, bar.y, round(bar.width * remaining), bar.height))
     with crt.text_batch(dirty_region=panel):
-        crt.draw_text(f"{profile['name']}  {math.ceil(arsenal.temporary_remaining)}s", 14, 85, color=color, size='sm')
+        crt.draw_text(f"{profile['name']}  {math.ceil(arsenal.temporary_remaining)}s",
+                      panel.x + 6, panel.y + 4, color=color, size='sm')

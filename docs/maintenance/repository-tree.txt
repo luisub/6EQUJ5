@@ -1,8 +1,9 @@
 6EQUJ5/
-Active checkout after asset consolidation — 2026-11-14
-Git internals, local assistant state and caches omitted. Archive and virtual environment contents collapsed.
+Active checkout after HUD and creature animation updates — 2026-11-14
+Git internals, local assistant state and caches omitted. Archive, scratch and virtual environment contents collapsed.
 
 ├── .venv/  [contents omitted]
+├── _temp/  [contents omitted]
 ├── _trash/  [contents omitted]
 ├── docs/
 │   ├── maintenance/
@@ -71,6 +72,7 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   ├── ASSETS.md
 │   ├── CONTRIBUTING.md
 │   └── CONTROLS.md
+├── generated_images/  [contents omitted]
 ├── src/
 │   ├── art/
 │   │   ├── briefs/
@@ -104,7 +106,6 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   │   │   ├── carrier_wraith.md
 │   │   │   │   ├── lensing_orb.md
 │   │   │   │   ├── memorial_sentinel.md
-│   │   │   │   ├── paradox_knot.md
 │   │   │   │   ├── plasma_kite.md
 │   │   │   │   ├── resonance_effigy.md
 │   │   │   │   ├── sevenfold_interceptor.md
@@ -431,6 +432,9 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   │   │       ├── master_v01.png
 │   │   │   │       ├── PROVENANCE.md
 │   │   │   │       └── stream_96x24.png
+│   │   │   ├── enemies/
+│   │   │   │   └── core_enforcer/
+│   │   │   │       └── master.png
 │   │   │   ├── environments/
 │   │   │   │   ├── annex_shared_background_v01/
 │   │   │   │   │   ├── source/
@@ -611,16 +615,9 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   │   │   │   ├── master_v01.png
 │   │   │   │   │   ├── master_v02.png
 │   │   │   │   │   └── PROVENANCE.md
-│   │   │   │   ├── beacon_mite_v01/
-│   │   │   │   │   ├── body_96x72.png
-│   │   │   │   │   ├── body_v01_96x72.png
-│   │   │   │   │   ├── body_v02_left.png
-│   │   │   │   │   ├── candidate.json
-│   │   │   │   │   ├── candidate.pre_mirror.json
-│   │   │   │   │   ├── master_v01.png
-│   │   │   │   │   ├── master_v02.png
-│   │   │   │   │   ├── PROVENANCE.md
-│   │   │   │   │   └── PROVENANCE.pre_mirror.md
+│   │   │   │   ├── beacon_mite/
+│   │   │   │   │   ├── provenance.json
+│   │   │   │   │   └── run_master.png
 │   │   │   │   ├── carrier_wraith_v01/
 │   │   │   │   │   ├── body_96x72.png
 │   │   │   │   │   ├── body_v01_96x72.png
@@ -640,21 +637,17 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   │   │   │   ├── candidate.json
 │   │   │   │   │   ├── master_v01.png
 │   │   │   │   │   └── PROVENANCE.md
-│   │   │   │   ├── paradox_knot_v01/
-│   │   │   │   │   ├── body_96x72.png
-│   │   │   │   │   ├── candidate.json
-│   │   │   │   │   ├── master_v01.png
-│   │   │   │   │   └── PROVENANCE.md
 │   │   │   │   ├── plasma_kite_v01/
 │   │   │   │   │   ├── body_96x72.png
 │   │   │   │   │   ├── candidate.json
 │   │   │   │   │   ├── master_v01.png
 │   │   │   │   │   └── PROVENANCE.md
-│   │   │   │   ├── resonance_effigy_v01/
-│   │   │   │   │   ├── body_96x72.png
-│   │   │   │   │   ├── candidate.json
-│   │   │   │   │   ├── master_v01.png
-│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── resonance_effigy/
+│   │   │   │   │   ├── provenance.json
+│   │   │   │   │   └── run_master.png
+│   │   │   │   ├── rift_raptor/
+│   │   │   │   │   ├── provenance.json
+│   │   │   │   │   └── run_master.png
 │   │   │   │   ├── sevenfold_interceptor_v01/
 │   │   │   │   │   ├── body_96x72.png
 │   │   │   │   │   ├── candidate.json
@@ -1027,7 +1020,8 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   │       │   └── manifest.json
 │   │   │       ├── beacon_mite/
 │   │   │       │   ├── body.png
-│   │   │       │   └── manifest.json
+│   │   │       │   ├── manifest.json
+│   │   │       │   └── run.png
 │   │   │       ├── carrier_wraith/
 │   │   │       │   ├── body.png
 │   │   │       │   └── manifest.json
@@ -1037,15 +1031,17 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   │       ├── memorial_sentinel/
 │   │   │       │   ├── body.png
 │   │   │       │   └── manifest.json
-│   │   │       ├── paradox_knot/
-│   │   │       │   ├── body.png
-│   │   │       │   └── manifest.json
 │   │   │       ├── plasma_kite/
 │   │   │       │   ├── body.png
 │   │   │       │   └── manifest.json
 │   │   │       ├── resonance_effigy/
 │   │   │       │   ├── body.png
-│   │   │       │   └── manifest.json
+│   │   │       │   ├── manifest.json
+│   │   │       │   └── run.png
+│   │   │       ├── rift_raptor/
+│   │   │       │   ├── body.png
+│   │   │       │   ├── manifest.json
+│   │   │       │   └── run.png
 │   │   │       ├── sevenfold_interceptor/
 │   │   │       │   ├── body.png
 │   │   │       │   └── manifest.json
@@ -1171,6 +1167,7 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   ├── animation.py
 │   │   ├── asset_transactions.py
 │   │   ├── assets.py
+│   │   ├── attack_visuals.py
 │   │   ├── audio.py
 │   │   ├── boss_destruction.py
 │   │   ├── campaign.py
@@ -1338,7 +1335,6 @@ Git internals, local assistant state and caches omitted. Archive and virtual env
 │   │   └── validate_content.py
 │   ├── __init__.py
 │   └── main.py
-├── .gitignore
 ├── LICENSE
 ├── MANIFEST.in
 ├── pyproject.toml

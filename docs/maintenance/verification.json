@@ -81,5 +81,49 @@
   "broken_local_links": 0,
   "active_cache_directories": 0,
   "runtime_asset_symlinks": 0,
-  "unaccounted_removals": 0
+  "unaccounted_removals": 0,
+  "latest_update": {
+    "date": "2026-11-14",
+    "pass": "hud_and_creature_motion",
+    "changes": [
+      "Upper-right compact weapon timer",
+      "Galaxy captions simplified",
+      "Enemy arrival labels removed",
+      "SCAN-H Rift Raptor dinosaurs",
+      "Four-pose distance-driven motion for raptors, Resonance Effigies and Beacon Mites",
+      "Grounded Beacon Mite movement"
+    ],
+    "runtime_asset_files": 298,
+    "full_suite": {
+      "passed": 1343,
+      "failed": 1,
+      "duration_seconds": 194.26,
+      "remaining_failure": "test_profile.py::test_scene_frame_budgets",
+      "field_render_p95_ms": 5.54,
+      "render_budget_ms": 5.0,
+      "isolated_profile": "1 passed in 3.36 seconds"
+    },
+    "focused_tests": {
+      "hud_and_navigation": 86,
+      "creatures_assets_and_hazards": 104
+    },
+    "hud_layout_cases": 144,
+    "full_flush_pixel_parity": true,
+    "levels_validated": 52,
+    "protected_asset_groups_validated": 14,
+    "installed_wheel": "Clean source copy; installed outside checkout; fresh game boot and all three animated enemies/hazards rendered successfully.",
+    "asset_rebuilds": {
+      "families": 3,
+      "exact_export_matches": true
+    },
+    "archive_records_verified": 29,
+    "visual_checks": [
+      "Native and 2x CRT HUD",
+      "Opening and travel map captions",
+      "Actual-scene leg-cycle frame samples",
+      "Memory Extractor warning and energy attack"
+    ],
+    "evidence": "_temp/enemy-motion-review/; _temp/hud-review-vm_a85vs/; updated maintained README captures",
+    "limits": "Headless staged captures and dummy audio; no human campaign or native-display performance acceptance."
+  }
 }

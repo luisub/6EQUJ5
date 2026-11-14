@@ -194,5 +194,3 @@ class ForwardEncounter:
         pygame.draw.rect(crt.canvas, (255, 190, 65), rect, 1)
         pygame.draw.line(crt.canvas, (255, 190, 65), rect.topleft, rect.bottomright, 1)
         pygame.draw.line(crt.canvas, (255, 190, 65), rect.topright, rect.bottomleft, 1)
-        crt.draw_text("INCOMING", int(x) - 4, int(y) - 16,
-                      color=(255, 190, 65), size="sm")

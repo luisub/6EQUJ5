@@ -4,6 +4,7 @@ HOW TO MODIFY: Keep attack warnings visible, counters achievable, and retries de
 """
 import math
 import pygame
+from ..attack_visuals import render_attack_field
 
 from .base import (Boss, BossAttackTelegraph, BossProjectile, boss_balance, STATE_TRANSITION,
                    STATE_TELEGRAPH, STATE_ATTACK, STATE_RECOVERY)
@@ -112,9 +113,12 @@ class CampaignBoss(Boss):
         for telegraph in self.telegraphs:
             if telegraph.target_rect:
                 r = telegraph.target_rect.move(-int(camera.x), -int(camera.y))
-                pygame.draw.rect(surface, (255, 190, 65), r, 2)
+                render_attack_field(surface, r, color=self.color, progress=telegraph.progress,
+                                    time=self.animation_time,
+                                    arrival=telegraph.attack_type in ('pod', 'teleport', 'teleport_fan'))
         for r in self.attack_rects:
-            pygame.draw.rect(surface, (255, 90, 65), r.move(-int(camera.x), -int(camera.y)))
+            render_attack_field(surface, r.move(-int(camera.x), -int(camera.y)),
+                                color=self.color, time=self.animation_time, active=True)
         for p in self.projectiles:
             pygame.draw.circle(surface, p.color, camera.world_to_screen(p.x, p.y), int(p.radius))
         r = self.rect.move(-int(camera.x), -int(camera.y))

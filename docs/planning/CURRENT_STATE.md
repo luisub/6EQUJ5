@@ -56,6 +56,27 @@ Only defeating both final forms completes the journey.
 
 ## Artwork, combat and travel
 
+Temporary weapon timers occupy a compact upper-right panel in both field and
+boss scenes; long notifications leave room for the panel. Map captions are
+simplified in the opening, travel screen and README captures. Enemy-entry labels
+are removed; hazard edge markers and attack warnings remain.
+
+SCAN-H now has Rift Raptor dinosaurs. Raptors, the golden Resonance Effigies and
+Beacon Mites have four-pose leg cycles driven by actual distance traveled,
+including the larger charging hazards. Beacon Mites use grounded lunges rather
+than hovering. Poses and mirrored variants are cached on room entry; stopping,
+pause and stun do not advance the stride. Runtime artwork remains under
+`assets/sprites/planet_threats`; canonical masters and recipes are under
+`art/source/planet_threats`. Superseded artwork is recoverable in `_trash`.
+
+Latest checks: 1,343 tests passed; the existing FIELD_OPS render-budget check
+measured 5.54 ms against 5.0 ms. All 52 levels and 14 protected asset groups
+validate. A clean installed wheel boots and renders all three animated enemy
+and hazard families. 144 HUD configurations had no text overlaps and matched
+the full-flush renderer exactly. Scene captures verify grounded feet, leg poses,
+map captions and the Memory Extractor energy-field presentation; these remain
+staged visual checks, not a human campaign playthrough.
+
 All eleven alien worlds have distinct 1920 × 540 native panoramas and transparent
 256 × 192 guardian bodies. They were produced and reviewed one civilization at
 a time; preserve that workflow. Proxima's feet, teleport visibility, paired attack

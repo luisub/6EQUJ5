@@ -97,7 +97,7 @@ class OpeningStory:
             crt.draw_text(label, rect.x + 9, rect.y + 6, color=(230, 194, 105), size='sm')
 
     def _render_map(self, crt):
-        """Inset briefing, with schematic route markers; never a transit scene."""
+        """Show the signal route inside the opening briefing."""
         area = pygame.Rect(44, 58, 390, 105)
         if self.map_image:
             crt.canvas.blit(self.map_image, area)
@@ -124,4 +124,3 @@ class OpeningStory:
             crt.draw_text(label, label_x, label_y, color=color, size='sm')
         crt.draw_text('11 WORLDS / 11 GUARDIANS / RETURN TO EARTH', 50, 61,
                       color=(231, 233, 211), size='sm')
-        crt.draw_text('SCHEMATIC - NOT TO SCALE', 50, 151, color=(173, 199, 209), size='sm')

@@ -10,6 +10,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import pygame
 
 from video_game.engine import config
+from video_game.engine.attack_visuals import render_attack_field
 from video_game.engine.weapons import HitResult
 from video_game.engine.bosses.greenkeeper_art import load_family
 from video_game.engine.bosses.base import (
@@ -371,15 +372,14 @@ class Greenkeeper(Boss):
             elif t.attack_type == "sweep" and t.target_rect:
                 rx, ry = camera.world_to_screen(t.target_rect.x, t.target_rect.y)
                 r_rect = pygame.Rect(rx, ry, t.target_rect.width, t.target_rect.height)
-                # Flashing warning bar
-                alpha_color = (180, 40, 40) if int(t.timer * 10) % 2 == 0 else (255, 60, 60)
-                pygame.draw.rect(surface, alpha_color, r_rect, 1)
-                pygame.draw.line(surface, (255, 100, 100), (rx, ry + 10), (rx + t.target_rect.width, ry + 10), 1)
+                render_attack_field(surface, r_rect, color=(255, 115, 70),
+                                    progress=t.progress, time=self.anim_timer)
 
             elif t.attack_type == "charge" and t.target_rect:
                 rx, ry = camera.world_to_screen(t.target_rect.x, t.target_rect.y)
                 r_rect = pygame.Rect(rx, ry, t.target_rect.width, t.target_rect.height)
-                pygame.draw.rect(surface, (200, 120, 30), r_rect, 1)
+                render_attack_field(surface, r_rect, color=(255, 170, 85),
+                                    progress=t.progress, time=self.anim_timer)
 
         # 2. Render Greenkeeper Chassis
         sprite = (self.heavy_logical_sprites[self._heavy_pose()] if self.heavy_sprites is not None

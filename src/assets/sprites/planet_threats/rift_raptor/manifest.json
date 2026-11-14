@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "kind": "planet_threat",
+  "art_id": "rift_raptor",
+  "pivot": [
+    48,
+    64
+  ],
+  "image": {
+    "file": "body.png",
+    "dimensions": [
+      96,
+      72
+    ],
+    "sha256": "86e3d7a79ea38456d317304aa0040659cb562ba745e3c29c0d3c90d909e28278"
+  },
+  "provenance": {
+    "source": "src/art/source/planet_threats/rift_raptor/run_master.png",
+    "provenance_record": "src/art/source/planet_threats/rift_raptor/provenance.json",
+    "master_sha256": "8ff77e4cbb0fedb39095f92443fd5291be108a962945306aee08cc6035d22107",
+    "export": {
+      "cell_width": 543,
+      "shared_crop": [
+        13,
+        235,
+        530,
+        500
+      ],
+      "content_size": [
+        84,
+        43
+      ],
+      "origin": [
+        6,
+        21
+      ],
+      "resampling": "nearest",
+      "alpha_floor": 32,
+      "idle_frame": 1
+    }
+  },
+  "run": {
+    "file": "run.png",
+    "dimensions": [
+      384,
+      72
+    ],
+    "sha256": "e1455d2787cffb31c4d8e2dedec5f23d8d11120ef565e2fd0fb133ea5df19087"
+  }
+}

@@ -12,13 +12,39 @@
       96,
       72
     ],
-    "sha256": "5575f90c6e48e2bb89a34fc4d46fb48f83dd453ef6ae363cac767d2e1da00c69"
+    "sha256": "41d61b53be8b0a20be9b553cb2f046a4548319ef05ea0031f0003c6b4d83f221"
   },
   "provenance": {
-    "source": "src/art/source/planet_threats/beacon_mite_v01/body_96x72.png",
-    "sha256": "5575f90c6e48e2bb89a34fc4d46fb48f83dd453ef6ae363cac767d2e1da00c69",
-    "candidate_metadata": "src/art/source/planet_threats/beacon_mite_v01/candidate.json",
-    "provenance_record": "src/art/source/planet_threats/beacon_mite_v01/PROVENANCE.md",
-    "review": "root-accepted original static source"
+    "source": "src/art/source/planet_threats/beacon_mite/run_master.png",
+    "provenance_record": "src/art/source/planet_threats/beacon_mite/provenance.json",
+    "master_sha256": "67ed5bc20ab1c20e8f3a2fd22d0bfd610b3bcac488f391489c9802a3151f1a9b",
+    "export": {
+      "cell_width": 543,
+      "shared_crop": [
+        25,
+        205,
+        532,
+        488
+      ],
+      "content_size": [
+        84,
+        47
+      ],
+      "origin": [
+        6,
+        17
+      ],
+      "resampling": "nearest",
+      "alpha_floor": 32,
+      "idle_frame": 1
+    }
+  },
+  "run": {
+    "file": "run.png",
+    "dimensions": [
+      384,
+      72
+    ],
+    "sha256": "ce7044fbfcb5e401bec0c430000e3970164e3642824a7ac9dbd82ca9f1eea64c"
   }
 }

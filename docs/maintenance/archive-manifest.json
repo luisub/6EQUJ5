@@ -188854,5 +188854,208 @@
     "bytes": 132563,
     "reason": "Disposable pytest cache from final validation.",
     "restoration": "Verify SHA-256, then copy archive_path to original_path only when that path is free. Preserve newer files first. Restore dependent manifests and sources together."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/resonance_effigy/body.png",
+    "archive_path": "_trash/2026-11-14_F03/e85ff96a0939492ea9e29713bd49f226/video_game/assets/sprites/planet_threats/resonance_effigy/body.png",
+    "sha256": "57673674a24585325bedaea519e12b77dd61483543b9a2a85f85cddc3b22b969",
+    "reason": "Replace sliding static creature art with registered walking poses.",
+    "restoration": "Verify SHA-256 and restore the complete archived family; remove run.png and restore its manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/resonance_effigy/manifest.json",
+    "archive_path": "_trash/2026-11-14_F03/e85ff96a0939492ea9e29713bd49f226/video_game/assets/sprites/planet_threats/resonance_effigy/manifest.json",
+    "sha256": "2cab1a156eb8b59ee1a345db1b00914242d64cec1b8bdf01fe4d31c9aeb87d92",
+    "reason": "Replace sliding static creature art with registered walking poses.",
+    "restoration": "Verify SHA-256 and restore the complete archived family; remove run.png and restore its manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/beacon_mite/body.png",
+    "archive_path": "_trash/2026-11-14_F03/09a225855fc741f9a8c694aef6e3ecb9/video_game/assets/sprites/planet_threats/beacon_mite/body.png",
+    "sha256": "5575f90c6e48e2bb89a34fc4d46fb48f83dd453ef6ae363cac767d2e1da00c69",
+    "reason": "Replace sliding static creature art with registered walking poses.",
+    "restoration": "Verify SHA-256 and restore the complete archived family; remove run.png and restore its manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/beacon_mite/manifest.json",
+    "archive_path": "_trash/2026-11-14_F03/09a225855fc741f9a8c694aef6e3ecb9/video_game/assets/sprites/planet_threats/beacon_mite/manifest.json",
+    "sha256": "c75304a7cd536cdf8a645ffafadec94bbbf84306dd9d9967f11d6aede39499c9",
+    "reason": "Replace sliding static creature art with registered walking poses.",
+    "restoration": "Verify SHA-256 and restore the complete archived family; remove run.png and restore its manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/paradox_knot/body.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/assets/sprites/planet_threats/paradox_knot/body.png",
+    "sha256": "04976735a2f3e310cbfe2f9a9ac169bbfb408364857d52749887b7c9970b1643",
+    "reason": "FASR-SCAN-H now uses Rift Raptor dinosaurs. Superseded Paradox Knot artwork and brief.",
+    "restoration": "Verify SHA-256 and copy to original path; restore the matching world-to-art mapping and encounter configuration before using the old family."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/paradox_knot/manifest.json",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/assets/sprites/planet_threats/paradox_knot/manifest.json",
+    "sha256": "594bec5b71d24635aa58ba260ef6647120821169ac504932ede05de166a556b3",
+    "reason": "FASR-SCAN-H now uses Rift Raptor dinosaurs. Superseded Paradox Knot artwork and brief.",
+    "restoration": "Verify SHA-256 and copy to original path; restore the matching world-to-art mapping and encounter configuration before using the old family."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/paradox_knot_v01/PROVENANCE.md",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/paradox_knot_v01/PROVENANCE.md",
+    "sha256": "899dfd107b9ea83bc6ca8f2af05850f6b0758adc3e81fd64693a9a36d6e9fdd1",
+    "reason": "FASR-SCAN-H now uses Rift Raptor dinosaurs. Superseded Paradox Knot artwork and brief.",
+    "restoration": "Verify SHA-256 and copy to original path; restore the matching world-to-art mapping and encounter configuration before using the old family."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/paradox_knot_v01/body_96x72.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/paradox_knot_v01/body_96x72.png",
+    "sha256": "04976735a2f3e310cbfe2f9a9ac169bbfb408364857d52749887b7c9970b1643",
+    "reason": "FASR-SCAN-H now uses Rift Raptor dinosaurs. Superseded Paradox Knot artwork and brief.",
+    "restoration": "Verify SHA-256 and copy to original path; restore the matching world-to-art mapping and encounter configuration before using the old family."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/paradox_knot_v01/candidate.json",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/paradox_knot_v01/candidate.json",
+    "sha256": "744ca492c37b487e3a0f48101e3174340e26901d7f02eff716a4d5d63398579c",
+    "reason": "FASR-SCAN-H now uses Rift Raptor dinosaurs. Superseded Paradox Knot artwork and brief.",
+    "restoration": "Verify SHA-256 and copy to original path; restore the matching world-to-art mapping and encounter configuration before using the old family."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/paradox_knot_v01/master_v01.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/paradox_knot_v01/master_v01.png",
+    "sha256": "0c2713c033b94f097a3405eb097a4a8da9994462d3eff3c5a8891f61b9bfc85d",
+    "reason": "FASR-SCAN-H now uses Rift Raptor dinosaurs. Superseded Paradox Knot artwork and brief.",
+    "restoration": "Verify SHA-256 and copy to original path; restore the matching world-to-art mapping and encounter configuration before using the old family."
+  },
+  {
+    "original_path": "src/art/briefs/planet_threats_v01/paradox_knot.md",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/briefs/planet_threats_v01/paradox_knot.md",
+    "sha256": "6b7ca491267dff8366fc153ecded380daadfde565b03a18b5cc90f271f618088",
+    "reason": "FASR-SCAN-H now uses Rift Raptor dinosaurs. Superseded Paradox Knot artwork and brief.",
+    "restoration": "Verify SHA-256 and copy to original path; restore the matching world-to-art mapping and encounter configuration before using the old family."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/resonance_effigy_v01/PROVENANCE.md",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/resonance_effigy_v01/PROVENANCE.md",
+    "sha256": "f54c17d68fd869895bea7daaad3facf4b65d8cb87c5661fadfda3b02efab7867",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/resonance_effigy_v01/body_96x72.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/resonance_effigy_v01/body_96x72.png",
+    "sha256": "57673674a24585325bedaea519e12b77dd61483543b9a2a85f85cddc3b22b969",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/resonance_effigy_v01/candidate.json",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/resonance_effigy_v01/candidate.json",
+    "sha256": "70161effae7493c318df0ee1670c6e8787b6c82e824bf21b86353f6fafdb61f1",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/resonance_effigy_v01/master_v01.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/resonance_effigy_v01/master_v01.png",
+    "sha256": "f7da6826feab68a270e66760a23ebc5da62c99cf9908dbae6149937fa44bfaad",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/PROVENANCE.md",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/PROVENANCE.md",
+    "sha256": "d2d5761c36225298b1e01318a67adff935a8eb120c4fa734e929b750e5a462c5",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/PROVENANCE.pre_mirror.md",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/PROVENANCE.pre_mirror.md",
+    "sha256": "0dbd55d5e7de5fb33070580140ff256aa71101751f1b09a8e29fa2b2b3796ac2",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/body_96x72.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/body_96x72.png",
+    "sha256": "5575f90c6e48e2bb89a34fc4d46fb48f83dd453ef6ae363cac767d2e1da00c69",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/body_v01_96x72.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/body_v01_96x72.png",
+    "sha256": "3f5a922edb22c13947f1c0c622b81c6f82daaed294216a7985637d686fa2b03c",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/body_v02_left.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/body_v02_left.png",
+    "sha256": "57654b57784e908280f882d5dff59094664c5877876129c34b7bf4b1555dc718",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/candidate.json",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/candidate.json",
+    "sha256": "07c0eeda6e0506df1f4c21e04c0d5c323b30cc4470f850163b936281873c2598",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/candidate.pre_mirror.json",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/candidate.pre_mirror.json",
+    "sha256": "dfbfe7ad71d01dfde83d48623dbaaa33d684929527a204a0f09d1efda9da2944",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/master_v01.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/master_v01.png",
+    "sha256": "fdf992a462840eda65185df434d1bd66c46d14f377ee98317cb7cb358e23dd57",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/beacon_mite_v01/master_v02.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/src/art/source/planet_threats/beacon_mite_v01/master_v02.png",
+    "sha256": "828c4da5568d7d99575ba01fa63d9895e358bd580739e654b814514ff2949527",
+    "reason": "Static creature source superseded by the canonical four-pose run master.",
+    "restoration": "Verify SHA-256 and copy to original_path; old runtime body/manifest are preserved in the matching F03 replacement archive."
+  },
+  {
+    "original_path": "docs/media/readme/arc-lance.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/docs/media/readme/arc-lance.png",
+    "sha256": "bc715f004b5ad9507cc2d5da47e446cc991d5fe4bec38830f60b83995b099b03",
+    "reason": "Refresh actual renderer captures after relocating the weapon timer and simplifying galaxy-map captions.",
+    "restoration": "Verify SHA-256 and restore matching media and capture metadata together."
+  },
+  {
+    "original_path": "docs/media/readme/arc-lance.gif",
+    "archive_path": "_trash/2026-11-14_enemy_motion/docs/media/readme/arc-lance.gif",
+    "sha256": "6ab6ca9e1054caea3ee224a54becc9008f64b8a800eb9b74973873e21002cecf",
+    "reason": "Refresh actual renderer captures after relocating the weapon timer and simplifying galaxy-map captions.",
+    "restoration": "Verify SHA-256 and restore matching media and capture metadata together."
+  },
+  {
+    "original_path": "docs/media/readme/galaxy-map.png",
+    "archive_path": "_trash/2026-11-14_enemy_motion/docs/media/readme/galaxy-map.png",
+    "sha256": "721012d278d0077dacd983376e880c21fcb689b18d797587399992db09469c8a",
+    "reason": "Refresh actual renderer captures after relocating the weapon timer and simplifying galaxy-map captions.",
+    "restoration": "Verify SHA-256 and restore matching media and capture metadata together."
+  },
+  {
+    "original_path": "docs/media/readme/signal-transit.gif",
+    "archive_path": "_trash/2026-11-14_enemy_motion/docs/media/readme/signal-transit.gif",
+    "sha256": "54f92602867fb89038104660c57cf8f1511b23f230e49a79805a5940f840b688",
+    "reason": "Refresh actual renderer captures after relocating the weapon timer and simplifying galaxy-map captions.",
+    "restoration": "Verify SHA-256 and restore matching media and capture metadata together."
+  },
+  {
+    "original_path": "docs/media/readme/capture.json",
+    "archive_path": "_trash/2026-11-14_enemy_motion/docs/media/readme/capture.json",
+    "sha256": "8e65beb12c38ceb184c74cdd86c3b9c734ae37161f2ffe7c83630dd7e1f69578",
+    "reason": "Refresh actual renderer captures after relocating the weapon timer and simplifying galaxy-map captions.",
+    "restoration": "Verify SHA-256 and restore matching media and capture metadata together."
   }
 ]

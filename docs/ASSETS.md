@@ -20,7 +20,7 @@ packages. Temporary output and `_trash` are never runtime inputs.
 | Alien guardians and Earth bosses | `sprites/bosses/` | Boss controllers and family manifests; Greenkeeper uses `greenkeeper/` |
 | Mateo | `sprites/mateo/<outfit>/` | One animation manifest, individual poses and bunker strips; frame paths stay within this directory |
 | Patrol enemies | `sprites/enemies/<type>/` | Manifests preserve animation order/timing while repeated slots share one image |
-| Planet threats | `sprites/planet_threats/<type>/` | `engine/planet_encounters.py` |
+| Planet threats | `sprites/planet_threats/<type>/` | `engine/planet_encounters.py`, `world_hazards.py`; `tools/build_planet_threat.py` |
 | Combat and travel effects | `effects/{energy_filament,maser_discharge,firing_flash,galaxy_transit}/` | Validated family loaders and builders |
 | Civilization dossiers | `civilizations/` | Portrait, environment vignette and constellation chart per civilization; these small UI plates are not scene backgrounds |
 | Title and developer palette | `ui/` | Title screen and bunker developer view |
@@ -32,6 +32,19 @@ locations. Stable logical identifiers in level data may retain old version
 suffixes for compatibility; they map to the canonical directories above.
 
 ## Manifests and rebuilding
+
+Rift Raptors (SCAN-H), Resonance Effigies (FASR-010) and Beacon Mites (FASR-007)
+have a 96×72 idle body and an optional 384×72 four-pose `run.png`. Each manifest
+hashes both files. The loader checks every pose against the original safe sprite
+bounds; unavailable motion art falls back to the idle body. Runtime strides
+follow actual travel distance and reuse cached left/right frames.
+
+Their two-file source folders contain `run_master.png` and `provenance.json`,
+including the exact generation prompt, reference hash, shared registration and
+rebuild command. `build_planet_threat --master` exports all four cells with one
+crop and scale. `--replace-existing` preserves old exports through the asset
+transaction archive before promotion. Superseded static sources are indexed
+in the archive manifest.
 
 Family manifests own filenames, geometry, hashes and animation order. The unused
 aggregate `assets/manifest.json` was retired because it described an obsolete

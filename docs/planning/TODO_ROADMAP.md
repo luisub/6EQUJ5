@@ -6,6 +6,12 @@ Repository organization was audited on 2026-11-14. Active sources and fixtures w
 
 # Execution roadmap
 
+2026-11-14 presentation follow-up: compact upper-right weapon timers, simplified
+map captions, quiet enemy arrivals, SCAN-H dinosaurs and distance-driven leg
+cycles for Raptors, Resonance Effigies and Beacon Mites are implemented. See
+[current validation](CURRENT_STATE.md#artwork-combat-and-travel). Existing
+formal gate statuses and the render-budget threshold are unchanged.
+
 User-requested increment: **nine alien worlds and guardians, tougher bosses, centered galaxy travel and asset cleanup — implemented**. Each civilization was produced and reviewed before advancing to the next. All eleven worlds now have native artwork; formal J01–J06 gates remain in progress. See [current results](CURRENT_STATE.md#repository-and-validation) and the [asset guide](../ASSETS.md). Human playtesting, guardian animation polish and render-budget review remain open. The obsolete comparison-sheet feature and missing historical-portrait check were retired during asset consolidation; the missing source was not recovered.
 
 

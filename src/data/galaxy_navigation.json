@@ -1,6 +1,5 @@
 {
   "schema_version": 1,
-  "disclaimer": "Signal route · schematic, not astronomical positions",
   "locations": [
     {
       "id": "earth",

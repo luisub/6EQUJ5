@@ -15,6 +15,7 @@ from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, Union
 import pygame
 
 from video_game.engine import config
+from video_game.engine.attack_visuals import render_attack_field
 from video_game.engine.native_room_assets import _inside_without_symlinks
 from video_game.engine.weapons import (
     CombatTarget,
@@ -2272,9 +2273,10 @@ class EnemyManager:
                 pygame.draw.ellipse(surface, (245, 205, 65), (gx - 24, gy - 6, 48, 12), 2)
 
             elif isinstance(enemy, TemporalPhantom):
-                # Amber wireframe jitter box
+                # Rising phase motes replace the old rectangular wireframe.
                 bx, by = camera.world_to_screen(enemy.x, enemy.y)
-                pygame.draw.rect(surface, (230, 160, 40), (bx - 2, by - 2, enemy.cfg.width + 4, enemy.cfg.height + 4), 1)
+                render_attack_field(surface, (bx - 2, by - 2, enemy.cfg.width + 4, enemy.cfg.height + 4),
+                                    color=(230, 160, 40), time=enemy.anim_time, arrival=True)
 
             else:
                 # Default linear telegraph
