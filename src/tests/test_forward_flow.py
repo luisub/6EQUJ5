@@ -97,25 +97,22 @@ def test_walk_connections_work_both_ways_and_preserve_health(game, mode):
     assert not game.input.held('move_left')
 
 
-def test_story_gates_and_pause(game):
+def test_pause_blocks_open_passage_but_no_item_is_required(game):
     field = game.current_scene
     field.load_room('act_01/dish_service.json', 'east')
     place_at_exit(field, 'act_01_dish_catwalk')
+    game.open_pause()
     event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RIGHT))
     step(game, 5)
-    assert field.room.room_id == 'act_01_dish_service'
-    game.campaign.apply_event({'event_id': 'fixture_coupler', 'type': 'collect_analog_coupler'})
-    game.open_pause(); step(game, 5)
     assert field.room.room_id == 'act_01_dish_service'
     game.pause.close()
     event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RIGHT))
     step(game)
     assert field.room.room_id == 'act_01_dish_catwalk'
     place_at_exit(field, 'act_01_greenkeeper_arena')
-    step(game, 5)
-    assert field.room.room_id == 'act_01_dish_catwalk'
-    event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_UP))
-    assert field.room.room_id == 'act_01_dish_catwalk'
+    step(game)
+    assert game.current_state_name == config.STATE_BOSS_BOUNTY
+    assert not game.campaign.state.room_flags.get('feedhorn_repaired', False)
 
 
 def test_old_campus_checkpoint_resolves_inside_shortened_room(game):
@@ -179,31 +176,16 @@ def test_failed_defense_retry_uses_fresh_input_without_fire_or_jump(game, method
         event(game, pygame.event.Event(pygame.KEYUP, key=pygame.K_r))
 
 
-def test_yard_coupler_gate_throttles_and_allows_earned_and_repaired(game, monkeypatch):
+def test_yard_exit_needs_no_coupler_and_grants_no_repair(game):
     field = game.current_scene
     field.load_room('act_01/salvage_yard.json', 'yard_entrance')
     place_at_exit(field, 'act_01_dish_catwalk')
-    notices = []
-    post = field.objective_tracker.post_notification
-    def record(*args, **kwargs):
-        notices.append(kwargs.get('title', args[0] if args else None))
-        return post(*args, **kwargs)
-    monkeypatch.setattr(field.objective_tracker, 'post_notification', record)
     event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RIGHT))
-    step(game, 60)
-    assert field.room.room_id == 'act_01_salvage_yard'
-    assert notices.count('COUPLER REQUIRED') == 1
-    game.campaign.apply_event({'event_id': 'fixture_yard_coupler', 'type': 'collect_analog_coupler'})
     step(game)
     assert field.room.room_id == 'act_01_dish_catwalk'
-    game.campaign.apply_event({'event_id': 'fixture_yard_repair', 'type': 'repair_dish_feedhorn'})
-    assert game.campaign.state.room_flags.get('feedhorn_repaired')
     assert not game.campaign.state.inventory.get('analog_coupler', 0)
-    field.load_room('act_01/salvage_yard.json', 'yard_entrance')
-    place_at_exit(field, 'act_01_dish_catwalk')
-    event(game, pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RIGHT))
-    step(game)
-    assert field.room.room_id == 'act_01_dish_catwalk'
+    assert not game.campaign.state.room_flags.get('feedhorn_repaired', False)
+    assert field.holdout is None
 
 
 def test_respawn_cancels_handed_off_controls(game):

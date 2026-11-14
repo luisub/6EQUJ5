@@ -331,8 +331,7 @@ class BunkerHubScene(BaseScene):
             notice = None
         else:
             room, spawn = "act_01/approach.json", "bunker_exit"
-            notice = (("REPAIR DISH", "INSTALL COUPLER AT FEEDHORN OR BUNKER BENCH")
-                      if state.inventory.get("analog_coupler", 0) > 0 else None)
+            notice = None
 
         if notice:
             tracker = self.machine.scenes[config.STATE_FIELD_OPS].objective_tracker

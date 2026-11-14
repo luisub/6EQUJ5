@@ -167,11 +167,8 @@ def test_forward_catwalk_repair_requires_real_prerequisites_and_saves(game):
     field.player.x, field.player.y = field.room.width_px - 24, 208
     field.player.rect.topleft = (field.player.x, field.player.y)
     key(game, pygame.KEYDOWN, pygame.K_e)
-    assert field.room.room_id == 'act_01_dish_service'
-    assert field.objective_tracker.active_notification.title == 'CATWALK LOCKED'
-    game.campaign.apply_event({'event_id': 'fixture_coupler', 'type': 'collect_analog_coupler'})
-    key(game, pygame.KEYDOWN, pygame.K_e)
     assert field.room.room_id == 'act_01_dish_catwalk'
+    assert not game.campaign.state.inventory.get('analog_coupler', 0)
     field.player.x, field.player.y = 288, 208
     field.player.rect.topleft = (288, 208)
     key(game, pygame.KEYDOWN, pygame.K_e)
@@ -233,17 +230,14 @@ def test_passed_spawn_retries_at_a_validated_ahead_site(game, tmp_path):
     assert field.forward_encounter._safe(dict(entry, x=enemy.spawn_x))
 
 
-def test_catwalk_arena_exit_is_gated_by_defense(game):
+def test_catwalk_arena_exit_requires_no_repair_or_defense(game):
     field = game.current_scene
     field.load_room('act_01/dish_catwalk.json', 'catwalk_start')
     field.player.x, field.player.y = field.room.width_px - 60, 208
     field.player.rect.topleft = (field.player.x, field.player.y)
     key(game, pygame.KEYDOWN, pygame.K_e)
-    assert game.current_state_name == config.STATE_FIELD_OPS
-    assert field.objective_tracker.active_notification.title == 'REPAIR FEEDHORN'
-    game.campaign.apply_event({'event_id': 'fixture_defense', 'type': 'complete_dish_defense'})
-    key(game, pygame.KEYDOWN, pygame.K_e)
     assert game.current_state_name == config.STATE_BOSS_BOUNTY
+    assert not game.campaign.state.room_flags.get('dish_defense_completed', False)
 
 
 def test_bypassed_hostiles_retire_without_starving_forward_arrivals(game):

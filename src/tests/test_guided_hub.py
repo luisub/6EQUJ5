@@ -112,7 +112,7 @@ def test_next_and_manual_interact_use_different_existing_stations(tmp_path):
         bunker = machine.current_scene
         bunker.mateo_x = 140
         key(machine, pygame.K_SPACE)
-        assert machine.current_state_name == config.STATE_CRT_TERMINAL
+        assert machine.current_state_name == config.STATE_FIELD_OPS
         machine.change_state(config.STATE_BUNKER_HUB)
         bunker.mateo_x = 140
         key(machine, pygame.K_e)
@@ -121,7 +121,7 @@ def test_next_and_manual_interact_use_different_existing_stations(tmp_path):
         machine.close()
 
 
-def test_contact_without_fragment_keeps_receiver_next(tmp_path):
+def test_contact_and_fragment_keep_next_on_the_field(tmp_path):
     machine = game(tmp_path)
     try:
         key(machine, pygame.K_RETURN)
@@ -129,12 +129,12 @@ def test_contact_without_fragment_keeps_receiver_next(tmp_path):
         machine.campaign.apply_event({'event_id': 'fixture_contact', 'type': 'record_contact',
                                       'payload': {'civilization_id': 'FASR-001'}})
         objective = ObjectiveTracker().get_active_objective(machine.campaign)
-        assert objective.id == 'obj_tune_receiver' and objective.station_id == 'terminal'
+        assert objective.id == 'obj_defeat_greenkeeper' and objective.station_id == 'field'
         machine.campaign.apply_event({'event_id': 'fixture_fragment', 'type': 'grant_fragment_fasr_001'})
         objective = ObjectiveTracker().get_active_objective(machine.campaign)
-        assert objective.id == 'obj_validate_signal' and objective.station_id == 'lab'
+        assert objective.id == 'obj_defeat_greenkeeper' and objective.station_id == 'field'
         key(machine, pygame.K_SPACE)
-        assert machine.current_state_name == config.STATE_SCIENCE_LAB
+        assert machine.current_state_name == config.STATE_FIELD_OPS
     finally:
         machine.close()
 
@@ -148,7 +148,7 @@ def test_mouse_uses_actual_clipped_window_for_next(tmp_path):
         # Renderer is still 1920x1080 while this real dummy window is clipped to 960x540.
         pygame.display.set_mode((960, 540))
         machine.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=(60, 190)))
-        assert machine.current_state_name == config.STATE_CRT_TERMINAL
+        assert machine.current_state_name == config.STATE_FIELD_OPS
     finally:
         machine.close()
 
@@ -164,7 +164,7 @@ def test_jam_rate_defaults_to_classic_and_can_be_assisted():
     assert assisted.dish_integrity == pytest.approx(98.8)
 
 
-def test_next_repair_uses_campaign_event_and_keeps_manual_guard(tmp_path):
+def test_optional_repair_uses_campaign_event(tmp_path):
     machine = game(tmp_path)
     try:
         key(machine, pygame.K_RETURN)
@@ -176,8 +176,9 @@ def test_next_repair_uses_campaign_event_and_keeps_manual_guard(tmp_path):
         campaign.apply_event({'event_id': 'setup_fragment', 'type': 'grant_fragment_fasr_001'})
         campaign.apply_event({'event_id': 'setup_validation', 'type': 'validate_fasr_001_deploy'})
         campaign.apply_event({'event_id': 'setup_coupler', 'type': 'collect_analog_coupler'})
-        assert ObjectiveTracker().get_active_objective(campaign).station_id == 'repair'
-        key(machine, pygame.K_SPACE)
+        assert ObjectiveTracker().get_active_objective(campaign).station_id == 'field'
+        machine.current_scene.mateo_x = 300
+        key(machine, pygame.K_e)
         assert campaign.state.room_flags.get('feedhorn_repaired')
         assert ObjectiveTracker().get_active_objective(campaign).id == 'obj_defeat_greenkeeper'
         assert machine.current_state_name == config.STATE_BUNKER_HUB

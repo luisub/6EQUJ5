@@ -144,8 +144,9 @@ def test_guided_signal_yard_field_repair_defense_and_boss_story(game):
         press(game, key)
         game.update(1 / 60)
 
-    # Real receiver and guided validator; no campaign reward is injected.
-    tap(pygame.K_SPACE)
+    # Visit the optional receiver and lab explicitly; no rewards are injected.
+    game.current_scene.mateo_x = 215
+    tap(pygame.K_e)
     assert game.current_state_name == config.STATE_CRT_TERMINAL
     for _ in range(20):
         if 'FASR-001' in game.campaign.state.extracted_fragments:
@@ -153,7 +154,8 @@ def test_guided_signal_yard_field_repair_defense_and_boss_story(game):
         tap(pygame.K_RETURN)
     assert 'FASR-001' in game.campaign.state.extracted_fragments
     tap(pygame.K_ESCAPE)
-    tap(pygame.K_SPACE)
+    game.current_scene.mateo_x = 140
+    tap(pygame.K_e)
     assert game.current_state_name == config.STATE_SCIENCE_LAB
     for _ in range(5):
         tap(pygame.K_RETURN)

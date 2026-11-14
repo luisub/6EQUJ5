@@ -929,7 +929,7 @@
   "objectives": [
     {
       "id": "scavenge_salvage_yard",
-      "description": "Collect the analog coupler by the depot, then continue right to the radio dish."
+      "description": "Continue right to the radio dish."
     }
   ],
   "required_flags": [

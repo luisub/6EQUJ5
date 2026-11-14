@@ -98,7 +98,8 @@ class ScienceLabScene(BaseScene):
 
     def handle_event(self, event: pygame.event.Event):
         """Process keyboard interactions across validation pipeline steps."""
-        if self.guided and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+        empty = self.workbench is None or self.workbench.active_scenario is None
+        if (self.guided or empty) and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             point = window_to_logical(event.pos, self.machine.crt)
             if point is not None:
                 if pygame.Rect(264, 202, 178, 24).collidepoint(point):
@@ -107,6 +108,9 @@ class ScienceLabScene(BaseScene):
                     self.machine.change_state(config.STATE_BUNKER_HUB)
             return
         if event.type != pygame.KEYDOWN:
+            return
+        if empty and event.key in (pygame.K_RETURN, pygame.K_KP_ENTER, pygame.K_SPACE):
+            self._guided_next()
             return
         if event.key == pygame.K_m:
             self.guided = not self.guided
@@ -324,7 +328,10 @@ class ScienceLabScene(BaseScene):
     def _guided_next(self):
         """Run the real formal checks in sequence; deployment remains explicit."""
         wb = self.workbench
-        if wb is None or wb.active_scenario is None or wb.current_step == STEP_COMPLETED:
+        if wb is None or wb.active_scenario is None:
+            self.machine.scenes[config.STATE_BUNKER_HUB].leave_bunker()
+            return
+        if wb.current_step == STEP_COMPLETED:
             self.machine.change_state(config.STATE_BUNKER_HUB)
             return
         if self.guided_intro:
@@ -355,9 +362,9 @@ class ScienceLabScene(BaseScene):
         wb = self.workbench
         scenario = wb.active_scenario if wb else None
         if not scenario:
-            heading = 'SIGNAL NEEDED'
-            text = 'Receive the FASR-001 signal at the receiver first, then return here.'
-            primary = 'RETURN TO BASE'
+            heading = 'OPTIONAL LAB'
+            text = 'No signal sample to analyze. Continue outside whenever you like.'
+            primary = 'CONTINUE OUTSIDE'
         elif wb.current_step == STEP_COMPLETED:
             heading = 'ANALYSIS COMPLETE'
             text = self.guided_notice or 'The validated result is recorded. Return to base for the next step.'
@@ -441,7 +448,9 @@ class ScienceLabScene(BaseScene):
                 s_data = self.scenarios[s_key]
                 is_active = (idx == self.active_idx)
                 is_done = self.workbench.is_completed(self.campaign) if (is_active and self.workbench) else False
-                status_tag = "[VAL]" if is_done else "[RDY]"
+                sample = s_data.get("prerequisite_fragment")
+                ready = not sample or (self.campaign and sample in self.campaign.state.extracted_fragments)
+                status_tag = "[VAL]" if is_done else "[RDY]" if ready else "[---]"
                 frag_tag = s_data.get("fragment_id", "FASR-001")
                 col = config.COLOR_CRT_GREEN if is_active else config.COLOR_CORE_STEEL
                 prefix = "▶" if is_active else " "
@@ -503,12 +512,22 @@ class ScienceLabScene(BaseScene):
         )
         pygame.draw.rect(crt.canvas, config.COLOR_CRT_GREEN, (174, 20, 294, 12))
 
+        if not scen or not self.workbench:
+            pygame.draw.rect(crt.canvas, (15, 60, 37), (264, 202, 178, 24))
+
         with crt.text_batch():
             title = ellipsize_pixels(f"RIGHT CRT // {title_tag}", crt.font_sm, 286)
             crt.draw_text(title, 178, 21, color=config.COLOR_VOID_BLACK, has_shadow=False)
             y_right = 34
             if not scen or not self.workbench:
-                crt.draw_text("NO SCENARIO LOADED", 184, y_right, color=config.COLOR_AMBER_1977, size="sm")
+                crt.draw_text("OPTIONAL LAB", 184, y_right, color=config.COLOR_FIBO_GOLD, size="sm")
+                for index, line in enumerate(wrap_text_pixels(
+                        "No signal sample. You can keep exploring.", crt.font_sm, 270)):
+                    crt.draw_text(line, 184, y_right + 20 + index * 13,
+                                  color=config.COLOR_CRT_GREEN, size="sm")
+                crt.draw_text("CONTINUE OUTSIDE", 272, 208, color=config.COLOR_FIBO_GOLD, size="sm")
+                crt.draw_text("ENTER / A: OUTSIDE    ESC / B: BACK", 184, 232,
+                              color=config.COLOR_CORE_STEEL, size="sm")
             else:
                 wb_type = scen.get("workbench_type", "formal")
 

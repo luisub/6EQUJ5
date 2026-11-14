@@ -74,7 +74,7 @@ def test_hud_shows_goal_without_persistent_control_legend(game, monkeypatch):
         return original(text, *args, **kwargs)
     monkeypatch.setattr(game.crt, 'draw_text', capture)
     game.render()
-    assert 'RECEIVE THE SIGNAL' in drawn and any(text.startswith('HP ') for text in drawn)
+    assert 'NEUTRALIZE GREENKEEPER' in drawn and any(text.startswith('HP ') for text in drawn)
     assert not any('MOUSE AIM' in text or '2029_CORE' in text for text in drawn)
 
 

@@ -96,11 +96,11 @@ def test_context_click_consumed_and_space_still_jumps(game):
     p = (round(220 * game.crt.win_w / 480), round(213 * game.crt.win_h / 270))
     game.input.begin_frame()
     game.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=p))
-    assert field.room.room_id == 'act_01_dish_catwalk'
-    assert field.objective_tracker.active_notification.title == 'REPAIR FEEDHORN'
+    assert game.current_state_name == config.STATE_BOSS_BOUNTY
+    field = game.current_scene
     game.update(1 / 60)
     assert not game.input.held('fire')
-    assert not field.projectile_manager.projectiles
+    assert not field.proj_mgr.projectiles
     game.handle_event(pygame.event.Event(pygame.MOUSEBUTTONUP, button=1, pos=p))
     for _ in range(20):
         game.input.begin_frame(); game.update(1 / 60)

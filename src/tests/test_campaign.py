@@ -490,38 +490,38 @@ def test_objective_tracker_transitions_and_guidance():
     tracker = ObjectiveTracker()
     campaign = Campaign(save_id="test_objectives")
 
-    # Stage 1: Fresh game -> Tune receiver
+    # Stage 1: Fresh game -> Follow the path to Greenkeeper
     obj1 = tracker.get_active_objective(campaign)
-    assert obj1.id == "obj_tune_receiver"
-    assert "SIGNAL" in obj1.title
-    assert obj1.station_id == "terminal"
+    assert obj1.id == "obj_defeat_greenkeeper"
+    assert "GREENKEEPER" in obj1.title
+    assert obj1.station_id == "field"
 
     # Contact alone does not grant the fragment required by the lab.
     campaign.apply_event({"event_id": "contact_1", "type": "record_contact",
                           "payload": {"civilization_id": "FASR-001"}})
-    assert tracker.get_active_objective(campaign).id == "obj_tune_receiver"
-    # Stage 2: A legitimate fragment grant makes lab validation the objective.
+    assert tracker.get_active_objective(campaign).id == "obj_defeat_greenkeeper"
+    # Stage 2: Optional fragment grants leave the main route open.
     campaign.apply_event({"event_id": "frag_1", "type": "grant_fragment_fasr_001"})
     obj2 = tracker.get_active_objective(campaign)
-    assert obj2.id == "obj_validate_signal"
-    assert "VALIDATE" in obj2.title
-    assert obj2.station_id == "lab"
+    assert obj2.id == "obj_defeat_greenkeeper"
+    assert "GREENKEEPER" in obj2.title
+    assert obj2.station_id == "field"
 
-    # Stage 3: Validated FASR-001 -> Recover coupler
+    # Optional validation leaves the forward objective in place
     campaign.apply_event({"event_id": "val_1", "type": "validate_fasr_001_deploy"})
     obj3 = tracker.get_active_objective(campaign)
-    assert obj3.id == "obj_recover_coupler"
-    assert "COUPLER" in obj3.title
+    assert obj3.id == "obj_defeat_greenkeeper"
+    assert "GREENKEEPER" in obj3.title
     assert obj3.station_id == "field"
 
-    # Stage 4: Collected coupler -> Repair dish
+    # Optional coupler collection also leaves the route open
     campaign.apply_event({"event_id": "col_1", "type": "collect_analog_coupler"})
     obj4 = tracker.get_active_objective(campaign)
-    assert obj4.id == "obj_repair_dish"
-    assert "REPAIR" in obj4.title
-    assert obj4.station_id == "repair"
+    assert obj4.id == "obj_defeat_greenkeeper"
+    assert "GREENKEEPER" in obj4.title
+    assert obj4.station_id == "field"
 
-    # Stage 5: Repaired feedhorn -> Defend array
+    # Optional repair leaves Greenkeeper as the main objective
     campaign.apply_event({"event_id": "rep_1", "type": "repair_dish_feedhorn"})
     obj5 = tracker.get_active_objective(campaign)
     assert obj5.id == "obj_defeat_greenkeeper"
@@ -582,7 +582,7 @@ def test_dossier_overlay_renders_all_meters_and_inventory():
 def test_act_01_complete_mission_chain_flow_without_dead_ends():
     """
     Acceptance Check: Complete chain flows without dead-ends:
-    Receiver Contact -> Lab Validation -> Salvage Coupler Scavenge ->
+    Optional Receiver Contact -> Lab Validation -> Salvage Coupler Scavenge ->
     Feedhorn Repair -> 72s Dish Holdout Defense -> Greenkeeper Boss Arena -> Act II Unlock.
     """
     from video_game.engine.objectives import ObjectiveTracker
@@ -591,36 +591,36 @@ def test_act_01_complete_mission_chain_flow_without_dead_ends():
     campaign = Campaign(save_id="test_act_01_chain")
     tracker = ObjectiveTracker()
 
-    # Step 1: Fresh Game starts at Receiver
+    # Step 1: Fresh game starts with the surface route
     obj = tracker.get_active_objective(campaign)
-    assert obj.id == "obj_tune_receiver"
-    assert obj.station_id == "terminal"
+    assert obj.id == "obj_defeat_greenkeeper"
+    assert obj.station_id == "field"
 
     # Contact FASR-001
     campaign.apply_event({"event_id": "contact_fasr_1", "type": "record_contact",
                           "payload": {"civilization_id": "FASR-001"}})
     campaign.apply_event({"event_id": "grant_fasr_1", "type": "grant_fragment_fasr_001"})
 
-    # Step 2: Formal Science Validation
+    # Optional formal science validation
     obj = tracker.get_active_objective(campaign)
-    assert obj.id == "obj_validate_signal"
-    assert obj.station_id == "lab"
+    assert obj.id == "obj_defeat_greenkeeper"
+    assert obj.station_id == "field"
 
     campaign.apply_event({"event_id": "val_fasr_1", "type": "validate_fasr_001_deploy"})
 
-    # Step 3: Scavenge Salvage Yard for Coupler
+    # Optional salvage-yard coupler
     obj = tracker.get_active_objective(campaign)
-    assert obj.id == "obj_recover_coupler"
+    assert obj.id == "obj_defeat_greenkeeper"
     assert obj.station_id == "field"
 
     campaign.apply_event({"event_id": "col_coupler", "type": "collect_analog_coupler"})
     assert campaign.state.inventory["analog_coupler"] == 1
     assert campaign.state.room_flags["trench_coupler_collected"] is True
 
-    # Step 4: Repair Dish Feedhorn
+    # Optional dish repair
     obj = tracker.get_active_objective(campaign)
-    assert obj.id == "obj_repair_dish"
-    assert obj.station_id == "repair"
+    assert obj.id == "obj_defeat_greenkeeper"
+    assert obj.station_id == "field"
 
     repaired = campaign.apply_event({"event_id": "rep_feedhorn", "type": "repair_dish_feedhorn"})
     assert repaired is True
@@ -745,7 +745,7 @@ def test_save_reload_mid_mission_chain_preserves_exact_stage_and_inventory(tmp_p
     assert campaign.state.room_flags.get("feedhorn_repaired", False) is False
 
     tracker = ObjectiveTracker()
-    assert tracker.get_active_objective(campaign).id == "obj_repair_dish"
+    assert tracker.get_active_objective(campaign).id == "obj_defeat_greenkeeper"
 
     # Save to disk
     with open(save_file, "w", encoding="utf-8") as f:
@@ -764,10 +764,10 @@ def test_save_reload_mid_mission_chain_preserves_exact_stage_and_inventory(tmp_p
     assert "FASR-001" in loaded_campaign.state.extracted_fragments
     assert len(loaded_campaign.state.validation_records) == 1
 
-    # Active objective remains exactly at Repair Dish
+    # The main objective still points forward after loading
     loaded_obj = tracker.get_active_objective(loaded_campaign)
-    assert loaded_obj.id == "obj_repair_dish"
-    assert loaded_obj.station_id == "repair"
+    assert loaded_obj.id == "obj_defeat_greenkeeper"
+    assert loaded_obj.station_id == "field"
 
 
 def test_salvage_yard_room_and_navigation():

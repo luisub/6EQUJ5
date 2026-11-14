@@ -125,7 +125,6 @@ class FieldOpsScene(BaseScene):
         self._fire_pressed: bool = False
         self._fire_released: bool = False
         self._context_up_consumed = False
-        self._blocked_exit_notice = 0.0
 
         # Projectiles, arsenal, abilities and combat
         self.projectile_manager: ProjectileManager = ProjectileManager()
@@ -587,7 +586,8 @@ class FieldOpsScene(BaseScene):
         if self.reality.panel_open or self.flashback is not None:
             return None
         exit_trigger = self.room.check_exit_trigger(self.player.rect)
-        if exit_trigger and exit_trigger.transition != 'walk':
+        if exit_trigger and (exit_trigger.transition != 'walk'
+                             or exit_trigger.target_room == 'act_01_greenkeeper_arena'):
             return "UP / CLICK: ENTER"
         if self.holdout and self.holdout.is_failed:
             return "R / CLICK: RETRY"
@@ -816,27 +816,6 @@ class FieldOpsScene(BaseScene):
     def _enter_exit(self, exit_trigger, *, automatic=False):
         target = exit_trigger.target_room
         state = self.machine.campaign.state
-        needs_repair = (target == 'act_01_greenkeeper_arena' or
-                         (self.room.room_id == 'act_01_dish_catwalk' and
-                          target == 'act_01_dish_return'))
-        warning = None
-        if (needs_repair and not state.room_flags.get('feedhorn_repaired', False)
-                and not state.room_flags.get('dish_defense_completed', False)):
-            warning = ('REPAIR FEEDHORN', 'Use the coupler at the dish.')
-        elif (self.room.room_id == 'act_01_salvage_yard'
-              and target in ('act_01_salvage_runoff', 'act_01_dish_catwalk')
-              and not state.room_flags.get('feedhorn_repaired', False)
-              and state.inventory.get('analog_coupler', 0) <= 0):
-            warning = ('COUPLER REQUIRED', 'COLLECT COUPLER TO THE LEFT')
-        elif (target == 'act_01_dish_catwalk'
-              and not state.room_flags.get('feedhorn_repaired', False)
-              and state.inventory.get('analog_coupler', 0) <= 0):
-            warning = ('CATWALK LOCKED', 'RECOVER THE ANALOG COUPLER IN THE SALVAGE YARD FIRST')
-        if warning:
-            if not automatic or self._blocked_exit_notice <= 0:
-                self.objective_tracker.post_notification(title=warning[0], text=warning[1], kind='warning')
-                self._blocked_exit_notice = 2.0
-            return False
         meta = room_meta(target) if self.campaign_route_active else {}
         if self.journey_world:
             current = journey_ledger(self.machine.campaign)
@@ -1183,7 +1162,6 @@ class FieldOpsScene(BaseScene):
         self.camera.update(self.player.x + 8.0, self.player.y + 16.0, smoothing=0.15)
 
         # Triggers: Exit & Cover detection
-        self._blocked_exit_notice = max(0.0, self._blocked_exit_notice - dt_seconds)
         ex = self.room.check_exit_trigger(self.player.rect)
         walking_out = bool(ex and ex.transition == 'walk' and (
             (p_input.move_x > 0 and ex.rect.centerx >= self.room.width_px - 64) or

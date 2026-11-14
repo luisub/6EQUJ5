@@ -41,7 +41,8 @@ def test_fresh_guided_route_validates_without_typing_or_ai(game):
     tap(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_BUNKER_HUB
     tap(game, pygame.K_DOWN)  # Skip the title-start opening before guided interaction.
-    tap(game, pygame.K_SPACE)
+    game.current_scene.mateo_x = 248  # Visit the optional receiver explicitly.
+    tap(game, pygame.K_e)
     assert game.current_state_name == config.STATE_CRT_TERMINAL
     assert game.contact_session.worker is None
     terminal = game.current_scene
@@ -55,7 +56,8 @@ def test_fresh_guided_route_validates_without_typing_or_ai(game):
     assert 'FASR-001' in game.campaign.state.extracted_fragments
     tap(game, pygame.K_ESCAPE)
     assert game.current_state_name == config.STATE_BUNKER_HUB
-    tap(game, pygame.K_SPACE)
+    game.current_scene.mateo_x = 140  # Visit the optional lab explicitly.
+    tap(game, pygame.K_e)
     assert game.current_state_name == config.STATE_SCIENCE_LAB
     lab = game.current_scene
     assert lab.guided and lab.workbench.active_scenario_id == 'formal_fasr_001'

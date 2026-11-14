@@ -102,11 +102,11 @@ class Act01PlaythroughRunner:
         assert state.room_flags.get("act_01_completed", False) is False
 
         obj = tracker.get_active_objective(self.machine.campaign)
-        assert obj.id == "obj_tune_receiver"
-        assert obj.station_id == "terminal"
+        assert obj.id == "obj_defeat_greenkeeper"
+        assert obj.station_id == "field"
 
         self.log_step("STAGE_01_BOOT", "VERIFY_FRESH_STATE", {
-            "summary": "Verified pristine campaign state; active objective is obj_tune_receiver.",
+            "summary": "Verified pristine campaign state; active objective is obj_defeat_greenkeeper.",
             "starter_weapon": state.inventory.get("weapon_id"),
         })
 
@@ -128,7 +128,7 @@ class Act01PlaythroughRunner:
 
         self.machine.change_state(config.STATE_BUNKER_HUB)
         obj = tracker.get_active_objective(self.machine.campaign)
-        assert obj.id == "obj_validate_signal"
+        assert obj.id == "obj_defeat_greenkeeper"
 
         self.log_step("STAGE_02_CONTACT", "EXTRACT_FASR_001_FRAGMENT", {
             "summary": "Tuned to 1420.405 MHz carrier, completed dialogue, claimed FASR-001 fragment grant.",
@@ -172,7 +172,7 @@ class Act01PlaythroughRunner:
 
         self.machine.change_state(config.STATE_BUNKER_HUB)
         obj = tracker.get_active_objective(self.machine.campaign)
-        assert obj.id == "obj_recover_coupler"
+        assert obj.id == "obj_defeat_greenkeeper"
 
         self.log_step("STAGE_03_VALIDATION", "COMPLETE_FORMAL_LAB_PROTOCOL", {
             "summary": "Passed formal 5-step validation for FASR-001; registered authoritative record.",
@@ -206,7 +206,7 @@ class Act01PlaythroughRunner:
         # Return to bunker
         self.machine.change_state(config.STATE_BUNKER_HUB)
         obj = tracker.get_active_objective(self.machine.campaign)
-        assert obj.id == "obj_repair_dish"
+        assert obj.id == "obj_defeat_greenkeeper"
 
         self.log_step("STAGE_04_SCAVENGE", "COLLECT_COUPLER_AND_TEST_DEATH", {
             "summary": "Tested hazard death and checkpoint respawn; collected analog coupler in salvage yard.",

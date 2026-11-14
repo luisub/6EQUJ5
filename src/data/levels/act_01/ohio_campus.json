@@ -1617,7 +1617,7 @@
   "objectives": [
     {
       "id": "cross_service_edge",
-      "description": "Cross the campus grounds. Recover the analog coupler in the salvage yard ahead."
+      "description": "Cross the campus grounds and continue right."
     }
   ],
   "required_flags": [

@@ -65,7 +65,7 @@ def test_exit_at_any_position_and_stage(game, stage, code, position):
         assert not game.current_scene.projectile_manager.projectiles
         if stage == 'coupler':
             notice = game.current_scene.objective_tracker.active_notification
-            assert notice and 'FEEDHORN' in notice.text
+            assert notice is None
     key(game, code, pygame.KEYUP)
 
 

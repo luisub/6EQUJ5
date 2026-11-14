@@ -920,7 +920,8 @@
       "height": 48.0,
       "target_room": "act_01_greenkeeper_arena",
       "target_spawn": "arena_checkpoint",
-      "label": "GREENKEEPER BASIN // UP TO ENTER"
+      "label": "Greenkeeper basin",
+      "transition": "walk"
     }
   ],
   "objects": [
@@ -972,7 +973,7 @@
   "objectives": [
     {
       "id": "defend_dish_feedhorn",
-      "description": "Repair the feedhorn to open the basin. Stay for the optional defense, or continue right."
+      "description": "Continue right to confront the Greenkeeper. Dish repair and defense are optional."
     }
   ],
   "required_flags": [

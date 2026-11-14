@@ -104,65 +104,13 @@ class ObjectiveTracker:
                              'Follow the route and confront the sector boss.',
                              'CONTINUE RIGHT', station_id='field')
 
-        # A later earned Earth milestone supersedes optional opening activities.
-        flags = state.room_flags
-        earned_field_progress = (flags.get('trench_coupler_collected', False)
-                                 or state.inventory.get('analog_coupler', 0) > 0
-                                 or flags.get('feedhorn_repaired', False)
-                                 or flags.get('dish_defense_completed', False))
-
-        # Stage 1: Initial receiver contact
-        if "FASR-001" not in state.extracted_fragments and not earned_field_progress:
-            return Objective(
-                id="obj_tune_receiver",
-                title="RECEIVE THE SIGNAL",
-                description="Receive the FASR-001 signal at the bunker receiver.",
-                hint="[E] CRT RECEIVER [CENTER]",
-                station_id="terminal",
-            )
-
-        # Stage 2: Science Lab formal validation
-        validated_ids = [r["id"] for r in state.validation_records]
-        if "FASR-001" not in validated_ids and not earned_field_progress:
-            return Objective(
-                id="obj_validate_signal",
-                title="VALIDATE SIGNAL AT LAB",
-                description="Classify entropy traces and prove information conservation on the lab workbench.",
-                hint="[E] SCIENCE LAB [LEFT]",
-                station_id="lab",
-            )
-
-        # Stage 3: Surface trench analog coupler search
-        has_coupler = state.inventory.get("analog_coupler", 0) > 0
-        coupler_collected = state.room_flags.get("trench_coupler_collected", False)
-        feedhorn_repaired = state.room_flags.get("feedhorn_repaired", False)
-
-        if not has_coupler and not coupler_collected and not feedhorn_repaired and not flags.get('dish_defense_completed', False):
-            return Objective(
-                id="obj_recover_coupler",
-                title="RECOVER ANALOG COUPLER",
-                description="Cross the service edge to search the salvage yard for the analog coupler.",
-                hint="[E] SURFACE AIRLOCK [RIGHT]",
-                station_id="field",
-            )
-
-        # Stage 4: Bunker repair workbench
-        if not feedhorn_repaired and not flags.get('dish_defense_completed', False):
-            return Objective(
-                id="obj_repair_dish",
-                title="REPAIR DISH FEEDHORN",
-                description="Install the coupler at the feedhorn or the bunker repair bench.",
-                hint="[E] FEEDHORN OR REPAIR BENCH",
-                station_id="repair",
-            )
-
-        # Repair opens the basin immediately; the timed defense is optional.
+        # Receiver, science, collection and repair are optional side activities.
         if not state.room_flags.get("greenkeeper_defeated", False):
             return Objective(
                 id="obj_defeat_greenkeeper",
                 title="NEUTRALIZE GREENKEEPER",
-                description="The gate is open. Continue right; defending the dish is optional.",
-                hint="[E] BASIN AIRLOCK OR BUNKER NEXT",
+                description="Follow the path right to confront the Greenkeeper.",
+                hint="CONTINUE RIGHT",
                 station_id="field",
                 is_completed=False,
             )

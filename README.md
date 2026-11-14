@@ -47,7 +47,7 @@ Run, jump and aim through occupied streets and alien terrain. Charge the starter
 
 Five acts carry the search from Ohio's observatory to blackout streets, sealed hangars, desert radio dishes and an ancient buried archive.
 
-Ohio follows a compact route through the access trench, campus, salvage yard and radio dish. Walk across open boundaries. Repairing the feedhorn opens the Greenkeeper's gate immediately; staying to defend the dish is optional. Travel animations can be skipped, and area updates stay on the HUD.
+Ohio follows a compact route through the access trench, campus, salvage yard and radio dish. Walk across open boundaries. Keep moving right to reach the Greenkeeper. Signal analysis, item collection, dish repair and defense are optional. Travel animations can be skipped, and area updates stay on the HUD.
 
 ![The Fitzsimons Building and the mountain's pale rock crest and hillside A behind Mateo in Neo-Denver](docs/media/readme/neo-denver-mountains.png)
 

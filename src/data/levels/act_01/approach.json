@@ -1341,7 +1341,7 @@
   "objectives": [
     {
       "id": "traverse_perimeter",
-      "description": "Cross the access trench. The campus path leads to the salvage yard."
+      "description": "Cross the observatory grounds and continue right."
     }
   ],
   "required_flags": [
