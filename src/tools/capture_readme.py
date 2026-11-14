@@ -23,6 +23,7 @@ from video_game.engine.crt_renderer import CRTRenderer
 from video_game.engine.save_game import SaveStore
 from video_game.engine.settings import SettingsStore
 from video_game.engine.state_machine import GameStateMachine
+from video_game.engine.planet_encounters import PlanetThreat, world_config
 
 
 def capture(output):
@@ -68,16 +69,18 @@ def capture(output):
         def gif(name, frames, setup, duration=100):
             # Shared palette and delta frames keep the actual captured animation small.
             # No composited scenery, UI removal or invented gameplay is introduced.
-            palette = frames[len(frames) // 2].quantize(colors=128, dither=Image.Dither.NONE)
+            palette = frames[len(frames) // 2].quantize(colors=256, dither=Image.Dither.NONE)
             indexed = [f.quantize(palette=palette, dither=Image.Dither.NONE) for f in frames]
             indexed[0].save(output / f"{name}.gif", save_all=True, append_images=indexed[1:],
                             duration=duration, loop=0, optimize=True, disposal=1)
             records.append({"file": f"{name}.gif", "setup": setup, "frames": len(frames),
                             "frame_duration_ms": duration, "size": list(frames[0].size),
-                            "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export"})
+                            "encoding": "256-color shared palette; native pixels, no rescaling"})
 
-        def gif_frame():
-            surface = pygame.transform.scale(frame(), (768, 432))
+        def gif_frame(crop=None):
+            surface = frame()
+            if crop is not None:
+                surface = surface.subsurface(crop)
             return Image.frombytes("RGB", surface.get_size(), pygame.image.tobytes(surface, "RGB"))
 
         def world(index, stage):
@@ -141,7 +144,6 @@ def capture(output):
                     scene.player.rect.topleft = (96, 208)
                     scene.camera.snap_to(104, 224)
                     game.crt.glitch_timer_ms = 0
-                    still(name, 'Direct Denver scene/position setup with prior-act fixture; Fitzsimons and mountain backdrop.')
                     still('neo-denver-mountains', 'Denver entry at x=96 with the ridge and hillside A visible; direct position and prior-act fixtures.')
                     scene.player.x = 480
                     scene.player.rect.topleft = (480, 208)
@@ -199,6 +201,47 @@ def capture(output):
                                   boss_id=current["boss_id"], journey_world=current["id"], spawn="default")
                 step(96)
                 still(name, "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.")
+
+            for index, name in [(8, 'rift-raptor'), (9, 'resonance-effigy'), (10, 'beacon-mite')]:
+                current = world(index, 'field')
+                game.change_state(config.STATE_FIELD_OPS, room=current['field_room'],
+                                  journey_world=current['id'], campaign_route=True)
+                scene = game.current_scene
+                scene.player.x, scene.player.y = 1100, 208
+                scene.player.rect.topleft = (1100, 208)
+                scene.player.is_grounded = True
+                scene.camera.snap_to(1108, 224)
+                scene.enemy_manager.clear()
+                scene.forward_encounter.entries = []
+                enemy = PlanetThreat('readme_motion', 1240, 216, world_config(current['id']), custom_body=True)
+                enemy.patrol_left, enemy.patrol_right = 1180, 1330
+                enemy.cooldown_timer, enemy.facing = 100, 'left'
+                scene.enemy_manager.add_enemy(enemy)
+                scene.player.arsenal.equip_temporary('nova_scatter')
+                frames = []
+                for tick in range(180):
+                    step()
+                    game.crt.glitch_timer_ms = 0
+                    if tick % 5 == 0:
+                        frames.append(gif_frame((520, 320, 440, 184)))
+                    if tick == 40:
+                        still(name, 'World progress, player/enemy placement and cooldown are fixtures; normal updates animate the patrol.')
+                gif(name, frames, 'Native 440 x 184 crop at (520, 320) of actual patrol frames; staged world progress, positions and cooldown.', duration=80)
+
+            current = world(9, 'guardian')
+            game.change_state(config.STATE_BOSS_BOUNTY, room=current['arena_room'],
+                              boss_id=current['boss_id'], journey_world=current['id'])
+            # Let the boss prepare and fire through its real update state machine.
+            for tick in range(600):
+                step()
+                if scene is not game.current_scene:
+                    scene = game.current_scene
+                if scene.boss.phase_state == 'ATTACK' and scene.boss.attack_rects:
+                    step(6)
+                    still('memory-extractor', 'Staged guardian ledger; normal updates reach the first active energy attack.')
+                    break
+            else:
+                raise RuntimeError('Memory Extractor did not reach an active attack')
 
             fresh()
             game.campaign.apply_event({"event_id": "readme_travel", "type": "defeat_portal_warden"})

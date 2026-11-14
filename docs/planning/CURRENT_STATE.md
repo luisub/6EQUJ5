@@ -112,3 +112,26 @@ Earlier migration records remain in [migration/REPORT.md](../../_trash/2026-11-1
 and [TRANSFER_COMPLETE.md](../../_trash/2026-11-14_repository_compaction/docs/migration/TRANSFER_COMPLETE.md). Per-file archive
 paths, SHA-256 hashes and restoration instructions are in the
 [archive manifest](../maintenance/archive-manifest.json).
+
+## World soundtracks and README refresh
+
+Each of the eleven signal worlds now has an original 32-bar instrumental loop
+(65–107 seconds), with a distinct key/mode, motif, tempo and arrangement. The two
+existing Earth/bunker MP3s remain; the audio bank contains thirteen music tracks
+and twelve effects. Packaged OGG files add 13.9 MB. World assignments belong to
+`assets/audio/manifest.json`; source scores and the reproducible NumPy/ffmpeg
+builder remain outside the installed game.
+
+Scene entry selects music after the world context is established. Exploration,
+guardian and earned contact share a score without restarting it or extending a
+pending fade. Transit retains the departing score until arrival. Unknown or
+missing world files fall back to Earth music. New game returns to the bunker
+score. Existing mute, volume, cancellation and main-thread mixer ownership remain.
+
+README media now include native 960×540, 256-color GIFs, three labeled native
+creature-motion crops with linked full scenes, and the Memory Extractor's first
+active energy attack reached through normal updates. All 26 captures use isolated
+saves and disclosed progression/placement fixtures. Changed captures and the old
+audio manifest are preserved with restoration records. Original composed tracks
+and source recipes are licensed with the repository. Human listening on actual
+speakers remains part of A12 acceptance.

@@ -189057,5 +189057,117 @@
     "sha256": "8e65beb12c38ceb184c74cdd86c3b9c734ae37161f2ffe7c83630dd7e1f69578",
     "reason": "Refresh actual renderer captures after relocating the weapon timer and simplifying galaxy-map captions.",
     "restoration": "Verify SHA-256 and restore matching media and capture metadata together."
+  },
+  {
+    "original_path": "src/assets/audio/manifest.json",
+    "archive_path": "_trash/2026-11-14_world_music/src/assets/audio/manifest.json",
+    "sha256": "f24a25e37d56a993f879485936711117280daace6f13244b1997fa6e757bc00a",
+    "reason": "Preserve audio manifest before adding eleven world scores. Existing MP3 and SFX files retained.",
+    "restoration": "Verify SHA-256, preserve the current manifest, then copy this file to original_path."
+  },
+  {
+    "original_path": "docs/media/readme/observatory.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/observatory.png",
+    "sha256": "8ba33ddc9f4cde8c53fad54a89daeb9cb3980cef4a440f624b2d27c367e28119",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/arc-lance.gif",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/arc-lance.gif",
+    "sha256": "26174a1518a30252b58bd118fe37a453ee0c7c9957ecde520a93a61c7a68bcbc",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/ohio.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/ohio.png",
+    "sha256": "72f6bc81341f6177d19188e4498c51c1ec96b9d56ecd8c04c81f831f2d00cf39",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/neo-denver-mountains.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/neo-denver-mountains.png",
+    "sha256": "5a709bb433a7abbed0fb45f4cd140031ed0cd85304906b5685961908a528f379",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/neo-denver-fitzsimons.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/neo-denver-fitzsimons.png",
+    "sha256": "2a1e843c1a140092aca9721f43152aaf017579bf79e70a049ea9244990583742",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/neo-denver-walk.gif",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/neo-denver-walk.gif",
+    "sha256": "5ca3e146072e2f0ee19908c6a68fe4eb9aed2ea6424b51b35d92725877826218",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/area-51.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/area-51.png",
+    "sha256": "f2d61813a84299ab2e440a949bfe8f65727a3a99c57f2bd22fa34bd063518b2a",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/vla-rift.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/vla-rift.png",
+    "sha256": "e46f018faa0d4ed7e6fd92e8e9b3b043ab0739147ebf263953125045e84de7d7",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/gobekli-tepe.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/gobekli-tepe.png",
+    "sha256": "e7127cca2b231b047ed99e84044dd402b9ac2218396c5d76ed8bddd15b10b9e1",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/buried-archive.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/buried-archive.png",
+    "sha256": "04773c9c3b8908301f37913afb6be6f22a082a8e4efc73239685796df3d63efb",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/crystal-network.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/crystal-network.png",
+    "sha256": "4554ba9164f5162a7ed2e9554375faa413d3e2fdce85ff4887ddec94b63639ff",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/signal-jailer.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/signal-jailer.png",
+    "sha256": "fa35a3e81c1fca6d58c1997dae4066c02fde9a755c0d2f0e38ef35d5274cbd8b",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/heat-auditor.png",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/heat-auditor.png",
+    "sha256": "ee5d9587973df15a2474d5ac7c150bcd7872d172f473b66e716c6acd115f739c",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/signal-transit.gif",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/signal-transit.gif",
+    "sha256": "6a418c4733b3fd3f092ff02d5b7b24bbbcc3b39cf50c1aec803dfdd8257c3d13",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
+  },
+  {
+    "original_path": "docs/media/readme/capture.json",
+    "archive_path": "_trash/2026-11-14_readme_refresh/docs/media/readme/capture.json",
+    "sha256": "eaf5d4f2df0b3373316400f7ef3647dd57ab38d2357b88434e686ef234e9c342",
+    "reason": "README refresh: native-resolution 256-color motion previews and current scene captures.",
+    "restoration": "Verify SHA-256, preserve the current capture, then copy this file to original_path; restore matching capture.json as needed."
   }
 ]

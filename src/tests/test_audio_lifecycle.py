@@ -311,3 +311,42 @@ def test_sfx_symlink_is_skipped_and_contained_file_loads(monkeypatch, tmp_path):
     audio._load_sfx_bank()
     sound.assert_called_once_with(str(valid))
     assert 'player_jump' in audio.sfx_bank and 'maser_tap' not in audio.sfx_bank
+
+
+def test_same_world_does_not_restart_pending_fade_or_playback(audio_fixture, tmp_path):
+    import json
+    make, music, _, _, _, join = audio_fixture
+    filename = 'world.ogg'
+    (tmp_path / filename).write_bytes(b'world music')
+    (tmp_path / 'manifest.json').write_text(json.dumps({'music_tracks': {
+        filename: {'world_id': 'alien_001'}}}))
+    audio = make()
+    music.get_busy.return_value = True
+    audio.current_track = TRACK_COMBAT
+    audio.transition_scene_music(config.STATE_FIELD_OPS, fade_ms=500, world_id='alien_001')
+    audio.update(.2)
+    remaining = audio.fade_timer_s
+    audio.transition_scene_music(config.STATE_BOSS_BOUNTY, world_id='alien_001')
+    assert audio.fade_timer_s == remaining
+    music.fadeout.assert_called_once_with(500)
+    music.get_busy.return_value = False
+    audio.update(.4)
+    join()
+    audio.update(0)
+    music.get_busy.return_value = True
+    audio.transition_scene_music(config.STATE_ALIEN_CONTACT, world_id='alien_001')
+    audio.transition_scene_music(config.STATE_GALAXY_TRANSIT)
+    music.play.assert_called_once_with(-1, fade_ms=500)
+    assert music.load.call_args.args[1] == 'ogg'
+
+
+@pytest.mark.parametrize('manifest', ['not json', '{}', '{"music_tracks": []}',
+    '{"music_tracks":{"../escape.ogg":{"world_id":"alien_001"}}}',
+    '{"music_tracks":{"missing.ogg":{"world_id":"alien_001"}}}'])
+def test_bad_or_missing_world_score_falls_back_to_earth(audio_fixture, tmp_path, manifest):
+    make, _, _, _, _, _ = audio_fixture
+    (tmp_path / 'manifest.json').write_text(manifest)
+    audio = make()
+    audio.enabled = False
+    audio.transition_scene_music(config.STATE_FIELD_OPS, world_id='alien_001')
+    assert audio.current_track == TRACK_COMBAT

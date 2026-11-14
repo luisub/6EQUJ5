@@ -35,7 +35,7 @@
 
 ## Combat
 
-Run, jump and aim through occupied streets and alien terrain. Charge the starter maser, collect a temporary **Arc Lance** or **Nova Scatter**, and watch electric shots and impact bursts light the world around you.
+Run, jump and aim through occupied streets and alien terrain. Charge the starter maser, collect a temporary **Arc Lance** or **Nova Scatter**, and watch electric shots and impact bursts light the world around you. Temporary weapon timers sit in the upper-right corner, keeping the action clear.
 
 <p align="center">
   <img src="docs/media/readme/arc-lance.gif" alt="In-game animation of Mateo firing the Arc Lance outside the observatory" width="100%">
@@ -130,6 +130,56 @@ Earth is only the beginning. Follow the signal into **eleven distant worlds**, c
   </tr>
 </table>
 
+### Creatures in motion
+
+Dinosaurs roam the SCAN-H ruins. Rift Raptors, golden Resonance Effigies and mechanical Beacon Mites now move their legs as they travel; their strides stop when they stop. Enemy arrivals no longer add an “incoming” label.
+
+<table>
+  <tr>
+    <td width="58%"><a href="docs/media/readme/rift-raptor.png"><img src="docs/media/readme/rift-raptor.gif" alt="Rift Raptor running through the SCAN-H ruins with alternating leg poses" width="100%"></a></td>
+    <td><strong>RIFT RAPTOR</strong><br>SCAN-H · A low, quick dinosaur stride.</td>
+  </tr>
+  <tr>
+    <td><a href="docs/media/readme/resonance-effigy.png"><img src="docs/media/readme/resonance-effigy.gif" alt="Golden Resonance Effigy bounds on articulated legs through the memory world" width="100%"></a></td>
+    <td><strong>RESONANCE EFFIGY</strong><br>Terrestrial memory · A bounding canine gait.</td>
+  </tr>
+  <tr>
+    <td><a href="docs/media/readme/beacon-mite.png"><img src="docs/media/readme/beacon-mite.gif" alt="Mechanical Beacon Mite walks with its legs planted on the platform" width="100%"></a></td>
+    <td><strong>BEACON MITE</strong><br>LGM-1 · Grounded mechanical steps and lunges.</td>
+  </tr>
+</table>
+
+*Cropped gameplay previews at native pixel size. Click a creature to see its full scene.*
+
+![The Memory Extractor projects a golden energy field across the observatory arena](docs/media/readme/memory-extractor.png)
+
+*The Memory Extractor's active attack. Guardian warnings build into visible energy fields, with sparks and hit flashes during combat.*
+
+### Music for every signal world
+
+Each of the eleven alien worlds has its own instrumental theme. Crystal bells, warm keys, low drums and deep synth pulses give each location a different sound. The music loops through exploration, the guardian fight and the following conversation, then fades to the next world's theme on arrival. Earth and the observatory retain their original scores. Adjust the volume in Settings.
+
+<details>
+<summary><strong>Listen to the world themes</strong></summary>
+
+| World | Theme | Sound |
+|---|---|---|
+| Sagittarius | [The Unanswered Carrier](src/assets/audio/sagittarius_signal.ogg) | Analog chords and glass pulses |
+| Tabby's Star | [A Lattice of Quiet Light](src/assets/audio/crystal_lattice.ogg) | Interlocking crystal bells |
+| Proxima | [The Last Warm Meridian](src/assets/audio/proxima_twilight.ogg) | Warm keys and slow bass |
+| Orion | [Where New Suns Breathe](src/assets/audio/orion_nursery.ogg) | Airy melody and soft pads |
+| TRAPPIST-1 | [Seven Interlocking Orbits](src/assets/audio/trappist_orbits.ogg) | Seven-step plucked patterns |
+| 'Oumuamua | [A Vessel Without a Voice](src/assets/audio/interstellar_archive.ogg) | Distant echoes and sparse pulses |
+| Crab | [Names in the Afterglow](src/assets/audio/crab_memorial.ogg) | Low bells and a quiet heartbeat |
+| Sagittarius A* | [The Weight of Silence](src/assets/audio/event_horizon.ogg) | Sub-bass and shadowed harmony |
+| SCAN-H | [Footprints Beyond Time](src/assets/audio/rift_hunt.ogg) | Low drums and a reed-like call |
+| Terrestrial memory | [The Observatory Remembers](src/assets/audio/terrestrial_memory.ogg) | Nostalgic keys and soft strings |
+| LGM-1 | [Machines Answer the Stars](src/assets/audio/beacon_network.ogg) | Precise arpeggios and mechanical percussion |
+
+Original synthesized instrumentals, 65–107 seconds per loop. All tracks are included with the game and play offline.
+
+</details>
+
 ### Travel between worlds
 
 <p align="center">
@@ -143,7 +193,7 @@ The story follows the 1977 signal through eleven worlds and back to Earth.
 <details>
 <summary><strong>About the images</strong></summary>
 
-The opening banner is promotional artwork inspired by the game's visuals. Every image and animation below it is captured from the actual game renderer. Some locations use direct scene entry and staged campaign progress; these are development previews, not a full playthrough. Screenshots retain their in-game HUD.
+The opening banner is promotional artwork inspired by the game's visuals. Every image and animation below it is captured from the actual game renderer. Some locations use direct scene entry and staged campaign progress; these are development previews, not a full playthrough. Full scenes retain their in-game HUD. The three creature animations are labeled detail crops. GIFs preserve native pixels with a 256-color palette.
 
 See the [capture notes and reproduction command](docs/media/readme/README.md). Click a gallery image to see it at full size.
 
@@ -187,7 +237,7 @@ Fresh settings default to **Assisted** combat; choose Classic under **F2 → COM
 
 **In development.** The connected Earth route, eleven-world guardian and information loop, return to Earth and final AI encounter are implemented. Each alien field has a distinct minor foe and a warned charging hazard.
 
-All eleven signal worlds now have their own panoramic backgrounds and guardian artwork. Later guardians take more sustained fire and expose a vulnerable core between attacks. Full playtesting, animation polish and performance checks on real displays are still in progress.
+All eleven signal worlds now have their own panoramic backgrounds, guardian artwork and music. Three creature families have distance-driven leg animation. Later guardians take more sustained fire and expose a vulnerable core between attacks. Full playtesting, remaining animation polish and performance checks on real displays are still in progress.
 
 <details>
 <summary><strong>Known limits and development details</strong></summary>

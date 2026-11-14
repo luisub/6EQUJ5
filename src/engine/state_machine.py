@@ -120,7 +120,10 @@ class GameStateMachine:
                     if set_profile is not None and recover is not None:
                         set_profile(self.settings.combat_mode == 'assisted')
                         recover()
-                self.audio.transition_scene_music(state)
+                world_id = getattr(self.current_scene, 'journey_world', None)
+                if state == config.STATE_ALIEN_CONTACT and self.current_scene.world:
+                    world_id = self.current_scene.world['id']
+                self.audio.transition_scene_music(state, world_id=world_id)
                 if (self.session_active and state == config.STATE_BUNKER_HUB
                         and previous not in (config.STATE_TITLE_BOOT, config.STATE_BUNKER_HUB)):
                     self.save_checkpoint()

@@ -11,7 +11,7 @@ packages. Temporary output and `_trash` are never runtime inputs.
 
 | Content | Location within `src/assets/` | Selection and rebuild owner |
 |---|---|---|
-| Music and sound effects | `audio/` | `engine/audio.py`; two music tracks and twelve effects; absolute paths, traversal and symlink redirects rejected |
+| Music and sound effects | `audio/` | `engine/audio.py`; thirteen music tracks and twelve effects; absolute paths, traversal and symlink redirects rejected |
 | Ohio rooms | `environments/ohio/{approach,campus,salvage_yard,dish,arena,bunker}/` | `engine/room_art_contracts.py`, `native_room_assets.py`; `tools/build_room_family.py` |
 | Shared Ohio textures | `environments/ohio/shared/` | One far plane for approach, salvage, dish and arena; tileset and mist used by world/hazard rendering |
 | Later Earth backgrounds | `environments/{neo_denver,area_51,gobekli_tepe,vla}/` | `engine/campaign_scenery.py`; `tools/build_campaign_art.py` |
@@ -32,6 +32,18 @@ locations. Stable logical identifiers in level data may retain old version
 suffixes for compatibility; they map to the canonical directories above.
 
 ## Manifests and rebuilding
+
+`audio/manifest.json` owns the eleven world-to-track assignments, titles, hashes
+and durations. Two original MP3s cover Earth and the observatory; eleven stereo
+Vorbis scores cover the signal worlds. Scores and provenance live in
+`art/source/audio/world_themes.json`. `tools/build_world_music.py` synthesizes
+the original compositions without samples, with distinct motifs, modes, tempos,
+arrangements and circular effect tails. NumPy and a local ffmpeg executable are
+needed only for rebuilding. The game needs neither ffmpeg nor a network service.
+Generate into a new staging directory, review the audio, then copy the OGG files
+and merge `music_tracks.json` into the canonical audio manifest. The SFX builder
+preserves existing music entries. Ogg container hashes can vary by encoder;
+the synthesis is seeded and produces deterministic PCM.
 
 Rift Raptors (SCAN-H), Resonance Effigies (FASR-010) and Beacon Mites (FASR-007)
 have a 96×72 idle body and an optional 384×72 four-pose `run.png`. Each manifest

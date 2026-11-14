@@ -259,13 +259,15 @@ def build_all_sfx() -> Dict[str, Any]:
         }
         print(f"Generated {filename}: {manifest_entries[filename]['duration_seconds']}s ({manifest_entries[filename]['size_bytes']} bytes)")
 
-    # Write audio manifest
+    # Rebuilding effects must preserve the separately authored world scores.
+    manifest_path = AUDIO_DIR / "manifest.json"
+    existing = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
     manifest_data = {
         "schema_version": 1,
-        "description": "6EQUJ5 audio sound effect bank and provenance manifest",
+        "description": "6EQUJ5 music, sound effects and provenance manifest",
         "sample_rate": SAMPLE_RATE,
         "sound_effects": manifest_entries,
-        "music_tracks": {
+        "music_tracks": existing.get("music_tracks", {
             "Static_Bloom.mp3": {
                 "role": "bunker_and_lab_ambient",
                 "loop": True,
@@ -276,7 +278,7 @@ def build_all_sfx() -> Dict[str, Any]:
                 "loop": True,
                 "fade_ms": 1200
             }
-        }
+        })
     }
 
     manifest_path = AUDIO_DIR / "manifest.json"

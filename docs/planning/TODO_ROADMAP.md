@@ -112,3 +112,8 @@ Develop the armed ascent/fall poses with add-only clip validation, then refine g
 | G5 | R01–R08 verified release | pending |
 
 Every future done status requires supporting evidence in the progress log. See the linked task cards and [quality gates](QUALITY_GATES.md) for acceptance details.
+
+2026-11-14 soundtrack increment: eleven original world themes, packaged playback,
+world-aware scene selection and unchanged Earth/bunker scores are implemented.
+A12 remains in progress for human listening and mix acceptance. README previews
+now show native-pixel animation, three creature gaits and a guardian energy attack.

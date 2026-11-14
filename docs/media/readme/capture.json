@@ -15,8 +15,8 @@
         960,
         540
       ],
-      "sha256": "8ba33ddc9f4cde8c53fad54a89daeb9cb3980cef4a440f624b2d27c367e28119",
-      "bytes": 775180
+      "sha256": "6f6c0a39222e52ec03250161a034eb12183dc5d3d30409441be8eeeba4ee132c",
+      "bytes": 774925
     },
     {
       "file": "receiver.png",
@@ -46,12 +46,12 @@
       "frames": 30,
       "frame_duration_ms": 100,
       "size": [
-        768,
-        432
+        960,
+        540
       ],
-      "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
-      "sha256": "26174a1518a30252b58bd118fe37a453ee0c7c9957ecde520a93a61c7a68bcbc",
-      "bytes": 579618
+      "encoding": "256-color shared palette; native pixels, no rescaling",
+      "sha256": "288c1f65ad4400ea2e8ca12d32056904af32265b91b89817efceacb1f1883083",
+      "bytes": 1024927
     },
     {
       "file": "ohio.png",
@@ -61,122 +61,8 @@
         960,
         540
       ],
-      "sha256": "72f6bc81341f6177d19188e4498c51c1ec96b9d56ecd8c04c81f831f2d00cf39",
-      "bytes": 640633
-    },
-    {
-      "file": "area-51.png",
-      "setup": "Direct development scene entry to act_03/s4_hangar.json, then mapped movement; no progression claim.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "f2d61813a84299ab2e440a949bfe8f65727a3a99c57f2bd22fa34bd063518b2a",
-      "bytes": 625455
-    },
-    {
-      "file": "vla-rift.png",
-      "setup": "Direct development scene entry to act_04/rail_yard.json, then mapped movement; no progression claim.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "e46f018faa0d4ed7e6fd92e8e9b3b043ab0739147ebf263953125045e84de7d7",
-      "bytes": 585571
-    },
-    {
-      "file": "gobekli-tepe.png",
-      "setup": "Direct development scene entry to act_05/pillar_approach.json, then mapped movement; no progression claim.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "e7127cca2b231b047ed99e84044dd402b9ac2218396c5d76ed8bddd15b10b9e1",
-      "bytes": 542575
-    },
-    {
-      "file": "buried-archive.png",
-      "setup": "Direct development scene entry to act_05/buried_archive.json, then mapped movement; no progression claim.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "04773c9c3b8908301f37913afb6be6f22a082a8e4efc73239685796df3d63efb",
-      "bytes": 690398
-    },
-    {
-      "file": "crystal-network.png",
-      "setup": "Direct field entry with staged prior guardian and receipt, then mapped movement.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "4554ba9164f5162a7ed2e9554375faa413d3e2fdce85ff4887ddec94b63639ff",
-      "bytes": 612524
-    },
-    {
-      "file": "signal-jailer.png",
-      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
-      "scene": "BOSS_BOUNTY",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "fa35a3e81c1fca6d58c1997dae4066c02fde9a755c0d2f0e38ef35d5274cbd8b",
-      "bytes": 550243
-    },
-    {
-      "file": "heat-auditor.png",
-      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
-      "scene": "BOSS_BOUNTY",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "ee5d9587973df15a2474d5ac7c150bcd7872d172f473b66e716c6acd115f739c",
-      "bytes": 551828
-    },
-    {
-      "file": "galaxy-map.png",
-      "setup": "First Earth-to-FASR-001 transit with staged portal unlock.",
-      "scene": "GALAXY_TRANSIT",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "c65ed3230f4e22250d4c20a70b905cd2736d880c6778584a140a5400bcd26759",
-      "bytes": 483163
-    },
-    {
-      "file": "signal-transit.gif",
-      "setup": "Actual first-world map, vortex and arrival; staged portal unlock.",
-      "frames": 41,
-      "frame_duration_ms": 100,
-      "size": [
-        768,
-        432
-      ],
-      "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
-      "sha256": "6a418c4733b3fd3f092ff02d5b7b24bbbcc3b39cf50c1aec803dfdd8257c3d13",
-      "bytes": 309604
-    },
-    {
-      "file": "neo-denver-walk.gif",
-      "setup": "Held Right through the Denver/relay boundary; prior-act and starting-position fixtures; enemies cleared for scenery inspection.",
-      "frames": 45,
-      "frame_duration_ms": 200,
-      "size": [
-        768,
-        432
-      ],
-      "encoding": "128-color shared palette; nearest-neighbor 768 x 432 export",
-      "sha256": "5ca3e146072e2f0ee19908c6a68fe4eb9aed2ea6424b51b35d92725877826218",
-      "bytes": 5234624
+      "sha256": "f9f955c78358cc92984742676c9362ad16e8289a5860abb6bdb4356c85414f23",
+      "bytes": 662098
     },
     {
       "file": "neo-denver-mountains.png",
@@ -186,13 +72,8 @@
         960,
         540
       ],
-      "sha256": "5a709bb433a7abbed0fb45f4cd140031ed0cd85304906b5685961908a528f379",
-      "bytes": 793293,
-      "source_capture": "_temp/denver_landmarks_20261113/visuals/denver-entry.png",
-      "camera": [
-        0.0,
-        18.0
-      ]
+      "sha256": "8243749679551cb4f3e1b243ba14e3a911432c0e2f4651af8850508bdb7273cb",
+      "bytes": 908717
     },
     {
       "file": "neo-denver-fitzsimons.png",
@@ -202,13 +83,76 @@
         960,
         540
       ],
-      "sha256": "2a1e843c1a140092aca9721f43152aaf017579bf79e70a049ea9244990583742",
-      "bytes": 801509,
-      "source_capture": "_temp/denver_landmarks_20261113/visuals/denver-campus.png",
-      "camera": [
-        248.0,
-        18.0
-      ]
+      "sha256": "9bf27ef46caded1b7f70bca6bdd81555750ef5be599b97910d7a5d17be0af692",
+      "bytes": 917011
+    },
+    {
+      "file": "neo-denver-walk.gif",
+      "setup": "Held Right through the Denver/relay boundary; prior-act and starting-position fixtures; enemies cleared for scenery inspection.",
+      "frames": 45,
+      "frame_duration_ms": 200,
+      "size": [
+        960,
+        540
+      ],
+      "encoding": "256-color shared palette; native pixels, no rescaling",
+      "sha256": "fe3b8a977d95949cc0bac901b7b6d858688f8ce4d6a45ee56a2550059e5ce1b6",
+      "bytes": 9573602
+    },
+    {
+      "file": "area-51.png",
+      "setup": "Direct development scene entry to act_03/s4_hangar.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "2bfda98ff28a15921c41b6f92eee59737153cafbf1ce864ba3bd1376d55386fb",
+      "bytes": 659115
+    },
+    {
+      "file": "vla-rift.png",
+      "setup": "Direct development scene entry to act_04/rail_yard.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "efb4b40c63b118acfcf26e56e7f21383bc19d8428affcf1aa4913741038a8afa",
+      "bytes": 624502
+    },
+    {
+      "file": "gobekli-tepe.png",
+      "setup": "Direct development scene entry to act_05/pillar_approach.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "59084563995552a84127f001142d6c29cbbbfbd52ca608e98d0f665438eef0ff",
+      "bytes": 566960
+    },
+    {
+      "file": "buried-archive.png",
+      "setup": "Direct development scene entry to act_05/buried_archive.json, then mapped movement; no progression claim.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "88149ada3b2e877dac4c0041a1318cf4364ad287b2fe69f669dce2253e9dcc84",
+      "bytes": 721407
+    },
+    {
+      "file": "crystal-network.png",
+      "setup": "Direct field entry with staged prior guardian and receipt, then mapped movement.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "dae02afe0b97faeb6d7ed9b56f7a8805667600450f3ea4bac97de1ba45e7c145",
+      "bytes": 633228
     },
     {
       "file": "proxima-twilight.png",
@@ -231,6 +175,135 @@
       ],
       "sha256": "13a0999584ddbb6d426a9fb1755e22e728766124187a2aab7d5ba6281d6dce9d",
       "bytes": 691370
+    },
+    {
+      "file": "signal-jailer.png",
+      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
+      "scene": "BOSS_BOUNTY",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "ef5ce6d4d6703253e251485cda2b125edf4a81b3ee147d702c22511a3daa80e8",
+      "bytes": 556228
+    },
+    {
+      "file": "heat-auditor.png",
+      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
+      "scene": "BOSS_BOUNTY",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "d8aa6728283961e6f7157d75ae8e0a1d7317c758db5f1d3794ce60b81cd139b3",
+      "bytes": 555218
+    },
+    {
+      "file": "rift-raptor.png",
+      "setup": "World progress, player/enemy placement and cooldown are fixtures; normal updates animate the patrol.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "63017205c99afacc30d5b267f4f5f4b07c92cca0f206c3677a3934dfac3df669",
+      "bytes": 718403
+    },
+    {
+      "file": "rift-raptor.gif",
+      "setup": "Native 440 x 184 crop at (520, 320) of actual patrol frames; staged world progress, positions and cooldown.",
+      "frames": 36,
+      "frame_duration_ms": 80,
+      "size": [
+        440,
+        184
+      ],
+      "encoding": "256-color shared palette; native pixels, no rescaling",
+      "sha256": "c3abcba5a0b0821538b1e01a3ca405822ecccc9eb6cb31c915145ce7e27bdac1",
+      "bytes": 125585
+    },
+    {
+      "file": "resonance-effigy.png",
+      "setup": "World progress, player/enemy placement and cooldown are fixtures; normal updates animate the patrol.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "5adce74ba0fce3407f54ab83eb0be86549509f3ac1940d0c6a68d1a5c60846b9",
+      "bytes": 932434
+    },
+    {
+      "file": "resonance-effigy.gif",
+      "setup": "Native 440 x 184 crop at (520, 320) of actual patrol frames; staged world progress, positions and cooldown.",
+      "frames": 36,
+      "frame_duration_ms": 80,
+      "size": [
+        440,
+        184
+      ],
+      "encoding": "256-color shared palette; native pixels, no rescaling",
+      "sha256": "7ad547aa61400bbfbb2c1e58e60587e4ca6e12ed56495da8a5b0aa9000c21499",
+      "bytes": 139548
+    },
+    {
+      "file": "beacon-mite.png",
+      "setup": "World progress, player/enemy placement and cooldown are fixtures; normal updates animate the patrol.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "854806005c9972d4f235c339c71b8b68bd2145243dddbe44411053fc748d4c56",
+      "bytes": 769695
+    },
+    {
+      "file": "beacon-mite.gif",
+      "setup": "Native 440 x 184 crop at (520, 320) of actual patrol frames; staged world progress, positions and cooldown.",
+      "frames": 36,
+      "frame_duration_ms": 80,
+      "size": [
+        440,
+        184
+      ],
+      "encoding": "256-color shared palette; native pixels, no rescaling",
+      "sha256": "737a23000df10349324814e3c327a571f115a3901323a981a45f957141cde000",
+      "bytes": 108612
+    },
+    {
+      "file": "memory-extractor.png",
+      "setup": "Staged guardian ledger; normal updates reach the first active energy attack.",
+      "scene": "BOSS_BOUNTY",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "0baa083c8503e90c167c57e5c90b112513f42802e0308b8d063d15d6516f66d3",
+      "bytes": 901728
+    },
+    {
+      "file": "galaxy-map.png",
+      "setup": "First Earth-to-FASR-001 transit with staged portal unlock.",
+      "scene": "GALAXY_TRANSIT",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "c65ed3230f4e22250d4c20a70b905cd2736d880c6778584a140a5400bcd26759",
+      "bytes": 483163
+    },
+    {
+      "file": "signal-transit.gif",
+      "setup": "Actual first-world map, vortex and arrival; staged portal unlock.",
+      "frames": 41,
+      "frame_duration_ms": 100,
+      "size": [
+        960,
+        540
+      ],
+      "encoding": "256-color shared palette; native pixels, no rescaling",
+      "sha256": "2a9e30a440730383a49b5d20bacbbccd959fc4c1b4117c2098aa0b859574d7ac",
+      "bytes": 520342
     }
   ]
 }

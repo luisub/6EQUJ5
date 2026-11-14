@@ -5,7 +5,9 @@
 """
 
 from io import BytesIO
+import json
 from pathlib import Path
+import re
 import threading
 from typing import Any, Dict, Optional
 import pygame
@@ -50,8 +52,24 @@ class AudioManager:
         self._music_generation = 0
         self._target_loop = True
         self._target_fade_ms = 1000
+        self.world_tracks = self._load_world_tracks()
 
         self._init_mixer()
+
+    def _load_world_tracks(self):
+        """Read packaged world assignments once, with the Earth score as fallback."""
+        path = self._audio_path('manifest.json')
+        if path is None:
+            return {}
+        try:
+            tracks = json.loads(path.read_text(encoding='utf-8'))['music_tracks']
+            return {entry['world_id']: filename for filename, entry in tracks.items()
+                    if isinstance(entry, dict)
+                    and isinstance(entry.get('world_id'), str)
+                    and re.fullmatch(r'alien_(?:\d{3}|scan_h)', entry['world_id'])
+                    and self._audio_path(filename) is not None}
+        except (OSError, ValueError, KeyError, TypeError, AttributeError):
+            return {}
 
     def _audio_path(self, filename):
         """Resolve one file inside the audio bank without following redirects."""
@@ -227,8 +245,8 @@ class AudioManager:
         except Exception:
             pass
 
-    def transition_scene_music(self, state_name: str, fade_ms: int = 1000):
-        """Map high-level game state to ambient bunker or tense field/boss soundtrack."""
+    def transition_scene_music(self, state_name: str, fade_ms: int = 1000, *, world_id=None):
+        """Keep a world's score through its field, guardian and earned contact."""
         bunker_states = (
             config.STATE_TITLE_BOOT,
             config.STATE_BUNKER_HUB,
@@ -238,13 +256,21 @@ class AudioManager:
         combat_states = (
             config.STATE_FIELD_OPS,
             config.STATE_BOSS_BOUNTY,
+            config.STATE_ALIEN_CONTACT,
         )
 
         target = None
         if state_name in bunker_states:
             target = TRACK_BUNKER
         elif state_name in combat_states:
-            target = TRACK_COMBAT
+            target = self.world_tracks.get(world_id, TRACK_COMBAT)
+            if self._audio_path(target) is None:
+                target = TRACK_COMBAT
+
+        # A quick field → boss transition must not restart the outgoing fade.
+        if (target == self.target_track and self.fade_state == 'FADING_OUT'
+                and AudioManager._music_owner is self):
+            return
 
         if target and (target != self.current_track or self.fade_state != "IDLE"
                        or AudioManager._music_owner is not self):

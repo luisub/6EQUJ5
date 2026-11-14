@@ -14,9 +14,9 @@ small author credit is rendered separately by the game.
 
 ## Actual game captures
 
-All other PNGs are unretouched 960 × 540 render surfaces from the game. The GIFs show captured frames at 768 × 432, exported with nearest-neighbor scaling and a shared 128-color palette. Arc Lance and transit run at 10 frames per second; the Denver walk runs at 5.
+All other PNGs are unretouched 960 × 540 render surfaces from the game. Full-scene GIFs now retain the native 960 × 540 pixels and use a shared 256-color palette without dithering. Arc Lance and transit run at 10 frames per second; the Denver walk runs at 5. The three creature GIFs use unscaled 440 × 184 crops at (520, 320), sampled every five simulation frames and encoded at 80 ms per frame. Their linked PNGs show the complete scene and HUD.
 
-The main README embeds thirteen screenshots and three animations. Three additional stills are linked from their captions: the receiver, Arc Lance and galaxy map. `capture.json` records the setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. Proxima shows its twilight outpost and Flare Bastion guardian. The superseded `neo-denver.png` is archived under `_trash/2026-11-14_repository_compaction/docs/media/readme/`.
+The main README embeds fourteen full screenshots and six animations. Six additional stills are linked: the receiver, Arc Lance, galaxy map and three complete creature scenes. `capture.json` records the setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. Proxima shows its twilight outpost and Flare Bastion guardian. The superseded `neo-denver.png` is archived under `_trash/2026-11-14_repository_compaction/docs/media/readme/`.
 
 | Media | Setup |
 |---|---|
@@ -31,12 +31,16 @@ The main README embeds thirteen screenshots and three animations. Three addition
 | `proxima-twilight.png` | Proxima field midpoint with staged prior victories, receipts and player position. |
 | `flare-bastion.png` | Proxima guardian with a staged journey ledger and 0.2 seconds of runtime. |
 | `galaxy-map.png`, `signal-transit.gif` | First Earth-to-FASR-001 crossing after a staged portal unlock. |
+| `rift-raptor`, `resonance-effigy`, `beacon-mite` PNG/GIF pairs | Staged prior progress, player/enemy placement and extended attack cooldown; ordinary runtime updates drive the patrol and leg cycle. GIFs are labeled native detail crops; PNGs retain the full HUD. |
+| `memory-extractor.png` | Staged guardian progress, then ordinary runtime updates through the first warning into an active energy-field attack. |
 
 Proxima and the travel media were refreshed together on 2026-11-13. Travel now follows an irregular route and presents the gate at the screen center. The previous map, animation and matching metadata are indexed in the [archive record](../../maintenance/archive-manifest.json).
 
 Arc Lance and travel captures were refreshed on 2026-11-14 to show the compact
 upper-right timer and simplified map captions. Previous captures and metadata
 are preserved under `_trash/2026-11-14_enemy_motion/docs/media/readme/`.
+
+The complete gallery was refreshed again on 2026-11-14 with native GIF exports, 256 colors, creature-motion details and an actual Memory Extractor attack. Fifteen replaced captures/metadata files are preserved under `_trash/2026-11-14_readme_refresh/`. The capture tool no longer emits the retired redundant `neo-denver.png`.
 
 The captures use temporary saves and settings, dummy SDL video/audio, a fixed random seed, and disabled CRT effects. HUD elements remain visible. Scene fixtures demonstrate current rendering; they do not establish an earned campaign playthrough, native display performance, audible quality or controller acceptance.
 
