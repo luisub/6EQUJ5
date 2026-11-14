@@ -9,6 +9,7 @@ excluded from game wheels and source distributions.
 | `source/alien_worlds/` | All eleven civilization backgrounds and guardians |
 | `source/environments/` | Ohio, Earth campaign, annex, relay and flashback scenery |
 | `source/bosses/` | Earth bosses, Greenkeeper poses and Göbekli animal studies |
+| `source/enemies/cyber_insects/` | Three active insect motion masters, full prompts and nine-role registration recipe |
 | `source/finale/` | Active Core projection/chamber, restored Central Park and family walk masters with complete generation/export recipe |
 | `source/audio/` | Original world music scores and composition metadata |
 | `source/effects/` | Firing flash, maser, energy streams and galaxy transit |

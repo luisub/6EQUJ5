@@ -220,7 +220,7 @@ def test_hazard_and_telegraph_stay_above_background_lighting(game,monkeypatch):
     scene=game.current_scene
     scene.camera.x=80
     scene.camera.y=18
-    def telegraph(surface,camera):
+    def telegraph(surface,camera, *, crt=None):
         pygame.draw.line(surface,(255,30,30),(100,180),(140,180),2)
     monkeypatch.setattr(scene.enemy_manager,'render',telegraph)
     game.render()

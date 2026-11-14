@@ -150,7 +150,7 @@
   "enemies": {
     "core_recon_drone": {
       "id": "core_recon_drone",
-      "name": "Core Recon Drone",
+      "name": "Circuit Wasp",
       "max_health": 50,
       "width": 24,
       "height": 20,
@@ -167,7 +167,7 @@
     },
     "static_hound": {
       "id": "static_hound",
-      "name": "Static Hound",
+      "name": "Surge Beetle",
       "max_health": 75,
       "width": 32,
       "height": 20,
@@ -184,7 +184,7 @@
     },
     "core_enforcer": {
       "id": "core_enforcer",
-      "name": "Core Chassis Enforcer",
+      "name": "Bastion Mantis",
       "max_health": 120,
       "width": 24,
       "height": 32,
@@ -201,7 +201,7 @@
     },
     "core_operative": {
       "id": "core_operative",
-      "name": "Core Assimilated Operative",
+      "name": "Razor Mantis",
       "max_health": 70,
       "width": 20,
       "height": 32,
@@ -218,7 +218,7 @@
     },
     "shield_hound": {
       "id": "shield_hound",
-      "name": "Static Shield Hound",
+      "name": "Shield Beetle",
       "max_health": 95,
       "width": 32,
       "height": 24,
@@ -235,7 +235,7 @@
     },
     "phase_watcher": {
       "id": "phase_watcher",
-      "name": "Phase Watcher",
+      "name": "Phase Wasp",
       "max_health": 80,
       "width": 20,
       "height": 36,
@@ -251,7 +251,7 @@
     },
     "chrysalis_splicer": {
       "id": "chrysalis_splicer",
-      "name": "Chrysalis Splicer",
+      "name": "Chrysalis Beetle",
       "max_health": 85,
       "width": 28,
       "height": 24,
@@ -267,7 +267,7 @@
     },
     "precursor_guardian": {
       "id": "precursor_guardian",
-      "name": "Precursor Hominid Guardian",
+      "name": "Precursor Mantis",
       "max_health": 150,
       "width": 32,
       "height": 40,
@@ -283,7 +283,7 @@
     },
     "temporal_phantom": {
       "id": "temporal_phantom",
-      "name": "Temporal Wireframe Phantom",
+      "name": "Temporal Wasp",
       "max_health": 60,
       "width": 24,
       "height": 32,

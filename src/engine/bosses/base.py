@@ -155,6 +155,7 @@ class Boss(CombatTarget):
         self.height: int = height
         self.title: str = title
         self.subtitle: str = subtitle
+        self.facing = 'left'
 
         # Phase tracking (Thresholds default to 3 equal segments)
         self.current_phase: int = PHASE_1
@@ -231,6 +232,7 @@ class Boss(CombatTarget):
         self.defeat_reward_granted = False
         self.x = self.spawn_x
         self.y = self.spawn_y
+        self.facing = 'left'
         self.rect.x = int(self.x)
         self.rect.y = int(self.y)
         self.current_phase = PHASE_1
@@ -243,6 +245,12 @@ class Boss(CombatTarget):
         self.weak_point_exposed = False
         self.telegraphs.clear()
         self.projectiles.clear()
+
+    def face_target(self, player_pos):
+        """Turn toward a world-space target, retaining direction directly overhead."""
+        dx = player_pos[0] - self.rect.centerx
+        if not self.is_dead and math.isfinite(dx) and abs(dx) > 3:
+            self.facing = 'right' if dx > 0 else 'left'
 
     def take_damage(
         self,

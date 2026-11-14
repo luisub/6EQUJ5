@@ -84,92 +84,166 @@
   "unaccounted_removals": 0,
   "latest_update": {
     "date": "2026-11-14",
-    "pass": "core_liberation_and_restored_denver",
+    "pass": "enemy_facing_and_earth_cyber_insects",
     "changes": [
-      "Original machine-cathedral Core arena and green-code projected intelligence",
-      "Six ending pages confirming Core disconnection and world recovery",
-      "Walkable Central Park, Denver, three springs later, with four saved dialogue pages",
-      "Four-pose walking families, flying birds, water glints and sunlight",
-      "Completed-save park recovery, save retries and New-game isolation",
-      "README ending gallery, story guide and reproducible art/capture tools"
+      "All campaign guardians and Earth bosses turn toward crossed targets, including overhead jumps",
+      "Mirrored weak points, muzzle anchors, hit flashes and destruction fragments",
+      "Directional attacks work on both sides; warned charges retain committed direction",
+      "Nine Earth combat roles use three cyber-insect families with four native poses",
+      "Grounded leg cycles follow actual travel; flying wing and leg poses follow actor time",
+      "README motion gallery and reproducible art/capture tools"
     ],
     "full_suite": {
-      "passed": 1360,
-      "failed": 0,
-      "duration_seconds": 184.2,
-      "render_budget_assertions": "Unchanged; passed in this run. Earlier timing variation remains documented."
+      "passed": 1399,
+      "failed": 1,
+      "duration_seconds": 188.87,
+      "remaining_failure": "test_profile.py::test_scene_frame_budgets",
+      "field_render_p95_ms": 5.334,
+      "render_budget_ms": 5.0,
+      "isolated_profile": "1 passed in 3.36 seconds; full-suite timing remains above budget",
+      "render_budget_assertions": "Unchanged"
     },
     "focused_tests": {
-      "ending_journey_story_audio": 55,
-      "scenery_and_park": 40
-    },
-    "initial_full_run": {
-      "passed": 1359,
-      "failed": 1,
-      "cause": "Background allowlist test still expected 18 entries; updated to 20 and explicitly checked both new backgrounds."
+      "final_facing_scenery_rendering_lighting": 94,
+      "new_facing_and_animation_cases_included": 40,
+      "duration_seconds": 8.74
     },
     "levels_validated": 52,
     "protected_asset_groups_validated": 14,
-    "runtime_asset_files": 315,
-    "test_modules": 87,
+    "runtime_asset_files": 304,
+    "test_modules": 88,
     "asset_rebuild": {
-      "masters": 4,
-      "exports": 8,
+      "masters": 3,
+      "exports": 37,
       "byte_identical": true
     },
     "installed_wheel": {
-      "runtime_assets": 315,
-      "core_native_art": true,
-      "park_native_art": true,
-      "family_frames": 4,
-      "completed_save_recovery": true,
-      "park_music_streamed": true,
-      "dialogue_layout": [
-        {
-          "page": 1,
-          "lines": 1
-        },
-        {
-          "page": 2,
-          "lines": 3
-        },
-        {
-          "page": 3,
-          "lines": 2
-        },
-        {
-          "page": 4,
-          "lines": 2
-        }
-      ],
-      "park_render_p95_ms": 5.491374991834164,
+      "outside_checkout": true,
+      "boot": true,
+      "native_insect_roles": 9,
+      "animated_poses_per_role": 4,
+      "guardian_both_facings": 11,
+      "runtime_assets": 304,
       "drivers": "dummy",
-      "limitations": "Explicit prior-progress and final-victory fixtures; no human playthrough or audible/native-display acceptance.",
-      "new_game_isolation": true,
-      "wheel_files": 463,
-      "outside_checkout": true
+      "wheel_files": 452
     },
-    "new_archive_records_verified": 2,
-    "readme_captures_verified": 29,
-    "local_links_checked": 176,
-    "missing_local_links": [],
-    "visual_review": [
-      "Core Prime and Archon native captures",
-      "Six-page ending first-page render",
-      "Park dialogue native layout; all four pages measured within bounds",
-      "Peaceful park native render and animated family frame samples"
+    "preservation_and_media": {
+      "archive_records_verified": 48,
+      "removed_files_preserved": 33,
+      "readme_captures_verified": 34,
+      "local_links_checked": 169,
+      "missing_links": [],
+      "runtime_assets": 304,
+      "test_modules": 88,
+      "exact_rebuild_exports": 37
+    },
+    "visual_checks": [
+      "Native Earth insect scene and walking/flight poses",
+      "Beacon Forger left/right facing during mapped player jump",
+      "Thin Assisted-mode outline with native detail"
     ],
+    "capture_metadata": "docs/media/readme/enemy-motion-capture.json",
     "evidence": [
-      "docs/media/readme/finale-capture.json",
-      "_temp/finale-full-suite-final.log",
-      "_temp/finale-focused-final.log",
-      "_temp/finale-scenery-regression.log",
-      "_temp/finale-installed.json",
-      "_temp/finale-doc-check.json"
+      "_temp/cyber-insects-full-final.log",
+      "_temp/cyber-profile-isolated.log",
+      "_temp/cyber-insects-final-focused.log",
+      "_temp/cyber-installed.json",
+      "_temp/cyber-audit.json"
     ],
-    "limits": "Dummy SDL and explicit prior-progress/placement fixtures. Both final forms were defeated with mapped fire in the capture and runtime test. These checks do not establish a human full-game playthrough, audible quality, physical-controller compatibility or native-display performance. Formal gates unchanged."
+    "limits": [
+      "Dummy SDL and disclosed progression/placement/cooldown fixtures; not a human campaign playthrough.",
+      "Full-suite render timing remains above the existing budget; no native-display performance certification.",
+      "Formal acceptance gates unchanged."
+    ]
   },
   "previous_updates": [
+    {
+      "date": "2026-11-14",
+      "pass": "core_liberation_and_restored_denver",
+      "changes": [
+        "Original machine-cathedral Core arena and green-code projected intelligence",
+        "Six ending pages confirming Core disconnection and world recovery",
+        "Walkable Central Park, Denver, three springs later, with four saved dialogue pages",
+        "Four-pose walking families, flying birds, water glints and sunlight",
+        "Completed-save park recovery, save retries and New-game isolation",
+        "README ending gallery, story guide and reproducible art/capture tools"
+      ],
+      "full_suite": {
+        "passed": 1360,
+        "failed": 0,
+        "duration_seconds": 184.2,
+        "render_budget_assertions": "Unchanged; passed in this run. Earlier timing variation remains documented."
+      },
+      "focused_tests": {
+        "ending_journey_story_audio": 55,
+        "scenery_and_park": 40
+      },
+      "initial_full_run": {
+        "passed": 1359,
+        "failed": 1,
+        "cause": "Background allowlist test still expected 18 entries; updated to 20 and explicitly checked both new backgrounds."
+      },
+      "levels_validated": 52,
+      "protected_asset_groups_validated": 14,
+      "runtime_asset_files": 315,
+      "test_modules": 87,
+      "asset_rebuild": {
+        "masters": 4,
+        "exports": 8,
+        "byte_identical": true
+      },
+      "installed_wheel": {
+        "runtime_assets": 315,
+        "core_native_art": true,
+        "park_native_art": true,
+        "family_frames": 4,
+        "completed_save_recovery": true,
+        "park_music_streamed": true,
+        "dialogue_layout": [
+          {
+            "page": 1,
+            "lines": 1
+          },
+          {
+            "page": 2,
+            "lines": 3
+          },
+          {
+            "page": 3,
+            "lines": 2
+          },
+          {
+            "page": 4,
+            "lines": 2
+          }
+        ],
+        "park_render_p95_ms": 5.491374991834164,
+        "drivers": "dummy",
+        "limitations": "Explicit prior-progress and final-victory fixtures; no human playthrough or audible/native-display acceptance.",
+        "new_game_isolation": true,
+        "wheel_files": 463,
+        "outside_checkout": true
+      },
+      "new_archive_records_verified": 2,
+      "readme_captures_verified": 29,
+      "local_links_checked": 176,
+      "missing_local_links": [],
+      "visual_review": [
+        "Core Prime and Archon native captures",
+        "Six-page ending first-page render",
+        "Park dialogue native layout; all four pages measured within bounds",
+        "Peaceful park native render and animated family frame samples"
+      ],
+      "evidence": [
+        "docs/media/readme/finale-capture.json",
+        "_temp/finale-full-suite-final.log",
+        "_temp/finale-focused-final.log",
+        "_temp/finale-scenery-regression.log",
+        "_temp/finale-installed.json",
+        "_temp/finale-doc-check.json"
+      ],
+      "limits": "Dummy SDL and explicit prior-progress/placement fixtures. Both final forms were defeated with mapped fire in the capture and runtime test. These checks do not establish a human full-game playthrough, audible quality, physical-controller compatibility or native-display performance. Formal gates unchanged."
+    },
     {
       "date": "2026-11-14",
       "pass": "world_music_and_readme_refresh",

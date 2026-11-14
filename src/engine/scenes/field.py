@@ -1287,9 +1287,9 @@ class FieldOpsScene(BaseScene):
         if hasattr(self, "enemy_manager"):
             if (self.room.room_id.startswith("act_01_") and
                     getattr(getattr(self.machine, "settings", None), "combat_mode", "classic") == "assisted"):
-                self.enemy_manager.render(crt.canvas, self.camera, highlight_hostiles=True)
+                self.enemy_manager.render(crt.canvas, self.camera, highlight_hostiles=True, crt=crt)
             else:
-                self.enemy_manager.render(crt.canvas, self.camera)
+                self.enemy_manager.render(crt.canvas, self.camera, crt=crt)
 
         # Show the actual grapple path before drawing the player over its origin.
         if self.player.is_grappling and self.player.grapple_anchor_pos is not None:

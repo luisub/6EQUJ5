@@ -189183,5 +189183,341 @@
     "sha256": "4c221349e22f0951ee2adbc431f01ca3587f3079011e37425455410f515b8729",
     "reason": "Replaced the final Core body with an original green-code projection.",
     "restoration": "Verify SHA-256, preserve the current file, then copy to original_path with its matching manifest."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/manifest.json",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/manifest.json",
+    "sha256": "ac334bfd6ddd9c35ace11aa8b3718f62813daa9fd1590a02b89b76b9caa7ce06",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/temporal_phantom/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/temporal_phantom/patrol_1.png",
+    "sha256": "ad572261324264cd575174e568cad67551fd953bfafabd0464fbe187e8aa985c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_operative/patrol_2.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/core_operative/patrol_2.png",
+    "sha256": "6db292efedca29ffc015c799a7a259973789fe49c436576e357aacd07b4d0043",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_operative/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/core_operative/patrol_1.png",
+    "sha256": "be12eb4fdf8c5baa0b32953acd6eb519a12d1f791a4b6f0080a6b423bf26aeb1",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/static_hound/patrol_2.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/static_hound/patrol_2.png",
+    "sha256": "27de3c00fd7781ba8088281358fbffc8893587e83bea99a044423c13842c503f",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/static_hound/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/static_hound/patrol_1.png",
+    "sha256": "32a7d4e5d1f65c7f7e764c305285dec9c0e2294d971aaf5d360e27892e6f020c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/precursor_guardian/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/precursor_guardian/patrol_1.png",
+    "sha256": "40a7e56450768f8424f019a49bc36346d5658d4e4ed1341f8642f662bc3784c7",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/shield_hound/patrol_2.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/shield_hound/patrol_2.png",
+    "sha256": "7c8e3d958e51d3ee85dc8011842284fe7a10db833447cc1b202f80a7cdcd21b9",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/shield_hound/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/shield_hound/patrol_1.png",
+    "sha256": "878a321dfb95c19a23dbe8b8241db2d51a2ab376f3ada5cbb8b0d66e5bd7716a",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/phase_watcher/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/phase_watcher/patrol_1.png",
+    "sha256": "fdc3b42ce734251b0f3c6630b4caab25f63011d7f4a12b250f42e2f15a14b9c2",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_enforcer/patrol_2.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/core_enforcer/patrol_2.png",
+    "sha256": "270564db4aea22cc44a6966578f1c2635dcefefe5d2a1e819d1a7facd4fed344",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_enforcer/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/core_enforcer/patrol_1.png",
+    "sha256": "6e74b2077a8803e5b8de70d463456b263b2d847a6cebeec62f308f3a25db6983",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/patrol_2.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/core_recon_drone/patrol_2.png",
+    "sha256": "b99acafd8908e2296c9a189023c9e12bd339db84d60371ada2c819682deebadd",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/core_recon_drone/patrol_1.png",
+    "sha256": "b758a58eb6d61a1265548b3adde9dc6a9c14dc116881d5dccd979fe3eaaeaea8",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/chrysalis_splicer/patrol_1.png",
+    "archive_path": "_trash/2026-11-14_F03/c921aef3517b4c9da507fbe4ec46de59/video_game/assets/sprites/enemies/chrysalis_splicer/patrol_1.png",
+    "sha256": "e62b3896cea9fb75d864e9bf1955c4461d020d80bf3b785468b815dac3d5feb3",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/recovery.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_recon_drone/recovery.png",
+    "sha256": "b5fe6a940d58c5e1edbb0e9ef02c7dcc367b7cf1fb7fd869f85f92d7a2e5bfa0",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/windup_1.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_recon_drone/windup_1.png",
+    "sha256": "0a3fc454bf860c8dccf3629c313581f974f66cb96a45a6019902e1b09f9f70b9",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/windup_2.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_recon_drone/windup_2.png",
+    "sha256": "ec9254f98f24fb654d6f1fb46887c8c0323ff7c3c865db6b842e3b49abd6777b",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/hurt.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_recon_drone/hurt.png",
+    "sha256": "680a58fa4953877cbaf04686ec96334050116e6ad41184d60b42e1b558529fc9",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/attack.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_recon_drone/attack.png",
+    "sha256": "93d2cd560068c9e02091cd6aa4c6deb551023b87d1012dae2094d29c01ab440e",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_recon_drone/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_recon_drone/death.png",
+    "sha256": "0840e17c721e5a1c19a6778d5e84a275706ffa110ad421886736366cbbe18689",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/static_hound/recovery.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/static_hound/recovery.png",
+    "sha256": "dc17f931ba4e27bf0e68e15a3d4050de2e40ebf2032f6f126f630f32e2d4f261",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/static_hound/pounce.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/static_hound/pounce.png",
+    "sha256": "6df8725e8d64cd97788c9a7daeeea0177bb6e2be7eb90fccecf68b60c724a5e2",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/static_hound/hurt.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/static_hound/hurt.png",
+    "sha256": "94765c7945443b24a425e32361b851326d0bb615759e829c077751b4002a8dd9",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/static_hound/windup.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/static_hound/windup.png",
+    "sha256": "a7783d448c2a84b2f2901f6b23ca7baed8fe048c5ad1ff015fb16cbbc8bc6f31",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/static_hound/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/static_hound/death.png",
+    "sha256": "197a8bc85d8a10e6a0fbbc27b33aa175cfbe879b622c920e42ee31174a7e249c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_enforcer/recovery.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_enforcer/recovery.png",
+    "sha256": "f03225e2de0b183004628049de45e97ffe1117c03342a0b7b179c4ae143b386d",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_enforcer/hurt.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_enforcer/hurt.png",
+    "sha256": "bc7caabbf87a3c8f6e925c22d7b1d174a04e48d51f414c2b5193138201d4454d",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_enforcer/windup.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_enforcer/windup.png",
+    "sha256": "e45c8816829a504e32593a7c760ef80afb38dcbb888e5989a1b4454b44f8a575",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_enforcer/attack.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_enforcer/attack.png",
+    "sha256": "f29b615fe8fd26b0d56e26d47d249b1d6c51d571f0467f967c2eaed2b6865e8c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_enforcer/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_enforcer/death.png",
+    "sha256": "bf899b9701ecd1203a761af946f01d09273c872c031f2f7d8577e26ffca85e7c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_operative/recovery.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_operative/recovery.png",
+    "sha256": "9cf73eb4d3abc2a1bd31db68a5657d7af6ee3515a6643fd7caede8d252f674c6",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_operative/hurt.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_operative/hurt.png",
+    "sha256": "fd614ecd629545f74278ed76428b87fc31caaacecde1cfd027effe658e0ee82a",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_operative/windup.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_operative/windup.png",
+    "sha256": "c9c9778dd92357e2c442fe882065ac4f042045ca51893095893db1048d480fc6",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_operative/attack.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_operative/attack.png",
+    "sha256": "7271b0a5af9dc6145a61f1ccdfe2c370746670729b59cef6b65fb4b7d6c4d20e",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/core_operative/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/core_operative/death.png",
+    "sha256": "8595c6385ea2271ca0f5d3be8b7b2c793a101368bf96eff36a5315b5afebbe1e",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/shield_hound/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/shield_hound/death.png",
+    "sha256": "82ab30ae483fbcc2de3d361edda61f203c1a3f220c16b9215728713b71764ea2",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/phase_watcher/windup.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/phase_watcher/windup.png",
+    "sha256": "a90fb2cb886352177c91bc9650747f9649aafb3b8711aa56833150cb2c9e09a6",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/phase_watcher/attack.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/phase_watcher/attack.png",
+    "sha256": "27ea51ea823421cbf0ad0344e69a5455d6fcabe9e6d9b4c0e78c26e2cb4b48e4",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/phase_watcher/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/phase_watcher/death.png",
+    "sha256": "92054e1f3c7b3459d5a1340874d327faa65b6baa704f537bb3aca99706b5a8b8",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/chrysalis_splicer/windup.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/chrysalis_splicer/windup.png",
+    "sha256": "9da555035aaf917fb096fce7d437933135fbafd71600777e4c85716ec3518338",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/chrysalis_splicer/attack.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/chrysalis_splicer/attack.png",
+    "sha256": "36b69e59d9f6e5fb2a83596accdebb512e6a33962520da2dbb4824102e674519",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/chrysalis_splicer/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/chrysalis_splicer/death.png",
+    "sha256": "bdcd7b54aec2202c52a9aa61530500424ad42ac8476ab9a647bff47317ba732c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/precursor_guardian/windup.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/precursor_guardian/windup.png",
+    "sha256": "79fe4def2f073321242fa61a7fc37f969d556c5ce8f83062e1590f7b6f23659c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/precursor_guardian/attack.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/precursor_guardian/attack.png",
+    "sha256": "4b6a3ddf9386d95235f7f2e286e1ea7a3921203ff42c8600e00103d6b00c1aa4",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/precursor_guardian/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/precursor_guardian/death.png",
+    "sha256": "0b4627149661b60ec2c992e3bcabe744e36b2168325b427a23d86aa0c39675ee",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/temporal_phantom/windup.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/temporal_phantom/windup.png",
+    "sha256": "29a4a94ff2ced3f1ba0f0c571538f86602f9552127c1f9fad38d83d70fac943c",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/assets/sprites/enemies/temporal_phantom/death.png",
+    "archive_path": "_trash/2026-11-14_cyber_insects_90d371f1/src/assets/sprites/enemies/temporal_phantom/death.png",
+    "sha256": "e92ff7c3b84e0e8dd6214a5cbd17eacfe18385de103396888c8d417b6b8d05e6",
+    "reason": "Replaced block robot poses with native cyber-insect motion.",
+    "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
   }
 ]

@@ -48,6 +48,10 @@ class Greenkeeper(Boss):
         self.heavy_logical_sprites = ({name: pygame.transform.scale(sprite, (128, 96))
                                        for name, sprite in self.heavy_sprites.items()}
                                       if self.heavy_sprites is not None else None)
+        self.heavy_right = ({name: pygame.transform.flip(sprite, True, False)
+                            for name, sprite in self.heavy_sprites.items()} if self.heavy_sprites else None)
+        self.heavy_logical_right = ({name: pygame.transform.flip(sprite, True, False)
+                                    for name, sprite in self.heavy_logical_sprites.items()} if self.heavy_sprites else None)
         heavy = self.heavy_sprites is not None
         x = (428.0 if heavy else 460.0) if x is None else x
         y = (144.0 if heavy else 192.0) if y is None else y
@@ -76,6 +80,7 @@ class Greenkeeper(Boss):
         # Bulldozer kinematics
         self.charge_vx: float = 0.0
         self.charge_duration: float = 0.0
+        self.attack_direction = -1
 
         # Animation state and pixel art sprite cache
         self.anim_timer: float = 0.0
@@ -88,6 +93,8 @@ class Greenkeeper(Boss):
     def _update_weak_point(self):
         """Update absolute coordinates of the core weak point relative to boss position."""
         x, y, w, h = (62, 49, 23, 19) if self.heavy_sprites is not None else (8, 6, 24, 20)
+        if self.facing == 'right':
+            x = self.width - x - w
         self.weak_point_rect = pygame.Rect(
             int(self.x + x), int(self.y + y), w, h,
         )
@@ -95,9 +102,8 @@ class Greenkeeper(Boss):
     @property
     def mortar_muzzle(self) -> Tuple[float, float]:
         """World-space launch effect anchor, registered to the current family."""
-        if self.heavy_sprites is not None:
-            return (self.x + 39.0, self.y + 16.0)
-        return (self.x + 24.0, self.y + 8.0)
+        x, y = (39.0, 16.0) if self.heavy_sprites is not None else (24.0, 8.0)
+        return (self.x + (self.width - x if self.facing == 'right' else x), self.y + y)
 
     def _heavy_pose(self) -> str:
         if self.is_defeated or self.phase_state == STATE_DEFEATED:
@@ -120,6 +126,7 @@ class Greenkeeper(Boss):
         self.sweep_x = 0.0
         self.charge_vx = 0.0
         self.charge_duration = 0.0
+        self.attack_direction = -1
         self.damage_flash_timer = 0.0
         self.attack_visual_timer = 0.0
         self._update_weak_point()
@@ -139,6 +146,10 @@ class Greenkeeper(Boss):
 
     def update(self, dt: float, player_pos: Tuple[float, float] = (120.0, 208.0)):
         """Update Greenkeeper AI behavior, attack cycles, and sub-systems."""
+        if dt <= 0 or not math.isfinite(dt):
+            return
+        if self.charge_duration <= 0:
+            self.face_target(player_pos)
         super().update(dt)
         self.anim_timer += dt
         if self.damage_flash_timer > 0.0:
@@ -154,8 +165,8 @@ class Greenkeeper(Boss):
         # Execute sweep attack if active
         if self.sweep_active:
             self.sweep_timer -= dt
-            self.sweep_x -= 600.0 * dt
-            if self.sweep_timer <= 0.0 or self.sweep_x <= 32.0:
+            self.sweep_x += self.attack_direction * 600.0 * dt
+            if self.sweep_timer <= 0.0 or not 32.0 < self.sweep_x < 608.0:
                 self.sweep_active = False
                 self.sweep_timer = 0.0
                 # Overheated cutter enters vulnerability
@@ -166,7 +177,7 @@ class Greenkeeper(Boss):
         # Execute bulldozer charge if active
         if self.charge_duration > 0.0:
             self.charge_duration -= dt
-            self.x = max(32.0, self.x + self.charge_vx * dt)
+            self.x = max(32.0, min(608.0 - self.width, self.x + self.charge_vx * dt))
             self.rect.x = int(self.x)
             self._update_weak_point()
             if self.charge_duration <= 0.0:
@@ -196,13 +207,16 @@ class Greenkeeper(Boss):
     def _schedule_next_attack(self, player_pos: Tuple[float, float]):
         """Schedule telegraph warning for phase-specific attacks."""
         px, py = player_pos
+        self.attack_direction = 1 if self.facing == 'right' else -1
+        sweep_lane = (pygame.Rect(self.rect.right - 5, 216, max(1, 608 - self.rect.right + 5), 20)
+                      if self.attack_direction > 0 else pygame.Rect(32, 216, 440, 20))
 
         if self.current_phase == PHASE_1:
             # Turf mortar barrage
             self.current_attack_type = "mortar"
             # Reticle 1 at player x clamped to arena floor, Reticle 2 offset by 70px
-            reticle_1_x = max(64.0, min(420.0, px))
-            reticle_2_x = max(64.0, min(420.0, px + (70.0 if px < 240.0 else -70.0)))
+            reticle_1_x = max(64.0, min(600.0, px))
+            reticle_2_x = max(64.0, min(600.0, px + (70.0 if px < 320.0 else -70.0)))
             self.pending_mortar_targets = [
                 (reticle_1_x, 232.0),
                 (reticle_2_x, 232.0),
@@ -229,7 +243,7 @@ class Greenkeeper(Boss):
                     BossAttackTelegraph(
                         attack_type="sweep",
                         duration=0.7,
-                        target_rect=pygame.Rect(32, 216, 440, 20),
+                        target_rect=sweep_lane,
                         color=(255, 60, 60),
                     )
                 )
@@ -240,7 +254,8 @@ class Greenkeeper(Boss):
                     BossAttackTelegraph(
                         attack_type="charge",
                         duration=0.6,
-                        target_rect=pygame.Rect(int(self.x - 80), int(self.y + (48 if self.heavy_sprites is not None else 0)), 80, 48),
+                        target_rect=pygame.Rect(int(self.rect.right if self.attack_direction > 0 else self.x - 80),
+                                                int(self.y + (48 if self.heavy_sprites is not None else 0)), 80, 48),
                         color=(255, 140, 40),
                     )
                 )
@@ -252,7 +267,7 @@ class Greenkeeper(Boss):
             # Fast alternating attack: rapid mortar or fast pulse
             if self.volley_count % 2 == 0:
                 self.current_attack_type = "mortar"
-                reticle_x = max(64.0, min(420.0, px))
+                reticle_x = max(64.0, min(600.0, px))
                 self.pending_mortar_targets = [(reticle_x, 232.0)]
                 self.telegraphs.clear()
                 self.telegraphs.append(
@@ -271,7 +286,7 @@ class Greenkeeper(Boss):
                     BossAttackTelegraph(
                         attack_type="sweep",
                         duration=0.55,
-                        target_rect=pygame.Rect(32, 216, 440, 20),
+                        target_rect=sweep_lane,
                         color=(255, 60, 60),
                     )
                 )
@@ -314,12 +329,15 @@ class Greenkeeper(Boss):
             self.sweep_active = True
             self.sweep_timer = 0.8
             self.sweep_x = self.x + (5.0 if self.heavy_sprites is not None else 0.0)
+            if self.attack_direction > 0:
+                self.sweep_x = self.rect.right - 5.0
             self.sweep_y = self.y + 80.0 if self.heavy_sprites is not None else 224.0
             self.phase_state = STATE_ATTACK
 
         elif self.current_attack_type == "charge":
             # Surge forward 70px
-            self.charge_vx = -160.0
+            self.charge_vx = self.attack_direction * 160.0
+            self.facing = 'right' if self.attack_direction > 0 else 'left'
             self.charge_duration = 0.44
             self.phase_state = STATE_ATTACK
 
@@ -382,11 +400,13 @@ class Greenkeeper(Boss):
                                     progress=t.progress, time=self.anim_timer)
 
         # 2. Render Greenkeeper Chassis
-        sprite = (self.heavy_logical_sprites[self._heavy_pose()] if self.heavy_sprites is not None
+        logical = self.heavy_logical_right if self.facing == 'right' else self.heavy_logical_sprites
+        native = self.heavy_right if self.facing == 'right' else self.heavy_sprites
+        sprite = (logical[self._heavy_pose()] if self.heavy_sprites is not None
                   else None)
         if sprite is not None:
             if self.heavy_sprites is not None and crt is not None:
-                crt.composite_native(self.heavy_sprites[self._heavy_pose()], (sc_x, sc_y), (128, 96))
+                crt.composite_native(native[self._heavy_pose()], (sc_x, sc_y), (128, 96))
             else:
                 surface.blit(sprite, (sc_x, sc_y))
             # Dynamic HUD targeting brackets over exposed weak point core
@@ -404,6 +424,8 @@ class Greenkeeper(Boss):
                 pygame.draw.line(surface, reticle_col, (wx + self.weak_point_rect.width, wy + self.weak_point_rect.height), (wx + self.weak_point_rect.width, wy + self.weak_point_rect.height - 4), 1)
         else:
             # Fallback vector blockout
+            def fx(x):
+                return sc_x + (self.width - x if self.facing == 'right' else x)
             # Tank treads (bottom 12px)
             tread_rect = pygame.Rect(sc_x, sc_y + 36, self.width, 12)
             pygame.draw.rect(surface, (18, 22, 26), tread_rect)
@@ -418,20 +440,20 @@ class Greenkeeper(Boss):
 
             # Heavy bulldozer excavator scoop on front (left side)
             scoop_points = [
-                (sc_x, sc_y + 20),
-                (sc_x + 12, sc_y + 20),
-                (sc_x + 6, sc_y + 44),
-                (sc_x - 4, sc_y + 44),
+                (fx(0), sc_y + 20),
+                (fx(12), sc_y + 20),
+                (fx(6), sc_y + 44),
+                (fx(-4), sc_y + 44),
             ]
             pygame.draw.polygon(surface, (50, 60, 70), scoop_points)
             pygame.draw.polygon(surface, config.COLOR_FIBO_GOLD, scoop_points, 1)
 
             # Mortar turret housing on top (right side)
-            turret_rect = pygame.Rect(sc_x + 24, sc_y + 2, 28, 14)
+            turret_rect = pygame.Rect(fx(52) if self.facing == 'right' else fx(24), sc_y + 2, 28, 14)
             pygame.draw.rect(surface, (22, 30, 38), turret_rect)
             pygame.draw.rect(surface, (60, 75, 90), turret_rect, 1)
             # Mortar cannon tube angled up and left
-            pygame.draw.line(surface, config.COLOR_CORE_STEEL, (sc_x + 30, sc_y + 8), (sc_x + 18, sc_y - 4), 4)
+            pygame.draw.line(surface, config.COLOR_CORE_STEEL, (fx(30), sc_y + 8), (fx(18), sc_y - 4), 4)
 
             # 3. Render Weak Point Core (Reactor Housing)
             if self.weak_point_rect:

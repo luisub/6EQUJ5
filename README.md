@@ -132,6 +132,23 @@ Earth is only the beginning. Follow the signal into **eleven distant worlds**, c
 
 ### Creatures in motion
 
+Earth's robot patrols are now **cyber-insects**: winged Wasps, armored Beetles and
+blade-limbed Mantises. Grounded insects step as they travel and stop stepping when
+they stop; Wasps flap their wings and flex their legs. Their existing shields,
+teleports, ranged attacks and lunges remain part of the fight.
+
+![Cyber-insect Earth patrols with moving legs and wings](docs/media/readme/earth-cyber-insects.gif)
+
+*[Earth patrol still →](docs/media/readme/earth-cyber-insects.png)*
+
+Bosses and ordinary enemies now turn when Mateo crosses to the other side,
+including during jumps. Boss weak points and hit effects follow the turn.
+Committed lunges and charges keep their announced direction until they finish.
+
+![Mateo jumps past the Beacon Forger, which turns right to face him](docs/media/readme/beacon-forger-turn.gif)
+
+*[Facing left →](docs/media/readme/beacon-forger-left.png) · [Facing right →](docs/media/readme/beacon-forger-right.png)*
+
 Dinosaurs roam the SCAN-H ruins. Rift Raptors, golden Resonance Effigies and mechanical Beacon Mites now move their legs as they travel; their strides stop when they stop. Enemy arrivals no longer add an “incoming” label.
 
 <table>

@@ -9,7 +9,7 @@ remains the launch command. Runtime resources live in `src/assets/` and `src/dat
 The [repository audit](../maintenance/REPOSITORY_AUDIT.md) records the current
 [tree](../maintenance/repository-tree.txt) and [verification](../maintenance/verification.json).
 The canonical-layout audit reduced runtime assets from 425 to 295; the latest
-soundtrack, motion and finale additions bring the current total to 315. In that audit,
+soundtrack, finale and insect replacements bring the current total to 304. In that audit,
 76 retained files acquired canonical
 paths and 136 retired project files are recoverable under
 `_trash/2026-11-14_asset_layout/`. Music/SFX use `assets/audio`; all bitmap scene
@@ -18,7 +18,7 @@ locations with one shared far plane. Mateo and enemy animation manifests reuse
 canonical images without changing timing. No exact runtime-media duplicates remain.
 
 Art masters, briefs and research stay under `src/art/`; tests and deterministic
-fixtures stay in `src/tests/`. The 87 maintained test modules include the unique
+fixtures stay in `src/tests/`. The 88 maintained test modules include the unique
 transaction checks migrated from the retired approach builder. The old comparison
 sheet product and its missing historical-portrait check were retired together;
 the missing source was not recovered or replaced with modern artwork.
@@ -100,7 +100,7 @@ the ship reaches its destination before a centered vortex opens. The 4.1-second
 transition is immediately skippable, but arrival still requires a successful save.
 
 The README uses promotional title artwork, fifteen embedded renderer screenshots
-and seven renderer GIFs, with seven additional full-scene stills linked. Capture fixtures are disclosed in the media notes.
+and nine renderer GIFs, with ten additional full-scene stills linked. Capture fixtures are disclosed in the media notes.
 
 ## Remaining work and evidence
 
@@ -187,3 +187,41 @@ saved park page, streams the homecoming music and resets correctly on New game.
 Park render P95 measured 5.49 ms with dummy SDL during that bounded probe; this
 is not native-display certification. All 29 README media hashes, two new archive
 records and checked local links verify. Formal gate statuses are unchanged.
+
+## Enemy facing and Earth cyber-insects
+
+All campaign bosses and Greenkeeper now track Mateo's side, including overhead
+crossings, with a small center deadband. Body and hit-flash mirrors are cached;
+weak points, Greenkeeper's mortar anchor and final destruction fragments follow
+the visible orientation. Greenkeeper's sweep/charge and Core Prime's directional
+bolts can attack either side. Charge warnings retain their committed direction.
+Retry resets facing. Ordinary enemies render both directions and track a crossed
+target during recovery/windup; moving lunges retain their travel direction.
+
+The nine Earth enemy roles now use three generated cyber-insect families:
+Circuit/Phase/Temporal Wasps, Surge/Shield/Chrysalis Beetles, and
+Bastion/Razor/Precursor Mantises. Existing IDs, collision dimensions, combat roles,
+rewards and progression are retained. Four registered native poses show legs and
+wings moving; grounded steps follow distance, and flight follows actor time.
+Stopped, stunned or paused ground insects do not keep stepping. Native rendering
+keeps the detail at 960×540 with a thin Assisted-mode outline. Missing guardian
+art can use the updated insect fallback; all eleven normal guardians still use
+their own distinct bodies.
+
+Three source masters and a complete prompt/registration recipe reproduce all 37
+exports exactly. Forty-eight former image/manifest files are archived with
+restoration hashes. The installed wheel has 304 asset files; a clean installation
+outside the checkout renders all nine insect roles and all eleven guardians in
+both directions. Five maintained native captures show actual patrol motion and
+a mapped jump across the Beacon Forger, using isolated saves and disclosed prior
+progress, placement and extended cooldown fixtures. They are visual checks, not
+a human full-game playthrough. Formal gates remain unchanged.
+
+Final full suite: **1,399 passed, one timing failure in 188.87 seconds**. The
+unchanged FIELD_OPS render budget measured 5.334 ms P95 against 5.0 ms; the same
+profile check passed alone in 3.36 seconds. All 94 final focused facing, scenery,
+rendering and lighting checks pass, including the 40 new facing/animation cases.
+All 52 levels, 14 protected asset groups, 34 README capture hashes, 48 archive
+records and 169 checked local links verify. All 33 retired runtime images match
+their archived original bytes. These results do not close the native-display
+performance or human-playthrough gates.

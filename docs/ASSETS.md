@@ -21,7 +21,7 @@ packages. Temporary output and `_trash` are never runtime inputs.
 | Park families | `sprites/people/park_family/` | `engine/scenes/restored_earth.py`; four cached walking poses and mirrored variants |
 | Alien guardians and Earth bosses | `sprites/bosses/` | Boss controllers and family manifests; Greenkeeper uses `greenkeeper/` |
 | Mateo | `sprites/mateo/<outfit>/` | One animation manifest, individual poses and bunker strips; frame paths stay within this directory |
-| Patrol enemies | `sprites/enemies/<type>/` | Manifests preserve animation order/timing while repeated slots share one image |
+| Earth patrol enemies | `sprites/enemies/<type>/` | Nine existing combat roles use four native poses from three cyber-insect families; `tools/build_cyber_insects.py` |
 | Planet threats | `sprites/planet_threats/<type>/` | `engine/planet_encounters.py`, `world_hazards.py`; `tools/build_planet_threat.py` |
 | Combat and travel effects | `effects/{energy_filament,maser_discharge,firing_flash,galaxy_transit}/` | Validated family loaders and builders |
 | Civilization dossiers | `civilizations/` | Portrait, environment vignette and constellation chart per civilization; these small UI plates are not scene backgrounds |
@@ -34,6 +34,17 @@ locations. Stable logical identifiers in level data may retain old version
 suffixes for compatibility; they map to the canonical directories above.
 
 ## Manifests and rebuilding
+
+`art/source/enemies/cyber_insects/recipe.json` maps the nine Earth combat roles to
+Wasp, Beetle and Mantis masters. Each has four horizontal motion poses with one
+shared crop and registration. Exports use twice the existing collision dimensions;
+the manager caches both logical and native frames, mirrored variants and effects.
+Grounded steps follow actual travel distance; flight poses follow actor time.
+Stopping, stun and pause stop grounded stepping. The renderer validates frame
+hashes and declared dimensions, and the guardian fallback loader accepts these
+registered native poses. All eleven normal guardian bodies remain their own art.
+`build_cyber_insects --output NEW_DIRECTORY` reproduces 37 files; `--promote`
+archives replaced images, the manifest and retired unreferenced robot poses.
 
 `art/source/finale/recipe.json` owns four generated masters, full prompts and
 registration settings. `build_finale_art` exports two 1920×540 panoramas, the

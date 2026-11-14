@@ -246,7 +246,9 @@ def test_existing_guardian_fallbacks_are_distinct_and_verified(display):
         image = _load_existing_guardian(ASSETS_DIR, guardian)
         assert image is not None and image.get_size() == (256, 192)
         guardian_hashes.add(hashlib.sha256(pygame.image.tobytes(image, 'RGBA')).hexdigest())
-    assert len(guardian_hashes) >= 9  # Nine existing authored enemy silhouettes are reused.
+    # Missing guardian art reuses three authored insect families. The eleven
+    # normal guardian bodies remain distinct and are checked separately.
+    assert len(guardian_hashes) >= 3
 
 
 @pytest.mark.parametrize('defect', ['missing', 'corrupt'])

@@ -40,12 +40,13 @@ class CampaignBoss(Boss):
         self.hit_flash_timer = 0.0
         self._flash_source = None
         self._flash_surface = None
+        self._art_variants = None
         self._update_weak_point()
 
     def _update_weak_point(self):
         self.weak_point_rect = pygame.Rect(0, 0, 30, 24)
         dx, dy = self.tuning['weak_point_offsets'].get(self.target_id, (0, 0))
-        self.weak_point_rect.center = (self.rect.centerx + dx, self.rect.centery + dy)
+        self.weak_point_rect.center = (self.rect.centerx + (-dx if self.facing == 'right' else dx), self.rect.centery + dy)
         self.weak_point_exposed = self.phase_state == STATE_RECOVERY
 
     def trigger_transition(self, target_phase):
@@ -69,10 +70,14 @@ class CampaignBoss(Boss):
         return result
 
     def update(self, dt, player_pos=(120, 208)):
+        if dt <= 0 or not math.isfinite(dt):
+            return
+        self.face_target(player_pos)
         super().update(dt)
         self.animation_time += dt
         self.hit_flash_timer = max(0.0, self.hit_flash_timer - dt)
         if self.is_dead or self.phase_state == STATE_TRANSITION:
+            self._update_weak_point()
             return
         if self.phase_state == STATE_TELEGRAPH:
             self.attack_timer -= dt
@@ -93,6 +98,7 @@ class CampaignBoss(Boss):
                 self.prepare(player_pos)
                 self.phase_state = STATE_TELEGRAPH
                 self.attack_timer = 1.25
+        self.face_target(player_pos)  # Teleport attacks may have crossed the target.
         self._update_weak_point()
 
     def prepare(self, player_pos):
@@ -126,15 +132,26 @@ class CampaignBoss(Boss):
         art = getattr(self, 'art_surface', None)
         if art is not None and art is not self._flash_source:
             self._flash_source = art
-            self._flash_surface = art.copy()
-            self._flash_surface.fill((*self.color, 0), special_flags=pygame.BLEND_RGB_ADD)
+            mirror = pygame.transform.flip(art, True, False)
+            flashes = []
+            for image in (art, mirror):
+                flash = image.copy()
+                flash.fill((*self.color, 0), special_flags=pygame.BLEND_RGB_ADD)
+                flashes.append(flash)
+            self._art_variants = (art, mirror)
+            self._flash_variants = tuple(flashes)
+            self._logical_variants = tuple(pygame.transform.scale(image, (128, 96)) for image in (art, mirror))
+        if art is not None:
+            side = int(self.facing == 'right')
+            art = self._art_variants[side]
+            self._flash_surface = self._flash_variants[side]
         if art is not None and crt is not None:
             crt.composite_native(art, (r.centerx - 64, r.bottom - 96), (128, 96))
             if self.hit_flash_timer > 0:
                 self._flash_surface.set_alpha(round(150 * self.hit_flash_timer / 0.12))
                 crt.composite_native(self._flash_surface, (r.centerx - 64, r.bottom - 96), (128, 96))
         elif art is not None:
-            surface.blit(pygame.transform.smoothscale(art, (128, 96)), (r.centerx - 64, r.bottom - 96))
+            surface.blit(self._logical_variants[side], (r.centerx - 64, r.bottom - 96))
         else:
             self.draw_body(surface, r)
         if self.weak_point_exposed:
@@ -240,7 +257,9 @@ class CorePrime(CampaignBoss):
         self.attack_rects = [self.pending_lane]
         if self.current_phase >= 3:
             for vy in (-45, 45):
-                self.projectiles.append(BossProjectile('archon_bolt', *self.rect.center, -115, vy, damage=12, color=self.color))
+                self.projectiles.append(BossProjectile('archon_bolt', *self.rect.center,
+                                                       115 if self.facing == 'right' else -115, vy,
+                                                       damage=12, color=self.color))
 
     def reset_to_pristine(self):
         super().reset_to_pristine()

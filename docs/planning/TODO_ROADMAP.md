@@ -6,6 +6,13 @@ Repository organization was audited on 2026-11-14. Active sources and fixtures w
 
 # Execution roadmap
 
+2026-11-14 enemy increment: every boss and enemy presentation supports both
+facings, including mirrored weak points, Greenkeeper anchors/charges and boss
+destruction fragments. Nine Earth robot roles now use three native cyber-insect
+families with articulated legs/wings. Existing mechanics, collision dimensions
+and progression remain. See current validation; formal motion and playtest gates
+retain their status.
+
 2026-11-14 ending increment: original green-code Core chamber/projection, six
 liberation pages and a walkable restored Central Park with four aftermath pages
 are implemented. Completed-save recovery, page-save retries and explicit park

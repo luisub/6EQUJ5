@@ -408,7 +408,7 @@ class BossScene(BaseScene):
 
         # 5. Update Boss AI and attack cycles
         if not self.player.is_dead and not self.boss.is_dead:
-            self.boss.update(dt, player_pos=(self.player.x, self.player.y))
+            self.boss.update(dt, player_pos=self.player.rect.center)
 
             # Trigger mortar launch sfx and smoke
             curr_boss_projs = len(self.boss.projectiles)

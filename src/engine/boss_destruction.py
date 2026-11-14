@@ -20,6 +20,8 @@ class BossDestruction:
         self.color = getattr(boss, 'color', (255, 165, 75))
         rng = random.Random(boss.target_id)
         art = getattr(boss, 'art_surface', None)
+        if art is not None and getattr(boss, 'facing', 'left') == 'right':
+            art = pygame.transform.flip(art, True, False)
         if art is None:
             # Capture the existing silhouette, including bosses drawn procedurally.
             from .world import Camera

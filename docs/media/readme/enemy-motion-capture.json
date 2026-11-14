@@ -1,0 +1,63 @@
+{
+  "purpose": "Staged enemy motion review, not a campaign playthrough",
+  "isolated_saves": true,
+  "drivers": "dummy",
+  "crt": false,
+  "captures": [
+    {
+      "file": "earth-cyber-insects.png",
+      "size": [
+        960,
+        540
+      ],
+      "setup": "Ohio fixture with three insect roles, fixed player and extended enemy attack cooldowns; actual patrol updates.",
+      "sha256": "f7944f34065606c9ed3767b12edeedf1150e35184ef2a9b6a082f9f25024bdab",
+      "bytes": 523739
+    },
+    {
+      "file": "earth-cyber-insects.gif",
+      "size": [
+        960,
+        540
+      ],
+      "frames": 40,
+      "frame_duration_ms": 100,
+      "setup": "Four seconds of actual patrol, wing and leg motion; staged actors/cooldowns, native pixels.",
+      "sha256": "d00365227b0ecebc7f8daf7b0b141449295d95017bd1dd2465122cc078ca4e93",
+      "bytes": 477638
+    },
+    {
+      "file": "beacon-forger-left.png",
+      "size": [
+        960,
+        540
+      ],
+      "setup": "Prior ten victories/receipts and left-side player position staged; no boss defeat injected.",
+      "sha256": "a0c350d5d649848b38b1abb1f3cbfeafec8de8ec392badb81e43a0233d1032b2",
+      "bytes": 663158
+    },
+    {
+      "file": "beacon-forger-right.png",
+      "size": [
+        960,
+        540
+      ],
+      "setup": "Mapped Right and Space cross the guardian; body turns right through normal updates.",
+      "sha256": "808dfdd5268f747bb1c96e99166206459e05a08d72f8f3ea849f2f1a3b02935c",
+      "bytes": 656720
+    },
+    {
+      "file": "beacon-forger-turn.gif",
+      "size": [
+        960,
+        540
+      ],
+      "frames": 25,
+      "frame_duration_ms": 100,
+      "setup": "Mapped jump and movement from a disclosed left-side fixture; extended boss cooldown; normal facing updates.",
+      "sha256": "09fbba0767441f73c8089e105ab80840f5d35c601b3e80dd943c563fd45fcfbe",
+      "bytes": 816012
+    }
+  ],
+  "command": ".venv/bin/python -m video_game.tools.capture_enemy_motion --output _temp/enemy-motion-NEW"
+}

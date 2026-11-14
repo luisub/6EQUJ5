@@ -90,13 +90,20 @@ def _load_existing_guardian(asset_root, boss_id):
                 or entry['animations']['patrol']['frames'][0] != relative.as_posix()):
             raise ValueError('invalid enemy fallback manifest')
         path = _inside_without_symlinks(root, relative)
+        density = entry.get('density', 1)
+        if density not in (1, 2):
+            raise ValueError('invalid enemy fallback density')
+        if density == 2:
+            expected_hash = entry.get('frame_hashes', {}).get(relative.as_posix())
+            if not isinstance(expected_hash, str) or not re.fullmatch('[a-f0-9]{64}', expected_hash):
+                raise ValueError('invalid enemy fallback hash')
         if _digest(path) != expected_hash:
             raise ValueError('enemy fallback hash mismatch')
         image = pygame.image.load(str(path)).convert_alpha()
-        if image.get_size() != (width,height):
+        if image.get_size() != (width * density, height * density):
             raise ValueError('enemy fallback dimensions mismatch')
-        scale = min(224 / width, 180 / height)
-        image = pygame.transform.scale(image, (round(width * scale), round(height * scale)))
+        scale = min(224 / image.get_width(), 180 / image.get_height())
+        image = pygame.transform.scale(image, (round(image.get_width() * scale), round(image.get_height() * scale)))
         body = pygame.Surface((256,192),pygame.SRCALPHA).convert_alpha()
         body.blit(image, ((256-image.get_width())//2, 192-image.get_height()))
         return body

@@ -1,5 +1,23 @@
 # Progress log
 
+2026-11-14 — Enemy facing and Earth cyber-insects. Campaign guardians, Earth
+bosses and Greenkeeper turn when Mateo crosses their center; reflected weak
+points, muzzle anchors, hit flashes and destruction fragments follow their body.
+Directional attacks work on either side, while warned charges retain their
+committed direction. All ordinary enemy families render both facings. Nine Earth
+roles now use wasp, beetle and mantis art with four native poses; grounded legs
+follow actual travel and flight poses follow actor time. Existing combat IDs,
+dimensions and progression remain. Three source masters rebuild 37 exports
+exactly; 48 former files are archived, including all 33 removed runtime images.
+Five maintained README captures show patrols and a mapped jump across the Beacon
+Forger. A clean installed wheel boots outside the checkout and renders nine
+insect roles and eleven guardians in both directions. Final full suite: 1,399
+passed, one unchanged FIELD_OPS timing failure at 5.334 ms versus 5.0 ms; isolated
+profile passed in 3.36 seconds. All 94 focused checks, 52 levels, 14 asset groups,
+34 media hashes, archive records and 169 checked local links pass. Dummy SDL and
+staged captures do not establish native-display or human-playthrough acceptance;
+formal gates remain unchanged.
+
 2026-11-13 — Repository separation. Current game retained from the full working tree, historical AI recovered separately, flat src layout introduced, and live-model runtime dependency removed. Detailed verification and preservation records are in [migration report](../../_trash/2026-11-14_repository_compaction/docs/migration/REPORT.md).
 
 The complete earlier log is retained at `_trash/2026-11-13_separation/documentation-before-integration/docs/planning/PROGRESS_LOG.md`; no historical entries were discarded.

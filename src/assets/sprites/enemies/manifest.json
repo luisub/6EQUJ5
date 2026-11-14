@@ -2,7 +2,7 @@
   "schema_version": 1,
   "enemies": {
     "core_recon_drone": {
-      "name": "Core Recon Drone",
+      "name": "Circuit Wasp",
       "width": 24,
       "height": 20,
       "origin": [
@@ -23,51 +23,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/core_recon_drone/patrol_1.png",
-            "sprites/enemies/core_recon_drone/patrol_2.png"
+            "sprites/enemies/core_recon_drone/patrol_2.png",
+            "sprites/enemies/core_recon_drone/patrol_3.png",
+            "sprites/enemies/core_recon_drone/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/core_recon_drone/windup_1.png",
-            "sprites/enemies/core_recon_drone/windup_2.png"
+            "sprites/enemies/core_recon_drone/patrol_1.png"
           ],
           "frame_duration_ms": 150,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/core_recon_drone/attack.png"
+            "sprites/enemies/core_recon_drone/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/core_recon_drone/recovery.png"
+            "sprites/enemies/core_recon_drone/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/core_recon_drone/hurt.png"
+            "sprites/enemies/core_recon_drone/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/core_recon_drone/death.png"
+            "sprites/enemies/core_recon_drone/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "flight",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/core_recon_drone/patrol_1.png": "39060b5793caebc6e917a2c004ce6a92aaaeaeb5e56cf8c1274d326b17439a2e",
+        "sprites/enemies/core_recon_drone/patrol_2.png": "48454ef92bfbafd567f2c2fe5e9cb32b8d26c740d4b9f8effd89674e60afe1b5",
+        "sprites/enemies/core_recon_drone/patrol_3.png": "d9f570f145e2a0bd24e6562fa9964c4cce23407054c57544f5ea4a4f2a7972e3",
+        "sprites/enemies/core_recon_drone/patrol_4.png": "db0186022a1be458571a380e182884986b9692ae0ad3cc5166de1faad53ca9ec"
+      },
+      "provenance": {
+        "family": "wasp",
+        "source": "src/art/source/enemies/cyber_insects/wasp/master.png",
+        "source_sha256": "5976e1c7791b2d6221b33ef822c4d4628ff8e9ee66df2b84a22a3fe60963685a",
+        "shared_crop": [
+          31,
+          76,
+          509,
+          573
+        ],
+        "frame_size": [
+          48,
+          40
+        ],
+        "registered_size": [
+          38,
+          39
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "static_hound": {
-      "name": "Static Hound",
+      "name": "Surge Beetle",
       "width": 32,
       "height": 20,
       "origin": [
@@ -92,50 +124,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/static_hound/patrol_1.png",
-            "sprites/enemies/static_hound/patrol_2.png"
+            "sprites/enemies/static_hound/patrol_2.png",
+            "sprites/enemies/static_hound/patrol_3.png",
+            "sprites/enemies/static_hound/patrol_4.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/static_hound/windup.png"
+            "sprites/enemies/static_hound/patrol_1.png"
           ],
           "frame_duration_ms": 300,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/static_hound/pounce.png"
+            "sprites/enemies/static_hound/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/static_hound/recovery.png"
+            "sprites/enemies/static_hound/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/static_hound/hurt.png"
+            "sprites/enemies/static_hound/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/static_hound/death.png"
+            "sprites/enemies/static_hound/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "stride",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/static_hound/patrol_1.png": "c6cb90ca5c67361245b4438a8774337b4c9ef2b29a9ff125a23d1ae3bab5b667",
+        "sprites/enemies/static_hound/patrol_2.png": "b3e13e8f0d2ae693f4c395e421238d64f835b89e29f50926a2c6ff0b0ce50657",
+        "sprites/enemies/static_hound/patrol_3.png": "f35842936158c8c0dc4cfce768d896f65249a2d99e6dfc30ddac2bce181bb3ed",
+        "sprites/enemies/static_hound/patrol_4.png": "452efaf2fcb681394dcfb1dad90f5b3247d649812b5bee5f00fbc7a16f5ccc8a"
+      },
+      "provenance": {
+        "family": "beetle",
+        "source": "src/art/source/enemies/cyber_insects/beetle/master.png",
+        "source_sha256": "5fa8894eddddae7537d252fa39aa6558600cf1d600cc6cd601e0b9faf9a043aa",
+        "shared_crop": [
+          29,
+          203,
+          525,
+          514
+        ],
+        "frame_size": [
+          64,
+          40
+        ],
+        "registered_size": [
+          62,
+          39
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "core_enforcer": {
-      "name": "Core Chassis Enforcer",
+      "name": "Bastion Mantis",
       "width": 24,
       "height": 32,
       "origin": [
@@ -146,50 +211,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/core_enforcer/patrol_1.png",
-            "sprites/enemies/core_enforcer/patrol_2.png"
+            "sprites/enemies/core_enforcer/patrol_2.png",
+            "sprites/enemies/core_enforcer/patrol_3.png",
+            "sprites/enemies/core_enforcer/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/core_enforcer/windup.png"
+            "sprites/enemies/core_enforcer/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/core_enforcer/attack.png"
+            "sprites/enemies/core_enforcer/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/core_enforcer/recovery.png"
+            "sprites/enemies/core_enforcer/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/core_enforcer/hurt.png"
+            "sprites/enemies/core_enforcer/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/core_enforcer/death.png"
+            "sprites/enemies/core_enforcer/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "stride",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/core_enforcer/patrol_1.png": "e508b9f01dc82fd4479764db0014b3bb5d52da0782bde57e9cbeffd5ddb8ca74",
+        "sprites/enemies/core_enforcer/patrol_2.png": "2241095f7bce8697cf11f110c9e812218eda4d1f913205c25b340211f2b9f6a3",
+        "sprites/enemies/core_enforcer/patrol_3.png": "c750aebcf5fdb0a6ee5f930e0f6a96129915b84633c9fb29754f1f20cb1e888a",
+        "sprites/enemies/core_enforcer/patrol_4.png": "05b35a656f3dc9a501b5cdfe21ca171cf9039f55d86b98eabfac0d6855509daa"
+      },
+      "provenance": {
+        "family": "mantis",
+        "source": "src/art/source/enemies/cyber_insects/mantis/master.png",
+        "source_sha256": "888056e30adac50aeae9fa741216eae0dc5753cb0c44cddb711539e47409f3db",
+        "shared_crop": [
+          15,
+          17,
+          531,
+          665
+        ],
+        "frame_size": [
+          48,
+          64
+        ],
+        "registered_size": [
+          46,
+          58
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "core_operative": {
-      "name": "Core Assimilated Operative",
+      "name": "Razor Mantis",
       "width": 20,
       "height": 32,
       "origin": [
@@ -200,50 +298,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/core_operative/patrol_1.png",
-            "sprites/enemies/core_operative/patrol_2.png"
+            "sprites/enemies/core_operative/patrol_2.png",
+            "sprites/enemies/core_operative/patrol_3.png",
+            "sprites/enemies/core_operative/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/core_operative/windup.png"
+            "sprites/enemies/core_operative/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/core_operative/attack.png"
+            "sprites/enemies/core_operative/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/core_operative/recovery.png"
+            "sprites/enemies/core_operative/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/core_operative/hurt.png"
+            "sprites/enemies/core_operative/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/core_operative/death.png"
+            "sprites/enemies/core_operative/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "stride",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/core_operative/patrol_1.png": "7bc0c220c24606cb405507ca3f033ce9a605b9d2475effc200855abd10d39f98",
+        "sprites/enemies/core_operative/patrol_2.png": "39dad6fd3a049a1ec0482c063f64144db2a3f710aa1b718cb7b2044b8a0ef383",
+        "sprites/enemies/core_operative/patrol_3.png": "e968931234f768cc99cf1723d907e053c3f7196328d542b0390661039633e82d",
+        "sprites/enemies/core_operative/patrol_4.png": "22294edb934679850bdc83f6711abdd303385fc27725aa124825231d7c5e5456"
+      },
+      "provenance": {
+        "family": "mantis",
+        "source": "src/art/source/enemies/cyber_insects/mantis/master.png",
+        "source_sha256": "888056e30adac50aeae9fa741216eae0dc5753cb0c44cddb711539e47409f3db",
+        "shared_crop": [
+          15,
+          17,
+          531,
+          665
+        ],
+        "frame_size": [
+          40,
+          64
+        ],
+        "registered_size": [
+          38,
+          48
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "shield_hound": {
-      "name": "Static Shield Hound",
+      "name": "Shield Beetle",
       "width": 32,
       "height": 24,
       "origin": [
@@ -254,50 +385,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/shield_hound/patrol_1.png",
-            "sprites/enemies/shield_hound/patrol_2.png"
+            "sprites/enemies/shield_hound/patrol_2.png",
+            "sprites/enemies/shield_hound/patrol_3.png",
+            "sprites/enemies/shield_hound/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/shield_hound/patrol_2.png"
+            "sprites/enemies/shield_hound/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/shield_hound/patrol_2.png"
+            "sprites/enemies/shield_hound/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/shield_hound/patrol_2.png"
+            "sprites/enemies/shield_hound/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/shield_hound/patrol_2.png"
+            "sprites/enemies/shield_hound/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/shield_hound/death.png"
+            "sprites/enemies/shield_hound/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "stride",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/shield_hound/patrol_1.png": "c7117428d6e5a4e153f3b7586390d4a35d7ac8bce7e2c8c76732845deea12e04",
+        "sprites/enemies/shield_hound/patrol_2.png": "2e48eea40e54e223de5fb8dd16a634b56c8564994e92cb5d7ebdfeb2c30f0097",
+        "sprites/enemies/shield_hound/patrol_3.png": "94a4b9bbc3c5f1a8361cf66c08b9031446a1d8d034e826ffbc18b3d236585040",
+        "sprites/enemies/shield_hound/patrol_4.png": "d1f3e15933f77c18e1aabc8de8918779431b9a5fa2872b8b032de988ac9332c5"
+      },
+      "provenance": {
+        "family": "beetle",
+        "source": "src/art/source/enemies/cyber_insects/beetle/master.png",
+        "source_sha256": "5fa8894eddddae7537d252fa39aa6558600cf1d600cc6cd601e0b9faf9a043aa",
+        "shared_crop": [
+          29,
+          203,
+          525,
+          514
+        ],
+        "frame_size": [
+          64,
+          48
+        ],
+        "registered_size": [
+          62,
+          39
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "phase_watcher": {
-      "name": "Phase Watcher",
+      "name": "Phase Wasp",
       "width": 20,
       "height": 36,
       "origin": [
@@ -308,50 +472,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/phase_watcher/patrol_1.png",
-            "sprites/enemies/phase_watcher/patrol_1.png"
+            "sprites/enemies/phase_watcher/patrol_2.png",
+            "sprites/enemies/phase_watcher/patrol_3.png",
+            "sprites/enemies/phase_watcher/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/phase_watcher/windup.png"
+            "sprites/enemies/phase_watcher/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/phase_watcher/attack.png"
+            "sprites/enemies/phase_watcher/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/phase_watcher/windup.png"
+            "sprites/enemies/phase_watcher/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/phase_watcher/windup.png"
+            "sprites/enemies/phase_watcher/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/phase_watcher/death.png"
+            "sprites/enemies/phase_watcher/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "flight",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/phase_watcher/patrol_1.png": "96acf168bb23150b8b9209c166a77926a33c73916c6c11b0e2fec6b36a1f3027",
+        "sprites/enemies/phase_watcher/patrol_2.png": "2057f8ab59e20861c287c81aeb53774ede6f3123aa6a706e86392571983af7a3",
+        "sprites/enemies/phase_watcher/patrol_3.png": "74faa5933ca3ba4cc0ef41c308e0deeaca7bfd07de1095381a4b4cb8f58a04e9",
+        "sprites/enemies/phase_watcher/patrol_4.png": "ddd2c3f5263a5ffa3d2aab78d94a99ef872bfebacc835d8082f01afd2cbd4bc6"
+      },
+      "provenance": {
+        "family": "wasp",
+        "source": "src/art/source/enemies/cyber_insects/wasp/master.png",
+        "source_sha256": "5976e1c7791b2d6221b33ef822c4d4628ff8e9ee66df2b84a22a3fe60963685a",
+        "shared_crop": [
+          31,
+          76,
+          509,
+          573
+        ],
+        "frame_size": [
+          40,
+          72
+        ],
+        "registered_size": [
+          38,
+          40
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "chrysalis_splicer": {
-      "name": "Chrysalis Splicer",
+      "name": "Chrysalis Beetle",
       "width": 28,
       "height": 24,
       "origin": [
@@ -362,50 +559,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/chrysalis_splicer/patrol_1.png",
-            "sprites/enemies/chrysalis_splicer/patrol_1.png"
+            "sprites/enemies/chrysalis_splicer/patrol_2.png",
+            "sprites/enemies/chrysalis_splicer/patrol_3.png",
+            "sprites/enemies/chrysalis_splicer/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/chrysalis_splicer/windup.png"
+            "sprites/enemies/chrysalis_splicer/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/chrysalis_splicer/attack.png"
+            "sprites/enemies/chrysalis_splicer/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/chrysalis_splicer/windup.png"
+            "sprites/enemies/chrysalis_splicer/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/chrysalis_splicer/windup.png"
+            "sprites/enemies/chrysalis_splicer/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/chrysalis_splicer/death.png"
+            "sprites/enemies/chrysalis_splicer/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "stride",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/chrysalis_splicer/patrol_1.png": "78ba420663fb4ede8020ba63155fb28bdb7dc4af8a116ff44cde1eadb7717be3",
+        "sprites/enemies/chrysalis_splicer/patrol_2.png": "3963c9d181ad44c12e232b76eba4f2b54b7f6db981fe4eac756aa1a1efa73bfc",
+        "sprites/enemies/chrysalis_splicer/patrol_3.png": "01d7c5cb774d2fa24d7c5704eeefd618af4ed1e1411f4bac34d1d496c06f1dd9",
+        "sprites/enemies/chrysalis_splicer/patrol_4.png": "a08a7bb2c510de145f222fe3552d1714f6b88fb4d6618a333d91843671b6c2c7"
+      },
+      "provenance": {
+        "family": "beetle",
+        "source": "src/art/source/enemies/cyber_insects/beetle/master.png",
+        "source_sha256": "5fa8894eddddae7537d252fa39aa6558600cf1d600cc6cd601e0b9faf9a043aa",
+        "shared_crop": [
+          29,
+          203,
+          525,
+          514
+        ],
+        "frame_size": [
+          56,
+          48
+        ],
+        "registered_size": [
+          54,
+          34
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "precursor_guardian": {
-      "name": "Precursor Hominid Guardian",
+      "name": "Precursor Mantis",
       "width": 32,
       "height": 40,
       "origin": [
@@ -416,50 +646,83 @@
         "patrol": {
           "frames": [
             "sprites/enemies/precursor_guardian/patrol_1.png",
-            "sprites/enemies/precursor_guardian/patrol_1.png"
+            "sprites/enemies/precursor_guardian/patrol_2.png",
+            "sprites/enemies/precursor_guardian/patrol_3.png",
+            "sprites/enemies/precursor_guardian/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/precursor_guardian/windup.png"
+            "sprites/enemies/precursor_guardian/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/precursor_guardian/attack.png"
+            "sprites/enemies/precursor_guardian/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/precursor_guardian/windup.png"
+            "sprites/enemies/precursor_guardian/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/precursor_guardian/windup.png"
+            "sprites/enemies/precursor_guardian/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/precursor_guardian/death.png"
+            "sprites/enemies/precursor_guardian/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "stride",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/precursor_guardian/patrol_1.png": "6300666edb54acdbfd3113ecbe50c95fa0ede536937116c9f6c03ec47b6f6ce8",
+        "sprites/enemies/precursor_guardian/patrol_2.png": "97ab62ff39e7b0247be28d0aba81cab3b8a3dbf8fde2bb7d62fb0a9d957ce817",
+        "sprites/enemies/precursor_guardian/patrol_3.png": "6ac374482b41ec87b010eee7a86516e57354f286a1673386e806f4d65d0569ed",
+        "sprites/enemies/precursor_guardian/patrol_4.png": "bbd0b0a725b87a0e5f6187532f7692127af991c9238f947f2046677bc113acc2"
+      },
+      "provenance": {
+        "family": "mantis",
+        "source": "src/art/source/enemies/cyber_insects/mantis/master.png",
+        "source_sha256": "888056e30adac50aeae9fa741216eae0dc5753cb0c44cddb711539e47409f3db",
+        "shared_crop": [
+          15,
+          17,
+          531,
+          665
+        ],
+        "frame_size": [
+          64,
+          80
+        ],
+        "registered_size": [
+          62,
+          78
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     },
     "temporal_phantom": {
-      "name": "Temporal Wireframe Phantom",
+      "name": "Temporal Wasp",
       "width": 24,
       "height": 32,
       "origin": [
@@ -470,46 +733,79 @@
         "patrol": {
           "frames": [
             "sprites/enemies/temporal_phantom/patrol_1.png",
-            "sprites/enemies/temporal_phantom/patrol_1.png"
+            "sprites/enemies/temporal_phantom/patrol_2.png",
+            "sprites/enemies/temporal_phantom/patrol_3.png",
+            "sprites/enemies/temporal_phantom/patrol_4.png"
           ],
           "frame_duration_ms": 250,
           "loop": true
         },
         "windup": {
           "frames": [
-            "sprites/enemies/temporal_phantom/windup.png"
+            "sprites/enemies/temporal_phantom/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": true
         },
         "attack": {
           "frames": [
-            "sprites/enemies/temporal_phantom/windup.png"
+            "sprites/enemies/temporal_phantom/patrol_1.png"
           ],
           "frame_duration_ms": 200,
           "loop": false
         },
         "recovery": {
           "frames": [
-            "sprites/enemies/temporal_phantom/windup.png"
+            "sprites/enemies/temporal_phantom/patrol_1.png"
           ],
           "frame_duration_ms": 400,
           "loop": false
         },
         "hurt": {
           "frames": [
-            "sprites/enemies/temporal_phantom/windup.png"
+            "sprites/enemies/temporal_phantom/patrol_1.png"
           ],
           "frame_duration_ms": 120,
           "loop": false
         },
         "death": {
           "frames": [
-            "sprites/enemies/temporal_phantom/death.png"
+            "sprites/enemies/temporal_phantom/patrol_1.png"
           ],
           "frame_duration_ms": 500,
           "loop": false
         }
+      },
+      "density": 2,
+      "source_facing": "left",
+      "motion": "flight",
+      "stride_length": 24,
+      "frame_hashes": {
+        "sprites/enemies/temporal_phantom/patrol_1.png": "1f4d6a1740abd4138f094a07676d40bec34d8bcc64bbd5bbd0e3a5ddf1a44fc3",
+        "sprites/enemies/temporal_phantom/patrol_2.png": "ddad6bb4bf4fd4b13b2b654e2f5c3ae85e641279e29e7d34c96a3484a42fdb62",
+        "sprites/enemies/temporal_phantom/patrol_3.png": "775df4b6d31d9122bc7f0741923dd5698391e87b0f7a364aa3835ede073eae16",
+        "sprites/enemies/temporal_phantom/patrol_4.png": "9e343d041a685c065d0abe8f6bf81907b8075789a0ba62ec4c16c9ee855a89a2"
+      },
+      "provenance": {
+        "family": "wasp",
+        "source": "src/art/source/enemies/cyber_insects/wasp/master.png",
+        "source_sha256": "5976e1c7791b2d6221b33ef822c4d4628ff8e9ee66df2b84a22a3fe60963685a",
+        "shared_crop": [
+          31,
+          76,
+          509,
+          573
+        ],
+        "frame_size": [
+          48,
+          64
+        ],
+        "registered_size": [
+          46,
+          48
+        ],
+        "recipe": "src/art/source/enemies/cyber_insects/recipe.json",
+        "builder": "tools/build_cyber_insects.py"
       }
     }
   }

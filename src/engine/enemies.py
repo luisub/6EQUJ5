@@ -8,6 +8,7 @@ HOW TO MODIFY: Tune speeds, ranges, and telegraphs in video_game/data/balance.js
 """
 
 from dataclasses import dataclass, field
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -135,6 +136,8 @@ class Enemy(CombatTarget):
         self.vx: float = 0.0
         self.vy: float = 0.0
         self.facing: str = "left"
+        self.travel_distance = 0.0
+        self.last_travel = 0.0
 
         # Patrol boundaries
         span = 80.0
@@ -158,6 +161,9 @@ class Enemy(CombatTarget):
         """Restore pristine spawn state on room reload or checkpoint respawn."""
         self.x = self.spawn_x
         self.y = self.spawn_y
+        self.facing = 'left'
+        self.travel_distance = self.last_travel = 0.0
+        self.anim_time = 0.0
         self.vx = 0.0
         self.vy = 0.0
         self.health = self.cfg.max_health
@@ -1865,6 +1871,10 @@ class EnemyManager:
         self.projectiles: List[EnemyProjectile] = []
         self.sparks: List[Dict[str, Any]] = []
         self.sprite_cache: Dict[str, pygame.Surface] = {}
+        self.native_sprites = {}
+        self.native_mirrors = {}
+        self.sprite_motion = {}
+        self.source_facing = {}
         self._flipped_sprites: Dict[str, Tuple[pygame.Surface, pygame.Surface]] = {}
         self._hostile_rims: Dict[Tuple[str, bool], Tuple[pygame.Surface, pygame.Surface]] = {}
         self._telegraph_surface: Optional[pygame.Surface] = None
@@ -1874,6 +1884,10 @@ class EnemyManager:
     def _load_sprites(self):
         """Load canonical frame files through their animation aliases."""
         self.sprite_cache.clear()
+        self.native_sprites.clear()
+        self.native_mirrors.clear()
+        self.sprite_motion.clear()
+        self.source_facing.clear()
         self._flipped_sprites.clear()
         self._hostile_rims.clear()
         root = ENEMY_SPRITES_DIR.resolve()
@@ -1894,6 +1908,14 @@ class EnemyManager:
             animations = entry.get("animations", {}) if isinstance(entry, dict) else {}
             if not isinstance(animations, dict):
                 continue
+            density = entry.get('density', 1)
+            if density not in (1, 2):
+                continue
+            self.source_facing[name] = entry.get('source_facing', 'left')
+            if density == 2:
+                self.sprite_motion[name] = (entry.get('motion', 'stride'),
+                                            len(animations.get('patrol', {}).get('frames', [])),
+                                            max(1, entry.get('stride_length', 24)))
             for animation, clip in animations.items():
                 if not isinstance(animation, str) or not isinstance(clip, dict):
                     continue
@@ -1911,10 +1933,29 @@ class EnemyManager:
                             raise ValueError("Enemy frame must stay in its own sprite family")
                         path = _inside_without_symlinks(root, Path(*relative.parts[2:]))
                         if path not in decoded:
-                            decoded[path] = pygame.image.load(str(path)).convert_alpha()
+                            if density == 2 and hashlib.sha256(path.read_bytes()).hexdigest() != entry.get('frame_hashes', {}).get(frame):
+                                raise ValueError('Enemy frame hash mismatch')
+                            native = pygame.image.load(str(path)).convert_alpha()
+                            if density == 2:
+                                size = (entry['width'], entry['height'])
+                                if native.get_size() != (size[0] * 2, size[1] * 2):
+                                    raise ValueError('Enemy frame dimensions mismatch')
+                                decoded[path] = (pygame.transform.scale(native, size), native)
+                            else:
+                                decoded[path] = (native, native)
                         key = f"{name}_{key_name}" + (f"_{index}" if len(frames) > 1 else "")
-                        self.sprite_cache[key] = decoded[path]
-                    except (OSError, ValueError, pygame.error):
+                        logical, native = decoded[path]
+                        if animation in ('hurt', 'death') and density == 2:
+                            native = native.copy()
+                            if animation == 'hurt':
+                                native.fill((100, 75, 45, 0), special_flags=pygame.BLEND_RGB_ADD)
+                            else:
+                                native.set_alpha(95)
+                            logical = pygame.transform.scale(native, logical.get_size())
+                        self.sprite_cache[key] = logical
+                        if density == 2:
+                            self.native_sprites[key] = (logical, native)
+                    except (OSError, ValueError, KeyError, TypeError, pygame.error):
                         continue
 
     def add_enemy(self, enemy: Enemy):
@@ -1927,12 +1968,14 @@ class EnemyManager:
         self.projectiles.clear()
         self.sparks.clear()
         self._flipped_sprites.clear()
+        self.native_mirrors.clear()
         self._hostile_rims.clear()
         self._telegraph_surface = None
 
     def reset_all(self):
         """Reset all living and defeated enemies back to spawn points."""
         for enemy in self.enemies:
+            enemy.last_travel = 0.0
             enemy.reset_to_spawn()
         self.projectiles.clear()
         self.sparks.clear()
@@ -2036,13 +2079,26 @@ class EnemyManager:
 
         for enemy in self.enemies:
             # Offscreen enemies remain in passive patrol
+            enemy.last_travel = 0.0
             if enemy.x < active_min_x or enemy.x > active_max_x:
                 if enemy.state in (STATE_WINDUP, STATE_ATTACK):
                     enemy.state = STATE_PATROL
                     enemy.telegraph_active = False
                 continue
 
+            prior_x = enemy.x
             enemy.update(eff_dt, player, room, self, is_paused=is_paused, decoy=decoy)
+            if eff_dt > 0 and not enemy.is_dead and not enemy.has_status('stun'):
+                dx = enemy.x - prior_x
+                if abs(dx) <= max(8, max(enemy.cfg.patrol_speed, enemy.cfg.pounce_speed) * eff_dt * 1.5):
+                    enemy.last_travel = abs(dx)
+                    enemy.travel_distance += abs(dx)
+                target = decoy if decoy and not getattr(decoy, 'is_dead', False) else player
+                offset = target.rect.centerx - enemy.rect.centerx
+                if enemy.state in (STATE_WINDUP, STATE_RECOVERY, STATE_HURT) and abs(offset) > 3:
+                    enemy.facing = 'right' if offset > 0 else 'left'
+                elif enemy.state == STATE_ATTACK and abs(dx) > .001:
+                    enemy.facing = 'right' if dx > 0 else 'left'
 
             dash_rect = getattr(player, "dash_sweep_rect", None) or getattr(player, "dash_attack_rect", None)
             if not enemy.is_dead and getattr(player, "is_dashing", False) and dash_rect and dash_rect.colliderect(enemy.rect):
@@ -2202,24 +2258,26 @@ class EnemyManager:
         return getattr(enemy.cfg, "id", "core_recon_drone")
 
     def _hostile_rim(self, key: str, mirrored: bool, source: pygame.Surface,
-                     drawn: pygame.Surface) -> pygame.Surface:
+                     drawn: pygame.Surface, *, outline_only=False) -> pygame.Surface:
         """Cache a one-pixel silhouette behind this exact sprite and orientation."""
         cache_key = (key, mirrored)
         cached = self._hostile_rims.get(cache_key)
         if cached is None or cached[0] is not source:
             if len(self._hostile_rims) >= 64:
                 self._hostile_rims.clear()
-            mask = pygame.mask.from_surface(drawn, 1)
+            mask = pygame.mask.from_surface(drawn, 128 if outline_only else 1)
             silhouette = mask.to_surface(setcolor=(255, 190, 92, 255),
                                          unsetcolor=(0, 0, 0, 0))
             rim = pygame.Surface((drawn.get_width() + 2, drawn.get_height() + 2), pygame.SRCALPHA)
             for offset in ((0, 1), (2, 1), (1, 0), (1, 2)):
                 rim.blit(silhouette, offset)
+            if outline_only:
+                rim.blit(silhouette, (1, 1), special_flags=pygame.BLEND_RGBA_SUB)
             cached = (source, rim)
             self._hostile_rims[cache_key] = cached
         return cached[1]
 
-    def render(self, surface: pygame.Surface, camera: Camera, *, highlight_hostiles: bool = False):
+    def render(self, surface: pygame.Surface, camera: Camera, *, highlight_hostiles: bool = False, crt=None):
         """Render telegraph lines, enemy sprites, and projectiles."""
         # 1. Telegraph Warning Lasers & Aim Lines
         for enemy in self.enemies:
@@ -2284,6 +2342,7 @@ class EnemyManager:
                 pygame.draw.line(surface, enemy.cfg.telegraph_color, (em_sx, em_sy), (tx, ty), 1)
 
         # 2. Render Enemy Sprites
+        native_layers = []
         for enemy in self.enemies:
             if enemy.state == STATE_DEATH and enemy.state_timer <= 0.0:
                 continue
@@ -2298,6 +2357,20 @@ class EnemyManager:
                 anim_name = "pounce"
 
             frame_idx = 2 if int(enemy.anim_time * 8) % 2 == 1 else 1
+            first_key = f'{prefix}_patrol_1'
+            registered = self.native_sprites.get(first_key)
+            if registered is not None and registered[0] is self.sprite_cache.get(first_key):
+                motion, count, stride = self.sprite_motion[prefix]
+                if enemy.state == STATE_PATROL:
+                    if enemy.has_status('stun'):
+                        frame_idx = 1
+                    elif motion == 'flight':
+                        frame_idx = int(enemy.anim_time * 12) % count + 1
+                    else:
+                        frame_idx = int(enemy.travel_distance / stride * count) % count + 1 if enemy.last_travel else 1
+                elif enemy.state == STATE_ATTACK and enemy.last_travel:
+                    anim_name = STATE_PATROL
+                    frame_idx = int(enemy.travel_distance / stride * count) % count + 1
             key = f"{prefix}_{anim_name}_{frame_idx}"
             if key not in self.sprite_cache:
                 key = f"{prefix}_{anim_name}"
@@ -2309,7 +2382,7 @@ class EnemyManager:
                            type(enemy) in (CoreReconDrone, StaticHound, CoreEnforcer))
             if cached:
                 draw_surf = cached
-                mirrored = enemy.facing == "right" and "hound" in prefix
+                mirrored = enemy.facing != self.source_facing.get(prefix, 'left')
                 if mirrored:
                     pair = self._flipped_sprites.get(key)
                     if pair is None or pair[0] is not cached:
@@ -2318,15 +2391,33 @@ class EnemyManager:
                         pair = (cached, pygame.transform.flip(cached, True, False))
                         self._flipped_sprites[key] = pair
                     draw_surf = pair[1]
-                if highlighted:
+                native = self.native_sprites.get(key)
+                use_native = crt is not None and native is not None and native[0] is cached
+                if highlighted and not use_native:
                     surface.blit(self._hostile_rim(key, mirrored, cached, draw_surf), (sx - 1, sy - 1))
-                surface.blit(draw_surf, (sx, sy))
+                if use_native:
+                    image = native[1]
+                    if mirrored:
+                        pair = self.native_mirrors.get(key)
+                        if pair is None or pair[0] is not image:
+                            pair = (image, pygame.transform.flip(image, True, False))
+                            self.native_mirrors[key] = pair
+                        image = pair[1]
+                    if highlighted:
+                        rim = self._hostile_rim(key + '@native', mirrored, native[1], image, outline_only=True)
+                        native_layers.append((rim, (sx * 2 - 1, sy * 2 - 1), 0))
+                    native_layers.append((image, (sx * 2, sy * 2), 0))
+                else:
+                    surface.blit(draw_surf, (sx, sy))
             else:
                 pygame.draw.rect(surface, enemy.cfg.telegraph_color, (sx, sy, enemy.cfg.width, enemy.cfg.height), 2)
             if highlighted:
                 mid = int(sx + enemy.cfg.width / 2)
                 pygame.draw.lines(surface, (255, 190, 92), False,
                                   ((mid - 2, sy - 5), (mid, sy - 3), (mid + 2, sy - 5)), 1)
+
+        if native_layers:
+            crt.composite_native_effects(native_layers)
 
         # 3. Render Enemy Projectiles
         for proj in self.projectiles:

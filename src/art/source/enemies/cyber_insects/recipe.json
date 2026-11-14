@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "source_facing": "left",
+  "families": [
+    {
+      "key": "wasp",
+      "source": "exec-8280c26a-710e-4123-981e-12a4ef590771.png",
+      "prompt": "Create ONE production sprite sheet for a detailed pixel-art side-scrolling game, with a TRANSPARENT background. FOUR identical-size rectangular cells in exactly ONE HORIZONTAL ROW, each containing the SAME cybernetic WASP in a different consecutive flying gait pose. No labels, no grid lines, no shadows on ground, no text. ALL FOUR face LEFT in strict side profile; do not turn toward viewer. An original insect-shaped machine: narrow bronze and olive segmented thorax, dark graphite armored abdomen ending in a small stinger to the right, a clearly distinct wasp head at left with tiny warm red optical eyes, compact translucent cyan wings, SIX visible articulated jointed metal insect legs under the thorax (not humanoid arms/legs), copper wiring and tiny pale edge highlights. Rich detailed pixel clusters, crisp silhouette, premium high-detail 1990s sci-fi sprite aesthetic. Each pose has a different wing stroke and different bent leg positions, a coherent 4-pose flight cycle: wings high legs extended; wings middle legs folded; wings low legs drawn back; wings middle legs starting to extend. Keep head, body size, colors and center of mass consistent in every cell. No projectiles, explosions or glow outside silhouette. Moderate horizontal body silhouette, total wings-and-legs bounds nearly square, with generous equal transparent padding around all four poses. Truly transparent PNG, not a checkerboard illustration. This is a hostile cyber-insect scout for the dystopian Earth chapter of 6EQUJ5, readable when reduced to 48 by 40 pixels."
+    },
+    {
+      "key": "beetle",
+      "source": "exec-b3f2d00c-4348-4cca-a01c-bbb8b066f5c3.png",
+      "prompt": "Create ONE production pixel-art sprite sheet, transparent PNG. FOUR evenly spaced identical-sized cells in ONE HORIZONTAL ROW showing the SAME original cybernetic armored BEETLE walking LEFT in strict side profile. No labels, no borders, no grid, no ground, no drop shadow. Dark olive and bronze segmented beetle shell with heavy layered carapace, small horn and mandibles at LEFT, tiny amber sensor eyes, warm pale edge highlights, graphite joints and copper conduits. SIX distinct articulated mechanical insect legs with knees and pointed grounded feet; a beetle, not a person, not a dog, no humanoid limbs. Compact squat broad armored body balanced on the legs, overall silhouette slightly wider than tall. Detailed crafted pixel clusters and crisp outlines, premium cinematic pixel-art game aesthetic. Four real consecutive alternating-tripod WALK poses: 1 near front/rear feet planted while middle foot raised forward; 2 near front/rear passing while middle planted; 3 opposite tripod planted; 4 opposite passing return. Clearly visible changes in every leg and foot, no sliding static duplicate. Keep head orientation LEFT, shell design, body scale and common foot ground baseline IDENTICAL across all four cells. Subtle 1-pixel-equivalent body bob. Do not rotate body between poses. Keep equal generous transparent padding around all cells, no cropping any feet/antennae. Readable at small size with strong silhouette; no glow haze, no text. Hostile machine-insect soldier for dystopian Earth in 6EQUJ5."
+    },
+    {
+      "key": "mantis",
+      "source": "exec-cd5ddac9-a04a-4933-b766-ba0850f767fd.png",
+      "prompt": "Create one production sprite sheet for a detailed pixel-art sci-fi game on TRANSPARENT background. Exactly FOUR same-sized cells in ONE HORIZONTAL ROW. Each cell shows the SAME original cybernetic MANTIS walking LEFT in strict side profile. No text, no labels, no grid, no ground or drop shadow. Tall narrow insect silhouette: angular triangular head and antennae at upper left, small red eye, elongated olive/bronze segmented thorax upright at a forward diagonal, compact dark abdomen at back/right, two raised folded scythe-like forelegs used as weapons, FOUR articulated walking legs below (six insect limbs total). Mechanical joints, copper wires, worn olive plates, ivory-metal blade edges, restrained cyan circuit accents. Clearly insect, never human, no humanoid torso or boots. Crisp crafted pixel clusters and outline; premium detailed pixel art, strong readable silhouette. Four consecutive real WALK poses with opposite legs alternating forward/back: contact, passing, opposite contact, opposite passing. A clear lifted swinging foot in each passing pose. Body consistent scale/design/head direction all four cells, common foot ground baseline and same head height. Feet grounded and separated. Head and body almost stationary vertically, legs visibly articulate instead of sliding. Equal transparent margin all sides of each cell, nothing cropped, no glow haze. Maintain a tall silhouette about 0.7 as wide as high to fit a small standing enemy in the Earth chapter of 6EQUJ5. No projectiles, effects or extra creatures."
+    }
+  ],
+  "roles": {
+    "core_recon_drone": {
+      "family": "wasp",
+      "name": "Circuit Wasp",
+      "motion": "flight"
+    },
+    "static_hound": {
+      "family": "beetle",
+      "name": "Surge Beetle",
+      "motion": "stride"
+    },
+    "core_enforcer": {
+      "family": "mantis",
+      "name": "Bastion Mantis",
+      "motion": "stride"
+    },
+    "core_operative": {
+      "family": "mantis",
+      "name": "Razor Mantis",
+      "motion": "stride"
+    },
+    "shield_hound": {
+      "family": "beetle",
+      "name": "Shield Beetle",
+      "motion": "stride"
+    },
+    "phase_watcher": {
+      "family": "wasp",
+      "name": "Phase Wasp",
+      "motion": "flight"
+    },
+    "chrysalis_splicer": {
+      "family": "beetle",
+      "name": "Chrysalis Beetle",
+      "motion": "stride"
+    },
+    "precursor_guardian": {
+      "family": "mantis",
+      "name": "Precursor Mantis",
+      "motion": "stride"
+    },
+    "temporal_phantom": {
+      "family": "wasp",
+      "name": "Temporal Wasp",
+      "motion": "flight"
+    }
+  }
+}
