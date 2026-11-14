@@ -30,8 +30,8 @@
       633
     ],
     "resampling": "Pillow nearest-neighbor downsample",
-    "record": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/realm_fasr_001_v01/provenance.md",
+    "record": "src/art/source/alien_worlds/fasr_001/background/provenance.md",
     "review": "root native image inspection; user direction review pending",
-    "source_directory": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/realm_fasr_001_v01"
+    "source_directory": "src/art/source/alien_worlds/fasr_001/background"
   }
 }

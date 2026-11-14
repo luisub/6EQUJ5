@@ -15,10 +15,10 @@
     "sha256": "d13b7e48089a0dee3c23a8e1517be3517ecce82cf1e2310480bd1edacb39e5f5"
   },
   "provenance": {
-    "source": "video_game/art/source/visual_upgrade/candidates/narrow_energy_beam_v02/stream_96x24.png",
+    "source": "src/art/source/effects/narrow_energy_beam_v02/stream_96x24.png",
     "sha256": "d13b7e48089a0dee3c23a8e1517be3517ecce82cf1e2310480bd1edacb39e5f5",
-    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/narrow_energy_beam_v02/candidate.json",
-    "provenance_record": "video_game/art/source/visual_upgrade/candidates/narrow_energy_beam_v02/PROVENANCE.md",
+    "candidate_metadata": "src/art/source/effects/narrow_energy_beam_v02/candidate.json",
+    "provenance_record": "src/art/source/effects/narrow_energy_beam_v02/PROVENANCE.md",
     "review": "accepted source component"
   }
 }

@@ -33,8 +33,8 @@
       9
     ],
     "resampling": "Pillow nearest-neighbor downsample",
-    "record": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/earth_core_ai_v01/provenance.md",
+    "record": "src/art/source/bosses/earth_core_ai_v01/provenance.md",
     "review": "root nativeEarthhangarcomposition; noanimationacceptance",
-    "source_directory": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/earth_core_ai_v01"
+    "source_directory": "src/art/source/bosses/earth_core_ai_v01"
   }
 }

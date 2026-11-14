@@ -14,7 +14,7 @@ from video_game.engine.effects import (MASER_FAMILY, MASER_MANIFEST, MASER_NAME,
                                        load_maser_presentation)
 from video_game.tools.build_maser_discharge import build_discharge
 
-SOURCE = (REPO_ROOT / 'src/art/source/visual_upgrade/candidates'
+SOURCE = (REPO_ROOT / 'src/art/source/effects'
           / 'maser_discharge_v02/export/maser_discharge_v02_64x32.png')
 
 

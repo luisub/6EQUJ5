@@ -15,10 +15,10 @@
     "sha256": "979b6d08988c4e7b3c9b708251e7919286c1fc17a5e48b7fa155d20359d0ad04"
   },
   "provenance": {
-    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/plasma_kite_v01/body_96x72.png",
+    "source": "src/art/source/planet_threats/plasma_kite_v01/body_96x72.png",
     "sha256": "979b6d08988c4e7b3c9b708251e7919286c1fc17a5e48b7fa155d20359d0ad04",
-    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/plasma_kite_v01/candidate.json",
-    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/plasma_kite_v01/PROVENANCE.md",
+    "candidate_metadata": "src/art/source/planet_threats/plasma_kite_v01/candidate.json",
+    "provenance_record": "src/art/source/planet_threats/plasma_kite_v01/PROVENANCE.md",
     "review": "root-accepted original static source"
   }
 }

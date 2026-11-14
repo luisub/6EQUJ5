@@ -11,9 +11,9 @@
     "sha256": "082aeb404dddb2bfd3fabb9da2be7f3ac5248943ea7285aae198c5c8c5dd0ef1"
   },
   "provenance": {
-    "source": "video_game/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/body.png",
+    "source": "src/art/source/alien_worlds/fasr_003/guardian/body.png",
     "sha256": "082aeb404dddb2bfd3fabb9da2be7f3ac5248943ea7285aae198c5c8c5dd0ef1",
-    "record": "video_game/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/provenance.md",
+    "record": "src/art/source/alien_worlds/fasr_003/guardian/provenance.md",
     "review": "root accepted bounded source and isolated scene composition"
   }
 }

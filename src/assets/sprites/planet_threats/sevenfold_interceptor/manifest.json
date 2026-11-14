@@ -15,10 +15,10 @@
     "sha256": "d53d6d5f0e5273464e53c2af6523878e5f508242fa974670424b4598c5b06dad"
   },
   "provenance": {
-    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/sevenfold_interceptor_v01/body_96x72.png",
+    "source": "src/art/source/planet_threats/sevenfold_interceptor_v01/body_96x72.png",
     "sha256": "d53d6d5f0e5273464e53c2af6523878e5f508242fa974670424b4598c5b06dad",
-    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/sevenfold_interceptor_v01/candidate.json",
-    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/sevenfold_interceptor_v01/PROVENANCE.md",
+    "candidate_metadata": "src/art/source/planet_threats/sevenfold_interceptor_v01/candidate.json",
+    "provenance_record": "src/art/source/planet_threats/sevenfold_interceptor_v01/PROVENANCE.md",
     "review": "root-accepted original static source"
   }
 }

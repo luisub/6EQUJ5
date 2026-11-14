@@ -20,7 +20,6 @@ ASSETS_DIR = GAME_ROOT_DIR / "assets"
 DATA_DIR = GAME_ROOT_DIR / "data"
 CIV_ASSETS_DIR = ASSETS_DIR / "civilizations"
 AUDIO_ASSETS_DIR = ASSETS_DIR / "audio"
-TRASH_DIR = REPO_ROOT_DIR / "_trash"
 
 # ── Project resolution and timing ──
 INTERNAL_WIDTH = 480

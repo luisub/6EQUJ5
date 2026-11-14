@@ -11,15 +11,7 @@ HOW TO MODIFY:
 ═══════════════════════════════════════════════════════
 """
 
-from . import REPO_ROOT
-
 import os
-import sys
-from pathlib import Path
-
-REPO_ROOT_DIR = REPO_ROOT
-if str(REPO_ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT_DIR))
 
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 os.environ.setdefault("SDL_AUDIODRIVER", "dummy")

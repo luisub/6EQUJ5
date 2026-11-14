@@ -23,8 +23,8 @@ REPO_ROOT_DIR = Path(__file__).resolve().parents[2]
 CIV_DATA_DIR = REPO_ROOT_DIR / "src" / "art" / "source" / "civilizations"
 ASSETS_DIR = REPO_ROOT_DIR / "src" / "assets"
 OUT_CIV_DIR = ASSETS_DIR / "civilizations"
-LEGACY_TRASH_DIR = REPO_ROOT_DIR / "_trash" / "legacy_ascii_portraits"
 ART_SOURCE_DIR = REPO_ROOT_DIR / "src" / "art" / "source"
+LEGACY_SOURCE_DIR = CIV_DATA_DIR / "legacy_ascii"
 
 MATERIAL_RAMPS = {
     "BUNKER_CONCRETE": [(6, 8, 12), (16, 22, 28), (32, 42, 48), (58, 72, 78), (94, 112, 118), (148, 168, 176)],
@@ -285,7 +285,7 @@ def _validate_outputs(group, stage, paths):
 
 
 def _build_selected_groups(replace_groups=(), *, dry_run=False, groups=None, assets_dir=ASSETS_DIR,
-                           archive_dir=None, legacy_dir=LEGACY_TRASH_DIR, source_dir=None):
+                           archive_dir=None, legacy_dir=LEGACY_SOURCE_DIR, source_dir=None):
     """Preserve locked groups; explicitly selected groups are staged and archived."""
     assets_dir = Path(assets_dir).resolve()
     archive_dir = Path(archive_dir or (REPO_ROOT_DIR / "_trash" if assets_dir == ASSETS_DIR.resolve() else assets_dir.parent / "_trash")).resolve()
@@ -339,7 +339,7 @@ def _build_selected_groups(replace_groups=(), *, dry_run=False, groups=None, ass
 
 
 def build_selected_groups(replace_groups=(), *, dry_run=False, groups=None, assets_dir=ASSETS_DIR,
-                          archive_dir=None, legacy_dir=LEGACY_TRASH_DIR, source_dir=None):
+                          archive_dir=None, legacy_dir=LEGACY_SOURCE_DIR, source_dir=None):
     """Serialize builds on the asset directory, including recovery and preflight."""
     assets_dir = Path(assets_dir).resolve()
     if fcntl is None:

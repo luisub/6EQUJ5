@@ -1,5 +1,5 @@
-"""Shared test paths, valid before and after moving tests into src/."""
+"""Shared paths for the repository's maintained tests and fixtures."""
 from pathlib import Path
 
-REPO_ROOT = next(parent for parent in Path(__file__).resolve().parents
-                 if (parent / "pyproject.toml").is_file())
+REPO_ROOT = Path(__file__).resolve().parents[2]
+FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"

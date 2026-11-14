@@ -15,10 +15,10 @@
     "sha256": "ec605eac1cd98d701aafd859d802e33aa8c80403841df8b4bc791797d6af2f04"
   },
   "provenance": {
-    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/terminator_roller_v01/body_96x72.png",
+    "source": "src/art/source/planet_threats/terminator_roller_v01/body_96x72.png",
     "sha256": "ec605eac1cd98d701aafd859d802e33aa8c80403841df8b4bc791797d6af2f04",
-    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/terminator_roller_v01/candidate.json",
-    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/terminator_roller_v01/PROVENANCE.md",
+    "candidate_metadata": "src/art/source/planet_threats/terminator_roller_v01/candidate.json",
+    "provenance_record": "src/art/source/planet_threats/terminator_roller_v01/PROVENANCE.md",
     "review": "root-accepted original static source"
   }
 }

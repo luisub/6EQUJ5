@@ -14,8 +14,8 @@ from video_game.engine.config import ASSETS_DIR
 from video_game.tools.build_room_family import build_family
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / 'src/art/source/visual_upgrade/candidates/ohio_campus_extension_v01/source'
-FAR_MASTER = ROOT / 'src/art/source/visual_upgrade/candidates/fitzsimons_campus_v01/source/fitzsimons_campus_generated_master_v02.png'
+SOURCE = ROOT / 'src/art/source/environments/ohio_campus_extension_v01/source'
+FAR_MASTER = ROOT / 'src/art/source/environments/fitzsimons_campus_v01/source/fitzsimons_campus_generated_master_v02.png'
 MASTERS = {
     'ohio_campus_west_staff_revision_master.png': '77531bda8c17fe06ddf7084056fa9f3c6af02f2491d044538e813a5f5b7faf04',
     'ohio_campus_east_revision_master.png': 'fc11e1775ff6cf70c9191408b32a6894a54f004de30d1ba53bace1831dfb3083',

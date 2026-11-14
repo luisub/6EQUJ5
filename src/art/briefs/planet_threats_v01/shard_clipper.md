@@ -1,0 +1,5 @@
+# FASR-003 Shard Clipper: one original pose
+
+A fictional Core-corrupted collector echo, distinct from the friendly distributed crystalline collective. One isolated 96×72 RGBA body, nominal pivot `(48,64)`, visible width ≤84 and height ≤56; it supports runtime motion without fabricated frames. Shape is an irregular organic crystal claw with jagged uneven icy teal/blue glass facets, copper mineral stem and a small warm core, bounded by a strong dark edge. It must not resemble the Carrier Wraith phase-mask, an aircraft, a humanoid or a box robot.
+
+The currently installed FASR-003 profile fallback includes very bright cyan stellar circles; inspect a static composition over that actual fixture as well as isolated dark/light fields. This placeholder is not approved finished realm art. Existing source profile and the director brief are fictional story cues; avoid asserting the speculative collector lore as science. Preserve prompts, master, exact crop and alpha audit; no gameplay, animation or fairness acceptance from a single pose.

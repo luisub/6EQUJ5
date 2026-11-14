@@ -30,8 +30,8 @@
       633
     ],
     "resampling": "Pillow nearest-neighbor downsample",
-    "record": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/area_51_hangar_v01/provenance.md",
+    "record": "src/art/source/environments/area_51_hangar_v01/provenance.md",
     "review": "root native1920 inspection; gameplay pending",
-    "source_directory": "video_game/art/source/visual_upgrade/candidates/connected_worlds_v01/area_51_hangar_v01"
+    "source_directory": "src/art/source/environments/area_51_hangar_v01"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "kind": "campaign_world_background",
+  "art_id": "vla_rift_v1",
+  "viewport": [480, 270],
+  "density": 2,
+  "image": {"file": "background.png", "dimensions": [1920, 540], "sha256": "60c25b1ceadad669203732c87665e072cc2e6e8e684bb41f60fbb1927687dbd1"},
+  "provenance": {"status": "candidate_pending_review", "source": "master_v02.png", "source_sha256": "4fa3ad95ef798e3ea2077340ebf556850681f65d4716f6d220ac3d5858e1b0fa", "source_dimensions": [2172, 724], "crop_box_exclusive": [0, 63, 2172, 674], "resampling": "Pillow nearest-neighbor downsample", "record": "provenance.md"}
+}

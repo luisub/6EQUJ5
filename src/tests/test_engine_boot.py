@@ -8,15 +8,9 @@ HOW TO MODIFY:
 ═══════════════════════════════════════════════════════
 """
 
-from . import REPO_ROOT
+from . import FIXTURES_DIR
 
 import os
-import sys
-from pathlib import Path
-
-REPO_ROOT_DIR = REPO_ROOT
-if str(REPO_ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT_DIR))
 
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
@@ -206,9 +200,9 @@ def test_seconds_match_recorded_timing_at_30_60_and_120_fps(monkeypatch):
     import json
     import pytest
 
-    evidence = REPO_ROOT / "docs/planning/evidence/F04/2026-11-10_scene_cache"
-    baseline = json.loads((evidence / "baseline_timing.json").read_text())
-    trajectories = json.loads((evidence / "baseline_trajectories.json").read_text())
+    fixtures = FIXTURES_DIR / "scene_timing"
+    baseline = json.loads((fixtures / "baseline_timing.json").read_text())
+    trajectories = json.loads((fixtures / "baseline_trajectories.json").read_text())
     pygame.init()
     pygame.display.set_mode((config.WINDOW_WIDTH, config.WINDOW_HEIGHT))
     for fps in (30, 60, 120):

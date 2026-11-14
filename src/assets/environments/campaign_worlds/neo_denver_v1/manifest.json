@@ -17,7 +17,7 @@
   },
   "provenance": {
     "status": "installed_user_requested_background_revision",
-    "source": "art/source/visual_upgrade/candidates/denver_landmarks_v01/master_v02.png",
+    "source": "src/art/source/environments/denver_landmarks_v01/master_v02.png",
     "source_sha256": "85daaf1d94ac912f3fa2371c2ab30576ce356eb2e6822c29f163c4b8a0b2f486",
     "source_dimensions": [
       2172,
@@ -30,7 +30,7 @@
       697
     ],
     "resampling": "FFmpeg nearest-neighbor downsample to 1920x540 RGB",
-    "record": "art/source/visual_upgrade/candidates/denver_landmarks_v01/provenance.md",
+    "record": "src/art/source/environments/denver_landmarks_v01/provenance.md",
     "references": [
       {
         "role": "mountain silhouette and hillside A",

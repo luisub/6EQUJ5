@@ -19,8 +19,8 @@ from video_game.engine.settings import SettingsStore
 from video_game.engine.state_machine import GameStateMachine
 from video_game.tools.build_firing_flash import build_flash
 
-SOURCE = (REPO_ROOT / 'src/art/reviews/visual_upgrade/previews'
-          / 'firing_flash_registration_v01/cell_v01/firing_flash_64x32.png')
+SOURCE = (REPO_ROOT / 'src/art/source/effects/firing_flash_v01'
+          / 'export/firing_flash_64x32.png')
 
 
 def test_transaction_is_explicit_and_manifest_last(tmp_path):

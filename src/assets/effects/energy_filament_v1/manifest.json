@@ -16,9 +16,9 @@
   },
   "provenance": {
     "status": "accepted_native_asset_direction_runtime_review_pending",
-    "source_directory": "video_game/art/source/visual_upgrade/candidates/compact_energy_stream_v01",
-    "record": "video_game/art/source/visual_upgrade/candidates/compact_energy_stream_v01/PROVENANCE.md",
-    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/compact_energy_stream_v01/candidate.json",
+    "source_directory": "src/art/source/effects/compact_energy_stream_v01",
+    "record": "src/art/source/effects/compact_energy_stream_v01/PROVENANCE.md",
+    "candidate_metadata": "src/art/source/effects/compact_energy_stream_v01/candidate.json",
     "review": "root native dark 1x and8x; nearopaque generatedalpha retained unchanged"
   }
 }

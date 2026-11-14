@@ -15,10 +15,10 @@
     "sha256": "5fa5c18a077c97cfa4929cec0e8de397c60c9d00492f0a103d263310e3277f0d"
   },
   "provenance": {
-    "source": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/archive_skimmer_v01/body_96x72.png",
+    "source": "src/art/source/planet_threats/archive_skimmer_v01/body_96x72.png",
     "sha256": "5fa5c18a077c97cfa4929cec0e8de397c60c9d00492f0a103d263310e3277f0d",
-    "candidate_metadata": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/archive_skimmer_v01/candidate.json",
-    "provenance_record": "video_game/art/source/visual_upgrade/candidates/planet_threats_v01/archive_skimmer_v01/PROVENANCE.md",
+    "candidate_metadata": "src/art/source/planet_threats/archive_skimmer_v01/candidate.json",
+    "provenance_record": "src/art/source/planet_threats/archive_skimmer_v01/PROVENANCE.md",
     "review": "root-accepted original static source"
   }
 }

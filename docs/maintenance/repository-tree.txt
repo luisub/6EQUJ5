@@ -1,0 +1,1500 @@
+6EQUJ5/
+Active checkout after cleanup — 2026-11-14
+Git internals, local assistant state and cache contents omitted. Archive and environment interiors collapsed.
+
+├── .venv/  [local Python environment; contents omitted]
+├── _trash/  [recoverable archives; contents omitted]
+├── docs/
+│   ├── maintenance/
+│   │   ├── repository-tree.txt
+│   │   ├── REPOSITORY_AUDIT.md
+│   │   ├── source-moves.json
+│   │   └── verification.json
+│   ├── media/
+│   │   └── readme/
+│   │       ├── arc-lance.gif
+│   │       ├── arc-lance.png
+│   │       ├── area-51.png
+│   │       ├── buried-archive.png
+│   │       ├── capture.json
+│   │       ├── crystal-network.png
+│   │       ├── flare-bastion.png
+│   │       ├── galaxy-map.png
+│   │       ├── gobekli-tepe.png
+│   │       ├── heat-auditor.png
+│   │       ├── neo-denver-fitzsimons.png
+│   │       ├── neo-denver-mountains.png
+│   │       ├── neo-denver-walk.gif
+│   │       ├── neo-denver.png
+│   │       ├── observatory.png
+│   │       ├── ohio.png
+│   │       ├── proxima-twilight.png
+│   │       ├── README.md
+│   │       ├── receiver.png
+│   │       ├── signal-jailer.png
+│   │       ├── signal-transit.gif
+│   │       ├── title-art.png
+│   │       └── vla-rift.png
+│   ├── migration/
+│   │   ├── verification/
+│   │   │   ├── clean-build.txt
+│   │   │   ├── final-wheel-features.txt
+│   │   │   ├── final-wheel-install.txt
+│   │   │   ├── installed-cli.log
+│   │   │   ├── installed-final-v2.json
+│   │   │   ├── installed-final-v2.log
+│   │   │   ├── installed-smoke.log
+│   │   │   ├── package-results.json
+│   │   │   ├── wheel-audit.json
+│   │   │   └── whitespace.txt
+│   │   ├── archive-manifest.json
+│   │   ├── directory-tree.json
+│   │   ├── layout-manifest.json
+│   │   ├── migration-manifest.json
+│   │   ├── preservation-summary.json
+│   │   ├── REPORT.md
+│   │   ├── resource-preservation.json
+│   │   ├── test-disposition.json
+│   │   ├── TRANSFER_COMPLETE.md
+│   │   └── validated-versions.json
+│   ├── planning/
+│   │   ├── evidence/
+│   │   │   ├── EARTH_ROUTE/
+│   │   │   │   └── 2026-11-13/
+│   │   │   │       ├── focused.txt
+│   │   │   │       ├── pytest.txt
+│   │   │   │       └── report.md
+│   │   │   ├── FREE_TRAVEL/
+│   │   │   │   └── 2026-11-13/
+│   │   │   │       ├── focused.txt
+│   │   │   │       └── report.md
+│   │   │   └── WORLD_ART/
+│   │   │       └── 2026-11-13_alien_world_refresh/
+│   │   │           ├── boss-timings.json
+│   │   │           └── report.md
+│   │   ├── milestones/
+│   │   │   ├── 00_foundation.md
+│   │   │   ├── 01_contact_loop.md
+│   │   │   ├── 02_action_slice.md
+│   │   │   ├── 03_science_and_reality.md
+│   │   │   ├── 04_campaign.md
+│   │   │   ├── 05_release.md
+│   │   │   └── 06_alien_journey.md
+│   │   ├── ART_PRODUCTION.md
+│   │   ├── CODE_STANDARDS_AND_MAP.md
+│   │   ├── CONTENT_PLAN.md
+│   │   ├── CURRENT_STATE.md
+│   │   ├── DATA_CONTRACTS.md
+│   │   ├── EXECUTION_PROTOCOL.md
+│   │   ├── ISSUES_AND_DECISIONS.md
+│   │   ├── PROGRESS_LOG.md
+│   │   ├── QUALITY_GATES.md
+│   │   ├── README.md
+│   │   └── TODO_ROADMAP.md
+│   ├── ARCHITECTURE.md
+│   ├── ASSETS.md
+│   ├── CONTRIBUTING.md
+│   └── CONTROLS.md
+├── src/
+│   ├── art/
+│   │   ├── briefs/
+│   │   │   ├── alien_world_art_v02/
+│   │   │   │   ├── guardian_fasr_003_revision_v02.txt
+│   │   │   │   ├── guardian_fasr_003_v01.txt
+│   │   │   │   └── realm_fasr_003_v01.txt
+│   │   │   ├── compact_energy_stream_v01/
+│   │   │   │   └── brief.md
+│   │   │   ├── connected_worlds_v01/
+│   │   │   │   ├── area_51.md
+│   │   │   │   ├── area_51_hangar.md
+│   │   │   │   ├── earth_core_ai.md
+│   │   │   │   ├── gobekli_archive.md
+│   │   │   │   ├── gobekli_tepe.md
+│   │   │   │   ├── guardian_fasr_001.md
+│   │   │   │   ├── neo_denver.md
+│   │   │   │   ├── realm_fasr_001.md
+│   │   │   │   ├── synchronicity_body.md
+│   │   │   │   └── vla_rift.md
+│   │   │   ├── galaxy_transit_v01/
+│   │   │   │   ├── galaxy_map.md
+│   │   │   │   └── vortex.md
+│   │   │   ├── gobekli_traffic_free_v2/
+│   │   │   │   └── brief.md
+│   │   │   ├── narrow_energy_beam_v02/
+│   │   │   │   └── brief.md
+│   │   │   ├── planet_threats_v01/
+│   │   │   │   ├── archive_skimmer.md
+│   │   │   │   ├── beacon_mite.md
+│   │   │   │   ├── carrier_wraith.md
+│   │   │   │   ├── lensing_orb.md
+│   │   │   │   ├── memorial_sentinel.md
+│   │   │   │   ├── paradox_knot.md
+│   │   │   │   ├── plasma_kite.md
+│   │   │   │   ├── resonance_effigy.md
+│   │   │   │   ├── sevenfold_interceptor.md
+│   │   │   │   ├── shard_clipper.md
+│   │   │   │   └── terminator_roller.md
+│   │   │   ├── scene_villains_v02/
+│   │   │   │   ├── fox_echo_brief.md
+│   │   │   │   └── scorpion_echo_brief.md
+│   │   │   ├── approach_asset_transaction_contract_v01.md
+│   │   │   ├── bunker_background_v01_review.md
+│   │   │   ├── bunker_hub_native_v01_for_review.md
+│   │   │   ├── dodleston_relay_native_v01_for_review.md
+│   │   │   ├── dodleston_relay_native_v02_for_review.md
+│   │   │   ├── dodleston_relay_targeted_correction_v03.md
+│   │   │   ├── dodleston_relay_v01_registration_review.md
+│   │   │   ├── dodleston_relay_v02_registration_review.md
+│   │   │   ├── ehman_1977_native_v01_for_review.md
+│   │   │   ├── ehman_1977_targeted_correction_v02.md
+│   │   │   ├── ehman_1977_v01_registration_review.md
+│   │   │   ├── ehman_1977_v02_registration_review.md
+│   │   │   ├── existing_scenes_production_map_v01.md
+│   │   │   ├── firing_flash_v01_registration_review.md
+│   │   │   ├── firing_lighting_benchmark_v01.md
+│   │   │   ├── firing_lighting_benchmark_v02.md
+│   │   │   ├── firing_lighting_benchmark_v03.md
+│   │   │   ├── firing_lighting_benchmark_v04.md
+│   │   │   ├── fitzsimons_campus_v01.md
+│   │   │   ├── greenkeeper_heavy_v01.md
+│   │   │   ├── mandela_annex_native_v01_for_review.md
+│   │   │   ├── mandela_annex_v01_registration_review.md
+│   │   │   ├── mandela_annex_v02_registration_review.md
+│   │   │   ├── maser_discharge_v02.md
+│   │   │   ├── mateo_larger_coherent_motion_plan_v01.md
+│   │   │   ├── mateo_larger_visual_contract_v01.md
+│   │   │   ├── mateo_olive_recoil_60x80_v01_for_review.md
+│   │   │   ├── mateo_olive_recoil_targeted_correction_v02.md
+│   │   │   ├── mateo_olive_recoil_v01_registration_review.md
+│   │   │   ├── mateo_olive_recoil_v02_original_comparison.md
+│   │   │   ├── mateo_olive_recoil_v02_registration_review.md
+│   │   │   ├── ohio_approach_correction_v0.4_for_approval.md
+│   │   │   ├── ohio_approach_correction_v0.5_approved.md
+│   │   │   ├── ohio_approach_equipment_prop_v02_for_review.md
+│   │   │   ├── ohio_approach_full_room_v01_for_review.md
+│   │   │   ├── ohio_approach_mateo_benchmark_v0.1_draft.md
+│   │   │   ├── ohio_approach_mateo_benchmark_v0.2_for_approval.md
+│   │   │   ├── ohio_approach_mateo_benchmark_v0.3_approved.md
+│   │   │   ├── ohio_approach_vehicle_prop_v01_for_review.md
+│   │   │   ├── ohio_approach_world_architecture_v01_for_review.md
+│   │   │   ├── ohio_approach_world_architecture_v02_for_review.md
+│   │   │   ├── ohio_background_study_v0.6_for_approval.md
+│   │   │   ├── ohio_campus_extension_v01.md
+│   │   │   ├── ohio_contrast_scale_v01.md
+│   │   │   ├── ohio_contrast_v01_review.md
+│   │   │   ├── ohio_dish_catwalk_full_room_v01_draft.md
+│   │   │   ├── ohio_dish_world_v01_review.md
+│   │   │   ├── ohio_greenkeeper_arena_v01_for_review.md
+│   │   │   ├── ohio_greenkeeper_world_v01_review.md
+│   │   │   ├── ohio_greenkeeper_world_v02_correction_for_review.md
+│   │   │   ├── ohio_layered_scene_dressing_v01.md
+│   │   │   ├── ohio_salvage_wagon_v01_for_review.md
+│   │   │   ├── ohio_salvage_world_v01_review.md
+│   │   │   ├── ohio_salvage_world_v02_correction_for_review.md
+│   │   │   ├── ohio_salvage_yard_full_room_v01_draft.md
+│   │   │   ├── ohio_salvage_yard_world_scene_v01_for_review.md
+│   │   │   └── vulture_echo_guardian_v01.md
+│   │   ├── palettes/
+│   │   │   └── materials.json
+│   │   ├── references/
+│   │   │   ├── gobekli_echoes/
+│   │   │   │   ├── README.md
+│   │   │   │   └── SOURCES.md
+│   │   │   ├── world_expansion/
+│   │   │   │   ├── gobekli_animal_sources.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── SOURCES.md
+│   │   │   │   └── villains.md
+│   │   │   ├── approach_family_provenance.md
+│   │   │   ├── arena_family_provenance.md
+│   │   │   ├── design_reference_notes.md
+│   │   │   ├── fitzsimons_research.md
+│   │   │   ├── room_family_inputs.md
+│   │   │   └── scene_render_routes.md
+│   │   ├── source/
+│   │   │   ├── alien_worlds/
+│   │   │   │   ├── fasr_001/
+│   │   │   │   │   ├── background/
+│   │   │   │   │   │   ├── background.png
+│   │   │   │   │   │   ├── manifest.json
+│   │   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   │   └── provenance.md
+│   │   │   │   │   └── guardian/
+│   │   │   │   │       ├── body.png
+│   │   │   │   │       ├── body_v01.png
+│   │   │   │   │       ├── manifest.json
+│   │   │   │   │       ├── master_v01.png
+│   │   │   │   │       ├── master_v02.png
+│   │   │   │   │       └── provenance.md
+│   │   │   │   ├── fasr_002/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_003/
+│   │   │   │   │   ├── background/
+│   │   │   │   │   │   ├── background.png
+│   │   │   │   │   │   ├── manifest.json
+│   │   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   │   └── provenance.md
+│   │   │   │   │   └── guardian/
+│   │   │   │   │       ├── body.png
+│   │   │   │   │       ├── body_pre_registration_v02.png
+│   │   │   │   │       ├── body_v01.png
+│   │   │   │   │       ├── body_v02.png
+│   │   │   │   │       ├── manifest.json
+│   │   │   │   │       ├── manifest_pre_registration_v02.json
+│   │   │   │   │       ├── master_v01.png
+│   │   │   │   │       ├── master_v02.png
+│   │   │   │   │       ├── provenance.md
+│   │   │   │   │       └── provenance_pre_registration_v02.md
+│   │   │   │   ├── fasr_004/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_005/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_006/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_007/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_008/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_009/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_010/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── fasr_scan_h/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_master.png
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── guardian_master.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── export.py
+│   │   │   │   └── README.md
+│   │   │   ├── bosses/
+│   │   │   │   ├── earth_core_ai_v01/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── body_v01.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── greenkeeper_heavy_v01/
+│   │   │   │   │   ├── exports/
+│   │   │   │   │   │   ├── attack_256x192.png
+│   │   │   │   │   │   ├── attack_nearest_256x192.png
+│   │   │   │   │   │   ├── exposed_nearest_256x192.png
+│   │   │   │   │   │   ├── idle_256x192.png
+│   │   │   │   │   │   ├── idle_nearest_256x192.png
+│   │   │   │   │   │   └── wreck_nearest_256x192.png
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   ├── attack_generated_master.png
+│   │   │   │   │   │   ├── exposed_generated_master.png
+│   │   │   │   │   │   ├── idle_generated_master.png
+│   │   │   │   │   │   └── wreck_generated_master.png
+│   │   │   │   │   ├── attack_prompt.txt
+│   │   │   │   │   ├── attack_provenance.json
+│   │   │   │   │   ├── exposed_prompt.txt
+│   │   │   │   │   ├── exposed_provenance.json
+│   │   │   │   │   ├── prompt.txt
+│   │   │   │   │   ├── provenance.json
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── wreck_prompt.txt
+│   │   │   │   │   └── wreck_provenance.json
+│   │   │   │   ├── scene_villains_v02/
+│   │   │   │   │   ├── fox_echo_v01/
+│   │   │   │   │   │   ├── exports/
+│   │   │   │   │   │   │   └── fox_echo_192x128_study.png
+│   │   │   │   │   │   ├── source/
+│   │   │   │   │   │   │   └── fox_echo_generated_master.png
+│   │   │   │   │   │   └── provenance.md
+│   │   │   │   │   ├── fox_echo_v02/
+│   │   │   │   │   │   ├── exports/
+│   │   │   │   │   │   │   └── fox_echo_192x128_study.png
+│   │   │   │   │   │   ├── source/
+│   │   │   │   │   │   │   └── fox_echo_revision_master.png
+│   │   │   │   │   │   └── provenance.md
+│   │   │   │   │   ├── scorpion_echo_v01/
+│   │   │   │   │   │   ├── exports/
+│   │   │   │   │   │   │   └── scorpion_echo_192x128_study.png
+│   │   │   │   │   │   ├── source/
+│   │   │   │   │   │   │   └── scorpion_echo_generated_master.png
+│   │   │   │   │   │   └── provenance.md
+│   │   │   │   │   └── scorpion_echo_v02/
+│   │   │   │   │       ├── exports/
+│   │   │   │   │       │   └── scorpion_echo_192x128_study.png
+│   │   │   │   │       ├── source/
+│   │   │   │   │       │   └── scorpion_echo_revision_master.png
+│   │   │   │   │       └── provenance.md
+│   │   │   │   ├── synchronicity_body_v01/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   ├── body_v02.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   ├── master_v03.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   └── vulture_echo_guardian_v01/
+│   │   │   │       ├── source/
+│   │   │   │       │   ├── vulture_echo_guardian_generated_master.png
+│   │   │   │       │   └── vulture_echo_guardian_revision_master.png
+│   │   │   │       └── provenance.md
+│   │   │   ├── bunker/
+│   │   │   │   ├── concept_04_pulsar_maser_halo_chamber.jpg
+│   │   │   │   ├── concept_bunker_480x270_1794333458698.jpg
+│   │   │   │   └── concept_bunker_clean_1794333595362.jpg
+│   │   │   ├── civilizations/
+│   │   │   │   ├── FASR-001/
+│   │   │   │   │   └── concept_fasr_001_1794333404634.jpg
+│   │   │   │   ├── FASR-002/
+│   │   │   │   │   └── concept_fasr_002.jpg
+│   │   │   │   ├── FASR-003/
+│   │   │   │   │   └── concept_fasr_003.jpg
+│   │   │   │   ├── FASR-004/
+│   │   │   │   │   └── concept_fasr_004.jpg
+│   │   │   │   ├── FASR-005/
+│   │   │   │   │   └── concept_fasr_005_1794333420891.jpg
+│   │   │   │   ├── FASR-006/
+│   │   │   │   │   └── concept_fasr_006.jpg
+│   │   │   │   ├── FASR-007/
+│   │   │   │   │   └── concept_fasr_007.jpg
+│   │   │   │   ├── FASR-008/
+│   │   │   │   │   └── concept_fasr_008.jpg
+│   │   │   │   ├── FASR-009/
+│   │   │   │   │   └── concept_fasr_009_1794333439876.jpg
+│   │   │   │   ├── FASR-010/
+│   │   │   │   │   └── concept_fasr_010.jpg
+│   │   │   │   ├── fasr_001_sagittarius/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_002_sgr_a_star/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_003_tabbys_star/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_004_orion/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_005_proxima/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_006_crab_nebula/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_007_lgm1/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_008_trappist1/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_009_oumuamua/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_010_gobekli_tepe/
+│   │   │   │   │   └── info.txt
+│   │   │   │   ├── fasr_scan_h_heptapod/
+│   │   │   │   │   └── info.txt
+│   │   │   │   └── legacy_ascii/
+│   │   │   │       └── README.md
+│   │   │   ├── effects/
+│   │   │   │   ├── compact_energy_stream_v01/
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   ├── PROVENANCE.md
+│   │   │   │   │   ├── stream_96x24.png
+│   │   │   │   │   └── stream_v02.png
+│   │   │   │   ├── firing_flash_v01/
+│   │   │   │   │   ├── export/
+│   │   │   │   │   │   └── firing_flash_64x32.png
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── firing_flash_generated_master.png
+│   │   │   │   │   ├── prepare.py
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── galaxy_transit_v01/
+│   │   │   │   │   ├── galaxy_map_960x540.png
+│   │   │   │   │   ├── galaxy_map_candidate.json
+│   │   │   │   │   ├── galaxy_map_master_v01.png
+│   │   │   │   │   ├── galaxy_map_provenance.md
+│   │   │   │   │   ├── vortex_512x512.png
+│   │   │   │   │   ├── vortex_candidate.json
+│   │   │   │   │   ├── vortex_master_v01.png
+│   │   │   │   │   └── vortex_provenance.md
+│   │   │   │   ├── maser_discharge_v02/
+│   │   │   │   │   ├── export/
+│   │   │   │   │   │   ├── maser_discharge_v02_64x32.png
+│   │   │   │   │   │   └── maser_discharge_v02_direct_64x32.png
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── maser_discharge_v02_generated_master.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   └── narrow_energy_beam_v02/
+│   │   │   │       ├── candidate.json
+│   │   │   │       ├── master_v01.png
+│   │   │   │       ├── PROVENANCE.md
+│   │   │   │       └── stream_96x24.png
+│   │   │   ├── environments/
+│   │   │   │   ├── annex_shared_background_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── annex_shared_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── annex_shared_background_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── annex_shared_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── approach_far_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── approach_far_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── approach_world_architecture_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── approach_world_architecture_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── approach_world_architecture_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── approach_world_architecture_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── area_51_hangar_v01/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── area_51_v01/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── bunker_background_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── bunker_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── denver_landmarks_v01/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   ├── prompts.md
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── dish_world_scene_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── dish_world_scene_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── ehman_1977_background_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── ehman_1977_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── ehman_1977_background_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── ehman_1977_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── fitzsimons_campus_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   ├── fitzsimons_campus_generated_master_v01.png
+│   │   │   │   │   │   └── fitzsimons_campus_generated_master_v02.png
+│   │   │   │   │   ├── fitzsimons_campus_far_1152x544.png
+│   │   │   │   │   ├── fitzsimons_campus_far_v02_1152x544.png
+│   │   │   │   │   ├── provenance.md
+│   │   │   │   │   ├── provenance_v02.md
+│   │   │   │   │   └── provenance_v02.pre_decision.md
+│   │   │   │   ├── gobekli_archive_v01/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── gobekli_tepe_v01/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── gobekli_traffic_free_v2/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── background_v01.png
+│   │   │   │   │   ├── candidate_roi.png
+│   │   │   │   │   ├── candidate_roi_v01.png
+│   │   │   │   │   ├── generated_context_v01.png
+│   │   │   │   │   ├── generated_context_v02.png
+│   │   │   │   │   ├── original_context_288x162.png
+│   │   │   │   │   ├── original_roi_125x72.png
+│   │   │   │   │   └── provenance.json
+│   │   │   │   ├── greenkeeper_world_scene_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── greenkeeper_world_scene_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── greenkeeper_world_scene_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── greenkeeper_world_scene_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── neo_denver_v01/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── ohio/
+│   │   │   │   │   └── ohio_materials_and_palettes.json
+│   │   │   │   ├── ohio_approach_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── ohio_approach_environment_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── ohio_approach_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── ohio_approach_environment_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── ohio_background_v03/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── ohio_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── ohio_campus_extension_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   ├── ohio_campus_background_generated_master.png
+│   │   │   │   │   │   ├── ohio_campus_east_generated_master.png
+│   │   │   │   │   │   ├── ohio_campus_east_revision_master.png
+│   │   │   │   │   │   ├── ohio_campus_transition_generated_master.png
+│   │   │   │   │   │   └── ohio_campus_west_staff_revision_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── ohio_contrast_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── ohio_contrast_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── relay_shared_background_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── relay_shared_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── relay_shared_background_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── relay_shared_background_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── salvage_world_scene_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── salvage_world_scene_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── salvage_world_scene_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── salvage_world_scene_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   └── vla_rift_v01/
+│   │   │   │       ├── background.png
+│   │   │   │       ├── manifest.json
+│   │   │   │       ├── master_v01.png
+│   │   │   │       ├── master_v02.png
+│   │   │   │       └── provenance.md
+│   │   │   ├── mateo/
+│   │   │   │   ├── mateo_olive_recoil_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── mateo_olive_recoil_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── mateo_olive_recoil_v02/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── mateo_olive_recoil_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── mateo_olive_stand_v01/
+│   │   │   │   │   ├── source/
+│   │   │   │   │   │   └── mateo_olive_stand_generated_master.png
+│   │   │   │   │   └── provenance.md
+│   │   │   │   ├── concept_mateo_idle_1794333616733.jpg
+│   │   │   │   └── mateo_action_rig.json
+│   │   │   ├── planet_threats/
+│   │   │   │   ├── archive_skimmer_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── body_v01_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── beacon_mite_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── body_v01_96x72.png
+│   │   │   │   │   ├── body_v02_left.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── candidate.pre_mirror.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   ├── PROVENANCE.md
+│   │   │   │   │   └── PROVENANCE.pre_mirror.md
+│   │   │   │   ├── carrier_wraith_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── body_v01_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── lensing_orb_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── body_v01_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   ├── master_v02.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── memorial_sentinel_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── paradox_knot_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── plasma_kite_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── resonance_effigy_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── sevenfold_interceptor_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   ├── shard_clipper_v01/
+│   │   │   │   │   ├── body_96x72.png
+│   │   │   │   │   ├── candidate.json
+│   │   │   │   │   ├── master_v01.png
+│   │   │   │   │   └── PROVENANCE.md
+│   │   │   │   └── terminator_roller_v01/
+│   │   │   │       ├── body_96x72.png
+│   │   │   │       ├── candidate.json
+│   │   │   │       ├── master_v01.png
+│   │   │   │       └── PROVENANCE.md
+│   │   │   └── props/
+│   │   │       ├── approach_equipment_v01/
+│   │   │       │   ├── source/
+│   │   │       │   │   └── approach_equipment_generated_master.png
+│   │   │       │   └── provenance.md
+│   │   │       └── salvage_wagon_v01/
+│   │   │           ├── source/
+│   │   │           │   └── salvage_wagon_generated_master.png
+│   │   │           └── provenance.md
+│   │   └── README.md
+│   ├── assets/
+│   │   ├── audio/
+│   │   │   ├── alarm_lock.wav
+│   │   │   ├── boss_mortar_launch.wav
+│   │   │   ├── Echoes_of_the_Static_Void.mp3
+│   │   │   ├── enemy_telegraph.wav
+│   │   │   ├── impact_spark.wav
+│   │   │   ├── manifest.json
+│   │   │   ├── maser_charge.wav
+│   │   │   ├── maser_tap.wav
+│   │   │   ├── player_hurt.wav
+│   │   │   ├── player_jump.wav
+│   │   │   ├── player_land.wav
+│   │   │   ├── player_slide.wav
+│   │   │   ├── printer_chatter.wav
+│   │   │   ├── Static_Bloom.mp3
+│   │   │   └── station_chime.wav
+│   │   ├── bunker/
+│   │   │   ├── inspection/
+│   │   │   │   ├── 01_distant_structure_inspect.png
+│   │   │   │   ├── 02_rear_wall_inspect.png
+│   │   │   │   ├── 03_equipment_inspect.png
+│   │   │   │   ├── 04_playable_floor_inspect.png
+│   │   │   │   ├── 05_foreground_props_inspect.png
+│   │   │   │   └── 06_lighting_overlay_inspect.png
+│   │   │   ├── 01_distant_structure.png
+│   │   │   ├── 02_rear_wall.png
+│   │   │   ├── 03_equipment.png
+│   │   │   ├── 04_playable_floor.png
+│   │   │   ├── 05_foreground_props.png
+│   │   │   ├── 06_lighting_overlay.png
+│   │   │   ├── bunker_preview_crt_off.png
+│   │   │   ├── bunker_preview_crt_on.png
+│   │   │   ├── scene_manifest.json
+│   │   │   └── tileset_bunker_16x16.png
+│   │   ├── civilizations/
+│   │   │   ├── fasr-001_composite.png
+│   │   │   ├── fasr-001_constellation.png
+│   │   │   ├── fasr-001_env.png
+│   │   │   ├── fasr-001_face.png
+│   │   │   ├── fasr-002_composite.png
+│   │   │   ├── fasr-002_constellation.png
+│   │   │   ├── fasr-002_env.png
+│   │   │   ├── fasr-002_face.png
+│   │   │   ├── fasr-003_composite.png
+│   │   │   ├── fasr-003_constellation.png
+│   │   │   ├── fasr-003_env.png
+│   │   │   ├── fasr-003_face.png
+│   │   │   ├── fasr-004_composite.png
+│   │   │   ├── fasr-004_constellation.png
+│   │   │   ├── fasr-004_env.png
+│   │   │   ├── fasr-004_face.png
+│   │   │   ├── fasr-005_composite.png
+│   │   │   ├── fasr-005_constellation.png
+│   │   │   ├── fasr-005_env.png
+│   │   │   ├── fasr-005_face.png
+│   │   │   ├── fasr-006_composite.png
+│   │   │   ├── fasr-006_constellation.png
+│   │   │   ├── fasr-006_env.png
+│   │   │   ├── fasr-006_face.png
+│   │   │   ├── fasr-007_composite.png
+│   │   │   ├── fasr-007_constellation.png
+│   │   │   ├── fasr-007_env.png
+│   │   │   ├── fasr-007_face.png
+│   │   │   ├── fasr-008_composite.png
+│   │   │   ├── fasr-008_constellation.png
+│   │   │   ├── fasr-008_env.png
+│   │   │   ├── fasr-008_face.png
+│   │   │   ├── fasr-009_composite.png
+│   │   │   ├── fasr-009_constellation.png
+│   │   │   ├── fasr-009_env.png
+│   │   │   ├── fasr-009_face.png
+│   │   │   ├── fasr-010_composite.png
+│   │   │   ├── fasr-010_constellation.png
+│   │   │   ├── fasr-010_env.png
+│   │   │   ├── fasr-010_face.png
+│   │   │   ├── fasr-scan-h_composite.png
+│   │   │   ├── fasr-scan-h_constellation.png
+│   │   │   ├── fasr-scan-h_env.png
+│   │   │   ├── fasr-scan-h_face.png
+│   │   │   └── manifest.json
+│   │   ├── effects/
+│   │   │   ├── approach_maser_flash_v1/
+│   │   │   │   ├── flash_64x32.png
+│   │   │   │   └── manifest.json
+│   │   │   ├── energy_filament_v1/
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── stream_96x24.png
+│   │   │   ├── energy_filament_v2/
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── stream_96x24.png
+│   │   │   ├── galaxy_transit_v1/
+│   │   │   │   ├── galaxy_map_960x540.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── vortex_512x512.png
+│   │   │   └── maser_discharge_v2/
+│   │   │       ├── flash_64x32.png
+│   │   │       └── manifest.json
+│   │   ├── environments/
+│   │   │   ├── campaign_worlds/
+│   │   │   │   ├── area_51_hangar_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── area_51_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── gobekli_archive_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── gobekli_tepe_v2/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── neo_denver_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_001_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_002_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_003_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_004_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_005_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_006_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_007_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_008_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_009_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_010_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── realm_fasr_scan_h_v1/
+│   │   │   │   │   ├── background.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   └── vla_rift_v1/
+│   │   │   │       ├── background.png
+│   │   │   │       └── manifest.json
+│   │   │   ├── dodleston_relay_v1/
+│   │   │   │   ├── backdrop_960x576.png
+│   │   │   │   └── manifest.json
+│   │   │   ├── ehman_1977_v1/
+│   │   │   │   ├── backdrop_960x576.png
+│   │   │   │   └── manifest.json
+│   │   │   ├── mandela_annex_v1/
+│   │   │   │   ├── backdrop_960x576.png
+│   │   │   │   └── manifest.json
+│   │   │   ├── ohio/
+│   │   │   │   ├── bg_ohio_dish_lattice.png
+│   │   │   │   ├── bg_ohio_sky_twilight.png
+│   │   │   │   ├── bg_ohio_treeline_fence.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   ├── tileset_ohio_16x16.png
+│   │   │   │   └── weather_ohio_mist.png
+│   │   │   ├── ohio_approach_v1/
+│   │   │   │   ├── far_1152x544.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── world_architecture_1920x576.png
+│   │   │   ├── ohio_approach_v2/
+│   │   │   │   ├── equipment_112x64_rgba.png
+│   │   │   │   ├── far_1152x544.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── world_1920x576.png
+│   │   │   ├── ohio_arena_v1/
+│   │   │   │   ├── far_1152x544.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── world_1280x576.png
+│   │   │   ├── ohio_bunker_v1/
+│   │   │   │   ├── backdrop_960x540.png
+│   │   │   │   └── manifest.json
+│   │   │   ├── ohio_campus_v1/
+│   │   │   │   ├── far_1152x544.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── world_2560x576.png
+│   │   │   ├── ohio_dish_v1/
+│   │   │   │   ├── far_1152x544.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── world_1280x576.png
+│   │   │   └── ohio_salvage_v1/
+│   │   │       ├── far_1152x544.png
+│   │   │       ├── manifest.json
+│   │   │       ├── wagon_168x76_rgba.png
+│   │   │       └── world_1280x576.png
+│   │   ├── sprites/
+│   │   │   ├── bosses/
+│   │   │   │   ├── campaign/
+│   │   │   │   │   ├── earth_core_ai/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_001/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_002/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_003/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_004/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_005/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_006/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_007/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_008/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_009/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_010/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   ├── guardian_fasr_scan_h/
+│   │   │   │   │   │   ├── body.png
+│   │   │   │   │   │   └── manifest.json
+│   │   │   │   │   └── synchronicity/
+│   │   │   │   │       ├── body.png
+│   │   │   │   │       └── manifest.json
+│   │   │   │   ├── greenkeeper/
+│   │   │   │   │   ├── charge_1.png
+│   │   │   │   │   ├── charge_2.png
+│   │   │   │   │   ├── defeated.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── idle_1.png
+│   │   │   │   │   ├── idle_2.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   ├── mortar_aim.png
+│   │   │   │   │   ├── mortar_fire.png
+│   │   │   │   │   ├── sweep_charge.png
+│   │   │   │   │   ├── vulnerable_1.png
+│   │   │   │   │   └── vulnerable_2.png
+│   │   │   │   ├── greenkeeper_heavy_v1/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── exposed.png
+│   │   │   │   │   ├── idle.png
+│   │   │   │   │   ├── manifest.json
+│   │   │   │   │   └── wreck.png
+│   │   │   │   └── greenkeeper.png
+│   │   │   ├── enemies/
+│   │   │   │   ├── chrysalis_splicer/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── core_enforcer/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── core_operative/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── core_recon_drone/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   ├── windup_1.png
+│   │   │   │   │   └── windup_2.png
+│   │   │   │   ├── phase_watcher/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── precursor_guardian/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── shield_hound/
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── pounce.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── static_hound/
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── pounce.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── temporal_phantom/
+│   │   │   │   │   ├── attack.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── patrol_1.png
+│   │   │   │   │   ├── patrol_2.png
+│   │   │   │   │   ├── recovery.png
+│   │   │   │   │   └── windup.png
+│   │   │   │   ├── chrysalis_splicer.png
+│   │   │   │   ├── core_enforcer.png
+│   │   │   │   ├── core_operative.png
+│   │   │   │   ├── core_recon_drone.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   ├── phase_watcher.png
+│   │   │   │   ├── precursor_guardian.png
+│   │   │   │   ├── shield_hound.png
+│   │   │   │   ├── static_hound.png
+│   │   │   │   └── temporal_phantom.png
+│   │   │   ├── mateo/
+│   │   │   │   ├── faraday_rig/
+│   │   │   │   │   ├── 48x64.png
+│   │   │   │   │   ├── 96x128.png
+│   │   │   │   │   ├── cover_background.png
+│   │   │   │   │   ├── cover_low.png
+│   │   │   │   │   ├── crouch.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── fall.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── idle_1.png
+│   │   │   │   │   ├── idle_2.png
+│   │   │   │   │   ├── idle_3.png
+│   │   │   │   │   ├── idle_4.png
+│   │   │   │   │   ├── jump.png
+│   │   │   │   │   ├── land.png
+│   │   │   │   │   ├── recoil.png
+│   │   │   │   │   ├── run_1.png
+│   │   │   │   │   ├── run_2.png
+│   │   │   │   │   ├── run_3.png
+│   │   │   │   │   ├── run_4.png
+│   │   │   │   │   ├── shoot.png
+│   │   │   │   │   ├── slide.png
+│   │   │   │   │   ├── strip.png
+│   │   │   │   │   ├── tune.png
+│   │   │   │   │   ├── walk_1.png
+│   │   │   │   │   └── walk_2.png
+│   │   │   │   ├── navy_chore/
+│   │   │   │   │   ├── 48x64.png
+│   │   │   │   │   ├── 96x128.png
+│   │   │   │   │   ├── cover_background.png
+│   │   │   │   │   ├── cover_low.png
+│   │   │   │   │   ├── crouch.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── fall.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── idle_1.png
+│   │   │   │   │   ├── idle_2.png
+│   │   │   │   │   ├── idle_3.png
+│   │   │   │   │   ├── idle_4.png
+│   │   │   │   │   ├── jump.png
+│   │   │   │   │   ├── land.png
+│   │   │   │   │   ├── recoil.png
+│   │   │   │   │   ├── run_1.png
+│   │   │   │   │   ├── run_2.png
+│   │   │   │   │   ├── run_3.png
+│   │   │   │   │   ├── run_4.png
+│   │   │   │   │   ├── shoot.png
+│   │   │   │   │   ├── slide.png
+│   │   │   │   │   ├── strip.png
+│   │   │   │   │   ├── tune.png
+│   │   │   │   │   ├── walk_1.png
+│   │   │   │   │   └── walk_2.png
+│   │   │   │   ├── olive_field/
+│   │   │   │   │   ├── 48x64.png
+│   │   │   │   │   ├── 96x128.png
+│   │   │   │   │   ├── cover_background.png
+│   │   │   │   │   ├── cover_low.png
+│   │   │   │   │   ├── crouch.png
+│   │   │   │   │   ├── death.png
+│   │   │   │   │   ├── fall.png
+│   │   │   │   │   ├── hurt.png
+│   │   │   │   │   ├── idle_1.png
+│   │   │   │   │   ├── idle_2.png
+│   │   │   │   │   ├── idle_3.png
+│   │   │   │   │   ├── idle_4.png
+│   │   │   │   │   ├── jump.png
+│   │   │   │   │   ├── land.png
+│   │   │   │   │   ├── recoil.png
+│   │   │   │   │   ├── run_1.png
+│   │   │   │   │   ├── run_2.png
+│   │   │   │   │   ├── run_3.png
+│   │   │   │   │   ├── run_4.png
+│   │   │   │   │   ├── shoot.png
+│   │   │   │   │   ├── slide.png
+│   │   │   │   │   ├── strip.png
+│   │   │   │   │   ├── tune.png
+│   │   │   │   │   ├── walk_1.png
+│   │   │   │   │   └── walk_2.png
+│   │   │   │   ├── bunker_96x128.png
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── portrait_128x128.png
+│   │   │   ├── planet_threats/
+│   │   │   │   ├── archive_skimmer/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── beacon_mite/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── carrier_wraith/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── lensing_orb/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── memorial_sentinel/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── paradox_knot/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── plasma_kite/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── resonance_effigy/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── sevenfold_interceptor/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   ├── shard_clipper/
+│   │   │   │   │   ├── body.png
+│   │   │   │   │   └── manifest.json
+│   │   │   │   └── terminator_roller/
+│   │   │   │       ├── body.png
+│   │   │   │       └── manifest.json
+│   │   │   ├── mateo_bunker_96x128.png
+│   │   │   ├── mateo_faraday_rig_48x64.png
+│   │   │   ├── mateo_faraday_rig_96x128.png
+│   │   │   ├── mateo_faraday_rig_crouch_96x128.png
+│   │   │   ├── mateo_faraday_rig_idle_1_96x128.png
+│   │   │   ├── mateo_faraday_rig_idle_2_96x128.png
+│   │   │   ├── mateo_faraday_rig_jump_96x128.png
+│   │   │   ├── mateo_faraday_rig_run_1_96x128.png
+│   │   │   ├── mateo_faraday_rig_run_2_96x128.png
+│   │   │   ├── mateo_faraday_rig_run_3_96x128.png
+│   │   │   ├── mateo_faraday_rig_run_4_96x128.png
+│   │   │   ├── mateo_faraday_rig_shoot_96x128.png
+│   │   │   ├── mateo_faraday_rig_slide_96x128.png
+│   │   │   ├── mateo_faraday_rig_strip.png
+│   │   │   ├── mateo_faraday_rig_tune_96x128.png
+│   │   │   ├── mateo_idle_48x64.png
+│   │   │   ├── mateo_navy_chore_48x64.png
+│   │   │   ├── mateo_navy_chore_96x128.png
+│   │   │   ├── mateo_navy_chore_crouch_96x128.png
+│   │   │   ├── mateo_navy_chore_idle_1_96x128.png
+│   │   │   ├── mateo_navy_chore_idle_2_96x128.png
+│   │   │   ├── mateo_navy_chore_jump_96x128.png
+│   │   │   ├── mateo_navy_chore_run_1_96x128.png
+│   │   │   ├── mateo_navy_chore_run_2_96x128.png
+│   │   │   ├── mateo_navy_chore_run_3_96x128.png
+│   │   │   ├── mateo_navy_chore_run_4_96x128.png
+│   │   │   ├── mateo_navy_chore_shoot_96x128.png
+│   │   │   ├── mateo_navy_chore_slide_96x128.png
+│   │   │   ├── mateo_navy_chore_strip.png
+│   │   │   ├── mateo_navy_chore_tune_96x128.png
+│   │   │   ├── mateo_olive_field_48x64.png
+│   │   │   ├── mateo_olive_field_96x128.png
+│   │   │   ├── mateo_olive_field_crouch_96x128.png
+│   │   │   ├── mateo_olive_field_idle_1_96x128.png
+│   │   │   ├── mateo_olive_field_idle_2_96x128.png
+│   │   │   ├── mateo_olive_field_jump_96x128.png
+│   │   │   ├── mateo_olive_field_run_1_96x128.png
+│   │   │   ├── mateo_olive_field_run_2_96x128.png
+│   │   │   ├── mateo_olive_field_run_3_96x128.png
+│   │   │   ├── mateo_olive_field_run_4_96x128.png
+│   │   │   ├── mateo_olive_field_shoot_96x128.png
+│   │   │   ├── mateo_olive_field_slide_96x128.png
+│   │   │   ├── mateo_olive_field_strip.png
+│   │   │   ├── mateo_olive_field_tune_96x128.png
+│   │   │   └── mateo_portrait_128x128.png
+│   │   ├── ui/
+│   │   │   ├── title_banner.json
+│   │   │   └── title_banner.png
+│   │   ├── all_civilizations_roster.png
+│   │   ├── before_after_comparison.png
+│   │   ├── manifest.json
+│   │   ├── mateo_character_sheet.png
+│   │   └── palette_sheet.png
+│   ├── data/
+│   │   ├── levels/
+│   │   │   ├── act_01/
+│   │   │   │   ├── approach.json
+│   │   │   │   ├── dish_catwalk.json
+│   │   │   │   ├── dish_return.json
+│   │   │   │   ├── dish_service.json
+│   │   │   │   ├── greenkeeper_arena.json
+│   │   │   │   ├── mandela_test.json
+│   │   │   │   ├── ohio_campus.json
+│   │   │   │   ├── perimeter_road.json
+│   │   │   │   ├── salvage_outer.json
+│   │   │   │   ├── salvage_runoff.json
+│   │   │   │   └── salvage_yard.json
+│   │   │   ├── act_02/
+│   │   │   │   ├── amplifier_station.json
+│   │   │   │   ├── array_12_arena.json
+│   │   │   │   ├── blackout_street.json
+│   │   │   │   └── relay_rooftops.json
+│   │   │   ├── act_03/
+│   │   │   │   ├── amalgam_arena.json
+│   │   │   │   ├── s4_hangar.json
+│   │   │   │   ├── salt_flats.json
+│   │   │   │   └── telepod_vault.json
+│   │   │   ├── act_04/
+│   │   │   │   ├── architect_arena.json
+│   │   │   │   ├── dodleston_relay.json
+│   │   │   │   ├── rail_yard.json
+│   │   │   │   ├── relay_approach.json
+│   │   │   │   └── rift_array.json
+│   │   │   ├── act_05/
+│   │   │   │   ├── buried_archive.json
+│   │   │   │   ├── core_prime_arena.json
+│   │   │   │   ├── crust_waveguide.json
+│   │   │   │   └── pillar_approach.json
+│   │   │   ├── alien_worlds/
+│   │   │   │   ├── alien_001_arena.json
+│   │   │   │   ├── alien_001_field.json
+│   │   │   │   ├── alien_002_arena.json
+│   │   │   │   ├── alien_002_field.json
+│   │   │   │   ├── alien_003_arena.json
+│   │   │   │   ├── alien_003_field.json
+│   │   │   │   ├── alien_004_arena.json
+│   │   │   │   ├── alien_004_field.json
+│   │   │   │   ├── alien_005_arena.json
+│   │   │   │   ├── alien_005_field.json
+│   │   │   │   ├── alien_006_arena.json
+│   │   │   │   ├── alien_006_field.json
+│   │   │   │   ├── alien_007_arena.json
+│   │   │   │   ├── alien_007_field.json
+│   │   │   │   ├── alien_008_arena.json
+│   │   │   │   ├── alien_008_field.json
+│   │   │   │   ├── alien_009_arena.json
+│   │   │   │   ├── alien_009_field.json
+│   │   │   │   ├── alien_010_arena.json
+│   │   │   │   ├── alien_010_field.json
+│   │   │   │   ├── alien_scan_h_arena.json
+│   │   │   │   └── alien_scan_h_field.json
+│   │   │   ├── earth_finale/
+│   │   │   │   └── core_prime_arena.json
+│   │   │   └── flashback/
+│   │   │       └── ehman_1977.json
+│   │   ├── act_01_encounters.json
+│   │   ├── act_01_story.json
+│   │   ├── alien_journey.json
+│   │   ├── balance.json
+│   │   ├── campaign.json
+│   │   ├── campaign_route.json
+│   │   ├── civilization_missions.json
+│   │   ├── dialogue_offline.json
+│   │   ├── galaxy_navigation.json
+│   │   ├── lab_scenarios.json
+│   │   ├── opening_story.json
+│   │   └── planet_encounters.json
+│   ├── engine/
+│   │   ├── bosses/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── campaign_bosses.py
+│   │   │   ├── greenkeeper.py
+│   │   │   └── greenkeeper_art.py
+│   │   ├── labs/
+│   │   │   ├── __init__.py
+│   │   │   ├── biosecurity.py
+│   │   │   ├── formal.py
+│   │   │   ├── neuro.py
+│   │   │   └── quantum.py
+│   │   ├── scenes/
+│   │   │   ├── __init__.py
+│   │   │   ├── alien_contact.py
+│   │   │   ├── base.py
+│   │   │   ├── boss.py
+│   │   │   ├── bunker.py
+│   │   │   ├── field.py
+│   │   │   ├── galaxy_transit.py
+│   │   │   ├── lab.py
+│   │   │   ├── terminal.py
+│   │   │   └── title.py
+│   │   ├── ui/
+│   │   │   ├── __init__.py
+│   │   │   ├── aim_reticle.py
+│   │   │   ├── dialogue.py
+│   │   │   ├── hud.py
+│   │   │   ├── pause.py
+│   │   │   ├── text.py
+│   │   │   └── viewport.py
+│   │   ├── __init__.py
+│   │   ├── abilities.py
+│   │   ├── alien_journey.py
+│   │   ├── animation.py
+│   │   ├── asset_transactions.py
+│   │   ├── assets.py
+│   │   ├── audio.py
+│   │   ├── boss_destruction.py
+│   │   ├── campaign.py
+│   │   ├── campaign_route.py
+│   │   ├── campaign_scenery.py
+│   │   ├── codec.py
+│   │   ├── combat_feedback.py
+│   │   ├── config.py
+│   │   ├── contact_session.py
+│   │   ├── crt_renderer.py
+│   │   ├── effects.py
+│   │   ├── encounter_director.py
+│   │   ├── enemies.py
+│   │   ├── energy_filament.py
+│   │   ├── energy_stream_assets.py
+│   │   ├── environment_activity.py
+│   │   ├── field_reality.py
+│   │   ├── firing_lighting.py
+│   │   ├── flashback.py
+│   │   ├── galaxy_transit.py
+│   │   ├── galaxy_transit_assets.py
+│   │   ├── input.py
+│   │   ├── mandela_world.py
+│   │   ├── native_room_assets.py
+│   │   ├── objectives.py
+│   │   ├── opening_story.py
+│   │   ├── planet_encounters.py
+│   │   ├── planet_threat_assets.py
+│   │   ├── player.py
+│   │   ├── protocols.py
+│   │   ├── room_art_contracts.py
+│   │   ├── save_game.py
+│   │   ├── settings.py
+│   │   ├── state_machine.py
+│   │   ├── story_sequence.py
+│   │   ├── temporal_relay.py
+│   │   ├── temporary_weapons.py
+│   │   ├── weapons.py
+│   │   ├── world.py
+│   │   └── world_hazards.py
+│   ├── tests/
+│   │   ├── fixtures/
+│   │   │   ├── scene_timing/
+│   │   │   │   ├── baseline_timing.json
+│   │   │   │   └── baseline_trajectories.json
+│   │   │   ├── save_v1.json
+│   │   │   └── save_v2.json
+│   │   ├── __init__.py
+│   │   ├── test_accessible_controls_integration.py
+│   │   ├── test_act_01_playthrough.py
+│   │   ├── test_action_story.py
+│   │   ├── test_alien_journey_content.py
+│   │   ├── test_alien_journey_runtime.py
+│   │   ├── test_alien_world_art.py
+│   │   ├── test_animation.py
+│   │   ├── test_approach_family_transaction.py
+│   │   ├── test_assets.py
+│   │   ├── test_assisted_survival.py
+│   │   ├── test_audio_lifecycle.py
+│   │   ├── test_authored_receiver.py
+│   │   ├── test_boss_balance.py
+│   │   ├── test_campaign.py
+│   │   ├── test_campaign_scenery.py
+│   │   ├── test_campaign_world_content.py
+│   │   ├── test_campaign_world_route.py
+│   │   ├── test_chapter_boundary.py
+│   │   ├── test_character_facing.py
+│   │   ├── test_checkpoint_audit.py
+│   │   ├── test_codec.py
+│   │   ├── test_combat.py
+│   │   ├── test_combat_assist.py
+│   │   ├── test_contact_session.py
+│   │   ├── test_content.py
+│   │   ├── test_controls_combat_unit.py
+│   │   ├── test_easy_crowds.py
+│   │   ├── test_enemy_render_reuse.py
+│   │   ├── test_enemy_visibility.py
+│   │   ├── test_energy_stream.py
+│   │   ├── test_energy_stream_install.py
+│   │   ├── test_engine_boot.py
+│   │   ├── test_environment_activity.py
+│   │   ├── test_extended_routes.py
+│   │   ├── test_faction_integration.py
+│   │   ├── test_firing_flash_install.py
+│   │   ├── test_firing_lighting.py
+│   │   ├── test_flashback.py
+│   │   ├── test_forward_encounters.py
+│   │   ├── test_forward_flow.py
+│   │   ├── test_free_travel.py
+│   │   ├── test_galaxy_transit.py
+│   │   ├── test_galaxy_transit_assets.py
+│   │   ├── test_gobekli_traversal.py
+│   │   ├── test_grapple_input.py
+│   │   ├── test_greenkeeper_heavy.py
+│   │   ├── test_greenkeeper_projectiles.py
+│   │   ├── test_guided_hub.py
+│   │   ├── test_guided_progression.py
+│   │   ├── test_hud_dirty_regions.py
+│   │   ├── test_input_settings.py
+│   │   ├── test_intro_powerups.py
+│   │   ├── test_labs.py
+│   │   ├── test_long_route_content.py
+│   │   ├── test_maser_discharge_install.py
+│   │   ├── test_maser_presentation.py
+│   │   ├── test_mechanics_route.py
+│   │   ├── test_native_bunker_backdrop.py
+│   │   ├── test_native_prototype_backdrop.py
+│   │   ├── test_native_room_assets.py
+│   │   ├── test_objectives.py
+│   │   ├── test_offline_independence.py
+│   │   ├── test_ohio_campus_art.py
+│   │   ├── test_opening_story.py
+│   │   ├── test_optional_earth_tasks.py
+│   │   ├── test_planet_encounters.py
+│   │   ├── test_planet_field_platforms.py
+│   │   ├── test_planet_threat_assets.py
+│   │   ├── test_player.py
+│   │   ├── test_pointer_controller_input.py
+│   │   ├── test_profile.py
+│   │   ├── test_render_density.py
+│   │   ├── test_room_family_transaction.py
+│   │   ├── test_runtime_integration.py
+│   │   ├── test_salvage_hazard_traversal.py
+│   │   ├── test_save_game.py
+│   │   ├── test_science_claims.py
+│   │   ├── test_simple_bunker_exit.py
+│   │   ├── test_simple_controls.py
+│   │   ├── test_timelines.py
+│   │   ├── test_ui_readability.py
+│   │   ├── test_victory_flow.py
+│   │   ├── test_world.py
+│   │   ├── test_world_atmosphere.py
+│   │   ├── test_world_geometry.py
+│   │   └── test_world_hazards.py
+│   ├── tools/
+│   │   ├── __init__.py
+│   │   ├── act_01_traversal.py
+│   │   ├── audio_sfx_builder.py
+│   │   ├── boss_sprite_builder.py
+│   │   ├── build_approach_family.py
+│   │   ├── build_assets.py
+│   │   ├── build_campaign_art.py
+│   │   ├── build_energy_stream.py
+│   │   ├── build_firing_flash.py
+│   │   ├── build_galaxy_transit.py
+│   │   ├── build_greenkeeper_heavy.py
+│   │   ├── build_maser_discharge.py
+│   │   ├── build_ohio_campus_art.py
+│   │   ├── build_planet_threat.py
+│   │   ├── build_room_family.py
+│   │   ├── bunker_scene_builder.py
+│   │   ├── capture_alien_world.py
+│   │   ├── capture_intro_combat.py
+│   │   ├── capture_readme.py
+│   │   ├── capture_runtime_audit.py
+│   │   ├── civ_art_builder.py
+│   │   ├── enemy_sprite_builder.py
+│   │   ├── faction_counter_audit.py
+│   │   ├── faction_runtime_audit.py
+│   │   ├── generate_faction_sprites.py
+│   │   ├── mateo_sprite_builder.py
+│   │   ├── mechanics_route.py
+│   │   ├── ohio_environment_builder.py
+│   │   ├── play_act_01.py
+│   │   ├── preview_assets.py
+│   │   ├── profile_game.py
+│   │   ├── README.md
+│   │   ├── refine_batch_1.py
+│   │   ├── refine_batch_2.py
+│   │   ├── refine_batch_3.py
+│   │   ├── refine_batch_4.py
+│   │   ├── refine_batch_5.py
+│   │   ├── refine_batch_6.py
+│   │   ├── refine_batch_7.py
+│   │   └── validate_content.py
+│   ├── __init__.py
+│   └── main.py
+├── .gitignore
+├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
+└── README.md

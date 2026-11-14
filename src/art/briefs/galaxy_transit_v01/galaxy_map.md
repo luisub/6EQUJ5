@@ -1,0 +1,5 @@
+# Galaxy navigation background: one candidate
+
+Create one original opaque 960×540 RGB navigation background from a larger generated master, not an enlargement of a 480-grid image. The fictional schematic uses an overhead or gently tilted spiral disk, visibly contained within x≈110–880 and y≈75–470, with dark navy/violet space, distinct arms and dust depth, restrained warm core near (480,270), subtle cyan stars and quiet label-friendly values. Reserve the top ≈65 and bottom ≈45 pixels. Runtime code supplies Earth and eleven fictional signal markers, routes and labels; the bitmap contains no text, symbols, routes, planets or characters.
+
+The user linked a DeviantArt galaxy image and a Fandom unstable-vortex page; both were inaccessible, so their contents were not inspected and no appearance or asset is inferred or copied. The navigation image is an original game schematic, not an accurate astronomical map or a franchise replica. Preserve source, exact prompt, transform and hashes; inspect native and integer-scale previews. Actual overlay labels and navigation need separate runtime review. The vortex, if later commissioned, is a separate asset after root review.

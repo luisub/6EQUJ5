@@ -18,7 +18,7 @@ from video_game.engine.bosses.greenkeeper_art import FAMILY, HASHES, load_family
 from video_game.engine.world import Camera
 from video_game.tools.build_greenkeeper_heavy import build
 
-SOURCE = REPO_ROOT / 'src/art/source/visual_upgrade/candidates/greenkeeper_heavy_v01/exports'
+SOURCE = REPO_ROOT / 'src/art/source/bosses/greenkeeper_heavy_v01/exports'
 
 
 def test_promotion_validates_and_uses_complete_family(tmp_path):
