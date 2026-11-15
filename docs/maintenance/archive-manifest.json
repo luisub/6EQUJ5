@@ -190618,5 +190618,29 @@
     "reason": "Original pre-task implementation/route link, before shooting fixes and world retirement.",
     "restoration": "Verify SHA-256 and restore together with the original journey metadata/registries/assets after preserving newer work.",
     "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "docs/media/readme/signal-transit.gif",
+    "archive_path": "_trash/2026-11-15_readme_constellation_paths/docs/media/readme/signal-transit.gif",
+    "sha256": "202b9a6af027a54a13393a26e0a1cf77053a94d49a4f09391ea8038e8a0078ec",
+    "bytes": 885469,
+    "reason": "Preserve the previous README media path and metadata before moving seven-world previews to a distinct constellation filename.",
+    "restoration": "Verify SHA-256, preserve newer work, then restore original_path and its matching README/capture metadata together."
+  },
+  {
+    "original_path": "docs/media/readme/galaxy-map.png",
+    "archive_path": "_trash/2026-11-15_readme_constellation_paths/docs/media/readme/galaxy-map.png",
+    "sha256": "f0da9cfe33f08f44f1ab29d4713519ed57a78f076273518b59811e036a2f0a72",
+    "bytes": 408970,
+    "reason": "Preserve the previous README media path and metadata before moving seven-world previews to a distinct constellation filename.",
+    "restoration": "Verify SHA-256, preserve newer work, then restore original_path and its matching README/capture metadata together."
+  },
+  {
+    "original_path": "docs/media/readme/capture.json",
+    "archive_path": "_trash/2026-11-15_readme_constellation_paths/docs/media/readme/capture.json",
+    "sha256": "677a053f14262bb0036a492d20c32d32372051de88f4abb49ee07cf5c66d9e73",
+    "bytes": 8922,
+    "reason": "Preserve the previous README media path and metadata before moving seven-world previews to a distinct constellation filename.",
+    "restoration": "Verify SHA-256, preserve newer work, then restore original_path and its matching README/capture metadata together."
   }
 ]

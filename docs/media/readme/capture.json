@@ -249,7 +249,7 @@
       "bytes": 757942
     },
     {
-      "file": "galaxy-map.png",
+      "file": "signal-constellation.png",
       "setup": "First Earth-to-TRAPPIST-1 transit with staged portal unlock.",
       "scene": "GALAXY_TRANSIT",
       "size": [
@@ -260,7 +260,7 @@
       "bytes": 408970
     },
     {
-      "file": "signal-transit.gif",
+      "file": "signal-constellation.gif",
       "setup": "Actual first-world map, vortex and arrival; staged portal unlock.",
       "frames": 41,
       "frame_duration_ms": 100,

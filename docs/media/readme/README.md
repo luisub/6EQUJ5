@@ -28,7 +28,7 @@ The main README selects a smaller gallery for players; this directory retains th
 | `neo-denver-mountains.png`, `neo-denver-fitzsimons.png` | Native renderer views at player x=96 and x=480 respectively, with camera centered on the player and the same prior-act fixture. Both keep their HUD and actual gameplay layers. |
 | `trappist-port.png` | First retained world after a staged Earth portal victory; mapped movement after entry. |
 | `crab-memorial.png` | Crab field midpoint with staged prior victories, receipts and player position. |
-| `galaxy-map.png`, `signal-transit.gif` | First Earth-to-TRAPPIST-1 crossing after a staged portal unlock. |
+| `signal-constellation.png`, `signal-constellation.gif` | Earth plus the seven retained alien worlds; first crossing to TRAPPIST-1 after a staged portal unlock. Eight travel legs include the return to Earth. |
 | `rift-raptor`, `resonance-effigy`, `beacon-mite` PNG/GIF pairs | Staged prior progress, player/enemy placement and extended attack cooldown; ordinary runtime updates drive the patrol and leg cycle. GIFs are labeled native detail crops; PNGs retain the full HUD. |
 | `memory-extractor.png` | Staged guardian progress, then ordinary runtime updates through the first warning into an active energy-field attack. |
 | `core-network.png` | Eleven prior victories and receipts staged, then 100 normal final-arena updates. |

@@ -255,8 +255,8 @@ def capture(output):
                 if i % 6 == 0:
                     frames.append(gif_frame())
                 if i == 90:
-                    still("galaxy-map", "First Earth-to-TRAPPIST-1 transit with staged portal unlock.")
-            gif("signal-transit", frames, "Actual first-world map, vortex and arrival; staged portal unlock.")
+                    still("signal-constellation", "First Earth-to-TRAPPIST-1 transit with staged portal unlock.")
+            gif("signal-constellation", frames, "Actual first-world map, vortex and arrival; staged portal unlock.")
             for record in records:
                 path = output / record["file"]
                 record["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()

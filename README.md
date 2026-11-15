@@ -130,9 +130,9 @@ Five Earth acts take you from **Ohio** to **Neo-Denver**, **Area 51**, **VLA / D
   </tr>
 </table>
 
-![The galaxy route map gives way to a vortex on the first crossing from Earth](docs/media/readme/signal-transit.gif)
+[![Earth and the seven alien worlds, with the first crossing to TRAPPIST-1 and the centered teleportation gate](docs/media/readme/signal-constellation.gif)](docs/media/readme/signal-constellation.png)
 
-*Follow the route between worlds. Press Enter, Space or click to skip a crossing.*
+*Seven alien worlds, starting at TRAPPIST-1. Eight crossings include the return to Earth. Click the animation for the full constellation map; press Enter, Space or click during play to skip a crossing.*
 
 <details>
 <summary><strong>The return home — ending spoilers</strong></summary>
