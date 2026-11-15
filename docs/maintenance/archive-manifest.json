@@ -189519,5 +189519,54 @@
     "sha256": "e92ff7c3b84e0e8dd6214a5cbd17eacfe18385de103396888c8d417b6b8d05e6",
     "reason": "Replaced block robot poses with native cyber-insect motion.",
     "restoration": "Verify hash and preserve current files, then restore the old family and matching manifest together."
+  },
+  {
+    "original_path": "src/tools/enemy_sprite_builder.py",
+    "archive_path": "_trash/2026-11-15_repository_cleanup/retired/src/tools/enemy_sprite_builder.py",
+    "sha256": "0a1da920f466c7ebf2a11b2553615fa83d437aa66df539df3766e6f588f6f741",
+    "reason": "Retired procedural robot generator with no active callers; build_cyber_insects owns accepted Earth enemy exports.",
+    "restoration": "Verify SHA-256, preserve any newer working copy, then copy the archive file to original_path. Run retired art generators only in an isolated historical checkout; they overwrite accepted runtime artwork."
+  },
+  {
+    "original_path": "src/tools/generate_faction_sprites.py",
+    "archive_path": "_trash/2026-11-15_repository_cleanup/retired/src/tools/generate_faction_sprites.py",
+    "sha256": "250e2e44f7934b3238207da1a8e57304c19ce44c5453384e8d89b567e6150793",
+    "reason": "Retired procedural robot generator with no active callers; build_cyber_insects owns accepted Earth enemy exports.",
+    "restoration": "Verify SHA-256, preserve any newer working copy, then copy the archive file to original_path. Run retired art generators only in an isolated historical checkout; they overwrite accepted runtime artwork."
+  },
+  {
+    "original_path": "docs/planning/CURRENT_STATE.md",
+    "archive_path": "_trash/2026-11-15_repository_cleanup/before/docs/planning/CURRENT_STATE.md",
+    "sha256": "7256d9ad692f3b950eed891724b8c7590dc2958cbaa62c8d17dd5ec90a21fa0f",
+    "reason": "Snapshot before consolidating current status and verification; historical evidence retained.",
+    "restoration": "Verify SHA-256 and copy to original_path only after preserving newer documentation."
+  },
+  {
+    "original_path": "docs/planning/TODO_ROADMAP.md",
+    "archive_path": "_trash/2026-11-15_repository_cleanup/before/docs/planning/TODO_ROADMAP.md",
+    "sha256": "5cb8554dc300419c4b5f66547753dbf40f939605930094871b74954c71e2124d",
+    "reason": "Snapshot before consolidating current status and verification; historical evidence retained.",
+    "restoration": "Verify SHA-256 and copy to original_path only after preserving newer documentation."
+  },
+  {
+    "original_path": "docs/maintenance/REPOSITORY_AUDIT.md",
+    "archive_path": "_trash/2026-11-15_repository_cleanup/before/docs/maintenance/REPOSITORY_AUDIT.md",
+    "sha256": "e79266f270638056bde1a0e287544861800e79f287708ff4e5c43ea02c164441",
+    "reason": "Snapshot before consolidating current status and verification; historical evidence retained.",
+    "restoration": "Verify SHA-256 and copy to original_path only after preserving newer documentation."
+  },
+  {
+    "original_path": "docs/maintenance/verification.json",
+    "archive_path": "_trash/2026-11-15_repository_cleanup/before/docs/maintenance/verification.json",
+    "sha256": "ce45a709d5798a6886378d7928bfad67c3149cc0348d20faecc8561fc75520c5",
+    "reason": "Snapshot before consolidating current status and verification; historical evidence retained.",
+    "restoration": "Verify SHA-256 and copy to original_path only after preserving newer documentation."
+  },
+  {
+    "original_path": "docs/maintenance/repository-tree.txt",
+    "archive_path": "_trash/2026-11-15_repository_cleanup/before/docs/maintenance/repository-tree.txt",
+    "sha256": "abe9d20b59da6b3979e020d52b538571c957d7bc22a7a6312234fa2bb0d81212",
+    "reason": "Snapshot before consolidating current status and verification; historical evidence retained.",
+    "restoration": "Verify SHA-256 and copy to original_path only after preserving newer documentation."
   }
 ]

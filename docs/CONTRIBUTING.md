@@ -49,7 +49,7 @@ Use temporary saves and settings in tests and capture tools. Never write into a 
 
 After packaging changes, build a clean wheel and a wheel from the source distribution. Check their contents and boot the installed game outside the checkout in an environment without AI packages. Wheels must contain runtime assets/data and exclude tests, tools, docs, art masters and local assistant files.
 
-Inspect rendered output after visual changes. Dummy SDL checks and staged captures do not establish human playability, physical-controller support, audible quality or native display performance. Record actual results and limitations. Known portrait-source and render-budget failures are documented in the [repository audit](maintenance/REPOSITORY_AUDIT.md); retain the assertions and investigate any changed failure.
+Inspect rendered output after visual changes. Dummy SDL checks and staged captures do not establish human playability, physical-controller support, audible quality or native display performance. Record actual results and limitations. Current results and known render-budget variability are documented in the [verification summary](maintenance/verification.json); retain the assertions and investigate any changed failure.
 
 ## Artwork and cleanup
 

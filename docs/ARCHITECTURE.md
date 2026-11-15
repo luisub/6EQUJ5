@@ -20,6 +20,12 @@
 
 The receiver resolves authored dialogue locally. Its small codec retains the historical six-bin 6EQUJ5 decoding rules. No live model adapter, worker or network service participates in progression.
 
+The four science workbenches share catalog loading and claim, evidence,
+replication and completion checks in `src/engine/labs/validation.py`. Their
+individual modules own simulations, experiment unlocks, resets and deployment
+rewards. Feedback remains specific to each discipline; workflow step values and
+existing public imports remain compatible.
+
 The journey ledger gates the final two-form Core fight on eleven earned receipts.
 After its six-page ending saves completion, `RESTORED_EARTH` provides a peaceful,
 walkable park with four separately saved dialogue acknowledgements. Completed

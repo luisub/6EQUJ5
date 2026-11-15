@@ -1,37 +1,14 @@
-# Repository separation update
-
-Standalone offline packaging and the flat src layout are installed at the final game path; the legacy AI application is installed separately. Both environments were recreated and validated. See [completed transfer](../../_trash/2026-11-14_repository_compaction/docs/migration/TRANSFER_COMPLETE.md), [current state](CURRENT_STATE.md) and [migration report](../../_trash/2026-11-14_repository_compaction/docs/migration/REPORT.md). Historical evidence paths in the retained roadmap below refer to archived pre-separation material; resolve them through the archive manifest. Gameplay task statuses and gate acceptance are unchanged.
-
-Repository organization was audited on 2026-11-14. Active sources and fixtures were consolidated and obsolete output was archived; gameplay task statuses and acceptance thresholds are unchanged. See the [audit and directory tree](../maintenance/REPOSITORY_AUDIT.md).
-
 # Execution roadmap
 
-2026-11-14 enemy increment: every boss and enemy presentation supports both
-facings, including mirrored weak points, Greenkeeper anchors/charges and boss
-destruction fragments. Nine Earth robot roles now use three native cyber-insect
-families with articulated legs/wings. Existing mechanics, collision dimensions
-and progression remain. See current validation; formal motion and playtest gates
-retain their status.
+The scope is five Earth acts, eleven signal worlds and the return to Earth.
+This file owns task status and acceptance dependencies. Read
+[current state](CURRENT_STATE.md) for implemented behavior and
+[verification](../maintenance/verification.json) for measured checks.
+Historical task cards may describe retired live-model integration or paths;
+use the current architecture and source when implementing them.
 
-2026-11-14 ending increment: original green-code Core chamber/projection, six
-liberation pages and a walkable restored Central Park with four aftermath pages
-are implemented. Completed-save recovery, page-save retries and explicit park
-exit are covered. See [story](../STORY.md) and [current validation](CURRENT_STATE.md).
-P08's older alternate-ending proposal and formal acceptance dependencies remain
-open; this user-directed happy ending does not promote those gates.
-
-2026-11-14 presentation follow-up: compact upper-right weapon timers, simplified
-map captions, quiet enemy arrivals, SCAN-H dinosaurs and distance-driven leg
-cycles for Raptors, Resonance Effigies and Beacon Mites are implemented. See
-[current validation](CURRENT_STATE.md#artwork-combat-and-travel). Existing
-formal gate statuses and the render-budget threshold are unchanged.
-
-User-requested increment: **nine alien worlds and guardians, tougher bosses, centered galaxy travel and asset cleanup — implemented**. Each civilization was produced and reviewed before advancing to the next. All eleven worlds now have native artwork; formal J01–J06 gates remain in progress. See [current results](CURRENT_STATE.md#repository-and-validation) and the [asset guide](../ASSETS.md). Human playtesting, guardian animation polish and render-budget review remain open. The obsolete comparison-sheet feature and missing historical-portrait check were retired during asset consolidation; the missing source was not recovered.
-
-
-The roadmap is the single task-status owner. The serial J02 background/body pass is complete; motion polish and armed-air-pose work remain. Formal dependencies and acceptance requirements remain in the linked task cards. Earlier roadmap snapshots are indexed by the [archive manifest](../maintenance/archive-manifest.json). The immediately preceding roadmap is preserved under `_trash/2026-11-14_repository_cleanup/documentation-before-cleanup/TODO_ROADMAP.md`.
-
-**Counts:** 72 tasks, 36 done, 23 in progress, 13 planned. J01–J06 remain in progress. The [repository audit](../maintenance/REPOSITORY_AUDIT.md) records current validation and package inventory. Earlier validation narratives remain in the archived pre-cleanup roadmap and migration records; they do not change the task statuses below.
+**Counts:** 72 tasks, 36 done, 23 in progress, 13 planned. J01–J06 remain in
+progress. Implemented increments do not by themselves close acceptance gates.
 
 | ID | Task | Dependencies | Status | Resource | Instructions |
 |---|---|---|---|---|---|
@@ -108,11 +85,17 @@ The roadmap is the single task-status owner. The serial J02 background/body pass
 | R07 | Verify the packaged build on claimed platforms | R06 | planned | PLATFORM | [Task card](milestones/05_release.md#r07) |
 | R08 | Accept the release and consolidate the workspace | R07 | planned | THINKING | [Task card](milestones/05_release.md#r08) |
 
-
-
 ## Continuation and dependencies
 
-Develop the armed ascent/fall poses with add-only clip validation, then refine guardian motion one family at a time. All eleven native realm/body families are installed. J06 remains open for human fairness and motion assessment. A12 still needs audio acceptance, A13 real-display performance and A14 a human fresh-save route; S09/S11 and the linked P/R acceptance dependencies remain open. Work authorized in parallel does not change those requirements.
+Develop the armed ascent/fall poses with add-only clip validation, then refine
+guardian motion one family at a time. All eleven native realm/body families are
+installed. J06 needs human fairness and motion assessment; A12 needs listening
+and mix acceptance; A13 needs real-display performance; A14 needs a human
+fresh-save route. S09/S11 and the linked P/R dependencies remain open.
+
+The requested happy ending and restored Denver are implemented. P08's older
+alternate-ending proposal and formal dependencies remain open. The latest code
+cleanup does not change any task status, threshold or acceptance requirement.
 
 ## Milestone exits
 
@@ -127,7 +110,7 @@ Develop the armed ascent/fall poses with add-only clip validation, then refine g
 
 Every future done status requires supporting evidence in the progress log. See the linked task cards and [quality gates](QUALITY_GATES.md) for acceptance details.
 
-2026-11-14 soundtrack increment: eleven original world themes, packaged playback,
-world-aware scene selection and unchanged Earth/bunker scores are implemented.
-A12 remains in progress for human listening and mix acceptance. README previews
-now show native-pixel animation, three creature gaits and a guardian energy attack.
+Earlier roadmap snapshots and repository-separation evidence are indexed by the
+[archive manifest](../maintenance/archive-manifest.json). The preceding roadmap
+is preserved under
+`_trash/2026-11-15_repository_cleanup/before/docs/planning/TODO_ROADMAP.md`.

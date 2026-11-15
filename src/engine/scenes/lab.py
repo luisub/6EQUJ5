@@ -10,9 +10,10 @@ import pygame
 
 from video_game.engine import config
 from video_game.engine.labs.biosecurity import BiosecurityValidationWorkbench
-from video_game.engine.labs.formal import (
-    FormalValidationWorkbench,
+from video_game.engine.labs.formal import FormalValidationWorkbench
+from video_game.engine.labs.validation import (
     STEP_SELECT,
+    STEP_EXPERIMENT,
     STEP_CLAIM,
     STEP_EVIDENCE,
     STEP_REPLICATION,
@@ -25,8 +26,6 @@ from video_game.engine.protocols import ScienceArcManager
 from video_game.engine.scenes.base import BaseScene
 from video_game.engine.ui.text import ellipsize_pixels, wrap_text_pixels
 from video_game.engine.ui.viewport import window_to_logical
-
-STEP_EXPERIMENT = "EXPERIMENT"
 
 
 class ScienceLabScene(BaseScene):

@@ -1,411 +1,90 @@
 {
-  "date": "2026-11-14",
-  "pass": "canonical_asset_layout",
-  "preservation": {
-    "unaccounted_removals": [],
-    "original_media_preserved": 579,
-    "missing_media": [],
-    "asset_files_before": 425,
-    "asset_files_after": 295,
-    "asset_bytes_before": 48841607,
-    "asset_bytes_after": 41392223,
-    "runtime_media_duplicate_groups": [],
-    "asset_category_files": {
-      "ui": 3,
-      "civilizations": 34,
-      "audio": 15,
-      "environments": 62,
-      "sprites": 172,
-      "effects": 9
-    },
-    "archive_records_verified": 262,
-    "archived_project_files": 136,
-    "archived_cache_files": 116,
-    "preserved_snapshots": 10,
-    "source_test_modules": 85,
-    "archive_bytes": 10399832
-  },
-  "canonical_relocations": 76,
-  "tests": {
-    "passed": 1337,
-    "failed": 1,
-    "warnings": 0,
-    "duration_seconds": 178.5,
-    "remaining_failure": "test_profile.py::test_scene_frame_budgets",
-    "field_render_p95_ms": 5.249,
-    "render_budget_ms": 5.0,
-    "isolated_profile": "1 passed; full-suite timing remains above budget",
-    "focused_passed": 86,
-    "obsolete_feature_note": "Comparison-sheet product and missing historical-portrait check retired together; missing portraits were not recovered. Unique old approach safety checks migrated."
-  },
-  "levels_validated": 52,
-  "protected_asset_groups_validated": 14,
-  "identical_renderer_captures": 20,
-  "runtime_media_duplicate_groups": 0,
-  "packaging": {
-    "clean_direct_wheel": "passed",
-    "sdist_rebuilt_wheel": "passed",
-    "matching_runtime_files": 434,
-    "world_guardian_pairs_per_wheel": 11,
-    "checkout_file_reads": 0,
-    "source_distribution_tests_match_final_checkout": true
-  },
-  "installed_resource_trace": {
-    "rooms": 52,
-    "guardians": 11,
-    "categories": {
-      "asset_metadata": 46,
-      "audio_bytes": 2,
-      "font_load": 1,
-      "game_data": 60,
-      "image_bytes": 8,
-      "image_load": 196,
-      "image_stream_sha256": 8,
-      "music_stream_sha256": 2,
-      "sfx_load": 12
-    },
-    "violations": [],
-    "evidence": "_trash/2026-11-14_asset_layout/verification/final-installed-resource-trace.json"
-  },
-  "python_files_parsed": 193,
-  "git_index_unchanged": true,
-  "archive_index": "docs/maintenance/archive-manifest.json",
-  "evidence_directory": "_trash/2026-11-14_asset_layout/verification",
-  "earlier_verification": "_trash/2026-11-14_asset_layout/before/docs/maintenance/verification.json",
-  "limits": [
-    "Dummy SDL and scripted scene fixtures; not a human campaign playthrough.",
-    "No audible-quality, physical-controller or native-display performance certification.",
-    "Field-scene timing threshold unchanged and still fails in the full suite."
+  "date": "2026-11-15",
+  "pass": "shared_lab_validation_and_repository_cleanup",
+  "changes": [
+    "One shared catalog and validation implementation for four science workbenches",
+    "Two superseded procedural robot generators archived; accepted insect builder retained",
+    "Current state, roadmap, audit and directory map consolidated; historical evidence preserved"
   ],
-  "local_markdown_links_checked": 352,
-  "broken_local_links": 0,
-  "active_cache_directories": 0,
-  "runtime_asset_symlinks": 0,
-  "unaccounted_removals": 0,
-  "latest_update": {
-    "date": "2026-11-14",
-    "pass": "enemy_facing_and_earth_cyber_insects",
-    "changes": [
-      "All campaign guardians and Earth bosses turn toward crossed targets, including overhead jumps",
-      "Mirrored weak points, muzzle anchors, hit flashes and destruction fragments",
-      "Directional attacks work on both sides; warned charges retain committed direction",
-      "Nine Earth combat roles use three cyber-insect families with four native poses",
-      "Grounded leg cycles follow actual travel; flying wing and leg poses follow actor time",
-      "README motion gallery and reproducible art/capture tools"
-    ],
+  "tests": {
+    "baseline_focused_passed": 64,
+    "baseline_duration_seconds": 3.19,
     "full_suite": {
-      "passed": 1399,
+      "passed": 1407,
       "failed": 1,
-      "duration_seconds": 188.87,
-      "remaining_failure": "test_profile.py::test_scene_frame_budgets",
-      "field_render_p95_ms": 5.334,
-      "render_budget_ms": 5.0,
-      "isolated_profile": "1 passed in 3.36 seconds; full-suite timing remains above budget",
-      "render_budget_assertions": "Unchanged"
+      "duration_seconds": 213.55,
+      "failure": "src/tests/test_profile.py::test_scene_frame_budgets",
+      "scene": "FIELD_OPS",
+      "render_p95_ms": 5.466,
+      "render_budget_ms": 5.0
     },
-    "focused_tests": {
-      "final_facing_scenery_rendering_lighting": 94,
-      "new_facing_and_animation_cases_included": 40,
-      "duration_seconds": 8.74
+    "focused": {
+      "passed": 139,
+      "duration_seconds": 17.25
     },
-    "levels_validated": 52,
-    "protected_asset_groups_validated": 14,
-    "runtime_asset_files": 304,
-    "test_modules": 88,
-    "asset_rebuild": {
-      "masters": 3,
-      "exports": 37,
-      "byte_identical": true
+    "new_cases": 8,
+    "isolated_profile": {
+      "failed": 1,
+      "duration_seconds": 2.83,
+      "scene": "FIELD_OPS",
+      "render_p95_ms": 5.909,
+      "render_budget_ms": 5.0
     },
-    "installed_wheel": {
-      "outside_checkout": true,
-      "boot": true,
-      "native_insect_roles": 9,
-      "animated_poses_per_role": 4,
-      "guardian_both_facings": 11,
-      "runtime_assets": 304,
-      "drivers": "dummy",
-      "wheel_files": 452
-    },
-    "preservation_and_media": {
-      "archive_records_verified": 48,
-      "removed_files_preserved": 33,
-      "readme_captures_verified": 34,
-      "local_links_checked": 169,
-      "missing_links": [],
-      "runtime_assets": 304,
-      "test_modules": 88,
-      "exact_rebuild_exports": 37
-    },
-    "visual_checks": [
-      "Native Earth insect scene and walking/flight poses",
-      "Beacon Forger left/right facing during mapped player jump",
-      "Thin Assisted-mode outline with native detail"
-    ],
-    "capture_metadata": "docs/media/readme/enemy-motion-capture.json",
-    "evidence": [
-      "_temp/cyber-insects-full-final.log",
-      "_temp/cyber-profile-isolated.log",
-      "_temp/cyber-insects-final-focused.log",
-      "_temp/cyber-installed.json",
-      "_temp/cyber-audit.json"
-    ],
-    "limits": [
-      "Dummy SDL and disclosed progression/placement/cooldown fixtures; not a human campaign playthrough.",
-      "Full-suite render timing remains above the existing budget; no native-display performance certification.",
-      "Formal acceptance gates unchanged."
-    ]
+    "render_budget_assertions": "Unchanged; the previously documented timing failure remains open."
   },
-  "previous_updates": [
-    {
-      "date": "2026-11-14",
-      "pass": "core_liberation_and_restored_denver",
-      "changes": [
-        "Original machine-cathedral Core arena and green-code projected intelligence",
-        "Six ending pages confirming Core disconnection and world recovery",
-        "Walkable Central Park, Denver, three springs later, with four saved dialogue pages",
-        "Four-pose walking families, flying birds, water glints and sunlight",
-        "Completed-save park recovery, save retries and New-game isolation",
-        "README ending gallery, story guide and reproducible art/capture tools"
-      ],
-      "full_suite": {
-        "passed": 1360,
-        "failed": 0,
-        "duration_seconds": 184.2,
-        "render_budget_assertions": "Unchanged; passed in this run. Earlier timing variation remains documented."
-      },
-      "focused_tests": {
-        "ending_journey_story_audio": 55,
-        "scenery_and_park": 40
-      },
-      "initial_full_run": {
-        "passed": 1359,
-        "failed": 1,
-        "cause": "Background allowlist test still expected 18 entries; updated to 20 and explicitly checked both new backgrounds."
-      },
-      "levels_validated": 52,
-      "protected_asset_groups_validated": 14,
-      "runtime_asset_files": 315,
-      "test_modules": 87,
-      "asset_rebuild": {
-        "masters": 4,
-        "exports": 8,
-        "byte_identical": true
-      },
-      "installed_wheel": {
-        "runtime_assets": 315,
-        "core_native_art": true,
-        "park_native_art": true,
-        "family_frames": 4,
-        "completed_save_recovery": true,
-        "park_music_streamed": true,
-        "dialogue_layout": [
-          {
-            "page": 1,
-            "lines": 1
-          },
-          {
-            "page": 2,
-            "lines": 3
-          },
-          {
-            "page": 3,
-            "lines": 2
-          },
-          {
-            "page": 4,
-            "lines": 2
-          }
-        ],
-        "park_render_p95_ms": 5.491374991834164,
-        "drivers": "dummy",
-        "limitations": "Explicit prior-progress and final-victory fixtures; no human playthrough or audible/native-display acceptance.",
-        "new_game_isolation": true,
-        "wheel_files": 463,
+  "behavior_parity": {
+    "comparisons": 221,
+    "scenarios": 8,
+    "identical": true,
+    "simulation_classes_unchanged": true
+  },
+  "preservation": {
+    "media_files_unchanged": 587,
+    "archive_records_verified": 7,
+    "task_rows_unchanged": 78,
+    "python_files_parsed": 203,
+    "lab_lines_before": 2486,
+    "lab_lines_after": 2117,
+    "retired_builder_lines": 764,
+    "git_index_unchanged": true
+  },
+  "packaging": {
+    "clean_source": true,
+    "matching_runtime_files": true,
+    "wheels": [
+      {
+        "build": "direct",
+        "runtime_files": 447,
+        "boot_frames": 3,
+        "workbenches": 4,
         "outside_checkout": true
       },
-      "new_archive_records_verified": 2,
-      "readme_captures_verified": 29,
-      "local_links_checked": 176,
-      "missing_local_links": [],
-      "visual_review": [
-        "Core Prime and Archon native captures",
-        "Six-page ending first-page render",
-        "Park dialogue native layout; all four pages measured within bounds",
-        "Peaceful park native render and animated family frame samples"
-      ],
-      "evidence": [
-        "docs/media/readme/finale-capture.json",
-        "_temp/finale-full-suite-final.log",
-        "_temp/finale-focused-final.log",
-        "_temp/finale-scenery-regression.log",
-        "_temp/finale-installed.json",
-        "_temp/finale-doc-check.json"
-      ],
-      "limits": "Dummy SDL and explicit prior-progress/placement fixtures. Both final forms were defeated with mapped fire in the capture and runtime test. These checks do not establish a human full-game playthrough, audible quality, physical-controller compatibility or native-display performance. Formal gates unchanged."
-    },
-    {
-      "date": "2026-11-14",
-      "pass": "world_music_and_readme_refresh",
-      "changes": [
-        "Eleven original 32-bar instrumental world scores; thirteen total music tracks",
-        "World-aware exploration, guardian and contact music with non-restarting fades",
-        "Native-resolution 256-color README animations, creature detail crops and active guardian attack"
-      ],
-      "runtime_asset_files": 309,
-      "installed_runtime_files": 449,
-      "full_suite": {
-        "passed": 1351,
-        "failed": 1,
-        "duration_seconds": 201.55,
-        "remaining_failure": "test_profile.py::test_scene_frame_budgets",
-        "scene": "BOSS_BOUNTY",
-        "render_p95_ms": 5.394,
-        "render_budget_ms": 5.0,
-        "isolated_profile": "1 passed in 3.35 seconds"
-      },
-      "focused_audio_and_journey_tests": 38,
-      "levels_validated": 52,
-      "protected_asset_groups_validated": 14,
-      "installed_wheel": {
-        "boot": true,
-        "streamed_music_tracks": 13,
-        "world_tracks": 11,
-        "volume_and_mute": true,
-        "outside_checkout": true,
-        "audio_driver": "dummy"
-      },
-      "audio_measurements": [
-        {
-          "file": "beacon_network.ogg",
-          "duration_seconds": 65.085,
-          "integrated_lufs": -18.4,
-          "true_peak_dbfs": -4.5,
-          "loop_seam_sample_delta": 0.004956
-        },
-        {
-          "file": "crab_memorial.ogg",
-          "duration_seconds": 101.053,
-          "integrated_lufs": -18.5,
-          "true_peak_dbfs": -6.8,
-          "loop_seam_sample_delta": 0.006291
-        },
-        {
-          "file": "crystal_lattice.ogg",
-          "duration_seconds": 71.111,
-          "integrated_lufs": -18.1,
-          "true_peak_dbfs": -5.6,
-          "loop_seam_sample_delta": 0.008526
-        },
-        {
-          "file": "event_horizon.ogg",
-          "duration_seconds": 89.302,
-          "integrated_lufs": -18.7,
-          "true_peak_dbfs": -6.3,
-          "loop_seam_sample_delta": 0.003032
-        },
-        {
-          "file": "interstellar_archive.ogg",
-          "duration_seconds": 106.667,
-          "integrated_lufs": -18.5,
-          "true_peak_dbfs": -4.7,
-          "loop_seam_sample_delta": 0.001116
-        },
-        {
-          "file": "orion_nursery.ogg",
-          "duration_seconds": 91.429,
-          "integrated_lufs": -18.2,
-          "true_peak_dbfs": -8.3,
-          "loop_seam_sample_delta": 0.008177
-        },
-        {
-          "file": "proxima_twilight.ogg",
-          "duration_seconds": 98.462,
-          "integrated_lufs": -18.5,
-          "true_peak_dbfs": -6.1,
-          "loop_seam_sample_delta": 0.004948
-        },
-        {
-          "file": "rift_hunt.ogg",
-          "duration_seconds": 73.846,
-          "integrated_lufs": -18.4,
-          "true_peak_dbfs": -6.6,
-          "loop_seam_sample_delta": 0.002035
-        },
-        {
-          "file": "sagittarius_signal.ogg",
-          "duration_seconds": 83.478,
-          "integrated_lufs": -18.4,
-          "true_peak_dbfs": -5.3,
-          "loop_seam_sample_delta": 0.002554
-        },
-        {
-          "file": "terrestrial_memory.ogg",
-          "duration_seconds": 87.273,
-          "integrated_lufs": -18.3,
-          "true_peak_dbfs": -6.0,
-          "loop_seam_sample_delta": 0.008762
-        },
-        {
-          "file": "trappist_orbits.ogg",
-          "duration_seconds": 68.571,
-          "integrated_lufs": -18.7,
-          "true_peak_dbfs": -5.2,
-          "loop_seam_sample_delta": 0.003122
-        }
-      ],
-      "music_bytes_added": 13895353,
-      "sfx_rebuild_preserves_music": true,
-      "readme_captures_verified": 26,
-      "archive_records_verified": 16,
-      "readme_missing_local_links": [],
-      "visual_review": "Native gameplay stills and leg-cycle frame samples inspected; HTML generated with Pandoc. Browser page review blocked by local-origin permission; no browser layout acceptance claimed.",
-      "evidence": "Maintained docs/media/readme/capture.json; _temp/world-music-tests.log; _temp/world-music-installed.json; _temp/world-music-doc-check.json",
-      "limits": "Dummy SDL verifies decoding and stream lifecycle, not speaker quality. Staged captures do not establish a human playthrough or native-display performance. Formal gates unchanged."
-    },
-    {
-      "date": "2026-11-14",
-      "pass": "hud_and_creature_motion",
-      "changes": [
-        "Upper-right compact weapon timer",
-        "Galaxy captions simplified",
-        "Enemy arrival labels removed",
-        "SCAN-H Rift Raptor dinosaurs",
-        "Four-pose distance-driven motion for raptors, Resonance Effigies and Beacon Mites",
-        "Grounded Beacon Mite movement"
-      ],
-      "runtime_asset_files": 298,
-      "full_suite": {
-        "passed": 1343,
-        "failed": 1,
-        "duration_seconds": 194.26,
-        "remaining_failure": "test_profile.py::test_scene_frame_budgets",
-        "field_render_p95_ms": 5.54,
-        "render_budget_ms": 5.0,
-        "isolated_profile": "1 passed in 3.36 seconds"
-      },
-      "focused_tests": {
-        "hud_and_navigation": 86,
-        "creatures_assets_and_hazards": 104
-      },
-      "hud_layout_cases": 144,
-      "full_flush_pixel_parity": true,
-      "levels_validated": 52,
-      "protected_asset_groups_validated": 14,
-      "installed_wheel": "Clean source copy; installed outside checkout; fresh game boot and all three animated enemies/hazards rendered successfully.",
-      "asset_rebuilds": {
-        "families": 3,
-        "exact_export_matches": true
-      },
-      "archive_records_verified": 29,
-      "visual_checks": [
-        "Native and 2x CRT HUD",
-        "Opening and travel map captions",
-        "Actual-scene leg-cycle frame samples",
-        "Memory Extractor warning and energy attack"
-      ],
-      "evidence": "_temp/enemy-motion-review/; _temp/hud-review-vm_a85vs/; updated maintained README captures",
-      "limits": "Headless staged captures and dummy audio; no human campaign or native-display performance acceptance."
-    }
-  ]
+      {
+        "build": "rebuilt",
+        "runtime_files": 447,
+        "boot_frames": 3,
+        "workbenches": 4,
+        "outside_checkout": true
+      }
+    ]
+  },
+  "content": {
+    "levels_validated": 52,
+    "protected_asset_groups_validated": 14,
+    "insect_exports_rebuilt_exactly": 37
+  },
+  "archive_index": "docs/maintenance/archive-manifest.json",
+  "previous_verification": "_trash/2026-11-15_repository_cleanup/before/docs/maintenance/verification.json",
+  "evidence_directory": "_trash/2026-11-15_repository_cleanup/verification",
+  "limits": [
+    "Dummy SDL and scripted checks; not a human campaign playthrough.",
+    "No audible-quality, physical-controller or native-display performance certification.",
+    "Full-suite and isolated FIELD_OPS render timings exceed the unchanged 5.0 ms threshold.",
+    "Task and acceptance-gate statuses unchanged."
+  ],
+  "documentation": {
+    "files": 28,
+    "local_references_checked": 305,
+    "errors": []
+  }
 }

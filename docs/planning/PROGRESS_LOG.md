@@ -1,5 +1,16 @@
 # Progress log
 
+2026-11-15 — Repository cleanup. Shared catalog and validation rules across four
+science workbenches, removing 369 duplicated lines while preserving simulations,
+feedback and public APIs. Archived two superseded robot-art generators (764 lines)
+with hashes and restoration instructions; accepted insect exports rebuild exactly.
+Consolidated current status, roadmap and audit documents without changing task or
+gate statuses. All 139 focused checks pass; full suite: 1,407 passed and the existing
+FIELD_OPS render timing failure (5.466 ms / 5.0 ms). The isolated check also fails
+at 5.909 ms. Clean direct/sdist wheels boot outside the checkout. See the
+[current audit](../maintenance/REPOSITORY_AUDIT.md) and
+[verification](../maintenance/verification.json) for evidence and limits.
+
 2026-11-14 — Enemy facing and Earth cyber-insects. Campaign guardians, Earth
 bosses and Greenkeeper turn when Mateo crosses their center; reflected weak
 points, muzzle anchors, hit flashes and destruction fragments follow their body.

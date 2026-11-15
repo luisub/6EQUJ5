@@ -61,6 +61,8 @@ Dependencies — J02, J03 for formal acceptance; early verification may proceed 
 Acceptance: all relevant J01–J03 and P05/P09 criteria pass with evidence; no high-severity progression, data-loss, unreadable UI or encounter blocker remains. The current eleven-world probe is strong bounded scripted evidence, not a fresh Earth-through-journey human or art-gate acceptance. G4 remains pending.
 
 
+<a id="j05"></a>
+
 ## J05 — Show and preserve inter-world galaxy transit
 
 Dependencies — J03 for earned travel; user-directed parallel implementation. Resource flag — STANDARD. Status: in progress.

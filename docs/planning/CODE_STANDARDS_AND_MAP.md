@@ -19,6 +19,7 @@ Coding conventions and checks are in [CONTRIBUTING.md](../CONTRIBUTING.md). See 
 | [weapons.py](../../src/engine/weapons.py), [temporary_weapons.py](../../src/engine/temporary_weapons.py), [abilities.py](../../src/engine/abilities.py) | Combat, pickups and abilities |
 | [enemies.py](../../src/engine/enemies.py), [bosses/](../../src/engine/bosses/), [planet_encounters.py](../../src/engine/planet_encounters.py), [world_hazards.py](../../src/engine/world_hazards.py) | Enemy behavior, bosses and hazards |
 | [contact_session.py](../../src/engine/contact_session.py), [protocols.py](../../src/engine/protocols.py), [labs/](../../src/engine/labs/) | Offline conversations, evidence and science |
+| [labs/validation.py](../../src/engine/labs/validation.py) | Shared catalog, claim/evidence/replication rules and completed scenario lookup |
 | [field_reality.py](../../src/engine/field_reality.py), [mandela_world.py](../../src/engine/mandela_world.py), [temporal_relay.py](../../src/engine/temporal_relay.py), [flashback.py](../../src/engine/flashback.py) | Timeline, relay and flashback behavior |
 | [assets.py](../../src/engine/assets.py), [asset_transactions.py](../../src/engine/asset_transactions.py) | Resource cache, validation and safe asset promotion |
 | [crt_renderer.py](../../src/engine/crt_renderer.py), [animation.py](../../src/engine/animation.py), [ui/](../../src/engine/ui/) | Rendering, animation and interface |

@@ -5,9 +5,11 @@ CALLED BY: pytest (`python -m pytest tests -q`).
 HOW TO MODIFY: Add regression tests for new laboratory scenarios and validation puzzles; maintain zero wildcard imports.
 """
 
+import json
 import math
 import os
 from pathlib import Path
+from types import SimpleNamespace
 import pytest
 import pygame
 
@@ -64,6 +66,55 @@ from video_game.engine.protocols import ScienceArcManager
 from video_game.engine.save_game import SaveStore
 from video_game.engine.scenes.lab import ScienceLabScene
 from video_game.engine.state_machine import GameStateMachine
+
+
+@pytest.mark.parametrize("loader", [
+    load_lab_scenarios,
+    QuantumValidationWorkbench.load_scenarios,
+    ConnectomeValidationWorkbench.load_scenarios,
+    BiosecurityValidationWorkbench.load_scenarios,
+])
+def test_workbench_catalog_override_and_load_failures(tmp_path, loader):
+    catalog = tmp_path / "scenarios.json"
+    with pytest.raises(FileNotFoundError, match="Laboratory scenarios file not found"):
+        loader(catalog)
+    for invalid in ([], {"version": 1}):
+        catalog.write_text(json.dumps(invalid))
+        with pytest.raises(ValueError, match="Invalid lab scenarios catalog structure"):
+            loader(catalog)
+    catalog.write_text("{broken")
+    with pytest.raises(json.JSONDecodeError):
+        loader(catalog)
+    expected = {"scenarios": {}, "version": 73}
+    catalog.write_text(json.dumps(expected))
+    assert loader(catalog) == expected
+
+
+@pytest.mark.parametrize("workbench_type,scenario_id,advanced_id", [
+    (FormalValidationWorkbench, "formal_fasr_001", "formal_adv_fasr_001"),
+    (QuantumValidationWorkbench, "quantum_fasr_002", "quantum_adv_fasr_002"),
+    (ConnectomeValidationWorkbench, "connectome_fasr_004", "connectome_adv_fasr_004"),
+    (BiosecurityValidationWorkbench, "biosecurity_fasr_003", "biosecurity_adv_fasr_003"),
+])
+def test_completion_distinguishes_scenarios_sharing_a_fragment(
+        workbench_type, scenario_id, advanced_id):
+    workbench = workbench_type()
+    campaign = SimpleNamespace(state=SimpleNamespace(validation_records=[]))
+    assert not workbench.is_completed(campaign)
+    assert workbench.get_completed_record(campaign) is None
+    workbench.select_scenario(scenario_id)
+    fragment = workbench.active_scenario["fragment_id"]
+    assert fragment == workbench.scenarios[advanced_id]["fragment_id"]
+    advanced_record = {"scenario_id": advanced_id, "id": fragment}
+    campaign.state.validation_records.append(advanced_record)
+    assert not workbench.is_completed(campaign)
+    assert workbench.get_completed_record(campaign) is None
+    selected_record = {"scenario_id": scenario_id, "id": fragment}
+    campaign.state.validation_records.append(selected_record)
+    assert workbench.is_completed(campaign)
+    assert workbench.get_completed_record(campaign) == selected_record
+    assert not workbench.is_completed(None)
+    assert workbench.get_completed_record(None) is None
 
 
 @pytest.fixture

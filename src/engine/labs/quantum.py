@@ -1,28 +1,16 @@
-"""
-MODULE: video_game/engine/labs/quantum.py
-PURPOSE: Implement quantum optics workbench, double-slit interference model with environmental decoherence, parameter controls, and formal validation.
-CALLED BY: video_game.engine.scenes.lab, video_game.tests.test_labs.
-HOW TO MODIFY: Add or update quantum simulation equations and scenario schemas; maintain zero wildcard imports.
-"""
+"""Quantum optics workbench and double-slit interference simulation."""
 
 from dataclasses import dataclass
-import json
 import math
-from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 from uuid import uuid4
 
-DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
-SCENARIOS_PATH = DATA_DIR / "lab_scenarios.json"
+from .validation import (
+    DATA_DIR, SCENARIOS_PATH, STEP_SELECT, STEP_EXPERIMENT, STEP_CLAIM,
+    STEP_EVIDENCE, STEP_REPLICATION, STEP_DEPLOYMENT, STEP_COMPLETED,
+    ValidationWorkbench,
+)
 
-# Workflow Steps
-STEP_SELECT = "SELECT"
-STEP_EXPERIMENT = "EXPERIMENT"
-STEP_CLAIM = "CLAIM"
-STEP_EVIDENCE = "EVIDENCE"
-STEP_REPLICATION = "REPLICATION"
-STEP_DEPLOYMENT = "DEPLOYMENT"
-STEP_COMPLETED = "COMPLETED"
 
 # Physical and Control Limits
 WAVELENGTH_MIN_NM = 350.0
@@ -241,7 +229,7 @@ class QuantumInterferenceModel:
         )
 
 
-class QuantumValidationWorkbench:
+class QuantumValidationWorkbench(ValidationWorkbench):
     """
     Quantum optics scientific validation workbench.
 
@@ -256,6 +244,8 @@ class QuantumValidationWorkbench:
       5. Replication check (physical conservation invariants: complementarity, no-signaling, unitarity).
       6. Deployment decision (applies campaign grant event, returns canonical validation record).
     """
+
+    EVIDENCE_SUCCESS = 'EVIDENCE VALIDATED: Quantum signatures verified. Proceed to replication checks.'
 
     def __init__(self, scenarios_data: Optional[Dict[str, Any]] = None):
         self.scenarios_data = scenarios_data or self.load_scenarios()
@@ -285,17 +275,6 @@ class QuantumValidationWorkbench:
         self.selected_deployment: Optional[str] = None
         self.feedback_message: str = "SELECT A QUANTUM VALIDATION SCENARIO"
         self.feedback_is_error: bool = False
-
-    @staticmethod
-    def load_scenarios(path: Optional[Path] = None) -> Dict[str, Any]:
-        """Load laboratory scenario catalog."""
-        target_path = path or SCENARIOS_PATH
-        if not target_path.exists():
-            raise FileNotFoundError(f"Laboratory scenarios file not found: {target_path}")
-        raw = json.loads(target_path.read_text(encoding="utf-8"))
-        if not isinstance(raw, dict) or "scenarios" not in raw:
-            raise ValueError("Invalid lab scenarios catalog structure")
-        return raw
 
     def select_scenario(self, scenario_id: str, campaign: Optional[Any] = None) -> Tuple[bool, str]:
         """Select active quantum workbench scenario and verify fragment prerequisite."""
@@ -459,29 +438,6 @@ class QuantumValidationWorkbench:
         self.feedback_is_error = False
         return True, self.feedback_message
 
-    def classify_claim(self, tier: str) -> Tuple[bool, str]:
-        """Classify proposition into established, plausible, or speculative tier."""
-        if not self.active_scenario:
-            return False, "ERR: No active scenario selected"
-
-        claim_spec = self.active_scenario.get("claim", {})
-        correct_tier = claim_spec.get("correct_tier")
-        clean_tier = tier.strip().lower()
-
-        options = {opt["tier"]: opt["explanation"] for opt in claim_spec.get("options", [])}
-        explanation = options.get(clean_tier, f"Unknown tier option: {tier}")
-
-        if clean_tier == correct_tier:
-            self.selected_claim_tier = clean_tier
-            self.current_step = STEP_EVIDENCE
-            self.feedback_message = f"VALIDATED: {explanation}"
-            self.feedback_is_error = False
-            return True, self.feedback_message
-        else:
-            self.feedback_message = f"CLASSIFICATION ERROR: {explanation}"
-            self.feedback_is_error = True
-            return False, self.feedback_message
-
     def toggle_evidence(self, evidence_id: str) -> bool:
         """
         Toggle an observation in active evidence selection.
@@ -514,63 +470,6 @@ class QuantumValidationWorkbench:
             self.feedback_message = f"Selected {evidence_id}"
             self.feedback_is_error = False
             return True
-
-    def verify_evidence(self) -> Tuple[bool, str]:
-        """Validate observation selection: must include required evidence and reject counterexamples."""
-        if not self.active_scenario:
-            return False, "ERR: No active scenario selected"
-
-        required = set(self.active_scenario.get("required_observations", []))
-        evidence_pool = {item["id"]: item for item in self.active_scenario.get("evidence_pool", [])}
-
-        # Check for selected counterexamples (invalid items)
-        for eid in self.selected_evidence:
-            item = evidence_pool.get(eid, {})
-            if not item.get("is_valid", False):
-                feedback = item.get("rejection_feedback", f"Invalid observation selected: {eid}")
-                self.feedback_message = f"COUNTEREXAMPLE SELECTED: {feedback}"
-                self.feedback_is_error = True
-                return False, self.feedback_message
-
-        # Check for missing required observations
-        missing = required - self.selected_evidence
-        if missing:
-            self.feedback_message = f"INCOMPLETE EVIDENCE: Missing required observations ({len(missing)} remaining)."
-            self.feedback_is_error = True
-            return False, self.feedback_message
-
-        self.current_step = STEP_REPLICATION
-        self.feedback_message = "EVIDENCE VALIDATED: Quantum signatures verified. Proceed to replication checks."
-        self.feedback_is_error = False
-        return True, self.feedback_message
-
-    def set_replication_check(self, check_id: str, answer: bool):
-        """Set player verification answer for a physical quantum invariant check."""
-        self.replication_answers[check_id] = answer
-
-    def verify_replication(self) -> Tuple[bool, str]:
-        """Validate all replication checks against quantum physical invariant expectations."""
-        if not self.active_scenario:
-            return False, "ERR: No active scenario selected"
-
-        checks = self.active_scenario.get("replication_checks", [])
-        for chk in checks:
-            cid = chk["id"]
-            if cid not in self.replication_answers:
-                self.feedback_message = f"REPLICATION INCOMPLETE: Check '{chk['prompt'][:30]}...' not evaluated."
-                self.feedback_is_error = True
-                return False, self.feedback_message
-
-            ans = self.replication_answers[cid]
-            if ans != chk["expected"]:
-                self.feedback_message = f"REPLICATION FAILED: {chk['explanation']}"
-                self.feedback_is_error = True
-                return False, self.feedback_message
-
-        self.current_step = STEP_DEPLOYMENT
-        self.feedback_message = "REPLICATION SUCCESSFUL: Physical invariants verified. Select deployment choice."
-        self.feedback_is_error = False
-        return True, self.feedback_message
 
     def choose_deployment(
         self,
@@ -640,25 +539,3 @@ class QuantumValidationWorkbench:
         self.feedback_message = f"VALIDATION COMPLETE // {chosen['label']}: {chosen['summary']}"
         self.feedback_is_error = False
         return True, self.feedback_message, record
-
-    def is_completed(self, campaign: Any) -> bool:
-        """Check if active scenario has already been validated in campaign."""
-        if not self.active_scenario or not campaign:
-            return False
-        frag_id = self.active_scenario.get("fragment_id")
-        scen_id = self.active_scenario.get("id")
-        records = getattr(campaign.state, "validation_records", [])
-        return any(r.get("scenario_id") == scen_id for r in records)
-
-    def get_completed_record(self, campaign: Any) -> Optional[Dict[str, Any]]:
-        """Retrieve the completed validation record from campaign if present."""
-        if not self.active_scenario or not campaign:
-            return None
-        frag_id = self.active_scenario.get("fragment_id")
-        scen_id = self.active_scenario.get("id")
-        records = getattr(campaign.state, "validation_records", [])
-        for r in records:
-            if r.get("scenario_id") == scen_id:
-                return r
-        return None
-
