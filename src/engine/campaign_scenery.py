@@ -13,11 +13,12 @@ from pathlib import Path
 import pygame
 
 from .native_room_assets import _digest, _inside_without_symlinks
+from .alien_journey import journey_data
 
 LOGGER = logging.getLogger(__name__)
 ART_IDS = {'act_02': 'neo_denver_v1', 'act_03': 'area_51_v1',
            'act_04': 'vla_rift_v1', 'act_05': 'gobekli_tepe_v1'}
-ALIEN_CIV_IDS = tuple(f'{number:03d}' for number in range(1, 11)) + ('scan_h',)
+ALIEN_CIV_IDS = tuple(w['boss_id'].removeprefix('guardian_fasr_') for w in journey_data()['worlds'])
 ALIEN_BACKGROUND_IDS = frozenset(f'realm_fasr_{ident}_v1' for ident in ALIEN_CIV_IDS)
 GUARDIAN_IDS = frozenset(f'guardian_fasr_{ident}' for ident in ALIEN_CIV_IDS)
 BACKGROUND_IDS = (frozenset(ART_IDS.values()) | {'area_51_hangar_v1', 'gobekli_archive_v1', 'gobekli_tepe_v2',
@@ -53,9 +54,8 @@ FALLBACK_ENEMIES = {
     'temporal_phantom': (24,32,'ad572261324264cd575174e568cad67551fd953bfafabd0464fbe187e8aa985c'),
 }
 GUARDIAN_FALLBACK = dict(zip(ALIEN_CIV_IDS, (
-    'core_recon_drone', 'temporal_phantom', 'chrysalis_splicer', 'phase_watcher',
-    'core_operative', 'precursor_guardian', 'shield_hound', 'core_enforcer',
-    'static_hound', 'temporal_phantom', 'phase_watcher',
+    'core_enforcer', 'static_hound', 'precursor_guardian', 'temporal_phantom',
+    'phase_watcher', 'temporal_phantom', 'shield_hound',
 )))
 
 

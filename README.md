@@ -11,7 +11,7 @@
 > On August 15, 1977, the Big Ear radio telescope at Ohio State recorded a 72-second narrowband signal at 1420 MHz — the hydrogen line — from the direction of Sagittarius. The signal was real. It has never been explained. Its intensity code reads **6EQUJ5**.
 
 <p align="center">
-  <strong>Follow the signal. Cross eleven alien worlds. Bring the answers home.</strong><br>
+  <strong>Follow the signal. Cross seven alien worlds. Bring the answers home.</strong><br>
   A single-player pixel-art action adventure with side-scrolling combat and a science-fiction story.
 </p>
 
@@ -26,7 +26,7 @@
 
 **Earth, 2029.** An artificial superintelligence known as **the Core** has seized the digital world. Engineer **Mateo “Six” Vargas** finds a foothold beneath the old Big Ear observatory: reel-to-reel machines, a green phosphor screen, and a transmission that refuses to disappear.
 
-Leave the basement, fight through occupied Earth, and follow the signal to eleven distant worlds. Face their guardians, listen to the messages they protect, and bring those answers home to confront the Core.
+Leave the basement, fight through occupied Earth, and follow the signal to seven distant worlds. Face their guardians, listen to the messages they protect, and bring those answers home to confront the Core.
 
 ![Mateo beside the glowing receiver and analog equipment in the observatory basement](docs/media/readme/observatory.png)
 
@@ -101,7 +101,7 @@ Watch attack warnings, jump over charging hazards, and aim for a guardian's expo
 
 ## Explore Earth and beyond
 
-Five Earth acts take you from **Ohio** to **Neo-Denver**, **Area 51**, **VLA / Dodleston**, and **Göbekli Tepe**. Beyond them lie eleven signal worlds, each with its own landscape, guardian and instrumental theme.
+Five Earth acts take you from **Ohio** to **Neo-Denver**, **Area 51**, **VLA / Dodleston**, and **Göbekli Tepe**. Beyond them lie seven signal worlds, each with its own landscape, guardian and instrumental theme: **TRAPPIST-1**, **’Oumuamua**, **Crab Memorial**, **Sagittarius A***, **SCAN-H**, **Earth Memory Echo**, and **LGM-1**.
 
 <table>
   <tr>
@@ -118,14 +118,14 @@ Five Earth acts take you from **Ohio** to **Neo-Denver**, **Area 51**, **VLA / D
   </tr>
   <tr>
     <td>
-      <a href="docs/media/readme/crystal-network.png"><img src="docs/media/readme/crystal-network.png" alt="Blue crystal spires and suspended bridges beneath the light of Tabby's Star" width="100%"></a><br>
-      <strong>TABBY'S STAR</strong><br>
-      An imagined intelligence within a crystal network.
+      <a href="docs/media/readme/trappist-port.png"><img src="docs/media/readme/trappist-port.png" alt="Teal ocean port and assembly halls beneath TRAPPIST-1" width="100%"></a><br>
+      <strong>TRAPPIST-1</strong><br>
+      An ocean port beneath a red dwarf.
     </td>
     <td>
-      <a href="docs/media/readme/proxima-twilight.png"><img src="docs/media/readme/proxima-twilight.png" alt="Proxima's twilight outpost with layered mountains, radio masts and amber lights" width="100%"></a><br>
-      <strong>PROXIMA</strong><br>
-      An outpost between frozen night and red-dwarf light.
+      <a href="docs/media/readme/crab-memorial.png"><img src="docs/media/readme/crab-memorial.png" alt="Cold blue memorial vaults and copper beacons in the Crab realm" width="100%"></a><br>
+      <strong>CRAB MEMORIAL</strong><br>
+      An archive of a vanished civilization.
     </td>
   </tr>
 </table>
@@ -141,7 +141,7 @@ The Core waits beneath Earth in a cathedral of servers, cables and cascading gre
 
 ![Mateo confronts the Core's green projected face inside its machine cathedral](docs/media/readme/core-network.png)
 
-Bring all eleven messages home and defeat its two final forms to disconnect the Core's control network. Cities can hear each other again, and people take back their hospitals, power and water.
+Bring all seven messages home and defeat its two final forms to disconnect the Core's control network. Cities can hear each other again, and people take back their hospitals, power and water.
 
 Three springs later, walk through **Central Park, Denver**: green trees, sunlight, water, birds and families. Stay to hear Mateo and Big Ear reflect on the world you saved, or simply explore the park.
 

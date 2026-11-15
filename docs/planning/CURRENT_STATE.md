@@ -7,8 +7,8 @@ This checkout contains the offline game. Flat `src/` installs as `video_game`;
 Runtime resources are in `src/assets/` and `src/data/`; accepted art masters and
 recipes are in `src/art/source/`. Tests and tools remain development material.
 
-The latest cleanup shares science validation rules across the four workbenches
-and retires two superseded procedural robot generators. The accepted insect
+The shared-lab cleanup consolidated validation rules across four workbenches
+and retired two superseded procedural robot generators. The accepted insect
 builder remains the sole maintained Earth-enemy export path. Original generators
 and previous status reports are preserved with restoration hashes.
 
@@ -32,25 +32,36 @@ optional; NEXT and an empty lab's Continue Outside lead to the field. Leaving
 an incomplete defense grants no reward. Space remains jump; R retries defense.
 
 Boss arrivals allow immediate movement and firing. Victories unlock progression;
-contacts save their receipts before travel. Eleven guardian victories and
+contacts save their receipts before travel. Seven guardian victories and
 receipts unlock the final Core encounter. Both final forms must be defeated.
 Existing checkpoint aliases, save migration and New/Continue isolation remain.
 
 ## Artwork, combat and travel
 
-All eleven alien worlds have distinct panoramas, guardian artwork, local minor
+All seven alien worlds have distinct panoramas, guardian artwork, local minor
 foes and warned charging hazards. Denver retains its Fitzsimons-inspired building
 and mountain panorama. World weather and signal particles are bounded and stay
 behind actors. Review new art one family at a time.
 
 Temporary weapon timers occupy a compact upper-right panel. Body hits damage
-guardians; their exposed recovery core grants bonus damage. Temporary equipment
-expires normally. Enemy arrivals are quiet, while attack warnings remain visible.
+guardians; their exposed recovery core grants bonus damage. Aimed attacks track
+airborne targets until release and fire from mirrored weapon sockets. Bolts use
+bounded directional trails and launch flashes; mortar ground impacts occur once.
+Temporary equipment expires normally. Enemy arrivals are quiet, while attack
+warnings remain visible.
 
 Victory destruction is skippable; dialogue pages wait for acknowledgement.
-The opening and transit share a winding galaxy route. The ship reaches its
-destination before the centered vortex opens. Travel is immediately skippable,
+The opening and transit share a seven-stop constellation. Named stars, a moving
+ship, earned links and a centered gate/tunnel distinguish the eight travel legs,
+including the return to Earth. Travel is immediately skippable,
 but arrival requires a successful save and offers retry on failure.
+
+The former first four visited worlds (Sagittarius Signal, Tabby's Star, Proxima
+and Orion) and their unique level/art/music families are recoverably archived.
+Every Earth scene and shared receiver/science catalog remains active. A validated
+legacy journey resumes at the first retained stop when necessary and filters
+retired receipts while preserving retained victories, later checkpoints and
+finale/park progress. Missing victories or invalid receipt order remain blocked.
 
 ## Science workbenches
 
@@ -94,13 +105,18 @@ retry. See [the story and ending](../STORY.md).
 All campaign bosses and Greenkeeper follow Mateo's side, including overhead
 crossings. Cached mirrors keep bodies, hit flashes, weak points, mortar anchors
 and destruction fragments aligned. Directional attacks work on either side;
-warned charges retain their committed direction. Retry resets facing.
+warned sweeps and charges retain matching committed body and attack directions.
+The next attack reacquires Mateo. Retry resets facing.
+
+Recurring cover, slide and directional-movement banners are removed. Boss health
+bars use a compact warning symbol instead of repeated lock-on banners. Interaction
+buttons, brief checkpoints, damage/hazard cues and save failures remain visible.
 
 Nine Earth combat roles use Wasp, Beetle and Mantis families with four registered
 poses. Grounded strides follow distance; flight follows actor time. Stopped,
 stunned or paused ground insects do not step. Raptors, Resonance Effigies and
 Beacon Mites also use distance-driven leg cycles. Existing combat IDs, collision
-sizes, rewards and progression remain. All eleven guardians retain their own art.
+sizes, rewards and progression remain. All seven guardians retain their own art.
 
 `build_cyber_insects` rebuilds the accepted Earth enemies from preserved masters.
 The retired robot generators are historical source only; running them against

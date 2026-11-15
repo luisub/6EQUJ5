@@ -198,22 +198,22 @@ def test_earth_panorama_continues_at_the_next_area_boundary(display):
 
 
 def test_alien_world_allowlists_and_explicit_metadata(tmp_path, display):
-    assert len(BACKGROUND_IDS) == 20 and len(ALIEN_BACKGROUND_IDS) == 11
+    assert len(BACKGROUND_IDS) == 16 and len(ALIEN_BACKGROUND_IDS) == 7
     assert {'core_network', 'denver_restored'} <= BACKGROUND_IDS
-    assert len(GUARDIAN_IDS) == 11 and len(BOSS_IDS) == 17
-    assert 'realm_fasr_001_v1' in ALIEN_BACKGROUND_IDS
+    assert len(GUARDIAN_IDS) == 7 and len(BOSS_IDS) == 13
+    assert 'realm_fasr_008_v1' in ALIEN_BACKGROUND_IDS
     assert 'realm_fasr_scan_h_v1' in ALIEN_BACKGROUND_IDS
     assert 'guardian_fasr_scan_h' in GUARDIAN_IDS and {'earth_core_ai', 'portal_warden'} <= BOSS_IDS
     assert 'realm_fasr_011_v1' not in BACKGROUND_IDS and 'guardian_fasr_011' not in BOSS_IDS
     root = tmp_path / 'assets'; root.mkdir()
     source = tmp_path / 'realm.png'
     Image.new('RGB', (1920, 540), (12, 25, 35)).save(source)
-    manifest = build('background', 'realm_fasr_001_v1', source, {'source':'test'}, assets_dir=root)['manifest']
-    family = root / 'environments/alien_worlds/fasr_001'; family.mkdir(parents=True)
+    manifest = build('background', 'realm_fasr_008_v1', source, {'source':'test'}, assets_dir=root)['manifest']
+    family = root / 'environments/alien_worlds/fasr_008'; family.mkdir(parents=True)
     (family / 'background.png').write_bytes(source.read_bytes())
     (family / 'manifest.json').write_text(json.dumps(manifest))
-    room = SimpleNamespace(act_id='act_05', room_id='alien_001_field', width_px=3840)
-    scene = CampaignScenery(root, room, {'art_id':'realm_fasr_001_v1', 'art_view':[0, .5]})
+    room = SimpleNamespace(act_id='act_05', room_id='alien_008_field', width_px=3840)
+    scene = CampaignScenery(root, room, {'art_id':'realm_fasr_008_v1', 'art_view':[0, .5]})
     assert scene.background is not None and scene.art_view == (0, .5)
     assert scene.vehicle is None and scene.person is None
     assert CampaignScenery(root, room, {}).background is None
@@ -434,16 +434,16 @@ def test_guardian_loader_rejects_empty_and_fully_opaque_even_with_valid_hash(tmp
     image = Image.new('RGBA', (256, 192), (0, 0, 0, 0))
     image.paste((150, 100, 70, 255), (40, 20, 200, 180))
     source = tmp_path / 'valid.png'; image.save(source)
-    result = build('boss', 'guardian_fasr_003', source, {'source':'fixture'}, assets_dir=root, promote=True)
-    directory = root / 'sprites/bosses/campaign/guardian_fasr_003'
-    assert load_campaign_boss(root, 'guardian_fasr_003', allow_fallback=False) is not None
+    result = build('boss', 'guardian_fasr_009', source, {'source':'fixture'}, assets_dir=root, promote=True)
+    directory = root / 'sprites/bosses/campaign/guardian_fasr_009'
+    assert load_campaign_boss(root, 'guardian_fasr_009', allow_fallback=False) is not None
     # Preserve the existing manifest-backed fallback so allow_fallback is verified too.
     enemy_root = root / 'sprites/enemies'
-    (enemy_root / 'chrysalis_splicer').mkdir(parents=True)
+    (enemy_root / 'static_hound').mkdir(parents=True)
     shutil.copy2(ASSETS_DIR / 'sprites/enemies/manifest.json', enemy_root / 'manifest.json')
-    shutil.copy2(ASSETS_DIR / 'sprites/enemies/chrysalis_splicer/patrol_1.png',
-                 enemy_root / 'chrysalis_splicer/patrol_1.png')
-    expected_fallback = _load_existing_guardian(root, 'guardian_fasr_003')
+    shutil.copy2(ASSETS_DIR / 'sprites/enemies/static_hound/patrol_1.png',
+                 enemy_root / 'static_hound/patrol_1.png')
+    expected_fallback = _load_existing_guardian(root, 'guardian_fasr_009')
     assert expected_fallback is not None
     for alpha in (0, 255):
         invalid = Image.new('RGBA', (256,192), (90,120,150,alpha))
@@ -452,7 +452,7 @@ def test_guardian_loader_rejects_empty_and_fully_opaque_even_with_valid_hash(tmp
         manifest['image'] = dict(manifest['image'])
         manifest['image']['sha256'] = hashlib.sha256((directory / 'body.png').read_bytes()).hexdigest()
         (directory / 'manifest.json').write_text(json.dumps(manifest))
-        assert load_campaign_boss(root, 'guardian_fasr_003', allow_fallback=False) is None
-        fallback = load_campaign_boss(root, 'guardian_fasr_003', allow_fallback=True)
+        assert load_campaign_boss(root, 'guardian_fasr_009', allow_fallback=False) is None
+        fallback = load_campaign_boss(root, 'guardian_fasr_009', allow_fallback=True)
         assert fallback is not None
         assert pygame.image.tobytes(fallback, 'RGBA') == pygame.image.tobytes(expected_fallback, 'RGBA')

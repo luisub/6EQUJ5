@@ -107,3 +107,21 @@ def test_missing_art_renders_procedural_boss_without_bitmap_reads(tmp_path, monk
     assert surface.get_at((110, 145)).a > 0
     health = boss.health
     assert boss.take_damage(10).damage_dealt > 0 and boss.health < health
+
+
+@pytest.mark.parametrize('attack', ('sweep', 'charge'))
+def test_directional_hit_enters_recovery_and_allows_another_attack(attack):
+    boss = Greenkeeper()
+    boss.current_phase = PHASE_2
+    boss.phase_state = 'ATTACK'
+    if attack == 'sweep':
+        boss.sweep_active, boss.sweep_x, boss.sweep_y = True, 300, 224
+        target = pygame.Rect(292, 208, 16, 32)
+    else:
+        boss.charge_duration, boss.charge_vx = .4, -160
+        target = boss.rect.copy()
+    assert boss.check_attack_collisions(target) == 30
+    assert boss.phase_state == STATE_VULNERABLE and boss.weak_point_exposed
+    assert not boss.sweep_active and boss.charge_duration == 0
+    boss.update(3.1)
+    assert boss.phase_state == 'TELEGRAPH' and boss.telegraphs

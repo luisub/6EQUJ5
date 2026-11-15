@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import pygame
 
 from video_game.engine import config
-from video_game.engine.attack_visuals import render_attack_field
+from video_game.engine.attack_visuals import render_attack_field, render_boss_projectile
 from video_game.engine.weapons import HitResult
 from video_game.engine.bosses.greenkeeper_art import load_family
 from video_game.engine.bosses.base import (
@@ -144,11 +144,18 @@ class Greenkeeper(Boss):
             self.damage_flash_timer = 0.15
         return res
 
+    def _expose_core(self, duration):
+        self.phase_state = STATE_VULNERABLE
+        self.vulnerability_timer = duration
+        self.weak_point_exposed = True
+
     def update(self, dt: float, player_pos: Tuple[float, float] = (120.0, 208.0)):
         """Update Greenkeeper AI behavior, attack cycles, and sub-systems."""
         if dt <= 0 or not math.isfinite(dt):
             return
-        if self.charge_duration <= 0:
+        committed_warning = (self.phase_state == STATE_TELEGRAPH
+                             and self.current_attack_type in ('sweep', 'charge'))
+        if self.charge_duration <= 0 and not self.sweep_active and not committed_warning:
             self.face_target(player_pos)
         super().update(dt)
         self.anim_timer += dt
@@ -170,9 +177,7 @@ class Greenkeeper(Boss):
                 self.sweep_active = False
                 self.sweep_timer = 0.0
                 # Overheated cutter enters vulnerability
-                self.phase_state = STATE_VULNERABLE
-                self.vulnerability_timer = 3.0
-                self.weak_point_exposed = True
+                self._expose_core(3.0)
 
         # Execute bulldozer charge if active
         if self.charge_duration > 0.0:
@@ -183,9 +188,7 @@ class Greenkeeper(Boss):
             if self.charge_duration <= 0.0:
                 self.charge_vx = 0.0
                 # Blade jammed in turf
-                self.phase_state = STATE_VULNERABLE
-                self.vulnerability_timer = 2.5
-                self.weak_point_exposed = True
+                self._expose_core(2.5)
 
         # Phase AI decision loop
         if self.phase_state == STATE_IDLE:
@@ -207,9 +210,12 @@ class Greenkeeper(Boss):
     def _schedule_next_attack(self, player_pos: Tuple[float, float]):
         """Schedule telegraph warning for phase-specific attacks."""
         px, py = player_pos
+        self.face_target(player_pos)
         self.attack_direction = 1 if self.facing == 'right' else -1
-        sweep_lane = (pygame.Rect(self.rect.right - 5, 216, max(1, 608 - self.rect.right + 5), 20)
-                      if self.attack_direction > 0 else pygame.Rect(32, 216, 440, 20))
+        sweep_y = self.y + 80 if self.heavy_sprites is not None else 224
+        sweep_lane = (pygame.Rect(self.rect.right, sweep_y - 6, max(1, 608 - self.rect.right), 16)
+                      if self.attack_direction > 0 else
+                      pygame.Rect(32, sweep_y - 6, max(1, self.rect.left - 32), 16))
 
         if self.current_phase == PHASE_1:
             # Turf mortar barrage
@@ -328,9 +334,8 @@ class Greenkeeper(Boss):
             # Launch active horizontal beam across floor
             self.sweep_active = True
             self.sweep_timer = 0.8
-            self.sweep_x = self.x + (5.0 if self.heavy_sprites is not None else 0.0)
-            if self.attack_direction > 0:
-                self.sweep_x = self.rect.right - 5.0
+            self.facing = 'right' if self.attack_direction > 0 else 'left'
+            self.sweep_x = self.rect.right + 40 if self.attack_direction > 0 else self.rect.left - 40
             self.sweep_y = self.y + 80.0 if self.heavy_sprites is not None else 224.0
             self.phase_state = STATE_ATTACK
 
@@ -360,6 +365,7 @@ class Greenkeeper(Boss):
             if sweep_rect.colliderect(player_rect):
                 damage += 30
                 self.sweep_active = False  # Hits once per pass
+                self._expose_core(3.0)
 
         # 3. Charging bulldozer body
         if self.charge_duration > 0.0:
@@ -367,6 +373,7 @@ class Greenkeeper(Boss):
                 damage += 30
                 self.charge_duration = 0.0
                 self.charge_vx = 0.0
+                self._expose_core(2.5)
 
         return damage
 
@@ -473,13 +480,10 @@ class Greenkeeper(Boss):
 
         # 4. Render Active Projectiles
         for p in self.projectiles:
-            px, py = camera.world_to_screen(p.x, p.y)
-            pygame.draw.circle(surface, p.color, (px, py), int(p.radius))
-            pygame.draw.circle(surface, (255, 240, 200), (px, py), max(1, int(p.radius) - 3))
+            render_boss_projectile(surface, p, camera)
 
         # 5. Render Active Sweep Beam
         if self.sweep_active:
-            sx, sy = camera.world_to_screen(self.sweep_x, self.sweep_y)
-            # High intensity horizontal cutter beam
-            pygame.draw.line(surface, (255, 80, 80), (sx - 40, sy), (sx + 40, sy), 5)
-            pygame.draw.line(surface, (255, 255, 255), (sx - 30, sy), (sx + 30, sy), 2)
+            rect = pygame.Rect(round(self.sweep_x) - 40, round(self.sweep_y) - 6, 80, 16)
+            render_attack_field(surface, rect.move(-int(camera.x), -int(camera.y)),
+                                color=(255, 100, 65), time=self.anim_timer, active=True)

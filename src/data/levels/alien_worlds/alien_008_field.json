@@ -4423,9 +4423,9 @@
       "y": 192.0,
       "width": 48.0,
       "height": 48.0,
-      "target_room": "alien_004_arena",
-      "target_spawn": "from_east",
-      "label": "PREVIOUS AREA // UP TO RETURN"
+      "target_room": "act_05_core_prime_arena",
+      "target_spawn": "default",
+      "label": "ARRIVAL GATE"
     },
     {
       "id": "exit_east",

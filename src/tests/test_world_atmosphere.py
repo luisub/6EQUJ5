@@ -49,7 +49,7 @@ def test_field_and_guardian_share_weather_without_random_gameplay_side_effects(w
     assert random.getstate() == before
 
 
-@pytest.mark.parametrize('room', ['act_01_approach', 'alien_005_field', 'alien_scan_h_arena'])
+@pytest.mark.parametrize('room', ['act_01_approach', 'alien_006_field', 'alien_scan_h_arena'])
 def test_pause_and_invalid_delta_preserve_weather_frame(room):
     effect = SceneAtmosphere(room)
     effect.update(.1)

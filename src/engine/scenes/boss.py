@@ -90,7 +90,6 @@ class BossScene(BaseScene):
         self.weapon_pickups = WeaponPickups(self.room, arena=True)
         self.maser_presentation = load_maser_presentation(getattr(getattr(self.machine, 'assets', None), 'root', None))
         self.energy_filament = self._load_energy_filament()
-        self._prev_boss_proj_count: int = 0
         self._prev_player_hp: int = self.player.health
         self._prev_is_grounded: bool = False
         self._prev_is_sliding: bool = False
@@ -137,7 +136,7 @@ class BossScene(BaseScene):
         if self.journey_world and (current.get('world_id') != self.journey_world or current.get('stage') != 'guardian'):
             self.machine.change_state(config.STATE_BUNKER_HUB)
             return
-        if self.journey_final and (current.get('stage') != 'final' or len(current.get('receipts', [])) != 11):
+        if self.journey_final and (current.get('stage') != 'final' or len(current.get('receipts', [])) != len(journey_data()['worlds'])):
             self.machine.change_state(config.STATE_BUNKER_HUB)
             return
         room = kwargs.get('room', 'act_01/greenkeeper_arena.json')
@@ -411,22 +410,24 @@ class BossScene(BaseScene):
             self.boss.update(dt, player_pos=self.player.rect.center)
 
             # Trigger mortar launch sfx and smoke
-            curr_boss_projs = len(self.boss.projectiles)
-            if curr_boss_projs > self._prev_boss_proj_count:
+            if dt > 0 and any(bp.age == 0 for bp in self.boss.projectiles):
                 if isinstance(self.boss, Greenkeeper) and hasattr(self.machine, "audio") and self.machine.audio:
                     self.machine.audio.play_sfx("boss_mortar_launch")
                 if isinstance(self.boss, Greenkeeper):
                     self.effects.add_mortar_smoke(*self.boss.mortar_muzzle, count=5)
-            self._prev_boss_proj_count = curr_boss_projs
 
             # Check for exploding mortar shells reaching ground level
             for bp in self.boss.projectiles:
-                if isinstance(self.boss, Greenkeeper) and bp.y >= 216.0 and bp.lifetime > 0.0:
+                if isinstance(self.boss, Greenkeeper) and bp.is_active and bp.y >= 232.0:
                     self.effects.add_mortar_smoke(bp.x, 228.0, count=3)
                     self.effects.add_impact_sparks(bp.x, 228.0, count=4, is_charged=True)
 
             # 6. Check boss attack hitboxes against player
             dmg = self.boss.check_attack_collisions(self.player.rect)
+            if isinstance(self.boss, Greenkeeper):
+                for bp in self.boss.projectiles:
+                    if bp.y >= 232.0:
+                        bp.is_active = False  # Each shell produces one ground impact.
             if dmg > 0 and self.player.invulnerable_timer <= 0.0:
                 kb_x = -80.0 if self.player.facing == "right" else 80.0
                 self.player.take_damage(dmg, knockback_vx=kb_x, knockback_vy=-60.0,
@@ -454,7 +455,7 @@ class BossScene(BaseScene):
             if not self.is_defeated_sequence:
                 if self.journey_final:
                     current = journey_ledger(self.machine.campaign)
-                    if current.get('stage') != 'final' or len(current.get('receipts', [])) != 11:
+                    if current.get('stage') != 'final' or len(current.get('receipts', [])) != len(journey_data()['worlds']):
                         return
                 earned = self.boss.apply_defeat_reward(self.machine.campaign)
                 if earned or self._already_defeated():
@@ -481,7 +482,7 @@ class BossScene(BaseScene):
             pages = [{'title': f'{self.boss.title.title()} defeated',
                       'text': f'{world["civ_id"]} is ready to transmit.'}]
             next_label = 'Receive message'
-            detail = f'{completed} / 11 messages recovered'
+            detail = f"{completed} / {len(journey_data()['worlds'])} messages"
         elif self.journey_final:
             pages = journey_data()['final_earth'].get('epilogue', [])
             next_label, detail = 'See the new world', 'The Core is disconnected. Earth is free.'
@@ -516,7 +517,7 @@ class BossScene(BaseScene):
         if self.journey_final:
             if not to_bunker:
                 current = journey_ledger(self.machine.campaign)
-                if current.get('stage') != 'final' or len(current.get('receipts', [])) != 11:
+                if current.get('stage') != 'final' or len(current.get('receipts', [])) != len(journey_data()['worlds']):
                     return
                 current['stage'] = 'complete'
                 save_journey(self.machine.campaign, current)
@@ -685,9 +686,7 @@ class BossScene(BaseScene):
             location_label=self.room.title or "SECTOR BOSS ARENA",
             footer_text=footer,
             player=self.player,
-            objective=None if revealing else obj,
-            threat_level=self._active_threat() if not revealing else None,
-            threat_y=65 if self.boss.weak_point_exposed else 53,
+            objective=obj if self.is_defeated_sequence else None,
             staging_cleared=True,
         )
 
@@ -740,17 +739,23 @@ class BossScene(BaseScene):
         pygame.draw.line(crt.canvas, (255, 255, 255), (tick_p2, bar_y - 2), (tick_p2, bar_y + bar_h + 2), 1)
         pygame.draw.line(crt.canvas, (255, 255, 255), (tick_p3, bar_y - 2), (tick_p3, bar_y + bar_h + 2), 1)
 
+        threat = self._active_threat() if self.encounter_intro_remaining <= 0 else None
+        if threat:
+            color = (255, 90, 80) if threat == 'LOCKED' else config.COLOR_AMBER_1977
+            x, y = bar_x - 12, bar_y + 4
+            pygame.draw.polygon(crt.canvas, color, ((x, y - 5), (x + 5, y), (x, y + 5), (x - 5, y)))
+            pygame.draw.line(crt.canvas, (20, 15, 18), (x, y - 3), (x, y))
+            pygame.draw.rect(crt.canvas, (20, 15, 18), (x, y + 2, 1, 1))
+
         # Boss title & phase readout
-        title_str = (f"{self.boss.title} [DEFEATED]" if self.boss.is_defeated else
-                     self.boss.title if self.encounter_intro_remaining > 0 else
-                     f"{self.boss.title} [PHASE {self.boss.current_phase}/3]")
+        title_str = f"{self.boss.title} [DEFEATED]" if self.boss.is_defeated else self.boss.title
         if self.journey_final and not self.boss.is_defeated:
             title_str = f'{self.boss.title} [FORM {self.boss.final_stage}/2]'
         crt.draw_text(title_str, bar_x, bar_y + 11, color=config.COLOR_FIBO_GOLD, size="sm")
 
         # Weak point indicator
         if show_weakness:
-            crt.draw_text("[!] CORE VULNERABLE", bar_x, bar_y + 22, color=(255, 80, 80), size="sm")
+            crt.draw_text("CORE OPEN", bar_x, bar_y + 22, color=config.COLOR_FIBO_GOLD, size="sm")
 
     def _render_defeat_banner(self, crt: Any):
         """Render victory notification banner."""

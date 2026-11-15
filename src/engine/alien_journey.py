@@ -17,7 +17,7 @@ def journey_data():
     try:
         data = json.loads(PATH.read_text(encoding='utf-8'))
         worlds, rooms, finale = data['worlds'], data['rooms'], data['final_earth']
-        if (data.get('schema_version') != 1 or not isinstance(worlds, list) or len(worlds) != 11
+        if (data.get('schema_version') != 1 or not isinstance(worlds, list) or not 1 <= len(worlds) <= 11
                 or not isinstance(rooms, dict) or not isinstance(finale, dict)):
             raise ValueError('invalid journey shape')
         ids, civs = set(), set()
@@ -39,6 +39,17 @@ def journey_data():
             expected = worlds[i + 1]['id'] if i + 1 < len(worlds) else None
             if item.get('next_world') != expected:
                 raise ValueError('nonlinear journey')
+        retired = data.get('retired_prefix', [])
+        if not isinstance(retired, list):
+            raise ValueError('invalid retired route')
+        for item in retired:
+            if (not isinstance(item, dict) or set(item) != {'id', 'civ_id', 'defeat_flag'}
+                    or not isinstance(item['id'], str) or not re.fullmatch(r'alien_\d{3}', item['id'])
+                    or not isinstance(item['civ_id'], str) or not re.fullmatch(r'FASR-\d{3}', item['civ_id'])
+                    or not isinstance(item['defeat_flag'], str) or not re.fullmatch(r'guardian_\d{3}_defeated', item['defeat_flag'])
+                    or item['id'] in ids or item['civ_id'] in civs):
+                raise ValueError('invalid retired world')
+            ids.add(item['id']); civs.add(item['civ_id'])
         for room_id, room in rooms.items():
             path = room.get('path') if isinstance(room, dict) else None
             if (not isinstance(path, str) or not re.fullmatch(r'(?:alien_worlds|earth_finale)/[a-z0-9_]+\.json', path)
@@ -81,28 +92,49 @@ def ledger(campaign):
     value = hub.get('alien_journey', {}) if isinstance(hub, dict) else {}
     if not isinstance(value, dict) or value.get('version') != 1:
         return {}
-    world_id, stage, receipts = value.get('world_id'), value.get('stage'), value.get('receipts')
     worlds = journey_data()['worlds']
+    if _valid_ledger(value, campaign, worlds):
+        return deepcopy(value)
+    # Earlier saves followed four now-retired stops before the active route.
+    # Validate the complete old prefix before translating it; never grant receipts.
+    retired = journey_data().get('retired_prefix', [])
+    if not retired or not _valid_ledger(value, campaign, retired + worlds):
+        return {}
+    current = deepcopy(value)
+    retired_ids = {w['id'] for w in retired}
+    retired_civs = {w['civ_id'] for w in retired}
+    current['receipts'] = [c for c in current['receipts'] if c not in retired_civs]
+    if current['world_id'] in retired_ids:
+        current.update(world_id=worlds[0]['id'], stage='field',
+                       checkpoint=worlds[0].get('entry_spawn', 'default'),
+                       pending_transit={'source': 'earth', 'destination': worlds[0]['id']})
+    elif current.get('pending_transit', {}).get('source') in retired_ids:
+        current['pending_transit']['source'] = 'earth'
+    return current if _valid_ledger(current, campaign, worlds) else {}
+
+
+def _valid_ledger(value, campaign, worlds):
+    world_id, stage, receipts = value.get('world_id'), value.get('stage'), value.get('receipts')
     if (stage not in ('field', 'guardian', 'contact', 'final', 'complete') or not isinstance(receipts, list)
             or any(not isinstance(x, str) for x in receipts)
             or receipts != [w['civ_id'] for w in worlds[:len(receipts)]]
             or len(receipts) > len(worlds)):
-        return {}
+        return False
     if any(not campaign.state.room_flags.get(w['defeat_flag'], False) for w in worlds[:len(receipts)]):
-        return {}
+        return False
     if stage in ('field', 'guardian', 'contact'):
         if len(receipts) >= len(worlds) or worlds[len(receipts)]['id'] != world_id:
-            return {}
+            return False
     elif len(receipts) != len(worlds) or world_id is not None:
-        return {}
+        return False
     checkpoint = value.get('checkpoint')
     if checkpoint is not None and not isinstance(checkpoint, str):
-        return {}
+        return False
     if 'pending_transit' in value:
         from .galaxy_transit import valid_pending
         if not earth_portal_ready(campaign) or not valid_pending(value['pending_transit'], worlds, receipts, stage, world_id):
-            return {}
-    return deepcopy(value)
+            return False
+    return True
 
 
 def save_ledger(campaign, value):
@@ -176,7 +208,7 @@ def dispatch(machine):
                                  spawn=current.get('checkpoint') or world.get('entry_spawn', 'default'),
                                  campaign_route=True, journey_world=world['id'])
         return True
-    if stage == 'final' and len(current['receipts']) == len(journey_data()['worlds']) == 11:
+    if stage == 'final' and len(current['receipts']) == len(journey_data()['worlds']):
         final = journey_data()['final_earth']
         machine.change_state(config.STATE_BOSS_BOUNTY, room=final['arena_room'],
                              spawn=final.get('entry_spawn', 'default'),

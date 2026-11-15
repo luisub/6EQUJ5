@@ -65,23 +65,23 @@ def test_all_installed_world_families_have_distinct_images_and_provenance(displa
             digest = hashlib.sha256(image.read_bytes()).hexdigest()
             assert digest == manifest['image']['sha256']
             hashes.add(digest)
-    assert len(backgrounds) == len(guardians) == 11
+    assert len(backgrounds) == len(guardians) == 7
 
 
 def test_new_world_corruption_is_not_accepted_as_native_art(tmp_path, display):
     root = tmp_path / 'assets'
-    for relative in ('environments/alien_worlds/fasr_005',
-                     'sprites/bosses/campaign/guardian_fasr_005'):
+    for relative in ('environments/alien_worlds/fasr_006',
+                     'sprites/bosses/campaign/guardian_fasr_006'):
         directory = root / relative
         shutil.copytree(ASSETS_DIR / relative, directory)
         manifest = json.loads((directory / 'manifest.json').read_text())
         (directory / manifest['image']['file']).write_bytes(b'corrupt fixture')
-    assert load_campaign_background(root, 'realm_fasr_005_v1') is None
-    assert load_campaign_boss(root, 'guardian_fasr_005', allow_fallback=False) is None
+    assert load_campaign_background(root, 'realm_fasr_006_v1') is None
+    assert load_campaign_boss(root, 'guardian_fasr_006', allow_fallback=False) is None
 
 
-def test_proxima_guardian_feet_meet_its_collision_floor(display):
-    body = load_campaign_boss(ASSETS_DIR, 'guardian_fasr_005', allow_fallback=False)
+def test_memorial_guardian_feet_meet_its_collision_floor(display):
+    body = load_campaign_boss(ASSETS_DIR, 'guardian_fasr_006', allow_fallback=False)
     assert body is not None
     # Nearly invisible export halos must not create empty space below the feet.
     opaque_body = pygame.mask.from_surface(body, 64)

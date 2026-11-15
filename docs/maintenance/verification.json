@@ -1,90 +1,105 @@
 {
   "date": "2026-11-15",
-  "pass": "shared_lab_validation_and_repository_cleanup",
+  "pass": "seven_world_journey_boss_aiming_and_quiet_hud",
   "changes": [
-    "One shared catalog and validation implementation for four science workbenches",
-    "Two superseded procedural robot generators archived; accepted insect builder retained",
-    "Current state, roadmap, audit and directory map consolidated; historical evidence preserved"
+    "First four visited alien worlds retired; all Earth scenes retained",
+    "Seven-world route, eight-marker constellation and centered gate/tunnel transit",
+    "Mirrored launch sockets, live airborne aim, normalized fans and directional projectile effects",
+    "Committed Greenkeeper sweeps/charges, reliable post-hit recovery and single mortar impacts",
+    "Recurring movement/cover and boss lock-on banners removed; compact warning icon retained",
+    "Validated legacy-route translation preserves retained progression and completed park pages"
   ],
   "tests": {
-    "baseline_focused_passed": 64,
-    "baseline_duration_seconds": 3.19,
     "full_suite": {
-      "passed": 1407,
-      "failed": 1,
-      "duration_seconds": 213.55,
-      "failure": "src/tests/test_profile.py::test_scene_frame_budgets",
-      "scene": "FIELD_OPS",
-      "render_p95_ms": 5.466,
-      "render_budget_ms": 5.0
+      "passed": 1417,
+      "failed": 2,
+      "duration_seconds": 202.09,
+      "failures": [
+        {
+          "test": "src/tests/test_galaxy_transit.py::test_completed_legacy_save_keeps_its_park_page_and_both_form_victory",
+          "resolution": "Corrected the new fixture to include its already-earned Portal Warden victory; all 34 recovery/transit checks then passed."
+        },
+        {
+          "test": "src/tests/test_profile.py::test_scene_frame_budgets",
+          "scene": "FIELD_OPS",
+          "render_p95_ms": 5.205,
+          "render_budget_ms": 5.0,
+          "unresolved": true
+        }
+      ]
     },
-    "focused": {
-      "passed": 139,
-      "duration_seconds": 17.25
-    },
-    "new_cases": 8,
-    "isolated_profile": {
-      "failed": 1,
-      "duration_seconds": 2.83,
-      "scene": "FIELD_OPS",
-      "render_p95_ms": 5.909,
-      "render_budget_ms": 5.0
-    },
-    "render_budget_assertions": "Unchanged; the previously documented timing failure remains open."
-  },
-  "behavior_parity": {
-    "comparisons": 221,
-    "scenarios": 8,
-    "identical": true,
-    "simulation_classes_unchanged": true
-  },
-  "preservation": {
-    "media_files_unchanged": 587,
-    "archive_records_verified": 7,
-    "task_rows_unchanged": 78,
-    "python_files_parsed": 203,
-    "lab_lines_before": 2486,
-    "lab_lines_after": 2117,
-    "retired_builder_lines": 764,
-    "git_index_unchanged": true
-  },
-  "packaging": {
-    "clean_source": true,
-    "matching_runtime_files": true,
-    "wheels": [
+    "focused": [
       {
-        "build": "direct",
-        "runtime_files": 447,
-        "boot_frames": 3,
-        "workbenches": 4,
-        "outside_checkout": true
+        "scope": "Boss shooting, input, recovery, HUD and combat effects",
+        "passed": 275,
+        "duration_seconds": 33.15
       },
       {
-        "build": "rebuilt",
-        "runtime_files": 447,
-        "boot_frames": 3,
-        "workbenches": 4,
-        "outside_checkout": true
+        "scope": "Final quiet HUD, Greenkeeper impacts/recovery, enemy facing and combat",
+        "passed": 177,
+        "duration_seconds": 18.21
+      },
+      {
+        "scope": "Final legacy route/transit and completed park recovery",
+        "passed": 34,
+        "duration_seconds": 9.2
+      },
+      {
+        "scope": "Four distinct retained-world windup cases after fixture migration",
+        "passed": 4,
+        "log": "_trash/2026-11-15_shorter_journey/verification/windup-focused.log"
       }
-    ]
+    ],
+    "remaining_failure": "Existing FIELD_OPS timing check; threshold unchanged."
   },
   "content": {
-    "levels_validated": 52,
+    "levels_validated": 44,
     "protected_asset_groups_validated": 14,
-    "insect_exports_rebuilt_exactly": 37
+    "active_alien_worlds": 7,
+    "map_markers": 8,
+    "travel_legs_including_return": 8,
+    "retired_room_links": 0,
+    "earth_level_and_background_content_unchanged": true
   },
-  "archive_index": "docs/maintenance/archive-manifest.json",
-  "previous_verification": "_trash/2026-11-15_repository_cleanup/before/docs/maintenance/verification.json",
-  "evidence_directory": "_trash/2026-11-15_repository_cleanup/verification",
+  "packaging": {
+    "clean_wheel_and_sdist_rebuild": true,
+    "matching_runtime_files": 411,
+    "earth_levels_present": true,
+    "retired_world_levels_absent": true,
+    "development_files_excluded": true,
+    "outside_checkout_boot_frames_each": 3,
+    "runtime_files_match_final_checkout": 411
+  },
+  "preservation": {
+    "restoration_records_verified": 116,
+    "byte_identical_archives_reused": 59,
+    "retired_original_files": 94,
+    "root_generated_images_present": false,
+    "git_index_unchanged": true
+  },
+  "visual_review": {
+    "capture_directory": "_temp/2026-11-15_combat_review",
+    "native_dimensions": [
+      960,
+      540
+    ],
+    "integer_scale_crt_dimensions": [
+      1920,
+      1080
+    ],
+    "inspected": "Airborne aimed discharges on both sides, teleport firing, seven-world chart, centered gate/tunnel/arrival and sampled motion frames.",
+    "readme_capture_hashes_verified": 23,
+    "fixtures": "Prior victories/receipts and airborne positions staged for inspection; saves/settings temporary."
+  },
+  "evidence_directory": "_trash/2026-11-15_shorter_journey/verification",
+  "previous_verification": "_trash/2026-11-15_shorter_journey/baseline/docs/maintenance/verification.json",
   "limits": [
-    "Dummy SDL and scripted checks; not a human campaign playthrough.",
-    "No audible-quality, physical-controller or native-display performance certification.",
-    "Full-suite and isolated FIELD_OPS render timings exceed the unchanged 5.0 ms threshold.",
-    "Task and acceptance-gate statuses unchanged."
+    "Existing headless field render budget failure remains open.",
+    "Staged/dummy SDL captures do not establish human fairness, full campaign playability, audible quality, physical controllers or native-display performance.",
+    "Formal roadmap/acceptance gate statuses remain open."
   ],
   "documentation": {
-    "files": 28,
-    "local_references_checked": 305,
+    "local_references_verified": 126,
     "errors": []
   }
 }

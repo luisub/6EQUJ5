@@ -86,6 +86,8 @@ def capture(output):
         def world(index, stage):
             fresh()
             worlds = journey_data()["worlds"]
+            if isinstance(index, str):
+                index = next(i for i, item in enumerate(worlds) if item['id'] == index)
             game.campaign.apply_event({"event_id": "readme_portal", "type": "defeat_portal_warden"})
             for n, prior in enumerate(worlds[:index]):
                 game.campaign.apply_event({"event_id": f"readme_guardian_{n}", "type": prior["defeat_event"]})
@@ -171,16 +173,16 @@ def capture(output):
                 step(150)
                 still(name, f"Direct development scene entry to {room}, then mapped movement; no progression claim.")
 
-            current = world(1, "field")
+            current = world('alien_008', "field")
             game.change_state(config.STATE_FIELD_OPS, room=current["field_room"], spawn="default",
                               journey_world=current["id"], campaign_route=True)
             key(pygame.K_d)
             step(40)
             key(pygame.K_d, False)
             step(150)
-            still("crystal-network", "Direct field entry with staged prior guardian and receipt, then mapped movement.")
+            still("trappist-port", "First retained alien field after a staged Earth portal victory; mapped movement after entry.")
 
-            current = world(2, "field")
+            current = world('alien_006', "field")
             game.change_state(config.STATE_FIELD_OPS, room=current["field_room"], spawn="default",
                               journey_world=current["id"], campaign_route=True)
             scene = game.current_scene
@@ -188,21 +190,21 @@ def capture(output):
             scene.player.rect.topleft = (round(scene.player.x), 208)
             scene.camera.snap_to(scene.player.x + 8, 224)
             game.crt.glitch_timer_ms = 0
-            still("proxima-twilight", "Proxima field midpoint; prior victories, receipts and player position are scenery fixtures.")
+            still("crab-memorial", "Crab memorial field midpoint; prior victories, receipts and player position are scenery fixtures.")
 
-            current = world(2, "guardian")
+            current = world('alien_006', "guardian")
             game.change_state(config.STATE_BOSS_BOUNTY, room=current["arena_room"],
                               boss_id=current["boss_id"], journey_world=current["id"], spawn="default")
             step(12)
-            still("flare-bastion", "Proxima guardian with staged journey ledger; 0.2 seconds of runtime.")
-            for index, name in [(0, "signal-jailer"), (1, "heat-auditor")]:
+            still("archive-lock", "Memorial guardian with staged journey ledger; 0.2 seconds of runtime.")
+            for index, name in [(0, "chorus-suppressor"), (1, "trajectory-interceptor")]:
                 current = world(index, "guardian")
                 game.change_state(config.STATE_BOSS_BOUNTY, room=current["arena_room"],
                                   boss_id=current["boss_id"], journey_world=current["id"], spawn="default")
                 step(96)
                 still(name, "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.")
 
-            for index, name in [(8, 'rift-raptor'), (9, 'resonance-effigy'), (10, 'beacon-mite')]:
+            for index, name in [('alien_scan_h', 'rift-raptor'), ('alien_010', 'resonance-effigy'), ('alien_007', 'beacon-mite')]:
                 current = world(index, 'field')
                 game.change_state(config.STATE_FIELD_OPS, room=current['field_room'],
                                   journey_world=current['id'], campaign_route=True)
@@ -228,7 +230,7 @@ def capture(output):
                         still(name, 'World progress, player/enemy placement and cooldown are fixtures; normal updates animate the patrol.')
                 gif(name, frames, 'Native 440 x 184 crop at (520, 320) of actual patrol frames; staged world progress, positions and cooldown.', duration=80)
 
-            current = world(9, 'guardian')
+            current = world('alien_010', 'guardian')
             game.change_state(config.STATE_BOSS_BOUNTY, room=current['arena_room'],
                               boss_id=current['boss_id'], journey_world=current['id'])
             # Let the boss prepare and fire through its real update state machine.
@@ -253,7 +255,7 @@ def capture(output):
                 if i % 6 == 0:
                     frames.append(gif_frame())
                 if i == 90:
-                    still("galaxy-map", "First Earth-to-FASR-001 transit with staged portal unlock.")
+                    still("galaxy-map", "First Earth-to-TRAPPIST-1 transit with staged portal unlock.")
             gif("signal-transit", frames, "Actual first-world map, vortex and arrival; staged portal unlock.")
             for record in records:
                 path = output / record["file"]

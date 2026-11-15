@@ -11,6 +11,60 @@ def _canvas(size):
     return pygame.Surface(size, pygame.SRCALPHA)
 
 
+def render_aim_warning(surface, start, end, *, progress, color):
+    """Thin tracking sight, with a tightening target bracket instead of a banner."""
+    start, end = pygame.Vector2(start), pygame.Vector2(end)
+    delta = end - start
+    distance = delta.length()
+    if distance < 1:
+        return
+    direction = delta / distance
+    tint = tuple(round(c * .35 + 160 * .65) for c in color)
+    for along in range(18, min(640, round(distance)), 12):
+        a = start + direction * along
+        b = start + direction * min(distance, along + 3)
+        pygame.draw.line(surface, tint, a, b)
+    radius = round(10 - 4 * progress)
+    bright = (255, 207, 126)
+    for sign in (-1, 1):
+        x, y = round(end.x + sign * radius), round(end.y)
+        pygame.draw.line(surface, bright, (x, y - 3), (x, y + 3))
+        pygame.draw.line(surface, bright, (x, y - 3), (x - sign * 3, y - 3))
+
+
+def render_boss_projectile(surface, projectile, camera):
+    """A compact luminous bolt; its trail and launch flash share its real vector."""
+    if not projectile.is_active:
+        return
+    head = pygame.Vector2(camera.world_to_screen(projectile.x, projectile.y))
+    if not surface.get_rect().inflate(96, 96).collidepoint(head):
+        return
+    velocity = pygame.Vector2(projectile.vx, projectile.vy)
+    direction = velocity.normalize() if velocity.length_squared() > .001 else pygame.Vector2(0, 1)
+    normal = pygame.Vector2(-direction.y, direction.x)
+    color = projectile.color
+    bright = tuple(round(c * .3 + 255 * .7) for c in color)
+    tail = head - velocity * min(.14, projectile.age)
+    glow = _canvas((48, 48))
+    glow.fill((0, 0, 0, 0))
+    pygame.draw.circle(glow, (*color, 18), (24, 24), 16)
+    pygame.draw.circle(glow, (*color, 35), (24, 24), 10)
+    surface.blit(glow, (round(head.x) - 24, round(head.y) - 24))
+    pygame.draw.line(surface, (12, 17, 25), tail, head, 9)
+    pygame.draw.line(surface, color, tail, head, 5)
+    pygame.draw.line(surface, bright, tail.lerp(head, .35), head, 2)
+    radius = max(3, projectile.radius * .7)
+    points = [head + direction * radius, head + normal * radius * .6,
+              head - direction * radius, head - normal * radius * .6]
+    pygame.draw.polygon(surface, bright, points)
+    pygame.draw.circle(surface, (255, 249, 223), head, 2)
+    if projectile.age < .16:
+        origin = pygame.Vector2(camera.world_to_screen(*projectile.origin))
+        extent = 3 + 12 * (1 - projectile.age / .16)
+        pygame.draw.line(surface, color, origin - normal * extent, origin + normal * extent, 3)
+        pygame.draw.line(surface, bright, origin - direction * 4, origin + direction * extent, 2)
+
+
 def render_attack_field(surface, rect, *, color, progress=1.0, time=0.0,
                         active=False, arrival=False):
     """Draw inside the unchanged screen-space attack bounds; never advance state."""
@@ -66,6 +120,8 @@ def render_attack_field(surface, rect, *, color, progress=1.0, time=0.0,
                 points.append(point(along, center + offset * breadth + wobble))
             pygame.draw.lines(field, (*color, 175), False, points, 3)
             pygame.draw.lines(field, (*bright, 230 if strand == 1 else 150), False, points, 1)
+        if not horizontal:
+            pygame.draw.ellipse(field, (*bright, 210), (0, rect.height - 8, rect.width, 8), 2)
     else:
         for end in (2, length - 3):
             pygame.draw.circle(field, (*bright, 225), point(end, center), 2)

@@ -28,8 +28,8 @@ def enter_first_guardian(game, *, acknowledge=True):
     finish_travel(game)
     field = game.current_scene
     world = journey_data()['worlds'][0]
-    assert field.room.room_id == 'alien_001_field'
-    exit_ = next(e for e in field.room.exits if e.target_room == 'alien_001_arena')
+    assert field.room.room_id == 'alien_008_field'
+    exit_ = next(e for e in field.room.exits if e.target_room == 'alien_008_arena')
     field.player.x, field.player.y = exit_.x, exit_.y
     key(game, pygame.K_e)
     assert game.current_state_name == config.STATE_BOSS_BOUNTY
@@ -59,12 +59,12 @@ def test_guardian_then_conversation_then_teleport(game):
     pages = len(world['contact_pages'])
     for _ in range(pages):
         key(game, pygame.K_RETURN)
-    assert ledger(game.campaign)['receipts'] == ['FASR-001']
-    assert 'FASR-001' in game.campaign.state.extracted_fragments
+    assert ledger(game.campaign)['receipts'] == ['FASR-008']
+    assert 'FASR-008' in game.campaign.state.extracted_fragments
     finish_travel(game)
     assert game.current_state_name == config.STATE_FIELD_OPS
-    assert game.current_scene.room.room_id == 'alien_003_field'
-    assert game.save_store.load().campaign.state.world_states['bunker_hub']['alien_journey']['receipts'] == ['FASR-001']
+    assert game.current_scene.room.room_id == 'alien_009_field'
+    assert game.save_store.load().campaign.state.world_states['bunker_hub']['alien_journey']['receipts'] == ['FASR-008']
 
 
 def test_continue_resumes_pending_conversation(game):
@@ -94,7 +94,7 @@ def test_final_page_failed_save_blocks_teleport_and_retry_is_idempotent(game, mo
     key(game, pygame.K_F5)
     finish_travel(game)
     assert game.current_state_name == config.STATE_FIELD_OPS
-    assert ledger(game.campaign)['receipts'] == ['FASR-001']
+    assert ledger(game.campaign)['receipts'] == ['FASR-008']
 
 
 def test_old_fragments_and_legacy_final_flag_cannot_unlock_final_ai(game):
@@ -110,7 +110,7 @@ def test_old_fragments_and_legacy_final_flag_cannot_unlock_final_ai(game):
     assert not game.campaign.state.room_flags.get('earth_ai_defeated', False)
     key(game, pygame.K_RETURN)
     finish_travel(game)
-    assert game.current_scene.room.room_id == 'alien_001_field'
+    assert game.current_scene.room.room_id == 'alien_008_field'
     assert ledger(game.campaign)['receipts'] == []
 
 
@@ -129,7 +129,7 @@ def test_final_page_waits_for_acknowledgement_and_pause(game):
     game.handle_event(pygame.event.Event(pygame.CONTROLLERBUTTONDOWN, button=pygame.CONTROLLER_BUTTON_A))
     finish_travel(game)
     assert game.current_state_name == config.STATE_FIELD_OPS
-    assert ledger(game.campaign)['receipts'] == ['FASR-001']
+    assert ledger(game.campaign)['receipts'] == ['FASR-008']
 
 
 def test_final_ai_requires_all_guardians_and_receipts_then_plays_epilogue(game):
@@ -191,7 +191,7 @@ def test_teleport_waits_through_pause_and_ignores_inputs(game):
     key(game, pygame.K_ESCAPE)
     assert game.current_state_name == config.STATE_GALAXY_TRANSIT
     game.update(TOTAL_SECONDS + 0.1)
-    assert game.current_scene.room.room_id == 'alien_003_field'
+    assert game.current_scene.room.room_id == 'alien_009_field'
 
 
 def test_continue_mid_teleport_resumes_saved_destination(game):
@@ -204,8 +204,8 @@ def test_continue_mid_teleport_resumes_saved_destination(game):
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_GALAXY_TRANSIT
     game.update(TOTAL_SECONDS + 0.1)
-    assert game.current_scene.room.room_id == 'alien_003_field'
-    assert ledger(game.campaign)['receipts'] == ['FASR-001']
+    assert game.current_scene.room.room_id == 'alien_009_field'
+    assert ledger(game.campaign)['receipts'] == ['FASR-008']
 
 
 def test_world_and_arena_scenery_resolve_authored_art(game):
@@ -213,18 +213,18 @@ def test_world_and_arena_scenery_resolve_authored_art(game):
     key(game, pygame.K_RETURN)
     finish_travel(game)
     field = game.current_scene
-    assert field.campaign_scenery.background_source == {'kind': 'native', 'art_id': 'realm_fasr_001_v1'}
+    assert field.campaign_scenery.background_source == {'kind': 'native', 'art_id': 'realm_fasr_008_v1'}
     game.render()
-    exit_ = next(e for e in field.room.exits if e.target_room == 'alien_001_arena')
+    exit_ = next(e for e in field.room.exits if e.target_room == 'alien_008_arena')
     field.player.x, field.player.y = exit_.x, exit_.y
     key(game, pygame.K_e)
     arena = game.current_scene
-    assert arena.campaign_scenery.background_source == {'kind': 'native', 'art_id': 'realm_fasr_001_v1'}
+    assert arena.campaign_scenery.background_source == {'kind': 'native', 'art_id': 'realm_fasr_008_v1'}
     assert arena.boss.art_surface is not None
     game.render()
 
 
-def test_next_world_and_proxima_use_native_landscapes(game):
+def test_next_world_and_memorial_use_native_landscapes(game):
     from types import SimpleNamespace
     from video_game.engine.campaign_scenery import CampaignScenery, load_campaign_background
     world, _ = enter_first_guardian(game)
@@ -232,25 +232,25 @@ def test_next_world_and_proxima_use_native_landscapes(game):
         key(game, pygame.K_RETURN)
     finish_travel(game)
     scene = game.current_scene
-    assert scene.room.room_id == 'alien_003_field'
+    assert scene.room.room_id == 'alien_009_field'
     root = game.assets.root
-    assert load_campaign_background(root, 'realm_fasr_003_v1') is not None
-    assert scene.campaign_scenery.background_source == {'kind':'native', 'art_id':'realm_fasr_003_v1'}
+    assert load_campaign_background(root, 'realm_fasr_009_v1') is not None
+    assert scene.campaign_scenery.background_source == {'kind':'native', 'art_id':'realm_fasr_009_v1'}
     game.render()
-    assert load_campaign_background(root, 'realm_fasr_005_v1') is not None
-    later = CampaignScenery(root, SimpleNamespace(act_id='act_05', room_id='alien_005_field', width_px=3840),
-                            {'art_id':'realm_fasr_005_v1'})
-    assert later.background_source == {'kind':'native', 'art_id':'realm_fasr_005_v1'}
+    assert load_campaign_background(root, 'realm_fasr_006_v1') is not None
+    later = CampaignScenery(root, SimpleNamespace(act_id='act_05', room_id='alien_006_field', width_px=3840),
+                            {'art_id':'realm_fasr_006_v1'})
+    assert later.background_source == {'kind':'native', 'art_id':'realm_fasr_006_v1'}
 
 
 def test_earned_journey_objective_overrides_missing_ohio_signal(game):
     from video_game.engine.objectives import ObjectiveTracker
     portal_fixture(game)
-    assert 'FASR-001' not in game.campaign.state.extracted_fragments
+    assert 'FASR-008' not in game.campaign.state.extracted_fragments
     assert not game.campaign.state.validation_records
     key(game, pygame.K_RETURN)
     objective = ObjectiveTracker().get_active_objective(game.campaign)
-    assert (objective.id, objective.title) == ('obj_alien_world', 'REACH FASR-001')
+    assert (objective.id, objective.title) == ('obj_alien_world', 'REACH FASR-008')
     assert not game.campaign.state.extracted_fragments
     assert not game.campaign.state.validation_records
 
@@ -273,7 +273,7 @@ def test_immediate_boss_arrival_has_no_false_attack_alerts(game, monkeypatch):
     key(game, pygame.K_RETURN)
     finish_travel(game)
     scene = game.current_scene
-    exit_ = next(e for e in scene.room.exits if e.target_room == 'alien_001_arena')
+    exit_ = next(e for e in scene.room.exits if e.target_room == 'alien_008_arena')
     scene.player.x, scene.player.y = exit_.x, exit_.y
     key(game, pygame.K_e)
     scene = game.current_scene
@@ -287,7 +287,7 @@ def test_immediate_boss_arrival_has_no_false_attack_alerts(game, monkeypatch):
     assert 'SECTOR BOSS APPROACHING' not in drawn
     assert any(scene.boss.title in text for text in drawn)
     assert not any('LOCK-ON' in text or 'TARGETED' in text for text in drawn)
-    assert any('VULNERABLE' in text for text in drawn) == scene.boss.weak_point_exposed
+    assert any('CORE OPEN' in text for text in drawn) == scene.boss.weak_point_exposed
     assert scene._active_threat() is None
     scene.boss.phase_state = STATE_TELEGRAPH
     scene.boss.telegraphs.append(BossAttackTelegraph('fixture', 1.0))
@@ -300,9 +300,9 @@ def test_immediate_boss_arrival_has_no_false_attack_alerts(game, monkeypatch):
 def test_valid_journey_ledger_precedes_all_legacy_objectives(game):
     from video_game.engine.objectives import ObjectiveTracker
     # Explicit persisted-ledger fixture isolates the objective selection contract.
-    save_ledger(game.campaign, {'version': 1, 'world_id': 'alien_001', 'stage': 'field',
+    save_ledger(game.campaign, {'version': 1, 'world_id': 'alien_008', 'stage': 'field',
                                 'checkpoint': 'default', 'receipts': []})
     objective = ObjectiveTracker().get_active_objective(game.campaign)
-    assert (objective.id, objective.title) == ('obj_alien_world', 'REACH FASR-001')
+    assert (objective.id, objective.title) == ('obj_alien_world', 'REACH FASR-008')
     assert not game.campaign.state.extracted_fragments
     assert not game.campaign.state.room_flags.get('portal_warden_defeated', False)

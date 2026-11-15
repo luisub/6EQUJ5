@@ -4,7 +4,7 @@ HOW TO MODIFY: Save the receipt before teleporting; retain no-typing offline inp
 """
 import pygame
 from .. import config
-from ..alien_journey import ledger, world_by_id, record_receipt, dispatch
+from ..alien_journey import journey_data, ledger, world_by_id, record_receipt, dispatch
 from ..assets import AssetLoadError
 from ..ui.dialogue import action as dialogue_action, paginate, render_dialogue
 from ..galaxy_transit import display_name
@@ -86,7 +86,7 @@ class AlienContactScene(BaseScene):
         name = display_name(destination)
         count = len(ledger(self.machine.campaign).get('receipts', [])) + (0 if self.committed else 1)
         render_dialogue(crt, self.pages[self.page],
-                        eyebrow=f'{self.world["civ_id"]} · MESSAGE {count} OF 11',
+                        eyebrow=f'{self.world["civ_id"]} · MESSAGE {count} OF {len(journey_data()["worlds"])}',
                         progress=f'{self.page + 1} / {len(self.pages)}',
                         next_label='Record & travel' if final else 'Next',
                         detail=f'Next: {name}' if final else 'Read at your own pace.',

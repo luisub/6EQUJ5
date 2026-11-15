@@ -65623,50 +65623,50 @@
     "original_path": "src/assets/environments/campaign_worlds/gobekli_tepe_v1/background.png",
     "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/environments/campaign_worlds/gobekli_tepe_v1/background.png",
     "sha256": "95bd230d690608d02b555c57f06839b57c7df91c0212b106226d52790e8ccd3a",
-    "reason": "Superseded runtime G\u00f6bekli background with baked vehicle; authored routes always use car-free gobekli_tepe_v2.",
-    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+    "reason": "Superseded runtime Göbekli background with baked vehicle; authored routes always use car-free gobekli_tepe_v2.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the Göbekli family; the active game should continue using v2."
   },
   {
     "original_path": "src/assets/environments/campaign_worlds/gobekli_tepe_v1/manifest.json",
     "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/environments/campaign_worlds/gobekli_tepe_v1/manifest.json",
     "sha256": "439b87776dcb80bb0e9556f0098ac5e0cdfb9b1ed061302037aac9df4182128d",
-    "reason": "Superseded runtime G\u00f6bekli background with baked vehicle; authored routes always use car-free gobekli_tepe_v2.",
-    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+    "reason": "Superseded runtime Göbekli background with baked vehicle; authored routes always use car-free gobekli_tepe_v2.",
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the Göbekli family; the active game should continue using v2."
   },
   {
     "original_path": "src/assets/sprites/mateo/field_outfit/idle.png",
     "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/idle.png",
     "sha256": "1803f2d18ab20e35234a058622040ed00afd39c3c413917730e6c172e33fc2c6",
     "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
-    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the Göbekli family; the active game should continue using v2."
   },
   {
     "original_path": "src/assets/sprites/mateo/field_outfit/run.png",
     "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/run.png",
     "sha256": "bee6f3966c809d281552f813f45206b119cb3e88f0f301189e18b4a47a2504f2",
     "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
-    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the Göbekli family; the active game should continue using v2."
   },
   {
     "original_path": "src/assets/sprites/mateo/field_outfit/jump.png",
     "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/jump.png",
     "sha256": "381a119410ad23e23b32bff07510e76c9edac69e966b3460111ddd8cd9daa5cd",
     "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
-    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the Göbekli family; the active game should continue using v2."
   },
   {
     "original_path": "src/assets/sprites/mateo/field_outfit/slide.png",
     "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/slide.png",
     "sha256": "fcb9d89d2c52780b0e17c5dee55a606bcd5efedacbb9d924ca811ff101a32cfd",
     "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
-    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the Göbekli family; the active game should continue using v2."
   },
   {
     "original_path": "src/assets/sprites/mateo/field_outfit/shoot.png",
     "archive_path": "_trash/2026-11-13_asset_cleanup/src/assets/sprites/mateo/field_outfit/shoot.png",
     "sha256": "20bccbef41688051630afa0855134d7396f20dfc4c50a1023e7be22639a020cf",
     "reason": "Duplicate export of the active olive_field animation frame; the refinement builder now writes only the canonical target.",
-    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the G\u00f6bekli family; the active game should continue using v2."
+    "restoration": "Verify archived SHA-256 before copying to original_path if that path is free. Restore both background and manifest together for the Göbekli family; the active game should continue using v2."
   },
   {
     "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_005/body.png",
@@ -189631,5 +189631,992 @@
     "duplicate_of": "src/art/source/planet_threats/rift_raptor/run_master.png",
     "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
     "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_001_field.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_001_field.json",
+    "sha256": "8a9325a5ea2ab9a14935ba8b5b3920e768acd7541e5709bd877d3aaecf12e3d3",
+    "bytes": 43241,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_001_arena.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_001_arena.json",
+    "sha256": "48cbaff892864273042d310ed00f68517e6aa877f1795bb7b93063e574b198ca",
+    "bytes": 8759,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_001/background.png",
+    "archive_path": "_trash/2026-11-13_separation/historical-reviews/art/reviews/visual_upgrade/previews/connected_worlds_v01/realm_001_v02_study.png",
+    "sha256": "82ea545d5728f67360245998873fd471bd2b05efe727bd01e4647aa5026c33a1",
+    "bytes": 1091385,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_001/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/environments/alien_worlds/fasr_001/manifest.json",
+    "sha256": "78b71b526d1c797a8554f6ef5a07d6c498a15a144e65c7ff9da7ad0051eb8619",
+    "bytes": 960,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_001/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/bosses/campaign/guardian_fasr_001/body.png",
+    "sha256": "c8f82147b7310116778888f7d5dbea5ed391348ca3fa93bd887966fa961ba565",
+    "bytes": 82553,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_001/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/sprites/bosses/campaign/guardian_fasr_001/manifest.json",
+    "sha256": "eb517f351454fd5c8eee4dea514e7f595cf20c7c7fddeee6792c3706e2aaddb4",
+    "bytes": 971,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/background/background.png",
+    "archive_path": "_trash/2026-11-13_separation/historical-reviews/art/reviews/visual_upgrade/previews/connected_worlds_v01/realm_001_v02_study.png",
+    "sha256": "82ea545d5728f67360245998873fd471bd2b05efe727bd01e4647aa5026c33a1",
+    "bytes": 1091385,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/background/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_001/background/manifest.json",
+    "sha256": "e15f8c8ad6bc1ff7c9ad7f62ade8647f6c719504d27c32795bd74526219ec0bb",
+    "bytes": 608,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/background/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-9218dc45-0b8a-467f-bc93-ad4639163648.png",
+    "sha256": "52c61b3bad0508ebf02b156cc608d995a5cfdb4b995f4aa0abe643611a9df08f",
+    "bytes": 1754948,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/background/master_v02.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-3369227e-6b8f-41b7-b111-606c18840e4f.png",
+    "sha256": "2f11206b833edf7b8375a23c95bc14e071e576f89918c131eada9dbcf8c435a6",
+    "bytes": 1603644,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/background/provenance.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_001/background/provenance.md",
+    "sha256": "a5c844b7c76f57c97ae2bf23fe6b2d6afdbd8bfd42eeee01029fb4d937589355",
+    "bytes": 4413,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/guardian/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/bosses/campaign/guardian_fasr_001/body.png",
+    "sha256": "c8f82147b7310116778888f7d5dbea5ed391348ca3fa93bd887966fa961ba565",
+    "bytes": 82553,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/guardian/body_v01.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_001/guardian/body_v01.png",
+    "sha256": "a94b79e52918728731cb630d07bbf857e203db131c1b46ce7279584d7ce30bad",
+    "bytes": 77467,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/guardian/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_001/guardian/manifest.json",
+    "sha256": "f9c0e9a42d53a317351397ead65b65a626a52ffecc1c365cc4b5e1914fa8d983",
+    "bytes": 591,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/guardian/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-69b2ac58-d397-48a5-a99c-71b2a52e024d.png",
+    "sha256": "a013edb57888973507492241c2c7a63a2373f0815c9e40e9f79ac19197d6054e",
+    "bytes": 1684293,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/guardian/master_v02.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-a6046df7-9c84-4b4e-a251-daf728e593c7.png",
+    "sha256": "332fbd8948385db2ae25bdb977b719c6f1c9e4f12525d622f75c7cda0b8ec8d5",
+    "bytes": 1785426,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_001/guardian/provenance.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_001/guardian/provenance.md",
+    "sha256": "70b42855070358cbfb83c879f986180d123705f17355398f6d8b6563e0f61987",
+    "bytes": 4366,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_003_field.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_003_field.json",
+    "sha256": "339c2043736db061d19bf9895d07aaf218476250b1083e37fbe018d3474a28a4",
+    "bytes": 43275,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_003_arena.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_003_arena.json",
+    "sha256": "fb36e29ba13653491b8fae33722e54755cc489f9a1c2faf51b0689da39a21c5d",
+    "bytes": 8769,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_003/background.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/environments/campaign_worlds/realm_fasr_003_v1/background.png",
+    "sha256": "1d9b4a0e9ed247399a98f15cf4ee16c1494afa0fa87fc16d21474cf287e1a0cd",
+    "bytes": 1214091,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_003/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/environments/alien_worlds/fasr_003/manifest.json",
+    "sha256": "05084a454ff151f964d192cf5cb42c4fcbbd898732635e6e72bf73ae22190d45",
+    "bytes": 670,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_003/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/body.png",
+    "sha256": "082aeb404dddb2bfd3fabb9da2be7f3ac5248943ea7285aae198c5c8c5dd0ef1",
+    "bytes": 80490,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_003/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/sprites/bosses/campaign/guardian_fasr_003/manifest.json",
+    "sha256": "5b3f354e31889286b3090a900963fe7bcbafd3bf1f65658f91b860a6ae45ee13",
+    "bytes": 588,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/background/background.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/environments/campaign_worlds/realm_fasr_003_v1/background.png",
+    "sha256": "1d9b4a0e9ed247399a98f15cf4ee16c1494afa0fa87fc16d21474cf287e1a0cd",
+    "bytes": 1214091,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/background/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_003/background/manifest.json",
+    "sha256": "2656efc9f05f9cb5533c79e835962ba1394238e779d9eedf3e41bf7ffe5f1f57",
+    "bytes": 734,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/background/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-4a467d21-a9eb-4140-a37f-459b82ec5e78.png",
+    "sha256": "aacf32fff6610ca9ce1576f24e2829da41dec3f1c7119c32184ac7c017e13414",
+    "bytes": 1740240,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/background/provenance.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_003/background/provenance.md",
+    "sha256": "a861b9d51452795849b3c60d8c45afa9246f5af4f2c17f5f5b70979a393c1b68",
+    "bytes": 3816,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/body.png",
+    "sha256": "082aeb404dddb2bfd3fabb9da2be7f3ac5248943ea7285aae198c5c8c5dd0ef1",
+    "bytes": 80490,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/body_pre_registration_v02.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/body_pre_registration_v02.png",
+    "sha256": "2766556cde4d4274885a2a4d9c37a1c6dd41cad6dd15d6d89c7ef442c44a3dec",
+    "bytes": 80491,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/body_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/body_v01.png",
+    "sha256": "8464bc5a8564d5334bd93b608dfeb9bb3bab35a3f6a89ece621e706ee332fdd2",
+    "bytes": 82845,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/body_v02.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/body_v02.png",
+    "sha256": "4974359d4e3b9c2fb59e3762ca2ddec252160c92140d6a87323c05bfb43fe50c",
+    "bytes": 80488,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/manifest.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/manifest.json",
+    "sha256": "bd8d8c67a35b47c6d5a492f7acc37844bc641bb0f2a2fe12ebeac7feb9bf4d53",
+    "bytes": 737,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/manifest_pre_registration_v02.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/manifest_pre_registration_v02.json",
+    "sha256": "77345418dd8a57fea358825bd7937d5a950b0993cf819a4c9d97d6cc33923d1e",
+    "bytes": 709,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/master_v01.png",
+    "sha256": "858a98303218196d81afaa35d9f9470aa3c25d4b03d55375a210ecbe8e921ac5",
+    "bytes": 1825807,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/master_v02.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/visual_upgrade/candidates/alien_world_art_v02/guardian_fasr_003_registered_v01/master_v02.png",
+    "sha256": "3a6f1d0719eba6a0a03adbc3e8f49292f93a6fae82ef82d72859577f62b9735c",
+    "bytes": 1740441,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/provenance.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_003/guardian/provenance.md",
+    "sha256": "d0897ee8992fe8ccea476de268d3c10a4729a748d0362f061d8f9e089d0400b4",
+    "bytes": 6215,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_003/guardian/provenance_pre_registration_v02.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_003/guardian/provenance_pre_registration_v02.md",
+    "sha256": "5e170e2ea2d33f07ae3c4c924c0d72d5b84aa63710840b0b19ca5d1f4da5c91c",
+    "bytes": 5159,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_005_field.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_005_field.json",
+    "sha256": "1659be2248a17c1da6431b14fd356e4ff119dc9cbe32b3733068d75f9a8f3b13",
+    "bytes": 43219,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_005_arena.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_005_arena.json",
+    "sha256": "749b4f4d74de9418284b30d82c568261649c32d6a3abac0baaee6707f1fe4c97",
+    "bytes": 8753,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_005/background.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/environments/campaign_worlds/realm_fasr_005_v1/background.png",
+    "sha256": "353aa90a090082e40695a1872361b95addb80c87d3ecdd02e86b5bba9e99863a",
+    "bytes": 1276074,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_005/manifest.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/environments/campaign_worlds/realm_fasr_005_v1/manifest.json",
+    "sha256": "074e5ac46e3337348d0ea55874abd3fc84e281d1fe5ff08a5fddfece4dec8b9b",
+    "bytes": 680,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_005/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/sprites/bosses/campaign/guardian_fasr_005/body.png",
+    "sha256": "57adcd370b3b3ec0d1f87edb7518480d57139cd38d395129b801b29b672e6b64",
+    "bytes": 75974,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_005/manifest.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/sprites/bosses/campaign/guardian_fasr_005/manifest.json",
+    "sha256": "29e22c17c071b17f611ccb9357118a28d4914e956d7df986e66bc36eb41fcbcd",
+    "bytes": 681,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_005/background.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/environments/campaign_worlds/realm_fasr_005_v1/background.png",
+    "sha256": "353aa90a090082e40695a1872361b95addb80c87d3ecdd02e86b5bba9e99863a",
+    "bytes": 1276074,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_005/background_master.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_005/background_master.png",
+    "sha256": "b8250d66c8d94f58d25ec276b606233e16c7f93de1841dbbe90333e73783c2c4",
+    "bytes": 1943986,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_005/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/sprites/bosses/campaign/guardian_fasr_005/body.png",
+    "sha256": "57adcd370b3b3ec0d1f87edb7518480d57139cd38d395129b801b29b672e6b64",
+    "bytes": 75974,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_005/guardian_master.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_005/guardian_master.png",
+    "sha256": "8795a885a5ae348095e6ba3a596d11361e8bd32dd99523c4bb1312daaeeb515a",
+    "bytes": 2029735,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_005/provenance.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_005/provenance.json",
+    "sha256": "34f4d212a095ddee8f37b4bbbcf1eec399462be38f0eea4c5aecb2b81b317d55",
+    "bytes": 3019,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_004_field.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_004_field.json",
+    "sha256": "602bf16b40fc03a79070e839e6cd8ed112a373ef929c4c17214c481232217a26",
+    "bytes": 43198,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_004_arena.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_004_arena.json",
+    "sha256": "2df3ddf22d7459ec705fc5fb40afe8618aad4da32dd367d2a6d9285b1b931e7a",
+    "bytes": 8757,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_004/background.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/environments/campaign_worlds/realm_fasr_004_v1/background.png",
+    "sha256": "ebd186e54ef6e17526148b9c1e8fc9d7db4605d1fa17c887934391d5c6446569",
+    "bytes": 1662350,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/environments/alien_worlds/fasr_004/manifest.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/environments/campaign_worlds/realm_fasr_004_v1/manifest.json",
+    "sha256": "901be4857ed89374ba5ca3754f85542e963bea5b50d0d6973ef0260c7ce2fef1",
+    "bytes": 700,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_004/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/sprites/bosses/campaign/guardian_fasr_004/body.png",
+    "sha256": "8410a537bd6af5bcdb9aa7ac907079ed341a4634af8eb9eb5e14193860a2eba1",
+    "bytes": 75934,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/bosses/campaign/guardian_fasr_004/manifest.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/sprites/bosses/campaign/guardian_fasr_004/manifest.json",
+    "sha256": "65fbb6a61ed7dd9dc08cc581109b167d8429378f6fe6bde9921f4003a40fca31",
+    "bytes": 652,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_004/background.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/environments/campaign_worlds/realm_fasr_004_v1/background.png",
+    "sha256": "ebd186e54ef6e17526148b9c1e8fc9d7db4605d1fa17c887934391d5c6446569",
+    "bytes": 1662350,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_004/background_master.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_004/background_master.png",
+    "sha256": "12c04423268ff2e0f23dd7ae49cea3849c096be491ada646428b8beec69bcc5b",
+    "bytes": 2518687,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_004/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/assets/sprites/bosses/campaign/guardian_fasr_004/body.png",
+    "sha256": "8410a537bd6af5bcdb9aa7ac907079ed341a4634af8eb9eb5e14193860a2eba1",
+    "bytes": 75934,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_004/guardian_master.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_004/guardian_master.png",
+    "sha256": "a23e72bcfd75ad60a747193b8de4f19f2186ab7046118230b0181f13bf365925",
+    "bytes": 1752420,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/fasr_004/provenance.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/alien_worlds/fasr_004/provenance.json",
+    "sha256": "204ce9c7376b27fe3860929f18e44ca52e66dbb0e49f23859b1337be07e4bdda",
+    "bytes": 4250,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/carrier_wraith/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/carrier_wraith/body.png",
+    "sha256": "eea6d696b86a219a013b1ab83613d7865c0f564754241a9f496ca44c8d64ee34",
+    "bytes": 5878,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/carrier_wraith/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/sprites/planet_threats/carrier_wraith/manifest.json",
+    "sha256": "456b3de37f2c78036a12ad98dbb3825aac5cdb7c32b82e990a406fed79073596",
+    "bytes": 708,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/carrier_wraith_v01/PROVENANCE.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/carrier_wraith_v01/PROVENANCE.md",
+    "sha256": "d40ffb0cf53af51c8fd90428bdd30ca988a9f34afbc1a0fcfb536946bc42bfc1",
+    "bytes": 5680,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/carrier_wraith_v01/body_96x72.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/carrier_wraith/body.png",
+    "sha256": "eea6d696b86a219a013b1ab83613d7865c0f564754241a9f496ca44c8d64ee34",
+    "bytes": 5878,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/carrier_wraith_v01/body_v01_96x72.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/carrier_wraith_v01/body_v01_96x72.png",
+    "sha256": "3ff547e1aa1d99e2cee6f17bd719ca777ea0f320d7600efde6d42f23877743ab",
+    "bytes": 4996,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/carrier_wraith_v01/candidate.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/carrier_wraith_v01/candidate.json",
+    "sha256": "e3503b6a0f8b21c095aab63399226c15a2dc3eebbeb1804a24d3b6e10b10f248",
+    "bytes": 631,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/carrier_wraith_v01/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-7ec8ae90-2441-4a10-ba47-72c0736d40f6.png",
+    "sha256": "f5cd1b19758bdb26fb264d6ef2139ef4d0abb4e7bc798f855e2ba4e650180de2",
+    "bytes": 518325,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/carrier_wraith_v01/master_v02.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-74535122-3dc9-43eb-a2d1-a94fa147f392.png",
+    "sha256": "a54e5f6e3074845cbbfae11bd8dcb6a6f42712e07881734a972edf998fd6b684",
+    "bytes": 542041,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/shard_clipper/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/shard_clipper/body.png",
+    "sha256": "ecf532cf3cc3842a07b58f342b6d2f149e26a4abb35b9a3e95520e691f01924f",
+    "bytes": 6247,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/shard_clipper/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/sprites/planet_threats/shard_clipper/manifest.json",
+    "sha256": "7558715594ed1a79c8713509bc0714be37623da13d6f25d4bd450331374b2a3c",
+    "bytes": 704,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/shard_clipper_v01/PROVENANCE.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/shard_clipper_v01/PROVENANCE.md",
+    "sha256": "83d33f5765932d9337b7e378ac7f09465759998e2f3388b1bb76777553c5cd57",
+    "bytes": 3842,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/shard_clipper_v01/body_96x72.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/shard_clipper/body.png",
+    "sha256": "ecf532cf3cc3842a07b58f342b6d2f149e26a4abb35b9a3e95520e691f01924f",
+    "bytes": 6247,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/shard_clipper_v01/candidate.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/shard_clipper_v01/candidate.json",
+    "sha256": "3d431b91dca12466060c86f8968e6763ae64bc59079cad65e99bfa922a21fb94",
+    "bytes": 633,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/shard_clipper_v01/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-5bcff30a-2291-4a38-99d8-6a8f02ce10d8.png",
+    "sha256": "6e530157cdc2b65de29095571f4f503f2bda945907a53a32e9575e21a0ed853f",
+    "bytes": 603958,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/terminator_roller/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/terminator_roller/body.png",
+    "sha256": "ec605eac1cd98d701aafd859d802e33aa8c80403841df8b4bc791797d6af2f04",
+    "bytes": 9823,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/terminator_roller/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/sprites/planet_threats/terminator_roller/manifest.json",
+    "sha256": "8d3d3938ea2520efc139955834549d8ce717cc0b8b4a09ffa477cd0fcd81ff21",
+    "bytes": 720,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/terminator_roller_v01/PROVENANCE.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/terminator_roller_v01/PROVENANCE.md",
+    "sha256": "4fee779897997bf9bf43bcfa88c990540e3b483ac26583b573156e137e07f4c1",
+    "bytes": 3853,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/terminator_roller_v01/body_96x72.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/terminator_roller/body.png",
+    "sha256": "ec605eac1cd98d701aafd859d802e33aa8c80403841df8b4bc791797d6af2f04",
+    "bytes": 9823,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/terminator_roller_v01/candidate.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/terminator_roller_v01/candidate.json",
+    "sha256": "7cfb2075fdbea28f477d0f52955cdb78609b79453d7fe656d5a4b15a42289bee",
+    "bytes": 634,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/terminator_roller_v01/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-1b8eda98-ffc3-48e7-a54b-ceed0f6637cf.png",
+    "sha256": "037b7ddf7f986383bd92ff570b2c15ed2b218cfc40c962a865525269fe180195",
+    "bytes": 1055048,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/plasma_kite/body.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/plasma_kite/body.png",
+    "sha256": "979b6d08988c4e7b3c9b708251e7919286c1fc17a5e48b7fa155d20359d0ad04",
+    "bytes": 8078,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/sprites/planet_threats/plasma_kite/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/sprites/planet_threats/plasma_kite/manifest.json",
+    "sha256": "26b3c039993d7a087f2acfd73d125a0b8febb79b99b69dfeda68d4809e531df8",
+    "bytes": 696,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/plasma_kite_v01/PROVENANCE.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/plasma_kite_v01/PROVENANCE.md",
+    "sha256": "8658900bfa494da9ba147b321e14e9efd087145afe4f11b3e0dde21d0838ff11",
+    "bytes": 3898,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/plasma_kite_v01/body_96x72.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/assets/sprites/planet_threats/plasma_kite/body.png",
+    "sha256": "979b6d08988c4e7b3c9b708251e7919286c1fc17a5e48b7fa155d20359d0ad04",
+    "bytes": 8078,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/plasma_kite_v01/candidate.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/art/source/planet_threats/plasma_kite_v01/candidate.json",
+    "sha256": "e8cd44ea4726e090f77a6632e788f76665b6adbe44a1762ea0781056c8b15d2b",
+    "bytes": 631,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/planet_threats/plasma_kite_v01/master_v01.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/src/art/source/generated_images/exec-785f7fb5-2371-40ec-a00e-e01b3e0d55a6.png",
+    "sha256": "34f230f6eb35ee7b1a8d3f4487e14ea900696f00eb97c1b205539a5deed6dd35",
+    "bytes": 797963,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/audio/sagittarius_signal.ogg",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/audio/sagittarius_signal.ogg",
+    "sha256": "5a24f85522313a565c72144fcfdfdb05f2d60e696a0beea3d9a9833c082da2ff",
+    "bytes": 1323855,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/assets/audio/crystal_lattice.ogg",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/audio/crystal_lattice.ogg",
+    "sha256": "92c2e94c2ece51b60e4ec96644ac6a2779a8b09261df7f1df25991fb66cbc781",
+    "bytes": 1166665,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/assets/audio/proxima_twilight.ogg",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/audio/proxima_twilight.ogg",
+    "sha256": "45bb41909808dcdab475af347d2a08f0c3585afd16fe9147cb2fc0d1374a84df",
+    "bytes": 1451214,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/assets/audio/orion_nursery.ogg",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/src/assets/audio/orion_nursery.ogg",
+    "sha256": "6a2a04df8fda85234b68bcc76b45efdce7f35b5ba03f31e85e7ee70281d0d462",
+    "bytes": 1207375,
+    "reason": "First four visited alien worlds retired from the seven-world route; Earth content retained.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/data/alien_journey.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/data/alien_journey.json",
+    "sha256": "a25845aa89145a1d51775055179961b6356da25cafffbf701dc6785ca43206a1",
+    "bytes": 30130,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/data/galaxy_navigation.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/data/galaxy_navigation.json",
+    "sha256": "ffbe010960f51b34a2176bdf6731facb1a6c84862ee89eba1adefa7e67bf6756",
+    "bytes": 1604,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/data/planet_encounters.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/data/planet_encounters.json",
+    "sha256": "8eb0387cffa3e29a148c749b53dd805c7aa886c82592e44c24a48fff82ec88c4",
+    "bytes": 6338,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/data/opening_story.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/opening_story.json",
+    "sha256": "351504321ba01df6829998a2fd21e5fd3e24a2f375c119457295a46d68b508d0",
+    "bytes": 1133,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/assets/audio/manifest.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/assets/audio/manifest.json",
+    "sha256": "556ea97a1d1b0c4dfc257a5c37040347da70ab7aeee263544bb4bde6de9b1a0d",
+    "bytes": 11297,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/art/source/audio/world_themes.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/art/source/audio/world_themes.json",
+    "sha256": "6295bb776dff43e40463ce37b6c548996e5fcfd2f0da448664f0867b5686e165",
+    "bytes": 4538,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/engine/bosses/campaign_bosses.py",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/engine/bosses/campaign_bosses.py",
+    "sha256": "ee71194e0c34668d2bd689f18268453437b5f4f79aba10767e8af12d222b25a0",
+    "bytes": 20188,
+    "reason": "Intermediate shooting-work checkpoint captured before world retirement; clean pre-task implementation is preserved in baseline/.",
+    "restoration": "Do not restore this intermediate checkpoint as the old route implementation. Use baseline/src/engine/bosses/campaign_bosses.py with the matching original route instead."
+  },
+  {
+    "original_path": "src/engine/campaign_scenery.py",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/engine/campaign_scenery.py",
+    "sha256": "40df1ec109b37e6c3673032ce8cd3b925486685be76b046585a578417cb012e5",
+    "bytes": 17242,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/engine/planet_threat_assets.py",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/engine/planet_threat_assets.py",
+    "sha256": "3a7b0bdcc010c28ec8e435b2070c42272f1a0713cace1a12c2b2ba6d6d7c0bb3",
+    "bytes": 6427,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "src/engine/combat_feedback.py",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/worlds_verification_20261113/distribution/installed/video_game/engine/combat_feedback.py",
+    "sha256": "a53a4b397968afd262e3ac7436b380023d85029616e257b30acdf88dc75c2ef9",
+    "bytes": 9870,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "src/art/source/alien_worlds/README.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/src/art/source/alien_worlds/README.md",
+    "sha256": "582d2eceace93ecf1937358d9216fa2b7cdf04b42267d29ecf51964418de9d70",
+    "bytes": 3196,
+    "reason": "Pre-change route metadata/source snapshot for reversible world retirement.",
+    "restoration": "Verify SHA-256, then copy archive_path to original_path; restore the matching route, registries and manifests together without overwriting newer work."
+  },
+  {
+    "original_path": "docs/media/readme/crystal-network.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/docs/media/readme/crystal-network.png",
+    "sha256": "dae02afe0b97faeb6d7ed9b56f7a8805667600450f3ea4bac97de1ba45e7c145",
+    "bytes": 633228,
+    "reason": "Presentation capture belongs to one of the four retired worlds.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata."
+  },
+  {
+    "original_path": "docs/media/readme/proxima-twilight.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/readme-worlds-20261113/proxima-twilight.png",
+    "sha256": "25a4cd31406548bd907ada560b9ab4a8840ee23c2a8e82230a7daa2d51949bc9",
+    "bytes": 694923,
+    "reason": "Presentation capture belongs to one of the four retired worlds.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "docs/media/readme/signal-jailer.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/retired/docs/media/readme/signal-jailer.png",
+    "sha256": "ef5ce6d4d6703253e251485cda2b125edf4a81b3ee147d702c22511a3daa80e8",
+    "bytes": 556228,
+    "reason": "Presentation capture belongs to one of the four retired worlds.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata."
+  },
+  {
+    "original_path": "docs/media/readme/heat-auditor.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/readme-worlds-20261113/heat-auditor.png",
+    "sha256": "d8aa6728283961e6f7157d75ae8e0a1d7317c758db5f1d3794ce60b81cd139b3",
+    "bytes": 555218,
+    "reason": "Presentation capture belongs to one of the four retired worlds.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "docs/media/readme/flare-bastion.png",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/readme-worlds-20261113/flare-bastion.png",
+    "sha256": "13a0999584ddbb6d426a9fb1755e22e728766124187a2aab7d5ba6281d6dce9d",
+    "bytes": 691370,
+    "reason": "Presentation capture belongs to one of the four retired worlds.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
+  },
+  {
+    "original_path": "docs/media/readme/galaxy-map.png",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/docs/media/readme/galaxy-map.png",
+    "sha256": "c65ed3230f4e22250d4c20a70b905cd2736d880c6778584a140a5400bcd26759",
+    "bytes": 483163,
+    "reason": "Snapshot before updating the shortened journey and its current verification.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata."
+  },
+  {
+    "original_path": "docs/media/readme/signal-transit.gif",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/docs/media/readme/signal-transit.gif",
+    "sha256": "2a9e30a440730383a49b5d20bacbbccd959fc4c1b4117c2098aa0b859574d7ac",
+    "bytes": 520342,
+    "reason": "Snapshot before updating the shortened journey and its current verification.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata."
+  },
+  {
+    "original_path": "docs/media/readme/capture.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/docs/media/readme/capture.json",
+    "sha256": "cd6a04c9c6c30e41fb784794e971b874de6f5f7282040d6f211ac7b017ba114e",
+    "bytes": 9713,
+    "reason": "Snapshot before updating the shortened journey and its current verification.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata."
+  },
+  {
+    "original_path": "docs/media/readme/README.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/before/docs/media/readme/README.md",
+    "sha256": "9522c494662c2fa3c6c8c781678e619f505e5ff954769d0f71902296ffc7cf53",
+    "bytes": 7231,
+    "reason": "Snapshot before updating the shortened journey and its current verification.",
+    "restoration": "Verify SHA-256; preserve newer work, then copy archive_path back to original_path together with its matching metadata."
+  },
+  {
+    "original_path": "docs/maintenance/verification.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/baseline/docs/maintenance/verification.json",
+    "sha256": "fdf1d1192ebf0752f39ed5202e8f57f0e536b468ba35dc2325328bbf21aad6bd",
+    "bytes": 2752,
+    "reason": "Clean Git baseline preceding this task; preserves prior measurements and scope.",
+    "restoration": "Verify SHA-256; preserve newer work before restoring this baseline."
+  },
+  {
+    "original_path": "docs/maintenance/REPOSITORY_AUDIT.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/baseline/docs/maintenance/REPOSITORY_AUDIT.md",
+    "sha256": "70eaec62b209b5a833092929ef28e30e4b2601854db01cb96403f422333215fa",
+    "bytes": 3681,
+    "reason": "Clean Git baseline preceding this task; preserves prior measurements and scope.",
+    "restoration": "Verify SHA-256; preserve newer work before restoring this baseline."
+  },
+  {
+    "original_path": "docs/planning/CURRENT_STATE.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/baseline/docs/planning/CURRENT_STATE.md",
+    "sha256": "50a215e783761f508d4b819bb3d9a16b0c50b56b36e202c58ef53492e78f4387",
+    "bytes": 6783,
+    "reason": "Clean Git baseline preceding this task; preserves prior measurements and scope.",
+    "restoration": "Verify SHA-256; preserve newer work before restoring this baseline."
+  },
+  {
+    "original_path": "docs/planning/TODO_ROADMAP.md",
+    "archive_path": "_trash/2026-11-15_shorter_journey/baseline/docs/planning/TODO_ROADMAP.md",
+    "sha256": "2efed9fceed710ac14dd836ee6e4ed9b34689ab421a1623f2720dcee2d0d0068",
+    "bytes": 11425,
+    "reason": "Clean Git baseline preceding this task; preserves prior measurements and scope.",
+    "restoration": "Verify SHA-256; preserve newer work before restoring this baseline."
+  },
+  {
+    "original_path": "src/engine/bosses/campaign_bosses.py",
+    "archive_path": "_trash/2026-11-15_shorter_journey/baseline/src/engine/bosses/campaign_bosses.py",
+    "sha256": "25e5ba76bc7dd7f7ae13f599a86edbae1af39104d360441c0c05a35789287fa8",
+    "bytes": 19064,
+    "reason": "Original pre-task implementation/route link, before shooting fixes and world retirement.",
+    "restoration": "Verify SHA-256 and restore together with the original journey metadata/registries/assets after preserving newer work."
+  },
+  {
+    "original_path": "src/data/balance.json",
+    "archive_path": "_trash/2026-11-15_shorter_journey/baseline/src/data/balance.json",
+    "sha256": "12b749a07d6bc8b3e1c0c806802b8b6b51c1fa35e5d1431f6b1594cc699c6e74",
+    "bytes": 9451,
+    "reason": "Original pre-task implementation/route link, before shooting fixes and world retirement.",
+    "restoration": "Verify SHA-256 and restore together with the original journey metadata/registries/assets after preserving newer work."
+  },
+  {
+    "original_path": "src/data/levels/alien_worlds/alien_008_field.json",
+    "archive_path": "_trash/2026-11-14_repository_cleanup/_temp/local_agent_guide_20261113/clean-checkout/build/lib/video_game/data/levels/alien_worlds/alien_008_field.json",
+    "sha256": "b74cf0c8000dd1a46289088724347ef34011a136bf63e72f7674882bd811f1d9",
+    "bytes": 43233,
+    "reason": "Original pre-task implementation/route link, before shooting fixes and world retirement.",
+    "restoration": "Verify SHA-256 and restore together with the original journey metadata/registries/assets after preserving newer work.",
+    "archive_reuse": "Reused byte-identical indexed archive; original_path retains the restoration destination."
   }
 ]

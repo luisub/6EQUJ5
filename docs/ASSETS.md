@@ -16,7 +16,7 @@ packages. Temporary output and `_trash` are never runtime inputs.
 | Shared Ohio textures | `environments/ohio/shared/` | One far plane for approach, salvage, dish and arena; tileset and mist used by world/hazard rendering |
 | Later Earth backgrounds | `environments/{neo_denver,area_51,gobekli_tepe,vla}/` | `engine/campaign_scenery.py`; `tools/build_campaign_art.py` |
 | Historical rooms | `environments/{dodleston_relay,mandela_annex,ehman_1977}/` | Native-room contracts and builder |
-| Eleven alien panoramas | `environments/alien_worlds/fasr_<id>/` | `data/alien_journey.json`; campaign scenery and export builder |
+| Seven alien panoramas | `environments/alien_worlds/fasr_<id>/` | `data/alien_journey.json`; campaign scenery and export builder |
 | Core chamber and restored Denver | `environments/earth_finale/{core_network,central_park}/` | `engine/campaign_scenery.py`; `tools/build_finale_art.py` |
 | Park families | `sprites/people/park_family/` | `engine/scenes/restored_earth.py`; four cached walking poses and mirrored variants |
 | Alien guardians and Earth bosses | `sprites/bosses/` | Boss controllers and family manifests; Greenkeeper uses `greenkeeper/` |
@@ -42,7 +42,7 @@ the manager caches both logical and native frames, mirrored variants and effects
 Grounded steps follow actual travel distance; flight poses follow actor time.
 Stopping, stun and pause stop grounded stepping. The renderer validates frame
 hashes and declared dimensions, and the guardian fallback loader accepts these
-registered native poses. All eleven normal guardian bodies remain their own art.
+registered native poses. All seven normal guardian bodies remain their own art.
 `build_cyber_insects --output NEW_DIRECTORY` reproduces 37 files; `--promote`
 archives replaced images, the manifest and retired unreferenced robot poses.
 
@@ -54,8 +54,8 @@ exports use the existing scenery manifest contracts; family loading validates
 the strip's dimensions and hash. Original Core exports remain in the restoration
 index. Source masters and tools are excluded from runtime packages.
 
-`audio/manifest.json` owns the eleven world-to-track assignments, titles, hashes
-and durations. Two original MP3s cover Earth and the observatory; eleven stereo
+`audio/manifest.json` owns the seven world-to-track assignments, titles, hashes
+and durations. Two original MP3s cover Earth and the observatory; seven stereo
 Vorbis scores cover the signal worlds. Scores and provenance live in
 `art/source/audio/world_themes.json`. `tools/build_world_music.py` synthesizes
 the original compositions without samples, with distinct motifs, modes, tempos,

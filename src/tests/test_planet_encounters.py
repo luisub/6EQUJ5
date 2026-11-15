@@ -27,8 +27,8 @@ def game(tmp_path, monkeypatch):
                                settings_store=SettingsStore(tmp_path/'settings'))
     assert machine.start_new_game()[0]
     assert machine.change_settings(combat_mode='assisted')
-    machine.change_state(config.STATE_FIELD_OPS, room='alien_worlds/alien_001_field.json',
-                         spawn='default', journey_world='alien_001', campaign_route=True)
+    machine.change_state(config.STATE_FIELD_OPS, room='alien_worlds/alien_008_field.json',
+                         spawn='default', journey_world='alien_008', campaign_route=True)
     yield machine
     machine.close()
     pygame.quit()
@@ -55,9 +55,9 @@ def place_at_first_trigger(game):
 
 def test_authored_worlds_have_distinct_ids_and_bounded_config():
     data = json.loads((config.DATA_DIR / 'planet_encounters.json').read_text())
-    assert len(data['worlds']) == 11
-    assert len({w['enemy_id'] for w in data['worlds'].values()}) == 11
-    assert {w['style'] for w in data['worlds'].values()} == {'strafe', 'swoop', 'pulse', 'lunge'}
+    assert len(data['worlds']) == 7
+    assert len({w['enemy_id'] for w in data['worlds'].values()}) == 7
+    assert {w['style'] for w in data['worlds'].values()} == {'strafe', 'pulse', 'lunge'}
     for world_id in data['worlds']:
         spec = world_config(world_id)
         assert spec is not None and spec['encounter_count'] == 24
@@ -82,7 +82,7 @@ def test_planet_director_warns_before_safe_spawn_and_freezes_on_focus_loss(game)
     enemy = scene.enemy_manager.enemies[0]
     assert isinstance(enemy, PlanetThreat)
     assert enemy.rect.left - scene.player.rect.right >= 120
-    assert enemy.health == 110
+    assert enemy.health == 130
 
 
 def test_continuous_mapped_forward_input_still_produces_safe_arrival(game):
@@ -126,7 +126,7 @@ def test_cap_and_high_water_never_spawn_more_than_authored(game):
     assert director.high_water == old_high and director.next_trigger == 24
 
 
-@pytest.mark.parametrize('world_id', ('alien_001', 'alien_003', 'alien_005', 'alien_008'))
+@pytest.mark.parametrize('world_id', ('alien_008', 'alien_009', 'alien_006', 'alien_002'))
 def test_each_style_exposes_full_windup_before_attacking(game, world_id):
     scene = place_at_first_trigger(game)
     spec = world_config(world_id)
@@ -201,8 +201,8 @@ def test_room_reentry_resets_visit_and_does_not_mutate_campaign(game):
     step(game, 75)
     assert scene.enemy_manager.enemies and scene.forward_encounter.next_trigger
     game.change_state(config.STATE_BUNKER_HUB)
-    game.change_state(config.STATE_FIELD_OPS, room='alien_worlds/alien_001_field.json',
-                      spawn='default', journey_world='alien_001', campaign_route=True)
+    game.change_state(config.STATE_FIELD_OPS, room='alien_worlds/alien_008_field.json',
+                      spawn='default', journey_world='alien_008', campaign_route=True)
     assert game.current_scene.forward_encounter.next_trigger == 0
     assert not game.current_scene.enemy_manager.enemies
     assert game.campaign.state.room_flags == before
@@ -229,7 +229,7 @@ def test_assisted_player_survives_three_actual_enemy_hits(game):
         health.append(scene.player.health)
         assert health[-1] < health[-2]
         assert not scene.player.is_dead
-    assert health == [100, 93, 86, 79]
+    assert health == [100, 92, 84, 76]
 
 
 def test_death_respawn_and_new_game_clear_visit_encounters(game):
@@ -243,8 +243,8 @@ def test_death_respawn_and_new_game_clear_visit_encounters(game):
     assert not scene.player.is_dead and scene.player.health == 100
     assert not scene.enemy_manager.enemies and scene.forward_encounter.next_trigger == 0
     assert game.start_new_game(replace_existing=True)[0]
-    game.change_state(config.STATE_FIELD_OPS, room='alien_worlds/alien_001_field.json',
-                      spawn='default', journey_world='alien_001', campaign_route=True)
+    game.change_state(config.STATE_FIELD_OPS, room='alien_worlds/alien_008_field.json',
+                      spawn='default', journey_world='alien_008', campaign_route=True)
     assert not game.current_scene.enemy_manager.enemies
     assert game.current_scene.forward_encounter.next_trigger == 0
 
@@ -255,7 +255,7 @@ def test_active_hazard_keeps_moving_when_field_becomes_crowded(game, monkeypatch
     pygame.draw.rect(sprite, (255, 180, 60, 255), (10, 12, 76, 50))
     monkeypatch.setattr('video_game.engine.world_hazards.load_planet_threat',
                         lambda root, ident: (sprite, (10, 12, 86, 62), (48, 64)))
-    spec = world_config('alien_001')
+    spec = world_config('alien_008')
     hazard = WorldHazards(game.assets.root, scene.room, spec['hazard'])
     assert hazard.enabled
     scene.world_hazards = hazard
@@ -272,8 +272,8 @@ def test_native_body_faces_enemy_direction_with_cached_mirrored_pivot_and_hit_al
     body = pygame.Surface((96, 72), pygame.SRCALPHA)
     body.set_at((83, 20), (255, 80, 30, 191))  # Asymmetric right-facing tip.
     body.set_at((10, 30), (25, 220, 150, 83))
-    director = PlanetEncounter(scene.room, scene.enemy_manager, 'alien_001', body=body)
-    threat = PlanetThreat('direction_fixture', 400, 216, world_config('alien_001'), custom_body=True)
+    director = PlanetEncounter(scene.room, scene.enemy_manager, 'alien_008', body=body)
+    threat = PlanetThreat('direction_fixture', 400, 216, world_config('alien_008'), custom_body=True)
     scene.enemy_manager.add_enemy(threat)
 
     class Recorder:
@@ -337,7 +337,7 @@ def test_archaeological_arena_has_no_field_effigy(game):
 
 def test_swoop_hover_phase_freezes_during_pause_stun_and_hurt(game):
     scene=game.current_scene
-    threat=PlanetThreat('hover_fixture',300,216,world_config('alien_003'))
+    threat=PlanetThreat('hover_fixture',300,216,{**world_config('alien_009'), 'style': 'swoop'})
     threat.update(1/60,scene.player,scene.room,scene.enemy_manager)
     phase,y=threat.hover_phase,threat.y
     threat.update(.1,scene.player,scene.room,scene.enemy_manager,is_paused=True)
@@ -357,7 +357,7 @@ def test_swoop_hover_phase_freezes_during_pause_stun_and_hurt(game):
 def test_swoop_recovery_resumes_without_vertical_snap(game,dt):
     scene=game.current_scene
     scene.player.x=80;scene.player.rect.x=80
-    threat=PlanetThreat('swoop_fixture',300,216,world_config('alien_003'))
+    threat=PlanetThreat('swoop_fixture',300,216,{**world_config('alien_009'), 'style': 'swoop'})
     states=set();previous_y=threat.y
     for i in range(round(8/dt)):
         previous_state=threat.state;previous_phase=threat.hover_phase
@@ -375,8 +375,8 @@ def test_swoop_recovery_resumes_without_vertical_snap(game,dt):
 def test_swoop_patrol_phase_is_frame_rate_independent(game):
     scene=game.current_scene
     scene.player.x=0;scene.player.rect.x=0
-    a=PlanetThreat('swoop_30',1000,216,world_config('alien_003'))
-    b=PlanetThreat('swoop_60',1000,216,world_config('alien_003'))
+    a=PlanetThreat('swoop_30',1000,216,{**world_config('alien_009'), 'style': 'swoop'})
+    b=PlanetThreat('swoop_60',1000,216,{**world_config('alien_009'), 'style': 'swoop'})
     for _ in range(60):a.update(1/30,scene.player,scene.room,scene.enemy_manager)
     for _ in range(120):b.update(1/60,scene.player,scene.room,scene.enemy_manager)
     assert a.hover_phase==pytest.approx(b.hover_phase,abs=1e-10)

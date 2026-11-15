@@ -153,10 +153,6 @@ class CombatFeedback:
 
 ALIEN_ATMOSPHERES = {
     # Color and motion belong to the environment, below weapon/attack contrast.
-    'alien_001': ('dust', (64, 99, 114), 3, -1),
-    'alien_003': ('embers', (122, 83, 65), 4, -9),
-    'alien_005': ('snow', (94, 110, 126), -8, 12),
-    'alien_004': ('dust', (107, 88, 119), 4, -4),
     'alien_008': ('dust', (66, 112, 113), -3, 2),
     'alien_009': ('dust', (117, 103, 76), 7, -1),
     'alien_006': ('embers', (116, 87, 70), -5, -6),

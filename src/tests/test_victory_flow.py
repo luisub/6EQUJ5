@@ -66,7 +66,7 @@ def test_victory_acknowledgement_rolls_back_failed_save(game, monkeypatch):
     assert game.save_store.load().campaign.state.room_flags[world['defeat_flag']]
 
 
-@pytest.mark.parametrize('index', range(11))
+@pytest.mark.parametrize('index', range(len(journey_data()['worlds'])))
 def test_every_guardian_requires_victory_then_message_before_travel(game, index):
     # Prior victories and lethal damage are fixtures, not a full playthrough.
     worlds = journey_data()['worlds']

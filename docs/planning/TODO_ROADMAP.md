@@ -1,6 +1,6 @@
 # Execution roadmap
 
-The scope is five Earth acts, eleven signal worlds and the return to Earth.
+The scope is five Earth acts, seven signal worlds and the return to Earth.
 This file owns task status and acceptance dependencies. Read
 [current state](CURRENT_STATE.md) for implemented behavior and
 [verification](../maintenance/verification.json) for measured checks.
@@ -70,7 +70,7 @@ progress. Implemented increments do not by themselves close acceptance gates.
 | P07 | Complete every civilization reward | P06 | planned | THINKING | [Task card](milestones/04_campaign.md#p07) |
 | P08 | Implement endings and finale consequences | P07 | planned | STANDARD | [Task card](milestones/04_campaign.md#p08) |
 | P09 | Accept the full campaign | P08, J04 | planned | THINKING | [Task card](milestones/04_campaign.md#p09) |
-| J01 | Author eleven profile-bound worlds and journey data | User-directed scope | in_progress | THINKING | [Task card](milestones/06_alien_journey.md#j01) |
+| J01 | Author seven profile-bound worlds and journey data | User-directed scope | in_progress | THINKING | [Task card](milestones/06_alien_journey.md#j01) |
 | J02 | Produce alien world and guardian art sequentially | J01 | in_progress | GPU_IMAGE | [Task card](milestones/06_alien_journey.md#j02) |
 | J03 | Connect guardians, conversations, receipts and Earth finale | J01 | in_progress | THINKING | [Task card](milestones/06_alien_journey.md#j03) |
 | J04 | Verify complete journey, recovery and final gate | J02, J03 | in_progress | THINKING | [Task card](milestones/06_alien_journey.md#j04) |
@@ -88,14 +88,15 @@ progress. Implemented increments do not by themselves close acceptance gates.
 ## Continuation and dependencies
 
 Develop the armed ascent/fall poses with add-only clip validation, then refine
-guardian motion one family at a time. All eleven native realm/body families are
+guardian motion one family at a time. All seven native realm/body families are
 installed. J06 needs human fairness and motion assessment; A12 needs listening
 and mix acceptance; A13 needs real-display performance; A14 needs a human
 fresh-save route. S09/S11 and the linked P/R dependencies remain open.
 
 The requested happy ending and restored Denver are implemented. P08's older
-alternate-ending proposal and formal dependencies remain open. The latest code
-cleanup does not change any task status, threshold or acceptance requirement.
+alternate-ending proposal and formal dependencies remain open. The seven-world
+route, shorter constellation/transit and boss shooting fixes do not change formal
+task statuses, thresholds or human acceptance requirements.
 
 ## Milestone exits
 

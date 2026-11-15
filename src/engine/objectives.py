@@ -84,7 +84,7 @@ class ObjectiveTracker:
                                  'The Core is defeated and the messages are safe.', 'RETURN TO BUNKER', is_completed=True)
             if stage == 'final':
                 return Objective('obj_defeat_earth_ai', 'RETURN TO EARTH',
-                                 'All eleven messages are secured. Confront the Core.', 'ENTER TO CONTINUE', station_id='field')
+                                 'All messages are secured. Confront the Core.', 'ENTER TO CONTINUE', station_id='field')
             world = world_by_id(journey.get('world_id')) if journey else None
             name = world['civ_id'] if world else 'FIRST SIGNAL'
             if stage == 'contact':

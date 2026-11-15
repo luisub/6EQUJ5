@@ -18,10 +18,10 @@ JOURNEY = json.loads((DATA / 'alien_journey.json').read_text())
 def test_all_civilizations_have_ordered_worlds_portraits_and_registry():
     worlds = JOURNEY['worlds']
     assert [w['civ_id'] for w in worlds] == [
-        'FASR-001','FASR-003','FASR-005','FASR-004','FASR-008','FASR-009',
+        'FASR-008','FASR-009',
         'FASR-006','FASR-002','FASR-SCAN-H','FASR-010','FASR-007']
-    assert len(JOURNEY['rooms']) == 23
-    assert len({world['guardian_title'] for world in worlds}) == 11
+    assert len(JOURNEY['rooms']) == 15
+    assert len({world['guardian_title'] for world in worlds}) == 7
     for i, world in enumerate(worlds):
         assert world['next_world'] == (worlds[i+1]['id'] if i+1 < len(worlds) else None)
         assert len(world['contact_pages']) == 1
@@ -36,8 +36,8 @@ def test_all_civilizations_have_ordered_worlds_portraits_and_registry():
             room_id = Path(path).stem
             assert JOURNEY['rooms'][room_id]['path'] == path
     assert JOURNEY['final_earth']['arena_room'] == 'earth_finale/core_prime_arena.json'
-    assert 'archive' in worlds[6]['world_brief'].lower() or 'memorial' in worlds[6]['world_brief'].lower()
-    assert 'terrestrial' in worlds[9]['world_brief'].lower()
+    assert 'archive' in worlds[2]['world_brief'].lower() or 'memorial' in worlds[2]['world_brief'].lower()
+    assert 'terrestrial' in worlds[5]['world_brief'].lower()
 
 
 def test_alien_room_geometry_links_and_encounter_positions(tmp_path):

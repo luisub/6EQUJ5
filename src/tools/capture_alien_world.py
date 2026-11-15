@@ -2,7 +2,7 @@
 
 These are art integration captures, not an earned playthrough. Run from the
 repository with python -m video_game.tools.capture_alien_world
---world alien_005 --output <new dir>. Existing output directories are refused.
+--world alien_008 --output <new dir>. Existing output directories are refused.
 """
 import argparse
 import hashlib

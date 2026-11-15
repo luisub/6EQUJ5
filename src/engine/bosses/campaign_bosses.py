@@ -4,7 +4,7 @@ HOW TO MODIFY: Keep attack warnings visible, counters achievable, and retries de
 """
 import math
 import pygame
-from ..attack_visuals import render_attack_field
+from ..attack_visuals import render_attack_field, render_aim_warning, render_boss_projectile
 from ..core_network import render_projection_scan
 
 from .base import (Boss, BossAttackTelegraph, BossProjectile, boss_balance, STATE_TRANSITION,
@@ -28,7 +28,11 @@ class CampaignBoss(Boss):
 
     @property
     def mortar_muzzle(self):
-        return self.rect.center
+        return self._muzzle_at(self.rect.center, self.facing)
+
+    def _muzzle_at(self, center, facing):
+        dx, dy = self.tuning['muzzle_offsets'].get(self.target_id, (0, 0))
+        return (center[0] + (-dx if facing == 'right' else dx), center[1] + dy)
 
     def reset_to_pristine(self):
         super().reset_to_pristine()
@@ -73,6 +77,7 @@ class CampaignBoss(Boss):
         if dt <= 0 or not math.isfinite(dt):
             return
         self.face_target(player_pos)
+        self._track_aim_warning(player_pos)
         super().update(dt)
         self.animation_time += dt
         self.hit_flash_timer = max(0.0, self.hit_flash_timer - dt)
@@ -107,6 +112,37 @@ class CampaignBoss(Boss):
     def fire(self, player_pos):
         pass
 
+    def _warn_aim(self, player_pos, duration=1.25):
+        self.telegraphs.append(BossAttackTelegraph('aim', duration))
+        self._track_aim_warning(player_pos)
+
+    def _track_aim_warning(self, player_pos):
+        if not any(t.attack_type == 'aim' for t in self.telegraphs):
+            return
+        origin = self.rect.center
+        if getattr(self, 'pattern', '').startswith('teleport'):
+            origin = (self.pending_x + self.width / 2, self.rect.centery)
+        elif self.target_id == 'amalgam' and hasattr(self, 'pending_x'):
+            origin = (self.pending_x + self.width / 2, self.rect.centery)
+        dx = player_pos[0] - origin[0]
+        facing = ('right' if dx > 0 else 'left') if abs(dx) > 3 else self.facing
+        origin = self._muzzle_at(origin, facing)
+        for warning in self.telegraphs:
+            if warning.attack_type == 'aim':
+                warning.target_line = (origin, player_pos)
+
+    def _fire_volley(self, player_pos, proj_id, speed, spread=(0,)):
+        """Aim at release, after any teleport; released shots keep their course."""
+        self.face_target(player_pos)
+        origin = self.mortar_muzzle
+        dx, dy = player_pos[0] - origin[0], player_pos[1] - origin[1]
+        angle = math.atan2(dy, dx) if math.hypot(dx, dy) > .001 else (0 if self.facing == 'right' else math.pi)
+        for offset in spread:
+            theta = angle + math.radians(offset)
+            self.projectiles.append(BossProjectile(
+                f'{proj_id}_{offset}', *origin, speed * math.cos(theta), speed * math.sin(theta),
+                damage=12, color=self.color))
+
     def check_attack_collisions(self, player_rect):
         for projectile in self.projectiles:
             if projectile.check_player_collision(player_rect):
@@ -118,6 +154,10 @@ class CampaignBoss(Boss):
 
     def render(self, surface, camera, *, crt=None):
         for telegraph in self.telegraphs:
+            if telegraph.target_line:
+                start, end = telegraph.target_line
+                render_aim_warning(surface, camera.world_to_screen(*start), camera.world_to_screen(*end),
+                                   progress=telegraph.progress, color=self.color)
             if telegraph.target_rect:
                 r = telegraph.target_rect.move(-int(camera.x), -int(camera.y))
                 render_attack_field(surface, r, color=self.color, progress=telegraph.progress,
@@ -126,8 +166,6 @@ class CampaignBoss(Boss):
         for r in self.attack_rects:
             render_attack_field(surface, r.move(-int(camera.x), -int(camera.y)),
                                 color=self.color, time=self.animation_time, active=True)
-        for p in self.projectiles:
-            pygame.draw.circle(surface, p.color, camera.world_to_screen(p.x, p.y), int(p.radius))
         r = self.rect.move(-int(camera.x), -int(camera.y))
         art = getattr(self, 'art_surface', None)
         if art is not None and art is not self._flash_source:
@@ -154,6 +192,9 @@ class CampaignBoss(Boss):
             surface.blit(self._logical_variants[side], (r.centerx - 64, r.bottom - 96))
         else:
             self.draw_body(surface, r)
+        # Keep discharges above the native body, using their actual launch vector.
+        for p in self.projectiles:
+            render_boss_projectile(surface, p, camera)
         if self.weak_point_exposed:
             core = self.weak_point_rect.move(-int(camera.x), -int(camera.y))
             pygame.draw.ellipse(surface, (255, 218, 124), core, 2)
@@ -200,13 +241,12 @@ class Amalgam(CampaignBoss):
     def prepare(self, player_pos):
         self.pending_x = TELEPORT_POSITIONS[self.attack_index % len(TELEPORT_POSITIONS)]
         self.telegraphs.append(BossAttackTelegraph('pod', 1.25, target_rect=pygame.Rect(self.pending_x, 144, self.width, self.height)))
+        self._warn_aim(player_pos)
 
     def fire(self, player_pos):
         self.x = self.pending_x
         self.rect.x = int(self.x)
-        dx, dy = player_pos[0] - self.rect.centerx, player_pos[1] - self.rect.centery
-        length = max(1, math.hypot(dx, dy))
-        self.projectiles.append(BossProjectile('pod_spore', *self.rect.center, 130 * dx / length, 130 * dy / length, damage=12, color=self.color))
+        self._fire_volley(player_pos, 'pod_spore', self.tuning['amalgam_projectile_speed'])
 
     def draw_body(self, surface, r):
         pygame.draw.ellipse(surface, self.color, r, 4)
@@ -252,14 +292,14 @@ class CorePrime(CampaignBoss):
         else:
             self.pending_lane = pygame.Rect(80, 210, 345, 20)
         self.telegraphs.append(BossAttackTelegraph('core_pulse', 1.25, target_rect=self.pending_lane))
+        if self.current_phase >= 3:
+            self._warn_aim(player_pos)
 
     def fire(self, player_pos):
         self.attack_rects = [self.pending_lane]
         if self.current_phase >= 3:
-            for vy in (-45, 45):
-                self.projectiles.append(BossProjectile('archon_bolt', *self.rect.center,
-                                                       115 if self.facing == 'right' else -115, vy,
-                                                       damage=12, color=self.color))
+            spread = self.tuning['archon_fan_degrees']
+            self._fire_volley(player_pos, 'archon_bolt', self.tuning['archon_projectile_speed'], (-spread, spread))
 
     def reset_to_pristine(self):
         super().reset_to_pristine()
@@ -336,17 +376,13 @@ class EarthFinalAI(CorePrime):
 # Each guardian has its own silhouette, attack rhythm and mixture of threats.
 # They share the existing readable telegraph and projectile lifecycle.
 GUARDIAN_PATTERNS = {
-    'guardian_fasr_001': ((100, 220, 245), 'lanes', 0, 1.25),
-    'guardian_fasr_003': ((240, 125, 95), 'volley', 1, 1.10),
-    'guardian_fasr_005': ((245, 170, 70), 'columns', 2, 1.35),
-    'guardian_fasr_004': ((195, 130, 245), 'crossfire', 3, 1.30),
-    'guardian_fasr_008': ((245, 200, 110), 'fan', 4, 1.20),
-    'guardian_fasr_009': ((140, 195, 240), 'lance', 5, 1.15),
-    'guardian_fasr_006': ((235, 178, 100), 'teleport', 6, 1.40),
-    'guardian_fasr_002': ((185, 220, 255), 'teleport_fan', 7, 1.25),
-    'guardian_fasr_scan_h': ((180, 220, 202), 'paired_columns', 8, 1.40),
-    'guardian_fasr_010': ((230, 185, 95), 'alternating', 9, 1.30),
-    'guardian_fasr_007': ((215, 145, 235), 'pulse_fan', 10, 1.20),
+    'guardian_fasr_008': ((245, 200, 110), 'fan', 0, 1.20),
+    'guardian_fasr_009': ((140, 195, 240), 'lance', 1, 1.15),
+    'guardian_fasr_006': ((235, 178, 100), 'teleport', 2, 1.40),
+    'guardian_fasr_002': ((185, 220, 255), 'teleport_fan', 3, 1.25),
+    'guardian_fasr_scan_h': ((180, 220, 202), 'paired_columns', 4, 1.40),
+    'guardian_fasr_010': ((230, 185, 95), 'alternating', 5, 1.30),
+    'guardian_fasr_007': ((215, 145, 235), 'pulse_fan', 6, 1.20),
 }
 
 
@@ -383,9 +419,11 @@ class AlienGuardian(CampaignBoss):
         elif self.pattern.startswith('teleport'):
             self.pending_lane = pygame.Rect(self.pending_x, 144, self.width, self.height)
         else:
-            # Aim line announces the projectile direction without obscuring the floor.
-            self.pending_lane = pygame.Rect(100, 195 + (self.attack_index % 2) * 20, 250, 12)
-        self.telegraphs.append(BossAttackTelegraph(self.pattern, self.warning_seconds, target_rect=self.pending_lane))
+            self.pending_lane = None
+        if self.pending_lane is not None:
+            self.telegraphs.append(BossAttackTelegraph(self.pattern, self.warning_seconds, target_rect=self.pending_lane))
+        if self.pattern in ('volley', 'fan', 'lance', 'teleport', 'teleport_fan', 'crossfire', 'pulse_fan'):
+            self._warn_aim(player_pos, self.warning_seconds)
         if self.pattern == 'paired_columns':
             x = 110 if self.pending_lane.x != 110 else 360
             self.pending_secondary_lane = pygame.Rect(x, 150, 55, 90)
@@ -402,13 +440,9 @@ class AlienGuardian(CampaignBoss):
             if pattern == 'paired_columns':
                 self.attack_rects.append(self.pending_secondary_lane)
         if pattern in ('volley', 'fan', 'lance', 'teleport', 'teleport_fan', 'crossfire', 'pulse_fan'):
-            dx, dy = player_pos[0] - self.rect.centerx, player_pos[1] - self.rect.centery
-            length = max(1, math.hypot(dx, dy))
-            offsets = (-35, 0, 35) if pattern in ('fan', 'teleport_fan', 'pulse_fan') else (0,)
-            for offset in offsets:
-                self.projectiles.append(BossProjectile(f'{pattern}_{offset}', *self.rect.center,
-                                                       115 * dx / length, 115 * dy / length + offset,
-                                                       damage=12, color=self.color))
+            spread = self.tuning['guardian_fan_degrees']
+            offsets = (-spread, 0, spread) if pattern in ('fan', 'teleport_fan', 'pulse_fan') else (0,)
+            self._fire_volley(player_pos, pattern, self.tuning['guardian_projectile_speed'], offsets)
 
     def draw_body(self, surface, r):
         # The diagnostic fallback remains distinct when optional body art is absent.

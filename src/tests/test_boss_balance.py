@@ -58,7 +58,7 @@ def firing_trial(boss, weapon_id='assisted', max_seconds=90):
     pytest.fail(f'{boss.target_id} survived {max_seconds}s of {weapon_id} fire')
 
 
-@pytest.mark.parametrize('index', range(11))
+@pytest.mark.parametrize('index', range(len(journey_data()['worlds'])))
 @pytest.mark.parametrize('weapon_id', ['assisted', 'classic', 'arc_lance', 'nova_scatter'])
 def test_guardians_survive_bursts_and_use_attacks(index, weapon_id):
     boss = AlienGuardian(journey_data()['worlds'][index])
@@ -99,7 +99,7 @@ def test_teleport_body_and_destination_warning_stay_visible_at_both_camera_edges
         boss.attack_index = attack_index
         boss.telegraphs.clear()
         boss.prepare((100, 208))
-        destination_warning = boss.telegraphs[-1].target_rect.copy()
+        destination_warning = next(t.target_rect.copy() for t in boss.telegraphs if t.target_rect)
         boss.fire((100, 208))
         assert boss.rect == destination_warning
         for x in (0, room.width_px - camera.viewport_w):

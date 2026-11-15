@@ -9,6 +9,7 @@ import pygame
 import pytest
 
 from video_game.engine import config
+from video_game.engine.alien_journey import journey_data
 from video_game.engine.combat_feedback import CombatFeedback
 from video_game.engine.opening_story import OpeningStory
 from video_game.engine.temporary_weapons import PROFILES, WeaponPickups
@@ -64,7 +65,7 @@ def test_next_reaches_map_inside_bunker_and_begin_does_not_exit(game, source, mo
                     return original(text, *args, **kwargs)
                 monkeypatch.setattr(game.crt, 'draw_text', record)
                 game.render()
-                assert {'EARTH', *(str(n) for n in range(1, 12))} <= set(labels)
+                assert {'EARTH', *(str(n) for n in range(1, len(journey_data()['worlds']) + 1))} <= set(labels)
         else:
             assert story is None
 

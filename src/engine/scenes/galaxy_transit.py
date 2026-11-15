@@ -4,15 +4,15 @@ import pygame
 
 from .. import config
 from ..alien_journey import journey_data, ledger
-from ..galaxy_transit import arrive, display_name, map_points, leg_position, leg_points, route_ids
-from ..galaxy_transit_assets import load_galaxy_transit
+from ..galaxy_transit import arrive, display_name, route_ids
+from ..galaxy_transit_assets import load_galaxy_transit, render_constellation
 from .base import BaseScene
 
-MAP_SECONDS = 2.5
-VORTEX_SECONDS = 1.2
-ARRIVAL_SECONDS = 0.4
+MAP_SECONDS = 1.65
+VORTEX_SECONDS = 1.6
+ARRIVAL_SECONDS = 0.45
 TOTAL_SECONDS = MAP_SECONDS + VORTEX_SECONDS + ARRIVAL_SECONDS
-MAP_AREA = (32, 68, 416, 132)
+MAP_AREA = (32, 76, 416, 132)
 VORTEX_CENTER = (240, 134)
 VORTEX_FRAME_SIZE = 384
 
@@ -50,8 +50,8 @@ class GalaxyTransitScene(BaseScene):
             for index in range(64):
                 progress = index / 63
                 eased = progress * progress * (3 - 2 * progress)
-                angle = 65 * progress
-                extent = 128 + 176 * eased
+                angle = 110 * progress
+                extent = 92 + 212 * eased
                 scale = extent / vortex.get_width()
                 rotated = pygame.transform.rotozoom(vortex, angle, scale)
                 frame = pygame.Surface((VORTEX_FRAME_SIZE, VORTEX_FRAME_SIZE), pygame.SRCALPHA)
@@ -93,69 +93,67 @@ class GalaxyTransitScene(BaseScene):
 
     def _map(self, crt):
         source, destination = self.pending['source'], self.pending['destination']
-        route = route_ids()
-        points = map_points(MAP_AREA)
         visited = {'earth'} | {w['id'] for w in journey_data()['worlds'] if w['civ_id'] in self.receipts}
-        for origin, target in zip(route, route[1:]):
-            if origin not in points or target not in points:
-                continue
-            completed = target in visited and target != 'earth'
-            color = (76, 139, 150) if completed else (49, 64, 82)
-            pygame.draw.lines(crt.canvas, color, False, leg_points(origin, target, MAP_AREA), 1)
-        if source in points and destination in points:
-            progress = min(1.0, self.elapsed / MAP_SECONDS)
-            pygame.draw.lines(crt.canvas, (101, 154, 166), False, leg_points(source, destination, MAP_AREA), 1)
-            pygame.draw.lines(crt.canvas, (241, 201, 123), False,
-                              leg_points(source, destination, MAP_AREA, progress), 2)
-            travel = leg_position(source, destination, MAP_AREA, progress)
-            pygame.draw.circle(crt.canvas, (255, 237, 183), travel, 4)
-        for index, loc_id in enumerate(route[:-1]):
-            if loc_id not in points:
-                continue
-            x, y = points[loc_id]
-            color = ((241, 201, 123) if loc_id == source else (112, 223, 229) if loc_id == destination
-                     else (120, 175, 184) if loc_id in visited else (98, 115, 139))
-            pygame.draw.circle(crt.canvas, (5, 13, 23), (x, y), 6)
-            pygame.draw.circle(crt.canvas, color, (x, y), 5 if loc_id in (source, destination) else 3, 1)
-            # Only route numbers live on the map; full names have room in the caption.
-            label = 'Earth' if index == 0 else str(index)
-            lx = x + 8
-            ly = y - 10
-            crt.draw_text(label, lx, ly, color=color, size='sm', has_shadow=False)
+        progress = min(1.0, self.elapsed / MAP_SECONDS)
+        progress = progress * progress * (3 - 2 * progress)
+        render_constellation(crt, MAP_AREA, leg=(source, destination), progress=progress,
+                             visited=visited, time=self.elapsed)
 
     def _vortex(self, crt):
-        if not self.vortex_frames:
-            return
         progress = max(0.0, min(1.0, (self.elapsed - MAP_SECONDS) / (VORTEX_SECONDS + ARRIVAL_SECONDS)))
-        frame = self.vortex_frames[round(progress * (len(self.vortex_frames) - 1))]
-        size = VORTEX_FRAME_SIZE // 2
-        dest = (VORTEX_CENTER[0] - size // 2, VORTEX_CENTER[1] - size // 2)
-        crt.composite_native(frame, dest, (size, size))
+        cx, cy = VORTEX_CENTER
+        # Expanding perspective rings and accelerating radial stars pull the
+        # viewer through the aperture. Work and geometry stay bounded.
+        opening = min(1.0, progress * 4)
+        for index in range(8):
+            depth = (index / 8 + progress * 1.4) % 1
+            radius = 9 + 154 * depth ** 2 * opening
+            color = (round(25 + 33 * depth), round(50 + 74 * depth), round(78 + 82 * depth))
+            pygame.draw.ellipse(crt.canvas, color,
+                                (cx - radius, cy - radius * .48, radius * 2, radius * .96), 1)
+        for index in range(32):
+            angle = index * math.tau / 32 + .13 * math.sin(index * 7)
+            depth = (index * .173 + progress * (1 + progress * 2)) % 1
+            radius = 28 + 230 * depth ** 2
+            extent = 2 + 27 * depth * progress
+            start = (cx + math.cos(angle) * radius, cy + math.sin(angle) * radius * .46)
+            end = (cx + math.cos(angle) * (radius + extent), cy + math.sin(angle) * (radius + extent) * .46)
+            color = (round(44 + 86 * depth), round(72 + 100 * depth), round(109 + 91 * depth))
+            pygame.draw.line(crt.canvas, color, start, end, 1)
+        if self.vortex_frames:
+            frame = self.vortex_frames[round(progress * (len(self.vortex_frames) - 1))]
+            size = VORTEX_FRAME_SIZE // 2
+            dest = (cx - size // 2, cy - size // 2)
+            crt.composite_native(frame, dest, (size, size))
+        else:
+            # The gate remains visible even when optional bitmap art is missing.
+            for radius in (24, 31, 40):
+                r = max(2, round(radius * opening))
+                pygame.draw.circle(crt.canvas, (55, 196, 224), (cx, cy), r, 2)
 
     def _captions(self, crt):
         source, destination = self.pending['source'], self.pending['destination']
         route = route_ids()
-        pygame.draw.rect(crt.canvas, (7, 17, 25), (12, 8, 456, 49), border_radius=4)
-        pygame.draw.rect(crt.canvas, (7, 17, 25), (12, 215, 456, 48), border_radius=4)
-        heading = 'ARRIVING' if self.phase == 'arrival' else 'ENTERING THE GATE' if self.phase == 'vortex' else 'FOLLOWING THE SIGNAL'
-        crt.draw_text(heading, 24, 16, color=(241, 201, 123), size='sm', has_shadow=False)
-        crt.draw_text(display_name(destination), 24, 32, color=(232, 235, 227), size='lg', has_shadow=False)
-        step = route.index(destination) if destination != 'earth' else 12
-        crt.draw_text(f'LEG {step} / 12', 384, 17, color=(156, 180, 188), size='sm', has_shadow=False)
-        crt.draw_text(f'{len(self.receipts)} / 11 messages', 352, 41,
-                      color=(156, 180, 188), size='sm', has_shadow=False)
-        crt.draw_text('From ' + display_name(source), 24, 220, color=(112, 223, 229), size='sm', has_shadow=False)
-        objective = 'Confront the Core with all eleven messages.' if destination == 'earth' else 'Find the guardian. Recover the next message.'
-        crt.draw_text(objective, 24, 234, color=(232, 235, 227), size='sm', has_shadow=False)
-        message = 'Could not save. Enter / F5: retry arrival' if self.save_failed else 'Enter / A / click: arrive'
-        crt.draw_text(message, 24, 249, color=(241, 201, 123), size='sm', has_shadow=False)
+        heading = 'ARRIVING' if self.phase == 'arrival' else 'IN TRANSIT' if self.phase == 'vortex' else 'FROM ' + display_name(source).upper()
+        crt.draw_text(heading, 24, 17, color=(137, 175, 190), size='sm', has_shadow=False)
+        crt.draw_text(display_name(destination), 24, 33, color=(232, 235, 227), size='md', has_shadow=False)
+        steps = len(route) - 1
+        step = route.index(destination) if destination != 'earth' else steps
+        crt.draw_text(f'{step:02d} / {steps:02d}', 405, 22, color=(241, 201, 123), size='sm', has_shadow=False)
+        pygame.draw.line(crt.canvas, (39, 62, 79), (24, 57), (456, 57))
+        for index in range(len(journey_data()['worlds'])):
+            color = (107, 218, 220) if index < len(self.receipts) else (52, 70, 86)
+            pygame.draw.rect(crt.canvas, color, (25 + index * 11, 242, 6, 3))
+        message = 'SAVE FAILED — ENTER / F5: RETRY' if self.save_failed else 'ENTER / A / CLICK: SKIP'
+        width = crt.font_sm.size(message)[0]
+        crt.draw_text(message, 456 - width, 238, color=(241, 201, 123), size='sm', has_shadow=False)
 
     def render(self, crt):
         crt.clear((2, 4, 12))
         if self.pending:
             if self.assets:
                 crt.composite_native(self.assets['galaxy_map'], (0, 0), (480, 270))
-            self.shade.fill((2, 7, 15, 100 if self.phase == 'map' else 210))
+            self.shade.fill((2, 7, 15, 145 if self.phase == 'map' else 225))
             crt.canvas.blit(self.shade, (0, 0))
             if self.phase == 'map':
                 self._map(crt)

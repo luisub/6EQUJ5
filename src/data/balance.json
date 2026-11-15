@@ -309,8 +309,20 @@
     },
     "guardian_base_health": 2800,
     "guardian_health_per_world": 100,
+    "guardian_projectile_speed": 115,
+    "guardian_fan_degrees": 17,
+    "amalgam_projectile_speed": 130,
+    "archon_projectile_speed": 123,
+    "archon_fan_degrees": 20,
     "weak_point_offsets": {
       "guardian_fasr_007": [-23, 6]
+    },
+    "muzzle_offsets": {
+      "guardian_fasr_008": [-52, 0],
+      "guardian_fasr_009": [-56, 1],
+      "guardian_fasr_006": [-56, 8],
+      "guardian_fasr_002": [-44, -2],
+      "guardian_fasr_007": [-39, -7]
     },
     "first_attack_delay": 0.45,
     "recovery_seconds": [1.2, 1.0, 0.8]

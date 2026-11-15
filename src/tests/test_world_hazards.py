@@ -31,16 +31,16 @@ def source(tmp_path, display):
     root=tmp_path/'assets';root.mkdir();file=tmp_path/'body.png'
     image=Image.new('RGBA',(96,72),(0,0,0,0))
     ImageDraw.Draw(image).rectangle((12,10,83,63),fill=(230,180,140,253));image.save(file)
-    build('carrier_wraith',file,{'source':'test fixture'},assets_dir=root,promote=True)
+    build('sevenfold_interceptor',file,{'source':'test fixture'},assets_dir=root,promote=True)
     return root
 
 
-def config(kind='planet_charge', art_id='carrier_wraith'):
+def config(kind='planet_charge', art_id='sevenfold_interceptor'):
     return {'kind':kind,'art_id':art_id,'damage':12,'speed':100,
             'warning_seconds':1.25,'cooldown_seconds':7.0,'initial_delay':8.0}
 
 
-def flat_room(room_id='alien_001_field'):
+def flat_room(room_id='alien_008_field'):
     grid=[[0]*240 for _ in range(18)]
     for row in range(15,18):grid[row]=[1]*240
     return Room({'schema_version':1,'room_id':room_id,'act_id':'act_05','title':'fixture',
@@ -109,14 +109,14 @@ def test_frame_rate_motion_is_independent_and_block_pause_reset_are_safe(source)
 
 
 def test_safety_context_missing_art_and_ineligible_rooms_disable_hazard(source,display):
-    assert not WorldHazards(source,flat_room(),config(art_id='shard_clipper')).enabled
-    assert not WorldHazards(source,flat_room('alien_003_field'),config()).enabled
-    assert not WorldHazards(source,flat_room('alien_001_arena'),config()).enabled
+    assert not WorldHazards(source,flat_room(),config(art_id='archive_skimmer')).enabled
+    assert not WorldHazards(source,flat_room('alien_009_field'),config()).enabled
+    assert not WorldHazards(source,flat_room('alien_008_arena'),config()).enabled
     assert not WorldHazards(source,flat_room(),config(art_id='not_installed')).enabled
     invalid=config();invalid['warning_seconds']=.5
     assert not WorldHazards(source,flat_room(),invalid).enabled
     wagon=config('earth_wagon','ohio_wagon')
-    for room_id in ('act_05_pillar_approach','act_05_buried_archive','alien_001_field','act_03_s4_hangar'):
+    for room_id in ('act_05_pillar_approach','act_05_buried_archive','alien_008_field','act_03_s4_hangar'):
         assert not WorldHazards(ASSETS_DIR,flat_room(room_id),wagon).enabled
     for room_id in MODERN_WAGON_ROOMS:
         room=flat_room(room_id);room.act_id=MODERN_WAGON_ACTS[room_id]
@@ -180,7 +180,7 @@ def test_contact_core_stays_inside_full_visible_art_and_has_bounded_size(source)
 
 
 @pytest.mark.parametrize('name,path,scene_options', [
-    ('carrier','alien_worlds/alien_001_field.json',{'campaign_route':True,'journey_world':'alien_001'}),
+    ('carrier','alien_worlds/alien_008_field.json',{'campaign_route':True,'journey_world':'alien_008'}),
     ('stone','act_05/pillar_approach.json',{}),
     ('wagon','act_01/perimeter_road.json',{}),
 ])
@@ -290,7 +290,7 @@ def test_planet_image_and_asymmetric_collision_bounds_mirror_for_leftward_pass(t
     image=Image.new('RGBA',(96,72),(0,0,0,0))
     ImageDraw.Draw(image).rectangle((8,12,59,63),fill=(250,200,90,253))
     image.save(file)
-    build('carrier_wraith',file,{'source':'asymmetric fixture'},assets_dir=root,promote=True)
+    build('sevenfold_interceptor',file,{'source':'asymmetric fixture'},assets_dir=root,promote=True)
     hazard=WorldHazards(root,flat_room(),config())
     source=pygame.image.load(str(file)).convert_alpha()
     expected=pygame.transform.scale(pygame.transform.flip(source,True,False),(120,90))

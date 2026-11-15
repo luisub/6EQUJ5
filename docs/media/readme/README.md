@@ -16,7 +16,7 @@ small author credit is rendered separately by the game.
 
 All other PNGs are unretouched 960 × 540 render surfaces from the game. Full-scene GIFs now retain the native 960 × 540 pixels and use a shared 256-color palette without dithering. Arc Lance and transit run at 10 frames per second; the Denver walk runs at 5. The three creature GIFs use unscaled 440 × 184 crops at (520, 320), sampled every five simulation frames and encoded at 80 ms per frame. Their linked PNGs show the complete scene and HUD.
 
-The main README selects a smaller gallery for players; this directory retains the full capture collection and provenance. `capture.json` records the original 26 captures; `finale-capture.json` records the three finale additions; `enemy-motion-capture.json` records five enemy additions. All include setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. Proxima shows its twilight outpost and Flare Bastion guardian. The superseded `neo-denver.png` is archived under `_trash/2026-11-14_repository_compaction/docs/media/readme/`.
+The main README selects a smaller gallery for players; this directory retains the full capture collection and provenance. `capture.json` records the retained original captures and the seven-world route refresh; `finale-capture.json` records the three finale additions; `enemy-motion-capture.json` records five enemy additions. All include setup, dimensions, frame counts, file sizes and SHA-256 hashes. Denver has a full-width mountain view, a gallery view centered on Fitzsimons, and the walking sequence. The active gallery now shows the TRAPPIST-1 port and Crab memorial. Earlier screenshots retain the fixture context recorded at capture time. The superseded `neo-denver.png` is archived under `_trash/2026-11-14_repository_compaction/docs/media/readme/`.
 
 | Media | Setup |
 |---|---|
@@ -26,11 +26,9 @@ The main README selects a smaller gallery for players; this directory retains th
 | `ohio.png`, `area-51.png`, `vla-rift.png`, `gobekli-tepe.png`, `buried-archive.png` | Direct entry to the named Earth room, followed by mapped movement. Campaign prerequisites are not earned for these previews. |
 | `neo-denver-walk.gif` | Direct Denver entry and player-position setup with a prior-act fixture. The walk uses held Right across the real relay boundary, with enemies cleared for scenery inspection. The landmarks form an intentionally fictional Colorado composition. |
 | `neo-denver-mountains.png`, `neo-denver-fitzsimons.png` | Native renderer views at player x=96 and x=480 respectively, with camera centered on the player and the same prior-act fixture. Both keep their HUD and actual gameplay layers. |
-| `crystal-network.png` | FASR-003 field with staged prior guardian progress and receipt; mapped movement after entry. |
-| `signal-jailer.png`, `heat-auditor.png` | Guardian scenes with staged journey ledgers and 1.6 seconds of runtime. |
-| `proxima-twilight.png` | Proxima field midpoint with staged prior victories, receipts and player position. |
-| `flare-bastion.png` | Proxima guardian with a staged journey ledger and 0.2 seconds of runtime. |
-| `galaxy-map.png`, `signal-transit.gif` | First Earth-to-FASR-001 crossing after a staged portal unlock. |
+| `trappist-port.png` | First retained world after a staged Earth portal victory; mapped movement after entry. |
+| `crab-memorial.png` | Crab field midpoint with staged prior victories, receipts and player position. |
+| `galaxy-map.png`, `signal-transit.gif` | First Earth-to-TRAPPIST-1 crossing after a staged portal unlock. |
 | `rift-raptor`, `resonance-effigy`, `beacon-mite` PNG/GIF pairs | Staged prior progress, player/enemy placement and extended attack cooldown; ordinary runtime updates drive the patrol and leg cycle. GIFs are labeled native detail crops; PNGs retain the full HUD. |
 | `memory-extractor.png` | Staged guardian progress, then ordinary runtime updates through the first warning into an active energy-field attack. |
 | `core-network.png` | Eleven prior victories and receipts staged, then 100 normal final-arena updates. |
@@ -47,6 +45,14 @@ are preserved under `_trash/2026-11-14_enemy_motion/docs/media/readme/`.
 The complete gallery was refreshed again on 2026-11-14 with native GIF exports, 256 colors, creature-motion details and an actual Memory Extractor attack. Fifteen replaced captures/metadata files are preserved under `_trash/2026-11-14_readme_refresh/`. The capture tool no longer emits the retired redundant `neo-denver.png`.
 
 The captures use temporary saves and settings, dummy SDL video/audio, a fixed random seed, and disabled CRT effects. HUD elements remain visible. Scene fixtures demonstrate current rendering; they do not establish an earned campaign playthrough, native display performance, audible quality or controller acceptance.
+
+The seven-world route refresh on 2026-11-15 replaces the active gallery landscapes
+and first-crossing map/GIF. Five obsolete world PNGs and previous travel media /
+metadata are archived under `_trash/2026-11-15_shorter_journey/`; their hashes are
+in the restoration index. Current travel shows eight named chart markers, eight
+legs including the return, a centered aperture and a radial tunnel. New captures
+use the same isolated saves, native resolution and fixture disclosures. Earlier
+finale/enemy records describe their original eleven-world prerequisite fixtures.
 
 ## Reproduce
 

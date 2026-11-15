@@ -9,8 +9,8 @@ from pathlib import Path
 import pygame
 
 from .ui.text import wrap_text_pixels
-from .galaxy_transit import map_points, leg_points, route_ids
-from .galaxy_transit_assets import load_galaxy_transit
+from .alien_journey import journey_data
+from .galaxy_transit_assets import load_galaxy_transit, render_constellation
 
 PATH = Path(__file__).resolve().parent.parent / 'data' / 'opening_story.json'
 
@@ -103,24 +103,8 @@ class OpeningStory:
             crt.canvas.blit(self.map_image, area)
         else:
             pygame.draw.rect(crt.canvas, (9, 19, 35), area)
-        route = route_ids()
         route_area = (60, 78, 355, 64)
-        points = map_points(route_area)
-        for source, destination in zip(route, route[1:]):
-            if source in points and destination in points:
-                pygame.draw.lines(crt.canvas, (73, 125, 148), False,
-                                  leg_points(source, destination, route_area), 1)
-        for index, loc_id in enumerate(route[:-1]):
-            if loc_id not in points:
-                continue
-            x, y = points[loc_id]
-            color = (255, 213, 115) if index == 0 else (115, 236, 255)
-            pygame.draw.circle(crt.canvas, (8, 20, 34), (x, y), 5)
-            pygame.draw.circle(crt.canvas, color, (x, y), 3, 1)
-            label = 'EARTH' if index == 0 else str(index)
-            width = crt.font_sm.size(label)[0]
-            label_x, label_y = (x - width - 7, y - 6) if index == 0 else (x - width // 2, y + 5)
-            pygame.draw.rect(crt.canvas, (5, 13, 23), (label_x - 1, label_y, width + 2, 10))
-            crt.draw_text(label, label_x, label_y, color=color, size='sm')
-        crt.draw_text('11 WORLDS / 11 GUARDIANS / RETURN TO EARTH', 50, 61,
+        render_constellation(crt, route_area, visited=('earth',), compact=True)
+        count = len(journey_data()['worlds'])
+        crt.draw_text(f'{count} WORLDS / {count} GUARDIANS / RETURN TO EARTH', 50, 61,
                       color=(231, 233, 211), size='sm')

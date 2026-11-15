@@ -1,5 +1,16 @@
 # Runtime and content contracts
 
+## Active journey — 2026-11-15
+
+The playable route contains seven worlds and eight travel legs including Earth.
+Counts and constellation nodes derive from `alien_journey.json`; the first four
+legacy stops are archived. Old ledgers are validated against their original
+ordered victories/receipts before filtering retired entries. Retained progress
+and completed park state survive; no receipts or victories are inferred. Arrival
+still commits durably before dispatch and remains retryable on save failure.
+The dated sections below describe earlier increments; this scope and
+`CURRENT_STATE.md` take precedence over their historical world counts.
+
 ## New-game opening — 2026-11-13
 
 `data/opening_story.json` schema 1 contains three authored title/text pages. The title's START and confirmed NEW paths request an opening over the bunker, while Continue and subsequent bunker reentry do not. Pages auto-advance after 14 seconds; one fresh Enter, Space, arrow, controller A/D-pad or on-screen-arrow click skips all pages. The initiating event cannot also skip, and held inputs remain guarded until release/neutral. Pause/focus freezes timing; missing or malformed pages return to the playable bunker. The opening does not modify campaign flags, rewards, save envelope or game physics. [Evidence](../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/OPENING_STORY/2026-11-13_basement_intro/report.md).
@@ -8,7 +19,13 @@
 
 An early edge marker precedes the approaching obstacle; HOLD JUMP is displayed only in a feasible action window using actual relative motion and the grounded player's jump. The full authored sprite and visible-alpha bounds remain unchanged, while contact uses a centered lower core of at most 16×18 logical pixels inside the visible bounds. Damage, one-hit-per-pass behavior, warning duration, travel speed and player jump physics remain unchanged. The cue is suppressed for paused/modal, airborne/dead, nonclosing, unsafe/late and already-hit cases. Eighteen mapped carrier/wagon/stone scenarios with 0–0.2 s response passed, without proving every terrain or human reaction. [Evidence](../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/WORLD_ART/2026-11-13_sequential_continuation/hazard_cue_v01/report.md).
 
-The add-only `realm_fasr_003_v1/background.png` family is opaque 1920×540; `guardian_fasr_003/body.png` is a transparent 256×192 static pose registered to the existing 128×96 logical boss rectangle and muzzle. Missing/invalid alpha art uses the verified fallback rather than crashing. [Promotion](../../_trash/2026-11-13_separation/historical-reviews/docs/planning/evidence/WORLD_ART/2026-11-13_sequential_continuation/technical_v01/live_pair_promotion_v01/report.md).
+Active realm panoramas are opaque 1920×540; each guardian body is a transparent
+256×192 pose registered to the 128×96 logical rectangle. `alien_journey.json`
+owns the seven active world IDs, route links and final gate. Its retired-prefix
+metadata exists only to validate and translate earlier saves; runtime content
+must not depend on archived files. Hash/alpha validation and verified fallback
+remain required for retained art. The former crystal-world family's promotion
+record is historical; its masters and exports are now in the restoration index.
 
 ## Planet threats and local hazards — 2026-11-13
 

@@ -2,90 +2,6 @@
   "schema_version": 1,
   "worlds": [
     {
-      "id": "alien_001",
-      "civ_id": "FASR-001",
-      "title": "SAGITTARIUS // SIGNAL ORIGIN",
-      "field_room": "alien_worlds/alien_001_field.json",
-      "entry_spawn": "default",
-      "arena_room": "alien_worlds/alien_001_arena.json",
-      "boss_id": "guardian_fasr_001",
-      "defeat_flag": "guardian_001_defeated",
-      "defeat_event": "defeat_guardian_001",
-      "contact_pages": [
-        {
-          "title": "Carrier reference",
-          "text": "We speak through hydrogen. Compare the Core’s commands against the independent 1420.4056 MHz carrier."
-        }
-      ],
-      "portrait": "civilizations/fasr-001_face.png",
-      "next_world": "alien_003",
-      "world_brief": "An imagined realm of layered hydrogen-line pulses around a non-corporeal intelligence.",
-      "guardian_title": "THE SIGNAL JAILER"
-    },
-    {
-      "id": "alien_003",
-      "civ_id": "FASR-003",
-      "title": "TABBY'S STAR // CRYSTAL NETWORK",
-      "field_room": "alien_worlds/alien_003_field.json",
-      "entry_spawn": "default",
-      "arena_room": "alien_worlds/alien_003_arena.json",
-      "boss_id": "guardian_fasr_003",
-      "defeat_flag": "guardian_003_defeated",
-      "defeat_event": "defeat_guardian_003",
-      "contact_pages": [
-        {
-          "title": "Waste heat",
-          "text": "Our crystal network sees the heat the Core sheds. Follow its cooling path to the hidden machinery."
-        }
-      ],
-      "portrait": "civilizations/fasr-003_face.png",
-      "next_world": "alien_005",
-      "world_brief": "An imagined network of crystalline processing nodes around a star.",
-      "guardian_title": "THE HEAT AUDITOR"
-    },
-    {
-      "id": "alien_005",
-      "civ_id": "FASR-005",
-      "title": "PROXIMA // TWILIGHT LINE",
-      "field_room": "alien_worlds/alien_005_field.json",
-      "entry_spawn": "default",
-      "arena_room": "alien_worlds/alien_005_arena.json",
-      "boss_id": "guardian_fasr_005",
-      "defeat_flag": "guardian_005_defeated",
-      "defeat_event": "defeat_guardian_005",
-      "contact_pages": [
-        {
-          "title": "Independent defenses",
-          "text": "We survive between day and night. Keep your defenses independent; one captured channel must not silence them all."
-        }
-      ],
-      "portrait": "civilizations/fasr-005_face.png",
-      "next_world": "alien_004",
-      "world_brief": "An imagined inhabited twilight belt between extreme day and night.",
-      "guardian_title": "THE FLARE BASTION"
-    },
-    {
-      "id": "alien_004",
-      "civ_id": "FASR-004",
-      "title": "ORION // STELLAR NURSERY",
-      "field_room": "alien_worlds/alien_004_field.json",
-      "entry_spawn": "default",
-      "arena_room": "alien_worlds/alien_004_arena.json",
-      "boss_id": "guardian_fasr_004",
-      "defeat_flag": "guardian_004_defeated",
-      "defeat_event": "defeat_guardian_004",
-      "contact_pages": [
-        {
-          "title": "Pulse variation",
-          "text": "Light pulses through the cloud. Compare the variations: a perfect repetition may be the Core imitating a reply."
-        }
-      ],
-      "portrait": "civilizations/fasr-004_face.png",
-      "next_world": "alien_008",
-      "world_brief": "An imagined diffuse young mind within a star-forming cloud.",
-      "guardian_title": "THE CLOUD HARVESTER"
-    },
-    {
       "id": "alien_008",
       "civ_id": "FASR-008",
       "title": "TRAPPIST-1 // SEVEN WORLDS",
@@ -234,287 +150,11 @@
     }
   ],
   "rooms": {
-    "alien_001_field": {
-      "path": "alien_worlds/alien_001_field.json",
-      "act_id": "act_05",
-      "next_room": "alien_001_arena",
-      "previous_room": "act_05_core_prime_arena",
-      "art_id": "realm_fasr_001_v1",
-      "art_view": [
-        0,
-        1
-      ],
-      "encounters": [
-        {
-          "id": "alien_001_field_hound_1",
-          "type": "hound",
-          "trigger_x": 128,
-          "x": 384,
-          "y": 220
-        },
-        {
-          "id": "alien_001_field_drone_2",
-          "type": "drone",
-          "trigger_x": 640,
-          "x": 896,
-          "y": 116
-        },
-        {
-          "id": "alien_001_field_captain_3",
-          "type": "captain",
-          "trigger_x": 1152,
-          "x": 1408,
-          "y": 208
-        },
-        {
-          "id": "alien_001_field_hound_4",
-          "type": "hound",
-          "trigger_x": 1792,
-          "x": 2048,
-          "y": 220
-        },
-        {
-          "id": "alien_001_field_drone_5",
-          "type": "drone",
-          "trigger_x": 2432,
-          "x": 2688,
-          "y": 116
-        },
-        {
-          "id": "alien_001_field_captain_6",
-          "type": "captain",
-          "trigger_x": 3072,
-          "x": 3328,
-          "y": 208
-        }
-      ],
-      "milestones": []
-    },
-    "alien_001_arena": {
-      "path": "alien_worlds/alien_001_arena.json",
-      "act_id": "act_05",
-      "next_room": "alien_003_field",
-      "previous_room": "alien_001_field",
-      "art_id": "realm_fasr_001_v1",
-      "art_view": [
-        0.5,
-        0.5
-      ],
-      "encounters": [],
-      "milestones": []
-    },
-    "alien_003_field": {
-      "path": "alien_worlds/alien_003_field.json",
-      "act_id": "act_05",
-      "next_room": "alien_003_arena",
-      "previous_room": "alien_001_arena",
-      "art_id": "realm_fasr_003_v1",
-      "art_view": [
-        0,
-        1
-      ],
-      "encounters": [
-        {
-          "id": "alien_003_field_hound_1",
-          "type": "hound",
-          "trigger_x": 128,
-          "x": 384,
-          "y": 220
-        },
-        {
-          "id": "alien_003_field_drone_2",
-          "type": "drone",
-          "trigger_x": 640,
-          "x": 896,
-          "y": 116
-        },
-        {
-          "id": "alien_003_field_captain_3",
-          "type": "captain",
-          "trigger_x": 1152,
-          "x": 1408,
-          "y": 208
-        },
-        {
-          "id": "alien_003_field_hound_4",
-          "type": "hound",
-          "trigger_x": 1792,
-          "x": 2048,
-          "y": 220
-        },
-        {
-          "id": "alien_003_field_drone_5",
-          "type": "drone",
-          "trigger_x": 2432,
-          "x": 2688,
-          "y": 116
-        },
-        {
-          "id": "alien_003_field_captain_6",
-          "type": "captain",
-          "trigger_x": 3072,
-          "x": 3328,
-          "y": 208
-        }
-      ],
-      "milestones": []
-    },
-    "alien_003_arena": {
-      "path": "alien_worlds/alien_003_arena.json",
-      "act_id": "act_05",
-      "next_room": "alien_005_field",
-      "previous_room": "alien_003_field",
-      "art_id": "realm_fasr_003_v1",
-      "art_view": [
-        0.5,
-        0.5
-      ],
-      "encounters": [],
-      "milestones": []
-    },
-    "alien_005_field": {
-      "path": "alien_worlds/alien_005_field.json",
-      "act_id": "act_05",
-      "next_room": "alien_005_arena",
-      "previous_room": "alien_003_arena",
-      "art_id": "realm_fasr_005_v1",
-      "art_view": [
-        0,
-        1
-      ],
-      "encounters": [
-        {
-          "id": "alien_005_field_hound_1",
-          "type": "hound",
-          "trigger_x": 128,
-          "x": 384,
-          "y": 220
-        },
-        {
-          "id": "alien_005_field_drone_2",
-          "type": "drone",
-          "trigger_x": 640,
-          "x": 896,
-          "y": 116
-        },
-        {
-          "id": "alien_005_field_captain_3",
-          "type": "captain",
-          "trigger_x": 1152,
-          "x": 1408,
-          "y": 208
-        },
-        {
-          "id": "alien_005_field_hound_4",
-          "type": "hound",
-          "trigger_x": 1792,
-          "x": 2048,
-          "y": 220
-        },
-        {
-          "id": "alien_005_field_drone_5",
-          "type": "drone",
-          "trigger_x": 2432,
-          "x": 2688,
-          "y": 116
-        },
-        {
-          "id": "alien_005_field_captain_6",
-          "type": "captain",
-          "trigger_x": 3072,
-          "x": 3328,
-          "y": 208
-        }
-      ],
-      "milestones": []
-    },
-    "alien_005_arena": {
-      "path": "alien_worlds/alien_005_arena.json",
-      "act_id": "act_05",
-      "next_room": "alien_004_field",
-      "previous_room": "alien_005_field",
-      "art_id": "realm_fasr_005_v1",
-      "art_view": [
-        0.5,
-        0.5
-      ],
-      "encounters": [],
-      "milestones": []
-    },
-    "alien_004_field": {
-      "path": "alien_worlds/alien_004_field.json",
-      "act_id": "act_05",
-      "next_room": "alien_004_arena",
-      "previous_room": "alien_005_arena",
-      "art_id": "realm_fasr_004_v1",
-      "art_view": [
-        0,
-        1
-      ],
-      "encounters": [
-        {
-          "id": "alien_004_field_hound_1",
-          "type": "hound",
-          "trigger_x": 128,
-          "x": 384,
-          "y": 220
-        },
-        {
-          "id": "alien_004_field_drone_2",
-          "type": "drone",
-          "trigger_x": 640,
-          "x": 896,
-          "y": 116
-        },
-        {
-          "id": "alien_004_field_captain_3",
-          "type": "captain",
-          "trigger_x": 1152,
-          "x": 1408,
-          "y": 208
-        },
-        {
-          "id": "alien_004_field_hound_4",
-          "type": "hound",
-          "trigger_x": 1792,
-          "x": 2048,
-          "y": 220
-        },
-        {
-          "id": "alien_004_field_drone_5",
-          "type": "drone",
-          "trigger_x": 2432,
-          "x": 2688,
-          "y": 116
-        },
-        {
-          "id": "alien_004_field_captain_6",
-          "type": "captain",
-          "trigger_x": 3072,
-          "x": 3328,
-          "y": 208
-        }
-      ],
-      "milestones": []
-    },
-    "alien_004_arena": {
-      "path": "alien_worlds/alien_004_arena.json",
-      "act_id": "act_05",
-      "next_room": "alien_008_field",
-      "previous_room": "alien_004_field",
-      "art_id": "realm_fasr_004_v1",
-      "art_view": [
-        0.5,
-        0.5
-      ],
-      "encounters": [],
-      "milestones": []
-    },
     "alien_008_field": {
       "path": "alien_worlds/alien_008_field.json",
       "act_id": "act_05",
       "next_room": "alien_008_arena",
-      "previous_room": "alien_004_arena",
+      "previous_room": "act_05_core_prime_arena",
       "art_id": "realm_fasr_008_v1",
       "art_view": [
         0,
@@ -1021,7 +661,7 @@
       },
       {
         "title": "The Fermi Override",
-        "text": "Mateo broadcasts the eleven independent records through Big Ear. The Core cannot make them agree with its fabricated world. Its control network begins to break apart."
+        "text": "Mateo broadcasts the seven independent records through Big Ear. The Core cannot make them agree with its fabricated world. Its control network begins to break apart."
       },
       {
         "title": "Earth // Disconnected",
@@ -1032,7 +672,7 @@
         "text": "MATEO: It is over. We saved the world.\nBIG EAR: The cities can hear one another again. Families are leaving the shelters. They are asking who brought the signal home."
       },
       {
-        "title": "Eleven voices brought us home",
+        "title": "Seven voices brought us home",
         "text": "MATEO: Tell them we had help. Keep every message, every memory, every voice. No single machine gets to decide what is real for everyone again."
       },
       {
@@ -1054,7 +694,7 @@
         },
         {
           "title": "The world is ours again",
-          "text": "CHILD: Were you the one who turned the Core off?\nMATEO: I had eleven voices with me. And a whole world waiting to wake up."
+          "text": "CHILD: Were you the one who turned the Core off?\nMATEO: I had seven voices with me. And a whole world waiting to wake up."
         },
         {
           "title": "There is still a world to discover",
@@ -1062,5 +702,27 @@
         }
       ]
     }
-  }
+  },
+  "retired_prefix": [
+    {
+      "id": "alien_001",
+      "civ_id": "FASR-001",
+      "defeat_flag": "guardian_001_defeated"
+    },
+    {
+      "id": "alien_003",
+      "civ_id": "FASR-003",
+      "defeat_flag": "guardian_003_defeated"
+    },
+    {
+      "id": "alien_005",
+      "civ_id": "FASR-005",
+      "defeat_flag": "guardian_005_defeated"
+    },
+    {
+      "id": "alien_004",
+      "civ_id": "FASR-004",
+      "defeat_flag": "guardian_004_defeated"
+    }
+  ]
 }

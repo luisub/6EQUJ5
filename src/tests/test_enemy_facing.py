@@ -7,6 +7,7 @@ import pytest
 from video_game.engine import config
 from video_game.engine.alien_journey import journey_data
 from video_game.engine.bosses.base import STATE_RECOVERY as BOSS_RECOVERY, STATE_TRANSITION
+from video_game.engine.bosses.base import STATE_TELEGRAPH, STATE_ATTACK
 from video_game.engine.bosses.campaign_bosses import (
     AlienGuardian, Amalgam, CorePrime, EarthFinalAI, MandelaArchitect, PortalWarden, Synchronicity,
 )
@@ -41,7 +42,7 @@ def room():
     return create_test_room([[0]*40 for _ in range(15)] + [[1]*40])
 
 
-@pytest.mark.parametrize('factory', BOSSES + tuple(range(11)))
+@pytest.mark.parametrize('factory', BOSSES + tuple(range(len(journey_data()['worlds']))))
 def test_every_campaign_boss_turns_across_and_above_player(factory):
     boss = AlienGuardian(journey_data()['worlds'][factory]) if isinstance(factory, int) else factory()
     boss.phase_state = STATE_TRANSITION
@@ -88,6 +89,64 @@ def test_greenkeeper_turns_body_muzzle_core_and_warned_charge():
     x = boss.x; boss.update(.1, (100, 50))
     assert boss.x > x and boss.facing == 'right'
     boss.reset_to_pristine(); assert boss.facing == 'left'
+
+
+@pytest.mark.parametrize('factory', (Amalgam, CorePrime, EarthFinalAI) + tuple(range(len(journey_data()['worlds']))))
+@pytest.mark.parametrize('target', ((100, 85), (600, 85), (394, 45)))
+def test_shooting_tracks_jumps_and_crossings_at_release(factory, target):
+    boss = AlienGuardian(journey_data()['worlds'][factory]) if isinstance(factory, int) else factory()
+    boss.current_phase = 3
+    if isinstance(boss, EarthFinalAI):
+        boss.final_stage = 2
+    boss.prepare((100, 224))
+    boss.phase_state = STATE_TELEGRAPH
+    boss.attack_timer = 1.25
+    boss.update(.1, target)
+    sights = [t for t in boss.telegraphs if t.attack_type == 'aim']
+    for warning in sights:
+        assert warning.target_line[1] == target
+    for _ in range(150):
+        boss.update(.01, target)
+        if boss.phase_state == STATE_ATTACK:
+            break
+    assert boss.phase_state == STATE_ATTACK
+    if not sights:
+        assert not boss.projectiles  # Area attacks retain their announced zones.
+        return
+    assert boss.projectiles
+    aim = pygame.Vector2(target) - boss.mortar_muzzle
+    mean = sum((pygame.Vector2(p.vx, p.vy) for p in boss.projectiles), pygame.Vector2())
+    assert mean.normalize().dot(aim.normalize()) == pytest.approx(1)
+    muzzle = boss.mortar_muzzle
+    velocities = [(p.vx, p.vy) for p in boss.projectiles]
+    for shot in boss.projectiles:
+        assert shot.origin == muzzle
+        assert pygame.Vector2(shot.vx, shot.vy).dot(aim) > 0
+    boss.update(.01, (10, 224))
+    assert [(p.vx, p.vy) for p in boss.projectiles] == velocities  # No mid-flight homing or reversal.
+
+
+@pytest.mark.parametrize('direction', (-1, 1))
+def test_greenkeeper_sweep_body_and_danger_zone_commit_together(direction):
+    boss = Greenkeeper(250, 144)
+    boss.current_phase = 2
+    target = (100, 224) if direction < 0 else (600, 224)
+    crossing = (600, 70) if direction < 0 else (100, 70)
+    boss._schedule_next_attack(target)
+    warning = boss.telegraphs[0].target_rect.copy()
+    assert warning.right == boss.rect.left if direction < 0 else warning.left == boss.rect.right
+    for _ in range(80):
+        boss.update(.01, crossing)
+        if boss.sweep_active:
+            break
+        assert boss.facing == ('left' if direction < 0 else 'right')
+    assert boss.sweep_active
+    assert boss.facing == ('left' if direction < 0 else 'right')
+    strike = pygame.Rect(int(boss.sweep_x) - 40, int(boss.sweep_y) - 6, 80, 16)
+    assert warning.contains(strike)
+    for _ in range(100):
+        boss.update(.01, crossing)
+    assert boss.facing == ('right' if direction < 0 else 'left')
 
 
 @pytest.mark.parametrize('cls', ENEMIES)

@@ -17,7 +17,7 @@ def navigation_data():
     try:
         data = json.loads(PATH.read_text(encoding='utf-8'))
         locations = data['locations']
-        if data.get('schema_version') != 1 or not isinstance(locations, list) or len(locations) != 12:
+        if data.get('schema_version') != 1 or not isinstance(locations, list) or not locations:
             raise ValueError('invalid location list')
         seen = set()
         for item in locations:

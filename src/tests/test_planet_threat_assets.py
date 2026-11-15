@@ -37,34 +37,34 @@ def sources(tmp_path):
 
 def test_allowlist_is_exact_and_promotion_is_manifest_last(sources, display, monkeypatch):
     root, source = sources
-    assert len(THREAT_IDS) == len(WORLD_THREAT_IDS) == 11
+    assert len(THREAT_IDS) == len(WORLD_THREAT_IDS) == 7
     seen=[]; original=build_planet_threat.promote_group
     def observe(root, stage, archive, group, paths):
         seen.extend(paths); assert all((stage / p).is_file() for p in paths)
         return original(root, stage, archive, group, paths)
     monkeypatch.setattr(build_planet_threat, 'promote_group', observe)
-    result=build_planet_threat.build('carrier_wraith', source, {'source':'test'}, assets_dir=root, promote=True)
-    family=FAMILY_ROOT/'carrier_wraith'
+    result=build_planet_threat.build('sevenfold_interceptor', source, {'source':'test'}, assets_dir=root, promote=True)
+    family=FAMILY_ROOT/'sevenfold_interceptor'
     assert seen == [family/'body.png', family/'manifest.json']
     assert (root/family/'body.png').read_bytes() == source.read_bytes()
     assert result['manifest']['image']['sha256'] == hashlib.sha256(source.read_bytes()).hexdigest()
-    image,bounds,pivot=load_planet_threat(root,'carrier_wraith')
+    image,bounds,pivot=load_planet_threat(root,'sevenfold_interceptor')
     assert image.get_size()==(96,72) and bounds==(12,12,84,64) and pivot==(48,64)
     assert image.get_at((15,15)).a==253 and image.get_at((0,0)).a==0
     with pytest.raises(FileExistsError):
-        build_planet_threat.build('carrier_wraith',source,{'source':'test'},assets_dir=root,promote=True)
+        build_planet_threat.build('sevenfold_interceptor',source,{'source':'test'},assets_dir=root,promote=True)
     with pytest.raises(ValueError, match='Unknown'):
-        build_planet_threat.build('../carrier_wraith',source,{'source':'test'},assets_dir=root,promote=True)
+        build_planet_threat.build('../sevenfold_interceptor',source,{'source':'test'},assets_dir=root,promote=True)
 
 
 @pytest.mark.parametrize('mutation',['schema','kind','id','pivot','bounds','name','hash','extra','provenance'])
 def test_loader_rejects_bad_manifest(sources, display, mutation):
     root,source=sources
-    result=build_planet_threat.build('carrier_wraith',source,{'source':'test'},assets_dir=root,promote=True)
-    manifest=result['manifest']; directory=root/FAMILY_ROOT/'carrier_wraith'
+    result=build_planet_threat.build('sevenfold_interceptor',source,{'source':'test'},assets_dir=root,promote=True)
+    manifest=result['manifest']; directory=root/FAMILY_ROOT/'sevenfold_interceptor'
     if mutation=='schema':manifest['schema_version']=True
     elif mutation=='kind':manifest['kind']='other'
-    elif mutation=='id':manifest['art_id']='shard_clipper'
+    elif mutation=='id':manifest['art_id']='archive_skimmer'
     elif mutation=='pivot':manifest['pivot']=[48,63]
     elif mutation=='bounds':manifest['image']['dimensions']=[95,72]
     elif mutation=='name':manifest['image']['file']='../body.png'
@@ -72,7 +72,7 @@ def test_loader_rejects_bad_manifest(sources, display, mutation):
     elif mutation=='extra':manifest['other']=True
     else:manifest['provenance']={}
     (directory/'manifest.json').write_text(json.dumps(manifest))
-    assert load_planet_threat(root,'carrier_wraith') is None
+    assert load_planet_threat(root,'sevenfold_interceptor') is None
 
 
 @pytest.mark.parametrize('mode,size,box,opacity',[
@@ -87,42 +87,42 @@ def test_invalid_image_rejected_before_promotion(sources,mode,size,box,opacity):
     if box:ImageDraw.Draw(image).rectangle(box,fill=(220,180,140) if mode=='RGB' else (220,180,140,opacity))
     image.save(source)
     with pytest.raises(ValueError):
-        build_planet_threat.build('carrier_wraith',source,{'source':'test'},assets_dir=root,promote=True)
-    assert not (root/FAMILY_ROOT/'carrier_wraith').exists()
+        build_planet_threat.build('sevenfold_interceptor',source,{'source':'test'},assets_dir=root,promote=True)
+    assert not (root/FAMILY_ROOT/'sevenfold_interceptor').exists()
 
 
 def test_missing_corruption_symlink_pending_and_lock(sources,display):
     root,source=sources
-    assert load_planet_threat(root,'carrier_wraith') is None
-    build_planet_threat.build('carrier_wraith',source,{'source':'test'},assets_dir=root,promote=True)
-    path=root/FAMILY_ROOT/'carrier_wraith/body.png';path.write_bytes(b'bad')
-    assert load_planet_threat(root,'carrier_wraith') is None
+    assert load_planet_threat(root,'sevenfold_interceptor') is None
+    build_planet_threat.build('sevenfold_interceptor',source,{'source':'test'},assets_dir=root,promote=True)
+    path=root/FAMILY_ROOT/'sevenfold_interceptor/body.png';path.write_bytes(b'bad')
+    assert load_planet_threat(root,'sevenfold_interceptor') is None
     path.unlink();path.symlink_to(source)
-    assert load_planet_threat(root,'carrier_wraith') is None
+    assert load_planet_threat(root,'sevenfold_interceptor') is None
     path.unlink();path.write_bytes(source.read_bytes())
     journal=root.parent/'.assets-asset-build-pending.json'
     journal.write_text(json.dumps({'asset_root':str(root),'archive':str(root.parent/'trash'),'files':[]}))
-    assert load_planet_threat(root,'carrier_wraith') is None
+    assert load_planet_threat(root,'sevenfold_interceptor') is None
     with pytest.raises(RuntimeError,match='Pending'):
-        build_planet_threat.build('shard_clipper',source,{'source':'test'},assets_dir=root,promote=True)
+        build_planet_threat.build('archive_skimmer',source,{'source':'test'},assets_dir=root,promote=True)
     journal.unlink()
     if asset_transactions.fcntl is None:pytest.skip('fcntl unavailable')
     fd=os.open(root,os.O_RDONLY)
     try:
         asset_transactions.fcntl.flock(fd,asset_transactions.fcntl.LOCK_EX|asset_transactions.fcntl.LOCK_NB)
         with pytest.raises(RuntimeError,match='Another asset build'):
-            build_planet_threat.build('shard_clipper',source,{'source':'test'},assets_dir=root,promote=True)
+            build_planet_threat.build('archive_skimmer',source,{'source':'test'},assets_dir=root,promote=True)
     finally:os.close(fd)
 
 
 def test_injected_promotion_failure_rolls_back(sources,monkeypatch):
-    root,source=sources;family=FAMILY_ROOT/'carrier_wraith';original=asset_transactions.os.replace
+    root,source=sources;family=FAMILY_ROOT/'sevenfold_interceptor';original=asset_transactions.os.replace
     def fail(src,dst):
         if Path(dst)==root/family/'manifest.json':raise OSError('injected failure')
         return original(src,dst)
     monkeypatch.setattr(asset_transactions.os,'replace',fail)
     with pytest.raises(OSError,match='injected'):
-        build_planet_threat.build('carrier_wraith',source,{'source':'test'},assets_dir=root,promote=True)
+        build_planet_threat.build('sevenfold_interceptor',source,{'source':'test'},assets_dir=root,promote=True)
     assert not (root/family/'body.png').exists() and not (root/family/'manifest.json').exists()
     assert not (root.parent/'.assets-asset-build-pending.json').exists()
 
@@ -137,20 +137,20 @@ def test_optional_run_poses_load_and_corruption_keeps_static_fallback(sources, d
         sheet.paste(frame, (index * 96, 0))
     run = source.with_name('run.png')
     sheet.save(run)
-    build_planet_threat.build('carrier_wraith', source, {'source': 'fixture'},
+    build_planet_threat.build('sevenfold_interceptor', source, {'source': 'fixture'},
                               assets_dir=root, run_source=run, promote=True)
-    frames = load_planet_threat_run(root, 'carrier_wraith')
+    frames = load_planet_threat_run(root, 'sevenfold_interceptor')
     assert len(frames) == 4
     assert len({pygame.image.tobytes(frame, 'RGBA') for frame in frames}) == 4
-    (root / FAMILY_ROOT / 'carrier_wraith' / 'run.png').write_bytes(b'broken')
-    assert load_planet_threat_run(root, 'carrier_wraith') == ()
-    assert load_planet_threat(root, 'carrier_wraith') is not None
+    (root / FAMILY_ROOT / 'sevenfold_interceptor' / 'run.png').write_bytes(b'broken')
+    assert load_planet_threat_run(root, 'sevenfold_interceptor') == ()
+    assert load_planet_threat(root, 'sevenfold_interceptor') is not None
 
 
 def test_explicit_replacement_archives_original_and_rolls_back_on_failure(sources, monkeypatch):
     root, source = sources
-    build_planet_threat.build('carrier_wraith', source, {'source': 'first'}, assets_dir=root, promote=True)
-    directory = root / FAMILY_ROOT / 'carrier_wraith'
+    build_planet_threat.build('sevenfold_interceptor', source, {'source': 'first'}, assets_dir=root, promote=True)
+    directory = root / FAMILY_ROOT / 'sevenfold_interceptor'
     before = {path.name: path.read_bytes() for path in directory.iterdir()}
     original = asset_transactions.os.replace
     def fail(src, dst):
@@ -159,6 +159,6 @@ def test_explicit_replacement_archives_original_and_rolls_back_on_failure(source
         return original(src, dst)
     monkeypatch.setattr(asset_transactions.os, 'replace', fail)
     with pytest.raises(OSError, match='replace fixture'):
-        build_planet_threat.build('carrier_wraith', source, {'source': 'replacement'},
+        build_planet_threat.build('sevenfold_interceptor', source, {'source': 'replacement'},
                                   assets_dir=root, promote=True, replace_existing=True)
     assert {path.name: path.read_bytes() for path in directory.iterdir()} == before

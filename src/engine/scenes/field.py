@@ -1181,7 +1181,6 @@ class FieldOpsScene(BaseScene):
                 and (walking_out or assisted_exit)):
             if self._enter_exit(ex, automatic=True):
                 return
-        cov = self.room.get_cover_at(self.player.rect)
         if self.flashback is not None:
             self.prompt_text = self.flashback.get_prompt(self.player.x)
         elif ex:
@@ -1192,14 +1191,6 @@ class FieldOpsScene(BaseScene):
             self.prompt_text = ""
         elif any(getattr(e, "telegraph_locked", False) for e in getattr(self.enemy_manager, "enemies", [])):
             self.prompt_text = ""  # The HUD already shows the threat.
-        elif self.player.in_cover:
-            self.prompt_text = "IN COVER"
-        elif cov and cov.get("cover_type") == "background":
-            self.prompt_text = "UP: COVER"
-        elif cov and cov.get("cover_type") == "low":
-            self.prompt_text = "DOWN: COVER"
-        elif self.player.is_sliding:
-            self.prompt_text = "SLIDE"
         elif self.room.check_rect_collision(self.player.rect)["hazard"]:
             self.prompt_text = "HIGH VOLTAGE"
         elif self.player.invulnerable_timer > 0.0:
@@ -1389,13 +1380,10 @@ class FieldOpsScene(BaseScene):
             crt.draw_text(line, 10, 56, color=config.COLOR_FIBO_GOLD, size="sm")
             if defense.is_jammed:
                 center = self.player.rect.centerx
-                guidance = ('MOVE RIGHT TO FEEDHORN' if center < 264 else
-                            'MOVE LEFT TO FEEDHORN' if center > 376 else 'PRESS E / PAD X TO CLEAR')
-                crt.draw_text('JAMMED: ' + guidance, 10, 67, color=config.COLOR_AMBER_1977, size="sm")
+                guidance = 'JAMMED' if not 264 <= center <= 376 else 'E: CLEAR JAM'
+                crt.draw_text(guidance, 10, 67, color=config.COLOR_AMBER_1977, size="sm")
             elif defense.is_failed:
                 crt.draw_text("R: RETRY / GATE OPEN", 10, 67, color=config.COLOR_AMBER_1977, size="sm")
-            elif defense.is_active:
-                crt.draw_text("GATE OPEN: CONTINUE RIGHT", 10, 67, color=config.COLOR_CRT_GREEN, size="sm")
 
         if getattr(self.machine, "save_notice", "").startswith("SAVE FAILED"):
             pygame.draw.rect(crt.canvas, (4, 10, 9), (252, 54, 222, 17))

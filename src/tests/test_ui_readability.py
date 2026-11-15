@@ -99,8 +99,10 @@ def test_boss_title_alert_and_player_stats_have_disjoint_visible_text(game):
     game.render()
     find=lambda substring: next(rect for text,rect in drawn if substring in text)
     assert not find('THE GREENKEEPER').colliderect(find('HP 100'))
-    assert not find('THE GREENKEEPER').colliderect(find('LOCK-ON'))
-    assert not find('THE GREENKEEPER').colliderect(find('CORE VULNERABLE'))
+    assert not find('THE GREENKEEPER').colliderect(find('CORE OPEN'))
+    assert not any('LOCK-ON' in text or 'TARGETED' in text or 'NEUTRALIZE' in text for text, _ in drawn)
+    assert sum('THE GREENKEEPER' in text for text, _ in drawn) == 1
+    assert crt.render_surface.get_at((128 * 2, 22 * 2))[:3] == (255, 90, 80)
 
 
 def test_lab_full_view_scrolls_all_lines_through_real_keys(game):
@@ -238,12 +240,12 @@ def test_boss_exposure_label_has_own_line_and_fits_panel(game, monkeypatch):
         seen[str(text)] = (x, y)
         return original(text, x, y, *args, **kwargs)
     monkeypatch.setattr(game.crt, 'draw_text', record); game.render()
-    label = '[!] CORE VULNERABLE'; x,y = seen[label]
+    label = 'CORE OPEN'; x,y = seen[label]
     assert (x,y) == (140,44)
     assert x + game.crt.font_sm.size(label)[0] <= 364
-    title = next(key for key in seen if 'GREENKEEPER' in key and '[PHASE' in key)
+    title = next(key for key in seen if 'GREENKEEPER' in key)
     assert seen[title][1] < y
-    assert seen['[!] LOCK-ON: EVADE NOW!'][1] >= y + game.crt.font_sm.size(label)[1]
+    assert not any('LOCK-ON' in text or 'TARGETED' in text for text in seen)
 
 
 def test_field_room_and_checkpoint_use_authored_names(game, monkeypatch):
@@ -252,6 +254,7 @@ def test_field_room_and_checkpoint_use_authored_names(game, monkeypatch):
     scene.player.x = 64  # Activate the real checkpoint outside the adjacent exit trigger.
     for _ in range(30): game.update(1/60)
     assert scene.player.active_checkpoint_id == 'yard_start'
+
     assert next(c for c in scene.room.checkpoints if c.id == 'yard_start').name == 'SALVAGE YARD // SECURITY GATE'
     assert scene.prompt_text == 'CHECKPOINT'
     locations = []; texts = []
@@ -267,3 +270,41 @@ def test_field_room_and_checkpoint_use_authored_names(game, monkeypatch):
     assert not any(scene.player.arsenal.active_weapon.name in value and
                    scene.player.abilities.selected_ability.name in value for value in texts)
     assert scene.player.active_checkpoint_id == 'yard_start'
+
+
+@pytest.mark.parametrize('cover_type', ('background', 'low'))
+def test_cover_and_movement_do_not_add_recurring_instruction_banners(game, monkeypatch, cover_type):
+    game.change_state(config.STATE_FIELD_OPS, room='act_01/ohio_campus.json', spawn='campus_entry')
+    scene = game.current_scene
+    scene.player.x = 320
+    scene.player.rect.x = 320
+    scene._checkpoint_notice_remaining = 0
+    monkeypatch.setattr(scene.room, 'get_cover_at', lambda rect: {'cover_type': cover_type})
+    for _ in range(5):
+        game.input.begin_frame()
+        game.update(1 / 60)
+        assert scene.prompt_text == ''
+    texts = []
+    original = game.crt.draw_text
+    def record(text, *args, **kwargs):
+        texts.append(str(text))
+        return original(text, *args, **kwargs)
+    monkeypatch.setattr(game.crt, 'draw_text', record)
+    game.render()
+    assert not any('UP: COVER' in text or 'DOWN: COVER' in text or 'IN COVER' in text for text in texts)
+
+
+def test_boss_mortar_emits_one_ground_impact_and_retires_shell(game, monkeypatch):
+    from video_game.engine.bosses.base import BossProjectile
+    game.change_state(config.STATE_BOSS_BOUNTY)
+    scene = game.current_scene
+    scene.boss.attack_cycle_timer = 10
+    shot = BossProjectile('mortar_fixture', 300, 231, 0, 280)
+    scene.boss.projectiles.append(shot)
+    impacts = []
+    monkeypatch.setattr(scene.effects, 'add_impact_sparks', lambda x, y, **kwargs: impacts.append((x,y)))
+    for _ in range(6):
+        game.input.begin_frame()
+        game.update(1/60)
+    assert impacts == [(300, 228.0)]
+    assert not shot.is_active and shot not in scene.boss.projectiles

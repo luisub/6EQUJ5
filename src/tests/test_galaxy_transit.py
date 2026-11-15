@@ -24,19 +24,19 @@ def begin(game):
 
 def complete_contact_fixture(game):
     """Fixture one defeated guardian, then use the actual contact UI."""
-    assert game.campaign.apply_event({'event_id': 'fixture_guardian', 'type': 'defeat_guardian_001'})
-    prior = {'version': 1, 'world_id': 'alien_001', 'stage': 'contact', 'checkpoint': None, 'receipts': []}
+    assert game.campaign.apply_event({'event_id': 'fixture_guardian', 'type': 'defeat_guardian_008'})
+    prior = {'version': 1, 'world_id': 'alien_008', 'stage': 'contact', 'checkpoint': None, 'receipts': []}
     save_ledger(game.campaign, prior)
     assert game.save_checkpoint()
-    game.change_state(config.STATE_ALIEN_CONTACT, world_id='alien_001')
+    game.change_state(config.STATE_ALIEN_CONTACT, world_id='alien_008')
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_GALAXY_TRANSIT
 
 
-def test_all_twelve_ordered_legs_and_schematic_locations():
+def test_all_eight_ordered_legs_and_schematic_locations():
     worlds = journey_data()['worlds']
     locations = navigation_data()['locations']
-    assert len(locations) == 12
+    assert len(locations) == 8
     assert {loc['id'] for loc in locations} == {'earth', *(w['id'] for w in worlds)}
     assert 'UNKNOWN' in next(loc['name'] for loc in locations if loc['id'] == 'alien_scan_h')
     assert 'EARTH MEMORY' in next(loc['name'] for loc in locations if loc['id'] == 'alien_010')
@@ -48,7 +48,7 @@ def test_all_twelve_ordered_legs_and_schematic_locations():
         assert valid_pending({'source': world['id'], 'destination': next_id}, worlds, receipts,
                              'field' if next_id != 'earth' else 'final',
                              next_id if next_id != 'earth' else None)
-        assert not valid_pending({'source': world['id'], 'destination': 'alien_001'}, worlds, receipts,
+        assert not valid_pending({'source': world['id'], 'destination': 'alien_008'}, worlds, receipts,
                                  'field' if next_id != 'earth' else 'final',
                                  next_id if next_id != 'earth' else None)
 
@@ -56,20 +56,20 @@ def test_all_twelve_ordered_legs_and_schematic_locations():
 def test_automatic_phases_and_saved_arrival_do_not_repeat_on_continue(game):
     begin(game)
     scene = game.current_scene
-    assert ledger(game.campaign)['pending_transit'] == {'source': 'earth', 'destination': 'alien_001'}
+    assert ledger(game.campaign)['pending_transit'] == {'source': 'earth', 'destination': 'alien_008'}
     assert game.save_store.load().campaign.state.world_states['bunker_hub']['alien_journey']['pending_transit'] == scene.pending
     assert scene.phase == 'map'
-    game.update(2.6); assert scene.phase == 'vortex'
-    game.update(1.2); assert scene.phase == 'arrival'
+    game.update(MAP_SECONDS + .1); assert scene.phase == 'vortex'
+    game.update(1.6); assert scene.phase == 'arrival'
     game.update(0.4)
     assert game.current_state_name == config.STATE_FIELD_OPS
-    assert game.current_scene.room.room_id == 'alien_001_field'
+    assert game.current_scene.room.room_id == 'alien_008_field'
     assert 'pending_transit' not in ledger(game.campaign)
     assert 'pending_transit' not in game.save_store.load().campaign.state.world_states['bunker_hub']['alien_journey']
     assert game.continue_game().status == 'ok'
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_FIELD_OPS
-    assert game.current_scene.room.room_id == 'alien_001_field'
+    assert game.current_scene.room.room_id == 'alien_008_field'
 
 
 def test_immediate_arrival_ignores_repeats_and_clears_controller_input(game):
@@ -99,16 +99,16 @@ def test_pause_and_focus_loss_freeze_travel(game):
 def test_pending_contact_leg_survives_continue_without_duplicate_receipt(game):
     begin(game); game.update(TOTAL_SECONDS + 0.1)
     complete_contact_fixture(game)
-    expected = {'source': 'alien_001', 'destination': 'alien_003'}
+    expected = {'source': 'alien_008', 'destination': 'alien_009'}
     assert ledger(game.campaign)['pending_transit'] == expected
-    assert ledger(game.campaign)['receipts'] == ['FASR-001']
+    assert ledger(game.campaign)['receipts'] == ['FASR-008']
     assert game.continue_game().status == 'ok'
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_GALAXY_TRANSIT
     assert game.current_scene.pending == expected
     game.update(TOTAL_SECONDS + 0.1)
-    assert game.current_scene.room.room_id == 'alien_003_field'
-    assert ledger(game.campaign)['receipts'] == ['FASR-001']
+    assert game.current_scene.room.room_id == 'alien_009_field'
+    assert ledger(game.campaign)['receipts'] == ['FASR-008']
 
 
 def test_arrival_save_failure_retains_pending_and_retry_is_safe(game, monkeypatch):
@@ -121,7 +121,7 @@ def test_arrival_save_failure_retains_pending_and_retry_is_safe(game, monkeypatc
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_GALAXY_TRANSIT
     assert game.current_scene.save_failed
-    assert ledger(game.campaign)['pending_transit']['destination'] == 'alien_001'
+    assert ledger(game.campaign)['pending_transit']['destination'] == 'alien_008'
     assert game.save_store.path.read_bytes() == saved_before
     monkeypatch.setattr(game.save_store, 'save', original)
     key(game, pygame.K_RETURN)
@@ -132,18 +132,18 @@ def test_arrival_save_failure_retains_pending_and_retry_is_safe(game, monkeypatc
 
 def test_old_ledger_without_pending_resumes_directly(game):
     assert game.campaign.apply_event({'event_id':'old_portal', 'type':'defeat_portal_warden'})
-    old = {'version':1, 'world_id':'alien_001', 'stage':'field', 'checkpoint':'default', 'receipts':[]}
+    old = {'version':1, 'world_id':'alien_008', 'stage':'field', 'checkpoint':'default', 'receipts':[]}
     save_ledger(game.campaign, old)
     assert game.save_checkpoint()
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_FIELD_OPS
-    assert game.current_scene.room.room_id == 'alien_001_field'
+    assert game.current_scene.room.room_id == 'alien_008_field'
 
 
 def test_forged_leg_is_rejected_without_replacing_existing_snapshot(game):
     assert game.campaign.apply_event({'event_id':'forged_portal', 'type':'defeat_portal_warden'})
-    raw = {'version':1, 'world_id':'alien_003', 'stage':'field', 'checkpoint':'default', 'receipts':[],
-           'pending_transit':{'source':'earth','destination':'alien_003'}}
+    raw = {'version':1, 'world_id':'alien_009', 'stage':'field', 'checkpoint':'default', 'receipts':[],
+           'pending_transit':{'source':'earth','destination':'alien_009'}}
     save_ledger(game.campaign, raw)
     assert ledger(game.campaign) == {}
     assert start_ledger(game.campaign) == {}
@@ -212,3 +212,79 @@ def test_gate_render_uses_cached_frames_and_missing_art_still_arrives(game, monk
     key(game, pygame.K_RETURN)
     assert game.current_state_name == config.STATE_FIELD_OPS
     assert 'pending_transit' not in ledger(game.campaign)
+
+
+@pytest.mark.parametrize('index', range(4))
+@pytest.mark.parametrize('stage', ('field', 'guardian', 'contact'))
+def test_saves_in_retired_worlds_resume_first_active_stop_without_granting_progress(game, index, stage):
+    assert game.campaign.apply_event({'event_id': 'old_portal', 'type': 'defeat_portal_warden'})
+    retired = journey_data()['retired_prefix']
+    for previous in retired[:index]:
+        assert game.campaign.apply_event({'event_id': previous['id'],
+            'type': 'defeat_' + previous['defeat_flag'].removesuffix('_defeated')})
+    old = {'version': 1, 'world_id': retired[index]['id'], 'stage': stage,
+           'checkpoint': retired[index]['id'] + '_mid',
+           'receipts': [w['civ_id'] for w in retired[:index]]}
+    save_ledger(game.campaign, old)
+    before = game.campaign.to_dict()
+    current = ledger(game.campaign)
+    assert current['world_id'] == journey_data()['worlds'][0]['id']
+    assert current['stage'] == 'field' and current['checkpoint'] == 'default'
+    assert current['receipts'] == []
+    assert current['pending_transit'] == {'source': 'earth', 'destination': current['world_id']}
+    assert game.campaign.to_dict() == before  # Reading the save never mutates it.
+    assert not game.campaign.state.extracted_fragments
+    key(game, pygame.K_RETURN)
+    assert game.current_state_name == config.STATE_GALAXY_TRANSIT
+    key(game, pygame.K_RETURN)
+    assert game.current_scene.room.room_id == current['world_id'] + '_field'
+    saved = game.save_store.load().campaign.state.world_states['bunker_hub']['alien_journey']
+    assert saved['world_id'] == current['world_id'] and saved['receipts'] == []
+    assert 'pending_transit' not in saved
+
+
+@pytest.mark.parametrize('completed', range(8))
+def test_old_route_preserves_retained_victories_receipts_finale_and_return_leg(game, completed):
+    assert game.campaign.apply_event({'event_id': 'old_portal', 'type': 'defeat_portal_warden'})
+    retired, worlds = journey_data()['retired_prefix'], journey_data()['worlds']
+    for world in retired + worlds[:completed]:
+        assert game.campaign.apply_event({'event_id': world['id'],
+            'type': 'defeat_' + world['defeat_flag'].removesuffix('_defeated')})
+    destination = worlds[completed]['id'] if completed < len(worlds) else None
+    old = {'version': 1, 'world_id': destination, 'stage': 'field' if destination else 'final',
+           'checkpoint': 'default' if destination else None,
+           'receipts': [w['civ_id'] for w in retired + worlds[:completed]],
+           'pending_transit': {'source': (worlds[completed - 1] if completed else retired[-1])['id'],
+                               'destination': destination or 'earth'}}
+    save_ledger(game.campaign, old)
+    current = ledger(game.campaign)
+    assert current['receipts'] == [w['civ_id'] for w in worlds[:completed]]
+    assert current['world_id'] == destination and current['stage'] == old['stage']
+    assert current['pending_transit']['source'] == (worlds[completed - 1]['id'] if completed else 'earth')
+    assert current['pending_transit']['destination'] == (destination or 'earth')
+
+
+def test_retired_receipts_cannot_bypass_missing_retained_victories(game):
+    worlds = journey_data()['retired_prefix'] + journey_data()['worlds']
+    save_ledger(game.campaign, {'version': 1, 'world_id': None, 'stage': 'final',
+                               'checkpoint': None, 'receipts': [w['civ_id'] for w in worlds]})
+    assert ledger(game.campaign) == {}
+
+
+def test_completed_legacy_save_keeps_its_park_page_and_both_form_victory(game):
+    assert game.campaign.apply_event({'event_id': 'old_portal', 'type': 'defeat_portal_warden'})
+    old_worlds = journey_data()['retired_prefix'] + journey_data()['worlds']
+    for world in old_worlds:
+        assert game.campaign.apply_event({'event_id': world['id'],
+            'type': 'defeat_' + world['defeat_flag'].removesuffix('_defeated')})
+    assert game.campaign.apply_event({'event_id': 'old_final', 'type': 'defeat_earth_ai'})
+    save_ledger(game.campaign, {'version': 1, 'world_id': None, 'stage': 'complete',
+        'checkpoint': None, 'receipts': [w['civ_id'] for w in old_worlds], 'restoration_page': 2})
+    assert game.save_checkpoint()
+    assert game.continue_game().status == 'ok'
+    key(game, pygame.K_RETURN)
+    assert game.current_state_name == config.STATE_RESTORED_EARTH
+    assert game.current_scene.page == 2
+    assert ledger(game.campaign)['stage'] == 'complete'
+    assert len(ledger(game.campaign)['receipts']) == 7
+    assert game.campaign.state.room_flags['earth_ai_defeated']

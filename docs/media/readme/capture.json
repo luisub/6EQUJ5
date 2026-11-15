@@ -144,61 +144,6 @@
       "bytes": 721407
     },
     {
-      "file": "crystal-network.png",
-      "setup": "Direct field entry with staged prior guardian and receipt, then mapped movement.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "dae02afe0b97faeb6d7ed9b56f7a8805667600450f3ea4bac97de1ba45e7c145",
-      "bytes": 633228
-    },
-    {
-      "file": "proxima-twilight.png",
-      "setup": "Proxima field midpoint; prior victories, receipts and player position are scenery fixtures.",
-      "scene": "FIELD_OPS",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "25a4cd31406548bd907ada560b9ab4a8840ee23c2a8e82230a7daa2d51949bc9",
-      "bytes": 694923
-    },
-    {
-      "file": "flare-bastion.png",
-      "setup": "Proxima guardian with staged journey ledger; 0.2 seconds of runtime.",
-      "scene": "BOSS_BOUNTY",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "13a0999584ddbb6d426a9fb1755e22e728766124187a2aab7d5ba6281d6dce9d",
-      "bytes": 691370
-    },
-    {
-      "file": "signal-jailer.png",
-      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
-      "scene": "BOSS_BOUNTY",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "ef5ce6d4d6703253e251485cda2b125edf4a81b3ee147d702c22511a3daa80e8",
-      "bytes": 556228
-    },
-    {
-      "file": "heat-auditor.png",
-      "setup": "Guardian scene with staged journey ledger; 1.6 seconds of actual runtime.",
-      "scene": "BOSS_BOUNTY",
-      "size": [
-        960,
-        540
-      ],
-      "sha256": "d8aa6728283961e6f7157d75ae8e0a1d7317c758db5f1d3794ce60b81cd139b3",
-      "bytes": 555218
-    },
-    {
       "file": "rift-raptor.png",
       "setup": "World progress, player/enemy placement and cooldown are fixtures; normal updates animate the patrol.",
       "scene": "FIELD_OPS",
@@ -282,15 +227,37 @@
       "bytes": 901728
     },
     {
+      "file": "trappist-port.png",
+      "setup": "First retained alien field after a staged Earth portal victory; mapped movement after entry.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "04bfaf2b32304aedde4a4baaa43209f1b84f7301ecea7f584d19a3c45fe2995c",
+      "bytes": 778214
+    },
+    {
+      "file": "crab-memorial.png",
+      "setup": "Crab memorial field midpoint; prior victories, receipts and player position are scenery fixtures.",
+      "scene": "FIELD_OPS",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "cc11b1ecf5f022209d2d949afbaaf3654024fbce1269067a3cc23887c7436b5d",
+      "bytes": 757942
+    },
+    {
       "file": "galaxy-map.png",
-      "setup": "First Earth-to-FASR-001 transit with staged portal unlock.",
+      "setup": "First Earth-to-TRAPPIST-1 transit with staged portal unlock.",
       "scene": "GALAXY_TRANSIT",
       "size": [
         960,
         540
       ],
-      "sha256": "c65ed3230f4e22250d4c20a70b905cd2736d880c6778584a140a5400bcd26759",
-      "bytes": 483163
+      "sha256": "f0da9cfe33f08f44f1ab29d4713519ed57a78f076273518b59811e036a2f0a72",
+      "bytes": 408970
     },
     {
       "file": "signal-transit.gif",
@@ -302,8 +269,9 @@
         540
       ],
       "encoding": "256-color shared palette; native pixels, no rescaling",
-      "sha256": "2a9e30a440730383a49b5d20bacbbccd959fc4c1b4117c2098aa0b859574d7ac",
-      "bytes": 520342
+      "sha256": "202b9a6af027a54a13393a26e0a1cf77053a94d49a4f09391ea8038e8a0078ec",
+      "bytes": 885469
     }
-  ]
+  ],
+  "route_refresh": "2026-11-15: seven active worlds; replaced galaxy chart/transit and two gallery landscapes. Other records retain their original fixture context."
 }

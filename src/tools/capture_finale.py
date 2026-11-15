@@ -57,7 +57,7 @@ def capture(output):
             dispatch(game)
             scene = game.current_scene
             step(100)
-            still('core-network', 'Eleven prior victories and receipts staged; final arena after 100 normal updates.')
+            still('core-network', 'Seven prior victories and receipts staged; final arena after 100 normal updates.')
             scene.player.x, scene.player.y = 250, 208
             key(pygame.K_x)
             second = False

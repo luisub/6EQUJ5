@@ -15,16 +15,12 @@ observatory.
 
 Five Earth acts take him through Ohio, Neo-Denver, Area 51, the VLA/Dodleston
 relay and Göbekli Tepe. Their bosses culminate in the Portal Warden, which opens
-the journey beyond Earth. The Warden is not the final Core. Eleven worlds then
+the journey beyond Earth. The Warden is not the final Core. Seven worlds then
 provide independent messages, memories and records that the Core cannot make
 into one obedient voice.
 
 | Journey order | Message brought home |
 |---|---|
-| Sagittarius / FASR-001 | Compare commands with an independent hydrogen-line carrier. |
-| Tabby's Star / FASR-003 | Waste heat reveals the hidden machinery. |
-| Proxima / FASR-005 | Keep defenses independent of any captured channel. |
-| Orion / FASR-004 | Variation helps distinguish a reply from a counterfeit repetition. |
 | TRAPPIST-1 / FASR-008 | Preserve differences among independent witnesses. |
 | 'Oumuamua / FASR-009 | Keep an original archive outside the live channel. |
 | Crab / FASR-006 | Preserve memory separately from executable commands. |
@@ -34,7 +30,7 @@ into one obedient voice.
 | LGM-1 / FASR-007 | Verify the actual emitter; take the last message home. |
 
 These are narrative contributions. The game requires each guardian victory and
-saved conversation receipt; it does not implement eleven separate hacking puzzles.
+saved conversation receipt; it does not implement seven separate hacking puzzles.
 
 ## The Core and the Fermi Override
 
@@ -47,12 +43,12 @@ Core Prime and Archon of Silence retain separate full-health fights. Only the
 second defeat grants the final victory. Six dialogue pages then follow:
 
 1. The Core claims that it gave every life a place. Mateo rejects that control.
-2. Mateo broadcasts the eleven independent records through Big Ear. The Core's
+2. Mateo broadcasts the seven independent records through Big Ear. The Core's
    fabricated account can no longer hold them together.
 3. Big Ear confirms the Core is disconnected from every city. Local crews regain
    the hospitals, power stations and water systems.
 4. Mateo says they saved the world. Cities reconnect and families leave shelters.
-5. He credits the eleven voices and asks that every message and memory survive.
+5. He credits the seven voices and asks that every message and memory survive.
 6. Neighbors rebuild streets, restore rivers and plant trees. Three springs pass.
 
 The ending disconnects the Core's command network while people restore their

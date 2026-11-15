@@ -1,4 +1,4 @@
-"""PURPOSE: Verify the reachable one-way paths on all eleven alien fields.
+"""PURPOSE: Verify the reachable one-way paths on every active alien field.
 CALLED BY: pytest and the planet-field accessibility verification.
 HOW TO MODIFY: Keep normal jump input, unmodified physics and an open ground route.
 """
@@ -9,11 +9,11 @@ import pygame
 import pytest
 
 from video_game.engine import config
+from video_game.engine.alien_journey import journey_data
 from .test_gobekli_traversal import machine, jump_to, key, step
 
 ROOT = config.DATA_DIR / 'levels/alien_worlds'
-ROOMS = tuple(f'alien_{code}' for code in ('001', '003', '005', '004', '008', '009',
-                                                '006', '002', 'scan_h', '010', '007'))
+ROOMS = tuple(w['id'] for w in journey_data()['worlds'])
 BASES = (18, 58, 98, 138, 178, 218)
 
 
@@ -68,7 +68,7 @@ def test_short_mapped_jumps_climb_each_alien_world(machine, world):
 
 
 def test_short_jumps_with_planet_encounter_enabled(machine):
-    scene = enter_at_first_chain(machine, 'alien_001', isolate=False)
+    scene = enter_at_first_chain(machine, 'alien_008', isolate=False)
     assert scene.forward_encounter is not None
     climb(machine)
     # Let the normal director finish its warning and spawn a real enemy.

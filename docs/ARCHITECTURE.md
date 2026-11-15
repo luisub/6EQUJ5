@@ -26,7 +26,7 @@ individual modules own simulations, experiment unlocks, resets and deployment
 rewards. Feedback remains specific to each discipline; workflow step values and
 existing public imports remain compatible.
 
-The journey ledger gates the final two-form Core fight on eleven earned receipts.
+The journey ledger gates the final two-form Core fight on seven earned receipts.
 After its six-page ending saves completion, `RESTORED_EARTH` provides a peaceful,
 walkable park with four separately saved dialogue acknowledgements. Completed
 Continue/recovery routes back there through the bunker. The park shares mapped

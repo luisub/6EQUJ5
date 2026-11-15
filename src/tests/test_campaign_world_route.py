@@ -110,7 +110,7 @@ def test_actual_forward_exits_and_milestones(game):
     assert game.current_state_name == config.STATE_BOSS_BOUNTY
     assert game.current_scene.boss.target_id == 'synchronicity'
     # Earth clues do not grant alien messages before their guardian conversations.
-    assert not {'FASR-003', 'FASR-004', 'FASR-005'} & set(game.campaign.state.extracted_fragments)
+    assert not {'FASR-009', 'FASR-002', 'FASR-006'} & set(game.campaign.state.extracted_fragments)
     assert game.save_store.load().campaign.state.extracted_fragments == game.campaign.state.extracted_fragments
 
 
@@ -145,7 +145,7 @@ def test_later_boss_retry_and_earned_next_sector(game):
 @pytest.mark.parametrize('act_id,previous_events,expected_boss,next_room', [
     ('act_03', ['defeat_synchronicity'], 'amalgam', 'act_04_rail_yard'),
     ('act_04', ['defeat_synchronicity', 'defeat_amalgam'], 'architect', 'act_05_pillar_approach'),
-    ('act_05', ['defeat_synchronicity', 'defeat_amalgam', 'defeat_architect'], 'portal_warden', 'alien_001_field'),
+    ('act_05', ['defeat_synchronicity', 'defeat_amalgam', 'defeat_architect'], 'portal_warden', 'alien_008_field'),
 ])
 def test_other_bosses_accept_real_fire_and_unlock_route(game, act_id, previous_events, expected_boss, next_room):
     ohio_fixture(game)

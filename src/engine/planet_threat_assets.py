@@ -15,8 +15,6 @@ from .native_room_assets import _inside_without_symlinks
 
 LOGGER = logging.getLogger(__name__)
 WORLD_THREAT_IDS = {
-    'alien_001': 'carrier_wraith', 'alien_003': 'shard_clipper',
-    'alien_005': 'terminator_roller', 'alien_004': 'plasma_kite',
     'alien_008': 'sevenfold_interceptor', 'alien_009': 'archive_skimmer',
     'alien_006': 'memorial_sentinel', 'alien_002': 'lensing_orb',
     'alien_scan_h': 'rift_raptor', 'alien_010': 'resonance_effigy',

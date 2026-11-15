@@ -101,6 +101,8 @@ class BossProjectile:
         self.lifetime: float = float(lifetime)
         self.color: Tuple[int, int, int] = color
         self.is_active: bool = True
+        self.age = 0.0
+        self.origin = (self.x, self.y)
 
     @property
     def rect(self) -> pygame.Rect:
@@ -113,6 +115,7 @@ class BossProjectile:
         self.x += self.vx * dt
         self.y += self.vy * dt
         self.lifetime -= dt
+        self.age += dt
         if self.lifetime <= 0.0:
             self.is_active = False
 
