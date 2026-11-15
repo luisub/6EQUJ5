@@ -189568,5 +189568,68 @@
     "sha256": "abe9d20b59da6b3979e020d52b538571c957d7bc22a7a6312234fa2bb0d81212",
     "reason": "Snapshot before consolidating current status and verification; historical evidence retained.",
     "restoration": "Verify SHA-256 and copy to original_path only after preserving newer documentation."
+  },
+  {
+    "original_path": "generated_images/exec-29a1e8d7-3e4e-4da8-bf4e-eee5271cbcdb.png",
+    "archive_path": "_trash/2026-11-15_generated_images/generated_images/exec-29a1e8d7-3e4e-4da8-bf4e-eee5271cbcdb.png",
+    "sha256": "67ed5bc20ab1c20e8f3a2fd22d0bfd610b3bcac488f391489c9802a3151f1a9b",
+    "bytes": 895175,
+    "duplicate_of": "src/art/source/planet_threats/beacon_mite/run_master.png",
+    "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
+    "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
+  },
+  {
+    "original_path": "generated_images/exec-8280c26a-710e-4123-981e-12a4ef590771.png",
+    "archive_path": "_trash/2026-11-15_generated_images/generated_images/exec-8280c26a-710e-4123-981e-12a4ef590771.png",
+    "sha256": "5976e1c7791b2d6221b33ef822c4d4628ff8e9ee66df2b84a22a3fe60963685a",
+    "bytes": 970444,
+    "duplicate_of": "src/art/source/enemies/cyber_insects/wasp/master.png",
+    "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
+    "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
+  },
+  {
+    "original_path": "generated_images/exec-b3f2d00c-4348-4cca-a01c-bbb8b066f5c3.png",
+    "archive_path": "_trash/2026-11-15_generated_images/generated_images/exec-b3f2d00c-4348-4cca-a01c-bbb8b066f5c3.png",
+    "sha256": "5fa8894eddddae7537d252fa39aa6558600cf1d600cc6cd601e0b9faf9a043aa",
+    "bytes": 1291401,
+    "duplicate_of": "src/art/source/enemies/cyber_insects/beetle/master.png",
+    "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
+    "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
+  },
+  {
+    "original_path": "generated_images/exec-b49ce13a-32d4-4514-bfa4-3dedce2d4fc1.png",
+    "archive_path": "_trash/2026-11-15_generated_images/generated_images/exec-b49ce13a-32d4-4514-bfa4-3dedce2d4fc1.png",
+    "sha256": "836c253ccff0542781194fcc2ace1005d221a3d2e5908e2de6f2351453e7d322",
+    "bytes": 2200466,
+    "duplicate_of": "src/art/source/enemies/core_enforcer/master.png",
+    "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
+    "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
+  },
+  {
+    "original_path": "generated_images/exec-cd5ddac9-a04a-4933-b766-ba0850f767fd.png",
+    "archive_path": "_trash/2026-11-15_generated_images/generated_images/exec-cd5ddac9-a04a-4933-b766-ba0850f767fd.png",
+    "sha256": "888056e30adac50aeae9fa741216eae0dc5753cb0c44cddb711539e47409f3db",
+    "bytes": 1337259,
+    "duplicate_of": "src/art/source/enemies/cyber_insects/mantis/master.png",
+    "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
+    "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
+  },
+  {
+    "original_path": "generated_images/exec-e44664f2-d4bc-40b6-aeda-3065a4da6be2.png",
+    "archive_path": "_trash/2026-11-15_generated_images/generated_images/exec-e44664f2-d4bc-40b6-aeda-3065a4da6be2.png",
+    "sha256": "e94e6a179e6212ae7438a82a497a24629460994b979a7876bd42c7145e2e18bb",
+    "bytes": 637744,
+    "duplicate_of": "src/art/source/planet_threats/resonance_effigy/run_master.png",
+    "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
+    "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
+  },
+  {
+    "original_path": "generated_images/exec-ec7b815e-08b7-4542-8a13-2933915f5bb2.png",
+    "archive_path": "_trash/2026-11-15_generated_images/generated_images/exec-ec7b815e-08b7-4542-8a13-2933915f5bb2.png",
+    "sha256": "8ff77e4cbb0fedb39095f92443fd5291be108a962945306aee08cc6035d22107",
+    "bytes": 672616,
+    "duplicate_of": "src/art/source/planet_threats/rift_raptor/run_master.png",
+    "reason": "Generated-image delivery copy duplicates the accepted source master; keep generator output out of the repository root.",
+    "restoration": "Verify SHA-256 and preserve newer work before copying from archive_path. Prefer duplicate_of for maintained rebuilds; do not restore generated_images at the repository root."
   }
 ]

@@ -25,6 +25,12 @@ folders. The firing-flash source, export and preparation script are together in
 the duplicate FASR-003 guardian source were verified against descriptive masters
 before archival; every unique master remains available.
 
+Keep generation output under an explicit `_temp/<task>/` directory when the
+tool supports choosing its output path. If it creates root `generated_images/`,
+place accepted originals in their named `source/<family>/` directories, verify
+their hashes, update provenance and archive the delivery copies before finishing.
+Do not leave a generated-image folder in the repository root, even if ignored.
+
 Briefs and provenance include historical decisions and may mention older
 captures or generation filenames. They do not override current manifests or
 the [current state](../../docs/planning/CURRENT_STATE.md). Historical validation

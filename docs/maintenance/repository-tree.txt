@@ -28,11 +28,6 @@ docs/
   CONTRIBUTING.md
   CONTROLS.md
   STORY.md
-generated_images/
-  exec-29a1e8d7-3e4e-4da8-bf4e-eee5271cbcdb.png
-  exec-b49ce13a-32d4-4514-bfa4-3dedce2d4fc1.png
-  exec-e44664f2-d4bc-40b6-aeda-3065a4da6be2.png
-  exec-ec7b815e-08b7-4542-8a13-2933915f5bb2.png
 src/
   art/ — source masters, provenance and palettes
   assets/ — runtime exports and family manifests
